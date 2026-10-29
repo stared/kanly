@@ -1,5 +1,7 @@
 import { COMP, KANJI, elements, extraStrokes, gloss, hira, isKanji, kata, lookalikes, soundFamily, type Tree, type Word } from './data'
+import { useEffect } from 'react'
 import { status, type Store } from './srs'
+import { speak, spoken } from './speech'
 
 type Open = (el: string) => void
 
@@ -128,9 +130,9 @@ export function Family({ ch, store, open }: { ch: string; store: Store; open: Op
 function WordRow({ w, ch }: { w: Word; ch: string }) {
   return (
     <li>
-      <span className="w">{w.parts
+      <button className="w" onClick={() => speak(w.r)} title="read aloud">{w.parts
         ? w.parts.map(([c, r], i) => <ruby key={i} className={c === ch ? 'me' : ''}>{c}<rt>{isKanji(c) || c === '々' ? r : ''}</rt></ruby>)
-        : <ruby>{[...w.w].map((c, i) => <span key={i} className={c === ch ? 'me' : ''}>{c}</span>)}<rt>{w.r}</rt></ruby>}</span>
+        : <ruby>{[...w.w].map((c, i) => <span key={i} className={c === ch ? 'me' : ''}>{c}</span>)}<rt>{w.r}</rt></ruby>}</button>
       <span className="wg">{w.g}</span>
     </li>
   )
@@ -170,16 +172,25 @@ export function UsedIn({ el, store, open, limit = 24 }: { el: string; store: Sto
   )
 }
 
-export function Card({ el, store, open }: { el: string; store: Store; open: Open }) {
+export const Speaker = ({ text }: { text: string }) =>
+  <button className="speaker" onClick={() => speak(text)} title={`read aloud: ${text}`} aria-label="read aloud">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" /><path d="M15.5 9a4 4 0 0 1 0 6" /><path d="M18 6.5a7.5 7.5 0 0 1 0 11" />
+    </svg>
+  </button>
+
+export function Card({ el, store, open, autoSpeak = false }: { el: string; store: Store; open: Open; autoSpeak?: boolean }) {
   const k = KANJI[el]
   const c = COMP[el]
   const t = treeOf(el)
+  const say = spoken(el)
+  useEffect(() => { if (autoSpeak && say) speak(say) }, [el, autoSpeak])
   return (
     <article className="card">
       <div className="head">
         <span className="big"><Glyph el={el} /></span>
         <div className="title">
-          <h2>{gloss(el)}</h2>
+          <h2>{gloss(el)}{say && <Speaker text={say} />}</h2>
           {k ? <p className="sub">{k.meanings.slice(0, 4).join(', ')} · {k.strokes} strokes · {k.grade <= 6 ? `grade ${k.grade}` : 'secondary school'}</p>
             : <p className="sub">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
         </div>

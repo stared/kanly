@@ -15,6 +15,11 @@ const browser = await puppeteer.launch({
   defaultViewport: { width: W, height: Number(process.env.VH ?? 900) },
 })
 const page = await browser.newPage()
+// count what would be spoken instead of speaking it
+await page.evaluateOnNewDocument(() => {
+  window.__spoken = []
+  Object.defineProperty(window, 'speechSynthesis', { value: { speak: u => window.__spoken.push(u.text), cancel() {} } })
+})
 await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: process.env.SCHEME ?? 'light' }])
 const ids = order.slice(0, Number(process.env.SEED ?? 0))
 await page.evaluateOnNewDocument(ids => {
@@ -52,6 +57,7 @@ for (const step of JSON.parse(process.env.STEPS ?? '[{"shot":"start","full":true
   if (step.mouse) { await page.mouse.move(...step.mouse); await pause(150) }
   if (step.scroll !== undefined) { await page.evaluate(y => (document.querySelector('.peek') ?? window).scrollTo(0, y), step.scroll); await pause(100) }
   if (step.wait) await pause(step.wait)
+  if (step.spoken) console.log('spoken:', await page.evaluate(() => window.__spoken.join(' | ')))
   if (step.shot) await shot(step.shot, step.full)
 }
 await browser.close()

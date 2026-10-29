@@ -6,7 +6,7 @@ import { Card, Glyph } from './Card'
 /** Share of kanji in running text that are among the given items. */
 export const coverage = (ids: Iterable<string>) => [...ids].reduce((a, id) => a + (KANJI[id]?.freq ?? 0), 0)
 
-export function Learn({ store, setStore, open, now }: { store: Store; setStore: (s: Store) => void; open: (el: string) => void; now: number }) {
+export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store; setStore: (s: Store) => void; open: (el: string) => void; now: number; autoSpeak: boolean }) {
   const left = ORDER.filter(el => !store.cards[el])
   const next = left[0]
   const known = Object.keys(store.cards)
@@ -28,7 +28,7 @@ export function Learn({ store, setStore, open, now }: { store: Store; setStore: 
         <span>you read <b>{(cov * 100).toFixed(1)}%</b> of kanji in text{gain > 0 && <> · this one adds {(gain * 100).toFixed(2)}%</>}</span>
       </div>
       {!KANJI[next] && <p className="new-part">A part first: it appears in the kanji coming up.</p>}
-      <Card el={next} store={store} open={open} />
+      <Card el={next} store={store} open={open} autoSpeak={autoSpeak} />
       <div className="actions">
         <button className="next" onClick={done}>learned · next <span className="key">↵</span></button>
         <span className="upcoming">then {left.slice(1, 9).map(el => <span key={el} title={gloss(el)} className={KANJI[el] ? '' : 'partish'}><Glyph el={el} /></span>)}</span>

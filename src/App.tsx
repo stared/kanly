@@ -7,6 +7,7 @@ import { Browse } from './Browse'
 import { Reader } from './Reader'
 import { Analysis } from './Analysis'
 import { Settings } from './Settings'
+import { loadAutoSpeak, saveAutoSpeak } from './speech'
 
 type Tab = 'learn' | 'review' | 'kanji' | 'reader' | 'analysis' | 'settings'
 const TABS: Tab[] = ['learn', 'review', 'kanji', 'reader', 'analysis']
@@ -16,6 +17,8 @@ export default function App() {
   const [tab, setTab] = useState<Tab>(() => (location.hash.slice(1) as Tab) || 'learn')
   const [peek, setPeek] = useState<string[]>([])
   const [now, setNow] = useState(Date.now())
+  const [autoSpeak, setAutoSpeak] = useState(loadAutoSpeak)
+  useEffect(() => saveAutoSpeak(autoSpeak), [autoSpeak])
   useEffect(() => save(store), [store])
   useEffect(() => { history.replaceState(null, '', '#' + tab) }, [tab])
   useEffect(() => {
@@ -46,12 +49,12 @@ export default function App() {
         <button className={'gear' + (tab === 'settings' ? ' on' : '')} onClick={() => setTab('settings')}>settings</button>
       </header>
       <main>
-        {tab === 'learn' && <Learn store={store} setStore={setStore} open={open} now={now} />}
-        {tab === 'review' && <Review store={store} setStore={setStore} open={open} now={now} />}
+        {tab === 'learn' && <Learn store={store} setStore={setStore} open={open} now={now} autoSpeak={autoSpeak} />}
+        {tab === 'review' && <Review store={store} setStore={setStore} open={open} now={now} autoSpeak={autoSpeak} />}
         {tab === 'kanji' && <Browse store={store} open={open} />}
         {tab === 'reader' && <Reader store={store} open={open} />}
         {tab === 'analysis' && <Analysis store={store} />}
-        {tab === 'settings' && <Settings store={store} onReplace={setStore} />}
+        {tab === 'settings' && <Settings store={store} onReplace={setStore} autoSpeak={autoSpeak} setAutoSpeak={setAutoSpeak} />}
       </main>
       {peek.length > 0 && (
         <div className="peek-bg" onClick={() => setPeek([])}>
@@ -61,7 +64,7 @@ export default function App() {
               <span className="trail">{peek.join(' › ')}</span>
               <button onClick={() => setPeek([])}>close</button>
             </div>
-            <Card key={peek[peek.length - 1]} el={peek[peek.length - 1]} store={store} open={open} />
+            <Card key={peek[peek.length - 1]} el={peek[peek.length - 1]} store={store} open={open} autoSpeak={autoSpeak} />
           </aside>
         </div>
       )}

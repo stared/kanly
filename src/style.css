@@ -104,6 +104,11 @@ button.term:hover .ch { color: var(--accent); }
 .words rt { font-size: 11px; color: var(--muted); }
 .words .me, .words .me rt { color: var(--accent); }
 .wg { font-size: 13px; color: var(--muted); }
+.words .w { text-align: left; }
+.words .w:hover { color: var(--accent); }
+.speaker { color: var(--muted); margin-left: 12px; vertical-align: -3px; }
+.speaker:hover { color: var(--ink); }
+.toggle { display: flex; gap: 8px; align-items: center; font-size: 15px; }
 
 .alike-list { display: flex; flex-wrap: wrap; gap: 8px; }
 .alike-item { display: flex; flex-direction: column; align-items: center; min-width: 72px; padding: 6px 8px; border: 1px solid var(--faint); border-radius: 8px; }

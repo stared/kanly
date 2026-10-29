@@ -1,19 +1,21 @@
 import { useEffect, useState } from 'react'
 import { KANJI, gloss } from './data'
 import { answer, DAY, MIN, type Store } from './srs'
-import { Glyph, Readings, Story, Sum, treeOf } from './Card'
+import { Glyph, Readings, Speaker, Story, Sum, treeOf } from './Card'
+import { speak, spoken } from './speech'
 
 export const dueIds = (s: Store, now: number) =>
   Object.values(s.cards).filter(c => c.due <= now).sort((a, b) => a.due - b.due).map(c => c.id)
 
 const inTime = (ms: number) => ms < 60 * MIN ? `${Math.max(1, Math.round(ms / MIN))} min` : ms < DAY ? `${Math.round(ms / 3600_000)} h` : `${Math.round(ms / DAY)} d`
 
-export function Review({ store, setStore, open, now }: { store: Store; setStore: (s: Store) => void; open: (el: string) => void; now: number }) {
+export function Review({ store, setStore, open, now, autoSpeak }: { store: Store; setStore: (s: Store) => void; open: (el: string) => void; now: number; autoSpeak: boolean }) {
   const due = dueIds(store, now)
   const [shown, setShown] = useState(false)
   const id = due[0]
 
   const grade = (ok: boolean) => { setStore(answer(store, id, ok, Date.now())); setShown(false) }
+  useEffect(() => { if (shown && autoSpeak && id) speak(spoken(id)) }, [shown, id])
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
       if (!id) return
@@ -45,7 +47,7 @@ export function Review({ store, setStore, open, now }: { store: Store; setStore:
         <button className="next" onClick={() => setShown(true)}>show <span className="key">space</span></button>
       ) : (
         <div className="back">
-          <h2>{gloss(id)}</h2>
+          <h2>{gloss(id)}{spoken(id) && <Speaker text={spoken(id)} />}</h2>
           {t && t.kids.length > 0 && <Sum t={t} open={open} />}
           <Story el={id} t={t} />
           {k && <Readings ch={id} />}
