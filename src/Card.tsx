@@ -127,12 +127,42 @@ export function Family({ ch, store, open }: { ch: string; store: Store; open: Op
   )
 }
 
+type Tip = { c: string; reading?: string; x: number; y: number }
+let showTip: (t: Tip | null) => void = () => {}
+
+/** One floating tooltip for the whole app, placed above whatever kanji is hovered. */
+export function TipLayer() {
+  const [tip, setTip] = useState<Tip | null>(null)
+  useEffect(() => { showTip = setTip; return () => { showTip = () => {} } }, [])
+  useEffect(() => {
+    const hide = () => setTip(null)
+    addEventListener('scroll', hide, true)
+    return () => removeEventListener('scroll', hide, true)
+  }, [])
+  if (!tip) return null
+  return (
+    <div className="ktip" role="tooltip" style={{ left: tip.x, top: tip.y }}>
+      <b>{tip.c}</b><span className="km">{gloss(tip.c)}</span>{tip.reading && <span className="kr">{tip.reading}</span>}
+    </div>
+  )
+}
+
+/** A kanji that shows itself, its meaning and (when known) its reading here on hover. */
+export function KanjiTip({ c, reading, className }: { c: string; reading?: string; className?: string }) {
+  if (!KANJI[c]) return <span className={className}>{c}</span>
+  const enter = (e: React.MouseEvent<HTMLSpanElement>) => {
+    const r = e.currentTarget.getBoundingClientRect()
+    showTip({ c, reading, x: r.left + r.width / 2, y: r.top })
+  }
+  return <span className={'kt' + (className ? ' ' + className : '')} onMouseEnter={enter} onMouseLeave={() => showTip(null)}>{c}</span>
+}
+
 function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
   return (
     <li className={dim ? 'dim' : ''}>
-      <button className="w" onClick={() => speak(w.r)} title="read aloud">{w.parts
-        ? w.parts.map(([c, r], i) => <ruby key={i} className={c === ch ? 'me' : ''}>{c}<rt>{isKanji(c) || c === '々' ? r : ''}</rt></ruby>)
-        : <ruby>{[...w.w].map((c, i) => <span key={i} className={c === ch ? 'me' : ''}>{c}</span>)}<rt>{w.r}</rt></ruby>}</button>
+      <button className="w" onClick={() => speak(w.r)}>{w.parts
+        ? w.parts.map(([c, r], i) => <ruby key={i} className={c === ch ? 'me' : ''}><KanjiTip c={c} reading={r} /><rt>{isKanji(c) || c === '々' ? r : ''}</rt></ruby>)
+        : <ruby>{[...w.w].map((c, i) => <KanjiTip key={i} c={c} className={c === ch ? 'me' : ''} />)}<rt>{w.r}</rt></ruby>}</button>
       <span className="wg">{w.g}</span>
     </li>
   )
@@ -188,11 +218,15 @@ export const Speaker = ({ text }: { text: string }) =>
 
 const Divider = ({ children }: { children: React.ReactNode }) => <h3 className="divider"><span>{children}</span></h3>
 
+/** Country names are abbreviations used inside compounds (日 in 日米 Japan–US, 米 in 日米 USA), not what the kanji means. */
+const COUNTRIES = new Set(['Japan', 'USA', 'America', 'England', 'Britain', 'France', 'Germany', 'Russia', 'Spain', 'China', 'Korea',
+  'Italy', 'India', 'Holland', 'Portugal', 'Australia', 'Canada', 'Mexico', 'Brazil', 'Asia', 'Europe'])
+
 /** Meanings beyond the keyword, so the header line never repeats it. */
 const otherMeanings = (ch: string) => {
   const k = KANJI[ch]
   const kw = k.keyword.toLowerCase().split(/;\s*/)
-  return k.meanings.filter(m => !kw.includes(m.toLowerCase()) && !/radical|counter for|^\(/.test(m)).slice(0, 3)
+  return k.meanings.filter(m => !kw.includes(m.toLowerCase()) && !COUNTRIES.has(m) && !/radical|counter for|^\(/.test(m)).slice(0, 3)
 }
 
 export function Card({ el, store, open, autoSpeak = false }: { el: string; store: Store; open: Open; autoSpeak?: boolean }) {

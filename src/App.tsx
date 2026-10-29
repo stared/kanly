@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { load, save, type Store } from './srs'
-import { Card } from './Card'
+import { Card, TipLayer } from './Card'
 import { Learn, coverage } from './Learn'
 import { Review, dueIds } from './Review'
 import { Browse } from './Browse'
@@ -62,6 +62,7 @@ export default function App() {
         {tab === 'card' && <Card key={hash} el={decodeURIComponent(hash.split('/')[1] ?? '日')} store={store} open={open} autoSpeak={autoSpeak} />}
         {tab === 'settings' && <Settings store={store} onReplace={setStore} autoSpeak={autoSpeak} setAutoSpeak={setAutoSpeak} />}
       </main>
+      <TipLayer />
       {peek.length > 0 && (
         <div className="peek-bg" onClick={() => setPeek([])}>
           <aside className="peek" onClick={e => e.stopPropagation()}>

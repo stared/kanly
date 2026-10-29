@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { KANJI, gloss } from './data'
 import { status, type Store } from './srs'
-import { Speaker } from './Card'
+import { KanjiTip, Speaker } from './Card'
 
 const SAMPLE = `日本は東アジアにある島国で、首都は東京です。人口は約一億二千万人で、多くの人が大きな都市に住んでいます。春には桜が咲き、秋には山の木の葉が赤や黄色に変わります。`
 
@@ -58,7 +58,7 @@ function Ruby({ t }: { t: Token }) {
   const head = t.text.replace(/[ぁ-ゖ]+$/, '')
   const tail = t.text.slice(head.length)
   const base = okurigana && r.endsWith(okurigana) ? r.slice(0, r.length - okurigana.length) : r
-  return <><ruby>{head}<rt>{base}</rt></ruby>{tail}</>
+  return <><ruby>{[...head].map((c, i) => <KanjiTip key={i} c={c} />)}<rt>{base}</rt></ruby>{tail}</>
 }
 
 export function Reader({ store, open }: { store: Store; open: (el: string) => void }) {
@@ -91,7 +91,7 @@ export function Reader({ store, open }: { store: Store; open: (el: string) => vo
       <div className="text">
         {tokens.map((t, i) => !isHan(t.text[0]) ? <span key={i}>{t.text}</span> : (
           <button key={i} className={'tok' + (i === sel ? ' sel' : '') + ([...t.text].some(c => isHan(c) && c !== '々' && !read(c)) ? ' new' : '')} onClick={() => setSel(i === sel ? null : i)}>
-            {t.entry && showFuri(t) ? <Ruby t={t} /> : t.text}
+            {t.entry && showFuri(t) ? <Ruby t={t} /> : [...t.text].map((c, i) => <KanjiTip key={i} c={c} />)}
           </button>
         ))}
       </div>
