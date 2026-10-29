@@ -69,7 +69,10 @@ nav button.on, .gear.on { color: var(--ink); }
 .readings { margin-top: 12px; display: grid; grid-template-columns: auto auto; column-gap: 12px; row-gap: 2px; align-items: baseline; font: 20px var(--jp); text-align: left; }
 .readings .lbl { font: 12px system-ui, sans-serif; color: var(--muted); text-align: right; }
 .rlist { display: flex; flex-wrap: wrap; column-gap: 14px; align-items: baseline; max-width: 420px; }
-.rd { cursor: default; transition: opacity .15s; white-space: nowrap; }
+.rd { font: inherit; transition: opacity .15s; white-space: nowrap; }
+.rd:hover { color: var(--accent); }
+.rd .pct { font: 11px system-ui, sans-serif; color: var(--muted); margin-left: 3px; vertical-align: 1px; }
+.popular { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
 .more-r { font: 12px system-ui, sans-serif !important; }
 .rd.rare { color: var(--muted); font-size: 16px; }
 .rd.dim { opacity: .35; }

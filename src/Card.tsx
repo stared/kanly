@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { COMP, KANJI, extraStrokes, gloss, hira, isKanji, kata, lookalikes, soundFamily, type Tree, type Word } from './data'
+import { COMP, KANJI, RANK, extraStrokes, gloss, hira, isKanji, kata, lookalikes, soundFamily, type Tree, type Word } from './data'
 import { status, type Store } from './srs'
 import { speak, spoken } from './speech'
 
@@ -96,9 +96,10 @@ export function Readings({ ch, hover, setHover }: { ch: string; hover?: string |
       <span className="rlist">{rs.map(r => {
         const c = k.usage[r] ?? 0
         return (
-          <span key={r} className={'rd' + (c / (n || 1) >= 0.1 ? '' : ' rare') + (hover && hover !== r ? ' dim' : '')}
-            title={c ? `in ${c} of ${n} common words` : 'rare in common words'}
-            onMouseEnter={() => setHover?.(r)} onMouseLeave={() => setHover?.(null)}>{show(r)}</span>
+          <button key={r} className={'rd' + (c / (n || 1) >= 0.1 ? '' : ' rare') + (hover && hover !== r ? ' dim' : '')}
+            title={c ? `in ${c} of ${n} common words; click to hear it` : 'click to hear it'}
+            onClick={() => speak(label === 'on' ? kata(r) : bare(r).replace('.', ''))}
+            onMouseEnter={() => setHover?.(r)} onMouseLeave={() => setHover?.(null)}>{show(r)}{c > 0 && <span className="pct">{Math.round(100 * c / n)}%</span>}</button>
         )
       })}{rest.length > 0 && <span className="rd rare more-r" title={rest.map(r => label === 'on' ? kata(r) : bare(r).replace('.', '')).join('、')}>+{rest.length} rare</span>}</span>
     </>
@@ -167,6 +168,16 @@ export function UsedIn({ el, store, open, limit = 24 }: { el: string; store: Sto
   )
 }
 
+const ordinal = (n: number) => n + (n % 100 >= 11 && n % 100 <= 13 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] ?? 'th')
+const roughly = (n: number) => n < 100 ? Math.round(n) : n < 1000 ? Math.round(n / 10) * 10 : Math.round(n / 100) * 100
+
+/** How common the kanji is: its rank, and how often you meet it, as 1 in N kanji of running text. */
+function Popularity({ ch }: { ch: string }) {
+  const k = KANJI[ch]
+  if (!k.freq) return null
+  return <p className="popular">{ordinal(RANK.get(ch)!)} most common kanji, about 1 in {roughly(1 / k.freq).toLocaleString('en')} you read</p>
+}
+
 export const Speaker = ({ text }: { text: string }) =>
   <button className="speaker" onClick={() => speak(text)} title={`read aloud: ${text}`} aria-label="read aloud">
     <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
@@ -200,13 +211,13 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
         {k ? <p className="also">{otherMeanings(el).join(', ')}</p>
           : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
         {k && <Readings ch={el} hover={hover} setHover={setHover} />}
+        {k && <Popularity ch={el} />}
       </div>
       <Story el={el} />
       {t && shownKids(t).length > 0 && <section><Divider>parts</Divider><Parts t={t} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}
       {k && k.words.length > 0 && <section><Divider>words</Divider><ul className="words">{k.words.map(w => <WordRow key={w.w} w={w} ch={el} dim={!!hover && w.rd !== hover} />)}</ul></section>}
       {used > 0 && <section><Divider>part of {used} kanji</Divider><UsedIn el={el} store={store} open={open} limit={14} /></section>}
       <footer className="meta">
-        {k && <span>{k.strokes} strokes · {k.grade <= 6 ? `school grade ${k.grade}` : 'secondary school'}</span>}
         {alike > 0 && (
           <details className="more-info">
             <summary>{alike} look-alike{alike > 1 ? 's' : ''}</summary>

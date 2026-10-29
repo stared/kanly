@@ -22,11 +22,11 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
   if (!next) return <div className="empty">All {ORDER.length} items learned.</div>
   return (
     <div className="learn">
-      {known.length > 0 && <p className="progress" title="share of kanji in Japanese Wikipedia text that you have learned">{known.length} learned · {Math.round(cov * 100)}% of text</p>}
+      {known.length > 0 && <p className="progress" title={`${known.length} items learned; share of kanji in Japanese Wikipedia text`}>You can read {Math.round(cov * 100)}% of the kanji in everyday text.</p>}
       {!KANJI[next] && <p className="new-part">A part first: it appears in the kanji coming up.</p>}
       <Card el={next} store={store} open={open} autoSpeak={autoSpeak} />
       <div className="actions">
-        <button className="next" onClick={done}>learned · next <span className="key">↵</span></button>
+        <button className="next" onClick={done}>next <span className="key">↵</span></button>
         <span className="upcoming">then {left.slice(1, 9).map(el => <span key={el} title={gloss(el)} className={KANJI[el] ? '' : 'partish'}><Glyph el={el} /></span>)}</span>
       </div>
     </div>

@@ -32,7 +32,7 @@ export function Review({ store, setStore, open, now, autoSpeak }: { store: Store
     return (
       <div className="empty">
         {next ? <>Nothing due. Next review in {inTime(next.due - now)}.</> : <>Nothing to review yet. Learn a few kanji first.</>}
-        <p className="sub small">{Object.keys(store.cards).length} items learned · <a href="#learn">learn more</a></p>
+        <p className="sub small"><a href="#learn">Learn more</a></p>
       </div>
     )
   }
@@ -51,7 +51,6 @@ export function Review({ store, setStore, open, now, autoSpeak }: { store: Store
           {t && <Parts t={t} store={store} open={open} />}
           <Story el={id} />
           {k && <Readings ch={id} />}
-          {k && k.words.length > 0 && <p className="sub ex">{k.words.slice(0, 3).map(w => `${w.w} ${w.r}`).join(' · ')}</p>}
           <div className="grade">
             <button className="next bad" onClick={() => grade(false)}>again <span className="key">1</span></button>
             <button className="next good" onClick={() => grade(true)}>knew it <span className="key">2</span></button>

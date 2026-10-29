@@ -93,3 +93,6 @@ export function lookalikes(ch: string): { ch: string; mine: string; theirs: stri
       .map(o => ({ ch: o, mine, theirs: KANJI[o].sum[i] }))
   }).sort((a, b) => KANJI[b.ch].freq - KANJI[a.ch].freq)
 }
+
+/** Popularity among jōyō kanji: 1 is the most common in text. */
+export const RANK = new Map(Object.entries(KANJI).sort((a, b) => b[1].freq - a[1].freq).map(([ch], i) => [ch, i + 1]))
