@@ -162,14 +162,16 @@ def plan(order_kanji: list[str], trees: dict, freq: dict) -> list[str]:
     return items
 
 
-def greedy(joyo: list[str], trees: dict, freq: dict) -> list[str]:
-    """Next kanji = most text coverage gained per new item learned (the kanji plus its unknown components)."""
+def greedy(joyo: list[str], trees: dict, freq: dict, strokes: dict[str, int] | None = None, power: float = 1.0) -> list[str]:
+    """Next kanji = most text coverage gained per new thing learned (the kanji plus its unknown components).
+    By default a thing is an item; with strokes, its stroke count, raised to power to favour simple shapes even more."""
     pre = {ch: prerequisites(ch, trees) for ch in joyo}
     need = {ch: set(p) for ch, p in pre.items()}
     value = lambda s: sum(freq.get(n, 0) for n in s if n in need)
+    cost = (lambda s: len(s)) if strokes is None else (lambda s: sum(strokes.get(n, 1) for n in s) ** power)
     known, items, left = set(), [], set(joyo)
     while left:
-        best = max(left, key=lambda ch: (value(need[ch] - known) / len(need[ch] - known), -len(need[ch] - known)))
+        best = max(left, key=lambda ch: (value(need[ch] - known) / cost(need[ch] - known), -len(need[ch] - known)))
         for n in pre[best]:
             if n not in known:
                 known.add(n)
@@ -430,13 +432,16 @@ def main() -> None:
     }
 
     by_grade = sorted(joyo, key=lambda c: (kd[c]["grade"], -freq.get(c, 0)))
+    # strokes per item: a kanji's own count, a part's from the tree it appears in
+    strokes = {s["el"]: s["strokes"] for ch in joyo for s in subtrees(trees[ch])} | {ch: kd[ch]["strokes"] for ch in joyo}
     orders = {
-        "school grade": plan(by_grade, trees, freq),
+        "simple first": greedy(joyo, trees, freq, strokes, power=1.5),  # the one the app teaches in
+        "most text per item": greedy(joyo, trees, freq),
         "frequency": plan(joyo, trees, freq),
-        "greedy coverage": greedy(joyo, trees, freq),
+        "school grade": plan(by_grade, trees, freq),
     }
     fams = families(joyo, trees, kd)
-    order = orders["greedy coverage"]
+    order = orders["simple first"]
     order_pos = {n: i for i, n in enumerate(order)}
     examples, usage, nwords = attach_words(joyo, kd, order_pos)
     for ch in joyo:
@@ -452,7 +457,7 @@ def main() -> None:
     OUT.joinpath("kanji.json").write_text(json.dumps({
         "kanji": kanji,
         "components": components,
-        "order": orders["greedy coverage"],
+        "order": orders["simple first"],
         "families": fams,
     }, ensure_ascii=False, indent=1))
 
@@ -525,8 +530,8 @@ def report(kd, freq, total, joyo, joyo_set, trees, components, orders, fams, unn
         reach = lambda t: str(items_to_reach(cov, t * all_cov) or "—")
         p(f"| {name} | " + " | ".join(at(m) for m in marks) + f" | {reach(.5)} | {reach(.8)} | {reach(.9)} | {len(items)} |")
     p("\n(50/80/90% are of what all jōyō kanji cover.)\n")
-    p("First 60 items of the greedy order:\n")
-    p(" ".join(orders["greedy coverage"][:60]) + "\n")
+    p("First 60 items of the order the app teaches in (simple first):\n")
+    p(" ".join(orders["simple first"][:60]) + "\n")
 
     p("## Sound families\n")
     p("Kanji sharing a component that KanjiVG marks as phonetic, with the on-reading most of them share "

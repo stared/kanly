@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { KANJI, ORDER, gloss } from './data'
+import { KANJI, ORDER, elements, gloss } from './data'
 import { learn, type Store } from './srs'
 import { Card, Glyph } from './Card'
 
@@ -10,6 +10,8 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
   const left = ORDER.filter(el => !store.cards[el])
   const next = left[0]
   const known = Object.keys(store.cards)
+  // a part (or a rare kanji) taught early because a kanji coming up needs it: 干 before 年
+  const why = next && left.slice(1, 12).find(el => KANJI[el] && elements(KANJI[el].tree).has(next) && (!KANJI[next] || KANJI[el].freq > KANJI[next].freq * 3))
 
   const done = () => setStore(learn(store, next, now))
   useEffect(() => {
@@ -21,7 +23,7 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
   if (!next) return <div className="empty">All {ORDER.length} items learned.</div>
   return (
     <div className="learn">
-      {!KANJI[next] && <p className="new-part">A part first: it appears in the kanji coming up.</p>}
+      {why && <p className="why">Here as a part of {why}, coming {left.indexOf(why) === 1 ? 'next' : 'soon'}.</p>}
       <Card el={next} store={store} open={open} autoSpeak={autoSpeak} />
       <div className="actions">
         <button className="next" onClick={done}>next <span className="key">↵</span></button>

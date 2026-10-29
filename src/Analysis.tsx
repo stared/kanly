@@ -4,7 +4,7 @@ import type { Store } from './srs'
 import { coverage } from './Learn'
 
 const SERIES = [
-  { key: 'greedy coverage', label: 'most text per new item (used here)', cls: 's1' },
+  { key: 'simple first', label: 'simple first (used here)', cls: 's1' },
   { key: 'frequency', label: 'by frequency', cls: 's2' },
   { key: 'school grade', label: 'by school grade', cls: 's3' },
 ]
@@ -31,7 +31,7 @@ function CoverageChart({ learned, cov }: { learned: number; cov: number }) {
         {[0, 500, 1000, 1500, 2000, 2500].map(i => <text key={i} className="axis" x={x(i)} y={H - 10} textAnchor="middle">{i}</text>)}
         {SERIES.slice().reverse().map(s => <path key={s.key} className={'line ' + s.cls} d={path(D.curves[s.key])} />)}
         {/* direct labels where the lines are apart: the two near-identical orders above, school order below */}
-        <text className="dlabel" x={x(640)} y={y(D.curves['greedy coverage'][700]) - 12}>parts-aware and frequency</text>
+        <text className="dlabel" x={x(640)} y={y(D.curves['simple first'][700]) - 12}>simple first and frequency</text>
         <text className="dlabel" x={x(at) + 10} y={y(D.curves['school grade'][at]) + 16}>school grade</text>
         {learned > 0 && <g><line className="you-line" x1={x(learned)} x2={x(learned)} y1={P.t} y2={H - P.b} /><circle className="you-dot" cx={x(learned)} cy={y(cov)} r={5} /></g>}
         {hover !== null && (
@@ -73,15 +73,15 @@ export function Analysis({ store }: { store: Store }) {
       <section>
         <h2>What each item buys</h2>
         <p className="lede">
-          Jōyō kanji write {(all * 100).toFixed(1)}% of kanji in text. Learning parts first and then the kanji that adds the most
-          readable text per new item gets to half of that in {reach(D.curves['greedy coverage'], all / 2)} items,
-          against {reach(D.curves['frequency'], all / 2)} by plain frequency and {reach(D.curves['school grade'], all / 2)} in school order.
-          Frequency does most of the work; the parts-aware order adds a little more and spreads the parts out.
+          Jōyō kanji write {(all * 100).toFixed(1)}% of kanji in text. Kanly teaches the simplest shapes first: the next kanji is the one
+          that adds the most readable text per new stroke (counting the parts it still needs), with simple shapes weighted extra.
+          It reaches half of that in {reach(D.curves['simple first'], all / 2)} items, against {reach(D.curves['most text per item'], all / 2)} when
+          counting items instead of strokes, {reach(D.curves['frequency'], all / 2)} by plain frequency and {reach(D.curves['school grade'], all / 2)} in school order.
         </p>
         <CoverageChart learned={learned} cov={cov} />
         <table className="tbl small">
           <thead><tr><th>order</th><th>items for 50%</th><th>80%</th><th>90%</th></tr></thead>
-          <tbody>{SERIES.map(s => <tr key={s.key}><td>{s.key}</td>{[.5, .8, .9].map(t => <td key={t}>{reach(D.curves[s.key], t * all)}</td>)}</tr>)}</tbody>
+          <tbody>{Object.keys(D.curves).map(key => <tr key={key}><td>{key}</td>{[.5, .8, .9].map(t => <td key={t}>{reach(D.curves[key], t * all)}</td>)}</tr>)}</tbody>
         </table>
       </section>
 

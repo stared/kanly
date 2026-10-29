@@ -42,7 +42,8 @@ header { display: flex; align-items: baseline; gap: 24px; padding: 16px 0 12px; 
 nav { display: flex; gap: 20px; }
 nav button, .gear { color: var(--muted); font-size: 14px; }
 nav button.on, .gear.on { color: var(--ink); }
-.gear { margin-left: 16px; align-self: center; display: flex; }
+.gear { margin-left: auto; align-self: center; display: flex; }
+.reach + .gear { margin-left: 16px; }
 .reach { margin-left: auto; font-size: 12px; color: var(--muted); align-self: center; }
 .count { font-size: 11px; color: var(--muted); margin-left: 4px; }
 
@@ -156,6 +157,7 @@ nav button.on, .gear.on { color: var(--ink); }
 /* learn and review */
 .progress { font-size: 13px; color: var(--muted); max-width: 680px; margin: 0 auto; text-align: center; }
 .progress b { color: var(--ink); font-weight: 500; }
+.why { font-size: 13px; color: var(--muted); text-align: center; margin: 0 0 -8px; }
 .new-part { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); text-align: center; margin: 16px 0 -24px; }
 .actions { display: flex; align-items: center; justify-content: center; gap: 24px; margin: 20px auto 0; flex-wrap: wrap; max-width: 680px; }
 .upcoming { color: var(--muted); font-size: 13px; display: flex; gap: 8px; align-items: baseline; opacity: .7; }

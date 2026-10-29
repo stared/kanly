@@ -23,7 +23,7 @@ pnpm shots     # screenshots via Chrome; SEED=N pretends the first N items are l
 ## Ideas
 
 - **Sums and trees.** 照 = 昭 + 灬, and 昭 = 日 + 召, and 召 = 刀 + 口. Learn the parts first, and a new kanji costs only what is new in it.
-- **Order by what it buys.** Each step learns the kanji that adds the most readable text per new item (the kanji plus its unknown parts).
+- **Simple first, then what it buys.** Like Hanly, start from the simplest shapes. Each step learns the kanji that adds the most readable text per new stroke (the kanji plus its unknown parts), simple shapes weighted extra: 一 人 日 大 月 入 子 十, and 干 just before 年 needs it.
 - **Sound families.** Many kanji carry a part that hints at the on-reading: 青 in 情晴清精請静, all read セイ. Each family shows how often the hint holds: 71% of members across 225 families.
 - **Readings as data.** Each kanji's reading is aligned in common JMdict words (明日 みょうにち → 明 みょう + 日 にち), so the card shows which readings you will actually meet.
 - **One view.** Real origin, a part's role and a memory story sit side by side, each labelled for what it is.
