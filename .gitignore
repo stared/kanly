@@ -1,0 +1,8 @@
+data/raw/
+data/kanji.json
+data/report.md
+src/data/
+node_modules/
+dist/
+screenshots/
+.DS_Store
