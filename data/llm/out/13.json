@@ -815,7 +815,7 @@
    {
     "w": "軟式",
     "r": "なんしき",
-    "g": "soft-ball rules (baseball, tennis)",
+    "g": "rubber-ball version (baseball, tennis)",
     "lit": "soft-style",
     "reading": "ナン",
     "furigana": [
@@ -2051,7 +2051,7 @@
  },
  {
   "kanji": "宛",
-  "keyword": "address (to)",
+  "keyword": "addressed to",
   "meanings": [],
   "readings": [
    "あ.てる"
@@ -3682,7 +3682,7 @@
     "w": "犬猿の仲",
     "r": "けんえんのなか",
     "g": "cat-and-dog relationship",
-    "lit": "dog-monkey-of-relations",
+    "lit": "dog-monkey-relationship",
     "reading": "エン",
     "furigana": [
      [
@@ -6586,7 +6586,7 @@
     ]
    }
   ],
-  "story": "Long streaming hair 髟 on top; 友 below gives the sound.",
+  "story": "Long flowing hair 髟 above; the part below gave the sound ハツ.",
   "kind": "origin"
  },
  {
@@ -7186,8 +7186,10 @@
  },
  {
   "kanji": "贈",
-  "keyword": "give (a gift)",
-  "meanings": [],
+  "keyword": "gift",
+  "meanings": [
+   "give"
+  ],
   "readings": [
    "ゾウ",
    "おく.る"
@@ -11244,7 +11246,7 @@
  },
  {
   "kanji": "壱",
-  "keyword": "one (in documents)",
+  "keyword": "formal one",
   "meanings": [],
   "readings": [
    "イチ"
@@ -11279,16 +11281,14 @@
  {
   "kanji": "暁",
   "keyword": "daybreak",
-  "meanings": [
-   "(in the) event"
-  ],
+  "meanings": [],
   "readings": [
    "あかつき",
    "ギョウ"
   ],
   "alone": {
    "r": "あかつき",
-   "g": "dawn; (in the) event of",
+   "g": "dawn; the day something comes true",
    "reading": "あかつき"
   },
   "words": [

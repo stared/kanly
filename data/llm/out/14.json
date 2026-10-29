@@ -1788,7 +1788,7 @@
    }
   ],
   "more": [],
-  "story": "A ghost 鬼 that bewitches you.",
+  "story": "A ghost 鬼 not yet 未 seen, luring you in.",
   "kind": "mnemonic"
  },
  {
@@ -2768,8 +2768,7 @@
    "bulge"
   ],
   "readings": [
-   "トツ",
-   "でこ"
+   "トツ"
   ],
   "alone": null,
   "words": [
@@ -2777,18 +2776,14 @@
     "w": "凸凹",
     "r": "でこぼこ",
     "g": "bumpy; uneven",
-    "lit": "bulge-dent",
-    "reading": "でこ",
+    "reading": "special",
     "furigana": [
      [
-      "凸",
-      "でこ"
-     ],
-     [
-      "凹",
-      "ぼこ"
+      "凸凹",
+      "でこぼこ"
      ]
-    ]
+    ],
+    "special": true
    },
    {
     "w": "凹凸",
@@ -3771,7 +3766,7 @@
  },
  {
   "kanji": "碁",
-  "keyword": "go (game)",
+  "keyword": "game of go",
   "meanings": [],
   "readings": [
    "ゴ"
@@ -4378,7 +4373,7 @@
  },
  {
   "kanji": "弐",
-  "keyword": "two (formal)",
+  "keyword": "formal two",
   "meanings": [],
   "readings": [
    "ニ"
@@ -4513,19 +4508,6 @@
      [
       "通",
       "つう"
-     ]
-    ]
-   },
-   {
-    "w": "疎か",
-    "r": "おろそか",
-    "g": "negligent; careless",
-    "reading": "special",
-    "special": true,
-    "furigana": [
-     [
-      "疎か",
-      "おろそか"
      ]
     ]
    },
@@ -5197,7 +5179,7 @@
  },
  {
   "kanji": "履",
-  "keyword": "wear (shoes)",
+  "keyword": "wear shoes",
   "meanings": [
    "carry out"
   ],
@@ -5492,7 +5474,7 @@
  },
  {
   "kanji": "俺",
-  "keyword": "I (male, casual)",
+  "keyword": "casual male I",
   "meanings": [],
   "readings": [
    "おれ"
@@ -9439,7 +9421,7 @@
  },
  {
   "kanji": "紡",
-  "keyword": "spin (thread)",
+  "keyword": "spin yarn",
   "meanings": [],
   "readings": [
    "ボウ",
@@ -9534,7 +9516,7 @@
  },
  {
   "kanji": "僕",
-  "keyword": "I (male)",
+  "keyword": "boyish I",
   "meanings": [
    "servant"
   ],
@@ -10439,8 +10421,7 @@
   "readings": [
    "オウ",
    "へこ.む",
-   "くぼ.む",
-   "ぼこ"
+   "くぼ.む"
   ],
   "alone": null,
   "words": [
@@ -10448,18 +10429,14 @@
     "w": "凸凹",
     "r": "でこぼこ",
     "g": "bumpy; uneven",
-    "lit": "bulge-dent",
-    "reading": "ぼこ",
+    "reading": "special",
     "furigana": [
      [
-      "凸",
-      "でこ"
-     ],
-     [
-      "凹",
-      "ぼこ"
+      "凸凹",
+      "でこぼこ"
      ]
-    ]
+    ],
+    "special": true
    },
    {
     "w": "凹凸",
@@ -10496,13 +10473,13 @@
    },
    {
     "w": "凹み",
-    "r": "くぼみ",
-    "g": "hollow; dent",
-    "reading": "くぼ.む",
+    "r": "へこみ",
+    "g": "dent; hollow",
+    "reading": "へこ.む",
     "furigana": [
      [
       "凹",
-      "くぼ"
+      "へこ"
      ],
      [
       "み",
