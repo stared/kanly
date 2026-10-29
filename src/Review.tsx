@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { KANJI, gloss } from './data'
 import { answer, DAY, MIN, type Store } from './srs'
-import { Glyph, Parts, Readings, Speaker, Story, treeOf } from './Card'
+import { Glyph, Parts, Readings, Story, treeOf } from './Card'
 import { speak, spoken } from './speech'
 
 export const dueIds = (s: Store, now: number) =>
@@ -47,7 +47,7 @@ export function Review({ store, setStore, open, now, autoSpeak }: { store: Store
         <button className="next" onClick={() => setShown(true)}>show <span className="key">space</span></button>
       ) : (
         <div className="back">
-          <h2>{gloss(id)}{spoken(id) && <Speaker text={spoken(id)} />}</h2>
+          <h2>{gloss(id)}</h2>
           {t && <Parts t={t} store={store} open={open} />}
           <Story el={id} />
           {k && <Readings ch={id} />}

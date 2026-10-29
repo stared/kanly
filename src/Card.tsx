@@ -257,7 +257,7 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
       <div className="hero">
         {k && <Popularity ch={el} />}
         <span className="big"><Glyph el={el} /></span>
-        <h2>{gloss(el)}{say && <Speaker text={say} />}</h2>
+        <h2>{gloss(el)}</h2>
         {k ? <p className="also">{otherMeanings(el).join(', ')}</p>
           : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
         {k && <Readings ch={el} hover={hover} setHover={setHover} />}

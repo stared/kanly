@@ -13,14 +13,14 @@ export function speak(text: string) {
   speechSynthesis.speak(u)
 }
 
-/** What to say for a kanji: its most used on-reading and kun-reading, if each is common (≥ 10% of words). */
+/** What to say for a kanji: the word it makes on its own (月 つき), else its most used reading. */
 export function spoken(ch: string): string {
   const k = KANJI[ch]
   if (!k) return ''
-  const n = Object.values(k.usage).reduce((a, c) => a + c, 0) || 1
+  const alone = k.words.find(w => w.w === ch)
+  if (alone) return alone.r
   const onSet = new Set(k.on.map(hira))
-  const top = Object.entries(k.usage).filter(([r, c]) => r !== '(irregular)' && c / n >= 0.1)
-  const on = top.find(([r]) => onSet.has(r))?.[0] ?? (top.length ? undefined : k.on[0] && hira(k.on[0]))
-  const kun = top.find(([r]) => !onSet.has(r))?.[0] ?? (top.length || on ? undefined : k.kun[0])
-  return [on && kata(on), kun?.replace(/[.-]/g, '')].filter(Boolean).join('、')
+  const [top] = Object.entries(k.usage).filter(([r]) => r !== '(irregular)').sort((a, b) => b[1] - a[1])
+  const r = top?.[0] ?? (k.on[0] ? hira(k.on[0]) : k.kun[0] ?? '')
+  return onSet.has(r) ? kata(r) : r.replace(/[.-]/g, '')
 }
