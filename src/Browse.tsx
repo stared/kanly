@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { COMP, KANJI, ORDER, gloss, hira } from './data'
 import { status, type Store } from './srs'
 import { Card, Glyph } from './Card'
@@ -19,7 +19,8 @@ function matches(el: string, q: string) {
 export function Browse({ store, open }: { store: Store; open: (el: string) => void }) {
   const [q, setQ] = useState('')
   const [filter, setFilter] = useState<Filter>('all')
-  const [sel, setSel] = useState(ORDER[0])
+  const [sel, setSel] = useState(() => decodeURIComponent(location.hash.split('/')[1] ?? '') || ORDER[0])
+  useEffect(() => { history.replaceState(null, '', '#kanji/' + sel) }, [sel])
   const list = useMemo(() => ORDER.filter(el =>
     (filter === 'all' || (filter === 'kanji' ? !!KANJI[el] : filter === 'parts' ? !KANJI[el] : !!store.cards[el])) && matches(el, q.trim())
   ), [q, filter, store])

@@ -9,20 +9,21 @@ import { Analysis } from './Analysis'
 import { Settings } from './Settings'
 import { loadAutoSpeak, saveAutoSpeak } from './speech'
 
-type Tab = 'learn' | 'review' | 'kanji' | 'reader' | 'analysis' | 'settings'
+type Tab = 'learn' | 'review' | 'kanji' | 'reader' | 'analysis' | 'settings' | 'card'
 const TABS: Tab[] = ['learn', 'review', 'kanji', 'reader', 'analysis']
 
 export default function App() {
   const [store, setStore] = useState<Store>(load)
-  const [tab, setTab] = useState<Tab>(() => (location.hash.slice(1) as Tab) || 'learn')
+  const fromHash = () => (location.hash.slice(1).split('/')[0] as Tab) || 'learn'
+  const [tab, setTab] = useState<Tab>(fromHash)
   const [peek, setPeek] = useState<string[]>([])
   const [now, setNow] = useState(Date.now())
   const [autoSpeak, setAutoSpeak] = useState(loadAutoSpeak)
   useEffect(() => saveAutoSpeak(autoSpeak), [autoSpeak])
   useEffect(() => save(store), [store])
-  useEffect(() => { history.replaceState(null, '', '#' + tab) }, [tab])
+  useEffect(() => { if (fromHash() !== tab) history.replaceState(null, '', '#' + tab) }, [tab])
   useEffect(() => {
-    const h = () => setTab((location.hash.slice(1) as Tab) || 'learn')
+    const h = () => setTab(fromHash())
     addEventListener('hashchange', h)
     return () => removeEventListener('hashchange', h)
   }, [])
@@ -54,6 +55,7 @@ export default function App() {
         {tab === 'kanji' && <Browse store={store} open={open} />}
         {tab === 'reader' && <Reader store={store} open={open} />}
         {tab === 'analysis' && <Analysis store={store} />}
+        {tab === 'card' && <Card key={location.hash} el={decodeURIComponent(location.hash.split('/')[1] ?? '日')} store={store} open={open} autoSpeak={autoSpeak} />}
         {tab === 'settings' && <Settings store={store} onReplace={setStore} autoSpeak={autoSpeak} setAutoSpeak={setAutoSpeak} />}
       </main>
       {peek.length > 0 && (
