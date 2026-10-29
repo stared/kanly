@@ -1,0 +1,11518 @@
+[
+ {
+  "kanji": "隙",
+  "keyword": "gap",
+  "meanings": [
+   "unguarded moment"
+  ],
+  "readings": [
+   "すき",
+   "ゲキ"
+  ],
+  "alone": {
+   "r": "すき",
+   "g": "gap; unguarded moment",
+   "reading": "すき"
+  },
+  "words": [
+   {
+    "w": "隙間",
+    "r": "すきま",
+    "g": "gap; crack",
+    "lit": "gap-space",
+    "reading": "すき",
+    "furigana": [
+     [
+      "隙",
+      "すき"
+     ],
+     [
+      "間",
+      "ま"
+     ]
+    ]
+   },
+   {
+    "w": "隙間風",
+    "r": "すきまかぜ",
+    "g": "draft (through a crack)",
+    "lit": "gap-space-wind",
+    "reading": "すき",
+    "furigana": [
+     [
+      "隙",
+      "すき"
+     ],
+     [
+      "間",
+      "ま"
+     ],
+     [
+      "風",
+      "かぜ"
+     ]
+    ]
+   },
+   {
+    "w": "間隙",
+    "r": "かんげき",
+    "g": "gap; interval",
+    "reading": "ゲキ",
+    "furigana": [
+     [
+      "間",
+      "かん"
+     ],
+     [
+      "隙",
+      "げき"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A hill ⻖ with sunlight 日 slipping through small 小 cracks.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "頑",
+  "keyword": "stubborn",
+  "meanings": [
+   "firm"
+  ],
+  "readings": [
+   "ガン",
+   "かたく.な"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "頑張る",
+    "r": "がんばる",
+    "g": "to do one's best; persevere",
+    "reading": "ガン",
+    "furigana": [
+     [
+      "頑",
+      "がん"
+     ],
+     [
+      "張",
+      "ば"
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "頑張り",
+    "r": "がんばり",
+    "g": "effort; persistence",
+    "reading": "ガン",
+    "furigana": [
+     [
+      "頑",
+      "がん"
+     ],
+     [
+      "張",
+      "ば"
+     ],
+     [
+      "り",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "頑固",
+    "r": "がんこ",
+    "g": "stubborn",
+    "lit": "stubborn-hard",
+    "reading": "ガン",
+    "furigana": [
+     [
+      "頑",
+      "がん"
+     ],
+     [
+      "固",
+      "こ"
+     ]
+    ]
+   },
+   {
+    "w": "頑丈",
+    "r": "がんじょう",
+    "g": "sturdy; solid",
+    "reading": "ガン",
+    "furigana": [
+     [
+      "頑",
+      "がん"
+     ],
+     [
+      "丈",
+      "じょう"
+     ]
+    ]
+   },
+   {
+    "w": "頑な",
+    "r": "かたくな",
+    "g": "obstinate",
+    "reading": "かたく.な",
+    "furigana": [
+     [
+      "頑",
+      "かたく"
+     ],
+     [
+      "な",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "頑強",
+    "r": "がんきょう",
+    "g": "dogged; stubborn",
+    "lit": "stubborn-strong",
+    "reading": "ガン",
+    "furigana": [
+     [
+      "頑",
+      "がん"
+     ],
+     [
+      "強",
+      "きょう"
+     ]
+    ]
+   },
+   {
+    "w": "頑張って",
+    "r": "がんばって",
+    "g": "do your best!; go for it!",
+    "reading": "ガン",
+    "furigana": [
+     [
+      "頑",
+      "がん"
+     ],
+     [
+      "張",
+      "ば"
+     ],
+     [
+      "っ",
+      ""
+     ],
+     [
+      "て",
+      ""
+     ]
+    ]
+   }
+  ],
+  "story": "A head 頁 set firm from the start 元, refusing to turn.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "弄",
+  "keyword": "toy with",
+  "meanings": [
+   "tamper with"
+  ],
+  "readings": [
+   "ロウ",
+   "いじ.る",
+   "もてあそ.ぶ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "翻弄",
+    "r": "ほんろう",
+    "g": "tossing about; toying with",
+    "lit": "flip-toy with",
+    "reading": "ロウ",
+    "furigana": [
+     [
+      "翻",
+      "ほん"
+     ],
+     [
+      "弄",
+      "ろう"
+     ]
+    ]
+   },
+   {
+    "w": "弄る",
+    "r": "いじる",
+    "g": "to fiddle with; tamper with",
+    "reading": "いじ.る",
+    "furigana": [
+     [
+      "弄",
+      "いじ"
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "弄ぶ",
+    "r": "もてあそぶ",
+    "g": "to toy with; play with",
+    "reading": "もてあそ.ぶ",
+    "furigana": [
+     [
+      "弄",
+      "もてあそ"
+     ],
+     [
+      "ぶ",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "愚弄",
+    "r": "ぐろう",
+    "g": "mockery; making a fool of",
+    "lit": "fool-toy with",
+    "reading": "ロウ",
+    "furigana": [
+     [
+      "愚",
+      "ぐ"
+     ],
+     [
+      "弄",
+      "ろう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Two hands 廾 turning over a piece of jade 王.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "瑠",
+  "keyword": "lapis lazuli",
+  "meanings": [],
+  "readings": [
+   "ル"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "瑠璃",
+    "r": "るり",
+    "g": "lapis lazuli",
+    "reading": "ル",
+    "furigana": [
+     [
+      "瑠",
+      "る"
+     ],
+     [
+      "璃",
+      "り"
+     ]
+    ]
+   },
+   {
+    "w": "瑠璃色",
+    "r": "るりいろ",
+    "g": "lapis blue; deep blue",
+    "lit": "lapis-lazuli-color",
+    "reading": "ル",
+    "furigana": [
+     [
+      "瑠",
+      "る"
+     ],
+     [
+      "璃",
+      "り"
+     ],
+     [
+      "色",
+      "いろ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "侶",
+  "keyword": "companion",
+  "meanings": [],
+  "readings": [
+   "リョ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "僧侶",
+    "r": "そうりょ",
+    "g": "Buddhist priest; monk",
+    "lit": "monk-companion",
+    "reading": "リョ",
+    "furigana": [
+     [
+      "僧",
+      "そう"
+     ],
+     [
+      "侶",
+      "りょ"
+     ]
+    ]
+   },
+   {
+    "w": "伴侶",
+    "r": "はんりょ",
+    "g": "partner; spouse",
+    "lit": "accompany-companion",
+    "reading": "リョ",
+    "furigana": [
+     [
+      "伴",
+      "はん"
+     ],
+     [
+      "侶",
+      "りょ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A person 亻 walking with another, spine 呂 by spine.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "椅",
+  "keyword": "chair",
+  "meanings": [],
+  "readings": [
+   "イ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "椅子",
+    "r": "いす",
+    "g": "chair",
+    "reading": "イ",
+    "furigana": [
+     [
+      "椅",
+      "い"
+     ],
+     [
+      "子",
+      "す"
+     ]
+    ]
+   },
+   {
+    "w": "車椅子",
+    "r": "くるまいす",
+    "g": "wheelchair",
+    "lit": "wheel-chair",
+    "reading": "イ",
+    "furigana": [
+     [
+      "車",
+      "くるま"
+     ],
+     [
+      "椅",
+      "い"
+     ],
+     [
+      "子",
+      "す"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Wood 木 for a seat, with 奇 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "肯",
+  "keyword": "agree",
+  "meanings": [
+   "consent"
+  ],
+  "readings": [
+   "コウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "肯定",
+    "r": "こうてい",
+    "g": "affirmation; approval",
+    "lit": "agree-fix",
+    "reading": "コウ",
+    "furigana": [
+     [
+      "肯",
+      "こう"
+     ],
+     [
+      "定",
+      "てい"
+     ]
+    ]
+   },
+   {
+    "w": "肯定的",
+    "r": "こうていてき",
+    "g": "positive; affirmative",
+    "reading": "コウ",
+    "furigana": [
+     [
+      "肯",
+      "こう"
+     ],
+     [
+      "定",
+      "てい"
+     ],
+     [
+      "的",
+      "てき"
+     ]
+    ]
+   },
+   {
+    "w": "首肯",
+    "r": "しゅこう",
+    "g": "nodding in agreement",
+    "lit": "head-agree",
+    "reading": "コウ",
+    "furigana": [
+     [
+      "首",
+      "しゅ"
+     ],
+     [
+      "肯",
+      "こう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Once flesh 月 clinging to bone; the top is a squashed bone, not 止.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "倣",
+  "keyword": "imitate",
+  "meanings": [
+   "follow (an example)"
+  ],
+  "readings": [
+   "ホウ",
+   "なら.う"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "模倣",
+    "r": "もほう",
+    "g": "imitation; copying",
+    "lit": "copy-imitate",
+    "reading": "ホウ",
+    "furigana": [
+     [
+      "模",
+      "も"
+     ],
+     [
+      "倣",
+      "ほう"
+     ]
+    ]
+   },
+   {
+    "w": "倣う",
+    "r": "ならう",
+    "g": "to follow (an example)",
+    "reading": "なら.う",
+    "furigana": [
+     [
+      "倣",
+      "なら"
+     ],
+     [
+      "う",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A person 亻 copying another, with 放 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "紳",
+  "keyword": "gentleman",
+  "meanings": [],
+  "readings": [
+   "シン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "紳士",
+    "r": "しんし",
+    "g": "gentleman",
+    "lit": "sash-man",
+    "reading": "シン",
+    "furigana": [
+     [
+      "紳",
+      "しん"
+     ],
+     [
+      "士",
+      "し"
+     ]
+    ]
+   },
+   {
+    "w": "紳士服",
+    "r": "しんしふく",
+    "g": "menswear",
+    "reading": "シン",
+    "furigana": [
+     [
+      "紳",
+      "しん"
+     ],
+     [
+      "士",
+      "し"
+     ],
+     [
+      "服",
+      "ふく"
+     ]
+    ]
+   },
+   {
+    "w": "紳士協定",
+    "r": "しんしきょうてい",
+    "g": "gentlemen's agreement",
+    "reading": "シン",
+    "furigana": [
+     [
+      "紳",
+      "しん"
+     ],
+     [
+      "士",
+      "し"
+     ],
+     [
+      "協",
+      "きょう"
+     ],
+     [
+      "定",
+      "てい"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Once the long silk 糸 sash of an official, stretched 申 round the waist.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "鍵",
+  "keyword": "key",
+  "meanings": [
+   "lock"
+  ],
+  "readings": [
+   "かぎ",
+   "ケン"
+  ],
+  "alone": {
+   "r": "かぎ",
+   "g": "key; lock",
+   "reading": "かぎ"
+  },
+  "words": [
+   {
+    "w": "鍵盤",
+    "r": "けんばん",
+    "g": "keyboard (of a piano)",
+    "lit": "key-board",
+    "reading": "ケン",
+    "furigana": [
+     [
+      "鍵",
+      "けん"
+     ],
+     [
+      "盤",
+      "ばん"
+     ]
+    ]
+   },
+   {
+    "w": "鍵穴",
+    "r": "かぎあな",
+    "g": "keyhole",
+    "lit": "key-hole",
+    "reading": "かぎ",
+    "furigana": [
+     [
+      "鍵",
+      "かぎ"
+     ],
+     [
+      "穴",
+      "あな"
+     ]
+    ]
+   },
+   {
+    "w": "合鍵",
+    "r": "あいかぎ",
+    "g": "duplicate key",
+    "lit": "fit-key",
+    "reading": "かぎ",
+    "furigana": [
+     [
+      "合",
+      "あい"
+     ],
+     [
+      "鍵",
+      "かぎ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Metal 金, with 建 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "勃",
+  "keyword": "rise suddenly",
+  "meanings": [],
+  "readings": [
+   "ボツ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "勃発",
+    "r": "ぼっぱつ",
+    "g": "outbreak (of war, etc.)",
+    "lit": "sudden-break out",
+    "reading": "ボツ",
+    "furigana": [
+     [
+      "勃",
+      "ぼっ"
+     ],
+     [
+      "発",
+      "ぱつ"
+     ]
+    ]
+   },
+   {
+    "w": "勃起",
+    "r": "ぼっき",
+    "g": "erection",
+    "lit": "rise-rise",
+    "reading": "ボツ",
+    "furigana": [
+     [
+      "勃",
+      "ぼっ"
+     ],
+     [
+      "起",
+      "き"
+     ]
+    ]
+   },
+   {
+    "w": "勃興",
+    "r": "ぼっこう",
+    "g": "sudden rise (to power)",
+    "reading": "ボツ",
+    "furigana": [
+     [
+      "勃",
+      "ぼっ"
+     ],
+     [
+      "興",
+      "こう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "僅",
+  "keyword": "slight",
+  "meanings": [
+   "few"
+  ],
+  "readings": [
+   "わず.か",
+   "キン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "僅か",
+    "r": "わずか",
+    "g": "only; a little",
+    "reading": "わず.か",
+    "furigana": [
+     [
+      "僅",
+      "わず"
+     ],
+     [
+      "か",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "僅差",
+    "r": "きんさ",
+    "g": "narrow margin",
+    "lit": "slight-difference",
+    "reading": "キン",
+    "furigana": [
+     [
+      "僅",
+      "きん"
+     ],
+     [
+      "差",
+      "さ"
+     ]
+    ]
+   },
+   {
+    "w": "僅少",
+    "r": "きんしょう",
+    "g": "small amount",
+    "lit": "slight-few",
+    "reading": "キン",
+    "furigana": [
+     [
+      "僅",
+      "きん"
+     ],
+     [
+      "少",
+      "しょう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "豚",
+  "keyword": "pig",
+  "meanings": [
+   "pork"
+  ],
+  "readings": [
+   "ぶた",
+   "トン"
+  ],
+  "alone": {
+   "r": "ぶた",
+   "g": "pig",
+   "reading": "ぶた"
+  },
+  "words": [
+   {
+    "w": "豚肉",
+    "r": "ぶたにく",
+    "g": "pork",
+    "lit": "pig-meat",
+    "reading": "ぶた",
+    "furigana": [
+     [
+      "豚",
+      "ぶた"
+     ],
+     [
+      "肉",
+      "にく"
+     ]
+    ]
+   },
+   {
+    "w": "豚カツ",
+    "r": "とんカツ",
+    "g": "pork cutlet",
+    "reading": "トン",
+    "furigana": [
+     [
+      "豚",
+      "とん"
+     ],
+     [
+      "カ",
+      ""
+     ],
+     [
+      "ツ",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "豚骨",
+    "r": "とんこつ",
+    "g": "pork bones (ramen broth)",
+    "lit": "pig-bone",
+    "reading": "トン",
+    "furigana": [
+     [
+      "豚",
+      "とん"
+     ],
+     [
+      "骨",
+      "こつ"
+     ]
+    ]
+   },
+   {
+    "w": "豚汁",
+    "r": "とんじる",
+    "g": "pork miso soup",
+    "lit": "pig-soup",
+    "reading": "トン",
+    "furigana": [
+     [
+      "豚",
+      "とん"
+     ],
+     [
+      "汁",
+      "じる"
+     ]
+    ]
+   },
+   {
+    "w": "養豚",
+    "r": "ようとん",
+    "g": "pig farming",
+    "lit": "raise-pig",
+    "reading": "トン",
+    "furigana": [
+     [
+      "養",
+      "よう"
+     ],
+     [
+      "豚",
+      "とん"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A pig 豕 with meat 月 on it.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "貼",
+  "keyword": "stick on",
+  "meanings": [
+   "paste"
+  ],
+  "readings": [
+   "は.る",
+   "チョウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "貼る",
+    "r": "はる",
+    "g": "to stick; paste",
+    "reading": "は.る",
+    "furigana": [
+     [
+      "貼",
+      "は"
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "貼り付ける",
+    "r": "はりつける",
+    "g": "to stick on; paste",
+    "reading": "は.る",
+    "furigana": [
+     [
+      "貼",
+      "は"
+     ],
+     [
+      "り",
+      ""
+     ],
+     [
+      "付",
+      "つ"
+     ],
+     [
+      "け",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "貼り紙",
+    "r": "はりがみ",
+    "g": "poster; notice",
+    "lit": "stick-paper",
+    "reading": "は.る",
+    "furigana": [
+     [
+      "貼",
+      "は"
+     ],
+     [
+      "り",
+      ""
+     ],
+     [
+      "紙",
+      "がみ"
+     ]
+    ]
+   },
+   {
+    "w": "貼付",
+    "r": "ちょうふ",
+    "g": "pasting; attaching",
+    "lit": "stick-attach",
+    "reading": "チョウ",
+    "furigana": [
+     [
+      "貼",
+      "ちょう"
+     ],
+     [
+      "付",
+      "ふ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "姻",
+  "keyword": "marriage",
+  "meanings": [],
+  "readings": [
+   "イン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "婚姻",
+    "r": "こんいん",
+    "g": "marriage",
+    "lit": "marry-marriage",
+    "reading": "イン",
+    "furigana": [
+     [
+      "婚",
+      "こん"
+     ],
+     [
+      "姻",
+      "いん"
+     ]
+    ]
+   },
+   {
+    "w": "婚姻届",
+    "r": "こんいんとどけ",
+    "g": "marriage registration",
+    "reading": "イン",
+    "furigana": [
+     [
+      "婚",
+      "こん"
+     ],
+     [
+      "姻",
+      "いん"
+     ],
+     [
+      "届",
+      "とどけ"
+     ]
+    ]
+   },
+   {
+    "w": "姻戚",
+    "r": "いんせき",
+    "g": "in-laws",
+    "lit": "marriage-relative",
+    "reading": "イン",
+    "furigana": [
+     [
+      "姻",
+      "いん"
+     ],
+     [
+      "戚",
+      "せき"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A woman 女, the cause 因 of joining two families.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "紺",
+  "keyword": "navy blue",
+  "meanings": [],
+  "readings": [
+   "コン"
+  ],
+  "alone": {
+   "r": "こん",
+   "g": "navy blue",
+   "reading": "コン"
+  },
+  "words": [
+   {
+    "w": "紺色",
+    "r": "こんいろ",
+    "g": "navy blue",
+    "lit": "navy blue-color",
+    "reading": "コン",
+    "furigana": [
+     [
+      "紺",
+      "こん"
+     ],
+     [
+      "色",
+      "いろ"
+     ]
+    ]
+   },
+   {
+    "w": "濃紺",
+    "r": "のうこん",
+    "g": "dark navy",
+    "lit": "deep-navy blue",
+    "reading": "コン",
+    "furigana": [
+     [
+      "濃",
+      "のう"
+     ],
+     [
+      "紺",
+      "こん"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Thread 糸 steeped in deep blue dye; 甘 gives the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "詐",
+  "keyword": "deceive",
+  "meanings": [
+   "fraud"
+  ],
+  "readings": [
+   "サ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "詐欺",
+    "r": "さぎ",
+    "g": "fraud; scam",
+    "lit": "deceive-cheat",
+    "reading": "サ",
+    "furigana": [
+     [
+      "詐",
+      "さ"
+     ],
+     [
+      "欺",
+      "ぎ"
+     ]
+    ]
+   },
+   {
+    "w": "詐欺師",
+    "r": "さぎし",
+    "g": "swindler; con artist",
+    "reading": "サ",
+    "furigana": [
+     [
+      "詐",
+      "さ"
+     ],
+     [
+      "欺",
+      "ぎ"
+     ],
+     [
+      "師",
+      "し"
+     ]
+    ]
+   },
+   {
+    "w": "詐称",
+    "r": "さしょう",
+    "g": "false claim (of name, title)",
+    "lit": "deceive-call",
+    "reading": "サ",
+    "furigana": [
+     [
+      "詐",
+      "さ"
+     ],
+     [
+      "称",
+      "しょう"
+     ]
+    ]
+   },
+   {
+    "w": "詐取",
+    "r": "さしゅ",
+    "g": "swindling",
+    "lit": "deceive-take",
+    "reading": "サ",
+    "furigana": [
+     [
+      "詐",
+      "さ"
+     ],
+     [
+      "取",
+      "しゅ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Words 言 made up 乍 on the spot.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "諭",
+  "keyword": "admonish",
+  "meanings": [
+   "instruct"
+  ],
+  "readings": [
+   "ユ",
+   "さと.す"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "教諭",
+    "r": "きょうゆ",
+    "g": "(school) teacher",
+    "lit": "teach-instruct",
+    "reading": "ユ",
+    "furigana": [
+     [
+      "教",
+      "きょう"
+     ],
+     [
+      "諭",
+      "ゆ"
+     ]
+    ]
+   },
+   {
+    "w": "諭す",
+    "r": "さとす",
+    "g": "to reason with; admonish",
+    "reading": "さと.す",
+    "furigana": [
+     [
+      "諭",
+      "さと"
+     ],
+     [
+      "す",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "説諭",
+    "r": "せつゆ",
+    "g": "admonition; reprimand",
+    "lit": "explain-admonish",
+    "reading": "ユ",
+    "furigana": [
+     [
+      "説",
+      "せつ"
+     ],
+     [
+      "諭",
+      "ゆ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "欺",
+  "keyword": "deceive",
+  "meanings": [
+   "cheat"
+  ],
+  "readings": [
+   "ギ",
+   "あざむ.く"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "詐欺",
+    "r": "さぎ",
+    "g": "fraud; scam",
+    "lit": "deceive-cheat",
+    "reading": "ギ",
+    "furigana": [
+     [
+      "詐",
+      "さ"
+     ],
+     [
+      "欺",
+      "ぎ"
+     ]
+    ]
+   },
+   {
+    "w": "欺く",
+    "r": "あざむく",
+    "g": "to deceive",
+    "reading": "あざむ.く",
+    "furigana": [
+     [
+      "欺",
+      "あざむ"
+     ],
+     [
+      "く",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "詐欺師",
+    "r": "さぎし",
+    "g": "swindler; con artist",
+    "reading": "ギ",
+    "furigana": [
+     [
+      "詐",
+      "さ"
+     ],
+     [
+      "欺",
+      "ぎ"
+     ],
+     [
+      "師",
+      "し"
+     ]
+    ]
+   },
+   {
+    "w": "欺瞞",
+    "r": "ぎまん",
+    "g": "deception; hypocrisy",
+    "reading": "ギ",
+    "furigana": [
+     [
+      "欺",
+      "ぎ"
+     ],
+     [
+      "瞞",
+      "まん"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "猛",
+  "keyword": "fierce",
+  "meanings": [],
+  "readings": [
+   "モウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "猛烈",
+    "r": "もうれつ",
+    "g": "fierce; intense",
+    "lit": "fierce-violent",
+    "reading": "モウ",
+    "furigana": [
+     [
+      "猛",
+      "もう"
+     ],
+     [
+      "烈",
+      "れつ"
+     ]
+    ]
+   },
+   {
+    "w": "猛暑",
+    "r": "もうしょ",
+    "g": "heat wave",
+    "lit": "fierce-heat",
+    "reading": "モウ",
+    "furigana": [
+     [
+      "猛",
+      "もう"
+     ],
+     [
+      "暑",
+      "しょ"
+     ]
+    ]
+   },
+   {
+    "w": "猛獣",
+    "r": "もうじゅう",
+    "g": "wild beast",
+    "lit": "fierce-beast",
+    "reading": "モウ",
+    "furigana": [
+     [
+      "猛",
+      "もう"
+     ],
+     [
+      "獣",
+      "じゅう"
+     ]
+    ]
+   },
+   {
+    "w": "猛威",
+    "r": "もうい",
+    "g": "fury; ferocity",
+    "lit": "fierce-might",
+    "reading": "モウ",
+    "furigana": [
+     [
+      "猛",
+      "もう"
+     ],
+     [
+      "威",
+      "い"
+     ]
+    ]
+   },
+   {
+    "w": "猛攻",
+    "r": "もうこう",
+    "g": "fierce attack",
+    "lit": "fierce-attack",
+    "reading": "モウ",
+    "furigana": [
+     [
+      "猛",
+      "もう"
+     ],
+     [
+      "攻",
+      "こう"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "猛反対",
+    "r": "もうはんたい",
+    "g": "fierce opposition",
+    "reading": "モウ",
+    "furigana": [
+     [
+      "猛",
+      "もう"
+     ],
+     [
+      "反",
+      "はん"
+     ],
+     [
+      "対",
+      "たい"
+     ]
+    ]
+   },
+   {
+    "w": "猛スピード",
+    "r": "もうスピード",
+    "g": "breakneck speed",
+    "reading": "モウ",
+    "furigana": [
+     [
+      "猛",
+      "もう"
+     ],
+     [
+      "ス",
+      ""
+     ],
+     [
+      "ピ",
+      ""
+     ],
+     [
+      "ー",
+      ""
+     ],
+     [
+      "ド",
+      ""
+     ]
+    ]
+   }
+  ],
+  "story": "Once a fierce dog ⺨; 孟 gives the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "犠",
+  "keyword": "sacrifice",
+  "meanings": [],
+  "readings": [
+   "ギ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "犠牲",
+    "r": "ぎせい",
+    "g": "sacrifice",
+    "reading": "ギ",
+    "furigana": [
+     [
+      "犠",
+      "ぎ"
+     ],
+     [
+      "牲",
+      "せい"
+     ]
+    ]
+   },
+   {
+    "w": "犠牲者",
+    "r": "ぎせいしゃ",
+    "g": "victim",
+    "reading": "ギ",
+    "furigana": [
+     [
+      "犠",
+      "ぎ"
+     ],
+     [
+      "牲",
+      "せい"
+     ],
+     [
+      "者",
+      "しゃ"
+     ]
+    ]
+   },
+   {
+    "w": "犠打",
+    "r": "ぎだ",
+    "g": "sacrifice bunt",
+    "lit": "sacrifice-hit",
+    "reading": "ギ",
+    "furigana": [
+     [
+      "犠",
+      "ぎ"
+     ],
+     [
+      "打",
+      "だ"
+     ]
+    ]
+   },
+   {
+    "w": "犠飛",
+    "r": "ぎひ",
+    "g": "sacrifice fly",
+    "lit": "sacrifice-fly",
+    "reading": "ギ",
+    "furigana": [
+     [
+      "犠",
+      "ぎ"
+     ],
+     [
+      "飛",
+      "ひ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "An ox 牛 offered up for a righteous 義 cause.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "墨",
+  "keyword": "ink",
+  "meanings": [],
+  "readings": [
+   "すみ",
+   "ボク"
+  ],
+  "alone": {
+   "r": "すみ",
+   "g": "ink; ink stick",
+   "reading": "すみ"
+  },
+  "words": [
+   {
+    "w": "入れ墨",
+    "r": "いれずみ",
+    "g": "tattoo",
+    "lit": "put in-ink",
+    "reading": "すみ",
+    "furigana": [
+     [
+      "入",
+      "い"
+     ],
+     [
+      "れ",
+      ""
+     ],
+     [
+      "墨",
+      "ずみ"
+     ]
+    ]
+   },
+   {
+    "w": "お墨付き",
+    "r": "おすみつき",
+    "g": "seal of approval",
+    "lit": "ink-attached",
+    "reading": "すみ",
+    "furigana": [
+     [
+      "お",
+      ""
+     ],
+     [
+      "墨",
+      "すみ"
+     ],
+     [
+      "付",
+      "つ"
+     ],
+     [
+      "き",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "水墨画",
+    "r": "すいぼくが",
+    "g": "ink-wash painting",
+    "lit": "water-ink-picture",
+    "reading": "ボク",
+    "furigana": [
+     [
+      "水",
+      "すい"
+     ],
+     [
+      "墨",
+      "ぼく"
+     ],
+     [
+      "画",
+      "が"
+     ]
+    ]
+   },
+   {
+    "w": "墨絵",
+    "r": "すみえ",
+    "g": "ink painting",
+    "lit": "ink-picture",
+    "reading": "すみ",
+    "furigana": [
+     [
+      "墨",
+      "すみ"
+     ],
+     [
+      "絵",
+      "え"
+     ]
+    ]
+   },
+   {
+    "w": "白墨",
+    "r": "はくぼく",
+    "g": "chalk",
+    "lit": "white-ink",
+    "reading": "ボク",
+    "furigana": [
+     [
+      "白",
+      "はく"
+     ],
+     [
+      "墨",
+      "ぼく"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Black 黒 soot pressed with earth 土 into an ink stick.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "嬢",
+  "keyword": "young lady",
+  "meanings": [
+   "daughter",
+   "Miss"
+  ],
+  "readings": [
+   "ジョウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "お嬢さん",
+    "r": "おじょうさん",
+    "g": "young lady; (your) daughter",
+    "reading": "ジョウ",
+    "furigana": [
+     [
+      "お",
+      ""
+     ],
+     [
+      "嬢",
+      "じょう"
+     ],
+     [
+      "さ",
+      ""
+     ],
+     [
+      "ん",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "お嬢様",
+    "r": "おじょうさま",
+    "g": "young lady (polite)",
+    "reading": "ジョウ",
+    "furigana": [
+     [
+      "お",
+      ""
+     ],
+     [
+      "嬢",
+      "じょう"
+     ],
+     [
+      "様",
+      "さま"
+     ]
+    ]
+   },
+   {
+    "w": "令嬢",
+    "r": "れいじょう",
+    "g": "(your) daughter; young lady",
+    "lit": "honorable-daughter",
+    "reading": "ジョウ",
+    "furigana": [
+     [
+      "令",
+      "れい"
+     ],
+     [
+      "嬢",
+      "じょう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A woman 女, with 㐮 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "顕",
+  "keyword": "evident",
+  "meanings": [
+   "reveal"
+  ],
+  "readings": [
+   "ケン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "顕著",
+    "r": "けんちょ",
+    "g": "marked; striking",
+    "lit": "evident-conspicuous",
+    "reading": "ケン",
+    "furigana": [
+     [
+      "顕",
+      "けん"
+     ],
+     [
+      "著",
+      "ちょ"
+     ]
+    ]
+   },
+   {
+    "w": "顕微鏡",
+    "r": "けんびきょう",
+    "g": "microscope",
+    "lit": "reveal-tiny-lens",
+    "reading": "ケン",
+    "furigana": [
+     [
+      "顕",
+      "けん"
+     ],
+     [
+      "微",
+      "び"
+     ],
+     [
+      "鏡",
+      "きょう"
+     ]
+    ]
+   },
+   {
+    "w": "顕在",
+    "r": "けんざい",
+    "g": "actual; manifest",
+    "lit": "evident-exist",
+    "reading": "ケン",
+    "furigana": [
+     [
+      "顕",
+      "けん"
+     ],
+     [
+      "在",
+      "ざい"
+     ]
+    ]
+   },
+   {
+    "w": "顕彰",
+    "r": "けんしょう",
+    "g": "public honoring",
+    "lit": "reveal-praise",
+    "reading": "ケン",
+    "furigana": [
+     [
+      "顕",
+      "けん"
+     ],
+     [
+      "彰",
+      "しょう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "凄",
+  "keyword": "tremendous",
+  "meanings": [
+   "dreadful"
+  ],
+  "readings": [
+   "すご.い",
+   "すさ.まじい",
+   "セイ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "凄い",
+    "r": "すごい",
+    "g": "amazing; terrible",
+    "reading": "すご.い",
+    "furigana": [
+     [
+      "凄",
+      "すご"
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "物凄い",
+    "r": "ものすごい",
+    "g": "tremendous; awful",
+    "lit": "thing-tremendous",
+    "reading": "すご.い",
+    "furigana": [
+     [
+      "物",
+      "もの"
+     ],
+     [
+      "凄",
+      "すご"
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "凄まじい",
+    "r": "すさまじい",
+    "g": "terrific; fierce",
+    "reading": "すさ.まじい",
+    "furigana": [
+     [
+      "凄",
+      "すさ"
+     ],
+     [
+      "ま",
+      ""
+     ],
+     [
+      "じ",
+      ""
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "凄く",
+    "r": "すごく",
+    "g": "very; awfully",
+    "reading": "すご.い",
+    "furigana": [
+     [
+      "凄",
+      "すご"
+     ],
+     [
+      "く",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "凄惨",
+    "r": "せいさん",
+    "g": "gruesome",
+    "lit": "dreadful-cruel",
+    "reading": "セイ",
+    "furigana": [
+     [
+      "凄",
+      "せい"
+     ],
+     [
+      "惨",
+      "さん"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Ice 冫 cold enough to chill a wife 妻.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "脊",
+  "keyword": "spine",
+  "meanings": [],
+  "readings": [
+   "セキ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "脊髄",
+    "r": "せきずい",
+    "g": "spinal cord",
+    "lit": "spine-marrow",
+    "reading": "セキ",
+    "furigana": [
+     [
+      "脊",
+      "せき"
+     ],
+     [
+      "髄",
+      "ずい"
+     ]
+    ]
+   },
+   {
+    "w": "脊椎",
+    "r": "せきつい",
+    "g": "spine; vertebra",
+    "lit": "spine-vertebra",
+    "reading": "セキ",
+    "furigana": [
+     [
+      "脊",
+      "せき"
+     ],
+     [
+      "椎",
+      "つい"
+     ]
+    ]
+   },
+   {
+    "w": "脊柱",
+    "r": "せきちゅう",
+    "g": "spinal column",
+    "lit": "spine-pillar",
+    "reading": "セキ",
+    "furigana": [
+     [
+      "脊",
+      "せき"
+     ],
+     [
+      "柱",
+      "ちゅう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A backbone with ribs above flesh 月.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "淑",
+  "keyword": "graceful",
+  "meanings": [
+   "virtuous"
+  ],
+  "readings": [
+   "シュク",
+   "しと.やか"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "淑女",
+    "r": "しゅくじょ",
+    "g": "lady",
+    "lit": "graceful-woman",
+    "reading": "シュク",
+    "furigana": [
+     [
+      "淑",
+      "しゅく"
+     ],
+     [
+      "女",
+      "じょ"
+     ]
+    ]
+   },
+   {
+    "w": "淑やか",
+    "r": "しとやか",
+    "g": "graceful; ladylike",
+    "reading": "しと.やか",
+    "furigana": [
+     [
+      "淑",
+      "しと"
+     ],
+     [
+      "や",
+      ""
+     ],
+     [
+      "か",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "淑徳",
+    "r": "しゅくとく",
+    "g": "womanly virtue",
+    "lit": "graceful-virtue",
+    "reading": "シュク",
+    "furigana": [
+     [
+      "淑",
+      "しゅく"
+     ],
+     [
+      "徳",
+      "とく"
+     ]
+    ]
+   },
+   {
+    "w": "私淑",
+    "r": "ししゅく",
+    "g": "admiring as a model",
+    "reading": "シュク",
+    "furigana": [
+     [
+      "私",
+      "し"
+     ],
+     [
+      "淑",
+      "しゅく"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "据",
+  "keyword": "set in place",
+  "meanings": [],
+  "readings": [
+   "す.える",
+   "す.わる"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "据える",
+    "r": "すえる",
+    "g": "to set; install",
+    "reading": "す.える",
+    "furigana": [
+     [
+      "据",
+      "す"
+     ],
+     [
+      "え",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "据え置き",
+    "r": "すえおき",
+    "g": "leaving as is; deferment",
+    "lit": "set-place",
+    "reading": "す.える",
+    "furigana": [
+     [
+      "据",
+      "す"
+     ],
+     [
+      "え",
+      ""
+     ],
+     [
+      "置",
+      "お"
+     ],
+     [
+      "き",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "据え付ける",
+    "r": "すえつける",
+    "g": "to install; fix in place",
+    "reading": "す.える",
+    "furigana": [
+     [
+      "据",
+      "す"
+     ],
+     [
+      "え",
+      ""
+     ],
+     [
+      "付",
+      "つ"
+     ],
+     [
+      "け",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "見据える",
+    "r": "みすえる",
+    "g": "to stare at; keep in view",
+    "lit": "see-set",
+    "reading": "す.える",
+    "furigana": [
+     [
+      "見",
+      "み"
+     ],
+     [
+      "据",
+      "す"
+     ],
+     [
+      "え",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "据わる",
+    "r": "すわる",
+    "g": "to sit firmly; be steady",
+    "reading": "す.わる",
+    "furigana": [
+     [
+      "据",
+      "す"
+     ],
+     [
+      "わ",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A hand 扌 putting something where it will reside 居.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "漠",
+  "keyword": "desert",
+  "meanings": [
+   "vague"
+  ],
+  "readings": [
+   "バク"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "砂漠",
+    "r": "さばく",
+    "g": "desert",
+    "lit": "sand-desert",
+    "reading": "バク",
+    "furigana": [
+     [
+      "砂",
+      "さ"
+     ],
+     [
+      "漠",
+      "ばく"
+     ]
+    ]
+   },
+   {
+    "w": "漠然",
+    "r": "ばくぜん",
+    "g": "vague; obscure",
+    "reading": "バク",
+    "furigana": [
+     [
+      "漠",
+      "ばく"
+     ],
+     [
+      "然",
+      "ぜん"
+     ]
+    ]
+   },
+   {
+    "w": "広漠",
+    "r": "こうばく",
+    "g": "vast; boundless",
+    "lit": "wide-desert",
+    "reading": "バク",
+    "furigana": [
+     [
+      "広",
+      "こう"
+     ],
+     [
+      "漠",
+      "ばく"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Water 氵 that is not 莫 there: a desert.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "匿",
+  "keyword": "hide",
+  "meanings": [],
+  "readings": [
+   "トク"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "匿名",
+    "r": "とくめい",
+    "g": "anonymous",
+    "lit": "hide-name",
+    "reading": "トク",
+    "furigana": [
+     [
+      "匿",
+      "とく"
+     ],
+     [
+      "名",
+      "めい"
+     ]
+    ]
+   },
+   {
+    "w": "隠匿",
+    "r": "いんとく",
+    "g": "concealment",
+    "reading": "トク",
+    "furigana": [
+     [
+      "隠",
+      "いん"
+     ],
+     [
+      "匿",
+      "とく"
+     ]
+    ]
+   },
+   {
+    "w": "秘匿",
+    "r": "ひとく",
+    "g": "keeping secret",
+    "lit": "secret-hide",
+    "reading": "トク",
+    "furigana": [
+     [
+      "秘",
+      "ひ"
+     ],
+     [
+      "匿",
+      "とく"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Someone young 若 hidden in a box 匸.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "憧",
+  "keyword": "yearn",
+  "meanings": [
+   "admire"
+  ],
+  "readings": [
+   "あこが.れる",
+   "ショウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "憧れ",
+    "r": "あこがれ",
+    "g": "longing; admiration",
+    "reading": "あこが.れる",
+    "furigana": [
+     [
+      "憧",
+      "あこが"
+     ],
+     [
+      "れ",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "憧れる",
+    "r": "あこがれる",
+    "g": "to long for; admire",
+    "reading": "あこが.れる",
+    "furigana": [
+     [
+      "憧",
+      "あこが"
+     ],
+     [
+      "れ",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "憧れの的",
+    "r": "あこがれのまと",
+    "g": "object of admiration",
+    "reading": "あこが.れる",
+    "furigana": [
+     [
+      "憧",
+      "あこが"
+     ],
+     [
+      "れ",
+      ""
+     ],
+     [
+      "の",
+      ""
+     ],
+     [
+      "的",
+      "まと"
+     ]
+    ]
+   },
+   {
+    "w": "憧憬",
+    "r": "しょうけい",
+    "g": "longing; yearning",
+    "reading": "ショウ",
+    "furigana": [
+     [
+      "憧",
+      "しょう"
+     ],
+     [
+      "憬",
+      "けい"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A child's 童 heart 忄, full of longing.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "漏",
+  "keyword": "leak",
+  "meanings": [],
+  "readings": [
+   "も.れる",
+   "も.らす",
+   "も.る",
+   "ロウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "漏れる",
+    "r": "もれる",
+    "g": "to leak; slip out",
+    "reading": "も.れる",
+    "furigana": [
+     [
+      "漏",
+      "も"
+     ],
+     [
+      "れ",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "漏らす",
+    "r": "もらす",
+    "g": "to let leak; let slip",
+    "reading": "も.らす",
+    "furigana": [
+     [
+      "漏",
+      "も"
+     ],
+     [
+      "ら",
+      ""
+     ],
+     [
+      "す",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "雨漏り",
+    "r": "あまもり",
+    "g": "roof leak",
+    "lit": "rain-leak",
+    "reading": "も.る",
+    "furigana": [
+     [
+      "雨",
+      "あま"
+     ],
+     [
+      "漏",
+      "も"
+     ],
+     [
+      "り",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "漏電",
+    "r": "ろうでん",
+    "g": "electrical leak",
+    "lit": "leak-electricity",
+    "reading": "ロウ",
+    "furigana": [
+     [
+      "漏",
+      "ろう"
+     ],
+     [
+      "電",
+      "でん"
+     ]
+    ]
+   },
+   {
+    "w": "漏洩",
+    "r": "ろうえい",
+    "g": "leak (of secrets, data)",
+    "reading": "ロウ",
+    "furigana": [
+     [
+      "漏",
+      "ろう"
+     ],
+     [
+      "洩",
+      "えい"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "漏る",
+    "r": "もる",
+    "g": "to leak",
+    "reading": "も.る",
+    "furigana": [
+     [
+      "漏",
+      "も"
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "聞き漏らす",
+    "r": "ききもらす",
+    "g": "to miss hearing",
+    "lit": "listen-let slip",
+    "reading": "も.らす",
+    "furigana": [
+     [
+      "聞",
+      "き"
+     ],
+     [
+      "き",
+      ""
+     ],
+     [
+      "漏",
+      "も"
+     ],
+     [
+      "ら",
+      ""
+     ],
+     [
+      "す",
+      ""
+     ]
+    ]
+   }
+  ],
+  "story": "Rain 雨 dripping through a roof 尸 into water 氵.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "婆",
+  "keyword": "old woman",
+  "meanings": [],
+  "readings": [
+   "ばあ",
+   "バ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "お婆さん",
+    "r": "おばあさん",
+    "g": "grandmother; old woman",
+    "reading": "ばあ",
+    "furigana": [
+     [
+      "お",
+      ""
+     ],
+     [
+      "婆",
+      "ばあ"
+     ],
+     [
+      "さ",
+      ""
+     ],
+     [
+      "ん",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "婆さん",
+    "r": "ばあさん",
+    "g": "old woman",
+    "reading": "ばあ",
+    "furigana": [
+     [
+      "婆",
+      "ばあ"
+     ],
+     [
+      "さ",
+      ""
+     ],
+     [
+      "ん",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "老婆",
+    "r": "ろうば",
+    "g": "old woman",
+    "reading": "バ",
+    "furigana": [
+     [
+      "老",
+      "ろう"
+     ],
+     [
+      "婆",
+      "ば"
+     ]
+    ]
+   },
+   {
+    "w": "産婆",
+    "r": "さんば",
+    "g": "midwife",
+    "lit": "birth-woman",
+    "reading": "バ",
+    "furigana": [
+     [
+      "産",
+      "さん"
+     ],
+     [
+      "婆",
+      "ば"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A woman 女, with 波 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "渓",
+  "keyword": "mountain stream",
+  "meanings": [
+   "valley"
+  ],
+  "readings": [
+   "ケイ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "渓谷",
+    "r": "けいこく",
+    "g": "gorge; ravine",
+    "lit": "stream-valley",
+    "reading": "ケイ",
+    "furigana": [
+     [
+      "渓",
+      "けい"
+     ],
+     [
+      "谷",
+      "こく"
+     ]
+    ]
+   },
+   {
+    "w": "渓流",
+    "r": "けいりゅう",
+    "g": "mountain stream",
+    "lit": "stream-flow",
+    "reading": "ケイ",
+    "furigana": [
+     [
+      "渓",
+      "けい"
+     ],
+     [
+      "流",
+      "りゅう"
+     ]
+    ]
+   },
+   {
+    "w": "雪渓",
+    "r": "せっけい",
+    "g": "snow-filled gorge",
+    "lit": "snow-valley",
+    "reading": "ケイ",
+    "furigana": [
+     [
+      "雪",
+      "せっ"
+     ],
+     [
+      "渓",
+      "けい"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "酬",
+  "keyword": "repay",
+  "meanings": [
+   "reward"
+  ],
+  "readings": [
+   "シュウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "報酬",
+    "r": "ほうしゅう",
+    "g": "pay; reward",
+    "lit": "reward-repay",
+    "reading": "シュウ",
+    "furigana": [
+     [
+      "報",
+      "ほう"
+     ],
+     [
+      "酬",
+      "しゅう"
+     ]
+    ]
+   },
+   {
+    "w": "応酬",
+    "r": "おうしゅう",
+    "g": "exchange (of words, blows)",
+    "lit": "respond-repay",
+    "reading": "シュウ",
+    "furigana": [
+     [
+      "応",
+      "おう"
+     ],
+     [
+      "酬",
+      "しゅう"
+     ]
+    ]
+   },
+   {
+    "w": "無報酬",
+    "r": "むほうしゅう",
+    "g": "unpaid",
+    "reading": "シュウ",
+    "furigana": [
+     [
+      "無",
+      "む"
+     ],
+     [
+      "報",
+      "ほう"
+     ],
+     [
+      "酬",
+      "しゅう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Wine 酉 offered back in return for a toast.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "窟",
+  "keyword": "cave",
+  "meanings": [
+   "den"
+  ],
+  "readings": [
+   "クツ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "洞窟",
+    "r": "どうくつ",
+    "g": "cave",
+    "lit": "cave-cavern",
+    "reading": "クツ",
+    "furigana": [
+     [
+      "洞",
+      "どう"
+     ],
+     [
+      "窟",
+      "くつ"
+     ]
+    ]
+   },
+   {
+    "w": "巣窟",
+    "r": "そうくつ",
+    "g": "den; lair",
+    "lit": "nest-cave",
+    "reading": "クツ",
+    "furigana": [
+     [
+      "巣",
+      "そう"
+     ],
+     [
+      "窟",
+      "くつ"
+     ]
+    ]
+   },
+   {
+    "w": "岩窟",
+    "r": "がんくつ",
+    "g": "rock cave",
+    "lit": "rock-cave",
+    "reading": "クツ",
+    "furigana": [
+     [
+      "岩",
+      "がん"
+     ],
+     [
+      "窟",
+      "くつ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A hole 穴 you must bend 屈 down to enter.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "丼",
+  "keyword": "bowl",
+  "meanings": [
+   "rice bowl dish"
+  ],
+  "readings": [
+   "どんぶり",
+   "どん"
+  ],
+  "alone": {
+   "r": "どんぶり",
+   "g": "bowl; rice bowl dish",
+   "reading": "どんぶり"
+  },
+  "words": [
+   {
+    "w": "牛丼",
+    "r": "ぎゅうどん",
+    "g": "beef rice bowl",
+    "lit": "beef-bowl",
+    "reading": "どん",
+    "furigana": [
+     [
+      "牛",
+      "ぎゅう"
+     ],
+     [
+      "丼",
+      "どん"
+     ]
+    ]
+   },
+   {
+    "w": "天丼",
+    "r": "てんどん",
+    "g": "tempura rice bowl",
+    "lit": "tempura-bowl",
+    "reading": "どん",
+    "furigana": [
+     [
+      "天",
+      "てん"
+     ],
+     [
+      "丼",
+      "どん"
+     ]
+    ]
+   },
+   {
+    "w": "親子丼",
+    "r": "おやこどん",
+    "g": "chicken and egg rice bowl",
+    "lit": "parent-child-bowl",
+    "reading": "どん",
+    "furigana": [
+     [
+      "親",
+      "おや"
+     ],
+     [
+      "子",
+      "こ"
+     ],
+     [
+      "丼",
+      "どん"
+     ]
+    ]
+   },
+   {
+    "w": "カツ丼",
+    "r": "カツどん",
+    "g": "pork cutlet rice bowl",
+    "reading": "どん",
+    "furigana": [
+     [
+      "カ",
+      ""
+     ],
+     [
+      "ツ",
+      ""
+     ],
+     [
+      "丼",
+      "どん"
+     ]
+    ]
+   },
+   {
+    "w": "丼物",
+    "r": "どんぶりもの",
+    "g": "rice bowl dishes",
+    "reading": "どんぶり",
+    "furigana": [
+     [
+      "丼",
+      "どんぶり"
+     ],
+     [
+      "物",
+      "もの"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A stone 丶 dropped into a well 井: どぶん!",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "飢",
+  "keyword": "starve",
+  "meanings": [
+   "hunger"
+  ],
+  "readings": [
+   "う.える",
+   "キ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "飢え",
+    "r": "うえ",
+    "g": "hunger; starvation",
+    "reading": "う.える",
+    "furigana": [
+     [
+      "飢",
+      "う"
+     ],
+     [
+      "え",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "飢える",
+    "r": "うえる",
+    "g": "to starve; hunger for",
+    "reading": "う.える",
+    "furigana": [
+     [
+      "飢",
+      "う"
+     ],
+     [
+      "え",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "飢餓",
+    "r": "きが",
+    "g": "starvation; famine",
+    "reading": "キ",
+    "furigana": [
+     [
+      "飢",
+      "き"
+     ],
+     [
+      "餓",
+      "が"
+     ]
+    ]
+   },
+   {
+    "w": "飢え死に",
+    "r": "うえじに",
+    "g": "starving to death",
+    "lit": "starve-death",
+    "reading": "う.える",
+    "furigana": [
+     [
+      "飢",
+      "う"
+     ],
+     [
+      "え",
+      ""
+     ],
+     [
+      "死",
+      "じ"
+     ],
+     [
+      "に",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "飢饉",
+    "r": "ききん",
+    "g": "famine",
+    "reading": "キ",
+    "furigana": [
+     [
+      "飢",
+      "き"
+     ],
+     [
+      "饉",
+      "きん"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Food 飠 and an empty table 几.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "駄",
+  "keyword": "worthless",
+  "meanings": [
+   "packhorse load"
+  ],
+  "readings": [
+   "ダ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "無駄",
+    "r": "むだ",
+    "g": "waste; no use",
+    "reading": "ダ",
+    "furigana": [
+     [
+      "無",
+      "む"
+     ],
+     [
+      "駄",
+      "だ"
+     ]
+    ]
+   },
+   {
+    "w": "駄目",
+    "r": "だめ",
+    "g": "no good; not allowed",
+    "reading": "ダ",
+    "furigana": [
+     [
+      "駄",
+      "だ"
+     ],
+     [
+      "目",
+      "め"
+     ]
+    ]
+   },
+   {
+    "w": "無駄遣い",
+    "r": "むだづかい",
+    "g": "waste (of money, time)",
+    "reading": "ダ",
+    "furigana": [
+     [
+      "無",
+      "む"
+     ],
+     [
+      "駄",
+      "だ"
+     ],
+     [
+      "遣",
+      "づか"
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "下駄",
+    "r": "げた",
+    "g": "geta (wooden clogs)",
+    "reading": "ダ",
+    "furigana": [
+     [
+      "下",
+      "げ"
+     ],
+     [
+      "駄",
+      "た"
+     ]
+    ]
+   },
+   {
+    "w": "駄菓子",
+    "r": "だがし",
+    "g": "cheap sweets",
+    "lit": "worthless-sweets",
+    "reading": "ダ",
+    "furigana": [
+     [
+      "駄",
+      "だ"
+     ],
+     [
+      "菓",
+      "が"
+     ],
+     [
+      "子",
+      "し"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "駄菓子屋",
+    "r": "だがしや",
+    "g": "cheap-sweets shop",
+    "reading": "ダ",
+    "furigana": [
+     [
+      "駄",
+      "だ"
+     ],
+     [
+      "菓",
+      "が"
+     ],
+     [
+      "子",
+      "し"
+     ],
+     [
+      "屋",
+      "や"
+     ]
+    ]
+   },
+   {
+    "w": "駄作",
+    "r": "ださく",
+    "g": "trashy work",
+    "lit": "worthless-work",
+    "reading": "ダ",
+    "furigana": [
+     [
+      "駄",
+      "だ"
+     ],
+     [
+      "作",
+      "さく"
+     ]
+    ]
+   },
+   {
+    "w": "駄洒落",
+    "r": "だじゃれ",
+    "g": "pun; bad joke",
+    "lit": "worthless-witty",
+    "reading": "ダ",
+    "furigana": [
+     [
+      "駄",
+      "だ"
+     ],
+     [
+      "洒",
+      "じゃ"
+     ],
+     [
+      "落",
+      "れ"
+     ]
+    ]
+   }
+  ],
+  "story": "A horse 馬 with a thick 太 load: a packhorse.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "瞳",
+  "keyword": "pupil (of the eye)",
+  "meanings": [],
+  "readings": [
+   "ひとみ",
+   "ドウ"
+  ],
+  "alone": {
+   "r": "ひとみ",
+   "g": "pupil; eyes",
+   "reading": "ひとみ"
+  },
+  "words": [
+   {
+    "w": "瞳孔",
+    "r": "どうこう",
+    "g": "pupil (medical)",
+    "lit": "pupil-hole",
+    "reading": "ドウ",
+    "furigana": [
+     [
+      "瞳",
+      "どう"
+     ],
+     [
+      "孔",
+      "こう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "The eye 目 of a child 童.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "舷",
+  "keyword": "side of a ship",
+  "meanings": [
+   "gunwale"
+  ],
+  "readings": [
+   "ゲン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "右舷",
+    "r": "うげん",
+    "g": "starboard",
+    "lit": "right-ship's side",
+    "reading": "ゲン",
+    "furigana": [
+     [
+      "右",
+      "う"
+     ],
+     [
+      "舷",
+      "げん"
+     ]
+    ]
+   },
+   {
+    "w": "左舷",
+    "r": "さげん",
+    "g": "port (side)",
+    "lit": "left-ship's side",
+    "reading": "ゲン",
+    "furigana": [
+     [
+      "左",
+      "さ"
+     ],
+     [
+      "舷",
+      "げん"
+     ]
+    ]
+   },
+   {
+    "w": "舷側",
+    "r": "げんそく",
+    "g": "ship's side",
+    "reading": "ゲン",
+    "furigana": [
+     [
+      "舷",
+      "げん"
+     ],
+     [
+      "側",
+      "そく"
+     ]
+    ]
+   },
+   {
+    "w": "舷窓",
+    "r": "げんそう",
+    "g": "porthole",
+    "lit": "ship's side-window",
+    "reading": "ゲン",
+    "furigana": [
+     [
+      "舷",
+      "げん"
+     ],
+     [
+      "窓",
+      "そう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A boat 舟, with 玄 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "詠",
+  "keyword": "compose (a poem)",
+  "meanings": [
+   "recite"
+  ],
+  "readings": [
+   "よ.む",
+   "エイ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "詠む",
+    "r": "よむ",
+    "g": "to compose (a poem)",
+    "reading": "よ.む",
+    "furigana": [
+     [
+      "詠",
+      "よ"
+     ],
+     [
+      "む",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "詠唱",
+    "r": "えいしょう",
+    "g": "chanting; aria",
+    "lit": "recite-sing",
+    "reading": "エイ",
+    "furigana": [
+     [
+      "詠",
+      "えい"
+     ],
+     [
+      "唱",
+      "しょう"
+     ]
+    ]
+   },
+   {
+    "w": "朗詠",
+    "r": "ろうえい",
+    "g": "reciting (poetry)",
+    "lit": "clear-recite",
+    "reading": "エイ",
+    "furigana": [
+     [
+      "朗",
+      "ろう"
+     ],
+     [
+      "詠",
+      "えい"
+     ]
+    ]
+   },
+   {
+    "w": "吟詠",
+    "r": "ぎんえい",
+    "g": "reciting poetry",
+    "reading": "エイ",
+    "furigana": [
+     [
+      "吟",
+      "ぎん"
+     ],
+     [
+      "詠",
+      "えい"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Words 言 drawn out long 永: chanting a poem.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "痴",
+  "keyword": "foolish",
+  "meanings": [],
+  "readings": [
+   "チ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "痴漢",
+    "r": "ちかん",
+    "g": "groper; molester",
+    "lit": "foolish-man",
+    "reading": "チ",
+    "furigana": [
+     [
+      "痴",
+      "ち"
+     ],
+     [
+      "漢",
+      "かん"
+     ]
+    ]
+   },
+   {
+    "w": "愚痴",
+    "r": "ぐち",
+    "g": "grumbling; complaint",
+    "reading": "チ",
+    "furigana": [
+     [
+      "愚",
+      "ぐ"
+     ],
+     [
+      "痴",
+      "ち"
+     ]
+    ]
+   },
+   {
+    "w": "音痴",
+    "r": "おんち",
+    "g": "tone-deaf",
+    "lit": "sound-foolish",
+    "reading": "チ",
+    "furigana": [
+     [
+      "音",
+      "おん"
+     ],
+     [
+      "痴",
+      "ち"
+     ]
+    ]
+   },
+   {
+    "w": "痴呆",
+    "r": "ちほう",
+    "g": "dementia",
+    "reading": "チ",
+    "furigana": [
+     [
+      "痴",
+      "ち"
+     ],
+     [
+      "呆",
+      "ほう"
+     ]
+    ]
+   },
+   {
+    "w": "方向音痴",
+    "r": "ほうこうおんち",
+    "g": "no sense of direction",
+    "reading": "チ",
+    "furigana": [
+     [
+      "方",
+      "ほう"
+     ],
+     [
+      "向",
+      "こう"
+     ],
+     [
+      "音",
+      "おん"
+     ],
+     [
+      "痴",
+      "ち"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A sickness 疒 of the knowing 知 mind.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "戚",
+  "keyword": "relatives",
+  "meanings": [],
+  "readings": [
+   "セキ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "親戚",
+    "r": "しんせき",
+    "g": "relative",
+    "lit": "kin-relative",
+    "reading": "セキ",
+    "furigana": [
+     [
+      "親",
+      "しん"
+     ],
+     [
+      "戚",
+      "せき"
+     ]
+    ]
+   },
+   {
+    "w": "姻戚",
+    "r": "いんせき",
+    "g": "in-laws",
+    "lit": "marriage-relative",
+    "reading": "セキ",
+    "furigana": [
+     [
+      "姻",
+      "いん"
+     ],
+     [
+      "戚",
+      "せき"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "堆",
+  "keyword": "pile up",
+  "meanings": [],
+  "readings": [
+   "タイ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "堆積",
+    "r": "たいせき",
+    "g": "accumulation; deposit",
+    "lit": "pile-pile up",
+    "reading": "タイ",
+    "furigana": [
+     [
+      "堆",
+      "たい"
+     ],
+     [
+      "積",
+      "せき"
+     ]
+    ]
+   },
+   {
+    "w": "堆肥",
+    "r": "たいひ",
+    "g": "compost",
+    "lit": "pile-fertilizer",
+    "reading": "タイ",
+    "furigana": [
+     [
+      "堆",
+      "たい"
+     ],
+     [
+      "肥",
+      "ひ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Earth 土 heaped up; 隹 gives the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "煮",
+  "keyword": "boil",
+  "meanings": [
+   "simmer"
+  ],
+  "readings": [
+   "に.る",
+   "に.える",
+   "に.やす",
+   "シャ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "煮る",
+    "r": "にる",
+    "g": "to boil; simmer",
+    "reading": "に.る",
+    "furigana": [
+     [
+      "煮",
+      "に"
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "煮物",
+    "r": "にもの",
+    "g": "simmered dish",
+    "lit": "simmer-thing",
+    "reading": "に.る",
+    "furigana": [
+     [
+      "煮",
+      "に"
+     ],
+     [
+      "物",
+      "もの"
+     ]
+    ]
+   },
+   {
+    "w": "煮込む",
+    "r": "にこむ",
+    "g": "to stew",
+    "lit": "simmer-into",
+    "reading": "に.る",
+    "furigana": [
+     [
+      "煮",
+      "に"
+     ],
+     [
+      "込",
+      "こ"
+     ],
+     [
+      "む",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "雑煮",
+    "r": "ぞうに",
+    "g": "New Year's mochi soup",
+    "lit": "mixed-simmer",
+    "reading": "に.る",
+    "furigana": [
+     [
+      "雑",
+      "ぞう"
+     ],
+     [
+      "煮",
+      "に"
+     ]
+    ]
+   },
+   {
+    "w": "煮える",
+    "r": "にえる",
+    "g": "to be cooked; boil",
+    "reading": "に.える",
+    "furigana": [
+     [
+      "煮",
+      "に"
+     ],
+     [
+      "え",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "煮詰める",
+    "r": "につめる",
+    "g": "to boil down; finalize",
+    "lit": "simmer-pack",
+    "reading": "に.る",
+    "furigana": [
+     [
+      "煮",
+      "に"
+     ],
+     [
+      "詰",
+      "つ"
+     ],
+     [
+      "め",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "煮やす",
+    "r": "にやす",
+    "g": "to boil (as in 業を煮やす)",
+    "reading": "に.やす",
+    "furigana": [
+     [
+      "煮",
+      "に"
+     ],
+     [
+      "や",
+      ""
+     ],
+     [
+      "す",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "煮沸",
+    "r": "しゃふつ",
+    "g": "boiling (to sterilize)",
+    "lit": "boil-boil",
+    "reading": "シャ",
+    "furigana": [
+     [
+      "煮",
+      "しゃ"
+     ],
+     [
+      "沸",
+      "ふつ"
+     ]
+    ]
+   }
+  ],
+  "story": "A person 者 cooking over a fire 灬.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "拷",
+  "keyword": "torture",
+  "meanings": [],
+  "readings": [
+   "ゴウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "拷問",
+    "r": "ごうもん",
+    "g": "torture",
+    "lit": "beat-question",
+    "reading": "ゴウ",
+    "furigana": [
+     [
+      "拷",
+      "ごう"
+     ],
+     [
+      "問",
+      "もん"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A hand 扌 striking; 考 gives the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "睦",
+  "keyword": "harmonious",
+  "meanings": [],
+  "readings": [
+   "ボク",
+   "むつ.まじい"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "親睦",
+    "r": "しんぼく",
+    "g": "friendship; fellowship",
+    "lit": "intimate-harmonious",
+    "reading": "ボク",
+    "furigana": [
+     [
+      "親",
+      "しん"
+     ],
+     [
+      "睦",
+      "ぼく"
+     ]
+    ]
+   },
+   {
+    "w": "睦まじい",
+    "r": "むつまじい",
+    "g": "harmonious; affectionate",
+    "reading": "むつ.まじい",
+    "furigana": [
+     [
+      "睦",
+      "むつ"
+     ],
+     [
+      "ま",
+      ""
+     ],
+     [
+      "じ",
+      ""
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "和睦",
+    "r": "わぼく",
+    "g": "reconciliation; peace",
+    "lit": "peace-harmonious",
+    "reading": "ボク",
+    "furigana": [
+     [
+      "和",
+      "わ"
+     ],
+     [
+      "睦",
+      "ぼく"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "畳",
+  "keyword": "tatami mat",
+  "meanings": [
+   "fold"
+  ],
+  "readings": [
+   "たたみ",
+   "たた.む",
+   "ジョウ"
+  ],
+  "alone": {
+   "r": "たたみ",
+   "g": "tatami mat",
+   "reading": "たたみ"
+  },
+  "words": [
+   {
+    "w": "畳む",
+    "r": "たたむ",
+    "g": "to fold (up)",
+    "reading": "たた.む",
+    "furigana": [
+     [
+      "畳",
+      "たた"
+     ],
+     [
+      "む",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "四畳半",
+    "r": "よじょうはん",
+    "g": "four-and-a-half-mat room",
+    "lit": "four-mat-half",
+    "reading": "ジョウ",
+    "furigana": [
+     [
+      "四",
+      "よ"
+     ],
+     [
+      "畳",
+      "じょう"
+     ],
+     [
+      "半",
+      "はん"
+     ]
+    ]
+   },
+   {
+    "w": "六畳",
+    "r": "ろくじょう",
+    "g": "six-mat room",
+    "lit": "six-mat",
+    "reading": "ジョウ",
+    "furigana": [
+     [
+      "六",
+      "ろく"
+     ],
+     [
+      "畳",
+      "じょう"
+     ]
+    ]
+   },
+   {
+    "w": "折り畳む",
+    "r": "おりたたむ",
+    "g": "to fold up",
+    "lit": "fold-fold",
+    "reading": "たた.む",
+    "furigana": [
+     [
+      "折",
+      "お"
+     ],
+     [
+      "り",
+      ""
+     ],
+     [
+      "畳",
+      "たた"
+     ],
+     [
+      "む",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "石畳",
+    "r": "いしだたみ",
+    "g": "stone pavement",
+    "lit": "stone-mat",
+    "reading": "たたみ",
+    "furigana": [
+     [
+      "石",
+      "いし"
+     ],
+     [
+      "畳",
+      "だたみ"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "折り畳み傘",
+    "r": "おりたたみがさ",
+    "g": "folding umbrella",
+    "reading": "たた.む",
+    "furigana": [
+     [
+      "折",
+      "お"
+     ],
+     [
+      "り",
+      ""
+     ],
+     [
+      "畳",
+      "たた"
+     ],
+     [
+      "み",
+      ""
+     ],
+     [
+      "傘",
+      "がさ"
+     ]
+    ]
+   }
+  ],
+  "story": "Fields 田 piled up in layers 且 under a cover 冖.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "閥",
+  "keyword": "clique",
+  "meanings": [
+   "faction"
+  ],
+  "readings": [
+   "バツ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "派閥",
+    "r": "はばつ",
+    "g": "faction; clique",
+    "lit": "faction-clique",
+    "reading": "バツ",
+    "furigana": [
+     [
+      "派",
+      "は"
+     ],
+     [
+      "閥",
+      "ばつ"
+     ]
+    ]
+   },
+   {
+    "w": "財閥",
+    "r": "ざいばつ",
+    "g": "zaibatsu; business conglomerate",
+    "lit": "wealth-clique",
+    "reading": "バツ",
+    "furigana": [
+     [
+      "財",
+      "ざい"
+     ],
+     [
+      "閥",
+      "ばつ"
+     ]
+    ]
+   },
+   {
+    "w": "学閥",
+    "r": "がくばつ",
+    "g": "old-school network",
+    "lit": "school-clique",
+    "reading": "バツ",
+    "furigana": [
+     [
+      "学",
+      "がく"
+     ],
+     [
+      "閥",
+      "ばつ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Once a family's war merits 伐, displayed at its gate 門.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "褐",
+  "keyword": "brown",
+  "meanings": [],
+  "readings": [
+   "カツ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "褐色",
+    "r": "かっしょく",
+    "g": "brown; dark brown",
+    "lit": "brown-color",
+    "reading": "カツ",
+    "furigana": [
+     [
+      "褐",
+      "かっ"
+     ],
+     [
+      "色",
+      "しょく"
+     ]
+    ]
+   },
+   {
+    "w": "茶褐色",
+    "r": "ちゃかっしょく",
+    "g": "reddish brown",
+    "lit": "tea-brown-color",
+    "reading": "カツ",
+    "furigana": [
+     [
+      "茶",
+      "ちゃ"
+     ],
+     [
+      "褐",
+      "かっ"
+     ],
+     [
+      "色",
+      "しょく"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Once coarse brown cloth 衤 worn by the poor.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "沸",
+  "keyword": "boil",
+  "meanings": [],
+  "readings": [
+   "わ.く",
+   "わ.かす",
+   "フツ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "沸く",
+    "r": "わく",
+    "g": "to boil; get excited",
+    "reading": "わ.く",
+    "furigana": [
+     [
+      "沸",
+      "わ"
+     ],
+     [
+      "く",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "沸かす",
+    "r": "わかす",
+    "g": "to boil (water)",
+    "reading": "わ.かす",
+    "furigana": [
+     [
+      "沸",
+      "わ"
+     ],
+     [
+      "か",
+      ""
+     ],
+     [
+      "す",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "沸騰",
+    "r": "ふっとう",
+    "g": "boiling",
+    "lit": "boil-leap",
+    "reading": "フツ",
+    "furigana": [
+     [
+      "沸",
+      "ふっ"
+     ],
+     [
+      "騰",
+      "とう"
+     ]
+    ]
+   },
+   {
+    "w": "湯沸かし器",
+    "r": "ゆわかしき",
+    "g": "water heater",
+    "lit": "hot water-boil-device",
+    "reading": "わ.かす",
+    "furigana": [
+     [
+      "湯",
+      "ゆ"
+     ],
+     [
+      "沸",
+      "わ"
+     ],
+     [
+      "か",
+      ""
+     ],
+     [
+      "し",
+      ""
+     ],
+     [
+      "器",
+      "き"
+     ]
+    ]
+   },
+   {
+    "w": "煮沸",
+    "r": "しゃふつ",
+    "g": "boiling (to sterilize)",
+    "lit": "boil-boil",
+    "reading": "フツ",
+    "furigana": [
+     [
+      "煮",
+      "しゃ"
+     ],
+     [
+      "沸",
+      "ふつ"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "沸点",
+    "r": "ふってん",
+    "g": "boiling point",
+    "lit": "boil-point",
+    "reading": "フツ",
+    "furigana": [
+     [
+      "沸",
+      "ふっ"
+     ],
+     [
+      "点",
+      "てん"
+     ]
+    ]
+   }
+  ],
+  "story": "Water 氵 bubbling up; 弗 gives the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "鉛",
+  "keyword": "lead (metal)",
+  "meanings": [],
+  "readings": [
+   "エン",
+   "なまり"
+  ],
+  "alone": {
+   "r": "なまり",
+   "g": "lead (metal)",
+   "reading": "なまり"
+  },
+  "words": [
+   {
+    "w": "鉛筆",
+    "r": "えんぴつ",
+    "g": "pencil",
+    "lit": "lead-brush",
+    "reading": "エン",
+    "furigana": [
+     [
+      "鉛",
+      "えん"
+     ],
+     [
+      "筆",
+      "ぴつ"
+     ]
+    ]
+   },
+   {
+    "w": "亜鉛",
+    "r": "あえん",
+    "g": "zinc",
+    "lit": "sub-lead",
+    "reading": "エン",
+    "furigana": [
+     [
+      "亜",
+      "あ"
+     ],
+     [
+      "鉛",
+      "えん"
+     ]
+    ]
+   },
+   {
+    "w": "黒鉛",
+    "r": "こくえん",
+    "g": "graphite",
+    "lit": "black-lead",
+    "reading": "エン",
+    "furigana": [
+     [
+      "黒",
+      "こく"
+     ],
+     [
+      "鉛",
+      "えん"
+     ]
+    ]
+   },
+   {
+    "w": "鉛色",
+    "r": "なまりいろ",
+    "g": "lead gray",
+    "lit": "lead-color",
+    "reading": "なまり",
+    "furigana": [
+     [
+      "鉛",
+      "なまり"
+     ],
+     [
+      "色",
+      "いろ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "耗",
+  "keyword": "wear down",
+  "meanings": [],
+  "readings": [
+   "モウ",
+   "コウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "消耗",
+    "r": "しょうもう",
+    "g": "exhaustion; wear",
+    "lit": "use up-wear down",
+    "reading": "モウ",
+    "furigana": [
+     [
+      "消",
+      "しょう"
+     ],
+     [
+      "耗",
+      "もう"
+     ]
+    ]
+   },
+   {
+    "w": "消耗品",
+    "r": "しょうもうひん",
+    "g": "consumables",
+    "reading": "モウ",
+    "furigana": [
+     [
+      "消",
+      "しょう"
+     ],
+     [
+      "耗",
+      "もう"
+     ],
+     [
+      "品",
+      "ひん"
+     ]
+    ]
+   },
+   {
+    "w": "摩耗",
+    "r": "まもう",
+    "g": "wear (and tear)",
+    "lit": "rub-wear down",
+    "reading": "モウ",
+    "furigana": [
+     [
+      "摩",
+      "ま"
+     ],
+     [
+      "耗",
+      "もう"
+     ]
+    ]
+   },
+   {
+    "w": "心神耗弱",
+    "r": "しんしんこうじゃく",
+    "g": "diminished capacity (legal)",
+    "reading": "コウ",
+    "furigana": [
+     [
+      "心",
+      "しん"
+     ],
+     [
+      "神",
+      "しん"
+     ],
+     [
+      "耗",
+      "こう"
+     ],
+     [
+      "弱",
+      "じゃく"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "湧",
+  "keyword": "well up",
+  "meanings": [
+   "gush"
+  ],
+  "readings": [
+   "わ.く",
+   "ユウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "湧く",
+    "r": "わく",
+    "g": "to well up; spring up",
+    "reading": "わ.く",
+    "furigana": [
+     [
+      "湧",
+      "わ"
+     ],
+     [
+      "く",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "湧き水",
+    "r": "わきみず",
+    "g": "spring water",
+    "lit": "well up-water",
+    "reading": "わ.く",
+    "furigana": [
+     [
+      "湧",
+      "わ"
+     ],
+     [
+      "き",
+      ""
+     ],
+     [
+      "水",
+      "みず"
+     ]
+    ]
+   },
+   {
+    "w": "湧き出る",
+    "r": "わきでる",
+    "g": "to gush out",
+    "lit": "well up-come out",
+    "reading": "わ.く",
+    "furigana": [
+     [
+      "湧",
+      "わ"
+     ],
+     [
+      "き",
+      ""
+     ],
+     [
+      "出",
+      "で"
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "湧水",
+    "r": "ゆうすい",
+    "g": "spring water",
+    "lit": "well up-water",
+    "reading": "ユウ",
+    "furigana": [
+     [
+      "湧",
+      "ゆう"
+     ],
+     [
+      "水",
+      "すい"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Water 氵 surging up with courage 勇.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "翁",
+  "keyword": "old man",
+  "meanings": [],
+  "readings": [
+   "おきな",
+   "オウ"
+  ],
+  "alone": {
+   "r": "おきな",
+   "g": "old man (venerable)",
+   "reading": "おきな"
+  },
+  "words": [
+   {
+    "w": "老翁",
+    "r": "ろうおう",
+    "g": "old man",
+    "lit": "old-old man",
+    "reading": "オウ",
+    "furigana": [
+     [
+      "老",
+      "ろう"
+     ],
+     [
+      "翁",
+      "おう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Once the neck feathers 羽 of a bird; 公 gives the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "罰",
+  "keyword": "punishment",
+  "meanings": [],
+  "readings": [
+   "バツ",
+   "バチ"
+  ],
+  "alone": {
+   "r": "ばつ",
+   "g": "punishment",
+   "reading": "バツ"
+  },
+  "words": [
+   {
+    "w": "罰金",
+    "r": "ばっきん",
+    "g": "fine; penalty",
+    "lit": "punish-money",
+    "reading": "バツ",
+    "furigana": [
+     [
+      "罰",
+      "ばっ"
+     ],
+     [
+      "金",
+      "きん"
+     ]
+    ]
+   },
+   {
+    "w": "処罰",
+    "r": "しょばつ",
+    "g": "punishment",
+    "lit": "deal with-punish",
+    "reading": "バツ",
+    "furigana": [
+     [
+      "処",
+      "しょ"
+     ],
+     [
+      "罰",
+      "ばつ"
+     ]
+    ]
+   },
+   {
+    "w": "罰則",
+    "r": "ばっそく",
+    "g": "penalty (rule)",
+    "lit": "punish-rule",
+    "reading": "バツ",
+    "furigana": [
+     [
+      "罰",
+      "ばっ"
+     ],
+     [
+      "則",
+      "そく"
+     ]
+    ]
+   },
+   {
+    "w": "体罰",
+    "r": "たいばつ",
+    "g": "corporal punishment",
+    "lit": "body-punish",
+    "reading": "バツ",
+    "furigana": [
+     [
+      "体",
+      "たい"
+     ],
+     [
+      "罰",
+      "ばつ"
+     ]
+    ]
+   },
+   {
+    "w": "罰する",
+    "r": "ばっする",
+    "g": "to punish",
+    "reading": "バツ",
+    "furigana": [
+     [
+      "罰",
+      "ばっ"
+     ],
+     [
+      "す",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "罰当たり",
+    "r": "ばちあたり",
+    "g": "cursed; damned",
+    "lit": "punishment-hit",
+    "reading": "バチ",
+    "furigana": [
+     [
+      "罰",
+      "ばち"
+     ],
+     [
+      "当",
+      "あ"
+     ],
+     [
+      "た",
+      ""
+     ],
+     [
+      "り",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "刑罰",
+    "r": "けいばつ",
+    "g": "(criminal) punishment",
+    "lit": "penalty-punish",
+    "reading": "バツ",
+    "furigana": [
+     [
+      "刑",
+      "けい"
+     ],
+     [
+      "罰",
+      "ばつ"
+     ]
+    ]
+   },
+   {
+    "w": "懲罰",
+    "r": "ちょうばつ",
+    "g": "disciplinary punishment",
+    "reading": "バツ",
+    "furigana": [
+     [
+      "懲",
+      "ちょう"
+     ],
+     [
+      "罰",
+      "ばつ"
+     ]
+    ]
+   },
+   {
+    "w": "天罰",
+    "r": "てんばつ",
+    "g": "divine punishment",
+    "lit": "heaven-punish",
+    "reading": "バツ",
+    "furigana": [
+     [
+      "天",
+      "てん"
+     ],
+     [
+      "罰",
+      "ばつ"
+     ]
+    ]
+   },
+   {
+    "w": "厳罰",
+    "r": "げんばつ",
+    "g": "severe punishment",
+    "lit": "strict-punish",
+    "reading": "バツ",
+    "furigana": [
+     [
+      "厳",
+      "げん"
+     ],
+     [
+      "罰",
+      "ばつ"
+     ]
+    ]
+   },
+   {
+    "w": "賞罰",
+    "r": "しょうばつ",
+    "g": "reward and punishment",
+    "lit": "prize-punish",
+    "reading": "バツ",
+    "furigana": [
+     [
+      "賞",
+      "しょう"
+     ],
+     [
+      "罰",
+      "ばつ"
+     ]
+    ]
+   }
+  ],
+  "story": "Words 言 and a knife 刂 under a net 罒: a sentence passed.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "挫",
+  "keyword": "crush",
+  "meanings": [
+   "sprain",
+   "be discouraged"
+  ],
+  "readings": [
+   "ザ",
+   "くじ.く",
+   "くじ.ける"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "挫折",
+    "r": "ざせつ",
+    "g": "setback; failure",
+    "lit": "crush-break",
+    "reading": "ザ",
+    "furigana": [
+     [
+      "挫",
+      "ざ"
+     ],
+     [
+      "折",
+      "せつ"
+     ]
+    ]
+   },
+   {
+    "w": "捻挫",
+    "r": "ねんざ",
+    "g": "sprain",
+    "lit": "twist-sprain",
+    "reading": "ザ",
+    "furigana": [
+     [
+      "捻",
+      "ねん"
+     ],
+     [
+      "挫",
+      "ざ"
+     ]
+    ]
+   },
+   {
+    "w": "挫く",
+    "r": "くじく",
+    "g": "to sprain; crush (hopes)",
+    "reading": "くじ.く",
+    "furigana": [
+     [
+      "挫",
+      "くじ"
+     ],
+     [
+      "く",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "挫ける",
+    "r": "くじける",
+    "g": "to lose heart",
+    "reading": "くじ.ける",
+    "furigana": [
+     [
+      "挫",
+      "くじ"
+     ],
+     [
+      "け",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A hand 扌 forcing someone to sit 坐 down.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "淫",
+  "keyword": "lewd",
+  "meanings": [],
+  "readings": [
+   "イン",
+   "みだ.ら"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "淫ら",
+    "r": "みだら",
+    "g": "lewd; indecent",
+    "reading": "みだ.ら",
+    "furigana": [
+     [
+      "淫",
+      "みだ"
+     ],
+     [
+      "ら",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "淫乱",
+    "r": "いんらん",
+    "g": "lewd; lustful",
+    "lit": "lewd-disorder",
+    "reading": "イン",
+    "furigana": [
+     [
+      "淫",
+      "いん"
+     ],
+     [
+      "乱",
+      "らん"
+     ]
+    ]
+   },
+   {
+    "w": "淫行",
+    "r": "いんこう",
+    "g": "indecent act",
+    "lit": "lewd-act",
+    "reading": "イン",
+    "furigana": [
+     [
+      "淫",
+      "いん"
+     ],
+     [
+      "行",
+      "こう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "驚",
+  "keyword": "be surprised",
+  "meanings": [
+   "amaze"
+  ],
+  "readings": [
+   "おどろ.く",
+   "キョウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "驚く",
+    "r": "おどろく",
+    "g": "to be surprised",
+    "reading": "おどろ.く",
+    "furigana": [
+     [
+      "驚",
+      "おどろ"
+     ],
+     [
+      "く",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "驚き",
+    "r": "おどろき",
+    "g": "surprise; amazement",
+    "reading": "おどろ.く",
+    "furigana": [
+     [
+      "驚",
+      "おどろ"
+     ],
+     [
+      "き",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "驚異",
+    "r": "きょうい",
+    "g": "wonder; marvel",
+    "lit": "surprise-strange",
+    "reading": "キョウ",
+    "furigana": [
+     [
+      "驚",
+      "きょう"
+     ],
+     [
+      "異",
+      "い"
+     ]
+    ]
+   },
+   {
+    "w": "驚かす",
+    "r": "おどろかす",
+    "g": "to surprise; startle",
+    "reading": "おどろ.く",
+    "furigana": [
+     [
+      "驚",
+      "おどろ"
+     ],
+     [
+      "か",
+      ""
+     ],
+     [
+      "す",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "驚嘆",
+    "r": "きょうたん",
+    "g": "admiration; wonder",
+    "lit": "surprise-sigh",
+    "reading": "キョウ",
+    "furigana": [
+     [
+      "驚",
+      "きょう"
+     ],
+     [
+      "嘆",
+      "たん"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "驚異的",
+    "r": "きょういてき",
+    "g": "amazing; phenomenal",
+    "reading": "キョウ",
+    "furigana": [
+     [
+      "驚",
+      "きょう"
+     ],
+     [
+      "異",
+      "い"
+     ],
+     [
+      "的",
+      "てき"
+     ]
+    ]
+   },
+   {
+    "w": "驚くほど",
+    "r": "おどろくほど",
+    "g": "surprisingly",
+    "reading": "おどろ.く",
+    "furigana": [
+     [
+      "驚",
+      "おどろ"
+     ],
+     [
+      "く",
+      ""
+     ],
+     [
+      "ほ",
+      ""
+     ],
+     [
+      "ど",
+      ""
+     ]
+    ]
+   }
+  ],
+  "story": "A horse 馬 startled; 敬 gives the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "蛍",
+  "keyword": "firefly",
+  "meanings": [],
+  "readings": [
+   "ほたる",
+   "ケイ"
+  ],
+  "alone": {
+   "r": "ほたる",
+   "g": "firefly",
+   "reading": "ほたる"
+  },
+  "words": [
+   {
+    "w": "蛍光灯",
+    "r": "けいこうとう",
+    "g": "fluorescent lamp",
+    "lit": "firefly-light-lamp",
+    "reading": "ケイ",
+    "furigana": [
+     [
+      "蛍",
+      "けい"
+     ],
+     [
+      "光",
+      "こう"
+     ],
+     [
+      "灯",
+      "とう"
+     ]
+    ]
+   },
+   {
+    "w": "蛍光",
+    "r": "けいこう",
+    "g": "fluorescence",
+    "lit": "firefly-light",
+    "reading": "ケイ",
+    "furigana": [
+     [
+      "蛍",
+      "けい"
+     ],
+     [
+      "光",
+      "こう"
+     ]
+    ]
+   },
+   {
+    "w": "蛍光ペン",
+    "r": "けいこうペン",
+    "g": "highlighter (pen)",
+    "reading": "ケイ",
+    "furigana": [
+     [
+      "蛍",
+      "けい"
+     ],
+     [
+      "光",
+      "こう"
+     ],
+     [
+      "ペ",
+      ""
+     ],
+     [
+      "ン",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "An insect 虫 with sparks ⺍ of light above it.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "遍",
+  "keyword": "widely",
+  "meanings": [
+   "times (how often)"
+  ],
+  "readings": [
+   "ヘン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "普遍",
+    "r": "ふへん",
+    "g": "universality",
+    "reading": "ヘン",
+    "furigana": [
+     [
+      "普",
+      "ふ"
+     ],
+     [
+      "遍",
+      "へん"
+     ]
+    ]
+   },
+   {
+    "w": "普遍的",
+    "r": "ふへんてき",
+    "g": "universal",
+    "reading": "ヘン",
+    "furigana": [
+     [
+      "普",
+      "ふ"
+     ],
+     [
+      "遍",
+      "へん"
+     ],
+     [
+      "的",
+      "てき"
+     ]
+    ]
+   },
+   {
+    "w": "一遍",
+    "r": "いっぺん",
+    "g": "once; one time",
+    "lit": "one-time",
+    "reading": "ヘン",
+    "furigana": [
+     [
+      "一",
+      "いっ"
+     ],
+     [
+      "遍",
+      "ぺん"
+     ]
+    ]
+   },
+   {
+    "w": "遍歴",
+    "r": "へんれき",
+    "g": "wanderings; travels",
+    "lit": "widely-pass through",
+    "reading": "ヘン",
+    "furigana": [
+     [
+      "遍",
+      "へん"
+     ],
+     [
+      "歴",
+      "れき"
+     ]
+    ]
+   },
+   {
+    "w": "何遍",
+    "r": "なんべん",
+    "g": "how many times",
+    "lit": "what-times",
+    "reading": "ヘン",
+    "furigana": [
+     [
+      "何",
+      "なん"
+     ],
+     [
+      "遍",
+      "べん"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "一遍に",
+    "r": "いっぺんに",
+    "g": "all at once",
+    "reading": "ヘン",
+    "furigana": [
+     [
+      "一",
+      "いっ"
+     ],
+     [
+      "遍",
+      "ぺん"
+     ],
+     [
+      "に",
+      ""
+     ]
+    ]
+   }
+  ],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "奮",
+  "keyword": "rouse",
+  "meanings": [
+   "be stirred up"
+  ],
+  "readings": [
+   "フン",
+   "ふる.う"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "興奮",
+    "r": "こうふん",
+    "g": "excitement",
+    "lit": "rise-rouse",
+    "reading": "フン",
+    "furigana": [
+     [
+      "興",
+      "こう"
+     ],
+     [
+      "奮",
+      "ふん"
+     ]
+    ]
+   },
+   {
+    "w": "奮闘",
+    "r": "ふんとう",
+    "g": "hard struggle",
+    "lit": "rouse-fight",
+    "reading": "フン",
+    "furigana": [
+     [
+      "奮",
+      "ふん"
+     ],
+     [
+      "闘",
+      "とう"
+     ]
+    ]
+   },
+   {
+    "w": "奮起",
+    "r": "ふんき",
+    "g": "rousing oneself",
+    "lit": "rouse-rise",
+    "reading": "フン",
+    "furigana": [
+     [
+      "奮",
+      "ふん"
+     ],
+     [
+      "起",
+      "き"
+     ]
+    ]
+   },
+   {
+    "w": "奮発",
+    "r": "ふんぱつ",
+    "g": "splurging; extra effort",
+    "reading": "フン",
+    "furigana": [
+     [
+      "奮",
+      "ふん"
+     ],
+     [
+      "発",
+      "ぱつ"
+     ]
+    ]
+   },
+   {
+    "w": "奮う",
+    "r": "ふるう",
+    "g": "to muster (courage)",
+    "reading": "ふる.う",
+    "furigana": [
+     [
+      "奮",
+      "ふる"
+     ],
+     [
+      "う",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "奮って",
+    "r": "ふるって",
+    "g": "eagerly; willingly",
+    "reading": "ふる.う",
+    "furigana": [
+     [
+      "奮",
+      "ふる"
+     ],
+     [
+      "っ",
+      ""
+     ],
+     [
+      "て",
+      ""
+     ]
+    ]
+   }
+  ],
+  "story": "A bird 隹 spreading its wings 大 to rise from a field 田.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "畔",
+  "keyword": "shore",
+  "meanings": [
+   "paddy ridge"
+  ],
+  "readings": [
+   "ハン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "湖畔",
+    "r": "こはん",
+    "g": "lakeside",
+    "lit": "lake-shore",
+    "reading": "ハン",
+    "furigana": [
+     [
+      "湖",
+      "こ"
+     ],
+     [
+      "畔",
+      "はん"
+     ]
+    ]
+   },
+   {
+    "w": "河畔",
+    "r": "かはん",
+    "g": "riverside",
+    "lit": "river-shore",
+    "reading": "ハン",
+    "furigana": [
+     [
+      "河",
+      "か"
+     ],
+     [
+      "畔",
+      "はん"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "The ridge that splits a field 田 in half 半.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "侮",
+  "keyword": "scorn",
+  "meanings": [
+   "despise"
+  ],
+  "readings": [
+   "ブ",
+   "あなど.る"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "侮辱",
+    "r": "ぶじょく",
+    "g": "insult",
+    "lit": "scorn-shame",
+    "reading": "ブ",
+    "furigana": [
+     [
+      "侮",
+      "ぶ"
+     ],
+     [
+      "辱",
+      "じょく"
+     ]
+    ]
+   },
+   {
+    "w": "侮蔑",
+    "r": "ぶべつ",
+    "g": "contempt",
+    "lit": "scorn-disdain",
+    "reading": "ブ",
+    "furigana": [
+     [
+      "侮",
+      "ぶ"
+     ],
+     [
+      "蔑",
+      "べつ"
+     ]
+    ]
+   },
+   {
+    "w": "侮る",
+    "r": "あなどる",
+    "g": "to look down on",
+    "reading": "あなど.る",
+    "furigana": [
+     [
+      "侮",
+      "あなど"
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A person 亻, with 毎 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "繊",
+  "keyword": "fine",
+  "meanings": [
+   "slender",
+   "fiber"
+  ],
+  "readings": [
+   "セン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "繊維",
+    "r": "せんい",
+    "g": "fiber",
+    "lit": "fine-thread",
+    "reading": "セン",
+    "furigana": [
+     [
+      "繊",
+      "せん"
+     ],
+     [
+      "維",
+      "い"
+     ]
+    ]
+   },
+   {
+    "w": "繊細",
+    "r": "せんさい",
+    "g": "delicate; sensitive",
+    "lit": "fine-thin",
+    "reading": "セン",
+    "furigana": [
+     [
+      "繊",
+      "せん"
+     ],
+     [
+      "細",
+      "さい"
+     ]
+    ]
+   },
+   {
+    "w": "化繊",
+    "r": "かせん",
+    "g": "synthetic fiber",
+    "reading": "セン",
+    "furigana": [
+     [
+      "化",
+      "か"
+     ],
+     [
+      "繊",
+      "せん"
+     ]
+    ]
+   },
+   {
+    "w": "合成繊維",
+    "r": "ごうせいせんい",
+    "g": "synthetic fiber",
+    "reading": "セン",
+    "furigana": [
+     [
+      "合",
+      "ごう"
+     ],
+     [
+      "成",
+      "せい"
+     ],
+     [
+      "繊",
+      "せん"
+     ],
+     [
+      "維",
+      "い"
+     ]
+    ]
+   },
+   {
+    "w": "食物繊維",
+    "r": "しょくもつせんい",
+    "g": "dietary fiber",
+    "reading": "セン",
+    "furigana": [
+     [
+      "食",
+      "しょく"
+     ],
+     [
+      "物",
+      "もつ"
+     ],
+     [
+      "繊",
+      "せん"
+     ],
+     [
+      "維",
+      "い"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "藍",
+  "keyword": "indigo",
+  "meanings": [],
+  "readings": [
+   "あい",
+   "ラン"
+  ],
+  "alone": {
+   "r": "あい",
+   "g": "indigo (dye)",
+   "reading": "あい"
+  },
+  "words": [
+   {
+    "w": "藍色",
+    "r": "あいいろ",
+    "g": "indigo blue",
+    "lit": "indigo-color",
+    "reading": "あい",
+    "furigana": [
+     [
+      "藍",
+      "あい"
+     ],
+     [
+      "色",
+      "いろ"
+     ]
+    ]
+   },
+   {
+    "w": "出藍",
+    "r": "しゅつらん",
+    "g": "pupil surpassing the master",
+    "reading": "ラン",
+    "furigana": [
+     [
+      "出",
+      "しゅつ"
+     ],
+     [
+      "藍",
+      "らん"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A plant 艹, with 監 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "賠",
+  "keyword": "compensate",
+  "meanings": [],
+  "readings": [
+   "バイ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "賠償",
+    "r": "ばいしょう",
+    "g": "compensation; reparations",
+    "lit": "compensate-repay",
+    "reading": "バイ",
+    "furigana": [
+     [
+      "賠",
+      "ばい"
+     ],
+     [
+      "償",
+      "しょう"
+     ]
+    ]
+   },
+   {
+    "w": "損害賠償",
+    "r": "そんがいばいしょう",
+    "g": "damages",
+    "reading": "バイ",
+    "furigana": [
+     [
+      "損",
+      "そん"
+     ],
+     [
+      "害",
+      "がい"
+     ],
+     [
+      "賠",
+      "ばい"
+     ],
+     [
+      "償",
+      "しょう"
+     ]
+    ]
+   },
+   {
+    "w": "賠償金",
+    "r": "ばいしょうきん",
+    "g": "compensation money",
+    "reading": "バイ",
+    "furigana": [
+     [
+      "賠",
+      "ばい"
+     ],
+     [
+      "償",
+      "しょう"
+     ],
+     [
+      "金",
+      "きん"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Money 貝 paid out; 咅 gives the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "歓",
+  "keyword": "joy",
+  "meanings": [
+   "welcome"
+  ],
+  "readings": [
+   "カン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "歓迎",
+    "r": "かんげい",
+    "g": "welcome",
+    "lit": "joy-greet",
+    "reading": "カン",
+    "furigana": [
+     [
+      "歓",
+      "かん"
+     ],
+     [
+      "迎",
+      "げい"
+     ]
+    ]
+   },
+   {
+    "w": "歓喜",
+    "r": "かんき",
+    "g": "delight; great joy",
+    "reading": "カン",
+    "furigana": [
+     [
+      "歓",
+      "かん"
+     ],
+     [
+      "喜",
+      "き"
+     ]
+    ]
+   },
+   {
+    "w": "歓声",
+    "r": "かんせい",
+    "g": "cheers",
+    "lit": "joy-voice",
+    "reading": "カン",
+    "furigana": [
+     [
+      "歓",
+      "かん"
+     ],
+     [
+      "声",
+      "せい"
+     ]
+    ]
+   },
+   {
+    "w": "歓待",
+    "r": "かんたい",
+    "g": "warm hospitality",
+    "lit": "joy-treat",
+    "reading": "カン",
+    "furigana": [
+     [
+      "歓",
+      "かん"
+     ],
+     [
+      "待",
+      "たい"
+     ]
+    ]
+   },
+   {
+    "w": "歓楽街",
+    "r": "かんらくがい",
+    "g": "entertainment district",
+    "lit": "joy-pleasure-street",
+    "reading": "カン",
+    "furigana": [
+     [
+      "歓",
+      "かん"
+     ],
+     [
+      "楽",
+      "らく"
+     ],
+     [
+      "街",
+      "がい"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "大歓迎",
+    "r": "だいかんげい",
+    "g": "very welcome",
+    "reading": "カン",
+    "furigana": [
+     [
+      "大",
+      "だい"
+     ],
+     [
+      "歓",
+      "かん"
+     ],
+     [
+      "迎",
+      "げい"
+     ]
+    ]
+   },
+   {
+    "w": "歓談",
+    "r": "かんだん",
+    "g": "pleasant chat",
+    "lit": "joy-talk",
+    "reading": "カン",
+    "furigana": [
+     [
+      "歓",
+      "かん"
+     ],
+     [
+      "談",
+      "だん"
+     ]
+    ]
+   },
+   {
+    "w": "歓送会",
+    "r": "かんそうかい",
+    "g": "farewell party",
+    "lit": "joy-send-meeting",
+    "reading": "カン",
+    "furigana": [
+     [
+      "歓",
+      "かん"
+     ],
+     [
+      "送",
+      "そう"
+     ],
+     [
+      "会",
+      "かい"
+     ]
+    ]
+   }
+  ],
+  "story": "A mouth wide open 欠, cheering.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "憎",
+  "keyword": "hate",
+  "meanings": [],
+  "readings": [
+   "にく.む",
+   "にく.い",
+   "にく.しみ",
+   "ゾウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "憎しみ",
+    "r": "にくしみ",
+    "g": "hatred",
+    "reading": "にく.しみ",
+    "furigana": [
+     [
+      "憎",
+      "にく"
+     ],
+     [
+      "し",
+      ""
+     ],
+     [
+      "み",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "憎む",
+    "r": "にくむ",
+    "g": "to hate",
+    "reading": "にく.む",
+    "furigana": [
+     [
+      "憎",
+      "にく"
+     ],
+     [
+      "む",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "憎い",
+    "r": "にくい",
+    "g": "hateful",
+    "reading": "にく.い",
+    "furigana": [
+     [
+      "憎",
+      "にく"
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "憎悪",
+    "r": "ぞうお",
+    "g": "hatred; loathing",
+    "lit": "hate-dislike",
+    "reading": "ゾウ",
+    "furigana": [
+     [
+      "憎",
+      "ぞう"
+     ],
+     [
+      "悪",
+      "お"
+     ]
+    ]
+   },
+   {
+    "w": "愛憎",
+    "r": "あいぞう",
+    "g": "love and hate",
+    "lit": "love-hate",
+    "reading": "ゾウ",
+    "furigana": [
+     [
+      "愛",
+      "あい"
+     ],
+     [
+      "憎",
+      "ぞう"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "憎らしい",
+    "r": "にくらしい",
+    "g": "hateful; spiteful",
+    "reading": "にく.い",
+    "furigana": [
+     [
+      "憎",
+      "にく"
+     ],
+     [
+      "ら",
+      ""
+     ],
+     [
+      "し",
+      ""
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "生憎",
+    "r": "あいにく",
+    "g": "unfortunately",
+    "reading": "special",
+    "special": true,
+    "furigana": [
+     [
+      "生憎",
+      "あいにく"
+     ]
+    ]
+   }
+  ],
+  "story": "A heart 忄 piled up with old 曽 grudges.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "賭",
+  "keyword": "bet",
+  "meanings": [
+   "gamble"
+  ],
+  "readings": [
+   "か.ける",
+   "ト"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "賭け",
+    "r": "かけ",
+    "g": "bet; gamble",
+    "reading": "か.ける",
+    "furigana": [
+     [
+      "賭",
+      "か"
+     ],
+     [
+      "け",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "賭ける",
+    "r": "かける",
+    "g": "to bet; stake",
+    "reading": "か.ける",
+    "furigana": [
+     [
+      "賭",
+      "か"
+     ],
+     [
+      "け",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "賭博",
+    "r": "とばく",
+    "g": "gambling",
+    "lit": "bet-gamble",
+    "reading": "ト",
+    "furigana": [
+     [
+      "賭",
+      "と"
+     ],
+     [
+      "博",
+      "ばく"
+     ]
+    ]
+   },
+   {
+    "w": "賭け事",
+    "r": "かけごと",
+    "g": "gambling",
+    "lit": "bet-thing",
+    "reading": "か.ける",
+    "furigana": [
+     [
+      "賭",
+      "か"
+     ],
+     [
+      "け",
+      ""
+     ],
+     [
+      "事",
+      "ごと"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Someone 者 putting money 貝 down.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "賜",
+  "keyword": "bestow",
+  "meanings": [],
+  "readings": [
+   "たまわ.る",
+   "たま.う",
+   "シ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "賜る",
+    "r": "たまわる",
+    "g": "to be granted (humble)",
+    "reading": "たまわ.る",
+    "furigana": [
+     [
+      "賜",
+      "たまわ"
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "賜物",
+    "r": "たまもの",
+    "g": "gift; fruit (of effort)",
+    "lit": "bestow-thing",
+    "reading": "たま.う",
+    "furigana": [
+     [
+      "賜",
+      "たま"
+     ],
+     [
+      "物",
+      "もの"
+     ]
+    ]
+   },
+   {
+    "w": "恩賜",
+    "r": "おんし",
+    "g": "imperial gift",
+    "lit": "favor-bestow",
+    "reading": "シ",
+    "furigana": [
+     [
+      "恩",
+      "おん"
+     ],
+     [
+      "賜",
+      "し"
+     ]
+    ]
+   },
+   {
+    "w": "下賜",
+    "r": "かし",
+    "g": "bestowal (by the emperor)",
+    "lit": "down-bestow",
+    "reading": "シ",
+    "furigana": [
+     [
+      "下",
+      "か"
+     ],
+     [
+      "賜",
+      "し"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Money 貝, with 易 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "嫡",
+  "keyword": "legitimate (heir)",
+  "meanings": [],
+  "readings": [
+   "チャク"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "嫡子",
+    "r": "ちゃくし",
+    "g": "heir",
+    "lit": "legitimate-child",
+    "reading": "チャク",
+    "furigana": [
+     [
+      "嫡",
+      "ちゃく"
+     ],
+     [
+      "子",
+      "し"
+     ]
+    ]
+   },
+   {
+    "w": "嫡出",
+    "r": "ちゃくしゅつ",
+    "g": "legitimate birth",
+    "lit": "legitimate-born",
+    "reading": "チャク",
+    "furigana": [
+     [
+      "嫡",
+      "ちゃく"
+     ],
+     [
+      "出",
+      "しゅつ"
+     ]
+    ]
+   },
+   {
+    "w": "嫡男",
+    "r": "ちゃくなん",
+    "g": "eldest legitimate son",
+    "lit": "legitimate-son",
+    "reading": "チャク",
+    "furigana": [
+     [
+      "嫡",
+      "ちゃく"
+     ],
+     [
+      "男",
+      "なん"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "縛",
+  "keyword": "bind",
+  "meanings": [
+   "tie up"
+  ],
+  "readings": [
+   "しば.る",
+   "バク"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "縛る",
+    "r": "しばる",
+    "g": "to tie; bind",
+    "reading": "しば.る",
+    "furigana": [
+     [
+      "縛",
+      "しば"
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "束縛",
+    "r": "そくばく",
+    "g": "restraint",
+    "lit": "bundle-bind",
+    "reading": "バク",
+    "furigana": [
+     [
+      "束",
+      "そく"
+     ],
+     [
+      "縛",
+      "ばく"
+     ]
+    ]
+   },
+   {
+    "w": "金縛り",
+    "r": "かなしばり",
+    "g": "sleep paralysis",
+    "lit": "metal-bind",
+    "reading": "しば.る",
+    "furigana": [
+     [
+      "金",
+      "かな"
+     ],
+     [
+      "縛",
+      "しば"
+     ],
+     [
+      "り",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "呪縛",
+    "r": "じゅばく",
+    "g": "spell; curse",
+    "lit": "curse-bind",
+    "reading": "バク",
+    "furigana": [
+     [
+      "呪",
+      "じゅ"
+     ],
+     [
+      "縛",
+      "ばく"
+     ]
+    ]
+   },
+   {
+    "w": "縛り首",
+    "r": "しばりくび",
+    "g": "hanging",
+    "lit": "bind-neck",
+    "reading": "しば.る",
+    "furigana": [
+     [
+      "縛",
+      "しば"
+     ],
+     [
+      "り",
+      ""
+     ],
+     [
+      "首",
+      "くび"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Thread 糸 wound around; 尃 gives the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "窒",
+  "keyword": "obstruct",
+  "meanings": [],
+  "readings": [
+   "チツ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "窒息",
+    "r": "ちっそく",
+    "g": "suffocation",
+    "lit": "block-breath",
+    "reading": "チツ",
+    "furigana": [
+     [
+      "窒",
+      "ちっ"
+     ],
+     [
+      "息",
+      "そく"
+     ]
+    ]
+   },
+   {
+    "w": "窒素",
+    "r": "ちっそ",
+    "g": "nitrogen",
+    "lit": "suffocate-element",
+    "reading": "チツ",
+    "furigana": [
+     [
+      "窒",
+      "ちっ"
+     ],
+     [
+      "素",
+      "そ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A hole 穴 that something reached 至 and plugged.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "粗",
+  "keyword": "coarse",
+  "meanings": [
+   "rough"
+  ],
+  "readings": [
+   "ソ",
+   "あら.い"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "粗末",
+    "r": "そまつ",
+    "g": "shabby; careless",
+    "lit": "coarse-end",
+    "reading": "ソ",
+    "furigana": [
+     [
+      "粗",
+      "そ"
+     ],
+     [
+      "末",
+      "まつ"
+     ]
+    ]
+   },
+   {
+    "w": "粗い",
+    "r": "あらい",
+    "g": "coarse; rough",
+    "reading": "あら.い",
+    "furigana": [
+     [
+      "粗",
+      "あら"
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "粗悪",
+    "r": "そあく",
+    "g": "crude; inferior",
+    "lit": "coarse-bad",
+    "reading": "ソ",
+    "furigana": [
+     [
+      "粗",
+      "そ"
+     ],
+     [
+      "悪",
+      "あく"
+     ]
+    ]
+   },
+   {
+    "w": "粗筋",
+    "r": "あらすじ",
+    "g": "outline; plot",
+    "lit": "rough-line",
+    "reading": "あら.い",
+    "furigana": [
+     [
+      "粗",
+      "あら"
+     ],
+     [
+      "筋",
+      "すじ"
+     ]
+    ]
+   },
+   {
+    "w": "粗品",
+    "r": "そしな",
+    "g": "small gift",
+    "lit": "coarse-goods",
+    "reading": "ソ",
+    "furigana": [
+     [
+      "粗",
+      "そ"
+     ],
+     [
+      "品",
+      "しな"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "粗大ごみ",
+    "r": "そだいごみ",
+    "g": "bulky garbage",
+    "lit": "coarse-big-trash",
+    "reading": "ソ",
+    "furigana": [
+     [
+      "粗",
+      "そ"
+     ],
+     [
+      "大",
+      "だい"
+     ],
+     [
+      "ご",
+      ""
+     ],
+     [
+      "み",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "粗暴",
+    "r": "そぼう",
+    "g": "violent; rough",
+    "lit": "coarse-violent",
+    "reading": "ソ",
+    "furigana": [
+     [
+      "粗",
+      "そ"
+     ],
+     [
+      "暴",
+      "ぼう"
+     ]
+    ]
+   },
+   {
+    "w": "粗野",
+    "r": "そや",
+    "g": "boorish; rude",
+    "lit": "coarse-rustic",
+    "reading": "ソ",
+    "furigana": [
+     [
+      "粗",
+      "そ"
+     ],
+     [
+      "野",
+      "や"
+     ]
+    ]
+   }
+  ],
+  "story": "Rice 米 heaped 且 unhusked: coarse grain.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "斑",
+  "keyword": "spots",
+  "meanings": [
+   "patches"
+  ],
+  "readings": [
+   "ハン",
+   "まだら",
+   "むら"
+  ],
+  "alone": {
+   "r": "むら",
+   "g": "unevenness; patchiness",
+   "reading": "むら"
+  },
+  "words": [
+   {
+    "w": "斑点",
+    "r": "はんてん",
+    "g": "spot; speck",
+    "lit": "spot-dot",
+    "reading": "ハン",
+    "furigana": [
+     [
+      "斑",
+      "はん"
+     ],
+     [
+      "点",
+      "てん"
+     ]
+    ]
+   },
+   {
+    "w": "斑模様",
+    "r": "まだらもよう",
+    "g": "mottled pattern",
+    "lit": "spotted-pattern",
+    "reading": "まだら",
+    "furigana": [
+     [
+      "斑",
+      "まだら"
+     ],
+     [
+      "模",
+      "も"
+     ],
+     [
+      "様",
+      "よう"
+     ]
+    ]
+   },
+   {
+    "w": "紫斑",
+    "r": "しはん",
+    "g": "purple spot (bruise)",
+    "lit": "purple-spot",
+    "reading": "ハン",
+    "furigana": [
+     [
+      "紫",
+      "し"
+     ],
+     [
+      "斑",
+      "はん"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "穏",
+  "keyword": "calm",
+  "meanings": [],
+  "readings": [
+   "オン",
+   "おだ.やか"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "穏やか",
+    "r": "おだやか",
+    "g": "calm; gentle",
+    "reading": "おだ.やか",
+    "furigana": [
+     [
+      "穏",
+      "おだ"
+     ],
+     [
+      "や",
+      ""
+     ],
+     [
+      "か",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "平穏",
+    "r": "へいおん",
+    "g": "peace and quiet",
+    "lit": "flat-calm",
+    "reading": "オン",
+    "furigana": [
+     [
+      "平",
+      "へい"
+     ],
+     [
+      "穏",
+      "おん"
+     ]
+    ]
+   },
+   {
+    "w": "不穏",
+    "r": "ふおん",
+    "g": "unsettling; ominous",
+    "lit": "not-calm",
+    "reading": "オン",
+    "furigana": [
+     [
+      "不",
+      "ふ"
+     ],
+     [
+      "穏",
+      "おん"
+     ]
+    ]
+   },
+   {
+    "w": "穏健",
+    "r": "おんけん",
+    "g": "moderate",
+    "lit": "calm-sound",
+    "reading": "オン",
+    "furigana": [
+     [
+      "穏",
+      "おん"
+     ],
+     [
+      "健",
+      "けん"
+     ]
+    ]
+   },
+   {
+    "w": "穏便",
+    "r": "おんびん",
+    "g": "amicable; peaceable",
+    "reading": "オン",
+    "furigana": [
+     [
+      "穏",
+      "おん"
+     ],
+     [
+      "便",
+      "びん"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "穏当",
+    "r": "おんとう",
+    "g": "proper; reasonable",
+    "reading": "オン",
+    "furigana": [
+     [
+      "穏",
+      "おん"
+     ],
+     [
+      "当",
+      "とう"
+     ]
+    ]
+   }
+  ],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "鍋",
+  "keyword": "pot",
+  "meanings": [
+   "hot pot"
+  ],
+  "readings": [
+   "なべ"
+  ],
+  "alone": {
+   "r": "なべ",
+   "g": "pot; hot pot",
+   "reading": "なべ"
+  },
+  "words": [
+   {
+    "w": "鍋料理",
+    "r": "なべりょうり",
+    "g": "hot pot dish",
+    "lit": "pot-cooking",
+    "reading": "なべ",
+    "furigana": [
+     [
+      "鍋",
+      "なべ"
+     ],
+     [
+      "料",
+      "りょう"
+     ],
+     [
+      "理",
+      "り"
+     ]
+    ]
+   },
+   {
+    "w": "土鍋",
+    "r": "どなべ",
+    "g": "earthenware pot",
+    "lit": "earth-pot",
+    "reading": "なべ",
+    "furigana": [
+     [
+      "土",
+      "ど"
+     ],
+     [
+      "鍋",
+      "なべ"
+     ]
+    ]
+   },
+   {
+    "w": "寄せ鍋",
+    "r": "よせなべ",
+    "g": "mixed hot pot",
+    "lit": "gather-pot",
+    "reading": "なべ",
+    "furigana": [
+     [
+      "寄",
+      "よ"
+     ],
+     [
+      "せ",
+      ""
+     ],
+     [
+      "鍋",
+      "なべ"
+     ]
+    ]
+   },
+   {
+    "w": "もつ鍋",
+    "r": "もつなべ",
+    "g": "offal hot pot",
+    "reading": "なべ",
+    "furigana": [
+     [
+      "も",
+      ""
+     ],
+     [
+      "つ",
+      ""
+     ],
+     [
+      "鍋",
+      "なべ"
+     ]
+    ]
+   },
+   {
+    "w": "鍋物",
+    "r": "なべもの",
+    "g": "hot pot dishes",
+    "lit": "pot-thing",
+    "reading": "なべ",
+    "furigana": [
+     [
+      "鍋",
+      "なべ"
+     ],
+     [
+      "物",
+      "もの"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Metal 金, with 咼 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "薄",
+  "keyword": "thin",
+  "meanings": [
+   "pale",
+   "weak"
+  ],
+  "readings": [
+   "うす.い",
+   "うす.れる",
+   "うす.める",
+   "うす.まる",
+   "うす.らぐ",
+   "ハク"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "薄い",
+    "r": "うすい",
+    "g": "thin; pale; weak",
+    "reading": "うす.い",
+    "furigana": [
+     [
+      "薄",
+      "うす"
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "薄暗い",
+    "r": "うすぐらい",
+    "g": "dim; gloomy",
+    "lit": "thin-dark",
+    "reading": "うす.い",
+    "furigana": [
+     [
+      "薄",
+      "うす"
+     ],
+     [
+      "暗",
+      "ぐら"
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "薄れる",
+    "r": "うすれる",
+    "g": "to fade",
+    "reading": "うす.れる",
+    "furigana": [
+     [
+      "薄",
+      "うす"
+     ],
+     [
+      "れ",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "希薄",
+    "r": "きはく",
+    "g": "thin; weak",
+    "lit": "sparse-thin",
+    "reading": "ハク",
+    "furigana": [
+     [
+      "希",
+      "き"
+     ],
+     [
+      "薄",
+      "はく"
+     ]
+    ]
+   },
+   {
+    "w": "軽薄",
+    "r": "けいはく",
+    "g": "frivolous",
+    "lit": "light-thin",
+    "reading": "ハク",
+    "furigana": [
+     [
+      "軽",
+      "けい"
+     ],
+     [
+      "薄",
+      "はく"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "薄着",
+    "r": "うすぎ",
+    "g": "lightly dressed",
+    "lit": "thin-wear",
+    "reading": "うす.い",
+    "furigana": [
+     [
+      "薄",
+      "うす"
+     ],
+     [
+      "着",
+      "ぎ"
+     ]
+    ]
+   },
+   {
+    "w": "手薄",
+    "r": "てうす",
+    "g": "shorthanded",
+    "lit": "hand-thin",
+    "reading": "うす.い",
+    "furigana": [
+     [
+      "手",
+      "て"
+     ],
+     [
+      "薄",
+      "うす"
+     ]
+    ]
+   },
+   {
+    "w": "薄める",
+    "r": "うすめる",
+    "g": "to dilute",
+    "reading": "うす.める",
+    "furigana": [
+     [
+      "薄",
+      "うす"
+     ],
+     [
+      "め",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "薄情",
+    "r": "はくじょう",
+    "g": "cold-hearted",
+    "lit": "thin-feeling",
+    "reading": "ハク",
+    "furigana": [
+     [
+      "薄",
+      "はく"
+     ],
+     [
+      "情",
+      "じょう"
+     ]
+    ]
+   },
+   {
+    "w": "薄弱",
+    "r": "はくじゃく",
+    "g": "feeble",
+    "lit": "thin-weak",
+    "reading": "ハク",
+    "furigana": [
+     [
+      "薄",
+      "はく"
+     ],
+     [
+      "弱",
+      "じゃく"
+     ]
+    ]
+   },
+   {
+    "w": "肉薄",
+    "r": "にくはく",
+    "g": "closing in on",
+    "lit": "flesh-close in",
+    "reading": "ハク",
+    "furigana": [
+     [
+      "肉",
+      "にく"
+     ],
+     [
+      "薄",
+      "はく"
+     ]
+    ]
+   },
+   {
+    "w": "薄まる",
+    "r": "うすまる",
+    "g": "to become weak",
+    "reading": "うす.まる",
+    "furigana": [
+     [
+      "薄",
+      "うす"
+     ],
+     [
+      "ま",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "薄らぐ",
+    "r": "うすらぐ",
+    "g": "to fade; lessen",
+    "reading": "うす.らぐ",
+    "furigana": [
+     [
+      "薄",
+      "うす"
+     ],
+     [
+      "ら",
+      ""
+     ],
+     [
+      "ぐ",
+      ""
+     ]
+    ]
+   }
+  ],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "簿",
+  "keyword": "register",
+  "meanings": [
+   "record book"
+  ],
+  "readings": [
+   "ボ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "名簿",
+    "r": "めいぼ",
+    "g": "list of names",
+    "lit": "name-register",
+    "reading": "ボ",
+    "furigana": [
+     [
+      "名",
+      "めい"
+     ],
+     [
+      "簿",
+      "ぼ"
+     ]
+    ]
+   },
+   {
+    "w": "簿記",
+    "r": "ぼき",
+    "g": "bookkeeping",
+    "lit": "register-record",
+    "reading": "ボ",
+    "furigana": [
+     [
+      "簿",
+      "ぼ"
+     ],
+     [
+      "記",
+      "き"
+     ]
+    ]
+   },
+   {
+    "w": "帳簿",
+    "r": "ちょうぼ",
+    "g": "account book",
+    "lit": "notebook-register",
+    "reading": "ボ",
+    "furigana": [
+     [
+      "帳",
+      "ちょう"
+     ],
+     [
+      "簿",
+      "ぼ"
+     ]
+    ]
+   },
+   {
+    "w": "家計簿",
+    "r": "かけいぼ",
+    "g": "household account book",
+    "reading": "ボ",
+    "furigana": [
+     [
+      "家",
+      "か"
+     ],
+     [
+      "計",
+      "けい"
+     ],
+     [
+      "簿",
+      "ぼ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Bamboo 竹 slips, once used as ledgers; 溥 gives the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "鼻",
+  "keyword": "nose",
+  "meanings": [],
+  "readings": [
+   "はな",
+   "ビ"
+  ],
+  "alone": {
+   "r": "はな",
+   "g": "nose",
+   "reading": "はな"
+  },
+  "words": [
+   {
+    "w": "鼻水",
+    "r": "はなみず",
+    "g": "runny nose",
+    "lit": "nose-water",
+    "reading": "はな",
+    "furigana": [
+     [
+      "鼻",
+      "はな"
+     ],
+     [
+      "水",
+      "みず"
+     ]
+    ]
+   },
+   {
+    "w": "鼻血",
+    "r": "はなぢ",
+    "g": "nosebleed",
+    "lit": "nose-blood",
+    "reading": "はな",
+    "furigana": [
+     [
+      "鼻",
+      "はな"
+     ],
+     [
+      "血",
+      "ぢ"
+     ]
+    ]
+   },
+   {
+    "w": "耳鼻科",
+    "r": "じびか",
+    "g": "ear, nose and throat clinic",
+    "lit": "ear-nose-department",
+    "reading": "ビ",
+    "furigana": [
+     [
+      "耳",
+      "じ"
+     ],
+     [
+      "鼻",
+      "び"
+     ],
+     [
+      "科",
+      "か"
+     ]
+    ]
+   },
+   {
+    "w": "鼻歌",
+    "r": "はなうた",
+    "g": "humming",
+    "lit": "nose-song",
+    "reading": "はな",
+    "furigana": [
+     [
+      "鼻",
+      "はな"
+     ],
+     [
+      "歌",
+      "うた"
+     ]
+    ]
+   },
+   {
+    "w": "鼻息",
+    "r": "はないき",
+    "g": "breathing through the nose",
+    "lit": "nose-breath",
+    "reading": "はな",
+    "furigana": [
+     [
+      "鼻",
+      "はな"
+     ],
+     [
+      "息",
+      "いき"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "鼻先",
+    "r": "はなさき",
+    "g": "tip of the nose",
+    "lit": "nose-tip",
+    "reading": "はな",
+    "furigana": [
+     [
+      "鼻",
+      "はな"
+     ],
+     [
+      "先",
+      "さき"
+     ]
+    ]
+   }
+  ],
+  "story": "自 was the old nose; 畀 below was added for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "膝",
+  "keyword": "knee",
+  "meanings": [
+   "lap"
+  ],
+  "readings": [
+   "ひざ"
+  ],
+  "alone": {
+   "r": "ひざ",
+   "g": "knee; lap",
+   "reading": "ひざ"
+  },
+  "words": [
+   {
+    "w": "膝枕",
+    "r": "ひざまくら",
+    "g": "resting one's head on a lap",
+    "lit": "lap-pillow",
+    "reading": "ひざ",
+    "furigana": [
+     [
+      "膝",
+      "ひざ"
+     ],
+     [
+      "枕",
+      "まくら"
+     ]
+    ]
+   },
+   {
+    "w": "膝小僧",
+    "r": "ひざこぞう",
+    "g": "kneecap",
+    "lit": "knee-little monk",
+    "reading": "ひざ",
+    "furigana": [
+     [
+      "膝",
+      "ひざ"
+     ],
+     [
+      "小",
+      "こ"
+     ],
+     [
+      "僧",
+      "ぞう"
+     ]
+    ]
+   },
+   {
+    "w": "膝元",
+    "r": "ひざもと",
+    "g": "one's side; under one's care",
+    "lit": "knee-base",
+    "reading": "ひざ",
+    "furigana": [
+     [
+      "膝",
+      "ひざ"
+     ],
+     [
+      "元",
+      "もと"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "殉",
+  "keyword": "die for (a cause)",
+  "meanings": [],
+  "readings": [
+   "ジュン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "殉職",
+    "r": "じゅんしょく",
+    "g": "dying on duty",
+    "lit": "die for-duty",
+    "reading": "ジュン",
+    "furigana": [
+     [
+      "殉",
+      "じゅん"
+     ],
+     [
+      "職",
+      "しょく"
+     ]
+    ]
+   },
+   {
+    "w": "殉教",
+    "r": "じゅんきょう",
+    "g": "martyrdom",
+    "lit": "die for-religion",
+    "reading": "ジュン",
+    "furigana": [
+     [
+      "殉",
+      "じゅん"
+     ],
+     [
+      "教",
+      "きょう"
+     ]
+    ]
+   },
+   {
+    "w": "殉難",
+    "r": "じゅんなん",
+    "g": "martyrdom; dying in a disaster",
+    "reading": "ジュン",
+    "furigana": [
+     [
+      "殉",
+      "じゅん"
+     ],
+     [
+      "難",
+      "なん"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Bones 歹, with 旬 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "膚",
+  "keyword": "skin",
+  "meanings": [],
+  "readings": [
+   "フ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "皮膚",
+    "r": "ひふ",
+    "g": "skin",
+    "reading": "フ",
+    "furigana": [
+     [
+      "皮",
+      "ひ"
+     ],
+     [
+      "膚",
+      "ふ"
+     ]
+    ]
+   },
+   {
+    "w": "皮膚科",
+    "r": "ひふか",
+    "g": "dermatology",
+    "reading": "フ",
+    "furigana": [
+     [
+      "皮",
+      "ひ"
+     ],
+     [
+      "膚",
+      "ふ"
+     ],
+     [
+      "科",
+      "か"
+     ]
+    ]
+   },
+   {
+    "w": "皮膚病",
+    "r": "ひふびょう",
+    "g": "skin disease",
+    "reading": "フ",
+    "furigana": [
+     [
+      "皮",
+      "ひ"
+     ],
+     [
+      "膚",
+      "ふ"
+     ],
+     [
+      "病",
+      "びょう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "謡",
+  "keyword": "song",
+  "meanings": [
+   "Noh chant"
+  ],
+  "readings": [
+   "ヨウ",
+   "うた.い"
+  ],
+  "alone": {
+   "r": "うたい",
+   "g": "Noh chanting",
+   "reading": "うた.い"
+  },
+  "words": [
+   {
+    "w": "歌謡",
+    "r": "かよう",
+    "g": "song; ballad",
+    "reading": "ヨウ",
+    "furigana": [
+     [
+      "歌",
+      "か"
+     ],
+     [
+      "謡",
+      "よう"
+     ]
+    ]
+   },
+   {
+    "w": "民謡",
+    "r": "みんよう",
+    "g": "folk song",
+    "lit": "people-song",
+    "reading": "ヨウ",
+    "furigana": [
+     [
+      "民",
+      "みん"
+     ],
+     [
+      "謡",
+      "よう"
+     ]
+    ]
+   },
+   {
+    "w": "童謡",
+    "r": "どうよう",
+    "g": "children's song",
+    "lit": "child-song",
+    "reading": "ヨウ",
+    "furigana": [
+     [
+      "童",
+      "どう"
+     ],
+     [
+      "謡",
+      "よう"
+     ]
+    ]
+   },
+   {
+    "w": "歌謡曲",
+    "r": "かようきょく",
+    "g": "Japanese popular song",
+    "reading": "ヨウ",
+    "furigana": [
+     [
+      "歌",
+      "か"
+     ],
+     [
+      "謡",
+      "よう"
+     ],
+     [
+      "曲",
+      "きょく"
+     ]
+    ]
+   },
+   {
+    "w": "謡曲",
+    "r": "ようきょく",
+    "g": "Noh song",
+    "reading": "ヨウ",
+    "furigana": [
+     [
+      "謡",
+      "よう"
+     ],
+     [
+      "曲",
+      "きょく"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "揺",
+  "keyword": "shake",
+  "meanings": [
+   "sway"
+  ],
+  "readings": [
+   "ゆ.れる",
+   "ゆ.らぐ",
+   "ゆ.るぐ",
+   "ゆ.さぶる",
+   "ゆ.する",
+   "ゆ.る",
+   "ヨウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "揺れる",
+    "r": "ゆれる",
+    "g": "to shake; sway",
+    "reading": "ゆ.れる",
+    "furigana": [
+     [
+      "揺",
+      "ゆ"
+     ],
+     [
+      "れ",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "動揺",
+    "r": "どうよう",
+    "g": "agitation; being shaken",
+    "lit": "move-shake",
+    "reading": "ヨウ",
+    "furigana": [
+     [
+      "動",
+      "どう"
+     ],
+     [
+      "揺",
+      "よう"
+     ]
+    ]
+   },
+   {
+    "w": "揺らぐ",
+    "r": "ゆらぐ",
+    "g": "to sway; waver",
+    "reading": "ゆ.らぐ",
+    "furigana": [
+     [
+      "揺",
+      "ゆ"
+     ],
+     [
+      "ら",
+      ""
+     ],
+     [
+      "ぐ",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "揺るがす",
+    "r": "ゆるがす",
+    "g": "to shake; rock",
+    "reading": "ゆ.るぐ",
+    "furigana": [
+     [
+      "揺",
+      "ゆ"
+     ],
+     [
+      "る",
+      ""
+     ],
+     [
+      "が",
+      ""
+     ],
+     [
+      "す",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "揺さぶる",
+    "r": "ゆさぶる",
+    "g": "to shake; rattle",
+    "reading": "ゆ.さぶる",
+    "furigana": [
+     [
+      "揺",
+      "ゆ"
+     ],
+     [
+      "さ",
+      ""
+     ],
+     [
+      "ぶ",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "揺れ",
+    "r": "ゆれ",
+    "g": "shaking; tremor",
+    "reading": "ゆ.れる",
+    "furigana": [
+     [
+      "揺",
+      "ゆ"
+     ],
+     [
+      "れ",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "揺らぎ",
+    "r": "ゆらぎ",
+    "g": "fluctuation; wavering",
+    "reading": "ゆ.らぐ",
+    "furigana": [
+     [
+      "揺",
+      "ゆ"
+     ],
+     [
+      "ら",
+      ""
+     ],
+     [
+      "ぎ",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "揺する",
+    "r": "ゆする",
+    "g": "to shake; rock",
+    "reading": "ゆ.する",
+    "furigana": [
+     [
+      "揺",
+      "ゆ"
+     ],
+     [
+      "す",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "揺るぐ",
+    "r": "ゆるぐ",
+    "g": "to waver",
+    "reading": "ゆ.るぐ",
+    "furigana": [
+     [
+      "揺",
+      "ゆ"
+     ],
+     [
+      "る",
+      ""
+     ],
+     [
+      "ぐ",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "揺り籠",
+    "r": "ゆりかご",
+    "g": "cradle",
+    "lit": "rock-basket",
+    "reading": "ゆ.る",
+    "furigana": [
+     [
+      "揺",
+      "ゆ"
+     ],
+     [
+      "り",
+      ""
+     ],
+     [
+      "籠",
+      "かご"
+     ]
+    ]
+   }
+  ],
+  "story": "A hand 扌 rocking a jar 䍃.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "赦",
+  "keyword": "pardon",
+  "meanings": [],
+  "readings": [
+   "シャ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "容赦",
+    "r": "ようしゃ",
+    "g": "mercy; pardon",
+    "lit": "allow-pardon",
+    "reading": "シャ",
+    "furigana": [
+     [
+      "容",
+      "よう"
+     ],
+     [
+      "赦",
+      "しゃ"
+     ]
+    ]
+   },
+   {
+    "w": "恩赦",
+    "r": "おんしゃ",
+    "g": "amnesty",
+    "lit": "favor-pardon",
+    "reading": "シャ",
+    "furigana": [
+     [
+      "恩",
+      "おん"
+     ],
+     [
+      "赦",
+      "しゃ"
+     ]
+    ]
+   },
+   {
+    "w": "容赦なく",
+    "r": "ようしゃなく",
+    "g": "mercilessly",
+    "reading": "シャ",
+    "furigana": [
+     [
+      "容",
+      "よう"
+     ],
+     [
+      "赦",
+      "しゃ"
+     ],
+     [
+      "な",
+      ""
+     ],
+     [
+      "く",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "赦免",
+    "r": "しゃめん",
+    "g": "pardon; remission",
+    "lit": "pardon-release",
+    "reading": "シャ",
+    "furigana": [
+     [
+      "赦",
+      "しゃ"
+     ],
+     [
+      "免",
+      "めん"
+     ]
+    ]
+   },
+   {
+    "w": "特赦",
+    "r": "とくしゃ",
+    "g": "special pardon",
+    "lit": "special-pardon",
+    "reading": "シャ",
+    "furigana": [
+     [
+      "特",
+      "とく"
+     ],
+     [
+      "赦",
+      "しゃ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A hand striking 攵, with 赤 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "怨",
+  "keyword": "grudge",
+  "meanings": [
+   "resentment"
+  ],
+  "readings": [
+   "エン",
+   "オン",
+   "うら.む"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "怨念",
+    "r": "おんねん",
+    "g": "deep grudge",
+    "lit": "grudge-thought",
+    "reading": "オン",
+    "furigana": [
+     [
+      "怨",
+      "おん"
+     ],
+     [
+      "念",
+      "ねん"
+     ]
+    ]
+   },
+   {
+    "w": "怨恨",
+    "r": "えんこん",
+    "g": "grudge; enmity",
+    "lit": "grudge-regret",
+    "reading": "エン",
+    "furigana": [
+     [
+      "怨",
+      "えん"
+     ],
+     [
+      "恨",
+      "こん"
+     ]
+    ]
+   },
+   {
+    "w": "怨霊",
+    "r": "おんりょう",
+    "g": "vengeful spirit",
+    "lit": "grudge-spirit",
+    "reading": "オン",
+    "furigana": [
+     [
+      "怨",
+      "おん"
+     ],
+     [
+      "霊",
+      "りょう"
+     ]
+    ]
+   },
+   {
+    "w": "怨む",
+    "r": "うらむ",
+    "g": "to bear a grudge",
+    "reading": "うら.む",
+    "furigana": [
+     [
+      "怨",
+      "うら"
+     ],
+     [
+      "む",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A heart 心 curled up 夗 tight with resentment.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "癖",
+  "keyword": "habit",
+  "meanings": [
+   "quirk"
+  ],
+  "readings": [
+   "くせ",
+   "ヘキ"
+  ],
+  "alone": {
+   "r": "くせ",
+   "g": "habit (often bad); quirk",
+   "reading": "くせ"
+  },
+  "words": [
+   {
+    "w": "口癖",
+    "r": "くちぐせ",
+    "g": "pet phrase",
+    "lit": "mouth-habit",
+    "reading": "くせ",
+    "furigana": [
+     [
+      "口",
+      "くち"
+     ],
+     [
+      "癖",
+      "ぐせ"
+     ]
+    ]
+   },
+   {
+    "w": "性癖",
+    "r": "せいへき",
+    "g": "disposition; quirk",
+    "lit": "nature-habit",
+    "reading": "ヘキ",
+    "furigana": [
+     [
+      "性",
+      "せい"
+     ],
+     [
+      "癖",
+      "へき"
+     ]
+    ]
+   },
+   {
+    "w": "潔癖",
+    "r": "けっぺき",
+    "g": "fastidiousness; love of cleanliness",
+    "lit": "clean-habit",
+    "reading": "ヘキ",
+    "furigana": [
+     [
+      "潔",
+      "けっ"
+     ],
+     [
+      "癖",
+      "ぺき"
+     ]
+    ]
+   },
+   {
+    "w": "寝癖",
+    "r": "ねぐせ",
+    "g": "bed hair",
+    "lit": "sleep-habit",
+    "reading": "くせ",
+    "furigana": [
+     [
+      "寝",
+      "ね"
+     ],
+     [
+      "癖",
+      "ぐせ"
+     ]
+    ]
+   },
+   {
+    "w": "癖に",
+    "r": "くせに",
+    "g": "even though; and yet",
+    "reading": "くせ",
+    "furigana": [
+     [
+      "癖",
+      "くせ"
+     ],
+     [
+      "に",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "癖毛",
+    "r": "くせげ",
+    "g": "frizzy hair",
+    "lit": "habit-hair",
+    "reading": "くせ",
+    "furigana": [
+     [
+      "癖",
+      "くせ"
+     ],
+     [
+      "毛",
+      "げ"
+     ]
+    ]
+   },
+   {
+    "w": "潔癖症",
+    "r": "けっぺきしょう",
+    "g": "germophobia; neat freak",
+    "reading": "ヘキ",
+    "furigana": [
+     [
+      "潔",
+      "けっ"
+     ],
+     [
+      "癖",
+      "ぺき"
+     ],
+     [
+      "症",
+      "しょう"
+     ]
+    ]
+   }
+  ],
+  "story": "A sickness 疒 you can't shake off.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "殻",
+  "keyword": "shell",
+  "meanings": [
+   "husk"
+  ],
+  "readings": [
+   "から",
+   "カク"
+  ],
+  "alone": {
+   "r": "から",
+   "g": "shell; husk",
+   "reading": "から"
+  },
+  "words": [
+   {
+    "w": "貝殻",
+    "r": "かいがら",
+    "g": "seashell",
+    "lit": "shellfish-shell",
+    "reading": "から",
+    "furigana": [
+     [
+      "貝",
+      "かい"
+     ],
+     [
+      "殻",
+      "がら"
+     ]
+    ]
+   },
+   {
+    "w": "地殻",
+    "r": "ちかく",
+    "g": "the earth's crust",
+    "lit": "earth-shell",
+    "reading": "カク",
+    "furigana": [
+     [
+      "地",
+      "ち"
+     ],
+     [
+      "殻",
+      "かく"
+     ]
+    ]
+   },
+   {
+    "w": "吸い殻",
+    "r": "すいがら",
+    "g": "cigarette butt",
+    "lit": "smoke-shell",
+    "reading": "から",
+    "furigana": [
+     [
+      "吸",
+      "す"
+     ],
+     [
+      "い",
+      ""
+     ],
+     [
+      "殻",
+      "がら"
+     ]
+    ]
+   },
+   {
+    "w": "抜け殻",
+    "r": "ぬけがら",
+    "g": "shed skin; empty shell",
+    "lit": "shed-shell",
+    "reading": "から",
+    "furigana": [
+     [
+      "抜",
+      "ぬ"
+     ],
+     [
+      "け",
+      ""
+     ],
+     [
+      "殻",
+      "がら"
+     ]
+    ]
+   },
+   {
+    "w": "甲殻類",
+    "r": "こうかくるい",
+    "g": "crustaceans",
+    "lit": "carapace-shell-kind",
+    "reading": "カク",
+    "furigana": [
+     [
+      "甲",
+      "こう"
+     ],
+     [
+      "殻",
+      "かく"
+     ],
+     [
+      "類",
+      "るい"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "地殻変動",
+    "r": "ちかくへんどう",
+    "g": "crustal movement",
+    "reading": "カク",
+    "furigana": [
+     [
+      "地",
+      "ち"
+     ],
+     [
+      "殻",
+      "かく"
+     ],
+     [
+      "変",
+      "へん"
+     ],
+     [
+      "動",
+      "どう"
+     ]
+    ]
+   }
+  ],
+  "story": "A hand with a club 殳 cracking a shell 壳.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "唇",
+  "keyword": "lips",
+  "meanings": [],
+  "readings": [
+   "くちびる"
+  ],
+  "alone": {
+   "r": "くちびる",
+   "g": "lips",
+   "reading": "くちびる"
+  },
+  "words": [
+   {
+    "w": "上唇",
+    "r": "うわくちびる",
+    "g": "upper lip",
+    "reading": "くちびる",
+    "furigana": [
+     [
+      "上",
+      "うわ"
+     ],
+     [
+      "唇",
+      "くちびる"
+     ]
+    ]
+   },
+   {
+    "w": "下唇",
+    "r": "したくちびる",
+    "g": "lower lip",
+    "reading": "くちびる",
+    "furigana": [
+     [
+      "下",
+      "した"
+     ],
+     [
+      "唇",
+      "くちびる"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A mouth 口, with 辰 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "炊",
+  "keyword": "cook (rice)",
+  "meanings": [],
+  "readings": [
+   "た.く",
+   "スイ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "炊く",
+    "r": "たく",
+    "g": "to cook (rice)",
+    "reading": "た.く",
+    "furigana": [
+     [
+      "炊",
+      "た"
+     ],
+     [
+      "く",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "自炊",
+    "r": "じすい",
+    "g": "cooking for oneself",
+    "lit": "self-cook",
+    "reading": "スイ",
+    "furigana": [
+     [
+      "自",
+      "じ"
+     ],
+     [
+      "炊",
+      "すい"
+     ]
+    ]
+   },
+   {
+    "w": "炊飯器",
+    "r": "すいはんき",
+    "g": "rice cooker",
+    "lit": "cook-rice-device",
+    "reading": "スイ",
+    "furigana": [
+     [
+      "炊",
+      "すい"
+     ],
+     [
+      "飯",
+      "はん"
+     ],
+     [
+      "器",
+      "き"
+     ]
+    ]
+   },
+   {
+    "w": "炊事",
+    "r": "すいじ",
+    "g": "cooking; kitchen work",
+    "lit": "cook-matter",
+    "reading": "スイ",
+    "furigana": [
+     [
+      "炊",
+      "すい"
+     ],
+     [
+      "事",
+      "じ"
+     ]
+    ]
+   },
+   {
+    "w": "雑炊",
+    "r": "ぞうすい",
+    "g": "rice porridge",
+    "lit": "mixed-cook",
+    "reading": "スイ",
+    "furigana": [
+     [
+      "雑",
+      "ぞう"
+     ],
+     [
+      "炊",
+      "すい"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "炊き出し",
+    "r": "たきだし",
+    "g": "soup kitchen; food handout",
+    "lit": "cook-put out",
+    "reading": "た.く",
+    "furigana": [
+     [
+      "炊",
+      "た"
+     ],
+     [
+      "き",
+      ""
+     ],
+     [
+      "出",
+      "だ"
+     ],
+     [
+      "し",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "炊き込みご飯",
+    "r": "たきこみごはん",
+    "g": "mixed rice",
+    "reading": "た.く",
+    "furigana": [
+     [
+      "炊",
+      "た"
+     ],
+     [
+      "き",
+      ""
+     ],
+     [
+      "込",
+      "こ"
+     ],
+     [
+      "み",
+      ""
+     ],
+     [
+      "ご",
+      ""
+     ],
+     [
+      "飯",
+      "はん"
+     ]
+    ]
+   }
+  ],
+  "story": "A fire 火 and someone blowing 欠 on it.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "傍",
+  "keyword": "beside",
+  "meanings": [
+   "side"
+  ],
+  "readings": [
+   "ボウ",
+   "かたわ.ら"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "傍ら",
+    "r": "かたわら",
+    "g": "beside; while (doing)",
+    "reading": "かたわ.ら",
+    "furigana": [
+     [
+      "傍",
+      "かたわ"
+     ],
+     [
+      "ら",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "傍観",
+    "r": "ぼうかん",
+    "g": "looking on",
+    "lit": "side-watch",
+    "reading": "ボウ",
+    "furigana": [
+     [
+      "傍",
+      "ぼう"
+     ],
+     [
+      "観",
+      "かん"
+     ]
+    ]
+   },
+   {
+    "w": "傍聴",
+    "r": "ぼうちょう",
+    "g": "attending (a hearing)",
+    "lit": "side-listen",
+    "reading": "ボウ",
+    "furigana": [
+     [
+      "傍",
+      "ぼう"
+     ],
+     [
+      "聴",
+      "ちょう"
+     ]
+    ]
+   },
+   {
+    "w": "傍受",
+    "r": "ぼうじゅ",
+    "g": "interception",
+    "lit": "side-receive",
+    "reading": "ボウ",
+    "furigana": [
+     [
+      "傍",
+      "ぼう"
+     ],
+     [
+      "受",
+      "じゅ"
+     ]
+    ]
+   },
+   {
+    "w": "傍線",
+    "r": "ぼうせん",
+    "g": "sideline; underline",
+    "lit": "side-line",
+    "reading": "ボウ",
+    "furigana": [
+     [
+      "傍",
+      "ぼう"
+     ],
+     [
+      "線",
+      "せん"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "傍観者",
+    "r": "ぼうかんしゃ",
+    "g": "onlooker",
+    "reading": "ボウ",
+    "furigana": [
+     [
+      "傍",
+      "ぼう"
+     ],
+     [
+      "観",
+      "かん"
+     ],
+     [
+      "者",
+      "しゃ"
+     ]
+    ]
+   }
+  ],
+  "story": "A person 亻 standing by the side 旁.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "惧",
+  "keyword": "fear",
+  "meanings": [],
+  "readings": [
+   "グ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "危惧",
+    "r": "きぐ",
+    "g": "apprehension; fear",
+    "lit": "danger-fear",
+    "reading": "グ",
+    "furigana": [
+     [
+      "危",
+      "き"
+     ],
+     [
+      "惧",
+      "ぐ"
+     ]
+    ]
+   },
+   {
+    "w": "危惧種",
+    "r": "きぐしゅ",
+    "g": "endangered species",
+    "reading": "グ",
+    "furigana": [
+     [
+      "危",
+      "き"
+     ],
+     [
+      "惧",
+      "ぐ"
+     ],
+     [
+      "種",
+      "しゅ"
+     ]
+    ]
+   },
+   {
+    "w": "絶滅危惧種",
+    "r": "ぜつめつきぐしゅ",
+    "g": "endangered species",
+    "reading": "グ",
+    "furigana": [
+     [
+      "絶",
+      "ぜつ"
+     ],
+     [
+      "滅",
+      "めつ"
+     ],
+     [
+      "危",
+      "き"
+     ],
+     [
+      "惧",
+      "ぐ"
+     ],
+     [
+      "種",
+      "しゅ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A heart 忄, with 具 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "俸",
+  "keyword": "salary",
+  "meanings": [],
+  "readings": [
+   "ホウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "年俸",
+    "r": "ねんぽう",
+    "g": "annual salary",
+    "lit": "year-salary",
+    "reading": "ホウ",
+    "furigana": [
+     [
+      "年",
+      "ねん"
+     ],
+     [
+      "俸",
+      "ぽう"
+     ]
+    ]
+   },
+   {
+    "w": "俸給",
+    "r": "ほうきゅう",
+    "g": "salary",
+    "lit": "salary-pay",
+    "reading": "ホウ",
+    "furigana": [
+     [
+      "俸",
+      "ほう"
+     ],
+     [
+      "給",
+      "きゅう"
+     ]
+    ]
+   },
+   {
+    "w": "減俸",
+    "r": "げんぽう",
+    "g": "pay cut",
+    "lit": "reduce-salary",
+    "reading": "ホウ",
+    "furigana": [
+     [
+      "減",
+      "げん"
+     ],
+     [
+      "俸",
+      "ぽう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A person 亻 receiving an offering 奉.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "璃",
+  "keyword": "lapis lazuli",
+  "meanings": [
+   "glass"
+  ],
+  "readings": [
+   "リ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "瑠璃",
+    "r": "るり",
+    "g": "lapis lazuli",
+    "reading": "リ",
+    "furigana": [
+     [
+      "瑠",
+      "る"
+     ],
+     [
+      "璃",
+      "り"
+     ]
+    ]
+   },
+   {
+    "w": "瑠璃色",
+    "r": "るりいろ",
+    "g": "lapis blue; deep blue",
+    "lit": "lapis-lazuli-color",
+    "reading": "リ",
+    "furigana": [
+     [
+      "瑠",
+      "る"
+     ],
+     [
+      "璃",
+      "り"
+     ],
+     [
+      "色",
+      "いろ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "愚",
+  "keyword": "foolish",
+  "meanings": [],
+  "readings": [
+   "グ",
+   "おろ.か"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "愚か",
+    "r": "おろか",
+    "g": "foolish",
+    "reading": "おろ.か",
+    "furigana": [
+     [
+      "愚",
+      "おろ"
+     ],
+     [
+      "か",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "愚痴",
+    "r": "ぐち",
+    "g": "grumbling; complaint",
+    "reading": "グ",
+    "furigana": [
+     [
+      "愚",
+      "ぐ"
+     ],
+     [
+      "痴",
+      "ち"
+     ]
+    ]
+   },
+   {
+    "w": "愚者",
+    "r": "ぐしゃ",
+    "g": "fool",
+    "lit": "foolish-person",
+    "reading": "グ",
+    "furigana": [
+     [
+      "愚",
+      "ぐ"
+     ],
+     [
+      "者",
+      "しゃ"
+     ]
+    ]
+   },
+   {
+    "w": "愚問",
+    "r": "ぐもん",
+    "g": "silly question",
+    "lit": "foolish-question",
+    "reading": "グ",
+    "furigana": [
+     [
+      "愚",
+      "ぐ"
+     ],
+     [
+      "問",
+      "もん"
+     ]
+    ]
+   },
+   {
+    "w": "愚弄",
+    "r": "ぐろう",
+    "g": "mockery",
+    "lit": "fool-toy with",
+    "reading": "グ",
+    "furigana": [
+     [
+      "愚",
+      "ぐ"
+     ],
+     [
+      "弄",
+      "ろう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A monkey's 禺 heart 心.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "蚕",
+  "keyword": "silkworm",
+  "meanings": [],
+  "readings": [
+   "かいこ",
+   "サン"
+  ],
+  "alone": {
+   "r": "かいこ",
+   "g": "silkworm",
+   "reading": "かいこ"
+  },
+  "words": [
+   {
+    "w": "養蚕",
+    "r": "ようさん",
+    "g": "silk farming",
+    "lit": "raise-silkworm",
+    "reading": "サン",
+    "furigana": [
+     [
+      "養",
+      "よう"
+     ],
+     [
+      "蚕",
+      "さん"
+     ]
+    ]
+   },
+   {
+    "w": "蚕糸",
+    "r": "さんし",
+    "g": "silk thread",
+    "lit": "silkworm-thread",
+    "reading": "サン",
+    "furigana": [
+     [
+      "蚕",
+      "さん"
+     ],
+     [
+      "糸",
+      "し"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A heavenly 天 insect 虫 that spins silk.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "嘆",
+  "keyword": "sigh",
+  "meanings": [
+   "lament",
+   "admire"
+  ],
+  "readings": [
+   "なげ.く",
+   "タン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "嘆く",
+    "r": "なげく",
+    "g": "to lament; grieve",
+    "reading": "なげ.く",
+    "furigana": [
+     [
+      "嘆",
+      "なげ"
+     ],
+     [
+      "く",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "嘆き",
+    "r": "なげき",
+    "g": "grief; lament",
+    "reading": "なげ.く",
+    "furigana": [
+     [
+      "嘆",
+      "なげ"
+     ],
+     [
+      "き",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "感嘆",
+    "r": "かんたん",
+    "g": "admiration",
+    "lit": "feel-sigh",
+    "reading": "タン",
+    "furigana": [
+     [
+      "感",
+      "かん"
+     ],
+     [
+      "嘆",
+      "たん"
+     ]
+    ]
+   },
+   {
+    "w": "嘆願",
+    "r": "たんがん",
+    "g": "petition; plea",
+    "lit": "sigh-request",
+    "reading": "タン",
+    "furigana": [
+     [
+      "嘆",
+      "たん"
+     ],
+     [
+      "願",
+      "がん"
+     ]
+    ]
+   },
+   {
+    "w": "驚嘆",
+    "r": "きょうたん",
+    "g": "wonder; amazement",
+    "lit": "surprise-sigh",
+    "reading": "タン",
+    "furigana": [
+     [
+      "驚",
+      "きょう"
+     ],
+     [
+      "嘆",
+      "たん"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "嘆かわしい",
+    "r": "なげかわしい",
+    "g": "deplorable",
+    "reading": "なげ.く",
+    "furigana": [
+     [
+      "嘆",
+      "なげ"
+     ],
+     [
+      "か",
+      ""
+     ],
+     [
+      "わ",
+      ""
+     ],
+     [
+      "し",
+      ""
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "悲嘆",
+    "r": "ひたん",
+    "g": "grief; sorrow",
+    "lit": "sad-lament",
+    "reading": "タン",
+    "furigana": [
+     [
+      "悲",
+      "ひ"
+     ],
+     [
+      "嘆",
+      "たん"
+     ]
+    ]
+   },
+   {
+    "w": "嘆息",
+    "r": "たんそく",
+    "g": "sigh",
+    "lit": "sigh-breath",
+    "reading": "タン",
+    "furigana": [
+     [
+      "嘆",
+      "たん"
+     ],
+     [
+      "息",
+      "そく"
+     ]
+    ]
+   }
+  ],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "苛",
+  "keyword": "harsh",
+  "meanings": [
+   "torment",
+   "irritate"
+  ],
+  "readings": [
+   "カ",
+   "いじ.める",
+   "いら"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "苛酷",
+    "r": "かこく",
+    "g": "harsh; severe",
+    "lit": "harsh-cruel",
+    "reading": "カ",
+    "furigana": [
+     [
+      "苛",
+      "か"
+     ],
+     [
+      "酷",
+      "こく"
+     ]
+    ]
+   },
+   {
+    "w": "苛立つ",
+    "r": "いらだつ",
+    "g": "to get irritated",
+    "reading": "いら",
+    "furigana": [
+     [
+      "苛",
+      "いら"
+     ],
+     [
+      "立",
+      "だ"
+     ],
+     [
+      "つ",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "苛める",
+    "r": "いじめる",
+    "g": "to bully",
+    "reading": "いじ.める",
+    "furigana": [
+     [
+      "苛",
+      "いじ"
+     ],
+     [
+      "め",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "苛烈",
+    "r": "かれつ",
+    "g": "fierce; severe",
+    "lit": "harsh-violent",
+    "reading": "カ",
+    "furigana": [
+     [
+      "苛",
+      "か"
+     ],
+     [
+      "烈",
+      "れつ"
+     ]
+    ]
+   },
+   {
+    "w": "苛々",
+    "r": "いらいら",
+    "g": "irritation; on edge",
+    "reading": "いら",
+    "furigana": [
+     [
+      "苛",
+      "いら"
+     ],
+     [
+      "々",
+      "いら"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A plant 艹, with 可 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "擬",
+  "keyword": "imitate",
+  "meanings": [
+   "mock"
+  ],
+  "readings": [
+   "ギ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "模擬",
+    "r": "もぎ",
+    "g": "mock; simulated",
+    "lit": "copy-imitate",
+    "reading": "ギ",
+    "furigana": [
+     [
+      "模",
+      "も"
+     ],
+     [
+      "擬",
+      "ぎ"
+     ]
+    ]
+   },
+   {
+    "w": "擬人化",
+    "r": "ぎじんか",
+    "g": "personification",
+    "lit": "imitate-person-make",
+    "reading": "ギ",
+    "furigana": [
+     [
+      "擬",
+      "ぎ"
+     ],
+     [
+      "人",
+      "じん"
+     ],
+     [
+      "化",
+      "か"
+     ]
+    ]
+   },
+   {
+    "w": "擬音",
+    "r": "ぎおん",
+    "g": "sound effect",
+    "lit": "imitate-sound",
+    "reading": "ギ",
+    "furigana": [
+     [
+      "擬",
+      "ぎ"
+     ],
+     [
+      "音",
+      "おん"
+     ]
+    ]
+   },
+   {
+    "w": "擬態",
+    "r": "ぎたい",
+    "g": "mimicry",
+    "lit": "imitate-form",
+    "reading": "ギ",
+    "furigana": [
+     [
+      "擬",
+      "ぎ"
+     ],
+     [
+      "態",
+      "たい"
+     ]
+    ]
+   },
+   {
+    "w": "模擬試験",
+    "r": "もぎしけん",
+    "g": "mock exam",
+    "reading": "ギ",
+    "furigana": [
+     [
+      "模",
+      "も"
+     ],
+     [
+      "擬",
+      "ぎ"
+     ],
+     [
+      "試",
+      "し"
+     ],
+     [
+      "験",
+      "けん"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "擬声語",
+    "r": "ぎせいご",
+    "g": "onomatopoeia",
+    "lit": "imitate-voice-word",
+    "reading": "ギ",
+    "furigana": [
+     [
+      "擬",
+      "ぎ"
+     ],
+     [
+      "声",
+      "せい"
+     ],
+     [
+      "語",
+      "ご"
+     ]
+    ]
+   }
+  ],
+  "story": "A hand 扌, with 疑 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "哺",
+  "keyword": "suckle",
+  "meanings": [],
+  "readings": [
+   "ホ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "哺乳類",
+    "r": "ほにゅうるい",
+    "g": "mammals",
+    "lit": "suckle-milk-kind",
+    "reading": "ホ",
+    "furigana": [
+     [
+      "哺",
+      "ほ"
+     ],
+     [
+      "乳",
+      "にゅう"
+     ],
+     [
+      "類",
+      "るい"
+     ]
+    ]
+   },
+   {
+    "w": "哺乳瓶",
+    "r": "ほにゅうびん",
+    "g": "baby bottle",
+    "lit": "suckle-milk-bottle",
+    "reading": "ホ",
+    "furigana": [
+     [
+      "哺",
+      "ほ"
+     ],
+     [
+      "乳",
+      "にゅう"
+     ],
+     [
+      "瓶",
+      "びん"
+     ]
+    ]
+   },
+   {
+    "w": "哺乳",
+    "r": "ほにゅう",
+    "g": "nursing; suckling",
+    "lit": "suckle-milk",
+    "reading": "ホ",
+    "furigana": [
+     [
+      "哺",
+      "ほ"
+     ],
+     [
+      "乳",
+      "にゅう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A mouth 口, with 甫 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "廉",
+  "keyword": "low-priced",
+  "meanings": [
+   "honest"
+  ],
+  "readings": [
+   "レン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "廉価",
+    "r": "れんか",
+    "g": "low price",
+    "lit": "cheap-price",
+    "reading": "レン",
+    "furigana": [
+     [
+      "廉",
+      "れん"
+     ],
+     [
+      "価",
+      "か"
+     ]
+    ]
+   },
+   {
+    "w": "破廉恥",
+    "r": "はれんち",
+    "g": "shameless",
+    "lit": "break-honest-shame",
+    "reading": "レン",
+    "furigana": [
+     [
+      "破",
+      "は"
+     ],
+     [
+      "廉",
+      "れん"
+     ],
+     [
+      "恥",
+      "ち"
+     ]
+    ]
+   },
+   {
+    "w": "清廉",
+    "r": "せいれん",
+    "g": "upright; honest",
+    "lit": "pure-honest",
+    "reading": "レン",
+    "furigana": [
+     [
+      "清",
+      "せい"
+     ],
+     [
+      "廉",
+      "れん"
+     ]
+    ]
+   },
+   {
+    "w": "廉売",
+    "r": "れんばい",
+    "g": "bargain sale",
+    "lit": "cheap-sell",
+    "reading": "レン",
+    "furigana": [
+     [
+      "廉",
+      "れん"
+     ],
+     [
+      "売",
+      "ばい"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "剖",
+  "keyword": "dissect",
+  "meanings": [],
+  "readings": [
+   "ボウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "解剖",
+    "r": "かいぼう",
+    "g": "dissection; autopsy",
+    "lit": "take apart-cut open",
+    "reading": "ボウ",
+    "furigana": [
+     [
+      "解",
+      "かい"
+     ],
+     [
+      "剖",
+      "ぼう"
+     ]
+    ]
+   },
+   {
+    "w": "解剖学",
+    "r": "かいぼうがく",
+    "g": "anatomy",
+    "reading": "ボウ",
+    "furigana": [
+     [
+      "解",
+      "かい"
+     ],
+     [
+      "剖",
+      "ぼう"
+     ],
+     [
+      "学",
+      "がく"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A knife 刂 that splits 咅 things open.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "惜",
+  "keyword": "regret",
+  "meanings": [
+   "spare",
+   "begrudge"
+  ],
+  "readings": [
+   "お.しい",
+   "お.しむ",
+   "セキ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "惜しい",
+    "r": "おしい",
+    "g": "so close!; regrettable",
+    "reading": "お.しい",
+    "furigana": [
+     [
+      "惜",
+      "お"
+     ],
+     [
+      "し",
+      ""
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "惜しむ",
+    "r": "おしむ",
+    "g": "to regret; spare",
+    "reading": "お.しむ",
+    "furigana": [
+     [
+      "惜",
+      "お"
+     ],
+     [
+      "し",
+      ""
+     ],
+     [
+      "む",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "名残惜しい",
+    "r": "なごりおしい",
+    "g": "sad to part",
+    "reading": "お.しい",
+    "furigana": [
+     [
+      "名",
+      "な"
+     ],
+     [
+      "残",
+      "ごり"
+     ],
+     [
+      "惜",
+      "お"
+     ],
+     [
+      "し",
+      ""
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "負け惜しみ",
+    "r": "まけおしみ",
+    "g": "sour grapes",
+    "lit": "lose-regret",
+    "reading": "お.しむ",
+    "furigana": [
+     [
+      "負",
+      "ま"
+     ],
+     [
+      "け",
+      ""
+     ],
+     [
+      "惜",
+      "お"
+     ],
+     [
+      "し",
+      ""
+     ],
+     [
+      "み",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "惜敗",
+    "r": "せきはい",
+    "g": "narrow defeat",
+    "lit": "regret-defeat",
+    "reading": "セキ",
+    "furigana": [
+     [
+      "惜",
+      "せき"
+     ],
+     [
+      "敗",
+      "はい"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "惜しみなく",
+    "r": "おしみなく",
+    "g": "unsparingly",
+    "reading": "お.しむ",
+    "furigana": [
+     [
+      "惜",
+      "お"
+     ],
+     [
+      "し",
+      ""
+     ],
+     [
+      "み",
+      ""
+     ],
+     [
+      "な",
+      ""
+     ],
+     [
+      "く",
+      ""
+     ]
+    ]
+   }
+  ],
+  "story": "A heart 忄 pining for the old days 昔.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "鋳",
+  "keyword": "cast (metal)",
+  "meanings": [],
+  "readings": [
+   "い.る",
+   "チュウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "鋳造",
+    "r": "ちゅうぞう",
+    "g": "casting (metal)",
+    "lit": "cast-make",
+    "reading": "チュウ",
+    "furigana": [
+     [
+      "鋳",
+      "ちゅう"
+     ],
+     [
+      "造",
+      "ぞう"
+     ]
+    ]
+   },
+   {
+    "w": "鋳物",
+    "r": "いもの",
+    "g": "cast metal object",
+    "lit": "cast-thing",
+    "reading": "い.る",
+    "furigana": [
+     [
+      "鋳",
+      "い"
+     ],
+     [
+      "物",
+      "もの"
+     ]
+    ]
+   },
+   {
+    "w": "鋳型",
+    "r": "いがた",
+    "g": "mold",
+    "lit": "cast-mold",
+    "reading": "い.る",
+    "furigana": [
+     [
+      "鋳",
+      "い"
+     ],
+     [
+      "型",
+      "がた"
+     ]
+    ]
+   },
+   {
+    "w": "鋳る",
+    "r": "いる",
+    "g": "to cast (metal)",
+    "reading": "い.る",
+    "furigana": [
+     [
+      "鋳",
+      "い"
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Metal 金, with 寿 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "錬",
+  "keyword": "temper (metal)",
+  "meanings": [
+   "refine",
+   "drill"
+  ],
+  "readings": [
+   "レン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "錬金術",
+    "r": "れんきんじゅつ",
+    "g": "alchemy",
+    "lit": "refine-gold-art",
+    "reading": "レン",
+    "furigana": [
+     [
+      "錬",
+      "れん"
+     ],
+     [
+      "金",
+      "きん"
+     ],
+     [
+      "術",
+      "じゅつ"
+     ]
+    ]
+   },
+   {
+    "w": "鍛錬",
+    "r": "たんれん",
+    "g": "training; forging",
+    "lit": "forge-temper",
+    "reading": "レン",
+    "furigana": [
+     [
+      "鍛",
+      "たん"
+     ],
+     [
+      "錬",
+      "れん"
+     ]
+    ]
+   },
+   {
+    "w": "錬金術師",
+    "r": "れんきんじゅつし",
+    "g": "alchemist",
+    "reading": "レン",
+    "furigana": [
+     [
+      "錬",
+      "れん"
+     ],
+     [
+      "金",
+      "きん"
+     ],
+     [
+      "術",
+      "じゅつ"
+     ],
+     [
+      "師",
+      "し"
+     ]
+    ]
+   },
+   {
+    "w": "精錬",
+    "r": "せいれん",
+    "g": "refining (metal)",
+    "lit": "refine-temper",
+    "reading": "レン",
+    "furigana": [
+     [
+      "精",
+      "せい"
+     ],
+     [
+      "錬",
+      "れん"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "蹴",
+  "keyword": "kick",
+  "meanings": [],
+  "readings": [
+   "け.る",
+   "シュウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "蹴る",
+    "r": "ける",
+    "g": "to kick",
+    "reading": "け.る",
+    "furigana": [
+     [
+      "蹴",
+      "け"
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "蹴飛ばす",
+    "r": "けとばす",
+    "g": "to kick away",
+    "lit": "kick-send flying",
+    "reading": "け.る",
+    "furigana": [
+     [
+      "蹴",
+      "け"
+     ],
+     [
+      "飛",
+      "と"
+     ],
+     [
+      "ば",
+      ""
+     ],
+     [
+      "す",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "一蹴",
+    "r": "いっしゅう",
+    "g": "flat rejection",
+    "lit": "one-kick",
+    "reading": "シュウ",
+    "furigana": [
+     [
+      "一",
+      "いっ"
+     ],
+     [
+      "蹴",
+      "しゅう"
+     ]
+    ]
+   },
+   {
+    "w": "蹴散らす",
+    "r": "けちらす",
+    "g": "to scatter; rout",
+    "lit": "kick-scatter",
+    "reading": "け.る",
+    "furigana": [
+     [
+      "蹴",
+      "け"
+     ],
+     [
+      "散",
+      "ち"
+     ],
+     [
+      "ら",
+      ""
+     ],
+     [
+      "す",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "A foot 足, with 就 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "錦",
+  "keyword": "brocade",
+  "meanings": [],
+  "readings": [
+   "にしき",
+   "キン"
+  ],
+  "alone": {
+   "r": "にしき",
+   "g": "brocade",
+   "reading": "にしき"
+  },
+  "words": [
+   {
+    "w": "錦鯉",
+    "r": "にしきごい",
+    "g": "ornamental carp",
+    "lit": "brocade-carp",
+    "reading": "にしき",
+    "furigana": [
+     [
+      "錦",
+      "にしき"
+     ],
+     [
+      "鯉",
+      "ごい"
+     ]
+    ]
+   },
+   {
+    "w": "錦絵",
+    "r": "にしきえ",
+    "g": "color woodblock print",
+    "lit": "brocade-picture",
+    "reading": "にしき",
+    "furigana": [
+     [
+      "錦",
+      "にしき"
+     ],
+     [
+      "絵",
+      "え"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Cloth 帛 woven with gold 金 thread.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "綿",
+  "keyword": "cotton",
+  "meanings": [],
+  "readings": [
+   "メン",
+   "わた"
+  ],
+  "alone": {
+   "r": "めん",
+   "g": "cotton (fabric)",
+   "reading": "メン"
+  },
+  "words": [
+   {
+    "w": "木綿",
+    "r": "もめん",
+    "g": "cotton (cloth)",
+    "reading": "special",
+    "special": true,
+    "furigana": [
+     [
+      "木綿",
+      "もめん"
+     ]
+    ]
+   },
+   {
+    "w": "綿密",
+    "r": "めんみつ",
+    "g": "meticulous; detailed",
+    "lit": "fine-dense",
+    "reading": "メン",
+    "furigana": [
+     [
+      "綿",
+      "めん"
+     ],
+     [
+      "密",
+      "みつ"
+     ]
+    ]
+   },
+   {
+    "w": "綿花",
+    "r": "めんか",
+    "g": "raw cotton",
+    "lit": "cotton-flower",
+    "reading": "メン",
+    "furigana": [
+     [
+      "綿",
+      "めん"
+     ],
+     [
+      "花",
+      "か"
+     ]
+    ]
+   },
+   {
+    "w": "綿菓子",
+    "r": "わたがし",
+    "g": "cotton candy",
+    "lit": "cotton-sweets",
+    "reading": "わた",
+    "furigana": [
+     [
+      "綿",
+      "わた"
+     ],
+     [
+      "菓",
+      "が"
+     ],
+     [
+      "子",
+      "し"
+     ]
+    ]
+   },
+   {
+    "w": "綿布",
+    "r": "めんぷ",
+    "g": "cotton cloth",
+    "lit": "cotton-cloth",
+    "reading": "メン",
+    "furigana": [
+     [
+      "綿",
+      "めん"
+     ],
+     [
+      "布",
+      "ぷ"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "真綿",
+    "r": "まわた",
+    "g": "silk floss",
+    "lit": "true-cotton",
+    "reading": "わた",
+    "furigana": [
+     [
+      "真",
+      "ま"
+     ],
+     [
+      "綿",
+      "わた"
+     ]
+    ]
+   },
+   {
+    "w": "綿棒",
+    "r": "めんぼう",
+    "g": "cotton swab",
+    "lit": "cotton-stick",
+    "reading": "メン",
+    "furigana": [
+     [
+      "綿",
+      "めん"
+     ],
+     [
+      "棒",
+      "ぼう"
+     ]
+    ]
+   }
+  ],
+  "story": "Thread 糸 spun from soft white cloth 帛.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "芯",
+  "keyword": "core",
+  "meanings": [
+   "wick"
+  ],
+  "readings": [
+   "シン"
+  ],
+  "alone": {
+   "r": "しん",
+   "g": "core; wick; pencil lead",
+   "reading": "シン"
+  },
+  "words": [],
+  "more": [],
+  "story": "The heart 心 of a plant 艹: its core.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "潰",
+  "keyword": "crush",
+  "meanings": [],
+  "readings": [
+   "つぶ.す",
+   "つぶ.れる",
+   "カイ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "潰す",
+    "r": "つぶす",
+    "g": "to crush; kill (time)",
+    "reading": "つぶ.す",
+    "furigana": [
+     [
+      "潰",
+      "つぶ"
+     ],
+     [
+      "す",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "潰れる",
+    "r": "つぶれる",
+    "g": "to be crushed; go bust",
+    "reading": "つぶ.れる",
+    "furigana": [
+     [
+      "潰",
+      "つぶ"
+     ],
+     [
+      "れ",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "暇潰し",
+    "r": "ひまつぶし",
+    "g": "killing time",
+    "lit": "free time-crush",
+    "reading": "つぶ.す",
+    "furigana": [
+     [
+      "暇",
+      "ひま"
+     ],
+     [
+      "潰",
+      "つぶ"
+     ],
+     [
+      "し",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "潰瘍",
+    "r": "かいよう",
+    "g": "ulcer",
+    "reading": "カイ",
+    "furigana": [
+     [
+      "潰",
+      "かい"
+     ],
+     [
+      "瘍",
+      "よう"
+     ]
+    ]
+   },
+   {
+    "w": "胃潰瘍",
+    "r": "いかいよう",
+    "g": "stomach ulcer",
+    "reading": "カイ",
+    "furigana": [
+     [
+      "胃",
+      "い"
+     ],
+     [
+      "潰",
+      "かい"
+     ],
+     [
+      "瘍",
+      "よう"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "顔を潰す",
+    "r": "かおをつぶす",
+    "g": "to make (someone) lose face",
+    "reading": "つぶ.す",
+    "furigana": [
+     [
+      "顔",
+      "かお"
+     ],
+     [
+      "を",
+      ""
+     ],
+     [
+      "潰",
+      "つぶ"
+     ],
+     [
+      "す",
+      ""
+     ]
+    ]
+   }
+  ],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "穀",
+  "keyword": "grain",
+  "meanings": [
+   "cereal"
+  ],
+  "readings": [
+   "コク"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "穀物",
+    "r": "こくもつ",
+    "g": "grain; cereal",
+    "lit": "grain-thing",
+    "reading": "コク",
+    "furigana": [
+     [
+      "穀",
+      "こく"
+     ],
+     [
+      "物",
+      "もつ"
+     ]
+    ]
+   },
+   {
+    "w": "穀類",
+    "r": "こくるい",
+    "g": "grains",
+    "lit": "grain-kind",
+    "reading": "コク",
+    "furigana": [
+     [
+      "穀",
+      "こく"
+     ],
+     [
+      "類",
+      "るい"
+     ]
+    ]
+   },
+   {
+    "w": "雑穀",
+    "r": "ざっこく",
+    "g": "mixed grains",
+    "lit": "mixed-grain",
+    "reading": "コク",
+    "furigana": [
+     [
+      "雑",
+      "ざっ"
+     ],
+     [
+      "穀",
+      "こく"
+     ]
+    ]
+   },
+   {
+    "w": "穀倉",
+    "r": "こくそう",
+    "g": "granary",
+    "lit": "grain-storehouse",
+    "reading": "コク",
+    "furigana": [
+     [
+      "穀",
+      "こく"
+     ],
+     [
+      "倉",
+      "そう"
+     ]
+    ]
+   },
+   {
+    "w": "米穀",
+    "r": "べいこく",
+    "g": "rice; grain",
+    "lit": "rice-grain",
+    "reading": "コク",
+    "furigana": [
+     [
+      "米",
+      "べい"
+     ],
+     [
+      "穀",
+      "こく"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Grain 禾 threshed with a club 殳.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "腺",
+  "keyword": "gland",
+  "meanings": [],
+  "readings": [
+   "セン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "甲状腺",
+    "r": "こうじょうせん",
+    "g": "thyroid (gland)",
+    "lit": "shell-shape-gland",
+    "reading": "セン",
+    "furigana": [
+     [
+      "甲",
+      "こう"
+     ],
+     [
+      "状",
+      "じょう"
+     ],
+     [
+      "腺",
+      "せん"
+     ]
+    ]
+   },
+   {
+    "w": "前立腺",
+    "r": "ぜんりつせん",
+    "g": "prostate (gland)",
+    "lit": "front-stand-gland",
+    "reading": "セン",
+    "furigana": [
+     [
+      "前",
+      "ぜん"
+     ],
+     [
+      "立",
+      "りつ"
+     ],
+     [
+      "腺",
+      "せん"
+     ]
+    ]
+   },
+   {
+    "w": "涙腺",
+    "r": "るいせん",
+    "g": "tear gland",
+    "lit": "tear-gland",
+    "reading": "セン",
+    "furigana": [
+     [
+      "涙",
+      "るい"
+     ],
+     [
+      "腺",
+      "せん"
+     ]
+    ]
+   },
+   {
+    "w": "汗腺",
+    "r": "かんせん",
+    "g": "sweat gland",
+    "lit": "sweat-gland",
+    "reading": "セン",
+    "furigana": [
+     [
+      "汗",
+      "かん"
+     ],
+     [
+      "腺",
+      "せん"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Made in Japan: a spring 泉 in the body 月.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "鍛",
+  "keyword": "forge",
+  "meanings": [
+   "train"
+  ],
+  "readings": [
+   "きた.える",
+   "タン"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "鍛える",
+    "r": "きたえる",
+    "g": "to train; forge",
+    "reading": "きた.える",
+    "furigana": [
+     [
+      "鍛",
+      "きた"
+     ],
+     [
+      "え",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "鍛錬",
+    "r": "たんれん",
+    "g": "training; forging",
+    "lit": "forge-temper",
+    "reading": "タン",
+    "furigana": [
+     [
+      "鍛",
+      "たん"
+     ],
+     [
+      "錬",
+      "れん"
+     ]
+    ]
+   },
+   {
+    "w": "鍛造",
+    "r": "たんぞう",
+    "g": "forging",
+    "lit": "forge-make",
+    "reading": "タン",
+    "furigana": [
+     [
+      "鍛",
+      "たん"
+     ],
+     [
+      "造",
+      "ぞう"
+     ]
+    ]
+   },
+   {
+    "w": "鍛冶",
+    "r": "かじ",
+    "g": "blacksmithing",
+    "reading": "special",
+    "special": true,
+    "furigana": [
+     [
+      "鍛冶",
+      "かじ"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "鍛冶屋",
+    "r": "かじや",
+    "g": "blacksmith",
+    "reading": "special",
+    "special": true,
+    "furigana": [
+     [
+      "鍛冶屋",
+      "かじや"
+     ]
+    ]
+   }
+  ],
+  "story": "Metal 金 hammered step 段 by step.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "雌",
+  "keyword": "female",
+  "meanings": [],
+  "readings": [
+   "めす",
+   "め",
+   "シ"
+  ],
+  "alone": {
+   "r": "めす",
+   "g": "female (animal)",
+   "reading": "めす"
+  },
+  "words": [
+   {
+    "w": "雌雄",
+    "r": "しゆう",
+    "g": "male and female",
+    "lit": "female-male",
+    "reading": "シ",
+    "furigana": [
+     [
+      "雌",
+      "し"
+     ],
+     [
+      "雄",
+      "ゆう"
+     ]
+    ]
+   },
+   {
+    "w": "雌しべ",
+    "r": "めしべ",
+    "g": "pistil",
+    "reading": "め",
+    "furigana": [
+     [
+      "雌",
+      "め"
+     ],
+     [
+      "し",
+      ""
+     ],
+     [
+      "べ",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "雌花",
+    "r": "めばな",
+    "g": "female flower",
+    "lit": "female-flower",
+    "reading": "め",
+    "furigana": [
+     [
+      "雌",
+      "め"
+     ],
+     [
+      "花",
+      "ばな"
+     ]
+    ]
+   },
+   {
+    "w": "雌犬",
+    "r": "めすいぬ",
+    "g": "female dog",
+    "lit": "female-dog",
+    "reading": "めす",
+    "furigana": [
+     [
+      "雌",
+      "めす"
+     ],
+     [
+      "犬",
+      "いぬ"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "鐘",
+  "keyword": "bell",
+  "meanings": [],
+  "readings": [
+   "かね",
+   "ショウ"
+  ],
+  "alone": {
+   "r": "かね",
+   "g": "(temple) bell",
+   "reading": "かね"
+  },
+  "words": [
+   {
+    "w": "警鐘",
+    "r": "けいしょう",
+    "g": "alarm bell; warning",
+    "lit": "warn-bell",
+    "reading": "ショウ",
+    "furigana": [
+     [
+      "警",
+      "けい"
+     ],
+     [
+      "鐘",
+      "しょう"
+     ]
+    ]
+   },
+   {
+    "w": "鐘楼",
+    "r": "しょうろう",
+    "g": "bell tower",
+    "lit": "bell-tower",
+    "reading": "ショウ",
+    "furigana": [
+     [
+      "鐘",
+      "しょう"
+     ],
+     [
+      "楼",
+      "ろう"
+     ]
+    ]
+   },
+   {
+    "w": "除夜の鐘",
+    "r": "じょやのかね",
+    "g": "New Year's Eve bells",
+    "reading": "かね",
+    "furigana": [
+     [
+      "除",
+      "じょ"
+     ],
+     [
+      "夜",
+      "や"
+     ],
+     [
+      "の",
+      ""
+     ],
+     [
+      "鐘",
+      "かね"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": "Metal 金, with 童 for the sound.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "蒸",
+  "keyword": "steam",
+  "meanings": [],
+  "readings": [
+   "む.す",
+   "む.れる",
+   "ジョウ"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "蒸気",
+    "r": "じょうき",
+    "g": "steam; vapor",
+    "lit": "steam-vapor",
+    "reading": "ジョウ",
+    "furigana": [
+     [
+      "蒸",
+      "じょう"
+     ],
+     [
+      "気",
+      "き"
+     ]
+    ]
+   },
+   {
+    "w": "蒸発",
+    "r": "じょうはつ",
+    "g": "evaporation",
+    "lit": "steam-emit",
+    "reading": "ジョウ",
+    "furigana": [
+     [
+      "蒸",
+      "じょう"
+     ],
+     [
+      "発",
+      "はつ"
+     ]
+    ]
+   },
+   {
+    "w": "蒸し暑い",
+    "r": "むしあつい",
+    "g": "hot and humid",
+    "lit": "steam-hot",
+    "reading": "む.す",
+    "furigana": [
+     [
+      "蒸",
+      "む"
+     ],
+     [
+      "し",
+      ""
+     ],
+     [
+      "暑",
+      "あつ"
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "蒸す",
+    "r": "むす",
+    "g": "to steam",
+    "reading": "む.す",
+    "furigana": [
+     [
+      "蒸",
+      "む"
+     ],
+     [
+      "す",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "水蒸気",
+    "r": "すいじょうき",
+    "g": "water vapor",
+    "lit": "water-steam-vapor",
+    "reading": "ジョウ",
+    "furigana": [
+     [
+      "水",
+      "すい"
+     ],
+     [
+      "蒸",
+      "じょう"
+     ],
+     [
+      "気",
+      "き"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "蒸し返す",
+    "r": "むしかえす",
+    "g": "to bring up again",
+    "lit": "steam-return",
+    "reading": "む.す",
+    "furigana": [
+     [
+      "蒸",
+      "む"
+     ],
+     [
+      "し",
+      ""
+     ],
+     [
+      "返",
+      "かえ"
+     ],
+     [
+      "す",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "蒸れる",
+    "r": "むれる",
+    "g": "to be stuffy; get steamed",
+    "reading": "む.れる",
+    "furigana": [
+     [
+      "蒸",
+      "む"
+     ],
+     [
+      "れ",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "茶碗蒸し",
+    "r": "ちゃわんむし",
+    "g": "savory egg custard",
+    "lit": "teacup-steam",
+    "reading": "む.す",
+    "furigana": [
+     [
+      "茶",
+      "ちゃ"
+     ],
+     [
+      "碗",
+      "わん"
+     ],
+     [
+      "蒸",
+      "む"
+     ],
+     [
+      "し",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "蒸留",
+    "r": "じょうりゅう",
+    "g": "distillation",
+    "lit": "steam-retain",
+    "reading": "ジョウ",
+    "furigana": [
+     [
+      "蒸",
+      "じょう"
+     ],
+     [
+      "留",
+      "りゅう"
+     ]
+    ]
+   },
+   {
+    "w": "蒸しパン",
+    "r": "むしパン",
+    "g": "steamed bun",
+    "reading": "む.す",
+    "furigana": [
+     [
+      "蒸",
+      "む"
+     ],
+     [
+      "し",
+      ""
+     ],
+     [
+      "パ",
+      ""
+     ],
+     [
+      "ン",
+      ""
+     ]
+    ]
+   }
+  ],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "遮",
+  "keyword": "block",
+  "meanings": [
+   "interrupt"
+  ],
+  "readings": [
+   "シャ",
+   "さえぎ.る"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "遮断",
+    "r": "しゃだん",
+    "g": "cutoff; blocking",
+    "lit": "block-cut",
+    "reading": "シャ",
+    "furigana": [
+     [
+      "遮",
+      "しゃ"
+     ],
+     [
+      "断",
+      "だん"
+     ]
+    ]
+   },
+   {
+    "w": "遮る",
+    "r": "さえぎる",
+    "g": "to block; interrupt",
+    "reading": "さえぎ.る",
+    "furigana": [
+     [
+      "遮",
+      "さえぎ"
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "遮断機",
+    "r": "しゃだんき",
+    "g": "railway crossing gate",
+    "reading": "シャ",
+    "furigana": [
+     [
+      "遮",
+      "しゃ"
+     ],
+     [
+      "断",
+      "だん"
+     ],
+     [
+      "機",
+      "き"
+     ]
+    ]
+   },
+   {
+    "w": "遮光",
+    "r": "しゃこう",
+    "g": "blocking light",
+    "lit": "block-light",
+    "reading": "シャ",
+    "furigana": [
+     [
+      "遮",
+      "しゃ"
+     ],
+     [
+      "光",
+      "こう"
+     ]
+    ]
+   }
+  ],
+  "more": [],
+  "story": null,
+  "kind": null
+ }
+]
