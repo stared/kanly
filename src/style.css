@@ -125,11 +125,12 @@ nav button.on, .gear.on { color: var(--ink); }
 .chip:hover { outline: 1px solid var(--muted); }
 .more { color: var(--muted); font-size: 13px; align-self: center; margin-left: 6px; }
 
-.words { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
-.words li { display: flex; align-items: baseline; gap: 12px; transition: opacity .15s; }
-.words li.dim { opacity: .3; }
+.words { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: max-content 1fr; column-gap: 16px; row-gap: 6px; align-items: baseline; }
+.words li { display: contents; }
+.words li > * { transition: opacity .15s; }
+.words li.dim > * { opacity: .3; }
 .words .w { font: 22px/1.9 var(--jp); text-align: left; white-space: nowrap; }
-.words rt { font-size: 10px; color: var(--muted); }
+.words rt { font-size: 9px; letter-spacing: -.06em; color: var(--muted); }
 .words .me { color: var(--accent); }
 .words .w:hover { opacity: .75; }
 .wg { font-size: 13px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
