@@ -47,7 +47,9 @@ export default function App() {
         <nav>
           {TABS.map(t => <button key={t} className={tab === t ? 'on' : ''} onClick={() => setTab(t)}>{t}{t === 'review' && due > 0 && <span className="count">{due}</span>}</button>)}
         </nav>
-        <button className={'gear' + (tab === 'settings' ? ' on' : '')} onClick={() => setTab('settings')}>settings</button>
+        <button className={'gear' + (tab === 'settings' ? ' on' : '')} onClick={() => setTab('settings')} aria-label="settings" title="settings">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="12" cy="12" r="3" /><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1" /></svg>
+        </button>
       </header>
       <main>
         {tab === 'learn' && <Learn store={store} setStore={setStore} open={open} now={now} autoSpeak={autoSpeak} />}

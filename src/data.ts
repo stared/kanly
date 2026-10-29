@@ -86,6 +86,9 @@ export function lookalikes(ch: string): { ch: string; mine: string; theirs: stri
   if (!k || k.sum.length < 2) return []
   return k.sum.flatMap((mine, i) => {
     const key = k.sum.map((p, j) => j === i ? '*' : p).join('+')
-    return (byPattern.get(key) ?? []).filter(o => o !== ch).map(o => ({ ch: o, mine, theirs: KANJI[o].sum[i] }))
+    // they look alike only if what they share is most of both: 待 and 持 share 寺 (6 of 9 strokes), 照 and 点 only 灬
+    const shared = (c: string) => KANJI[c].tree.kids.reduce((a, t, j) => a + (j === i ? 0 : t.strokes), 0) / KANJI[c].strokes
+    return (byPattern.get(key) ?? []).filter(o => o !== ch && KANJI[o].sum.length === k.sum.length && shared(ch) >= 0.5 && shared(o) >= 0.5)
+      .map(o => ({ ch: o, mine, theirs: KANJI[o].sum[i] }))
   }).sort((a, b) => KANJI[b.ch].freq - KANJI[a.ch].freq)
 }

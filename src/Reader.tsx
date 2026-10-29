@@ -8,6 +8,7 @@ const isHan = (c: string) => /\p{Script=Han}/u.test(c)
 
 export function Reader({ store, open }: { store: Store; open: (el: string) => void }) {
   const [text, setText] = useState(SAMPLE)
+  const [editing, setEditing] = useState(false)
   const chars = [...text]
   const han = chars.filter(isHan)
   const distinct = [...new Set(han)]
@@ -17,11 +18,11 @@ export function Reader({ store, open }: { store: Store; open: (el: string) => vo
 
   return (
     <div className="reader">
-      <textarea value={text} onChange={e => setText(e.target.value)} rows={4} placeholder="Paste Japanese text" />
-      <p className="sub small">
-        You know {known} of {han.length} kanji here ({han.length ? Math.round(100 * known / han.length) : 0}%), {distinct.filter(read).length} of {distinct.length} distinct.
-        {distinct.some(c => !KANJI[c]) && <> Not jōyō: {distinct.filter(c => !KANJI[c]).join('')}.</>}
-      </p>
+      {editing && <textarea autoFocus value={text} onChange={e => setText(e.target.value)} onBlur={() => setEditing(false)} rows={5} placeholder="Paste Japanese text" />}
+      <div className="bar-line sub small">
+        <span>You know {known} of {han.length} kanji here ({han.length ? Math.round(100 * known / han.length) : 0}%){distinct.some(c => !KANJI[c]) && <>; not jōyō: {distinct.filter(c => !KANJI[c]).join('')}</>}.</span>
+        {!editing && <button className="inline" onClick={() => setEditing(true)}>edit text</button>}
+      </div>
       <div className="text">
         {chars.map((c, i) => isHan(c) && KANJI[c]
           ? <button key={i} className={'k ' + status(store, c)} onClick={() => open(c)} title={gloss(c)}>{c}</button>

@@ -363,6 +363,10 @@ def main() -> None:
     freq, total = load_frequency()
     comp_names = load_components()
     stories = load_stories()
+    for l in open(ROOT / "data" / "keywords.tsv", encoding="utf-8"):
+        if l.strip() and not l.startswith("#"):
+            el, keyword = l.rstrip("\n").split("\t")
+            stories.setdefault(el, {}).setdefault("keyword", keyword)
     joyo = sorted((c for c, v in kd.items() if v["grade"] in JOYO_GRADES), key=lambda c: -freq.get(c, 0))
     trees = load_trees(set(joyo))
     missing = [c for c in joyo if c not in trees]
