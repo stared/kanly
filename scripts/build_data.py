@@ -251,6 +251,7 @@ def load_words() -> list[dict]:
                 "w": k.findtext("keb"),
                 "r": r.findtext("reb"),
                 "g": "; ".join(glosses[:2]),
+                "pos": "; ".join(p.text or "" for p in e.find("sense").findall("pos")),
                 "nf": nf,
                 **({"irregular": True} if r.find("re_inf") is not None and "gikun" in ET.tostring(r, encoding="unicode") else {}),
             })
@@ -336,7 +337,7 @@ def attach_words(joyo: list[str], kd: dict, order_pos: dict[str, int]) -> tuple[
     # how often each word is used (wordfreq: books, subtitles, web, news), per million words
     from wordfreq import get_frequency_dict
     wf = get_frequency_dict("ja")
-    examples = {}
+    examples, cands = {}, {}
     for c, ws in by_kanji.items():
         per_m = lambda w: wf.get(w["w"], 0) * 1e6
         # most used first; JMdict's news band breaks ties among words wordfreq doesn't know
@@ -359,7 +360,59 @@ def attach_words(joyo: list[str], kd: dict, order_pos: dict[str, int]) -> tuple[
         more = [w for w in ranked if w not in picked][:10]  # behind "more words" on the card
         examples[c] = [{**{k: w[k] for k in ("w", "r", "g", "parts") if k in w}, "rd": reading_of(w), "f": round(per_m(w), 1)}
                        for w in picked + more]
-    return examples, {c: dict(u.most_common()) for c, u in usage.items()}, {c: len(ws) for c, ws in by_kanji.items()}
+        # for the writers (data/llm): the 40 most used words, each written form once per reading
+        cands[c] = [{"w": w["w"], "r": w["r"], "g": w["g"], "pos": w["pos"], "per_million": round(per_m(w), 1)}
+                    for w in sorted({(w["w"], w["r"]): w for w in ws}.values(), key=lambda w: (-per_m(w), w["nf"]))[:40]]
+    return examples, {c: dict(u.most_common()) for c, u in usage.items()}, {c: len(ws) for c, ws in by_kanji.items()}, cands
+
+
+LLM = ROOT / "data" / "llm"
+BATCH = 120
+
+
+def export_llm_input(order: list[str], kanji: dict, components: dict, usage: dict, cands: dict, kd: dict) -> None:
+    """Facts per kanji, in learning order and in batches, for the writers to turn into card content (data/llm/out)."""
+    (LLM / "in").mkdir(parents=True, exist_ok=True)
+    chs = [c for c in order if c in kanji]
+    name = lambda el: components.get(el, {}).get("meaning") or (kd[el]["meanings"][0] if el in kd and kd[el]["meanings"] else "?")
+    for b in range(0, len(chs), BATCH):
+        rows = [{
+            "kanji": c,
+            "kanjidic_meanings": kd[c]["meanings"],
+            "on": kd[c]["on"], "kun": kd[c]["kun"],
+            "reading_share_in_common_words": usage.get(c, {}),
+            "parts": [{"part": k["el"], "name": name(k["el"]), **({"sound": True} if "phon" in k else {})} for k in kanji[c]["tree"]["kids"]],
+            "candidate_words": cands.get(c, []),
+        } for c in chs[b:b + BATCH]]
+        (LLM / "in" / f"{b // BATCH:02d}.json").write_text(json.dumps(rows, ensure_ascii=False, indent=1))
+
+
+def load_written() -> dict[str, dict]:
+    """Card content written per kanji (data/llm/gold.json, then data/llm/out/*.json); see data/llm/INSTRUCTIONS.md."""
+    out = {}
+    for f in [LLM / "gold.json", *sorted((LLM / "out").glob("*.json"))]:
+        if f.exists():
+            for x in json.loads(f.read_text()):
+                out.setdefault(x["kanji"], x)
+    return out
+
+
+def written_card(x: dict, wf: dict) -> dict:
+    """The written content as the app shows it, plus two counts: how often each word is used (wordfreq),
+    and from that, each reading's share of use among the written words."""
+    per_m = lambda w: round(wf.get(w, 0) * 1e6, 1)
+    words = [{**w, "f": per_m(w["w"])} for w in x["words"] + x.get("more", [])]
+    use = Counter()
+    for w in words:  # not the kanji alone: wordfreq's count for 人 includes the 人 split off 日本人
+        use[w["reading"]] += w["f"] or 0.1
+    total = sum(c for r, c in use.items() if r != "special") or 1
+    return {
+        "keyword": x["keyword"], "also": x.get("meanings", []),
+        "readings": [{"r": r, "share": round(use[r] / total, 3)} for r in x["readings"]],
+        "alone": x.get("alone"), "words": words, "nshown": len(x["words"]),
+        **({"story": x["story"], "kind": x.get("kind") or "mnemonic"} if x.get("story") else {}),
+        "written": True,
+    }
 
 
 def load_stories() -> dict[str, dict]:
@@ -443,7 +496,8 @@ def main() -> None:
     fams = families(joyo, trees, kd)
     order = orders["simple first"]
     order_pos = {n: i for i, n in enumerate(order)}
-    examples, usage, nwords = attach_words(joyo, kd, order_pos)
+    examples, usage, nwords, cands = attach_words(joyo, kd, order_pos)
+    export_llm_input(order, kanji, components, usage, cands, kd)
     for ch in joyo:
         kanji[ch]["words"] = examples.get(ch, [])
         kanji[ch]["usage"] = usage.get(ch, {})
@@ -453,6 +507,25 @@ def main() -> None:
     for el, c in components.items():
         if el in stories:
             c |= {k: v for k, v in stories[el].items() if k != "keyword"}
+
+
+    from wordfreq import get_frequency_dict
+    wf = get_frequency_dict("ja")
+    written = load_written()
+    for ch, x in written.items():
+        if ch in kanji:
+            for key in ("story", "kind", "words", "usage"):
+                kanji[ch].pop(key, None)
+            kanji[ch] |= written_card(x, wf)
+            if ch in components:
+                components[ch]["meaning"] = x["keyword"]
+    for ch in kanji:  # not written yet: only the dictionary's own facts, nothing guessed
+        if not kanji[ch].get("written"):
+            for key in ("story", "kind", "words", "usage"):
+                kanji[ch].pop(key, None)
+            kanji[ch] |= {"also": [], "alone": None, "words": [], "nshown": 0,
+                          "readings": [{"r": r, "share": 0} for r in kd[ch]["on"] + [r.strip("-") for r in kd[ch]["kun"]]]}
+    print(f"written cards: {len(written)} of {len(kanji)}")
 
     OUT.joinpath("kanji.json").write_text(json.dumps({
         "kanji": kanji,

@@ -1,10 +1,17 @@
 import raw from './data/kanji.json'
 
 export type Tree = { el: string; strokes: number; phon?: string; radical?: string; kids: Tree[] }
-/** rd: the dictionary reading of the card's kanji in this word, '(irregular)' when the word is read as a whole */
-export type Word = { w: string; r: string; g: string; parts?: [string, string][]; rd: string; f: number }
+/** A word as written for the card (data/llm): reading is which of the kanji's readings it uses, or 'special'. */
+export type Word = { w: string; r: string; g: string; lit?: string; special?: boolean; reading: string; furigana: [string, string][]; f: number }
+export type Reading = { r: string; share: number }
 export type Kanji = {
   keyword: string
+  also: string[]
+  readings: Reading[]
+  alone: { r: string; g: string; reading: string } | null
+  words: Word[]
+  nshown: number
+  written?: boolean
   kind?: 'origin' | 'memory'
   story?: string
   grade: number
@@ -15,8 +22,6 @@ export type Kanji = {
   freq: number
   sum: string[]
   tree: Tree
-  words: Word[]
-  usage: Record<string, number>
 }
 export type Component = {
   meaning?: string

@@ -1,0 +1,2616 @@
+[
+ {
+  "kanji": "一",
+  "keyword": "one",
+  "meanings": [],
+  "readings": [
+   "イチ",
+   "ひと.つ",
+   "イツ"
+  ],
+  "alone": {
+   "r": "いち",
+   "g": "one",
+   "reading": "イチ"
+  },
+  "words": [
+   {
+    "w": "一つ",
+    "r": "ひとつ",
+    "g": "one (thing)",
+    "reading": "ひと.つ",
+    "furigana": [
+     [
+      "一",
+      "ひと"
+     ],
+     [
+      "つ",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "一緒",
+    "r": "いっしょ",
+    "g": "together",
+    "reading": "イチ",
+    "furigana": [
+     [
+      "一",
+      "いっ"
+     ],
+     [
+      "緒",
+      "しょ"
+     ]
+    ]
+   },
+   {
+    "w": "一番",
+    "r": "いちばん",
+    "g": "number one; the most",
+    "lit": "one-turn",
+    "reading": "イチ",
+    "furigana": [
+     [
+      "一",
+      "いち"
+     ],
+     [
+      "番",
+      "ばん"
+     ]
+    ]
+   },
+   {
+    "w": "一般",
+    "r": "いっぱん",
+    "g": "general; ordinary",
+    "reading": "イチ",
+    "furigana": [
+     [
+      "一",
+      "いっ"
+     ],
+     [
+      "般",
+      "ぱん"
+     ]
+    ]
+   },
+   {
+    "w": "統一",
+    "r": "とういつ",
+    "g": "unity; unification",
+    "lit": "unite-one",
+    "reading": "イツ",
+    "furigana": [
+     [
+      "統",
+      "とう"
+     ],
+     [
+      "一",
+      "いつ"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "一部",
+    "r": "いちぶ",
+    "g": "a part; some",
+    "lit": "one-part",
+    "reading": "イチ",
+    "furigana": [
+     [
+      "一",
+      "いち"
+     ],
+     [
+      "部",
+      "ぶ"
+     ]
+    ]
+   },
+   {
+    "w": "一方",
+    "r": "いっぽう",
+    "g": "one side; on the other hand",
+    "lit": "one-direction",
+    "reading": "イチ",
+    "furigana": [
+     [
+      "一",
+      "いっ"
+     ],
+     [
+      "方",
+      "ぽう"
+     ]
+    ]
+   },
+   {
+    "w": "唯一",
+    "r": "ゆいいつ",
+    "g": "the only",
+    "reading": "イツ",
+    "furigana": [
+     [
+      "唯",
+      "ゆい"
+     ],
+     [
+      "一",
+      "いつ"
+     ]
+    ]
+   },
+   {
+    "w": "一生",
+    "r": "いっしょう",
+    "g": "whole life",
+    "lit": "one-life",
+    "reading": "イチ",
+    "furigana": [
+     [
+      "一",
+      "いっ"
+     ],
+     [
+      "生",
+      "しょう"
+     ]
+    ]
+   },
+   {
+    "w": "一瞬",
+    "r": "いっしゅん",
+    "g": "an instant",
+    "lit": "one-blink",
+    "reading": "イチ",
+    "furigana": [
+     [
+      "一",
+      "いっ"
+     ],
+     [
+      "瞬",
+      "しゅん"
+     ]
+    ]
+   },
+   {
+    "w": "一言",
+    "r": "ひとこと",
+    "g": "a word; a few words",
+    "lit": "one-word",
+    "reading": "ひと.つ",
+    "furigana": [
+     [
+      "一",
+      "ひと"
+     ],
+     [
+      "言",
+      "こと"
+     ]
+    ]
+   },
+   {
+    "w": "もう一度",
+    "r": "もういちど",
+    "g": "once more",
+    "lit": "more-one-time",
+    "reading": "イチ",
+    "furigana": [
+     [
+      "も",
+      ""
+     ],
+     [
+      "う",
+      ""
+     ],
+     [
+      "一",
+      "いち"
+     ],
+     [
+      "度",
+      "ど"
+     ]
+    ]
+   },
+   {
+    "w": "一生懸命",
+    "r": "いっしょうけんめい",
+    "g": "with all one's might",
+    "reading": "イチ",
+    "furigana": [
+     [
+      "一",
+      "いっ"
+     ],
+     [
+      "生",
+      "しょう"
+     ],
+     [
+      "懸",
+      "けん"
+     ],
+     [
+      "命",
+      "めい"
+     ]
+    ]
+   }
+  ],
+  "story": null,
+  "kind": null
+ },
+ {
+  "kanji": "人",
+  "keyword": "person",
+  "meanings": [
+   "people"
+  ],
+  "readings": [
+   "ジン",
+   "ニン",
+   "ひと"
+  ],
+  "alone": {
+   "r": "ひと",
+   "g": "person; people",
+   "reading": "ひと"
+  },
+  "words": [
+   {
+    "w": "日本人",
+    "r": "にほんじん",
+    "g": "Japanese (person)",
+    "reading": "ジン",
+    "furigana": [
+     [
+      "日",
+      "に"
+     ],
+     [
+      "本",
+      "ほん"
+     ],
+     [
+      "人",
+      "じん"
+     ]
+    ]
+   },
+   {
+    "w": "人間",
+    "r": "にんげん",
+    "g": "human being",
+    "lit": "person-between",
+    "reading": "ニン",
+    "furigana": [
+     [
+      "人",
+      "にん"
+     ],
+     [
+      "間",
+      "げん"
+     ]
+    ]
+   },
+   {
+    "w": "人気",
+    "r": "にんき",
+    "g": "popularity",
+    "lit": "person-spirit",
+    "reading": "ニン",
+    "furigana": [
+     [
+      "人",
+      "にん"
+     ],
+     [
+      "気",
+      "き"
+     ]
+    ]
+   },
+   {
+    "w": "友人",
+    "r": "ゆうじん",
+    "g": "friend",
+    "reading": "ジン",
+    "furigana": [
+     [
+      "友",
+      "ゆう"
+     ],
+     [
+      "人",
+      "じん"
+     ]
+    ]
+   },
+   {
+    "w": "人々",
+    "r": "ひとびと",
+    "g": "people",
+    "reading": "ひと",
+    "furigana": [
+     [
+      "人",
+      "ひと"
+     ],
+     [
+      "々",
+      "びと"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "大人",
+    "r": "おとな",
+    "g": "adult",
+    "reading": "special",
+    "special": true,
+    "furigana": [
+     [
+      "大人",
+      "おとな"
+     ]
+    ]
+   },
+   {
+    "w": "一人",
+    "r": "ひとり",
+    "g": "one person; alone",
+    "reading": "special",
+    "special": true,
+    "furigana": [
+     [
+      "一人",
+      "ひとり"
+     ]
+    ]
+   },
+   {
+    "w": "人生",
+    "r": "じんせい",
+    "g": "(one's) life",
+    "lit": "person-life",
+    "reading": "ジン",
+    "furigana": [
+     [
+      "人",
+      "じん"
+     ],
+     [
+      "生",
+      "せい"
+     ]
+    ]
+   },
+   {
+    "w": "個人",
+    "r": "こじん",
+    "g": "individual",
+    "reading": "ジン",
+    "furigana": [
+     [
+      "個",
+      "こ"
+     ],
+     [
+      "人",
+      "じん"
+     ]
+    ]
+   },
+   {
+    "w": "本人",
+    "r": "ほんにん",
+    "g": "the person in question",
+    "lit": "this-person",
+    "reading": "ニン",
+    "furigana": [
+     [
+      "本",
+      "ほん"
+     ],
+     [
+      "人",
+      "にん"
+     ]
+    ]
+   },
+   {
+    "w": "他人",
+    "r": "たにん",
+    "g": "other people; a stranger",
+    "lit": "other-person",
+    "reading": "ニン",
+    "furigana": [
+     [
+      "他",
+      "た"
+     ],
+     [
+      "人",
+      "にん"
+     ]
+    ]
+   },
+   {
+    "w": "恋人",
+    "r": "こいびと",
+    "g": "boyfriend; girlfriend",
+    "lit": "love-person",
+    "reading": "ひと",
+    "furigana": [
+     [
+      "恋",
+      "こい"
+     ],
+     [
+      "人",
+      "びと"
+     ]
+    ]
+   },
+   {
+    "w": "人口",
+    "r": "じんこう",
+    "g": "population",
+    "lit": "person-mouth",
+    "reading": "ジン",
+    "furigana": [
+     [
+      "人",
+      "じん"
+     ],
+     [
+      "口",
+      "こう"
+     ]
+    ]
+   }
+  ],
+  "story": "A person seen from the side, walking.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "日",
+  "keyword": "day; sun",
+  "meanings": [],
+  "readings": [
+   "ニチ",
+   "ひ",
+   "ジツ",
+   "か"
+  ],
+  "alone": {
+   "r": "ひ",
+   "g": "day; sun",
+   "reading": "ひ"
+  },
+  "words": [
+   {
+    "w": "日本",
+    "r": "にほん",
+    "g": "Japan",
+    "lit": "sun-origin",
+    "reading": "ニチ",
+    "furigana": [
+     [
+      "日",
+      "に"
+     ],
+     [
+      "本",
+      "ほん"
+     ]
+    ]
+   },
+   {
+    "w": "毎日",
+    "r": "まいにち",
+    "g": "every day",
+    "lit": "every-day",
+    "reading": "ニチ",
+    "furigana": [
+     [
+      "毎",
+      "まい"
+     ],
+     [
+      "日",
+      "にち"
+     ]
+    ]
+   },
+   {
+    "w": "今日",
+    "r": "きょう",
+    "g": "today",
+    "reading": "special",
+    "special": true,
+    "furigana": [
+     [
+      "今日",
+      "きょう"
+     ]
+    ]
+   },
+   {
+    "w": "本日",
+    "r": "ほんじつ",
+    "g": "today (formal)",
+    "lit": "this-day",
+    "reading": "ジツ",
+    "furigana": [
+     [
+      "本",
+      "ほん"
+     ],
+     [
+      "日",
+      "じつ"
+     ]
+    ]
+   },
+   {
+    "w": "日曜日",
+    "r": "にちようび",
+    "g": "Sunday",
+    "lit": "sun-weekday-day",
+    "reading": "ニチ",
+    "furigana": [
+     [
+      "日",
+      "にち"
+     ],
+     [
+      "曜",
+      "よう"
+     ],
+     [
+      "日",
+      "び"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "明日",
+    "r": "あした",
+    "g": "tomorrow",
+    "reading": "special",
+    "special": true,
+    "furigana": [
+     [
+      "明日",
+      "あした"
+     ]
+    ]
+   },
+   {
+    "w": "昨日",
+    "r": "きのう",
+    "g": "yesterday",
+    "reading": "special",
+    "special": true,
+    "furigana": [
+     [
+      "昨日",
+      "きのう"
+     ]
+    ]
+   },
+   {
+    "w": "日本語",
+    "r": "にほんご",
+    "g": "Japanese (language)",
+    "reading": "ニチ",
+    "furigana": [
+     [
+      "日",
+      "に"
+     ],
+     [
+      "本",
+      "ほん"
+     ],
+     [
+      "語",
+      "ご"
+     ]
+    ]
+   },
+   {
+    "w": "日常",
+    "r": "にちじょう",
+    "g": "everyday life",
+    "lit": "day-usual",
+    "reading": "ニチ",
+    "furigana": [
+     [
+      "日",
+      "にち"
+     ],
+     [
+      "常",
+      "じょう"
+     ]
+    ]
+   },
+   {
+    "w": "日々",
+    "r": "ひび",
+    "g": "days; daily",
+    "reading": "ひ",
+    "furigana": [
+     [
+      "日",
+      "ひ"
+     ],
+     [
+      "々",
+      "び"
+     ]
+    ]
+   },
+   {
+    "w": "休日",
+    "r": "きゅうじつ",
+    "g": "day off",
+    "lit": "rest-day",
+    "reading": "ジツ",
+    "furigana": [
+     [
+      "休",
+      "きゅう"
+     ],
+     [
+      "日",
+      "じつ"
+     ]
+    ]
+   },
+   {
+    "w": "日記",
+    "r": "にっき",
+    "g": "diary",
+    "lit": "day-record",
+    "reading": "ニチ",
+    "furigana": [
+     [
+      "日",
+      "にっ"
+     ],
+     [
+      "記",
+      "き"
+     ]
+    ]
+   },
+   {
+    "w": "朝日",
+    "r": "あさひ",
+    "g": "morning sun",
+    "lit": "morning-sun",
+    "reading": "ひ",
+    "furigana": [
+     [
+      "朝",
+      "あさ"
+     ],
+     [
+      "日",
+      "ひ"
+     ]
+    ]
+   }
+  ],
+  "story": "Once a circle with a dot; the brush squared it.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "大",
+  "keyword": "big",
+  "meanings": [
+   "great"
+  ],
+  "readings": [
+   "ダイ",
+   "タイ",
+   "おお.きい"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "大きい",
+    "r": "おおきい",
+    "g": "big",
+    "reading": "おお.きい",
+    "furigana": [
+     [
+      "大",
+      "おお"
+     ],
+     [
+      "き",
+      ""
+     ],
+     [
+      "い",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "大丈夫",
+    "r": "だいじょうぶ",
+    "g": "all right; OK",
+    "reading": "ダイ",
+    "furigana": [
+     [
+      "大",
+      "だい"
+     ],
+     [
+      "丈",
+      "じょう"
+     ],
+     [
+      "夫",
+      "ぶ"
+     ]
+    ]
+   },
+   {
+    "w": "大学",
+    "r": "だいがく",
+    "g": "university",
+    "lit": "great-learning",
+    "reading": "ダイ",
+    "furigana": [
+     [
+      "大",
+      "だい"
+     ],
+     [
+      "学",
+      "がく"
+     ]
+    ]
+   },
+   {
+    "w": "大変",
+    "r": "たいへん",
+    "g": "very; terrible; hard",
+    "lit": "big-change",
+    "reading": "タイ",
+    "furigana": [
+     [
+      "大",
+      "たい"
+     ],
+     [
+      "変",
+      "へん"
+     ]
+    ]
+   },
+   {
+    "w": "大切",
+    "r": "たいせつ",
+    "g": "important; precious",
+    "reading": "タイ",
+    "furigana": [
+     [
+      "大",
+      "たい"
+     ],
+     [
+      "切",
+      "せつ"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "大事",
+    "r": "だいじ",
+    "g": "important",
+    "lit": "big-matter",
+    "reading": "ダイ",
+    "furigana": [
+     [
+      "大",
+      "だい"
+     ],
+     [
+      "事",
+      "じ"
+     ]
+    ]
+   },
+   {
+    "w": "大きな",
+    "r": "おおきな",
+    "g": "big",
+    "reading": "おお.きい",
+    "furigana": [
+     [
+      "大",
+      "おお"
+     ],
+     [
+      "き",
+      ""
+     ],
+     [
+      "な",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "大好き",
+    "r": "だいすき",
+    "g": "love; really like",
+    "lit": "big-like",
+    "reading": "ダイ",
+    "furigana": [
+     [
+      "大",
+      "だい"
+     ],
+     [
+      "好",
+      "す"
+     ],
+     [
+      "き",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "大人",
+    "r": "おとな",
+    "g": "adult",
+    "reading": "special",
+    "special": true,
+    "furigana": [
+     [
+      "大人",
+      "おとな"
+     ]
+    ]
+   },
+   {
+    "w": "最大",
+    "r": "さいだい",
+    "g": "largest; maximum",
+    "lit": "most-big",
+    "reading": "ダイ",
+    "furigana": [
+     [
+      "最",
+      "さい"
+     ],
+     [
+      "大",
+      "だい"
+     ]
+    ]
+   },
+   {
+    "w": "大会",
+    "r": "たいかい",
+    "g": "tournament; convention",
+    "lit": "big-meeting",
+    "reading": "タイ",
+    "furigana": [
+     [
+      "大",
+      "たい"
+     ],
+     [
+      "会",
+      "かい"
+     ]
+    ]
+   },
+   {
+    "w": "大体",
+    "r": "だいたい",
+    "g": "roughly; mostly",
+    "reading": "ダイ",
+    "furigana": [
+     [
+      "大",
+      "だい"
+     ],
+     [
+      "体",
+      "たい"
+     ]
+    ]
+   },
+   {
+    "w": "大学生",
+    "r": "だいがくせい",
+    "g": "university student",
+    "reading": "ダイ",
+    "furigana": [
+     [
+      "大",
+      "だい"
+     ],
+     [
+      "学",
+      "がく"
+     ],
+     [
+      "生",
+      "せい"
+     ]
+    ]
+   }
+  ],
+  "story": "A person standing with arms spread wide.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "月",
+  "keyword": "moon; month",
+  "meanings": [],
+  "readings": [
+   "ゲツ",
+   "ガツ",
+   "つき"
+  ],
+  "alone": {
+   "r": "つき",
+   "g": "moon; month",
+   "reading": "つき"
+  },
+  "words": [
+   {
+    "w": "今月",
+    "r": "こんげつ",
+    "g": "this month",
+    "lit": "now-month",
+    "reading": "ゲツ",
+    "furigana": [
+     [
+      "今",
+      "こん"
+     ],
+     [
+      "月",
+      "げつ"
+     ]
+    ]
+   },
+   {
+    "w": "先月",
+    "r": "せんげつ",
+    "g": "last month",
+    "lit": "before-month",
+    "reading": "ゲツ",
+    "furigana": [
+     [
+      "先",
+      "せん"
+     ],
+     [
+      "月",
+      "げつ"
+     ]
+    ]
+   },
+   {
+    "w": "毎月",
+    "r": "まいつき",
+    "g": "every month",
+    "lit": "every-month",
+    "reading": "つき",
+    "furigana": [
+     [
+      "毎",
+      "まい"
+     ],
+     [
+      "月",
+      "つき"
+     ]
+    ]
+   },
+   {
+    "w": "月曜日",
+    "r": "げつようび",
+    "g": "Monday",
+    "lit": "moon-weekday-day",
+    "reading": "ゲツ",
+    "furigana": [
+     [
+      "月",
+      "げつ"
+     ],
+     [
+      "曜",
+      "よう"
+     ],
+     [
+      "日",
+      "び"
+     ]
+    ]
+   },
+   {
+    "w": "正月",
+    "r": "しょうがつ",
+    "g": "New Year",
+    "lit": "first-month",
+    "reading": "ガツ",
+    "furigana": [
+     [
+      "正",
+      "しょう"
+     ],
+     [
+      "月",
+      "がつ"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "ヶ月",
+    "r": "かげつ",
+    "g": "months, as in 3ヶ月",
+    "reading": "ゲツ",
+    "furigana": [
+     [
+      "ヶ",
+      "か"
+     ],
+     [
+      "月",
+      "げつ"
+     ]
+    ]
+   },
+   {
+    "w": "来月",
+    "r": "らいげつ",
+    "g": "next month",
+    "lit": "coming-month",
+    "reading": "ゲツ",
+    "furigana": [
+     [
+      "来",
+      "らい"
+     ],
+     [
+      "月",
+      "げつ"
+     ]
+    ]
+   },
+   {
+    "w": "月末",
+    "r": "げつまつ",
+    "g": "end of the month",
+    "lit": "month-end",
+    "reading": "ゲツ",
+    "furigana": [
+     [
+      "月",
+      "げつ"
+     ],
+     [
+      "末",
+      "まつ"
+     ]
+    ]
+   },
+   {
+    "w": "満月",
+    "r": "まんげつ",
+    "g": "full moon",
+    "lit": "full-moon",
+    "reading": "ゲツ",
+    "furigana": [
+     [
+      "満",
+      "まん"
+     ],
+     [
+      "月",
+      "げつ"
+     ]
+    ]
+   },
+   {
+    "w": "三日月",
+    "r": "みかづき",
+    "g": "crescent moon",
+    "lit": "three-day-moon",
+    "reading": "つき",
+    "furigana": [
+     [
+      "三",
+      "み"
+     ],
+     [
+      "日",
+      "か"
+     ],
+     [
+      "月",
+      "づき"
+     ]
+    ]
+   },
+   {
+    "w": "生年月日",
+    "r": "せいねんがっぴ",
+    "g": "date of birth",
+    "reading": "ガツ",
+    "furigana": [
+     [
+      "生",
+      "せい"
+     ],
+     [
+      "年",
+      "ねん"
+     ],
+     [
+      "月",
+      "がっ"
+     ],
+     [
+      "日",
+      "ぴ"
+     ]
+    ]
+   }
+  ],
+  "story": "A crescent moon, turned upright.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "入",
+  "keyword": "enter",
+  "meanings": [
+   "put in"
+  ],
+  "readings": [
+   "ニュウ",
+   "はい.る",
+   "い.れる",
+   "い.る"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "入る",
+    "r": "はいる",
+    "g": "to enter; to go in",
+    "reading": "はい.る",
+    "furigana": [
+     [
+      "入",
+      "はい"
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "入れる",
+    "r": "いれる",
+    "g": "to put in",
+    "reading": "い.れる",
+    "furigana": [
+     [
+      "入",
+      "い"
+     ],
+     [
+      "れ",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "入り口",
+    "r": "いりぐち",
+    "g": "entrance",
+    "lit": "enter-mouth",
+    "reading": "い.る",
+    "furigana": [
+     [
+      "入",
+      "い"
+     ],
+     [
+      "り",
+      ""
+     ],
+     [
+      "口",
+      "ぐち"
+     ]
+    ]
+   },
+   {
+    "w": "入学",
+    "r": "にゅうがく",
+    "g": "entering a school",
+    "lit": "enter-study",
+    "reading": "ニュウ",
+    "furigana": [
+     [
+      "入",
+      "にゅう"
+     ],
+     [
+      "学",
+      "がく"
+     ]
+    ]
+   },
+   {
+    "w": "購入",
+    "r": "こうにゅう",
+    "g": "purchase",
+    "lit": "buy-in",
+    "reading": "ニュウ",
+    "furigana": [
+     [
+      "購",
+      "こう"
+     ],
+     [
+      "入",
+      "にゅう"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "収入",
+    "r": "しゅうにゅう",
+    "g": "income",
+    "lit": "take-in",
+    "reading": "ニュウ",
+    "furigana": [
+     [
+      "収",
+      "しゅう"
+     ],
+     [
+      "入",
+      "にゅう"
+     ]
+    ]
+   },
+   {
+    "w": "入力",
+    "r": "にゅうりょく",
+    "g": "input (data)",
+    "lit": "in-power",
+    "reading": "ニュウ",
+    "furigana": [
+     [
+      "入",
+      "にゅう"
+     ],
+     [
+      "力",
+      "りょく"
+     ]
+    ]
+   },
+   {
+    "w": "入院",
+    "r": "にゅういん",
+    "g": "going into hospital",
+    "lit": "enter-institution",
+    "reading": "ニュウ",
+    "furigana": [
+     [
+      "入",
+      "にゅう"
+     ],
+     [
+      "院",
+      "いん"
+     ]
+    ]
+   },
+   {
+    "w": "輸入",
+    "r": "ゆにゅう",
+    "g": "import",
+    "lit": "transport-in",
+    "reading": "ニュウ",
+    "furigana": [
+     [
+      "輸",
+      "ゆ"
+     ],
+     [
+      "入",
+      "にゅう"
+     ]
+    ]
+   },
+   {
+    "w": "お気に入り",
+    "r": "おきにいり",
+    "g": "favorite",
+    "lit": "into-one's-mood",
+    "reading": "い.る",
+    "furigana": [
+     [
+      "お",
+      ""
+     ],
+     [
+      "気",
+      "き"
+     ],
+     [
+      "に",
+      ""
+     ],
+     [
+      "入",
+      "い"
+     ],
+     [
+      "り",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "受け入れる",
+    "r": "うけいれる",
+    "g": "to accept",
+    "lit": "receive-put in",
+    "reading": "い.れる",
+    "furigana": [
+     [
+      "受",
+      "う"
+     ],
+     [
+      "け",
+      ""
+     ],
+     [
+      "入",
+      "い"
+     ],
+     [
+      "れ",
+      ""
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   }
+  ],
+  "story": "A way in: one stroke leaning into the other.",
+  "kind": "mnemonic"
+ },
+ {
+  "kanji": "子",
+  "keyword": "child",
+  "meanings": [],
+  "readings": [
+   "シ",
+   "こ",
+   "ス"
+  ],
+  "alone": {
+   "r": "こ",
+   "g": "child",
+   "reading": "こ"
+  },
+  "words": [
+   {
+    "w": "子供",
+    "r": "こども",
+    "g": "child; children",
+    "reading": "こ",
+    "furigana": [
+     [
+      "子",
+      "こ"
+     ],
+     [
+      "供",
+      "ども"
+     ]
+    ]
+   },
+   {
+    "w": "女の子",
+    "r": "おんなのこ",
+    "g": "girl",
+    "lit": "woman's-child",
+    "reading": "こ",
+    "furigana": [
+     [
+      "女",
+      "おんな"
+     ],
+     [
+      "の",
+      ""
+     ],
+     [
+      "子",
+      "こ"
+     ]
+    ]
+   },
+   {
+    "w": "男の子",
+    "r": "おとこのこ",
+    "g": "boy",
+    "lit": "man's-child",
+    "reading": "こ",
+    "furigana": [
+     [
+      "男",
+      "おとこ"
+     ],
+     [
+      "の",
+      ""
+     ],
+     [
+      "子",
+      "こ"
+     ]
+    ]
+   },
+   {
+    "w": "女子",
+    "r": "じょし",
+    "g": "girl; woman",
+    "reading": "シ",
+    "furigana": [
+     [
+      "女",
+      "じょ"
+     ],
+     [
+      "子",
+      "し"
+     ]
+    ]
+   },
+   {
+    "w": "様子",
+    "r": "ようす",
+    "g": "state; how things look",
+    "reading": "ス",
+    "furigana": [
+     [
+      "様",
+      "よう"
+     ],
+     [
+      "子",
+      "す"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "息子",
+    "r": "むすこ",
+    "g": "son",
+    "reading": "special",
+    "special": true,
+    "furigana": [
+     [
+      "息子",
+      "むすこ"
+     ]
+    ]
+   },
+   {
+    "w": "男子",
+    "r": "だんし",
+    "g": "boy; man",
+    "reading": "シ",
+    "furigana": [
+     [
+      "男",
+      "だん"
+     ],
+     [
+      "子",
+      "し"
+     ]
+    ]
+   },
+   {
+    "w": "調子",
+    "r": "ちょうし",
+    "g": "condition; tone",
+    "reading": "シ",
+    "furigana": [
+     [
+      "調",
+      "ちょう"
+     ],
+     [
+      "子",
+      "し"
+     ]
+    ]
+   },
+   {
+    "w": "電子",
+    "r": "でんし",
+    "g": "electron; electronic",
+    "lit": "electric-particle",
+    "reading": "シ",
+    "furigana": [
+     [
+      "電",
+      "でん"
+     ],
+     [
+      "子",
+      "し"
+     ]
+    ]
+   },
+   {
+    "w": "椅子",
+    "r": "いす",
+    "g": "chair",
+    "reading": "ス",
+    "furigana": [
+     [
+      "椅",
+      "い"
+     ],
+     [
+      "子",
+      "す"
+     ]
+    ]
+   },
+   {
+    "w": "お菓子",
+    "r": "おかし",
+    "g": "sweets; snacks",
+    "reading": "シ",
+    "furigana": [
+     [
+      "お",
+      ""
+     ],
+     [
+      "菓",
+      "か"
+     ],
+     [
+      "子",
+      "し"
+     ]
+    ]
+   },
+   {
+    "w": "親子",
+    "r": "おやこ",
+    "g": "parent and child",
+    "lit": "parent-child",
+    "reading": "こ",
+    "furigana": [
+     [
+      "親",
+      "おや"
+     ],
+     [
+      "子",
+      "こ"
+     ]
+    ]
+   },
+   {
+    "w": "帽子",
+    "r": "ぼうし",
+    "g": "hat",
+    "reading": "シ",
+    "furigana": [
+     [
+      "帽",
+      "ぼう"
+     ],
+     [
+      "子",
+      "し"
+     ]
+    ]
+   }
+  ],
+  "story": "A baby in swaddling clothes, arms out.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "十",
+  "keyword": "ten",
+  "meanings": [],
+  "readings": [
+   "ジュウ",
+   "ジッ",
+   "とお"
+  ],
+  "alone": {
+   "r": "じゅう",
+   "g": "ten",
+   "reading": "ジュウ"
+  },
+  "words": [
+   {
+    "w": "十分",
+    "r": "じゅうぶん",
+    "g": "enough",
+    "lit": "ten-parts",
+    "reading": "ジュウ",
+    "furigana": [
+     [
+      "十",
+      "じゅう"
+     ],
+     [
+      "分",
+      "ぶん"
+     ]
+    ]
+   },
+   {
+    "w": "十一",
+    "r": "じゅういち",
+    "g": "eleven",
+    "lit": "ten-one",
+    "reading": "ジュウ",
+    "furigana": [
+     [
+      "十",
+      "じゅう"
+     ],
+     [
+      "一",
+      "いち"
+     ]
+    ]
+   },
+   {
+    "w": "何十",
+    "r": "なんじゅう",
+    "g": "dozens",
+    "lit": "what-ten",
+    "reading": "ジュウ",
+    "furigana": [
+     [
+      "何",
+      "なん"
+     ],
+     [
+      "十",
+      "じゅう"
+     ]
+    ]
+   },
+   {
+    "w": "十字",
+    "r": "じゅうじ",
+    "g": "cross (shape)",
+    "lit": "ten-character",
+    "reading": "ジュウ",
+    "furigana": [
+     [
+      "十",
+      "じゅう"
+     ],
+     [
+      "字",
+      "じ"
+     ]
+    ]
+   },
+   {
+    "w": "二十歳",
+    "r": "はたち",
+    "g": "twenty years old",
+    "reading": "special",
+    "special": true,
+    "furigana": [
+     [
+      "二十歳",
+      "はたち"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "不十分",
+    "r": "ふじゅうぶん",
+    "g": "not enough",
+    "reading": "ジュウ",
+    "furigana": [
+     [
+      "不",
+      "ふ"
+     ],
+     [
+      "十",
+      "じゅう"
+     ],
+     [
+      "分",
+      "ぶん"
+     ]
+    ]
+   },
+   {
+    "w": "十字路",
+    "r": "じゅうじろ",
+    "g": "crossroads",
+    "lit": "ten-shape-road",
+    "reading": "ジュウ",
+    "furigana": [
+     [
+      "十",
+      "じゅう"
+     ],
+     [
+      "字",
+      "じ"
+     ],
+     [
+      "路",
+      "ろ"
+     ]
+    ]
+   },
+   {
+    "w": "二十世紀",
+    "r": "にじっせいき",
+    "g": "the twentieth century",
+    "reading": "ジッ",
+    "furigana": [
+     [
+      "二",
+      "に"
+     ],
+     [
+      "十",
+      "じっ"
+     ],
+     [
+      "世",
+      "せい"
+     ],
+     [
+      "紀",
+      "き"
+     ]
+    ]
+   },
+   {
+    "w": "数十",
+    "r": "すうじゅう",
+    "g": "dozens; tens of",
+    "lit": "several-ten",
+    "reading": "ジュウ",
+    "furigana": [
+     [
+      "数",
+      "すう"
+     ],
+     [
+      "十",
+      "じゅう"
+     ]
+    ]
+   }
+  ],
+  "story": "A line with a knot: the old mark for ten.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "干",
+  "keyword": "dry",
+  "meanings": [
+   "interfere"
+  ],
+  "readings": [
+   "カン",
+   "ほ.す",
+   "ひ.る"
+  ],
+  "alone": null,
+  "words": [
+   {
+    "w": "干す",
+    "r": "ほす",
+    "g": "to dry (in the sun)",
+    "reading": "ほ.す",
+    "furigana": [
+     [
+      "干",
+      "ほ"
+     ],
+     [
+      "す",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "若干",
+    "r": "じゃっかん",
+    "g": "a little; somewhat",
+    "reading": "カン",
+    "furigana": [
+     [
+      "若",
+      "じゃっ"
+     ],
+     [
+      "干",
+      "かん"
+     ]
+    ]
+   },
+   {
+    "w": "干渉",
+    "r": "かんしょう",
+    "g": "interference",
+    "reading": "カン",
+    "furigana": [
+     [
+      "干",
+      "かん"
+     ],
+     [
+      "渉",
+      "しょう"
+     ]
+    ]
+   },
+   {
+    "w": "梅干し",
+    "r": "うめぼし",
+    "g": "pickled plum",
+    "lit": "plum-dried",
+    "reading": "ほ.す",
+    "furigana": [
+     [
+      "梅",
+      "うめ"
+     ],
+     [
+      "干",
+      "ぼ"
+     ],
+     [
+      "し",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "干潟",
+    "r": "ひがた",
+    "g": "tidal flat",
+    "lit": "dry-lagoon",
+    "reading": "ひ.る",
+    "furigana": [
+     [
+      "干",
+      "ひ"
+     ],
+     [
+      "潟",
+      "がた"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "物干し",
+    "r": "ものほし",
+    "g": "laundry pole",
+    "lit": "thing-dry",
+    "reading": "ほ.す",
+    "furigana": [
+     [
+      "物",
+      "もの"
+     ],
+     [
+      "干",
+      "ほ"
+     ],
+     [
+      "し",
+      ""
+     ]
+    ]
+   }
+  ],
+  "story": "A forked stick, once a shield.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "年",
+  "keyword": "year",
+  "meanings": [
+   "age"
+  ],
+  "readings": [
+   "ネン",
+   "とし"
+  ],
+  "alone": {
+   "r": "とし",
+   "g": "year; age",
+   "reading": "とし"
+  },
+  "words": [
+   {
+    "w": "今年",
+    "r": "ことし",
+    "g": "this year",
+    "reading": "special",
+    "special": true,
+    "furigana": [
+     [
+      "今年",
+      "ことし"
+     ]
+    ]
+   },
+   {
+    "w": "去年",
+    "r": "きょねん",
+    "g": "last year",
+    "lit": "gone-year",
+    "reading": "ネン",
+    "furigana": [
+     [
+      "去",
+      "きょ"
+     ],
+     [
+      "年",
+      "ねん"
+     ]
+    ]
+   },
+   {
+    "w": "来年",
+    "r": "らいねん",
+    "g": "next year",
+    "lit": "coming-year",
+    "reading": "ネン",
+    "furigana": [
+     [
+      "来",
+      "らい"
+     ],
+     [
+      "年",
+      "ねん"
+     ]
+    ]
+   },
+   {
+    "w": "毎年",
+    "r": "まいとし",
+    "g": "every year",
+    "lit": "every-year",
+    "reading": "とし",
+    "furigana": [
+     [
+      "毎",
+      "まい"
+     ],
+     [
+      "年",
+      "とし"
+     ]
+    ]
+   },
+   {
+    "w": "少年",
+    "r": "しょうねん",
+    "g": "boy",
+    "lit": "few-years",
+    "reading": "ネン",
+    "furigana": [
+     [
+      "少",
+      "しょう"
+     ],
+     [
+      "年",
+      "ねん"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "年齢",
+    "r": "ねんれい",
+    "g": "age",
+    "lit": "year-age",
+    "reading": "ネン",
+    "furigana": [
+     [
+      "年",
+      "ねん"
+     ],
+     [
+      "齢",
+      "れい"
+     ]
+    ]
+   },
+   {
+    "w": "年間",
+    "r": "ねんかん",
+    "g": "a year's span; annual",
+    "lit": "year-span",
+    "reading": "ネン",
+    "furigana": [
+     [
+      "年",
+      "ねん"
+     ],
+     [
+      "間",
+      "かん"
+     ]
+    ]
+   },
+   {
+    "w": "年代",
+    "r": "ねんだい",
+    "g": "era; decade",
+    "reading": "ネン",
+    "furigana": [
+     [
+      "年",
+      "ねん"
+     ],
+     [
+      "代",
+      "だい"
+     ]
+    ]
+   },
+   {
+    "w": "年金",
+    "r": "ねんきん",
+    "g": "pension",
+    "lit": "year-money",
+    "reading": "ネン",
+    "furigana": [
+     [
+      "年",
+      "ねん"
+     ],
+     [
+      "金",
+      "きん"
+     ]
+    ]
+   },
+   {
+    "w": "年上",
+    "r": "としうえ",
+    "g": "older (person)",
+    "lit": "years-above",
+    "reading": "とし",
+    "furigana": [
+     [
+      "年",
+      "とし"
+     ],
+     [
+      "上",
+      "うえ"
+     ]
+    ]
+   },
+   {
+    "w": "年寄り",
+    "r": "としより",
+    "g": "old person",
+    "lit": "years-gathered",
+    "reading": "とし",
+    "furigana": [
+     [
+      "年",
+      "とし"
+     ],
+     [
+      "寄",
+      "よ"
+     ],
+     [
+      "り",
+      ""
+     ]
+    ]
+   },
+   {
+    "w": "青年",
+    "r": "せいねん",
+    "g": "young man; youth",
+    "lit": "green-years",
+    "reading": "ネン",
+    "furigana": [
+     [
+      "青",
+      "せい"
+     ],
+     [
+      "年",
+      "ねん"
+     ]
+    ]
+   },
+   {
+    "w": "年末",
+    "r": "ねんまつ",
+    "g": "end of the year",
+    "lit": "year-end",
+    "reading": "ネン",
+    "furigana": [
+     [
+      "年",
+      "ねん"
+     ],
+     [
+      "末",
+      "まつ"
+     ]
+    ]
+   }
+  ],
+  "story": "A person carrying ripe grain: one harvest, one year.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "力",
+  "keyword": "power",
+  "meanings": [
+   "strength",
+   "effort"
+  ],
+  "readings": [
+   "リョク",
+   "ちから",
+   "リキ"
+  ],
+  "alone": {
+   "r": "ちから",
+   "g": "strength; power",
+   "reading": "ちから"
+  },
+  "words": [
+   {
+    "w": "協力",
+    "r": "きょうりょく",
+    "g": "cooperation",
+    "lit": "together-strength",
+    "reading": "リョク",
+    "furigana": [
+     [
+      "協",
+      "きょう"
+     ],
+     [
+      "力",
+      "りょく"
+     ]
+    ]
+   },
+   {
+    "w": "能力",
+    "r": "のうりょく",
+    "g": "ability",
+    "lit": "able-power",
+    "reading": "リョク",
+    "furigana": [
+     [
+      "能",
+      "のう"
+     ],
+     [
+      "力",
+      "りょく"
+     ]
+    ]
+   },
+   {
+    "w": "努力",
+    "r": "どりょく",
+    "g": "effort",
+    "lit": "strive-strength",
+    "reading": "リョク",
+    "furigana": [
+     [
+      "努",
+      "ど"
+     ],
+     [
+      "力",
+      "りょく"
+     ]
+    ]
+   },
+   {
+    "w": "魅力",
+    "r": "みりょく",
+    "g": "charm; appeal",
+    "lit": "enchant-power",
+    "reading": "リョク",
+    "furigana": [
+     [
+      "魅",
+      "み"
+     ],
+     [
+      "力",
+      "りょく"
+     ]
+    ]
+   },
+   {
+    "w": "自力",
+    "r": "じりき",
+    "g": "one's own strength",
+    "lit": "self-strength",
+    "reading": "リキ",
+    "furigana": [
+     [
+      "自",
+      "じ"
+     ],
+     [
+      "力",
+      "りき"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "入力",
+    "r": "にゅうりょく",
+    "g": "input (data)",
+    "lit": "in-power",
+    "reading": "リョク",
+    "furigana": [
+     [
+      "入",
+      "にゅう"
+     ],
+     [
+      "力",
+      "りょく"
+     ]
+    ]
+   },
+   {
+    "w": "電力",
+    "r": "でんりょく",
+    "g": "electric power",
+    "lit": "electric-power",
+    "reading": "リョク",
+    "furigana": [
+     [
+      "電",
+      "でん"
+     ],
+     [
+      "力",
+      "りょく"
+     ]
+    ]
+   },
+   {
+    "w": "暴力",
+    "r": "ぼうりょく",
+    "g": "violence",
+    "lit": "violent-force",
+    "reading": "リョク",
+    "furigana": [
+     [
+      "暴",
+      "ぼう"
+     ],
+     [
+      "力",
+      "りょく"
+     ]
+    ]
+   },
+   {
+    "w": "全力",
+    "r": "ぜんりょく",
+    "g": "all one's strength",
+    "lit": "whole-strength",
+    "reading": "リョク",
+    "furigana": [
+     [
+      "全",
+      "ぜん"
+     ],
+     [
+      "力",
+      "りょく"
+     ]
+    ]
+   },
+   {
+    "w": "体力",
+    "r": "たいりょく",
+    "g": "stamina",
+    "lit": "body-strength",
+    "reading": "リョク",
+    "furigana": [
+     [
+      "体",
+      "たい"
+     ],
+     [
+      "力",
+      "りょく"
+     ]
+    ]
+   },
+   {
+    "w": "実力",
+    "r": "じつりょく",
+    "g": "real ability",
+    "lit": "real-power",
+    "reading": "リョク",
+    "furigana": [
+     [
+      "実",
+      "じつ"
+     ],
+     [
+      "力",
+      "りょく"
+     ]
+    ]
+   }
+  ],
+  "story": "A flexed arm, or an old plough.",
+  "kind": "origin"
+ },
+ {
+  "kanji": "山",
+  "keyword": "mountain",
+  "meanings": [],
+  "readings": [
+   "サン",
+   "やま"
+  ],
+  "alone": {
+   "r": "やま",
+   "g": "mountain",
+   "reading": "やま"
+  },
+  "words": [
+   {
+    "w": "沢山",
+    "r": "たくさん",
+    "g": "a lot; many",
+    "reading": "サン",
+    "furigana": [
+     [
+      "沢",
+      "たく"
+     ],
+     [
+      "山",
+      "さん"
+     ]
+    ]
+   },
+   {
+    "w": "富士山",
+    "r": "ふじさん",
+    "g": "Mount Fuji",
+    "reading": "サン",
+    "furigana": [
+     [
+      "富",
+      "ふ"
+     ],
+     [
+      "士",
+      "じ"
+     ],
+     [
+      "山",
+      "さん"
+     ]
+    ]
+   },
+   {
+    "w": "火山",
+    "r": "かざん",
+    "g": "volcano",
+    "lit": "fire-mountain",
+    "reading": "サン",
+    "furigana": [
+     [
+      "火",
+      "か"
+     ],
+     [
+      "山",
+      "ざん"
+     ]
+    ]
+   },
+   {
+    "w": "登山",
+    "r": "とざん",
+    "g": "mountain climbing",
+    "lit": "climb-mountain",
+    "reading": "サン",
+    "furigana": [
+     [
+      "登",
+      "と"
+     ],
+     [
+      "山",
+      "ざん"
+     ]
+    ]
+   },
+   {
+    "w": "山道",
+    "r": "やまみち",
+    "g": "mountain path",
+    "lit": "mountain-road",
+    "reading": "やま",
+    "furigana": [
+     [
+      "山",
+      "やま"
+     ],
+     [
+      "道",
+      "みち"
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
+    "w": "山頂",
+    "r": "さんちょう",
+    "g": "summit",
+    "lit": "mountain-top",
+    "reading": "サン",
+    "furigana": [
+     [
+      "山",
+      "さん"
+     ],
+     [
+      "頂",
+      "ちょう"
+     ]
+    ]
+   },
+   {
+    "w": "山脈",
+    "r": "さんみゃく",
+    "g": "mountain range",
+    "lit": "mountain-vein",
+    "reading": "サン",
+    "furigana": [
+     [
+      "山",
+      "さん"
+     ],
+     [
+      "脈",
+      "みゃく"
+     ]
+    ]
+   },
+   {
+    "w": "山奥",
+    "r": "やまおく",
+    "g": "deep in the mountains",
+    "lit": "mountain-depths",
+    "reading": "やま",
+    "furigana": [
+     [
+      "山",
+      "やま"
+     ],
+     [
+      "奥",
+      "おく"
+     ]
+    ]
+   },
+   {
+    "w": "山々",
+    "r": "やまやま",
+    "g": "mountains",
+    "reading": "やま",
+    "furigana": [
+     [
+      "山",
+      "やま"
+     ],
+     [
+      "々",
+      "やま"
+     ]
+    ]
+   }
+  ],
+  "story": "Three peaks, the middle one highest.",
+  "kind": "origin"
+ }
+]

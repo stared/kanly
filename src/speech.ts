@@ -13,14 +13,11 @@ export function speak(text: string) {
   speechSynthesis.speak(u)
 }
 
-/** What to say for a kanji: the word it makes on its own (月 つき), else its most used reading. */
+/** What to say for a kanji: the word it makes on its own (月 つき), else its first reading. */
 export function spoken(ch: string): string {
   const k = KANJI[ch]
   if (!k) return ''
-  const alone = k.words.find(w => w.w === ch)
-  if (alone) return alone.r
-  const onSet = new Set(k.on.map(hira))
-  const [top] = Object.entries(k.usage).filter(([r]) => r !== '(irregular)').sort((a, b) => b[1] - a[1])
-  const r = top?.[0] ?? (k.on[0] ? hira(k.on[0]) : k.kun[0] ?? '')
-  return onSet.has(r) ? kata(r) : r.replace(/[.-]/g, '')
+  if (k.alone) return k.alone.r
+  const r = k.readings[0]?.r ?? ''
+  return /^[ァ-ヶー]+$/.test(r) ? r : r.replace('.', '')
 }

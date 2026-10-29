@@ -80,34 +80,21 @@ const fmtKun = (r: string) => {
   return <>{stem}{oku && <span className="oku">{oku}</span>}</>
 }
 
-/** Readings in one line, on (katakana) and kun (hiragana) together, most used first; rare ones in grey.
- * Click one to hear it, hover to see the words that use it. */
+/** The readings as written for the card, most important first, each with its share among the card's words.
+ * The reading of the kanji on its own is red. Click one to hear it; hover to see the words that use it. */
 export function Readings({ ch, hover, setHover }: { ch: string; hover?: string | null; setHover?: (r: string | null) => void }) {
   const k = KANJI[ch]
-  const n = Object.entries(k.usage).reduce((a, [r, c]) => a + (r === '(irregular)' ? 0 : c), 0) || 1
-  const seen = new Set<string>()
-  const all = [...k.on.map(r => ({ r: hira(r), on: true })), ...k.kun.map(r => ({ r: bare(r), on: false }))]
-    .filter(x => !seen.has(x.r) && seen.add(x.r))
-    .sort((a, b) => (k.usage[b.r] ?? 0) - (k.usage[a.r] ?? 0))
-  const used = all.filter(x => k.usage[x.r])
-  const shown = used.length ? used : all.slice(0, 2)
-  const rest = all.filter(x => !shown.includes(x))
-  const say = (x: { r: string; on: boolean }) => x.on ? kata(x.r) : x.r.replace('.', '')
-  // the reading of the kanji written alone, as a word of its own: 月 つき (moon), not ゲツ or ガツ
-  const alone = k.words.find(w => w.w === ch)?.rd
+  const isOn = (r: string) => /^[ァ-ヶー]+$/.test(r)
+  const say = (r: string) => isOn(r) ? r : r.replace('.', '')
   return (
     <div className="readings">
-      {[...shown, ...(rest.length === 1 ? rest : [])].map(x => {
-        const c = k.usage[x.r] ?? 0
-        return (
-          <button key={x.r} className={'rd' + (c / n >= 0.1 ? '' : ' rare') + (x.r === alone ? ' alone' : '') + (hover && hover !== x.r ? ' dim' : '')}
-            title={(x.r === alone ? `${ch} on its own: ${say(x)}. ` : '') + (c ? `In ${c} of ${n} common words; click to hear it` : 'Click to hear it')}
-            onClick={() => speak(say(x))} onMouseEnter={() => setHover?.(x.r)} onMouseLeave={() => setHover?.(null)}>
-            {x.on ? kata(x.r) : fmtKun(x.r)}{c > 0 && <span className="pct">{Math.round(100 * c / n)}%</span>}
-          </button>
-        )
-      })}
-      {rest.length > 1 && <span className="rd rare more-r" title={rest.map(say).join('、')}>+{rest.length} rare</span>}
+      {k.readings.map(({ r, share }) => (
+        <button key={r} className={'rd' + (k.written && share < 0.05 ? ' rare' : '') + (r === k.alone?.reading ? ' alone' : '') + (hover && hover !== r ? ' dim' : '')}
+          title={(r === k.alone?.reading ? `${ch} on its own: ${k.alone.r}. ` : '') + (k.written ? `${Math.round(share * 100)}% of use in the words below; click to hear it` : 'click to hear it')}
+          onClick={() => speak(say(r))} onMouseEnter={() => setHover?.(r)} onMouseLeave={() => setHover?.(null)}>
+          {isOn(r) ? r : fmtKun(r)}{k.written && share >= 0.01 && <span className="pct">{Math.round(share * 100)}%</span>}
+        </button>
+      ))}
     </div>
   )
 }
@@ -159,22 +146,15 @@ export function KanjiTip({ c, reading, className }: { c: string; reading?: strin
   return <span className={'kt' + (className ? ' ' + className : '')} onMouseEnter={enter} onMouseLeave={() => showTip(null)}>{c}</span>
 }
 
-/** "counter for months" says what the word does, not what it means: add how it is used. */
-const withExample = (g: string) => g.replace(/^counter for ([^;]+)/, (m, what) => `${m}, as in "3 ${what.trim()}"`)
-
-/** A word read kanji by kanji, from their keywords: 日本 sun-origin. Only for words of two or more kanji. */
-const literal = (w: string) => {
-  const ks = [...w].filter(c => KANJI[c])
-  return ks.length >= 2 ? ks.map(c => KANJI[c].keyword.split(';')[0].trim()).join('-') : ''
-}
-
 function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
   return (
     <li className={dim ? 'dim' : ''}>
-      <button className="w" onClick={() => speak(w.r)}>{w.parts
-        ? w.parts.map(([c, r], i) => <ruby key={i} className={c === ch ? 'me' : ''}><KanjiTip c={c} reading={r} /><rt>{isKanji(c) || c === '々' ? r : ''}</rt></ruby>)
-        : <ruby>{[...w.w].map((c, i) => <KanjiTip key={i} c={c} className={c === ch ? 'me' : ''} />)}<rt>{w.r}</rt></ruby>}</button>
-      <span className="wg">{withExample(w.g)}{literal(w.w) && <span className="lit">{literal(w.w)}</span>}</span>
+      <button className="w" onClick={() => speak(w.r)}>
+        {w.furigana.map(([part, r], i) => r
+          ? <ruby key={i} className={part === ch ? 'me' : ''}>{[...part].map((c, j) => <KanjiTip key={j} c={c} reading={w.special ? undefined : r} />)}<rt>{r}</rt></ruby>
+          : <span key={i}>{part}</span>)}
+      </button>
+      <span className="wg">{w.g}{w.lit && <span className="lit">{w.lit}</span>}{w.special && <span className="lit">read as a whole</span>}</span>
     </li>
   )
 }
@@ -229,17 +209,6 @@ export const Speaker = ({ text }: { text: string }) =>
 
 const Divider = ({ children }: { children: React.ReactNode }) => <h3 className="divider"><span>{children}</span></h3>
 
-/** Country names are abbreviations used inside compounds (日 in 日米 Japan–US, 米 in 日米 USA), not what the kanji means. */
-const COUNTRIES = new Set(['Japan', 'USA', 'America', 'England', 'Britain', 'France', 'Germany', 'Russia', 'Spain', 'China', 'Korea',
-  'Italy', 'India', 'Holland', 'Portugal', 'Australia', 'Canada', 'Mexico', 'Brazil', 'Asia', 'Europe'])
-
-/** Meanings beyond the keyword, so the header line never repeats it. */
-const otherMeanings = (ch: string) => {
-  const k = KANJI[ch]
-  const kw = k.keyword.toLowerCase().split(/;\s*/)
-  return k.meanings.filter(m => !kw.includes(m.toLowerCase()) && !COUNTRIES.has(m) && !/radical|counter for|^\(/.test(m)).slice(0, 3)
-}
-
 export function Card({ el, store, open, autoSpeak = false }: { el: string; store: Store; open: Open; autoSpeak?: boolean }) {
   const k = KANJI[el]
   const c = COMP[el]
@@ -258,7 +227,7 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
         {k && <Popularity ch={el} />}
         <span className="big"><Glyph el={el} /></span>
         <h2>{gloss(el)}</h2>
-        {k ? <p className="also">{otherMeanings(el).join(', ')}</p>
+        {k ? <p className="also">{k.also.join(', ')}</p>
           : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
         {k && <Readings ch={el} hover={hover} setHover={setHover} />}
         <Story el={el} />
@@ -268,8 +237,8 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
         {words && (
           <section>
             <h3 className="sec">most used words</h3>
-            <ul className="words">{k.words.slice(0, allWords ? undefined : 5).map(w => <WordRow key={w.w} w={w} ch={el} dim={!!hover && w.rd !== hover} />)}</ul>
-            {k.words.length > 5 && <button className="more-words" onClick={() => setAllWords(!allWords)}>{allWords ? 'fewer words' : `${k.words.length - 5} more words`}</button>}
+            <ul className="words">{k.words.slice(0, allWords ? undefined : k.nshown).map(w => <WordRow key={w.w + w.r} w={w} ch={el} dim={!!hover && w.reading !== hover} />)}</ul>
+            {k.words.length > k.nshown && <button className="more-words" onClick={() => setAllWords(!allWords)}>{allWords ? 'fewer words' : `${k.words.length - k.nshown} more words`}</button>}
           </section>
         )}
         {used > 0 && <section><h3 className="sec">part of {used} kanji</h3><UsedIn el={el} store={store} open={open} limit={16} /></section>}
