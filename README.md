@@ -14,7 +14,7 @@ pnpm shots     # screenshots via Chrome; SEED=N pretends the first N items are l
 
 ## What's in the app
 
-- **learn**: the next item in the learning order, as a card: the sum (照 = 昭 + 灬), the story, readings with how often each is used in common words, the sound family, the full tree, example words with the kanji's part of the reading marked, kanji one part apart (待 持 特 時), and what the item is a part of.
+- **learn**: the next item in the learning order, as a card: the sum (照 = 昭 + 灬), the story, readings with how often each is used in common words, the sound family, the full tree, the most used words (with more on request) with the kanji's part of the reading marked, kanji one part apart (待 持 特 時), and what the item is a part of.
 - **review**: spaced repetition. See the kanji, recall its meaning and a reading, then reveal and grade.
 - **kanji**: all 2136 jōyō kanji and their parts in learning order, searchable by character, meaning or reading.
 - **reader**: paste Japanese text; it is split into common words (longest match, verb stems included), with furigana over words whose kanji you have not learned. Tap a word for its reading, meaning and kanji.
@@ -54,8 +54,9 @@ Written by hand:
 | [KANJIDIC2](https://www.edrdg.org/wiki/index.php/KANJIDIC_Project) by EDRDG | readings, meanings, school grade, stroke count | [CC BY-SA 4.0](https://www.edrdg.org/edrdg/licence.html) |
 | [kanji-frequency](https://github.com/scriptin/kanji-frequency) by Dmitry Shpika | kanji counts in Japanese Wikipedia, for coverage | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | [JMdict](https://www.edrdg.org/jmdict/j_jmdict.html) by EDRDG | common words (news1, ichi1, spec, gai1) for examples and reading usage | [CC BY-SA 4.0](https://www.edrdg.org/edrdg/licence.html) |
+| [wordfreq](https://github.com/rspeer/wordfreq) by Robyn Speer | how often each word is used (books, subtitles, web, news), to pick the most used example words | code Apache 2.0, data [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 
-Because the generated data is derived from KanjiVG, KANJIDIC2 and JMdict, it is shared under CC BY-SA. Code is MIT.
+Because the generated data is derived from KanjiVG, KANJIDIC2, JMdict and wordfreq, it is shared under CC BY-SA. Code is MIT.
 
 ## Inspirations
 

@@ -1,130 +1,130 @@
 # Hand-written. One line per kanji or component, tab-separated:
 # char	keyword (empty: KANJIDIC's first meaning)	kind: origin (the real history of the shape) or memory (a story to remember it by)	story
 # Write the parts inline after their names, as in "a person 亻 by a tree 木". One sentence about the shape only: meanings, sounds and history go elsewhere on the card.
-日	sun	origin	A drawing of the sun: a circle with a dot in the middle, squared off by the brush.
-月	moon	origin	A crescent moon with two lines of shadow; one cycle of it is a month.
-大	big	origin	A person standing with arms and legs spread wide, as big as they can be.
-十	ten	origin	A vertical line with a knot on it, the old way of marking ten; later the knot became a crossbar.
-干	dry	origin	A forked stick used as a shield. In 年 and 平 it is only a shape.
-年	year	memory	A slash 丿 of a sickle over a field drying 干 in the sun: one harvest is one year.
-人	person	origin	A person walking, seen from the side: two legs.
-一	one	origin	A single line.
-子	child	origin	A baby wrapped in swaddling cloth, arms out, legs tucked into one.
-生	life	origin	A sprout pushing up out of the earth 土: to be born, to live, raw.
-田	rice field	origin	A field divided by paths into four plots.
-用	use	memory	A wooden fence of planks, built for use.
-長	long	origin	An old person with long hair flowing down, leaning on a staff. Long, and the eldest who leads.
-山	mountain	origin	Three peaks, the middle one highest.
-手	hand	origin	A hand with fingers spread over the wrist.
-木	tree	origin	A tree: trunk, branches up, roots down.
-本	origin; book	origin	A tree 木 with a mark at its root: where something starts.
-東	east	memory	The sun 日 rising behind a tree 木 in the east.
-口	mouth	origin	An open mouth. As a part it also means an opening or a box.
+日	sun	origin	A picture of the sun.
+月	moon	origin	A crescent moon.
+大	big	origin	A person with arms spread wide.
+十	ten	origin	A line with a knot: the old mark for ten.
+干	dry	origin	A forked stick, used as a shield.
+年	year	memory	Grain 禾 bent with ripeness: one harvest a year.
+人	person	origin	A person walking: two legs.
+一	one	origin	One line.
+子	child	origin	A baby in swaddling clothes, arms out.
+生	life	origin	A sprout coming out of the earth 土.
+田	rice field	origin	A rice field cut into plots.
+用	use	memory	A fence of planks.
+長	long	origin	An elder with long, flowing hair.
+山	mountain	origin	Three peaks.
+手	hand	origin	A hand with spread fingers.
+木	tree	origin	A tree with branches and roots.
+本	origin; book	origin	A tree 木 marked at the root, where it starts.
+東	east	memory	The sun 日 rising behind a tree 木.
+口	mouth	origin	An open mouth.
 中	middle	origin	A line 丨 through the middle of a box 口.
-合	fit	memory	A lid 人一 placed on a pot 口: they fit together.
-目	eye	origin	An eye turned upright: the top and bottom boxes are eyelids, the middle one the iris.
-川	river	origin	Water flowing between two banks.
-出	go out	origin	A foot stepping out of an enclosure 凵; it later came to look like two mountains 山.
-小	small	origin	Three small dots, grains of sand.
-県	prefecture	memory	An eye 目 watching over small 小 villages: an administrative district.
-自	self	origin	A nose. Japanese point at their nose when they say "me".
-入	enter	origin	An arrowhead, or a way in, with one stroke going into the other.
-学	study	memory	A child 子 under a roof 冖 with sparks of knowledge ⺍ above: a school.
-車	car	origin	A cart seen from above: axle through the middle, two wheels as crossbars.
-平	flat	memory	Water plants floating on a flat surface; the shape is a shield 干 with two dots.
-女	woman	origin	A woman kneeling with her hands crossed.
-門	gate	origin	A gate with two swinging doors.
-間	interval	origin	The sun 日 seen through the gap of a gate 門: the space between.
-上	above	origin	A short mark above a line 一; the mark grew into 卜.
-下	below	origin	A short mark below a line 一; the mark grew into 卜.
-明	bright	memory	The sun 日 and the moon 月 together: as bright as it gets.
+合	fit	memory	A lid 亼 that fits on a pot 口.
+目	eye	origin	An eye, turned upright.
+川	river	origin	Water flowing between banks.
+出	go out	origin	A foot stepping out of a pit 凵.
+小	small	origin	Three small grains.
+県	prefecture	memory	An eye 目 watching over small 小 villages.
+自	self	origin	A nose: in Japan you point at it to say "me".
+入	enter	origin	A way in.
+学	study	memory	A child 子 under a roof 冖, learning.
+車	car	origin	A cart seen from above.
+平	flat	memory	Duckweed floating on still, flat water.
+女	woman	origin	A kneeling woman.
+門	gate	origin	A gate with two doors.
+間	interval	origin	The sun 日 seen through a gap in the gate 門.
+上	above	origin	A mark above the line 一.
+下	below	origin	A mark below the line 一.
+明	bright	memory	The sun 日 and the moon 月: bright.
 号	number	memory	A mouth 口 calling out a number.
-力	strength	origin	A plough, or an arm flexing its muscle.
+力	strength	origin	A flexed arm.
 三	three	origin	Three lines.
-軍	army	memory	Chariots 車 under a cover 冖: an army camp.
-王	king	memory	The one who connects heaven, people and earth (三 joined by 丨).
-全	whole	memory	A king 王 under a roof 人: everything is in his care.
-夕	evening	origin	A crescent moon 月 missing a stroke, low in the sky: evening.
-名	name	origin	In the evening 夕, when you can't see faces, you say your name with your mouth 口.
-外	outside	memory	Fortune-telling 卜 at evening 夕 was done outside.
-西	west	origin	A bird's nest: birds return to the nest when the sun sets in the west.
-多	many	origin	Two pieces of meat 夕 stacked: plenty.
-同	same	memory	One 一 mouth 口 in a frame 冂: everyone saying the same thing.
-内	inside	memory	A person 人 entering a frame 冂: inside.
+軍	army	memory	Chariots 車 under cover 冖: an army.
+王	king	memory	A king links heaven, people and earth 三.
+全	whole	memory	A king 王 under one roof: all of it.
+夕	evening	origin	A crescent moon low in the evening sky.
+名	name	origin	In the dark of evening 夕, you call out your name 口.
+外	outside	memory	Fortunes 卜 were read in the evening 夕, outside.
+西	west	origin	A bird on its nest as the sun sets in the west.
+多	many	origin	Two slices of meat 夕: plenty.
+同	same	memory	One 一 voice 口 in a hall 冂: all the same.
+内	inside	memory	A person 人 going in 冂.
 立	stand	origin	A person 大 standing on the ground 一.
 部	section	memory	A town ⻏ split 咅 into sections.
-方	direction	memory	A plough with a handle, pointing in a direction.
-市	market	memory	Cloth 巾 hung under a roof 亠 at a market stall.
-京	capital	origin	A tall building on a hill: a palace, the capital.
+方	direction	memory	A plough pointing in a direction.
+市	market	memory	Cloth 巾 hanging at a market stall.
+京	capital	origin	A palace on a hill: the capital.
 二	two	origin	Two lines.
-会	meet	memory	People 人 under one roof coming to say 云 something: a meeting.
-作	make	memory	A person 亻 making things with a saw 乍.
-行	go	origin	A crossroads seen from above; 彳 is its left half.
-体	body	memory	A person 亻 and their origin 本: the body.
-位	rank	memory	Where a person 亻 stands 立: their rank and position.
-高	tall	origin	A tall watchtower: roof 亠, window 口, and a frame below 冋.
-水	water	origin	A stream with drops splashing off both sides.
-品	goods	memory	Three boxes 口 of goods stacked up.
-加	add	memory	Strength 力 and a mouth 口: cheering adds to the effort.
-開	open	memory	Two hands 开 pushing a gate 門 open.
-由	reason	memory	A field 田 with a sprout coming out: the cause from which things grow.
-画	picture	memory	A field 由 drawn inside a frame 凵: a picture, or the strokes of a brush.
-土	earth	origin	A lump of soil on the ground.
-社	company	origin	An altar 礻 to the god of the earth 土, where the village gathered.
-在	exist	memory	A person 亻 standing on the earth 土: to be there.
-者	person who	memory	An old man 耂 under the sun 日: someone who has done things.
-寸	inch	origin	A hand with a dot where the pulse is, one inch from the wrist.
-寺	temple	memory	Earth 土 and hand 寸: a place built by hand on the ground.
-時	time	memory	The sun 日 by the temple 寺: temples rang the hours. 寺 gives the sound じ.
+会	meet	memory	People 人 meeting under one roof to talk 云.
+作	make	memory	A person 亻 at work with a saw 乍.
+行	go	origin	A crossroads.
+体	body	memory	A person 亻 and what they are made of 本: the body.
+位	rank	memory	Where a person 亻 stands 立: their rank.
+高	tall	origin	A tall watchtower.
+水	water	origin	A stream with splashing drops.
+品	goods	memory	Three boxes 口 of goods.
+加	add	memory	Shouting 口 adds strength 力.
+開	open	memory	Two hands 开 opening a gate 門.
+由	reason	memory	A sprout coming out of a field 田: where things come from.
+画	picture	memory	A field 田 marked out with lines: a drawing.
+土	earth	origin	A mound of earth.
+社	company	origin	An altar 礻 to the earth god 土: a shrine.
+在	exist	memory	A person 亻 on the ground 土: being there.
+者	person who	memory	An old man 耂 who has seen many days 日.
+寸	inch	origin	A hand with a dot at the pulse, an inch from the wrist.
+寺	temple	memory	A hand 寸 building on the ground 土: a temple.
+時	time	memory	The sun 日 and the temple 寺 bell: telling the time.
 村	village	memory	Trees 木 and hands 寸 that work them: a village.
-文	writing	origin	A person with a pattern tattooed on the chest; later writing.
-対	opposite	memory	Writing 文 in one hand 寸: answering face to face.
-父	father	origin	A hand holding a stone axe or a stick.
-交	mix	origin	A person with crossed legs.
-校	school	memory	Under the trees 木, children mix 交: school. 交 gives the sound こう.
-八	eight	origin	Two strokes splitting apart; "to divide" before it was "eight".
-公	public	memory	To divide 八 what is private 厶: public.
-刀	knife	origin	A knife or a single-edged sword.
+文	writing	origin	A pattern tattooed on a chest.
+対	opposite	memory	A hand 寸 answering what is written 文.
+父	father	origin	A hand holding an axe.
+交	mix	origin	Crossed legs.
+校	school	memory	Children mixing 交 under the trees 木: a school.
+八	eight	origin	Two strokes splitting apart.
+公	public	memory	Sharing out 八 what was private 厶.
+刀	knife	origin	A knife.
 分	divide	origin	A knife 刀 cutting something in two 八.
-斤	axe	origin	An axe with a handle.
-新	new	memory	Standing 立 trees 木 chopped by an axe 斤: fresh wood, new.
-戸	door	origin	A one-leaf door, half of 門.
-所	place	memory	A door 戸 and an axe 斤: the place where you live and work.
-玉	jewel	origin	A string of jade beads 王 with one more dot 丶 to tell it from king.
+斤	axe	origin	An axe.
+新	new	memory	Wood 木 freshly cut with an axe 斤: new.
+戸	door	origin	A single door.
+所	place	memory	A door 戸 and an axe 斤: a place to live and work.
+玉	jewel	origin	A string of jade beads, with a dot 丶 to tell it from 王.
 国	country	memory	A jewel 玉 inside borders 囗: a country.
-主	master	origin	A lamp with a flame 丶 on top: the one who keeps the fire, the master.
-回	turn	origin	A whirl: a box 口 inside a box 囗.
-以	by means of	memory	A person 人 holding a tool: by means of.
-代	replace	memory	A person 亻 putting up a stake 弋 to hold a place: in place of, generation.
-工	craft	origin	A carpenter's square or a tool.
-式	ceremony	memory	A stake 弋 and a tool 工: a formal way of doing things.
-身	body	origin	A body with a big belly, seen from the side.
-地	ground	memory	Earth 土 with 也: the ground.
-金	gold	memory	Nuggets 丶 buried in the earth 土 under a roof 人: gold, metal, money.
-共	together	origin	Two hands 八 holding something up together.
-見	see	origin	A big eye 目 on legs 儿: a person looking.
-現	appear	memory	A jewel 王 that you can see 見: it appears.
-発	depart	memory	Feet 癶 setting off on two 二 legs 儿.
-元	origin	origin	A person 儿 with a big head 二: the top, the beginning.
-都	capital	memory	A town ⻏ full of people 者: a metropolis.
-南	south	memory	A frame 冂 with ten 十 and a shield 干: a bell hung on the south side.
-前	before	memory	Horns 䒑 above a moon 月 and a knife 刂: cutting the way ahead.
-後	behind	memory	A step 彳 slowed by thread 幺 on dragging feet 夂: you are behind.
-天	heaven	origin	A person 大 with a big line 一 over the head: the sky.
-関	barrier	memory	A gate 門 that can be closed 关: a checkpoint, a connection.
-面	face	origin	A face with its outline around the eyes.
-和	harmony	memory	Grain 禾 in every mouth 口: peace.
-士	samurai	memory	Ten 十 over one 一: a man who can do many things, a samurai.
-売	sell	memory	A samurai 士 under a cover 冖 on his legs 儿, selling wares.
-団	group	memory	A hand 寸 inside an enclosure 囗: a group.
+主	master	origin	A lamp flame 丶 kept by the master.
+回	turn	origin	A spiral.
+以	by means of	memory	A person 人 with a tool: by means of.
+代	replace	memory	A person 亻 holding a stake 弋 in someone's place.
+工	craft	origin	A carpenter's square.
+式	ceremony	memory	A stake 弋 and a tool 工: the proper way to do things.
+身	body	origin	A body with a round belly.
+地	ground	memory	The earth 土 stretching out: the ground.
+金	gold	memory	Nuggets 丶 buried in the earth 土: gold.
+共	together	origin	Two hands 八 lifting together.
+見	see	origin	An eye 目 on legs 儿: looking.
+現	appear	memory	A jewel 王 coming into view 見.
+発	depart	memory	Feet 癶 setting off.
+元	origin	origin	A person 儿 with a big head 二: the top, the start.
+都	capital	memory	A town ⻏ full of people 者.
+南	south	memory	A bell hung facing south.
+前	before	memory	A knife 刂 cutting the way ahead.
+後	behind	memory	Slow steps 彳 with dragging feet 夂: behind.
+天	heaven	origin	The sky above a person 大.
+関	barrier	memory	A gate 門 bolted shut 关: a checkpoint.
+面	face	origin	A face.
+和	harmony	memory	Rice 禾 in every mouth 口: peace.
+士	samurai	memory	A man who can do ten 十 things and one 一 well: a samurai.
+売	sell	memory	A samurai 士 selling his goods.
+団	group	memory	People held together 寸 inside a fence 囗.
 言	say	origin	Words coming out of a mouth 口.
-信	trust	memory	A person 亻 and their words 言: trust.
-亻	person	origin	人 squeezed to the left side.
-氵	water	origin	水 reduced to three drops.
-扌	hand	origin	手 reduced to fit on the left side.
-灬	fire	origin	火 at the bottom of a character, as four flames.
-忄	heart	origin	心 standing upright on the left side.
-⻌	walk	origin	A road with a foot on it: moving along.
-宀	roof	origin	The roof of a house.
-冖	cover	origin	A cloth or lid over something.
-艹	grass	origin	Two sprouts of grass.
+信	trust	memory	A person 亻 standing by their word 言: trust.
+亻	person	origin	人 squeezed to the left.
+氵	water	origin	Three drops of water 水.
+扌	hand	origin	手 squeezed to the left.
+灬	fire	origin	Fire 火 as four flames.
+忄	heart	origin	A heart 心 standing upright.
+⻌	walk	origin	A foot on a road.
+宀	roof	origin	A roof.
+冖	cover	origin	A cover.
+艹	grass	origin	Grass.

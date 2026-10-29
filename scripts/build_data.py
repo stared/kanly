@@ -1,5 +1,6 @@
 # /// script
 # requires-python = ">=3.12"
+# dependencies = ["wordfreq==3.1.1"]
 # ///
 """Build data/kanji.json and data/report.md from KANJIDIC2, KanjiVG and kanji frequency counts.
 
@@ -330,21 +331,33 @@ def attach_words(joyo: list[str], kd: dict, order_pos: dict[str, int]) -> tuple[
                         usage[c][dic] += 1
             else:
                 usage[c]["(irregular)"] += 1
+    # how often each word is used (wordfreq: books, subtitles, web, news), per million words
+    from wordfreq import get_frequency_dict
+    wf = get_frequency_dict("ja")
     examples = {}
     for c, ws in by_kanji.items():
-        # common first; each kanji not yet learned costs 5 frequency bands, each kana 3 (上がったり is no example of 上)
-        later = lambda w: sum(order_pos[x] > order_pos[c] for x in set(w["w"]) if is_kanji(x) and x != "々")
-        cost = lambda w: w["nf"] + 5 * later(w) + 3 * sum(not is_kanji(x) for x in w["w"]) + len(w["w"])
-        ranked = sorted({w["w"]: w for w in sorted(ws, key=cost, reverse=True)}.values(), key=cost)
+        per_m = lambda w: wf.get(w["w"], 0) * 1e6
+        # most used first; JMdict's news band breaks ties among words wordfreq doesn't know
+        # one entry per written word: the one JMdict ranks most common (人 as ひと, not the suffix にん)
+        # and a kanji written alone is read kun: 人 ひと, 上 うえ (じん, じょう are suffixes)
+        alone_on = lambda w: len(w["w"]) == 1 and w.get("dic", {}).get(c) in {hira(r) for r in kd[c]["on"]}
+        use = lambda w: usage[c].get(w.get("dic", {}).get(c, ""), 0)
+        best = {w["w"]: w for w in sorted(ws, key=lambda w: (alone_on(w), w["nf"], -use(w)), reverse=True)}  # the last one wins
+        ranked = sorted(best.values(), key=lambda w: (-per_m(w), w["nf"], len(w["w"])))
         reading_of = lambda w: w.get("dic", {}).get(c, "(irregular)")
+        n = sum(usage[c].values()) or 1
         picked = []
-        for r in usage[c]:  # one word per reading, most used readings first
-            w = next((w for w in ranked if reading_of(w) == r and w not in picked), None)
-            if w and len(picked) < 4:
-                picked.append(w)
-        picked += [w for w in ranked if w not in picked][:max(0, 4 - len(picked))]
-        examples[c] = [{**{k: w[k] for k in ("w", "r", "g", "parts") if k in w}, "rd": reading_of(w)} for w in sorted(picked, key=cost)]
-    return examples, {c: dict(u.most_common()) for c, u in usage.items()}
+        for r, cnt in usage[c].most_common():  # each reading met in 10%+ of words gets its most used word
+            if r != "(irregular)" and cnt / n >= 0.1:
+                w = next((w for w in ranked if reading_of(w) == r), None)
+                if w and w not in picked:
+                    picked.append(w)
+        picked += [w for w in ranked if w not in picked][:max(0, 5 - len(picked))]
+        picked.sort(key=lambda w: (-per_m(w), w["nf"]))
+        more = [w for w in ranked if w not in picked][:10]  # behind "more words" on the card
+        examples[c] = [{**{k: w[k] for k in ("w", "r", "g", "parts") if k in w}, "rd": reading_of(w), "f": round(per_m(w), 1)}
+                       for w in picked + more]
+    return examples, {c: dict(u.most_common()) for c, u in usage.items()}, {c: len(ws) for c, ws in by_kanji.items()}
 
 
 def load_stories() -> dict[str, dict]:
@@ -425,10 +438,11 @@ def main() -> None:
     fams = families(joyo, trees, kd)
     order = orders["greedy coverage"]
     order_pos = {n: i for i, n in enumerate(order)}
-    examples, usage = attach_words(joyo, kd, order_pos)
+    examples, usage, nwords = attach_words(joyo, kd, order_pos)
     for ch in joyo:
         kanji[ch]["words"] = examples.get(ch, [])
         kanji[ch]["usage"] = usage.get(ch, {})
+        kanji[ch]["nwords"] = nwords.get(ch, 0)
         kanji[ch]["keyword"] = components[ch]["meaning"] if "meaning" in components.get(ch, {}) else kd[ch]["meanings"][0] if kd[ch]["meanings"] else "?"
         kanji[ch] |= stories.get(ch, {})
     for el, c in components.items():

@@ -204,6 +204,7 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
   const used = c?.usedIn.length ?? 0
   const alike = k ? lookalikes(el).length : 0
   const [hover, setHover] = useState<string | null>(null)
+  const [allWords, setAllWords] = useState(false)
   const parts = t && shownKids(t).length > 0
   const words = k && k.words.length > 0
   return (
@@ -219,7 +220,13 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
       </div>
       <div className="side">
         {parts && <section><h3 className="sec">parts</h3><Parts t={t!} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}
-        {words && <section><h3 className="sec">words</h3><ul className="words">{k.words.map(w => <WordRow key={w.w} w={w} ch={el} dim={!!hover && w.rd !== hover} />)}</ul></section>}
+        {words && (
+          <section>
+            <h3 className="sec">most used words</h3>
+            <ul className="words">{k.words.slice(0, allWords ? undefined : 5).map(w => <WordRow key={w.w} w={w} ch={el} dim={!!hover && w.rd !== hover} />)}</ul>
+            {k.words.length > 5 && <button className="more-words" onClick={() => setAllWords(!allWords)}>{allWords ? 'fewer words' : `${k.words.length - 5} more words`}</button>}
+          </section>
+        )}
         {used > 0 && <section><h3 className="sec">part of {used} kanji</h3><UsedIn el={el} store={store} open={open} limit={16} /></section>}
         {alike > 0 && (
           <details className="more-info">

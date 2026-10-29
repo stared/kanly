@@ -132,6 +132,8 @@ nav button.on, .gear.on { color: var(--ink); }
 .words .w { font: 22px/1.9 var(--jp); text-align: left; white-space: nowrap; }
 .words rt { font-size: 9px; letter-spacing: -.06em; color: var(--muted); }
 .words .me { color: var(--accent); }
+.more-words { margin-top: 8px; font-size: 13px; color: var(--muted); }
+.more-words:hover { color: var(--ink); }
 .words .w:hover { opacity: .75; }
 .wg { font-size: 13px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 
@@ -268,7 +270,10 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
 
 /* wide: two halves; the kanji column stays put while the right side is read */
 @media (min-width: 900px) {
-  .card { grid-template-columns: minmax(320px, 5fr) 7fr; gap: 56px; align-items: center; min-height: calc(100vh - 150px); }
+  .card { grid-template-columns: minmax(320px, 5fr) 7fr; gap: 56px; align-items: start; }
+  .hero { position: sticky; top: 24px; }
+  main:has(> .card), .learn { min-height: calc(100vh - 90px); display: flex; flex-direction: column; }
+  main > .card, .learn > .card { margin-block: auto; width: 100%; }
   .detail .card, .peek .card { min-height: 0; align-items: start; }
   .learn .actions { position: fixed; right: 32px; bottom: 24px; margin: 0; }
   .parts { justify-content: flex-start; }
