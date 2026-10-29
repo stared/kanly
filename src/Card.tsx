@@ -80,36 +80,32 @@ const fmtKun = (r: string) => {
   return <>{stem}{oku && <span className="oku">{oku}</span>}</>
 }
 
-/** Readings as two rows, on and kun, most used first; rare ones in grey. Hover one to see the words that use it. */
+/** Readings in one line, on (katakana) and kun (hiragana) together, most used first; rare ones in grey.
+ * Click one to hear it, hover to see the words that use it. */
 export function Readings({ ch, hover, setHover }: { ch: string; hover?: string | null; setHover?: (r: string | null) => void }) {
   const k = KANJI[ch]
-  const n = Object.entries(k.usage).reduce((a, [r, c]) => a + (r === '(irregular)' ? 0 : c), 0)
-  const byUse = (rs: string[]) => [...new Set(rs)].sort((a, b) => (k.usage[b] ?? 0) - (k.usage[a] ?? 0))
-  const row = (label: string, all: string[], show: (r: string) => React.ReactNode) => {
-    if (!all.length) return null
-    // readings met in common words, or the first two when none are; the rest only counted
-    const used = all.filter(r => k.usage[r])
-    const rs = used.length ? used : all.slice(0, 2)
-    const rest = all.filter(r => !rs.includes(r))
-    const say = (r: string) => label === 'on' ? kata(r) : bare(r).replace('.', '')
-    return (
-      <span className="rlist">{[...rs, ...(rest.length === 1 ? rest : [])].map(r => {
-        const c = k.usage[r] ?? 0
-        return (
-          <button key={r} className={'rd' + (c / (n || 1) >= 0.1 ? '' : ' rare') + (hover && hover !== r ? ' dim' : '')}
-            title={c ? `in ${c} of ${n} common words; click to hear it` : 'click to hear it'}
-            onClick={() => speak(say(r))}
-            onMouseEnter={() => setHover?.(r)} onMouseLeave={() => setHover?.(null)}>{show(r)}{c > 0 && <span className="pct"> {Math.round(100 * c / n)}%</span>}</button>
-        )
-      })}{rest.length > 1 && <span className="rd rare more-r" title={rest.map(say).join('、')}>+{rest.length} rare</span>}</span>
-    )
-  }
+  const n = Object.entries(k.usage).reduce((a, [r, c]) => a + (r === '(irregular)' ? 0 : c), 0) || 1
+  const seen = new Set<string>()
+  const all = [...k.on.map(r => ({ r: hira(r), on: true })), ...k.kun.map(r => ({ r: bare(r), on: false }))]
+    .filter(x => !seen.has(x.r) && seen.add(x.r))
+    .sort((a, b) => (k.usage[b.r] ?? 0) - (k.usage[a.r] ?? 0))
+  const used = all.filter(x => k.usage[x.r])
+  const shown = used.length ? used : all.slice(0, 2)
+  const rest = all.filter(x => !shown.includes(x))
+  const say = (x: { r: string; on: boolean }) => x.on ? kata(x.r) : x.r.replace('.', '')
   return (
     <div className="readings">
-      {[
-        { use: k.on.map(hira).reduce((a, r) => a + (k.usage[r] ?? 0), 0), el: row('on', byUse(k.on.map(hira)), r => kata(r)) },
-        { use: k.kun.map(bare).reduce((a, r) => a + (k.usage[r] ?? 0), 0), el: row('kun', byUse(k.kun.map(bare)), fmtKun) },
-      ].sort((a, b) => b.use - a.use).map((x, i) => <span key={i}>{x.el}</span>)}
+      {[...shown, ...(rest.length === 1 ? rest : [])].map(x => {
+        const c = k.usage[x.r] ?? 0
+        return (
+          <button key={x.r} className={'rd' + (c / n >= 0.1 ? '' : ' rare') + (hover && hover !== x.r ? ' dim' : '')}
+            title={c ? `in ${c} of ${n} common words; click to hear it` : 'click to hear it'}
+            onClick={() => speak(say(x))} onMouseEnter={() => setHover?.(x.r)} onMouseLeave={() => setHover?.(null)}>
+            {x.on ? kata(x.r) : fmtKun(x.r)}{c > 0 && <span className="pct">{Math.round(100 * c / n)}%</span>}
+          </button>
+        )
+      })}
+      {rest.length > 1 && <span className="rd rare more-r" title={rest.map(say).join('、')}>+{rest.length} rare</span>}
     </div>
   )
 }
@@ -213,33 +209,25 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
   return (
     <article className="card">
       <div className="hero">
-        <div className="glyph">
-          <span className="big"><Glyph el={el} /></span>
-          {k && <Popularity ch={el} />}
-        </div>
+        {k && <Popularity ch={el} />}
+        <span className="big"><Glyph el={el} /></span>
         <h2>{gloss(el)}{say && <Speaker text={say} />}</h2>
         {k ? <p className="also">{otherMeanings(el).join(', ')}</p>
           : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
         {k && <Readings ch={el} hover={hover} setHover={setHover} />}
+        <Story el={el} />
       </div>
-      <Story el={el} />
-      {(parts || words) && (
-        <div className={'cols' + (parts && words ? ' two' : '')}>
-          {parts && <section><Divider>parts</Divider><Parts t={t!} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}
-          {words && <section><Divider>words</Divider><ul className="words">{k.words.map(w => <WordRow key={w.w} w={w} ch={el} dim={!!hover && w.rd !== hover} />)}</ul></section>}
-        </div>
-      )}
-      {(used > 0 || alike > 0) && (
-        <section className="tail">
-          {used > 0 && <div className="tail-row"><span className="tl">part of {used}</span><UsedIn el={el} store={store} open={open} limit={12} /></div>}
-          {alike > 0 && (
-            <details className="more-info">
-              <summary>{alike} look-alike{alike > 1 ? 's' : ''}</summary>
-              <Lookalikes ch={el} store={store} open={open} />
-            </details>
-          )}
-        </section>
-      )}
+      <div className="side">
+        {parts && <section><h3 className="sec">parts</h3><Parts t={t!} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}
+        {words && <section><h3 className="sec">words</h3><ul className="words">{k.words.map(w => <WordRow key={w.w} w={w} ch={el} dim={!!hover && w.rd !== hover} />)}</ul></section>}
+        {used > 0 && <section><h3 className="sec">part of {used} kanji</h3><UsedIn el={el} store={store} open={open} limit={16} /></section>}
+        {alike > 0 && (
+          <details className="more-info">
+            <summary>{alike} look-alike{alike > 1 ? 's' : ''}</summary>
+            <Lookalikes ch={el} store={store} open={open} />
+          </details>
+        )}
+      </div>
     </article>
   )
 }

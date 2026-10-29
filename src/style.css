@@ -57,33 +57,30 @@ nav button.on, .gear.on { color: var(--ink); }
 .learning { --st: var(--muted); }
 .known { --st: var(--good); }
 
-/* the card: the kanji first, everything else small and close under it */
-.card { container-type: inline-size; display: flex; flex-direction: column; gap: 18px; max-width: 760px; margin: 0 auto; }
-.hero { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; }
-.glyph { position: relative; }
-.big { display: block; font: 164px/1.05 var(--serif); padding: 0 28px; background: radial-gradient(closest-side, var(--glow), transparent); }
-.popular { position: absolute; left: 100%; top: 18px; display: flex; flex-direction: column; align-items: flex-start; font-size: 12px; color: var(--muted); line-height: 1.4; white-space: nowrap; }
-.hero h2 { font-size: 26px; display: flex; align-items: center; }
+/* the card: the kanji fills the left, what explains it stacks on the right */
+.card { container-type: inline-size; position: relative; display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1040px; margin: 0 auto; }
+.hero { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
+.big { display: block; font: 200px/1.05 var(--serif); padding: 0 32px; background: radial-gradient(closest-side, var(--glow), transparent); }
+.popular { position: absolute; right: 0; top: 0; display: flex; flex-direction: column; align-items: flex-end; font-size: 12px; color: var(--muted); line-height: 1.4; white-space: nowrap; }
+.hero h2 { font-size: 28px; display: flex; align-items: center; }
 .also { color: var(--muted); font-size: 14px; margin: 0; }
 .speaker { color: var(--muted); margin-left: 10px; display: inline-flex; }
 .speaker:hover { color: var(--ink); }
+.side { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.sec { margin: 0 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--faint); }
 
-.readings { margin-top: 6px; display: flex; flex-direction: column; align-items: center; gap: 0; font: 19px/1.5 var(--jp); }
-.rlist { display: flex; flex-wrap: wrap; justify-content: center; column-gap: 16px; align-items: baseline; }
+.readings { margin-top: 10px; display: flex; flex-wrap: wrap; justify-content: center; column-gap: 18px; row-gap: 2px; align-items: baseline; font: 20px/1.5 var(--jp); max-width: 420px; }
 .rd { font: inherit; transition: opacity .15s; white-space: nowrap; }
 .rd:hover { color: var(--accent); }
 .rd.rare { color: var(--muted); }
 .rd.dim { opacity: .35; }
-.rd .pct { font: 11px system-ui, sans-serif; color: var(--muted); margin-left: 2px; }
-.rd.more-r, .rlist > .rd.rare:last-child:not(button) { font: 12px system-ui, sans-serif; }
+.rd .pct { font: 11px system-ui, sans-serif; color: var(--muted); margin-left: 3px; }
+.rd.more-r { font: 12px system-ui, sans-serif; }
 .oku { color: var(--muted); }
 
-.story { text-align: center; max-width: 560px; margin: 0 auto; font-size: 15px; line-height: 1.5; }
+.story { text-align: center; max-width: 400px; margin: 14px auto 0; font-size: 15px; line-height: 1.55; }
 .story .kind { color: var(--muted); font-size: 13px; }
 
-.cols { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@container (min-width: 600px) { .cols.two { grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; } }
-.cols:not(.two) { max-width: 460px; width: 100%; margin: 0 auto; }
 
 .divider { display: flex; align-items: center; gap: 14px; margin: 0 0 12px; }
 .divider::before, .divider::after { content: ''; flex: 1; border-top: 1px solid var(--faint); }
@@ -138,8 +135,6 @@ nav button.on, .gear.on { color: var(--ink); }
 .wg { font-size: 13px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 
 .more-info { color: var(--muted); font-size: 13px; }
-.tail { display: flex; flex-direction: column; align-items: center; gap: 6px; border-top: 1px solid var(--faint); padding-top: 12px; }
-.tail-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; }
 .tl { font-size: 12px; color: var(--muted); }
 .more-info { text-align: center; }
 .more-info summary { cursor: pointer; list-style: none; }
@@ -263,10 +258,20 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
   .readings { font-size: 17px; }
   .popular { top: 10px; font-size: 11px; }
   .story { font-size: 15px; }
-  .cols { gap: 14px; }
   .words .w { font-size: 20px; line-height: 1.7; }
   .upcoming { display: none; }
   .actions { margin-top: 12px; }
   .brow { grid-template-columns: 30px 90px 1fr 48px; }
   .bn { display: none; }
+}
+
+/* wide: two halves; the kanji column stays put while the right side is read */
+@media (min-width: 900px) {
+  .card { grid-template-columns: minmax(320px, 5fr) 7fr; gap: 56px; align-items: center; min-height: calc(100vh - 150px); }
+  .detail .card, .peek .card { min-height: 0; align-items: start; }
+  .learn .actions { position: fixed; right: 32px; bottom: 24px; margin: 0; }
+  .parts { justify-content: flex-start; }
+  .family { text-align: left; }
+  .family .chips { justify-content: flex-start; }
+  .side .more-info { text-align: left; }
 }
