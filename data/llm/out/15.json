@@ -3385,7 +3385,7 @@
  },
  {
   "kanji": "瞳",
-  "keyword": "pupil (of the eye)",
+  "keyword": "pupil of the eye",
   "meanings": [],
   "readings": [
    "ひとみ",
@@ -3504,7 +3504,7 @@
  },
  {
   "kanji": "詠",
-  "keyword": "compose (a poem)",
+  "keyword": "compose poems",
   "meanings": [
    "recite"
   ],
@@ -4463,7 +4463,7 @@
  },
  {
   "kanji": "鉛",
-  "keyword": "lead (metal)",
+  "keyword": "lead, the metal",
   "meanings": [],
   "readings": [
    "エン",
@@ -6457,7 +6457,7 @@
  },
  {
   "kanji": "嫡",
-  "keyword": "legitimate (heir)",
+  "keyword": "legitimate heir",
   "meanings": [],
   "readings": [
    "チャク"
@@ -7702,7 +7702,7 @@
  },
  {
   "kanji": "殉",
-  "keyword": "die for (a cause)",
+  "keyword": "die for a cause",
   "meanings": [],
   "readings": [
    "ジュン"
@@ -8695,7 +8695,7 @@
  },
  {
   "kanji": "炊",
-  "keyword": "cook (rice)",
+  "keyword": "cook rice",
   "meanings": [],
   "readings": [
    "た.く",
@@ -10107,7 +10107,7 @@
  },
  {
   "kanji": "鋳",
-  "keyword": "cast (metal)",
+  "keyword": "cast metal",
   "meanings": [],
   "readings": [
    "い.る",
@@ -10189,7 +10189,7 @@
  },
  {
   "kanji": "錬",
-  "keyword": "temper (metal)",
+  "keyword": "refine metal",
   "meanings": [
    "refine",
    "drill"
