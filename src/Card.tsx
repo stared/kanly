@@ -93,13 +93,15 @@ export function Readings({ ch, hover, setHover }: { ch: string; hover?: string |
   const shown = used.length ? used : all.slice(0, 2)
   const rest = all.filter(x => !shown.includes(x))
   const say = (x: { r: string; on: boolean }) => x.on ? kata(x.r) : x.r.replace('.', '')
+  // the reading of the kanji written alone, as a word of its own: 月 つき (moon), not ゲツ or ガツ
+  const alone = k.words.find(w => w.w === ch)?.rd
   return (
     <div className="readings">
       {[...shown, ...(rest.length === 1 ? rest : [])].map(x => {
         const c = k.usage[x.r] ?? 0
         return (
-          <button key={x.r} className={'rd' + (c / n >= 0.1 ? '' : ' rare') + (hover && hover !== x.r ? ' dim' : '')}
-            title={c ? `in ${c} of ${n} common words; click to hear it` : 'click to hear it'}
+          <button key={x.r} className={'rd' + (c / n >= 0.1 ? '' : ' rare') + (x.r === alone ? ' alone' : '') + (hover && hover !== x.r ? ' dim' : '')}
+            title={(x.r === alone ? `${ch} on its own: ${say(x)}. ` : '') + (c ? `In ${c} of ${n} common words; click to hear it` : 'Click to hear it')}
             onClick={() => speak(say(x))} onMouseEnter={() => setHover?.(x.r)} onMouseLeave={() => setHover?.(null)}>
             {x.on ? kata(x.r) : fmtKun(x.r)}{c > 0 && <span className="pct">{Math.round(100 * c / n)}%</span>}
           </button>
@@ -157,6 +159,9 @@ export function KanjiTip({ c, reading, className }: { c: string; reading?: strin
   return <span className={'kt' + (className ? ' ' + className : '')} onMouseEnter={enter} onMouseLeave={() => showTip(null)}>{c}</span>
 }
 
+/** "counter for months" says what the word does, not what it means: add how it is used. */
+const withExample = (g: string) => g.replace(/^counter for ([^;]+)/, (m, what) => `${m}, as in "3 ${what.trim()}"`)
+
 /** A word read kanji by kanji, from their keywords: 日本 sun-origin. Only for words of two or more kanji. */
 const literal = (w: string) => {
   const ks = [...w].filter(c => KANJI[c])
@@ -169,7 +174,7 @@ function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
       <button className="w" onClick={() => speak(w.r)}>{w.parts
         ? w.parts.map(([c, r], i) => <ruby key={i} className={c === ch ? 'me' : ''}><KanjiTip c={c} reading={r} /><rt>{isKanji(c) || c === '々' ? r : ''}</rt></ruby>)
         : <ruby>{[...w.w].map((c, i) => <KanjiTip key={i} c={c} className={c === ch ? 'me' : ''} />)}<rt>{w.r}</rt></ruby>}</button>
-      <span className="wg">{w.g}{literal(w.w) && <span className="lit">{literal(w.w)}</span>}</span>
+      <span className="wg">{withExample(w.g)}{literal(w.w) && <span className="lit">{literal(w.w)}</span>}</span>
     </li>
   )
 }

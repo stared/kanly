@@ -73,6 +73,7 @@ nav button.on, .gear.on { color: var(--ink); }
 .rd { font: inherit; transition: opacity .15s; white-space: nowrap; }
 .rd:hover { color: var(--accent); }
 .rd.rare { color: var(--muted); }
+.rd.alone, .rd.alone .oku { color: var(--accent); }
 .rd.dim { opacity: .35; }
 .rd .pct { font: 11px system-ui, sans-serif; color: var(--muted); margin-left: 3px; }
 .rd.more-r { font: 12px system-ui, sans-serif; }
