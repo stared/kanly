@@ -101,7 +101,7 @@ export function Readings({ ch, hover, setHover }: { ch: string; hover?: string |
             onClick={() => speak(say(r))}
             onMouseEnter={() => setHover?.(r)} onMouseLeave={() => setHover?.(null)}>{show(r)}{c > 0 && <span className="pct"> {Math.round(100 * c / n)}%</span>}</button>
         )
-      })}{rest.length > 1 && <span className="rd rare" title={rest.map(say).join('、')}>+{rest.length} rare</span>}</span>
+      })}{rest.length > 1 && <span className="rd rare more-r" title={rest.map(say).join('、')}>+{rest.length} rare</span>}</span>
     )
   }
   return (
@@ -213,25 +213,25 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
   return (
     <article className="card">
       <div className="hero">
-        <span className="big"><Glyph el={el} /></span>
-        <div className="info">
-          <h2>{gloss(el)}{say && <Speaker text={say} />}</h2>
-          {k ? <p className="also">{otherMeanings(el).join(', ')}</p>
-            : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
-          {k && <Readings ch={el} hover={hover} setHover={setHover} />}
+        <div className="glyph">
+          <span className="big"><Glyph el={el} /></span>
+          {k && <Popularity ch={el} />}
         </div>
-        {k && <Popularity ch={el} />}
+        <h2>{gloss(el)}{say && <Speaker text={say} />}</h2>
+        {k ? <p className="also">{otherMeanings(el).join(', ')}</p>
+          : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
+        {k && <Readings ch={el} hover={hover} setHover={setHover} />}
       </div>
       <Story el={el} />
       {(parts || words) && (
-        <div className="cols">
+        <div className={'cols' + (parts && words ? ' two' : '')}>
           {parts && <section><Divider>parts</Divider><Parts t={t!} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}
           {words && <section><Divider>words</Divider><ul className="words">{k.words.map(w => <WordRow key={w.w} w={w} ch={el} dim={!!hover && w.rd !== hover} />)}</ul></section>}
         </div>
       )}
       {(used > 0 || alike > 0) && (
         <section className="tail">
-          {used > 0 && <><Divider>part of {used} kanji</Divider><UsedIn el={el} store={store} open={open} limit={14} /></>}
+          {used > 0 && <div className="tail-row"><span className="tl">part of {used}</span><UsedIn el={el} store={store} open={open} limit={12} /></div>}
           {alike > 0 && (
             <details className="more-info">
               <summary>{alike} look-alike{alike > 1 ? 's' : ''}</summary>
