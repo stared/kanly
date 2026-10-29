@@ -6,3 +6,4 @@ node_modules/
 dist/
 screenshots/
 .DS_Store
+__pycache__/

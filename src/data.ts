@@ -1,0 +1,91 @@
+import raw from './data/kanji.json'
+
+export type Tree = { el: string; strokes: number; phon?: string; radical?: string; kids: Tree[] }
+export type Word = { w: string; r: string; g: string; parts?: [string, string][] }
+export type Kanji = {
+  keyword: string
+  kind?: 'origin' | 'memory'
+  story?: string
+  grade: number
+  strokes: number
+  on: string[]
+  kun: string[]
+  meanings: string[]
+  freq: number
+  sum: string[]
+  tree: Tree
+  words: Word[]
+  usage: Record<string, number>
+}
+export type Component = {
+  meaning?: string
+  note?: string
+  original?: string
+  kind?: 'origin' | 'memory'
+  story?: string
+  on?: string[]
+  kun?: string[]
+  joyo: boolean
+  usedIn: string[]
+}
+export type Family = { phonetic: string; reading: string; hits: string[]; misses: string[] }
+
+type Data = {
+  kanji: Record<string, Kanji>
+  components: Record<string, Component>
+  order: string[]
+  families: Family[]
+  curves: Record<string, number[]>
+  total: number
+}
+
+export const D = raw as unknown as Data
+export const KANJI = D.kanji
+export const COMP = D.components
+export const ORDER = D.order
+export const POS = new Map(ORDER.map((el, i) => [el, i]))
+
+export const isKanji = (el: string) => el in KANJI
+
+/** Short name of anything in a tree: the keyword of a kanji, else the component's name. */
+export const gloss = (el: string) => KANJI[el]?.keyword ?? COMP[el]?.meaning ?? '?'
+
+/** The sound family a kanji belongs to through a part KanjiVG marks as phonetic, if the hint holds at least half the time. */
+export function soundFamily(ch: string): Family | undefined {
+  const walk = (t: Tree): Family | undefined => {
+    if (t.phon && t.el !== ch) return D.families.find(f => f.phonetic === t.el && f.hits.length >= 2 && f.hits.length >= f.misses.length)
+    for (const k of t.kids) { const f = walk(k); if (f) return f }
+  }
+  return KANJI[ch] && walk(KANJI[ch].tree)
+}
+
+/** Strokes of a node not covered by its listed parts: 本 = 木 + 1 stroke. */
+export const extraStrokes = (t: Tree) => t.kids.length ? t.strokes - t.kids.reduce((a, k) => a + k.strokes, 0) : 0
+
+/** Every element of a tree, each once. */
+export function elements(t: Tree, out = new Set<string>()): Set<string> {
+  out.add(t.el)
+  t.kids.forEach(k => elements(k, out))
+  return out
+}
+
+export const hira = (s: string) => s.replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60))
+export const kata = (s: string) => s.replace(/[ぁ-ゖ]/g, c => String.fromCharCode(c.charCodeAt(0) + 0x60))
+
+/** Kanji with the same parts but one: 待 持 特 時 all have 寺 and differ in the other part. */
+const byPattern = new Map<string, string[]>()
+for (const [ch, k] of Object.entries(KANJI)) {
+  if (k.sum.length < 2) continue
+  k.sum.forEach((_, i) => {
+    const key = k.sum.map((p, j) => j === i ? '*' : p).join('+')
+    byPattern.set(key, [...(byPattern.get(key) ?? []), ch])
+  })
+}
+export function lookalikes(ch: string): { ch: string; mine: string; theirs: string }[] {
+  const k = KANJI[ch]
+  if (!k || k.sum.length < 2) return []
+  return k.sum.flatMap((mine, i) => {
+    const key = k.sum.map((p, j) => j === i ? '*' : p).join('+')
+    return (byPattern.get(key) ?? []).filter(o => o !== ch).map(o => ({ ch: o, mine, theirs: KANJI[o].sum[i] }))
+  }).sort((a, b) => KANJI[b.ch].freq - KANJI[a.ch].freq)
+}

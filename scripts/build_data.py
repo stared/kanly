@@ -8,6 +8,7 @@ Run: uv run scripts/build_data.py
 
 import csv
 import gzip
+import unicodedata
 import json
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -22,6 +23,7 @@ SOURCES = {
     "kanjidic2.xml.gz": "http://www.edrdg.org/kanjidic/kanjidic2.xml.gz",
     "kanjivg-20260714.xml.gz": "https://github.com/KanjiVG/kanjivg/releases/download/r20260714/kanjivg-20260714.xml.gz",
     "wikipedia_characters.csv": "https://raw.githubusercontent.com/scriptin/kanji-frequency/master/data/wikipedia_characters.csv",
+    "JMdict_e.gz": "http://ftp.edrdg.org/pub/Nihongo/JMdict_e.gz",
 }
 
 KVG = "{http://kanjivg.tagaini.net}"
@@ -84,7 +86,7 @@ def parse_group(g: ET.Element) -> list[dict]:
         if g.get(KVG + attr):
             node[attr] = g.get(KVG + attr)
     node["strokes"] = sum(1 for _ in g.iter("path"))
-    node["kids"] = merge_parts(kids)
+    node["kids"] = [k for k in merge_parts(kids) if k["el"] != el]  # 王 is listed inside 王
     return [node]
 
 
@@ -122,9 +124,12 @@ def load_trees(wanted: set[str]) -> dict[str, dict]:
     return trees
 
 
-def nodes(t: dict) -> list[str]:
-    """Every component in a tree, children before parents."""
-    return [n for k in t["kids"] for n in nodes(k)] + [t["el"]]
+STROKES = {"丿", "丨", "丶", "亅", "乙"}  # single strokes: parts of the tree, but nothing to learn
+
+
+def nodes(t: dict, root: bool = True) -> list[str]:
+    """Every component in a tree worth learning, children before parents; 乙 is a stroke and a kanji."""
+    return [n for k in t["kids"] for n in nodes(k, False)] + ([] if t["el"] in STROKES and not root else [t["el"]])
 
 
 def subtrees(t: dict):
@@ -133,11 +138,23 @@ def subtrees(t: dict):
         yield from subtrees(k)
 
 
+def prerequisites(ch: str, trees: dict) -> list[str]:
+    """What learning ch takes, parts first. A kanji among the parts brings its own full tree:
+    inside 預 KanjiVG leaves 予 whole, but 予 on its own is マ + more."""
+    out = []
+    for n in nodes(trees[ch]):
+        if n != ch and n in trees:
+            out += [m for m in prerequisites(n, trees) if m not in out]
+        if n not in out:
+            out.append(n)
+    return out
+
+
 def plan(order_kanji: list[str], trees: dict, freq: dict) -> list[str]:
     """Learn kanji in the given order, each one after the components it needs."""
     known, items = set(), []
     for ch in order_kanji:
-        for n in nodes(trees[ch]):
+        for n in prerequisites(ch, trees):
             if n not in known:
                 known.add(n)
                 items.append(n)
@@ -146,12 +163,13 @@ def plan(order_kanji: list[str], trees: dict, freq: dict) -> list[str]:
 
 def greedy(joyo: list[str], trees: dict, freq: dict) -> list[str]:
     """Next kanji = most text coverage gained per new item learned (the kanji plus its unknown components)."""
-    need = {ch: set(nodes(trees[ch])) for ch in joyo}
+    pre = {ch: prerequisites(ch, trees) for ch in joyo}
+    need = {ch: set(p) for ch, p in pre.items()}
     value = lambda s: sum(freq.get(n, 0) for n in s if n in need)
     known, items, left = set(), [], set(joyo)
     while left:
         best = max(left, key=lambda ch: (value(need[ch] - known) / len(need[ch] - known), -len(need[ch] - known)))
-        for n in nodes(trees[best]):
+        for n in pre[best]:
             if n not in known:
                 known.add(n)
                 items.append(n)
@@ -172,7 +190,6 @@ def items_to_reach(cov: list[float], target: float) -> int | None:
 
 
 def unvoice(r: str) -> str:
-    import unicodedata
     return "".join(c for c in unicodedata.normalize("NFD", r) if c not in "゙゚")
 
 
@@ -201,11 +218,151 @@ def families(joyo: list[str], trees: dict, kd: dict) -> list[dict]:
     return sorted(out, key=lambda f: (-len(f["hits"]), len(f["misses"])))
 
 
+def hira(s: str) -> str:
+    return "".join(chr(ord(c) - 0x60) if "ァ" <= c <= "ヶ" else c for c in s)
+
+
+def is_kanji(c: str) -> bool:
+    return "\u4e00" <= c <= "\u9fff" or c == "々"
+
+
+def load_words() -> list[dict]:
+    """Common JMdict words (news1, ichi1, spec1/2, gai1) written with kanji."""
+    common = {"news1", "ichi1", "spec1", "spec2", "gai1"}
+    out = []
+    for _, e in ET.iterparse(gzip.open(RAW / "JMdict_e.gz"), events=("end",)):
+        if e.tag != "entry":
+            continue
+        kebs = [k for k in e.findall("k_ele") if common & {p.text for p in k.findall("ke_pri")}]
+        rebs = [r for r in e.findall("r_ele") if r.find("re_nokanji") is None]
+        if kebs and rebs and not any(c.isdigit() for c in kebs[0].findtext("keb")):
+            k = kebs[0]
+            pri = [p.text for p in k.findall("ke_pri")]
+            # nfXX ranks news words in bands of 500; ichi1/spec words without it are taken as nf12
+            nf = min((int(p[2:]) for p in pri if p.startswith("nf")), default=12 if {"ichi1", "spec1"} & set(pri) else 40)
+            if not {"ichi1", "spec1", "spec2"} & set(pri):  # news-only words are often names (上田 as Ueda)
+                nf += 12
+            r = next((r for r in rebs if common & {p.text for p in r.findall("re_pri")}), rebs[0])
+            glosses = [g.text for g in e.find("sense").findall("gloss")]
+            out.append({
+                "w": k.findtext("keb"),
+                "r": r.findtext("reb"),
+                "g": "; ".join(glosses[:2]),
+                "nf": nf,
+                **({"irregular": True} if r.find("re_inf") is not None and "gikun" in ET.tostring(r, encoding="unicode") else {}),
+            })
+        e.clear()
+    return out
+
+
+def variants(r: str) -> set[str]:
+    """A reading as it can appear inside a word: rendaku on the first kana, っ for a final つくちき."""
+    out = {r}
+    first = r[0]
+    for mark in ("\u3099", "\u309a"):
+        v = unicodedata.normalize("NFC", first + mark)
+        if len(v) == 1:
+            out.add({"ぢ": "じ", "づ": "ず"}.get(v, v) + r[1:])
+    if len(r) > 1 and r[-1] in "つくちき":
+        out |= {x[:-1] + "っ" for x in list(out)}
+    return out
+
+
+def readings(kd_entry: dict) -> dict[str, str]:
+    """Surface form in a word -> the dictionary reading it comes from."""
+    out = {}
+    for r in kd_entry["on"]:
+        for v in variants(hira(r)):
+            out.setdefault(v, hira(r))
+    for r in kd_entry["kun"]:
+        base = r.split(".")[0].strip("-")
+        if base:
+            for v in variants(base):
+                out.setdefault(v, r.strip("-"))
+    return out
+
+
+def align(word: str, reading: str, kd: dict) -> list[tuple[str, str, str]] | None:
+    """Split a word's reading over its characters: [(char, surface, dictionary reading)], or None."""
+    def go(i: int, j: int, prev: str | None):
+        if i == len(word):
+            return [] if j == len(reading) else None
+        c = word[i]
+        if not is_kanji(c):
+            if reading[j:j + 1] == hira(c):
+                rest = go(i + 1, j + 1, None)
+                return None if rest is None else [(c, hira(c), "")] + rest
+            return None
+        src = prev if c == "々" else c
+        if src not in kd:
+            return None
+        for surf, dic in sorted(readings(kd[src]).items(), key=lambda kv: -len(kv[0])):
+            if reading.startswith(surf, j):
+                rest = go(i + 1, j + len(surf), src)
+                if rest is not None:
+                    return [(c, surf, dic)] + rest
+        return None
+    return go(0, 0, None)
+
+
+def attach_words(joyo: list[str], kd: dict, order_pos: dict[str, int]) -> tuple[dict, dict]:
+    """Per kanji: a few example words (common, short, with kanji learned early) and how often each reading is used."""
+    by_kanji = defaultdict(list)
+    usage = defaultdict(Counter)
+    for w in load_words():
+        if len(w["w"]) > 5:
+            continue
+        chars = [c for c in w["w"] if is_kanji(c) and c != "々"]
+        if not chars or any(c not in order_pos for c in chars):
+            continue
+        parts = None if w.get("irregular") else align(w["w"], w["r"], kd)
+        one_kana_kun = [c for c, r, dic in parts or [] if is_kanji(c) and c in kd and len(r) == 1 and dic not in map(hira, kd[c]["on"])]
+        if len(one_kana_kun) >= 2 and len(one_kana_kun) == len(w["w"]):
+            parts = None  # 三十日 みそか fits み + そ + か only by accident
+        if parts:
+            w["parts"] = [[c, s] for c, s, _ in parts]
+            w["dic"] = {c: dic for c, _, dic in parts}
+        for c in set(chars):
+            by_kanji[c].append(w)
+            if parts:
+                for pc, _, dic in parts:
+                    if pc == c:
+                        usage[c][dic] += 1
+            else:
+                usage[c]["(irregular)"] += 1
+    examples = {}
+    for c, ws in by_kanji.items():
+        # common first; each kanji not yet learned costs 5 frequency bands, each kana 3 (上がったり is no example of 上)
+        later = lambda w: sum(order_pos[x] > order_pos[c] for x in set(w["w"]) if is_kanji(x) and x != "々")
+        cost = lambda w: w["nf"] + 5 * later(w) + 3 * sum(not is_kanji(x) for x in w["w"]) + len(w["w"])
+        ranked = sorted({w["w"]: w for w in sorted(ws, key=cost, reverse=True)}.values(), key=cost)
+        reading_of = lambda w: w.get("dic", {}).get(c, "(irregular)")
+        picked = []
+        for r in usage[c]:  # one word per reading, most used readings first
+            w = next((w for w in ranked if reading_of(w) == r and w not in picked), None)
+            if w and len(picked) < 4:
+                picked.append(w)
+        picked += [w for w in ranked if w not in picked][:max(0, 4 - len(picked))]
+        examples[c] = [{k: w[k] for k in ("w", "r", "g", "parts") if k in w} for w in sorted(picked, key=cost)]
+    return examples, {c: dict(u.most_common()) for c, u in usage.items()}
+
+
+def load_stories() -> dict[str, dict]:
+    """Hand-written: keyword, kind (origin or memory) and a one-sentence story per kanji or component."""
+    out = {}
+    for l in open(ROOT / "data" / "stories.tsv", encoding="utf-8"):
+        if l.strip() and not l.startswith("#"):
+            el, keyword, kind, story = l.rstrip("\n").split("\t")
+            out[el] = {k: v for k, v in (("keyword", keyword), ("kind", kind), ("story", story)) if v}
+    return out
+
+
 def main() -> None:
     fetch()
     kd = load_kanjidic()
     freq, total = load_frequency()
     comp_names = load_components()
+    stories = load_stories()
     joyo = sorted((c for c, v in kd.items() if v["grade"] in JOYO_GRADES), key=lambda c: -freq.get(c, 0))
     trees = load_trees(set(joyo))
     missing = [c for c in joyo if c not in trees]
@@ -222,6 +379,8 @@ def main() -> None:
     def meaning(el: str, orig: str | None) -> dict:
         if el in comp_names:
             return comp_names[el]
+        if "keyword" in stories.get(el, {}):
+            return {"meaning": stories[el]["keyword"]}
         if el in kd and kd[el]["meanings"]:
             return {"meaning": kd[el]["meanings"][0]}
         if orig and orig in kd and kd[orig]["meanings"]:
@@ -241,7 +400,7 @@ def main() -> None:
     unnamed = sorted((el for el, c in components.items() if "meaning" not in c), key=lambda e: -len(used_in[e]))
 
     def strip(t: dict) -> dict:
-        return {"el": t["el"], **{k: t[k] for k in ("phon", "radical") if k in t}, "kids": [strip(k) for k in t["kids"]]}
+        return {"el": t["el"], "strokes": t["strokes"], **{k: t[k] for k in ("phon", "radical") if k in t}, "kids": [strip(k) for k in t["kids"]]}
 
     kanji = {
         ch: {
@@ -260,6 +419,17 @@ def main() -> None:
         "greedy coverage": greedy(joyo, trees, freq),
     }
     fams = families(joyo, trees, kd)
+    order = orders["greedy coverage"]
+    order_pos = {n: i for i, n in enumerate(order)}
+    examples, usage = attach_words(joyo, kd, order_pos)
+    for ch in joyo:
+        kanji[ch]["words"] = examples.get(ch, [])
+        kanji[ch]["usage"] = usage.get(ch, {})
+        kanji[ch]["keyword"] = components[ch]["meaning"] if "meaning" in components.get(ch, {}) else kd[ch]["meanings"][0] if kd[ch]["meanings"] else "?"
+        kanji[ch] |= stories.get(ch, {})
+    for el, c in components.items():
+        if el in stories:
+            c |= {k: v for k, v in stories[el].items() if k != "keyword"}
 
     OUT.joinpath("kanji.json").write_text(json.dumps({
         "kanji": kanji,
@@ -267,6 +437,19 @@ def main() -> None:
         "order": orders["greedy coverage"],
         "families": fams,
     }, ensure_ascii=False, indent=1))
+
+    # the app's copy: compact, with coverage curves for the analysis page
+    curves = {name: [round(c, 4) for c in coverage(items, joyo_set, freq)] for name, items in orders.items()}
+    app = ROOT / "src" / "data"
+    app.mkdir(parents=True, exist_ok=True)
+    app.joinpath("kanji.json").write_text(json.dumps({
+        "kanji": kanji,
+        "components": components,
+        "order": order,
+        "families": fams,
+        "curves": curves,
+        "total": total,
+    }, ensure_ascii=False, separators=(",", ":")))
 
     report(kd, freq, total, joyo, joyo_set, trees, components, orders, fams, unnamed, missing)
 
