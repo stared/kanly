@@ -1,8 +1,8 @@
 # Hand-written. One line per kanji or component, tab-separated:
 # char	keyword (empty: KANJIDIC's first meaning)	kind: origin (the real history of the shape) or memory (a story to remember it by)	story
-# Write the parts inline after their names, as in "a person 亻 by a tree 木", so the card can colour them.
-日	sun	origin	A drawing of the sun: a circle with a dot in the middle, squared off by the brush. Also "day".
-月	moon	origin	A crescent moon with two lines of shadow. Also "month", one cycle of the moon.
+# Write the parts inline after their names, as in "a person 亻 by a tree 木". One sentence about the shape only: meanings, sounds and history go elsewhere on the card.
+日	sun	origin	A drawing of the sun: a circle with a dot in the middle, squared off by the brush.
+月	moon	origin	A crescent moon with two lines of shadow; one cycle of it is a month.
 大	big	origin	A person standing with arms and legs spread wide, as big as they can be.
 十	ten	origin	A vertical line with a knot on it, the old way of marking ten; later the knot became a crossbar.
 干	dry	origin	A forked stick used as a shield. In 年 and 平 it is only a shape.
@@ -17,7 +17,7 @@
 山	mountain	origin	Three peaks, the middle one highest.
 手	hand	origin	A hand with fingers spread over the wrist.
 木	tree	origin	A tree: trunk, branches up, roots down.
-本	origin; book	origin	A tree 木 with a mark at its root: the origin of something. Later also a book.
+本	origin; book	origin	A tree 木 with a mark at its root: where something starts.
 東	east	memory	The sun 日 rising behind a tree 木 in the east.
 口	mouth	origin	An open mouth. As a part it also means an opening or a box.
 中	middle	origin	A line 丨 through the middle of a box 口.
@@ -54,7 +54,7 @@
 立	stand	origin	A person 大 standing on the ground 一.
 部	section	memory	A town ⻏ split 咅 into sections.
 方	direction	memory	A plough with a handle, pointing in a direction.
-市	market	memory	Cloth 巾 hung under a roof 亠 at a market stall; also a city.
+市	market	memory	Cloth 巾 hung under a roof 亠 at a market stall.
 京	capital	origin	A tall building on a hill: a palace, the capital.
 二	two	origin	Two lines.
 会	meet	memory	People 人 under one roof coming to say 云 something: a meeting.
@@ -70,11 +70,11 @@
 由	reason	memory	A field 田 with a sprout coming out: the cause from which things grow.
 画	picture	memory	A field 由 drawn inside a frame 凵: a picture, or the strokes of a brush.
 土	earth	origin	A lump of soil on the ground.
-社	company	origin	An altar 礻 to the god of the earth 土: a shrine. Later a company.
+社	company	origin	An altar 礻 to the god of the earth 土, where the village gathered.
 在	exist	memory	A person 亻 standing on the earth 土: to be there.
 者	person who	memory	An old man 耂 under the sun 日: someone who has done things.
 寸	inch	origin	A hand with a dot where the pulse is, one inch from the wrist.
-寺	temple	memory	Earth 土 and hand 寸: a place built by hand on the ground. 寺 also gives its sound to 時 and 持.
+寺	temple	memory	Earth 土 and hand 寸: a place built by hand on the ground.
 時	time	memory	The sun 日 by the temple 寺: temples rang the hours. 寺 gives the sound じ.
 村	village	memory	Trees 木 and hands 寸 that work them: a village.
 文	writing	origin	A person with a pattern tattooed on the chest; later writing.
@@ -85,7 +85,7 @@
 八	eight	origin	Two strokes splitting apart; "to divide" before it was "eight".
 公	public	memory	To divide 八 what is private 厶: public.
 刀	knife	origin	A knife or a single-edged sword.
-分	divide	origin	A knife 刀 cutting something in two 八. Also "minute" and "to understand".
+分	divide	origin	A knife 刀 cutting something in two 八.
 斤	axe	origin	An axe with a handle.
 新	new	memory	Standing 立 trees 木 chopped by an axe 斤: fresh wood, new.
 戸	door	origin	A one-leaf door, half of 門.
@@ -113,7 +113,7 @@
 天	heaven	origin	A person 大 with a big line 一 over the head: the sky.
 関	barrier	memory	A gate 門 that can be closed 关: a checkpoint, a connection.
 面	face	origin	A face with its outline around the eyes.
-和	harmony	memory	Grain 禾 in every mouth 口: peace. Also "Japanese".
+和	harmony	memory	Grain 禾 in every mouth 口: peace.
 士	samurai	memory	Ten 十 over one 一: a man who can do many things, a samurai.
 売	sell	memory	A samurai 士 under a cover 冖 on his legs 儿, selling wares.
 団	group	memory	A hand 寸 inside an enclosure 囗: a group.
