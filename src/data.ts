@@ -1,7 +1,8 @@
 import raw from './data/kanji.json'
 
 export type Tree = { el: string; strokes: number; phon?: string; radical?: string; kids: Tree[] }
-export type Word = { w: string; r: string; g: string; parts?: [string, string][] }
+/** rd: the dictionary reading of the card's kanji in this word, '(irregular)' when the word is read as a whole */
+export type Word = { w: string; r: string; g: string; parts?: [string, string][]; rd: string }
 export type Kanji = {
   keyword: string
   kind?: 'origin' | 'memory'

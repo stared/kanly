@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { COMP, KANJI, elements, extraStrokes, gloss, hira, isKanji, kata, lookalikes, soundFamily, type Tree, type Word } from './data'
 import { status, type Store } from './srs'
 import { speak, spoken } from './speech'
@@ -21,10 +21,11 @@ export function treeOf(el: string): Tree | undefined {
 /** Parts worth showing: single strokes are left to the "+ 1 stroke" note. */
 const shownKids = (t: Tree) => t.kids.filter(k => !STROKES.has(k.el))
 
-function Node({ n, store, open, sound }: { n: Tree; store: Store; open: Open; sound?: boolean }) {
-  const on = sound ? KANJI[n.el]?.on[0] ?? COMP[n.el]?.on?.[0] : undefined
+function Node({ n, store, open, sound, label }: { n: Tree; store: Store; open: Open; sound?: boolean; label?: boolean }) {
+  const on = sound && label ? KANJI[n.el]?.on[0] ?? COMP[n.el]?.on?.[0] : undefined
   return (
-    <button className={'node ' + status(store, n.el) + (sound ? ' sound' : '')} onClick={() => open(n.el)}>
+    <button className={'node ' + status(store, n.el) + (sound ? ' sound' : '')} onClick={() => open(n.el)}
+      title={`${gloss(n.el)}: ${{ new: 'not learned yet', learning: 'learning (grey edge)', known: 'known (green edge)' }[status(store, n.el)]}${sound ? ', gives the sound' : ''}`}>
       <span className="ch"><Glyph el={n.el} /></span>
       <span className="g">{gloss(n.el)}</span>
       {on && <span className="on">sound {on}</span>}
@@ -32,12 +33,13 @@ function Node({ n, store, open, sound }: { n: Tree; store: Store; open: Open; so
   )
 }
 
-function Branch({ n, store, open, sound }: { n: Tree; store: Store; open: Open; sound: (t: Tree) => boolean }) {
-  const kids = shownKids(n)
+/** Only kanji are opened up further; a radical form such as 彳 stays whole (KanjiVG would split it into 亻). */
+function Branch({ n, store, open, sound, label }: { n: Tree; store: Store; open: Open; sound: (t: Tree) => boolean; label: boolean }) {
+  const kids = KANJI[n.el] ? shownKids(n) : []
   return (
     <li>
-      <Node n={n} store={store} open={open} sound={sound(n)} />
-      {kids.length > 0 && <ul>{kids.map((k, i) => <Branch key={i} n={k} store={store} open={open} sound={sound} />)}</ul>}
+      <Node n={n} store={store} open={open} sound={sound(n)} label={label} />
+      {kids.length > 0 && <ul>{kids.map((k, i) => <Branch key={i} n={k} store={store} open={open} sound={sound} label={label} />)}</ul>}
     </li>
   )
 }
@@ -51,12 +53,13 @@ export function Parts({ t, store, open }: { t: Tree; store: Store; open: Open })
   const unvoiced = (r: string) => hira(r).normalize('NFD').replace(/[\u3099\u309a]/g, '')
   const mine = new Set((KANJI[t.el]?.on ?? []).map(unvoiced))
   const sound = (n: Tree) => !!n.phon && n.el !== t.el && (KANJI[n.el]?.on ?? COMP[n.el]?.on ?? []).some(r => mine.has(unvoiced(r)))
+  const label = !soundFamily(t.el)  // the family strip below says it already
   return (
     <div className="parts">
       {kids.map((k, i) => (
         <div key={i} className="part-col">
           {i > 0 && <span className="op">+</span>}
-          <div className="tree"><ul><Branch n={k} store={store} open={open} sound={sound} /></ul></div>
+          <div className="tree"><ul><Branch n={k} store={store} open={open} sound={sound} label={label} /></ul></div>
         </div>
       ))}
       {extra > 0 && <div className="part-col"><span className="op">+</span><span className="extra">{extra} stroke{extra > 1 ? 's' : ''}</span></div>}
@@ -84,7 +87,7 @@ const fmtKun = (r: string) => {
 }
 
 /** Readings once: each as wide as its share of common words, unused ones after it in grey. */
-export function Readings({ ch }: { ch: string }) {
+export function Readings({ ch, hover, setHover }: { ch: string; hover?: string | null; setHover?: (r: string | null) => void }) {
   const k = KANJI[ch]
   const entries = Object.entries(k.usage)
   const n = entries.reduce((a, [, c]) => a + c, 0)
@@ -98,12 +101,20 @@ export function Readings({ ch }: { ch: string }) {
     <div className="readings" title={n ? `share of ${n} common words` : undefined}>
       {shown.length > 0 && (
         <div className="rbar">
-          {shown.map(([r, c]) => (
-            <span key={r} className={'seg ' + kindOf(r)} style={{ flexGrow: c }}>
-              <span className="r">{label(r)}</span>
-              <span className="b" />
-            </span>
-          ))}
+          {shown.map(([r, c], i) => {
+            const kind = kindOf(r)
+            const first = shown.findIndex(([x]) => kindOf(x) === kind) === i
+            const special = k.words.find(w => w.rd === '(irregular)')
+            return (
+              <span key={r} className={'seg ' + kind + (hover && hover !== r ? ' dim' : '')} style={{ flexGrow: c }}
+                onMouseEnter={() => setHover?.(r)} onMouseLeave={() => setHover?.(null)}
+                title={kind === 'irr' ? `read as a whole word${special ? `, as in ${special.w} ${special.r}` : ''}` : `${c} of ${n} common words`}>
+                <span className="r">{label(r)}</span>
+                <span className="b" />
+                <span className="cap">{first ? (kind === 'irr' ? 'whole word' : kind) : ''}</span>
+              </span>
+            )
+          })}
         </div>
       )}
       {rest.length > 0 && <span className="rest">{shown.length ? 'also ' : ''}{rest.map((r, i) => <span key={r}>{i > 0 && '、'}{onSet.has(r) ? kata(r) : fmtKun(r)}</span>)}</span>}
@@ -114,22 +125,23 @@ export function Readings({ ch }: { ch: string }) {
 /** The sound hint, shown only where it holds for this kanji. */
 export function Family({ ch, store, open }: { ch: string; store: Store; open: Open }) {
   const f = soundFamily(ch)
-  if (!f || !f.hits.includes(ch)) return null
+  if (!f) return null
   const n = f.hits.length + f.misses.length
+  const holds = f.hits.includes(ch)
   return (
     <div className="family">
-      <p><button className="inline" onClick={() => open(f.phonetic)}>{f.phonetic}</button> sounds <b>{kata(f.reading)}</b> in {f.hits.length} of {n} kanji</p>
+      <p><button className="inline" onClick={() => open(f.phonetic)}>{f.phonetic}</button> {holds ? 'sounds' : 'usually sounds'} <b>{kata(f.reading)}</b> in {f.hits.length} of {n} kanji{holds ? '' : <>, <span className="not">but not in {ch}</span></>}</p>
       <div className="chips">
         {f.hits.map(c => <button key={c} className={'chip ' + status(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)}>{c}</button>)}
-        {f.misses.map(c => <button key={c} className={'chip miss ' + status(store, c)} onClick={() => open(c)} title={KANJI[c]?.on.join('、')}>{c}</button>)}
+        {f.misses.map(c => <button key={c} className={'chip miss ' + status(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)} title={KANJI[c]?.on.join('、')}>{c}</button>)}
       </div>
     </div>
   )
 }
 
-function WordRow({ w, ch }: { w: Word; ch: string }) {
+function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
   return (
-    <li>
+    <li className={dim ? 'dim' : ''}>
       <button className="w" onClick={() => speak(w.r)} title="read aloud">{w.parts
         ? w.parts.map(([c, r], i) => <ruby key={i} className={c === ch ? 'me' : ''}>{c}<rt>{isKanji(c) || c === '々' ? r : ''}</rt></ruby>)
         : <ruby>{[...w.w].map((c, i) => <span key={i} className={c === ch ? 'me' : ''}>{c}</span>)}<rt>{w.r}</rt></ruby>}</button>
@@ -190,6 +202,7 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
   useEffect(() => { if (autoSpeak && say) speak(say) }, [el, autoSpeak])
   const used = c?.usedIn.length ?? 0
   const alike = k ? lookalikes(el).length : 0
+  const [hover, setHover] = useState<string | null>(null)
   return (
     <article className="card">
       <div className="hero">
@@ -197,18 +210,21 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
         <h2>{gloss(el)}{say && <Speaker text={say} />}</h2>
         {k ? <p className="also">{otherMeanings(el).join(', ')}</p>
           : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
-        {k && <Readings ch={el} />}
+        {k && <Readings ch={el} hover={hover} setHover={setHover} />}
       </div>
       <Story el={el} t={t} />
       {t && shownKids(t).length > 0 && <section><Divider>parts</Divider><Parts t={t} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}
-      {k && k.words.length > 0 && <section><Divider>words</Divider><ul className="words">{k.words.map(w => <WordRow key={w.w} w={w} ch={el} />)}</ul></section>}
-      {(used > 0 || alike > 0) && (
-        <details className="more-info">
-          <summary>{[alike > 0 && `${alike} look-alike${alike > 1 ? 's' : ''}`, used > 0 && `part of ${used} kanji`, k && `${k.strokes} strokes`].filter(Boolean).join(' · ')}</summary>
-          {k && alike > 0 && <><h4>one part apart</h4><Lookalikes ch={el} store={store} open={open} /></>}
-          {used > 0 && <><h4>part of</h4><UsedIn el={el} store={store} open={open} /></>}
-        </details>
-      )}
+      {k && k.words.length > 0 && <section><Divider>words</Divider><ul className="words">{k.words.map(w => <WordRow key={w.w} w={w} ch={el} dim={!!hover && w.rd !== hover} />)}</ul></section>}
+      {used > 0 && <section><Divider>part of {used} kanji</Divider><UsedIn el={el} store={store} open={open} limit={14} /></section>}
+      <footer className="meta">
+        {k && <span>{k.strokes} strokes · {k.grade <= 6 ? `school grade ${k.grade}` : 'secondary school'}</span>}
+        {alike > 0 && (
+          <details className="more-info">
+            <summary>{alike} look-alike{alike > 1 ? 's' : ''}</summary>
+            <Lookalikes ch={el} store={store} open={open} />
+          </details>
+        )}
+      </footer>
     </article>
   )
 }

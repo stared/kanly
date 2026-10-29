@@ -17,7 +17,7 @@ pnpm shots     # screenshots via Chrome; SEED=N pretends the first N items are l
 - **learn**: the next item in the learning order, as a card: the sum (照 = 昭 + 灬), the story, readings with how often each is used in common words, the sound family, the full tree, example words with the kanji's part of the reading marked, kanji one part apart (待 持 特 時), and what the item is a part of.
 - **review**: spaced repetition. See the kanji, recall its meaning and a reading, then reveal and grade.
 - **kanji**: all 2136 jōyō kanji and their parts in learning order, searchable by character, meaning or reading.
-- **reader**: paste Japanese text and see which kanji you know; tap any kanji for its card.
+- **reader**: paste Japanese text; it is split into common words (longest match, verb stems included), with furigana over words whose kanji you have not learned. Tap a word for its reading, meaning and kanji.
 - **analysis**: coverage per item for three learning orders, the parts that pay off most, and how reliable sound families are.
 
 ## Ideas
@@ -36,13 +36,14 @@ uv run scripts/build_data.py
 
 It downloads the sources to `data/raw/` and writes (all regenerated, so not committed):
 
-- `src/data/kanji.json`: the compact copy the app imports.
+- `src/data/kanji.json`: the compact copy the app imports; `src/data/words.json`: about 17k common words for the reader.
 - `data/kanji.json`: the 2136 jōyō kanji, each with readings, meanings, frequency, its sum (`明 = 日 + 月`) and full tree. It also holds every component with the kanji it is used in, a learning order, and the sound families.
 - `data/report.md`: example trees, the most productive components, coverage per learning order, and sound families.
 
 Written by hand:
 
 - `data/components.tsv`: short, concrete names for components: radical forms such as 亻 and 灬 that KANJIDIC doesn't name, and kanji whose first dictionary gloss is a poor fit for a part (召 is "summon", not "seduce").
+- `data/keywords.tsv`: keywords where KANJIDIC's first meaning misleads (看 is "see", not "watch over").
 - `data/stories.tsv`: a keyword and a one-sentence story for the first ~120 kanji in the learning order, each marked `origin` (the real history of the shape) or `memory` (a story to remember it by).
 
 ## Materials used

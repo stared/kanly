@@ -343,7 +343,7 @@ def attach_words(joyo: list[str], kd: dict, order_pos: dict[str, int]) -> tuple[
             if w and len(picked) < 4:
                 picked.append(w)
         picked += [w for w in ranked if w not in picked][:max(0, 4 - len(picked))]
-        examples[c] = [{k: w[k] for k in ("w", "r", "g", "parts") if k in w} for w in sorted(picked, key=cost)]
+        examples[c] = [{**{k: w[k] for k in ("w", "r", "g", "parts") if k in w}, "rd": reading_of(w)} for w in sorted(picked, key=cost)]
     return examples, {c: dict(u.most_common()) for c, u in usage.items()}
 
 
@@ -454,6 +454,11 @@ def main() -> None:
         "curves": curves,
         "total": total,
     }, ensure_ascii=False, separators=(",", ":")))
+
+    # every common word written with jōyō kanji, for looking words up in the reader: [word, reading, gloss]
+    lexicon = sorted({w["w"]: [w["w"], w["r"], w["g"]] for w in load_words()
+                      if all(c in joyo_set or not is_kanji(c) or c == "々" for c in w["w"])}.values())
+    app.joinpath("words.json").write_text(json.dumps(lexicon, ensure_ascii=False, separators=(",", ":")))
 
     report(kd, freq, total, joyo, joyo_set, trees, components, orders, fams, unnamed, missing)
 
