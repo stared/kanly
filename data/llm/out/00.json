@@ -12175,7 +12175,6 @@
     "w": "布巾",
     "r": "ふきん",
     "g": "dish towel",
-    "lit": "cloth-cloth",
     "reading": "キン",
     "furigana": [
      [
@@ -18460,7 +18459,6 @@
     "w": "身体",
     "r": "しんたい",
     "g": "body",
-    "lit": "body-body",
     "reading": "タイ",
     "furigana": [
      [
@@ -19594,8 +19592,8 @@
     ]
    }
   ],
-  "story": "A bird on its nest: birds roost as the sun sets west.",
-  "kind": "origin"
+  "story": "Once a bird on its nest: birds roost when the sun goes west.",
+  "kind": "mnemonic"
  },
  {
   "kanji": "多",
@@ -26268,7 +26266,6 @@
     "w": "身分",
     "r": "みぶん",
     "g": "social status",
-    "lit": "body-part",
     "reading": "み",
     "furigana": [
      [
@@ -26319,7 +26316,6 @@
     "w": "身体",
     "r": "しんたい",
     "g": "body",
-    "lit": "body-body",
     "reading": "シン",
     "furigana": [
      [
@@ -27300,7 +27296,6 @@
     "w": "支払う",
     "r": "しはらう",
     "g": "to pay",
-    "lit": "pay-pay out",
     "reading": "シ",
     "furigana": [
      [

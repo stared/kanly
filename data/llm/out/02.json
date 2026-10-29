@@ -1975,8 +1975,7 @@
   "keyword": "village",
   "meanings": [
    "hometown",
-   "ri (old unit",
-   "about 4 km)"
+   "ri (old distance unit)"
   ],
   "readings": [
    "リ",
@@ -8991,7 +8990,6 @@
     "w": "良好",
     "r": "りょうこう",
     "g": "good; fine",
-    "lit": "good-good",
     "reading": "コウ",
     "furigana": [
      [
@@ -10012,7 +10010,6 @@
     "w": "委任",
     "r": "いにん",
     "g": "delegation",
-    "lit": "entrust-entrust",
     "reading": "ニン",
     "furigana": [
      [
@@ -12706,7 +12703,6 @@
     "w": "場所",
     "r": "ばしょ",
     "g": "place",
-    "lit": "place-place",
     "reading": "ば",
     "furigana": [
      [
@@ -13548,7 +13544,6 @@
     "w": "次々",
     "r": "つぎつぎ",
     "g": "one after another",
-    "lit": "next-next",
     "reading": "つぎ",
     "furigana": [
      [
@@ -14006,7 +14001,7 @@
   "kanji": "佐",
   "keyword": "assist",
   "meanings": [
-   "(military) officer"
+   "officer"
   ],
   "readings": [
    "サ"
@@ -23322,7 +23317,6 @@
     "w": "河川",
     "r": "かせん",
     "g": "rivers",
-    "lit": "river-river",
     "reading": "カ",
     "furigana": [
      [
@@ -24137,7 +24131,6 @@
     "w": "建造",
     "r": "けんぞう",
     "g": "construction",
-    "lit": "build-build",
     "reading": "ゾウ",
     "furigana": [
      [
@@ -25236,9 +25229,9 @@
  },
  {
   "kanji": "阪",
-  "keyword": "slope",
+  "keyword": "Osaka",
   "meanings": [
-   "Osaka"
+   "slope"
   ],
   "readings": [
    "ハン",

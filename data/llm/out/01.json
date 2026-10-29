@@ -182,21 +182,18 @@
     "w": "可愛い",
     "r": "かわいい",
     "g": "cute",
-    "reading": "カ",
+    "reading": "special",
     "furigana": [
      [
-      "可",
-      "か"
-     ],
-     [
-      "愛",
-      "わい"
+      "可愛",
+      "かわい"
      ],
      [
       "い",
       ""
      ]
-    ]
+    ],
+    "special": true
    },
    {
     "w": "許可",
@@ -240,21 +237,14 @@
     "w": "可哀想",
     "r": "かわいそう",
     "g": "poor thing; pitiful",
-    "reading": "カ",
+    "reading": "special",
     "furigana": [
      [
-      "可",
-      "か"
-     ],
-     [
-      "哀",
-      "わい"
-     ],
-     [
-      "想",
-      "そう"
+      "可哀想",
+      "かわいそう"
      ]
-    ]
+    ],
+    "special": true
    }
   ],
   "more": [
@@ -355,15 +345,11 @@
     "w": "可愛がる",
     "r": "かわいがる",
     "g": "to dote on",
-    "reading": "カ",
+    "reading": "special",
     "furigana": [
      [
-      "可",
-      "か"
-     ],
-     [
-      "愛",
-      "わい"
+      "可愛",
+      "かわい"
      ],
      [
       "が",
@@ -373,7 +359,8 @@
       "る",
       ""
      ]
-    ]
+    ],
+    "special": true
    }
   ],
   "story": null,
@@ -1358,7 +1345,6 @@
     "w": "交差点",
     "r": "こうさてん",
     "g": "intersection",
-    "lit": "cross-cross-point",
     "reading": "コウ",
     "furigana": [
      [
@@ -2059,7 +2045,6 @@
     "w": "井の中の蛙",
     "r": "いのなかのかわず",
     "g": "a frog in a well (narrow view)",
-    "lit": "well-of-inside-of-frog",
     "reading": "い",
     "furigana": [
      [
@@ -2091,8 +2076,9 @@
  },
  {
   "kanji": "乙",
-  "keyword": "second (B)",
+  "keyword": "second",
   "meanings": [
+   "B (in a series)",
    "stylish"
   ],
   "readings": [
@@ -3106,7 +3092,7 @@
  },
  {
   "kanji": "寸",
-  "keyword": "inch (about 3 cm)",
+  "keyword": "inch",
   "meanings": [
    "measure",
    "a little"
@@ -3153,7 +3139,7 @@
    {
     "w": "一寸",
     "r": "いっすん",
-    "g": "one sun (about 3 cm); a little",
+    "g": "one sun (old inch); a little",
     "lit": "one-inch",
     "reading": "スン",
     "furigana": [
@@ -3387,7 +3373,7 @@
     "w": "初対面",
     "r": "しょたいめん",
     "g": "first meeting",
-    "lit": "first-face-face",
+    "lit": "first-facing-face",
     "reading": "タイ",
     "furigana": [
      [
@@ -4327,7 +4313,6 @@
     "w": "時々",
     "r": "ときどき",
     "g": "sometimes",
-    "lit": "time-time",
     "reading": "とき",
     "furigana": [
      [
@@ -4823,7 +4808,6 @@
     "w": "居場所",
     "r": "いばしょ",
     "g": "whereabouts; place to belong",
-    "lit": "stay-place-place",
     "reading": "ショ",
     "furigana": [
      [
@@ -4844,7 +4828,6 @@
     "w": "裁判所",
     "r": "さいばんしょ",
     "g": "court of law",
-    "lit": "judge-judge-place",
     "reading": "ショ",
     "furigana": [
      [
@@ -9113,7 +9096,7 @@
   "keyword": "separate",
   "meanings": [
    "another",
-   "part (from)"
+   "parting"
   ],
   "readings": [
    "ベツ",
@@ -9343,7 +9326,7 @@
   "kanji": "両",
   "keyword": "both",
   "meanings": [
-   "(train) car",
+   "train car",
    "ryō (old coin)"
   ],
   "readings": [
@@ -9962,7 +9945,6 @@
     "w": "高速道路",
     "r": "こうそくどうろ",
     "g": "expressway",
-    "lit": "high-speed-road-road",
     "reading": "コウ",
     "furigana": [
      [
@@ -10269,7 +10251,6 @@
     "w": "逃亡",
     "r": "とうぼう",
     "g": "escape; flight",
-    "lit": "flee-flee",
     "reading": "ボウ",
     "furigana": [
      [
@@ -12387,7 +12368,6 @@
     "w": "比較",
     "r": "ひかく",
     "g": "comparison",
-    "lit": "compare-compare",
     "reading": "ヒ",
     "furigana": [
      [
@@ -12715,7 +12695,7 @@
     "w": "初対面",
     "r": "しょたいめん",
     "g": "first meeting",
-    "lit": "first-face-face",
+    "lit": "first-facing-face",
     "reading": "ショ",
     "furigana": [
      [
@@ -14548,7 +14528,7 @@
     "w": "初対面",
     "r": "しょたいめん",
     "g": "first meeting",
-    "lit": "first-face-face",
+    "lit": "first-facing-face",
     "reading": "メン",
     "furigana": [
      [
@@ -16697,7 +16677,6 @@
     "w": "自己",
     "r": "じこ",
     "g": "self",
-    "lit": "self-self",
     "reading": "コ",
     "furigana": [
      [
@@ -16831,7 +16810,6 @@
     "w": "記録",
     "r": "きろく",
     "g": "record",
-    "lit": "record-record",
     "reading": "キ",
     "furigana": [
      [
@@ -19448,7 +19426,6 @@
     "w": "度々",
     "r": "たびたび",
     "g": "often",
-    "lit": "time-time",
     "reading": "たび",
     "furigana": [
      [
@@ -19570,7 +19547,6 @@
     "w": "思考",
     "r": "しこう",
     "g": "thinking",
-    "lit": "think-think",
     "reading": "コウ",
     "furigana": [
      [
@@ -22881,7 +22857,6 @@
     "w": "制作",
     "r": "せいさく",
     "g": "production (of a film, work)",
-    "lit": "make-make",
     "reading": "セイ",
     "furigana": [
      [
@@ -25639,7 +25614,6 @@
     "w": "京都",
     "r": "きょうと",
     "g": "Kyoto",
-    "lit": "capital-capital",
     "reading": "ト",
     "furigana": [
      [
@@ -25769,7 +25743,7 @@
  },
  {
   "kanji": "申",
-  "keyword": "say (humble)",
+  "keyword": "humbly say",
   "meanings": [
    "apply"
   ],
