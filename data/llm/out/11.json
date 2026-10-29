@@ -353,12 +353,12 @@
     ]
    }
   ],
-  "story": "Light 光 beside an army 軍: armour glinting in the sun.",
+  "story": "Light 光 beside an army 軍: armor glinting in the sun.",
   "kind": "mnemonic"
  },
  {
   "kanji": "搭",
-  "keyword": "board (a vehicle)",
+  "keyword": "board a vehicle",
   "meanings": [
    "load"
   ],
@@ -548,7 +548,7 @@
   "keyword": "narrate",
   "meanings": [
    "describe",
-   "confer (honours)"
+   "confer honors"
   ],
   "readings": [
    "ジョ"
@@ -1380,7 +1380,7 @@
   "kanji": "濃",
   "keyword": "dense",
   "meanings": [
-   "dark (colour)",
+   "dark (color)",
    "strong (taste)"
   ],
   "readings": [
@@ -1593,9 +1593,9 @@
  },
  {
   "kanji": "漫",
-  "keyword": "comics",
+  "keyword": "aimless",
   "meanings": [
-   "aimless",
+   "rambling",
    "boundless"
   ],
   "readings": [
@@ -1785,7 +1785,7 @@
    {
     "w": "行儀",
     "r": "ぎょうぎ",
-    "g": "manners; behaviour",
+    "g": "manners; behavior",
     "lit": "conduct-rule",
     "reading": "ギ",
     "furigana": [
@@ -2922,7 +2922,7 @@
    {
     "w": "慰霊",
     "r": "いれい",
-    "g": "honouring the dead",
+    "g": "honoring the dead",
     "lit": "console-spirit",
     "reading": "レイ",
     "furigana": [
@@ -3421,14 +3421,14 @@
  },
  {
   "kanji": "穂",
-  "keyword": "ear (of grain)",
+  "keyword": "ear of grain",
   "meanings": [],
   "readings": [
    "ほ"
   ],
   "alone": {
    "r": "ほ",
-   "g": "ear (of grain)",
+   "g": "ear of grain",
    "reading": "ほ"
   },
   "words": [
@@ -3574,9 +3574,10 @@
  },
  {
   "kanji": "傾",
-  "keyword": "lean; tilt",
+  "keyword": "lean",
   "meanings": [
-   "trend"
+   "tilt",
+   "tendency"
   ],
   "readings": [
    "ケイ",
@@ -6732,7 +6733,7 @@
  },
  {
   "kanji": "療",
-  "keyword": "treat (illness)",
+  "keyword": "medical treatment",
   "meanings": [
    "heal"
   ],
@@ -7088,7 +7089,7 @@
    {
     "w": "顕彰",
     "r": "けんしょう",
-    "g": "public honouring",
+    "g": "public honoring",
     "lit": "reveal-commend",
     "reading": "ショウ",
     "furigana": [
@@ -7483,9 +7484,9 @@
  },
  {
   "kanji": "棟",
-  "keyword": "ridgepole",
+  "keyword": "building",
   "meanings": [
-   "building"
+   "ridge of a roof"
   ],
   "readings": [
    "トウ",
@@ -7758,7 +7759,7 @@
  },
  {
   "kanji": "恩",
-  "keyword": "favour",
+  "keyword": "favor",
   "meanings": [
    "debt of gratitude"
   ],
@@ -7767,7 +7768,7 @@
   ],
   "alone": {
    "r": "おん",
-   "g": "debt of gratitude; favour",
+   "g": "debt of gratitude; favor",
    "reading": "オン"
   },
   "words": [
@@ -7775,7 +7776,7 @@
     "w": "恩恵",
     "r": "おんけい",
     "g": "benefit; blessing",
-    "lit": "favour-grace",
+    "lit": "favor-grace",
     "reading": "オン",
     "furigana": [
      [
@@ -7792,7 +7793,7 @@
     "w": "恩返し",
     "r": "おんがえし",
     "g": "repaying a kindness",
-    "lit": "favour-return",
+    "lit": "favor-return",
     "reading": "オン",
     "furigana": [
      [
@@ -7813,7 +7814,7 @@
     "w": "恩師",
     "r": "おんし",
     "g": "one's former teacher",
-    "lit": "favour-teacher",
+    "lit": "favor-teacher",
     "reading": "オン",
     "furigana": [
      [
@@ -7830,7 +7831,7 @@
     "w": "恩人",
     "r": "おんじん",
     "g": "benefactor",
-    "lit": "favour-person",
+    "lit": "favor-person",
     "reading": "オン",
     "furigana": [
      [
@@ -7847,7 +7848,7 @@
     "w": "恩赦",
     "r": "おんしゃ",
     "g": "amnesty",
-    "lit": "favour-pardon",
+    "lit": "favor-pardon",
     "reading": "オン",
     "furigana": [
      [
@@ -7866,7 +7867,7 @@
     "w": "恩知らず",
     "r": "おんしらず",
     "g": "ungrateful",
-    "lit": "favour-not-knowing",
+    "lit": "favor-not-knowing",
     "reading": "オン",
     "furigana": [
      [
@@ -7907,7 +7908,7 @@
     "w": "謝恩会",
     "r": "しゃおんかい",
     "g": "thank-you party for teachers",
-    "lit": "thank-favour-meeting",
+    "lit": "thank-favor-meeting",
     "reading": "オン",
     "furigana": [
      [
@@ -8149,7 +8150,7 @@
    {
     "w": "肌色",
     "r": "はだいろ",
-    "g": "skin colour",
+    "g": "skin color",
     "reading": "はだ",
     "furigana": [
      [
@@ -9787,7 +9788,7 @@
    {
     "w": "陣痛",
     "r": "じんつう",
-    "g": "labour pains",
+    "g": "labor pains",
     "reading": "ツウ",
     "furigana": [
      [
@@ -10888,7 +10889,7 @@
    {
     "w": "耕す",
     "r": "たがやす",
-    "g": "to till; to plough",
+    "g": "to till; to plow",
     "reading": "たがや.す",
     "furigana": [
      [
@@ -10980,7 +10981,7 @@
     ]
    }
   ],
-  "story": "A plough 耒 beside 井, the grid of fields.",
+  "story": "A plow 耒 beside 井, the grid of fields.",
   "kind": "mnemonic"
  },
  {
@@ -11983,7 +11984,7 @@
  },
  {
   "kanji": "坪",
-  "keyword": "tsubo (area unit)",
+  "keyword": "tsubo",
   "meanings": [],
   "readings": [
    "つぼ"
@@ -12908,7 +12909,7 @@
    {
     "w": "勤労",
     "r": "きんろう",
-    "g": "labour",
+    "g": "labor",
     "lit": "work-toil",
     "reading": "キン",
     "furigana": [
@@ -14441,7 +14442,7 @@
    {
     "w": "高齢化",
     "r": "こうれいか",
-    "g": "ageing (of society)",
+    "g": "aging (of society)",
     "reading": "レイ",
     "furigana": [
      [
@@ -16151,7 +16152,7 @@
  },
  {
   "kanji": "飼",
-  "keyword": "keep (animals)",
+  "keyword": "keep animals",
   "meanings": [
    "raise",
    "feed"
@@ -16320,7 +16321,7 @@
    {
     "w": "賛成",
     "r": "さんせい",
-    "g": "agreement; in favour",
+    "g": "agreement; in favor",
     "lit": "approve-become",
     "reading": "サン",
     "furigana": [
@@ -16797,7 +16798,7 @@
    {
     "w": "貸し",
     "r": "かし",
-    "g": "loan; favour owed",
+    "g": "loan; favor owed",
     "reading": "か.す",
     "furigana": [
      [
@@ -17255,7 +17256,7 @@
   "kanji": "勲",
   "keyword": "merit",
   "meanings": [
-   "honour"
+   "honor"
   ],
   "readings": [
    "クン"

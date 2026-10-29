@@ -806,15 +806,11 @@
     "w": "素晴らしい",
     "r": "すばらしい",
     "g": "wonderful",
-    "reading": "は.らす",
+    "reading": "special",
     "furigana": [
      [
-      "素",
-      "す"
-     ],
-     [
-      "晴",
-      "ば"
+      "素晴",
+      "すば"
      ],
      [
       "ら",
@@ -828,7 +824,8 @@
       "い",
       ""
      ]
-    ]
+    ],
+    "special": true
    },
    {
     "w": "快晴",
@@ -3119,9 +3116,8 @@
  },
  {
   "kanji": "勾",
-  "keyword": "bend",
+  "keyword": "slope",
   "meanings": [
-   "slope",
    "detain"
   ],
   "readings": [
@@ -5832,10 +5828,10 @@
  },
  {
   "kanji": "肥",
-  "keyword": "fertilizer",
+  "keyword": "fertile",
   "meanings": [
    "fat",
-   "fertile"
+   "fertilizer"
   ],
   "readings": [
    "ヒ",
@@ -6285,6 +6281,7 @@
   "readings": [
    "おく.れる",
    "おそ.い",
+   "おく.らす",
    "チ"
   ],
   "alone": null,
@@ -6469,7 +6466,7 @@
     "w": "遅らす",
     "r": "おくらす",
     "g": "to delay; to put back",
-    "reading": "おく.れる",
+    "reading": "おく.らす",
     "furigana": [
      [
       "遅",
@@ -6768,7 +6765,7 @@
  },
  {
   "kanji": "唐",
-  "keyword": "Tang (China)",
+  "keyword": "Tang dynasty",
   "meanings": [
    "China",
    "foreign"
@@ -10994,8 +10991,10 @@
  },
  {
   "kanji": "診",
-  "keyword": "examine (medically)",
-  "meanings": [],
+  "keyword": "diagnose",
+  "meanings": [
+   "examine a patient"
+  ],
   "readings": [
    "シン",
    "み.る"
@@ -13031,7 +13030,7 @@
    {
     "w": "頂きます",
     "r": "いただきます",
-    "g": "thanks for the meal",
+    "g": "said before eating",
     "reading": "いただ.く",
     "furigana": [
      [
@@ -15237,7 +15236,7 @@
    {
     "w": "嫌い",
     "r": "きらい",
-    "g": "disliked; to hate",
+    "g": "disliked; hating",
     "reading": "きら.う",
     "furigana": [
      [

@@ -1444,7 +1444,6 @@
     "w": "大勢",
     "r": "おおぜい",
     "g": "a crowd; many people",
-    "lit": "big-force",
     "reading": "セイ",
     "furigana": [
      [
@@ -5505,7 +5504,7 @@
     ]
    }
   ],
-  "story": "Stagnant water 氵: dirty.",
+  "story": "Water 氵 with something stuck 亏 in it.",
   "kind": "mnemonic"
  },
  {
@@ -7608,7 +7607,7 @@
  },
  {
   "kanji": "呉",
-  "keyword": "Wu (old China)",
+  "keyword": "Wu",
   "meanings": [],
   "readings": [
    "ゴ"
@@ -9260,9 +9259,9 @@
    "つる"
   ],
   "alone": {
-   "r": "つる",
-   "g": "bowstring",
-   "reading": "つる"
+   "r": "げん",
+   "g": "string (of an instrument)",
+   "reading": "ゲン"
   },
   "words": [
    {
@@ -9588,11 +9587,7 @@
    "ドウ",
    "ほら"
   ],
-  "alone": {
-   "r": "ほら",
-   "g": "hollow; cave",
-   "reading": "ほら"
-  },
+  "alone": null,
   "words": [
    {
     "w": "洞窟",
@@ -11299,7 +11294,7 @@
     ]
    }
   ],
-  "story": "Shells 貝 strung on a cord 毋: money on a string.",
+  "story": "Shells 貝 strung on a cord 毌: money on a string.",
   "kind": "origin"
  },
  {
@@ -11479,9 +11474,9 @@
  },
  {
   "kanji": "漢",
-  "keyword": "China (Han)",
+  "keyword": "China",
   "meanings": [
-   "man; fellow"
+   "man"
   ],
   "readings": [
    "カン"
@@ -11804,7 +11799,7 @@
     "w": "辛うじて",
     "r": "かろうじて",
     "g": "barely",
-    "reading": "から.い",
+    "reading": "special",
     "furigana": [
      [
       "辛",
@@ -11822,7 +11817,8 @@
       "て",
       ""
      ]
-    ]
+    ],
+    "special": true
    },
    {
     "w": "辛子",
@@ -13251,7 +13247,7 @@
    {
     "w": "貢ぐ",
     "r": "みつぐ",
-    "g": "to support (a lover) with money",
+    "g": "to pay tribute; to lavish money on",
     "reading": "みつ.ぐ",
     "furigana": [
      [
@@ -14596,7 +14592,7 @@
   "kanji": "剤",
   "keyword": "drug",
   "meanings": [
-   "agent (chemical)"
+   "chemical agent"
   ],
   "readings": [
    "ザイ"
@@ -14928,11 +14924,7 @@
    "ガン",
    "まなこ"
   ],
-  "alone": {
-   "r": "まなこ",
-   "g": "eye (literary)",
-   "reading": "まなこ"
-  },
+  "alone": null,
   "words": [
    {
     "w": "眼鏡",
@@ -15098,7 +15090,7 @@
    {
     "w": "血眼",
     "r": "ちまなこ",
-    "g": "frantic (lit. bloodshot eyes)",
+    "g": "frantic; bloodshot eyes",
     "lit": "blood-eye",
     "reading": "まなこ",
     "furigana": [
@@ -16284,7 +16276,7 @@
  },
  {
   "kanji": "駐",
-  "keyword": "stay",
+  "keyword": "be stationed",
   "meanings": [
    "park"
   ],
