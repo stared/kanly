@@ -4,7 +4,7 @@
   "keyword": "author",
   "meanings": [
    "remarkable",
-   "write (a book)"
+   "write"
   ],
   "readings": [
    "チョ",
@@ -2214,7 +2214,7 @@
    {
     "w": "従兄弟",
     "r": "いとこ",
-    "g": "cousin",
+    "g": "cousin (male)",
     "reading": "special",
     "special": true,
     "furigana": [
@@ -2255,7 +2255,6 @@
     "w": "子弟",
     "r": "してい",
     "g": "children; young people",
-    "lit": "child-younger brother",
     "reading": "テイ",
     "furigana": [
      [
@@ -3880,7 +3879,7 @@
  },
  {
   "kanji": "達",
-  "keyword": "attain; reach",
+  "keyword": "reach",
   "meanings": [
    "skilled",
    "plural (people)"
@@ -4248,14 +4247,9 @@
   "keyword": "emperor",
   "meanings": [],
   "readings": [
-   "テイ",
-   "みかど"
+   "テイ"
   ],
-  "alone": {
-   "r": "みかど",
-   "g": "emperor (old)",
-   "reading": "みかど"
-  },
+  "alone": null,
   "words": [
    {
     "w": "帝国",
@@ -5653,7 +5647,7 @@
   "kanji": "若",
   "keyword": "young",
   "meanings": [
-   "if"
+   "or (formal)"
   ],
   "readings": [
    "わか.い",
@@ -7189,7 +7183,6 @@
     "w": "仲介",
     "r": "ちゅうかい",
     "g": "mediation; agency",
-    "lit": "go-between-between",
     "reading": "チュウ",
     "furigana": [
      [
@@ -11097,7 +11090,7 @@
   ],
   "alone": {
    "r": "あお",
-   "g": "blue; green (light)",
+   "g": "blue; green (traffic light)",
    "reading": "あお"
   },
   "words": [
@@ -14168,9 +14161,9 @@
  },
  {
   "kanji": "営",
-  "keyword": "run (a business)",
+  "keyword": "operate",
   "meanings": [
-   "manage",
+   "run (a business)",
    "camp"
   ],
   "readings": [
@@ -22026,7 +22019,7 @@
    {
     "w": "従兄弟",
     "r": "いとこ",
-    "g": "cousin",
+    "g": "cousin (male)",
     "reading": "special",
     "special": true,
     "furigana": [
@@ -26305,8 +26298,12 @@
     "special": true,
     "furigana": [
      [
-      "清々しい",
-      "すがすがしい"
+      "清々",
+      "すがすが"
+     ],
+     [
+      "しい",
+      ""
      ]
     ]
    },
@@ -26772,7 +26769,6 @@
     "w": "継続",
     "r": "けいぞく",
     "g": "continuation",
-    "lit": "continue-continue",
     "reading": "ケイ",
     "furigana": [
      [

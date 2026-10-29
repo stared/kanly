@@ -290,7 +290,6 @@
     "w": "文章",
     "r": "ぶんしょう",
     "g": "sentence; writing",
-    "lit": "writing-chapter",
     "reading": "ショウ",
     "furigana": [
      [
@@ -872,11 +871,7 @@
    "ヘン",
    "あ.む"
   ],
-  "alone": {
-   "r": "へん",
-   "g": "part; volume (of a work)",
-   "reading": "ヘン"
-  },
+  "alone": null,
   "words": [
    {
     "w": "編集",
@@ -1088,11 +1083,7 @@
   "readings": [
    "ヒョウ"
   ],
-  "alone": {
-   "r": "ひょう",
-   "g": "review; comment",
-   "reading": "ヒョウ"
-  },
+  "alone": null,
   "words": [
    {
     "w": "評価",
@@ -1430,8 +1421,8 @@
     "w": "見渡す",
     "r": "みわたす",
     "g": "to look out over",
-    "lit": "look-cross",
-    "reading": "わた.る",
+    "lit": "look-across",
+    "reading": "わた.す",
     "furigana": [
      [
       "見",
@@ -2433,11 +2424,7 @@
    "ジョウ",
    "つね"
   ],
-  "alone": {
-   "r": "つね",
-   "g": "the usual way",
-   "reading": "つね"
-  },
+  "alone": null,
   "words": [
    {
     "w": "非常",
@@ -2733,11 +2720,7 @@
   "readings": [
    "ドウ"
   ],
-  "alone": {
-   "r": "どう",
-   "g": "hall; temple building",
-   "reading": "ドウ"
-  },
+  "alone": null,
   "words": [
    {
     "w": "食堂",
@@ -4601,7 +4584,6 @@
     "w": "二枚目",
     "r": "にまいめ",
     "g": "handsome man; the leading man",
-    "lit": "two-sheet-th",
     "reading": "マイ",
     "furigana": [
      [
@@ -8685,7 +8667,7 @@
  },
  {
   "kanji": "株",
-  "keyword": "stock (shares)",
+  "keyword": "shares",
   "meanings": [
    "stump"
   ],
@@ -10617,9 +10599,7 @@
  {
   "kanji": "亜",
   "keyword": "sub-",
-  "meanings": [
-   "Asia"
-  ],
+  "meanings": [],
   "readings": [
    "ア"
   ],
@@ -11029,7 +11009,6 @@
     "w": "図書館",
     "r": "としょかん",
     "g": "library",
-    "lit": "map-book-building",
     "reading": "カン",
     "furigana": [
      [
@@ -12145,7 +12124,7 @@
     ]
    }
   ],
-  "story": "Hands holding up a kneeling person 了: receiving from above.",
+  "story": "Two hands lifting up a kneeling person: receiving from above.",
   "kind": "origin"
  },
  {
@@ -14523,8 +14502,16 @@
     "special": true,
     "furigana": [
      [
-      "為替相場",
-      "かわせそうば"
+      "為替",
+      "かわせ"
+     ],
+     [
+      "相",
+      "そう"
+     ],
+     [
+      "場",
+      "ば"
      ]
     ]
    }
@@ -14889,7 +14876,7 @@
   ],
   "alone": {
    "r": "うつわ",
-   "g": "vessel; bowl; calibre",
+   "g": "vessel; bowl; caliber",
    "reading": "うつわ"
   },
   "words": [
@@ -17477,7 +17464,7 @@
     ]
    }
   ],
-  "story": "A baby 己 wrapped inside the womb 勹.",
+  "story": "A baby, now 己, wrapped inside the womb 勹.",
   "kind": "origin"
  },
  {
@@ -22385,9 +22372,9 @@
  },
  {
   "kanji": "修",
-  "keyword": "study",
+  "keyword": "repair",
   "meanings": [
-   "repair",
+   "study",
    "discipline"
   ],
   "readings": [
@@ -22657,7 +22644,7 @@
  },
  {
   "kanji": "伯",
-  "keyword": "count (title)",
+  "keyword": "earl",
   "meanings": [
    "uncle",
    "chief"

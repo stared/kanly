@@ -4,7 +4,7 @@
   "keyword": "ride",
   "meanings": [
    "board",
-   "multiply (in math)"
+   "multiply"
   ],
   "readings": [
    "ジョウ",
@@ -942,7 +942,7 @@
     ]
    }
   ],
-  "story": "Cart 車 wheels turning; 云 gives the sound.",
+  "story": "Cart 車 wheels turning; 云 is a short form of 專, the sound.",
   "kind": "origin"
  },
  {
@@ -1031,7 +1031,7 @@
    {
     "w": "分布",
     "r": "ぶんぷ",
-    "g": "distribution (spread)",
+    "g": "distribution; spread",
     "lit": "divide-spread",
     "reading": "フ",
     "furigana": [
@@ -2402,7 +2402,7 @@
    {
     "w": "念仏",
     "r": "ねんぶつ",
-    "g": "Buddhist chant (prayer)",
+    "g": "chanting the Buddha's name",
     "reading": "ブツ",
     "furigana": [
      [
@@ -3900,7 +3900,6 @@
     "w": "魔法使い",
     "r": "まほうつかい",
     "g": "wizard; witch",
-    "lit": "magic-user",
     "reading": "つか.う",
     "furigana": [
      [
@@ -17434,7 +17433,7 @@
  },
  {
   "kanji": "奈",
-  "keyword": "Nara (in names)",
+  "keyword": "Nara",
   "meanings": [],
   "readings": [
    "ナ"
@@ -24432,9 +24431,9 @@
  },
  {
   "kanji": "郎",
-  "keyword": "son (in names)",
+  "keyword": "young man",
   "meanings": [
-   "guy"
+   "son (in boys' names)"
   ],
   "readings": [
    "ロウ"
