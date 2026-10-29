@@ -810,7 +810,7 @@
    {
     "w": "賓客",
     "r": "ひんきゃく",
-    "g": "guest of honour",
+    "g": "guest of honor",
     "reading": "ヒン",
     "furigana": [
      [
@@ -828,7 +828,7 @@
    {
     "w": "主賓",
     "r": "しゅひん",
-    "g": "guest of honour",
+    "g": "guest of honor",
     "lit": "main-guest",
     "reading": "ヒン",
     "furigana": [
@@ -1731,8 +1731,8 @@
    {
     "w": "色艶",
     "r": "いろつや",
-    "g": "colour and gloss; complexion",
-    "lit": "colour-gloss",
+    "g": "color and gloss; complexion",
+    "lit": "color-gloss",
     "reading": "つや",
     "furigana": [
      [
@@ -1797,7 +1797,7 @@
     ]
    }
   ],
-  "story": "Rich 豊 colour 色: lustrous beauty.",
+  "story": "Rich 豊 color 色: lustrous beauty.",
   "kind": "mnemonic"
  },
  {
@@ -2616,7 +2616,7 @@
     "w": "名誉毀損",
     "r": "めいよきそん",
     "g": "defamation; libel",
-    "lit": "honour-damage-loss",
+    "lit": "honor-damage-loss",
     "reading": "キ",
     "furigana": [
      [
@@ -3364,7 +3364,7 @@
    {
     "w": "罷業",
     "r": "ひぎょう",
-    "g": "strike (labour)",
+    "g": "strike (labor)",
     "lit": "quit-work",
     "reading": "ヒ",
     "furigana": [
@@ -4208,7 +4208,7 @@
    {
     "w": "醜態",
     "r": "しゅうたい",
-    "g": "disgraceful behaviour",
+    "g": "disgraceful behavior",
     "lit": "ugly-conduct",
     "reading": "シュウ",
     "furigana": [
@@ -5259,7 +5259,7 @@
   "kanji": "塑",
   "keyword": "model",
   "meanings": [
-   "mould"
+   "mold"
   ],
   "readings": [
    "ソ"
@@ -5270,7 +5270,7 @@
     "w": "可塑性",
     "r": "かそせい",
     "g": "plasticity",
-    "lit": "can-mould-quality",
+    "lit": "can-mold-quality",
     "reading": "ソ",
     "furigana": [
      [
@@ -5307,7 +5307,7 @@
    {
     "w": "彫塑",
     "r": "ちょうそ",
-    "g": "sculpture; modelling",
+    "g": "sculpture; modeling",
     "lit": "carve-model",
     "reading": "ソ",
     "furigana": [
@@ -5629,7 +5629,7 @@
   "kanji": "諧",
   "keyword": "harmony",
   "meanings": [
-   "humour"
+   "humor"
   ],
   "readings": [
    "カイ"
@@ -5655,7 +5655,7 @@
    {
     "w": "諧謔",
     "r": "かいぎゃく",
-    "g": "humour; jest",
+    "g": "humor; jest",
     "reading": "カイ",
     "furigana": [
      [
@@ -6529,7 +6529,7 @@
    {
     "w": "禁錮",
     "r": "きんこ",
-    "g": "imprisonment (without labour)",
+    "g": "imprisonment (without labor)",
     "lit": "prohibit-confine",
     "reading": "コ",
     "furigana": [

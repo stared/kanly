@@ -72,14 +72,9 @@
   "readings": [
    "さび.しい",
    "ジャク",
-   "さび",
    "さび.れる"
   ],
-  "alone": {
-   "r": "さび",
-   "g": "patina; quiet elegance",
-   "reading": "さび"
-  },
+  "alone": null,
   "words": [
    {
     "w": "寂しい",
@@ -252,7 +247,7 @@
    }
   ],
   "more": [],
-  "story": "A wine jar 酉 plus 星 for sound: first, sobering up.",
+  "story": "Wine 酉, with 星 for the sound; first it meant sobering up.",
   "kind": "origin"
  },
  {
@@ -1032,21 +1027,7 @@
     ]
    }
   ],
-  "more": [
-   {
-    "w": "怠い",
-    "r": "だるい",
-    "g": "sluggish; listless",
-    "reading": "special",
-    "special": true,
-    "furigana": [
-     [
-      "怠い",
-      "だるい"
-     ]
-    ]
-   }
-  ],
+  "more": [],
   "story": "A heart 心 lounging on a platform 台.",
   "kind": "mnemonic"
  },
@@ -2290,8 +2271,10 @@
  },
  {
   "kanji": "稽",
-  "keyword": "consider",
-  "meanings": [],
+  "keyword": "practice",
+  "meanings": [
+   "consider"
+  ],
   "readings": [
    "ケイ"
   ],
@@ -3483,21 +3466,7 @@
     ]
    }
   ],
-  "more": [
-   {
-    "w": "瞬き",
-    "r": "まばたき",
-    "g": "blink (of the eyes)",
-    "reading": "special",
-    "special": true,
-    "furigana": [
-     [
-      "瞬き",
-      "まばたき"
-     ]
-    ]
-   }
-  ],
+  "more": [],
   "story": null,
   "kind": null
  },
@@ -5886,10 +5855,8 @@
  },
  {
   "kanji": "挨",
-  "keyword": "push",
-  "meanings": [
-   "approach"
-  ],
+  "keyword": "greet",
+  "meanings": [],
   "readings": [
    "アイ"
   ],

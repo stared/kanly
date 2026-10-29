@@ -193,30 +193,6 @@
       "きょう"
      ]
     ]
-   },
-   {
-    "w": "頑張って",
-    "r": "がんばって",
-    "g": "do your best!; go for it!",
-    "reading": "ガン",
-    "furigana": [
-     [
-      "頑",
-      "がん"
-     ],
-     [
-      "張",
-      "ば"
-     ],
-     [
-      "っ",
-      ""
-     ],
-     [
-      "て",
-      ""
-     ]
-    ]
    }
   ],
   "story": "A head 頁 set firm from the start 元, refusing to turn.",
@@ -648,7 +624,7 @@
    }
   ],
   "more": [],
-  "story": "Once the long silk 糸 sash of an official, stretched 申 round the waist.",
+  "story": "Once the long silk 糸 sash of an official; 申 gives the sound.",
   "kind": "origin"
  },
  {
@@ -3944,7 +3920,7 @@
    {
     "w": "煮やす",
     "r": "にやす",
-    "g": "to boil (as in 業を煮やす)",
+    "g": "to lose patience (in 業を煮やす)",
     "reading": "に.やす",
     "furigana": [
      [
@@ -6655,8 +6631,11 @@
  },
  {
   "kanji": "窒",
-  "keyword": "obstruct",
-  "meanings": [],
+  "keyword": "suffocate",
+  "meanings": [
+   "obstruct",
+   "nitrogen"
+  ],
   "readings": [
    "チツ"
   ],
