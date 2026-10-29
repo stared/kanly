@@ -49,7 +49,7 @@ export function Review({ store, setStore, open, now, autoSpeak }: { store: Store
         <div className="back">
           <h2>{gloss(id)}{spoken(id) && <Speaker text={spoken(id)} />}</h2>
           {t && <Parts t={t} store={store} open={open} />}
-          <Story el={id} t={t} />
+          <Story el={id} />
           {k && <Readings ch={id} />}
           {k && k.words.length > 0 && <p className="sub ex">{k.words.slice(0, 3).map(w => `${w.w} ${w.r}`).join(' · ')}</p>}
           <div className="grade">

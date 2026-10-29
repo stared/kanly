@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { COMP, KANJI, elements, extraStrokes, gloss, hira, isKanji, kata, lookalikes, soundFamily, type Tree, type Word } from './data'
+import { COMP, KANJI, extraStrokes, gloss, hira, isKanji, kata, lookalikes, soundFamily, type Tree, type Word } from './data'
 import { status, type Store } from './srs'
 import { speak, spoken } from './speech'
 
@@ -67,17 +67,11 @@ export function Parts({ t, store, open }: { t: Tree; store: Store; open: Open })
   )
 }
 
-/** The story with the kanji and its parts marked, so the words point at the shapes. */
-export function Story({ el, t }: { el: string; t?: Tree }) {
+/** The story as plain text; one made up to remember the shape (not its history) says so. */
+export function Story({ el }: { el: string; t?: Tree }) {
   const entry = KANJI[el] ?? COMP[el]
   if (!entry?.story) return null
-  const parts = t ? elements(t) : new Set<string>()
-  return (
-    <div className="story">
-      <p>{[...entry.story].map((c, i) => c === el ? <b key={i}>{c}</b> : parts.has(c) ? <span key={i} className="part">{c}</span> : c)}</p>
-      <span className="kind">{entry.kind === 'origin' ? 'origin of the shape' : 'memory story'}</span>
-    </div>
-  )
+  return <p className="story">{entry.story}{entry.kind !== 'origin' && <span className="kind"> mnemonic</span>}</p>
 }
 
 const bare = (r: string) => r.replace(/^-|-$/g, '')
@@ -86,38 +80,33 @@ const fmtKun = (r: string) => {
   return <>{stem}{oku && <span className="oku">{oku}</span>}</>
 }
 
-/** Readings once: each as wide as its share of common words, unused ones after it in grey. */
+/** Readings as two rows, on and kun, most used first; rare ones in grey. Hover one to see the words that use it. */
 export function Readings({ ch, hover, setHover }: { ch: string; hover?: string | null; setHover?: (r: string | null) => void }) {
   const k = KANJI[ch]
-  const entries = Object.entries(k.usage)
-  const n = entries.reduce((a, [, c]) => a + c, 0)
-  const onSet = new Set(k.on.map(hira))
-  const kindOf = (r: string) => r === '(irregular)' ? 'irr' : onSet.has(r) ? 'on' : 'kun'
-  const label = (r: string) => r === '(irregular)' ? 'special' : onSet.has(r) ? kata(r) : fmtKun(r)
-  const shown = entries.filter(([, c]) => c / n >= 0.05)
-  const all = [...new Set([...k.on.map(hira), ...k.kun.map(bare)])]
-  const rest = all.filter(r => !shown.some(([s]) => s === r))
+  const n = Object.entries(k.usage).reduce((a, [r, c]) => a + (r === '(irregular)' ? 0 : c), 0)
+  const byUse = (rs: string[]) => [...new Set(rs)].sort((a, b) => (k.usage[b] ?? 0) - (k.usage[a] ?? 0))
+  const row = (label: string, all: string[], show: (r: string) => React.ReactNode) => {
+    if (!all.length) return null
+    // readings met in common words, or the first two when none are; the rest only counted
+    const used = all.filter(r => k.usage[r])
+    const rs = used.length ? used : all.slice(0, 2)
+    const rest = all.filter(r => !rs.includes(r))
+    return <>
+      <span className="lbl">{label}</span>
+      <span className="rlist">{rs.map(r => {
+        const c = k.usage[r] ?? 0
+        return (
+          <span key={r} className={'rd' + (c / (n || 1) >= 0.1 ? '' : ' rare') + (hover && hover !== r ? ' dim' : '')}
+            title={c ? `in ${c} of ${n} common words` : 'rare in common words'}
+            onMouseEnter={() => setHover?.(r)} onMouseLeave={() => setHover?.(null)}>{show(r)}</span>
+        )
+      })}{rest.length > 0 && <span className="rd rare more-r" title={rest.map(r => label === 'on' ? kata(r) : bare(r).replace('.', '')).join('、')}>+{rest.length} rare</span>}</span>
+    </>
+  }
   return (
-    <div className="readings" title={n ? `share of ${n} common words` : undefined}>
-      {shown.length > 0 && (
-        <div className="rbar">
-          {shown.map(([r, c], i) => {
-            const kind = kindOf(r)
-            const first = shown.findIndex(([x]) => kindOf(x) === kind) === i
-            const special = k.words.find(w => w.rd === '(irregular)')
-            return (
-              <span key={r} className={'seg ' + kind + (hover && hover !== r ? ' dim' : '')} style={{ flexGrow: c }}
-                onMouseEnter={() => setHover?.(r)} onMouseLeave={() => setHover?.(null)}
-                title={kind === 'irr' ? `read as a whole word${special ? `, as in ${special.w} ${special.r}` : ''}` : `${c} of ${n} common words`}>
-                <span className="r">{label(r)}</span>
-                <span className="b" />
-                <span className="cap">{first ? (kind === 'irr' ? 'whole word' : kind) : ''}</span>
-              </span>
-            )
-          })}
-        </div>
-      )}
-      {rest.length > 0 && <span className="rest">{shown.length ? 'also ' : ''}{rest.map((r, i) => <span key={r}>{i > 0 && '、'}{onSet.has(r) ? kata(r) : fmtKun(r)}</span>)}</span>}
+    <div className="readings">
+      {row('on', byUse(k.on.map(hira)), r => kata(r))}
+      {row('kun', byUse(k.kun.map(bare)), fmtKun)}
     </div>
   )
 }
@@ -212,7 +201,7 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
           : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
         {k && <Readings ch={el} hover={hover} setHover={setHover} />}
       </div>
-      <Story el={el} t={t} />
+      <Story el={el} />
       {t && shownKids(t).length > 0 && <section><Divider>parts</Divider><Parts t={t} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}
       {k && k.words.length > 0 && <section><Divider>words</Divider><ul className="words">{k.words.map(w => <WordRow key={w.w} w={w} ch={el} dim={!!hover && w.rd !== hover} />)}</ul></section>}
       {used > 0 && <section><Divider>part of {used} kanji</Divider><UsedIn el={el} store={store} open={open} limit={14} /></section>}

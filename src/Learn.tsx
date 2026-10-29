@@ -11,7 +11,6 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
   const next = left[0]
   const known = Object.keys(store.cards)
   const cov = coverage(known)
-  const gain = next ? KANJI[next]?.freq ?? 0 : 0
 
   const done = () => setStore(learn(store, next, now))
   useEffect(() => {
@@ -23,10 +22,7 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
   if (!next) return <div className="empty">All {ORDER.length} items learned.</div>
   return (
     <div className="learn">
-      <div className="progress">
-        <span>item {known.length + 1} of {ORDER.length}</span>
-        <span>you read <b>{(cov * 100).toFixed(1)}%</b> of kanji in text{gain > 0 && <> · this one adds {(gain * 100).toFixed(2)}%</>}</span>
-      </div>
+      {known.length > 0 && <p className="progress" title="share of kanji in Japanese Wikipedia text that you have learned">{known.length} learned · {Math.round(cov * 100)}% of text</p>}
       {!KANJI[next] && <p className="new-part">A part first: it appears in the kanji coming up.</p>}
       <Card el={next} store={store} open={open} autoSpeak={autoSpeak} />
       <div className="actions">
