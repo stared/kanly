@@ -4,8 +4,7 @@
   "keyword": "deer",
   "meanings": [],
   "readings": [
-   "しか",
-   "か"
+   "しか"
   ],
   "alone": {
    "r": "しか",
@@ -17,31 +16,24 @@
     "w": "馬鹿",
     "r": "ばか",
     "g": "idiot; fool",
-    "reading": "か",
+    "reading": "special",
     "furigana": [
      [
-      "馬",
-      "ば"
-     ],
-     [
-      "鹿",
-      "か"
+      "馬鹿",
+      "ばか"
      ]
-    ]
+    ],
+    "special": true
    },
    {
     "w": "馬鹿らしい",
     "r": "ばからしい",
     "g": "absurd; silly",
-    "reading": "か",
+    "reading": "special",
     "furigana": [
      [
-      "馬",
-      "ば"
-     ],
-     [
-      "鹿",
-      "か"
+      "馬鹿",
+      "ばか"
      ],
      [
       "ら",
@@ -55,7 +47,8 @@
       "い",
       ""
      ]
-    ]
+    ],
+    "special": true
    },
    {
     "w": "子鹿",
@@ -1763,7 +1756,7 @@
  },
  {
   "kanji": "秒",
-  "keyword": "second (time)",
+  "keyword": "seconds",
   "meanings": [],
   "readings": [
    "ビョウ"
@@ -1791,7 +1784,7 @@
     "w": "秒読み",
     "r": "びょうよみ",
     "g": "countdown",
-    "lit": "second-reading",
+    "lit": "second-count",
     "reading": "ビョウ",
     "furigana": [
      [
@@ -6744,18 +6737,14 @@
     "w": "尻尾",
     "r": "しっぽ",
     "g": "tail",
-    "lit": "rear-tail",
-    "reading": "しり",
+    "reading": "special",
     "furigana": [
      [
-      "尻",
-      "しっ"
-     ],
-     [
-      "尾",
-      "ぽ"
+      "尻尾",
+      "しっぽ"
      ]
-    ]
+    ],
+    "special": true
    },
    {
     "w": "目尻",
@@ -6993,25 +6982,14 @@
     "w": "滅茶苦茶",
     "r": "めちゃくちゃ",
     "g": "a mess; absurd",
-    "reading": "チャ",
+    "reading": "special",
     "furigana": [
      [
-      "滅",
-      "め"
-     ],
-     [
-      "茶",
-      "ちゃ"
-     ],
-     [
-      "苦",
-      "く"
-     ],
-     [
-      "茶",
-      "ちゃ"
+      "滅茶苦茶",
+      "めちゃくちゃ"
      ]
-    ]
+    ],
+    "special": true
    },
    {
     "w": "茶の間",
@@ -9486,17 +9464,14 @@
     "w": "砂利",
     "r": "じゃり",
     "g": "gravel",
-    "reading": "シャ",
+    "reading": "special",
     "furigana": [
      [
-      "砂",
-      "じゃ"
-     ],
-     [
-      "利",
-      "り"
+      "砂利",
+      "じゃり"
      ]
-    ]
+    ],
+    "special": true
    }
   ],
   "more": [
@@ -9512,12 +9487,8 @@
       "すな"
      ],
      [
-      "時",
-      "ど"
-     ],
-     [
-      "計",
-      "けい"
+      "時計",
+      "どけい"
      ]
     ]
    },
@@ -12552,7 +12523,7 @@
  },
  {
   "kanji": "帰",
-  "keyword": "return (home)",
+  "keyword": "return home",
   "meanings": [],
   "readings": [
    "キ",
@@ -13387,7 +13358,7 @@
  },
  {
   "kanji": "拓",
-  "keyword": "clear (land)",
+  "keyword": "clear land",
   "meanings": [
    "open up"
   ],
@@ -13890,7 +13861,7 @@
  },
  {
   "kanji": "丙",
-  "keyword": "third (in a series)",
+  "keyword": "third rank",
   "meanings": [],
   "readings": [
    "ヘイ"
@@ -15456,7 +15427,6 @@
     "w": "削り節",
     "r": "けずりぶし",
     "g": "dried bonito flakes",
-    "lit": "shaved-joint",
     "reading": "ふし",
     "furigana": [
      [
@@ -17299,12 +17269,8 @@
     "reading": "くすり",
     "furigana": [
      [
-      "風",
-      "か"
-     ],
-     [
-      "邪",
-      "ぜ"
+      "風邪",
+      "かぜ"
      ],
      [
       "薬",
@@ -17514,12 +17480,12 @@
     ]
    }
   ],
-  "story": "A man 男 bursting with strength 力.",
-  "kind": "mnemonic"
+  "story": "Strength 力, with 甬 giving the sound ユウ.",
+  "kind": "origin"
  },
  {
   "kanji": "催",
-  "keyword": "host (an event)",
+  "keyword": "hold an event",
   "meanings": [
    "urge",
    "induce"
@@ -17826,7 +17792,7 @@
  },
  {
   "kanji": "胞",
-  "keyword": "cell (biology)",
+  "keyword": "cell",
   "meanings": [
    "sac"
   ],
@@ -18687,10 +18653,8 @@
  },
  {
   "kanji": "善",
-  "keyword": "good (virtue)",
-  "meanings": [
-   "virtue"
-  ],
+  "keyword": "goodness",
+  "meanings": [],
   "readings": [
    "ゼン"
   ],
@@ -18868,9 +18832,9 @@
  },
  {
   "kanji": "博",
-  "keyword": "broad (learning)",
+  "keyword": "broad knowledge",
   "meanings": [
-   "doctor (PhD)",
+   "doctorate",
    "exposition"
   ],
   "readings": [
@@ -20084,7 +20048,7 @@
  },
  {
   "kanji": "陣",
-  "keyword": "camp (military)",
+  "keyword": "camp",
   "meanings": [
    "position",
    "ranks"
@@ -20426,8 +20390,9 @@
  },
  {
   "kanji": "序",
-  "keyword": "order (sequence)",
+  "keyword": "sequence",
   "meanings": [
+   "order",
    "beginning",
    "preface"
   ],

@@ -230,7 +230,7 @@
  },
  {
   "kanji": "頃",
-  "keyword": "around (a time)",
+  "keyword": "time; around",
   "meanings": [],
   "readings": [
    "ころ"
@@ -262,7 +262,6 @@
     "w": "日頃",
     "r": "ひごろ",
     "g": "usually; everyday",
-    "lit": "days-around",
     "reading": "ころ",
     "furigana": [
      [
@@ -1561,7 +1560,6 @@
     "w": "追いかける",
     "r": "おいかける",
     "g": "chase; run after",
-    "lit": "chase-after",
     "reading": "お.う",
     "furigana": [
      [
@@ -2834,19 +2832,19 @@
     "furigana": [
      [
       "タ",
-      "た"
+      ""
      ],
      [
       "ン",
-      "ん"
+      ""
      ],
      [
       "パ",
-      "ぱ"
+      ""
      ],
      [
       "ク",
-      "く"
+      ""
      ],
      [
       "質",
@@ -3157,8 +3155,8 @@
     ]
    }
   ],
-  "story": "A person on a mound 王 gazing at the moon 月.",
-  "kind": "mnemonic"
+  "story": "Someone standing on the ground 王 gazing at the moon 月; 亡 gives the sound.",
+  "kind": "origin"
  },
  {
   "kanji": "弾",
@@ -5091,7 +5089,7 @@
  },
  {
   "kanji": "被",
-  "keyword": "incur",
+  "keyword": "suffer",
   "meanings": [
    "cover",
    "wear (on the head)"
@@ -8193,7 +8191,7 @@
   "kanji": "個",
   "keyword": "individual",
   "meanings": [
-   "piece (counted object)"
+   "piece"
   ],
   "readings": [
    "コ"
@@ -8270,7 +8268,7 @@
    {
     "w": "一個",
     "r": "いっこ",
-    "g": "one (piece)",
+    "g": "one (thing), as in 1個",
     "lit": "one-piece",
     "reading": "コ",
     "furigana": [
@@ -11044,9 +11042,9 @@
  },
  {
   "kanji": "候",
-  "keyword": "weather",
+  "keyword": "climate",
   "meanings": [
-   "candidate",
+   "season",
    "sign"
   ],
   "readings": [
@@ -11223,16 +11221,14 @@
  {
   "kanji": "沼",
   "keyword": "swamp",
-  "meanings": [
-   "marsh"
-  ],
+  "meanings": [],
   "readings": [
    "ぬま",
    "ショウ"
   ],
   "alone": {
    "r": "ぬま",
-   "g": "swamp; pond",
+   "g": "swamp; marsh",
    "reading": "ぬま"
   },
   "words": [
@@ -12486,9 +12482,10 @@
  },
  {
   "kanji": "察",
-  "keyword": "guess",
+  "keyword": "inspect",
   "meanings": [
-   "inspect"
+   "guess",
+   "sense"
   ],
   "readings": [
    "サツ"
@@ -13579,6 +13576,44 @@
     ]
    },
    {
+    "w": "依存症",
+    "r": "いぞんしょう",
+    "g": "addiction",
+    "reading": "イ",
+    "furigana": [
+     [
+      "依",
+      "い"
+     ],
+     [
+      "存",
+      "ぞん"
+     ],
+     [
+      "症",
+      "しょう"
+     ]
+    ]
+   },
+   {
+    "w": "依る",
+    "r": "よる",
+    "g": "depend on; be due to",
+    "reading": "よ.る",
+    "furigana": [
+     [
+      "依",
+      "よ"
+     ],
+     [
+      "る",
+      ""
+     ]
+    ]
+   }
+  ],
+  "more": [
+   {
     "w": "依然として",
     "r": "いぜんとして",
     "g": "still; as before",
@@ -13607,28 +13642,6 @@
     ]
    },
    {
-    "w": "依存症",
-    "r": "いぞんしょう",
-    "g": "addiction",
-    "reading": "イ",
-    "furigana": [
-     [
-      "依",
-      "い"
-     ],
-     [
-      "存",
-      "ぞん"
-     ],
-     [
-      "症",
-      "しょう"
-     ]
-    ]
-   }
-  ],
-  "more": [
-   {
     "w": "帰依",
     "r": "きえ",
     "g": "devotion (to a faith)",
@@ -13641,26 +13654,6 @@
      [
       "依",
       "え"
-     ]
-    ]
-   },
-   {
-    "w": "に依る",
-    "r": "による",
-    "g": "due to; by means of",
-    "reading": "よ.る",
-    "furigana": [
-     [
-      "に",
-      ""
-     ],
-     [
-      "依",
-      "よ"
-     ],
-     [
-      "る",
-      ""
      ]
     ]
    }
@@ -14287,7 +14280,6 @@
     "w": "選択肢",
     "r": "せんたくし",
     "g": "options; choices",
-    "lit": "choose-choose-limb",
     "reading": "タク",
     "furigana": [
      [
@@ -14325,7 +14317,6 @@
     "w": "二者択一",
     "r": "にしゃたくいつ",
     "g": "choosing one of two",
-    "lit": "two-things-choose-one",
     "reading": "タク",
     "furigana": [
      [
@@ -15323,7 +15314,6 @@
   ],
   "readings": [
    "ジュ",
-   "ス",
    "ことぶき"
   ],
   "alone": {
@@ -15336,17 +15326,14 @@
     "w": "寿司",
     "r": "すし",
     "g": "sushi",
-    "reading": "ス",
+    "reading": "special",
     "furigana": [
      [
-      "寿",
-      "す"
-     ],
-     [
-      "司",
-      "し"
+      "寿司",
+      "すし"
      ]
-    ]
+    ],
+    "special": true
    },
    {
     "w": "寿命",
@@ -15379,26 +15366,6 @@
      [
       "寿",
       "じゅ"
-     ]
-    ]
-   },
-   {
-    "w": "恵比寿",
-    "r": "えびす",
-    "g": "Ebisu (god of fortune)",
-    "reading": "ス",
-    "furigana": [
-     [
-      "恵",
-      "え"
-     ],
-     [
-      "比",
-      "び"
-     ],
-     [
-      "寿",
-      "す"
      ]
     ]
    },
@@ -15441,7 +15408,7 @@
     "w": "にぎり寿司",
     "r": "にぎりずし",
     "g": "nigiri sushi",
-    "reading": "ス",
+    "reading": "special",
     "furigana": [
      [
       "に",
@@ -15456,14 +15423,11 @@
       ""
      ],
      [
-      "寿",
-      "ず"
-     ],
-     [
-      "司",
-      "し"
+      "寿司",
+      "ずし"
      ]
-    ]
+    ],
+    "special": true
    }
   ],
   "story": null,
@@ -16318,13 +16282,14 @@
  },
  {
   "kanji": "憂",
-  "keyword": "grief",
+  "keyword": "worry",
   "meanings": [
-   "worry"
+   "grief"
   ],
   "readings": [
    "ユウ",
    "うれ.える",
+   "うれ.い",
    "う.い"
   ],
   "alone": null,
@@ -16349,7 +16314,7 @@
     "w": "憂い",
     "r": "うれい",
     "g": "sorrow; worry",
-    "reading": "うれ.える",
+    "reading": "うれ.い",
     "furigana": [
      [
       "憂",
@@ -17822,9 +17787,7 @@
  {
   "kanji": "邦",
   "keyword": "home country",
-  "meanings": [
-   "Japan (in compounds)"
-  ],
+  "meanings": [],
   "readings": [
    "ホウ"
   ],
@@ -17981,9 +17944,7 @@
  {
   "kanji": "般",
   "keyword": "general",
-  "meanings": [
-   "carry"
-  ],
+  "meanings": [],
   "readings": [
    "ハン"
   ],
@@ -19871,7 +19832,7 @@
  },
  {
   "kanji": "兼",
-  "keyword": "combine (roles)",
+  "keyword": "double as",
   "meanings": [
    "concurrently"
   ],
@@ -20058,7 +20019,7 @@
     ]
    }
   ],
-  "story": "A hand ⺕ holding two stalks 丨丨 at once.",
+  "story": "A hand ⺕ holding two stalks of grain 禾 at once.",
   "kind": "origin"
  },
  {
@@ -20125,7 +20086,6 @@
     "w": "兄貴",
     "r": "あにき",
     "g": "big brother",
-    "lit": "elder brother-noble",
     "reading": "キ",
     "furigana": [
      [
@@ -22286,25 +22246,14 @@
     "w": "滅茶苦茶",
     "r": "めちゃくちゃ",
     "g": "a mess; absurd",
-    "reading": "ク",
+    "reading": "special",
     "furigana": [
      [
-      "滅",
-      "め"
-     ],
-     [
-      "茶",
-      "ちゃ"
-     ],
-     [
-      "苦",
-      "く"
-     ],
-     [
-      "茶",
-      "ちゃ"
+      "滅茶苦茶",
+      "めちゃくちゃ"
      ]
-    ]
+    ],
+    "special": true
    }
   ],
   "story": "Grass 艹 that is old 古: bitter.",

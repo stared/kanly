@@ -7,6 +7,7 @@ It only reports; anything it prints goes back to the writers. Run: uv run script
 """
 
 import gzip
+import unicodedata
 import json
 import xml.etree.ElementTree as ET
 from collections import defaultdict
@@ -31,15 +32,43 @@ def jmdict_pairs() -> dict[str, set[str]]:
     return out
 
 
+# 𠮟 is outside the basic block; ヶ in ヶ月 is read か and carries furigana like a kanji
+is_kanji = lambda c: unicodedata.name(c, "").startswith("CJK") or c in "々ヶ"
+hira = lambda s: "".join(chr(ord(c) - 0x60) if "ァ" <= c <= "ヶ" else c for c in s)
+
+
+def structure(x: dict) -> list[str]:
+    """What the card needs to render right: furigana covering the word and matching its reading,
+    reading labels from the kanji's own list, kana written as kana."""
+    out = []
+    for w in x["words"] + x.get("more", []):
+        if "".join(p for p, _ in w["furigana"]) != w["w"]:
+            out.append(f"furigana does not cover {w['w']}")
+        if hira("".join(r or p for p, r in w["furigana"])) != hira(w["r"]):
+            out.append(f"furigana of {w['w']} does not spell {w['r']}")
+        if any(r and not any(is_kanji(c) for c in p) for p, r in w["furigana"]):
+            out.append(f"furigana over kana in {w['w']}")
+        if w["reading"] != "special" and w["reading"] not in x["readings"]:
+            out.append(f"{w['w']} uses {w['reading']}, not among the readings")
+    if x.get("alone") and x["alone"]["reading"] not in x["readings"]:
+        out.append("alone uses a reading not among the readings")
+    return out
+
+
 def main() -> None:
+    files = [*sorted((LLM / "out").glob("*.json"))]
+    cards = {x["kanji"]: x for f in files for x in json.loads(f.read_text())}
+    joyo = {x["kanji"] for f in sorted((LLM / "in").glob("*.json")) for x in json.loads(f.read_text())}
+    if set(cards) != joyo:
+        print("missing:", "".join(sorted(joyo - set(cards))), "extra:", "".join(sorted(set(cards) - joyo)))
+    problems = [(k, p) for k, x in cards.items() for p in structure(x)]
+    for k, p in problems:
+        print(k, p)
+    print(f"{len(cards)} cards, {len(problems)} structural problems")
+
     pairs = jmdict_pairs()
-    files = [LLM / "gold.json", *sorted((LLM / "out").glob("*.json"))]
-    missing = []
-    for f in files:
-        for x in json.loads(f.read_text()):
-            for w in x["words"] + x.get("more", []):
-                if w["r"] not in pairs.get(w["w"], ()):
-                    missing.append((f.name, x["kanji"], w["w"], w["r"], sorted(pairs.get(w["w"], ()))[:4]))
+    missing = [(k, w["w"], w["r"]) for k, x in cards.items() for w in x["words"] + x.get("more", [])
+               if w["r"] not in pairs.get(w["w"], ())]
     for m in missing:
         print(*m)
     print(f"{len(missing)} words whose spelling and reading are not a JMdict entry")

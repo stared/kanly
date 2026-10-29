@@ -682,8 +682,9 @@
  },
  {
   "kanji": "就",
-  "keyword": "take up (a post)",
+  "keyword": "take up",
   "meanings": [
+   "take a post",
    "settle into"
   ],
   "readings": [
@@ -1130,8 +1131,9 @@
  },
  {
   "kanji": "階",
-  "keyword": "floor (storey)",
+  "keyword": "storey",
   "meanings": [
+   "floor",
    "stairs",
    "rank"
   ],
@@ -1786,7 +1788,7 @@
  },
  {
   "kanji": "匹",
-  "keyword": "animal (counter)",
+  "keyword": "small animals",
   "meanings": [
    "match; equal"
   ],
@@ -1799,7 +1801,7 @@
    {
     "w": "一匹",
     "r": "いっぴき",
-    "g": "one animal, as in 猫一匹",
+    "g": "one (small) animal, as in 猫一匹",
     "reading": "ひき",
     "furigana": [
      [
@@ -2567,7 +2569,7 @@
  },
  {
   "kanji": "軽",
-  "keyword": "light (weight)",
+  "keyword": "lightweight",
   "meanings": [
    "easy",
    "slight"
@@ -3844,12 +3846,8 @@
       ""
      ],
      [
-      "仮",
-      "が"
-     ],
-     [
-      "名",
-      "な"
+      "仮名",
+      "がな"
      ]
     ]
    },
@@ -9406,17 +9404,14 @@
     "w": "芝生",
     "r": "しばふ",
     "g": "lawn",
-    "reading": "しば",
+    "reading": "special",
     "furigana": [
      [
-      "芝",
-      "しば"
-     ],
-     [
-      "生",
-      "ふ"
+      "芝生",
+      "しばふ"
      ]
-    ]
+    ],
+    "special": true
    },
    {
     "w": "紙芝居",
@@ -9674,7 +9669,7 @@
  },
  {
   "kanji": "塁",
-  "keyword": "base (baseball)",
+  "keyword": "base",
   "meanings": [
    "rampart"
   ],
@@ -17649,7 +17644,7 @@
  },
  {
   "kanji": "畑",
-  "keyword": "field (for crops)",
+  "keyword": "crop field",
   "meanings": [
    "one's specialty"
   ],

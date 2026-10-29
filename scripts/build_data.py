@@ -171,7 +171,8 @@ def greedy(joyo: list[str], trees: dict, freq: dict, strokes: dict[str, int] | N
     cost = (lambda s: len(s)) if strokes is None else (lambda s: sum(strokes.get(n, 1) for n in s) ** power)
     known, items, left = set(), [], set(joyo)
     while left:
-        best = max(left, key=lambda ch: (value(need[ch] - known) / cost(need[ch] - known), -len(need[ch] - known)))
+        # sorted: ties go to the same kanji every run (a set's order changes with Python's string hashing)
+        best = max(sorted(left), key=lambda ch: (value(need[ch] - known) / cost(need[ch] - known), -len(need[ch] - known)))
         for n in pre[best]:
             if n not in known:
                 known.add(n)
