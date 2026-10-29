@@ -43,8 +43,8 @@ It downloads the sources to `data/raw/` and writes (all regenerated, so not comm
 Written by hand:
 
 - `data/components.tsv`: short, concrete names for components: radical forms such as 亻 and 灬 that KANJIDIC doesn't name, and kanji whose first dictionary gloss is a poor fit for a part (召 is "summon", not "seduce").
-- `data/keywords.tsv`: keywords where KANJIDIC's first meaning misleads (看 is "see", not "watch over").
-- `data/stories.tsv`: a keyword and a one-sentence story for the first ~120 kanji in the learning order, each marked `origin` (the real history of the shape) or `memory` (a story to remember it by).
+- `data/llm/`: all card content, written per kanji by a language model following `INSTRUCTIONS.md`, starting from a hand-written gold standard (`gold.json`); `scripts/check_written.py` checks every word and reading against JMdict.
+- `data/stories.tsv`: stories for parts that are not kanji (亻, 灬).
 
 ## Materials used
 

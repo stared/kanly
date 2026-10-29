@@ -221,10 +221,6 @@ def families(joyo: list[str], trees: dict, kd: dict) -> list[dict]:
     return sorted(out, key=lambda f: (-len(f["hits"]), len(f["misses"])))
 
 
-def hira(s: str) -> str:
-    return "".join(chr(ord(c) - 0x60) if "ァ" <= c <= "ヶ" else c for c in s)
-
-
 def is_kanji(c: str) -> bool:
     return "\u4e00" <= c <= "\u9fff" or c == "々"
 
@@ -259,118 +255,26 @@ def load_words() -> list[dict]:
     return out
 
 
-def variants(r: str) -> set[str]:
-    """A reading as it can appear inside a word: rendaku on the first kana, っ for a final つくちき."""
-    out = {r}
-    first = r[0]
-    for mark in ("\u3099", "\u309a"):
-        v = unicodedata.normalize("NFC", first + mark)
-        if len(v) == 1:
-            out.add({"ぢ": "じ", "づ": "ず"}.get(v, v) + r[1:])
-    if len(r) > 1 and r[-1] in "つくちき":
-        out |= {x[:-1] + "っ" for x in list(out)}
-    return out
-
-
-def readings(kd_entry: dict) -> dict[str, str]:
-    """Surface form in a word -> the dictionary reading it comes from."""
-    out = {}
-    for r in kd_entry["on"]:
-        for v in variants(hira(r)):
-            out.setdefault(v, hira(r))
-    for r in kd_entry["kun"]:
-        base = r.split(".")[0].strip("-")
-        if base:
-            for v in variants(base):
-                out.setdefault(v, r.strip("-"))
-    return out
-
-
-def align(word: str, reading: str, kd: dict) -> list[tuple[str, str, str]] | None:
-    """Split a word's reading over its characters: [(char, surface, dictionary reading)], or None."""
-    def go(i: int, j: int, prev: str | None):
-        if i == len(word):
-            return [] if j == len(reading) else None
-        c = word[i]
-        if not is_kanji(c):
-            if reading[j:j + 1] == hira(c):
-                rest = go(i + 1, j + 1, None)
-                return None if rest is None else [(c, hira(c), "")] + rest
-            return None
-        src = prev if c == "々" else c
-        if src not in kd:
-            return None
-        for surf, dic in sorted(readings(kd[src]).items(), key=lambda kv: -len(kv[0])):
-            if reading.startswith(surf, j):
-                rest = go(i + 1, j + len(surf), src)
-                if rest is not None:
-                    return [(c, surf, dic)] + rest
-        return None
-    return go(0, 0, None)
-
-
-def attach_words(joyo: list[str], kd: dict, order_pos: dict[str, int]) -> tuple[dict, dict]:
-    """Per kanji: a few example words (common, short, with kanji learned early) and how often each reading is used."""
-    by_kanji = defaultdict(list)
-    usage = defaultdict(Counter)
-    for w in load_words():
-        if len(w["w"]) > 5:
-            continue
-        chars = [c for c in w["w"] if is_kanji(c) and c != "々"]
-        if not chars or any(c not in order_pos for c in chars):
-            continue
-        parts = None if w.get("irregular") else align(w["w"], w["r"], kd)
-        one_kana_kun = [c for c, r, dic in parts or [] if is_kanji(c) and c in kd and len(r) == 1 and dic not in map(hira, kd[c]["on"])]
-        if len(one_kana_kun) >= 2 and len(one_kana_kun) == len(w["w"]):
-            parts = None  # 三十日 みそか fits み + そ + か only by accident
-        if parts:
-            w["parts"] = [[c, s] for c, s, _ in parts]
-            w["dic"] = {c: dic for c, _, dic in parts}
-        for c in set(chars):
-            by_kanji[c].append(w)
-            if parts:
-                for pc, _, dic in parts:
-                    if pc == c:
-                        usage[c][dic] += 1
-            else:
-                usage[c]["(irregular)"] += 1
-    # how often each word is used (wordfreq: books, subtitles, web, news), per million words
+def candidate_words(joyo_set: set[str]) -> dict[str, list[dict]]:
+    """Per kanji, the 40 most used common words containing it (wordfreq: books, subtitles, web, news),
+    each written form once per reading: the evidence the writers choose from (data/llm/in)."""
     from wordfreq import get_frequency_dict
     wf = get_frequency_dict("ja")
-    examples, cands = {}, {}
-    for c, ws in by_kanji.items():
-        per_m = lambda w: wf.get(w["w"], 0) * 1e6
-        # most used first; JMdict's news band breaks ties among words wordfreq doesn't know
-        # one entry per written word: the one JMdict ranks most common (人 as ひと, not the suffix にん)
-        # and a kanji written alone is read kun: 人 ひと, 上 うえ (じん, じょう are suffixes)
-        alone_on = lambda w: len(w["w"]) == 1 and w.get("dic", {}).get(c) in {hira(r) for r in kd[c]["on"]}
-        use = lambda w: usage[c].get(w.get("dic", {}).get(c, ""), 0)
-        best = {w["w"]: w for w in sorted(ws, key=lambda w: (alone_on(w), w["nf"], -use(w)), reverse=True)}  # the last one wins
-        ranked = sorted(best.values(), key=lambda w: (-per_m(w), w["nf"], len(w["w"])))
-        reading_of = lambda w: w.get("dic", {}).get(c, "(irregular)")
-        n = sum(usage[c].values()) or 1
-        picked = []
-        for r, cnt in usage[c].most_common():  # each reading met in 10%+ of words gets its most used word
-            if r != "(irregular)" and cnt / n >= 0.1:
-                w = next((w for w in ranked if reading_of(w) == r), None)
-                if w and w not in picked:
-                    picked.append(w)
-        picked += [w for w in ranked if w not in picked][:max(0, 5 - len(picked))]
-        picked.sort(key=lambda w: (-per_m(w), w["nf"]))
-        more = [w for w in ranked if w not in picked][:10]  # behind "more words" on the card
-        examples[c] = [{**{k: w[k] for k in ("w", "r", "g", "parts") if k in w}, "rd": reading_of(w), "f": round(per_m(w), 1)}
-                       for w in picked + more]
-        # for the writers (data/llm): the 40 most used words, each written form once per reading
-        cands[c] = [{"w": w["w"], "r": w["r"], "g": w["g"], "pos": w["pos"], "per_million": round(per_m(w), 1)}
-                    for w in sorted({(w["w"], w["r"]): w for w in ws}.values(), key=lambda w: (-per_m(w), w["nf"]))[:40]]
-    return examples, {c: dict(u.most_common()) for c, u in usage.items()}, {c: len(ws) for c, ws in by_kanji.items()}, cands
+    by_kanji = defaultdict(dict)
+    for w in load_words():
+        for c in set(w["w"]) & joyo_set:
+            by_kanji[c][(w["w"], w["r"])] = w
+    per_m = lambda w: wf.get(w["w"], 0) * 1e6
+    return {c: [{"w": w["w"], "r": w["r"], "g": w["g"], "pos": w["pos"], "per_million": round(per_m(w), 1)}
+                for w in sorted(ws.values(), key=lambda w: (-per_m(w), w["nf"]))[:40]]
+            for c, ws in by_kanji.items()}
 
 
 LLM = ROOT / "data" / "llm"
 BATCH = 120
 
 
-def export_llm_input(order: list[str], kanji: dict, components: dict, usage: dict, cands: dict, kd: dict) -> None:
+def export_llm_input(order: list[str], kanji: dict, components: dict, cands: dict, kd: dict) -> None:
     """Facts per kanji, in learning order and in batches, for the writers to turn into card content (data/llm/out)."""
     (LLM / "in").mkdir(parents=True, exist_ok=True)
     chs = [c for c in order if c in kanji]
@@ -380,7 +284,6 @@ def export_llm_input(order: list[str], kanji: dict, components: dict, usage: dic
             "kanji": c,
             "kanjidic_meanings": kd[c]["meanings"],
             "on": kd[c]["on"], "kun": kd[c]["kun"],
-            "reading_share_in_common_words": usage.get(c, {}),
             "parts": [{"part": k["el"], "name": name(k["el"]), **({"sound": True} if "phon" in k else {})} for k in kanji[c]["tree"]["kids"]],
             "candidate_words": cands.get(c, []),
         } for c in chs[b:b + BATCH]]
@@ -416,7 +319,7 @@ def written_card(x: dict, wf: dict) -> dict:
 
 
 def load_stories() -> dict[str, dict]:
-    """Hand-written: keyword, kind (origin or memory) and a one-sentence story per kanji or component."""
+    """Hand-written stories for parts that are not kanji (亻, 灬); kanji have theirs in data/llm."""
     out = {}
     for l in open(ROOT / "data" / "stories.tsv", encoding="utf-8"):
         if l.strip() and not l.startswith("#"):
@@ -431,17 +334,14 @@ def main() -> None:
     freq, total = load_frequency()
     comp_names = load_components()
     stories = load_stories()
-    for l in open(ROOT / "data" / "keywords.tsv", encoding="utf-8"):
-        if l.strip() and not l.startswith("#"):
-            el, keyword = l.rstrip("\n").split("\t")
-            stories.setdefault(el, {}).setdefault("keyword", keyword)
+    written = load_written()
     joyo = sorted((c for c, v in kd.items() if v["grade"] in JOYO_GRADES), key=lambda c: -freq.get(c, 0))
     trees = load_trees(set(joyo))
     missing = [c for c in joyo if c not in trees]
     joyo = [c for c in joyo if c in trees]
     joyo_set = set(joyo)
 
-    # every component, with a meaning: KANJIDIC for real kanji, else the original form, else components.tsv
+    # every component, with a meaning: the written keyword for a kanji, else components.tsv, else its original form
     used_in = defaultdict(set)
     for ch in joyo:
         for s in subtrees(trees[ch]):
@@ -449,11 +349,11 @@ def main() -> None:
                 used_in[s["el"]].add(ch)
 
     def meaning(el: str, orig: str | None) -> dict:
+        if el in written:
+            return {"meaning": written[el]["keyword"]}
         if el in comp_names:
             return comp_names[el]
-        if "keyword" in stories.get(el, {}):
-            return {"meaning": stories[el]["keyword"]}
-        if el in kd and kd[el]["meanings"]:
+        if el in kd and kd[el]["meanings"]:  # a kanji outside jōyō used as a part, like 吾 in 語
             return {"meaning": kd[el]["meanings"][0]}
         if orig and orig in kd and kd[orig]["meanings"]:
             return {"meaning": kd[orig]["meanings"][0], "note": f"form of {orig}"}
@@ -495,37 +395,18 @@ def main() -> None:
     }
     fams = families(joyo, trees, kd)
     order = orders["simple first"]
-    order_pos = {n: i for i, n in enumerate(order)}
-    examples, usage, nwords, cands = attach_words(joyo, kd, order_pos)
-    export_llm_input(order, kanji, components, usage, cands, kd)
-    for ch in joyo:
-        kanji[ch]["words"] = examples.get(ch, [])
-        kanji[ch]["usage"] = usage.get(ch, {})
-        kanji[ch]["nwords"] = nwords.get(ch, 0)
-        kanji[ch]["keyword"] = components[ch]["meaning"] if "meaning" in components.get(ch, {}) else kd[ch]["meanings"][0] if kd[ch]["meanings"] else "?"
-        kanji[ch] |= stories.get(ch, {})
-    for el, c in components.items():
-        if el in stories:
-            c |= {k: v for k, v in stories[el].items() if k != "keyword"}
+    export_llm_input(order, kanji, components, candidate_words(joyo_set), kd)
 
-
+    # card content as written (data/llm), plus counts; see data/llm/INSTRUCTIONS.md
     from wordfreq import get_frequency_dict
     wf = get_frequency_dict("ja")
-    written = load_written()
-    for ch, x in written.items():
-        if ch in kanji:
-            for key in ("story", "kind", "words", "usage"):
-                kanji[ch].pop(key, None)
-            kanji[ch] |= written_card(x, wf)
-            if ch in components:
-                components[ch]["meaning"] = x["keyword"]
-    for ch in kanji:  # not written yet: only the dictionary's own facts, nothing guessed
-        if not kanji[ch].get("written"):
-            for key in ("story", "kind", "words", "usage"):
-                kanji[ch].pop(key, None)
-            kanji[ch] |= {"also": [], "alone": None, "words": [], "nshown": 0,
-                          "readings": [{"r": r, "share": 0} for r in kd[ch]["on"] + [r.strip("-") for r in kd[ch]["kun"]]]}
-    print(f"written cards: {len(written)} of {len(kanji)}")
+    unwritten = [ch for ch in joyo if ch not in written]
+    assert not unwritten, f"kanji without written content: {''.join(unwritten)}"
+    for ch in joyo:
+        kanji[ch] |= written_card(written[ch], wf)
+    for el, c in components.items():
+        if el in stories and el not in kanji:
+            c |= {k: v for k, v in stories[el].items() if k != "keyword"}
 
     OUT.joinpath("kanji.json").write_text(json.dumps({
         "kanji": kanji,
