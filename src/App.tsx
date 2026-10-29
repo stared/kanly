@@ -16,6 +16,7 @@ export default function App() {
   const [store, setStore] = useState<Store>(load)
   const fromHash = () => (location.hash.slice(1).split('/')[0] as Tab) || 'learn'
   const [tab, setTab] = useState<Tab>(fromHash)
+  const [hash, setHash] = useState(location.hash)
   const [peek, setPeek] = useState<string[]>([])
   const [now, setNow] = useState(Date.now())
   const [autoSpeak, setAutoSpeak] = useState(loadAutoSpeak)
@@ -23,7 +24,7 @@ export default function App() {
   useEffect(() => save(store), [store])
   useEffect(() => { if (fromHash() !== tab) history.replaceState(null, '', '#' + tab) }, [tab])
   useEffect(() => {
-    const h = () => setTab(fromHash())
+    const h = () => { setTab(fromHash()); setHash(location.hash) }
     addEventListener('hashchange', h)
     return () => removeEventListener('hashchange', h)
   }, [])
@@ -57,7 +58,7 @@ export default function App() {
         {tab === 'kanji' && <Browse store={store} open={open} />}
         {tab === 'reader' && <Reader store={store} open={open} />}
         {tab === 'analysis' && <Analysis store={store} />}
-        {tab === 'card' && <Card key={location.hash} el={decodeURIComponent(location.hash.split('/')[1] ?? '日')} store={store} open={open} autoSpeak={autoSpeak} />}
+        {tab === 'card' && <Card key={hash} el={decodeURIComponent(hash.split('/')[1] ?? '日')} store={store} open={open} autoSpeak={autoSpeak} />}
         {tab === 'settings' && <Settings store={store} onReplace={setStore} autoSpeak={autoSpeak} setAutoSpeak={setAutoSpeak} />}
       </main>
       {peek.length > 0 && (

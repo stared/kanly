@@ -91,23 +91,25 @@ export function Readings({ ch, hover, setHover }: { ch: string; hover?: string |
     const used = all.filter(r => k.usage[r])
     const rs = used.length ? used : all.slice(0, 2)
     const rest = all.filter(r => !rs.includes(r))
-    return <>
-      <span className="lbl">{label}</span>
-      <span className="rlist">{rs.map(r => {
+    const say = (r: string) => label === 'on' ? kata(r) : bare(r).replace('.', '')
+    return (
+      <span className="rlist">{[...rs, ...(rest.length === 1 ? rest : [])].map(r => {
         const c = k.usage[r] ?? 0
         return (
           <button key={r} className={'rd' + (c / (n || 1) >= 0.1 ? '' : ' rare') + (hover && hover !== r ? ' dim' : '')}
             title={c ? `in ${c} of ${n} common words; click to hear it` : 'click to hear it'}
-            onClick={() => speak(label === 'on' ? kata(r) : bare(r).replace('.', ''))}
-            onMouseEnter={() => setHover?.(r)} onMouseLeave={() => setHover?.(null)}>{show(r)}{c > 0 && <span className="pct">{Math.round(100 * c / n)}%</span>}</button>
+            onClick={() => speak(say(r))}
+            onMouseEnter={() => setHover?.(r)} onMouseLeave={() => setHover?.(null)}>{show(r)}{c > 0 && <span className="pct"> {Math.round(100 * c / n)}%</span>}</button>
         )
-      })}{rest.length > 0 && <span className="rd rare more-r" title={rest.map(r => label === 'on' ? kata(r) : bare(r).replace('.', '')).join('、')}>+{rest.length} rare</span>}</span>
-    </>
+      })}{rest.length > 1 && <span className="rd rare" title={rest.map(say).join('、')}>+{rest.length} rare</span>}</span>
+    )
   }
   return (
     <div className="readings">
-      {row('on', byUse(k.on.map(hira)), r => kata(r))}
-      {row('kun', byUse(k.kun.map(bare)), fmtKun)}
+      {[
+        { use: k.on.map(hira).reduce((a, r) => a + (k.usage[r] ?? 0), 0), el: row('on', byUse(k.on.map(hira)), r => kata(r)) },
+        { use: k.kun.map(bare).reduce((a, r) => a + (k.usage[r] ?? 0), 0), el: row('kun', byUse(k.kun.map(bare)), fmtKun) },
+      ].sort((a, b) => b.use - a.use).map((x, i) => <span key={i}>{x.el}</span>)}
     </div>
   )
 }
@@ -168,14 +170,17 @@ export function UsedIn({ el, store, open, limit = 24 }: { el: string; store: Sto
   )
 }
 
-const ordinal = (n: number) => n + (n % 100 >= 11 && n % 100 <= 13 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] ?? 'th')
-const roughly = (n: number) => n < 100 ? Math.round(n) : n < 1000 ? Math.round(n / 10) * 10 : Math.round(n / 100) * 100
-
-/** How common the kanji is: its rank, and how often you meet it, as 1 in N kanji of running text. */
+/** How common the kanji is: its rank and its share of kanji in running text. */
 function Popularity({ ch }: { ch: string }) {
   const k = KANJI[ch]
   if (!k.freq) return null
-  return <p className="popular">{ordinal(RANK.get(ch)!)} most common kanji, about 1 in {roughly(1 / k.freq).toLocaleString('en')} you read</p>
+  const pct = k.freq * 100
+  return (
+    <div className="popular" title="among the 2136 jōyō kanji, by count in Japanese Wikipedia">
+      <span>#{RANK.get(ch)}</span>
+      <span>{pct >= 0.1 ? pct.toFixed(1) : pct.toFixed(2)}% of text</span>
+    </div>
+  )
 }
 
 export const Speaker = ({ text }: { text: string }) =>
@@ -191,7 +196,7 @@ const Divider = ({ children }: { children: React.ReactNode }) => <h3 className="
 const otherMeanings = (ch: string) => {
   const k = KANJI[ch]
   const kw = k.keyword.toLowerCase().split(/;\s*/)
-  return k.meanings.filter(m => !kw.includes(m.toLowerCase()) && !/radical|counter for/.test(m)).slice(0, 3)
+  return k.meanings.filter(m => !kw.includes(m.toLowerCase()) && !/radical|counter for|^\(/.test(m)).slice(0, 3)
 }
 
 export function Card({ el, store, open, autoSpeak = false }: { el: string; store: Store; open: Open; autoSpeak?: boolean }) {
@@ -203,28 +208,38 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
   const used = c?.usedIn.length ?? 0
   const alike = k ? lookalikes(el).length : 0
   const [hover, setHover] = useState<string | null>(null)
+  const parts = t && shownKids(t).length > 0
+  const words = k && k.words.length > 0
   return (
     <article className="card">
       <div className="hero">
         <span className="big"><Glyph el={el} /></span>
-        <h2>{gloss(el)}{say && <Speaker text={say} />}</h2>
-        {k ? <p className="also">{otherMeanings(el).join(', ')}</p>
-          : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
-        {k && <Readings ch={el} hover={hover} setHover={setHover} />}
+        <div className="info">
+          <h2>{gloss(el)}{say && <Speaker text={say} />}</h2>
+          {k ? <p className="also">{otherMeanings(el).join(', ')}</p>
+            : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
+          {k && <Readings ch={el} hover={hover} setHover={setHover} />}
+        </div>
         {k && <Popularity ch={el} />}
       </div>
       <Story el={el} />
-      {t && shownKids(t).length > 0 && <section><Divider>parts</Divider><Parts t={t} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}
-      {k && k.words.length > 0 && <section><Divider>words</Divider><ul className="words">{k.words.map(w => <WordRow key={w.w} w={w} ch={el} dim={!!hover && w.rd !== hover} />)}</ul></section>}
-      {used > 0 && <section><Divider>part of {used} kanji</Divider><UsedIn el={el} store={store} open={open} limit={14} /></section>}
-      <footer className="meta">
-        {alike > 0 && (
-          <details className="more-info">
-            <summary>{alike} look-alike{alike > 1 ? 's' : ''}</summary>
-            <Lookalikes ch={el} store={store} open={open} />
-          </details>
-        )}
-      </footer>
+      {(parts || words) && (
+        <div className="cols">
+          {parts && <section><Divider>parts</Divider><Parts t={t!} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}
+          {words && <section><Divider>words</Divider><ul className="words">{k.words.map(w => <WordRow key={w.w} w={w} ch={el} dim={!!hover && w.rd !== hover} />)}</ul></section>}
+        </div>
+      )}
+      {(used > 0 || alike > 0) && (
+        <section className="tail">
+          {used > 0 && <><Divider>part of {used} kanji</Divider><UsedIn el={el} store={store} open={open} limit={14} /></>}
+          {alike > 0 && (
+            <details className="more-info">
+              <summary>{alike} look-alike{alike > 1 ? 's' : ''}</summary>
+              <Lookalikes ch={el} store={store} open={open} />
+            </details>
+          )}
+        </section>
+      )}
     </article>
   )
 }

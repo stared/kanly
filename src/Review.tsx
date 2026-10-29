@@ -41,7 +41,7 @@ export function Review({ store, setStore, open, now, autoSpeak }: { store: Store
   const t = treeOf(id)
   return (
     <div className="review">
-      <div className="progress"><span>{due.length} due</span><span>{k ? 'kanji' : 'part'}: recall its meaning{k ? ' and a reading' : ''}</span></div>
+      <p className="progress">{due.length} due. Recall the meaning{k ? ' and a reading' : ''}.</p>
       <div className="prompt"><Glyph el={id} /></div>
       {!shown ? (
         <button className="next" onClick={() => setShown(true)}>show <span className="key">space</span></button>
