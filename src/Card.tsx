@@ -157,13 +157,19 @@ export function KanjiTip({ c, reading, className }: { c: string; reading?: strin
   return <span className={'kt' + (className ? ' ' + className : '')} onMouseEnter={enter} onMouseLeave={() => showTip(null)}>{c}</span>
 }
 
+/** A word read kanji by kanji, from their keywords: 日本 sun-origin. Only for words of two or more kanji. */
+const literal = (w: string) => {
+  const ks = [...w].filter(c => KANJI[c])
+  return ks.length >= 2 ? ks.map(c => KANJI[c].keyword.split(';')[0].trim()).join('-') : ''
+}
+
 function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
   return (
     <li className={dim ? 'dim' : ''}>
       <button className="w" onClick={() => speak(w.r)}>{w.parts
         ? w.parts.map(([c, r], i) => <ruby key={i} className={c === ch ? 'me' : ''}><KanjiTip c={c} reading={r} /><rt>{isKanji(c) || c === '々' ? r : ''}</rt></ruby>)
         : <ruby>{[...w.w].map((c, i) => <KanjiTip key={i} c={c} className={c === ch ? 'me' : ''} />)}<rt>{w.r}</rt></ruby>}</button>
-      <span className="wg">{w.g}</span>
+      <span className="wg">{w.g}{literal(w.w) && <span className="lit">{literal(w.w)}</span>}</span>
     </li>
   )
 }

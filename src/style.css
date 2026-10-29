@@ -132,6 +132,7 @@ nav button.on, .gear.on { color: var(--ink); }
 .words .w { font: 22px/1.9 var(--jp); text-align: left; white-space: nowrap; }
 .words rt { font-size: 9px; letter-spacing: -.06em; color: var(--muted); }
 .words .me { color: var(--accent); }
+.lit { margin-left: 10px; font-style: italic; color: var(--muted); opacity: .75; }
 .more-words { margin-top: 8px; font-size: 13px; color: var(--muted); }
 .more-words:hover { color: var(--ink); }
 .words .w:hover { opacity: .75; }
