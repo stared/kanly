@@ -38,7 +38,7 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
           </div>
         ))}
       </div>
-      <p className="sub small">A starting guess. Each “I know it” and “new to me” then refines it.</p>
+      <p className="sub small">A starting guess. On each card, “I know it” skips the kanji (it comes back once, in a few weeks, to check) and “new to me” adds it to your reviews; both refine the guess.</p>
     </div>
   )
   if (!next) return <div className="empty">All {ORDER.length} items learned.</div>
@@ -47,8 +47,8 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
       {why && <p className="why">Here as a part of {why}, coming {left.indexOf(why) === 1 ? 'next' : 'soon'}.</p>}
       <Card el={next} store={store} open={open} autoSpeak={autoSpeak} />
       <div className="actions">
-        <button className="next quiet" onClick={knew}>I know it <span className="key">K</span></button>
-        <button className="next" onClick={done}>new to me <span className="key">↵</span></button>
+        <button className="next quiet" onClick={knew} title="skip it: it comes back once, in a few weeks, to check">I know it <span className="key">K</span></button>
+        <button className="next" onClick={done} title="learn it: first review in a minute">new to me <span className="key">↵</span></button>
         <span className="upcoming">then {left.slice(1, 9).map(el => <span key={el} title={gloss(el)} className={KANJI[el] ? '' : 'partish'}><Glyph el={el} /></span>)}</span>
       </div>
     </div>

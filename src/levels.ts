@@ -38,6 +38,7 @@ export const T = 260
 export const ALPHA = 1
 export const RHO = 0.3
 export const BEGINNER = -450
+export const SURE = 0.95
 
 /** Starting points: each official list as a Fermi sea, its edge and blur fitted in build_data.py
  * (JLPT N3: μ = 609, T = 367; kentei lists are sharper, since kentei level is part of the difficulty). */
@@ -96,6 +97,8 @@ export function upcoming(s: Store, tau: number, n = 9): string[] {
     let best = '', top = -Infinity
     for (const [ch, k] of Object.entries(KANJI)) {
       if (seen.has(ch)) continue
+      // very likely known: not worth a card, however useful (an N2 learner is never asked about 時)
+      if (pKnown(ch, m, t) > SURE) continue
       const p = pKnown(ch, m, t)
       const w = Math.log((1 - p) * (k.use + 1e-3) + 1e-30) - Math.log((1 - p) * cost(k.tree, known) ** ALPHA + p * RHO) + tau * gumbel(ch, s.seed ?? 0)
       if (w > top) { top = w; best = ch }
@@ -103,8 +106,8 @@ export function upcoming(s: Store, tau: number, n = 9): string[] {
     if (!best) break
     const parts = new Set<string>()
     walk(KANJI[best].tree, parts)
-    // a part gets its own card only if it recurs: 卜 (上 外 占 …) does, 电 (only in 俺) does not
-    const need = [...parts].filter(el => el !== best && POS.has(el) && !seen.has(el) && !known(el) && (KANJI[el] || (COMP[el]?.usedIn.length ?? 0) >= 2))
+    // a part that is not a kanji gets its own card only for beginners, and only if it recurs: 卜 (上 外 占 …)
+    const need = [...parts].filter(el => el !== best && POS.has(el) && !seen.has(el) && !known(el) && (KANJI[el] || (m <= BEGINNER && (COMP[el]?.usedIn.length ?? 0) >= 2)))
       .sort((a, b) => POS.get(a)! - POS.get(b)!)
     for (const el of [...need, best]) { out.push(el); seen.add(el) }
     walk(KANJI[best].tree, shapes)
@@ -113,7 +116,7 @@ export function upcoming(s: Store, tau: number, n = 9): string[] {
 }
 
 const MUS = Array.from({ length: 241 }, (_, i) => -1600 + 20 * i)
-const TS = [50, 70, 100, 150, 230, 340, 500, 700, 1000, 1400]
+const TS = [50, 70, 100, 150, 230, 340, 500, 700]  // wider would let a few careless answers blur everything
 
 /** Posterior mean of μ and T (T as a geometric mean), on the grid MUS × TS. */
 export function posterior(start: { mu: number; T: number }, answers: [string, 0 | 1][]): { mu: number; T: number } {

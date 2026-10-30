@@ -32,7 +32,7 @@ export function Settings({ store, onReplace, autoSpeak, setAutoSpeak }: { store:
         </select>
       </label>
       {mu(store) > BEGINNER && <p>{fit(store)} Every “I know it” and “new to me” refines this.</p>}
-      <p>{Object.keys(store.cards).length} items learned, {store.log.length} reviews. Progress is stored in this browser only.</p>
+      <p>{Object.keys(store.cards).length} kanji and parts seen, {store.log.length} reviews. Progress is stored in this browser only.</p>
       <div className="row">
         <button className="next" onClick={exportIt}>export progress</button>
         <label className="next">import<input type="file" accept="application/json" hidden onChange={e => importIt(e.target.files?.[0])} /></label>

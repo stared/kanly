@@ -20,12 +20,12 @@ describe('levels', () => {
     expect(lv[lv.length >> 1]).toBeGreaterThan(900)
     expect(lv[lv.length >> 1]).toBeLessThan(1300)
   })
-  it('breadth mixes in easier and harder ones', () => {
-    const s = { ...empty, mu: 1000 }
-    const lv = (tau: number) => upcoming(s, tau, 30).filter(el => KANJI[el]).map(el => KANJI[el].level)
-    const spread = (xs: number[]) => Math.max(...xs) - Math.min(...xs)
-    console.log('τ=1', lv(1).join(' '))
-    expect(spread(lv(1))).toBeGreaterThan(spread(lv(0)))
+  it('breadth brings other kanji, and never ones surely known', () => {
+    const s = { ...empty, mu: 1000, T: 260 }
+    const focused = new Set(upcoming(s, 0, 30)), wide = upcoming(s, 1, 30)
+    console.log('τ=1', wide.map(el => KANJI[el]?.level).join(' '))
+    expect(wide.filter(el => focused.has(el)).length).toBeLessThan(15)
+    expect(wide.every(el => pKnown(el, 1000, 260) <= 0.95)).toBe(true)
   })
   it('answers move the level towards the truth', () => {
     // a learner who knows exactly the 1200 easiest, starting from the N4 guess

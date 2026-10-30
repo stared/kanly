@@ -97,7 +97,8 @@ function LevelChart({ store }: { store: Store }) {
   )
 }
 
-const fmt = (v: number) => v.toFixed(2)
+const fmt = (v: number) => v.toFixed(1)
+const r10 = (x: number) => Math.max(0, Math.round(x / 10) * 10)
 const reach = (c: number[], t: number) => c.findIndex(v => v >= t) + 1
 
 export function Analysis({ store }: { store: Store }) {
@@ -114,8 +115,36 @@ export function Analysis({ store }: { store: Store }) {
   const hits = D.families.reduce((a, f) => a + f.hits.length, 0)
   const members = D.families.reduce((a, f) => a + f.hits.length + f.misses.length, 0)
 
+  const placed = mu(store) > BEGINNER
+  const level = (
+      <section>
+        <h2>Your level</h2>
+        {mu(store) > BEGINNER && <p className="lede">
+          You knew about {r10(mu(store))} kanji before starting: nearly all of the {r10(mu(store) - 1.28 * temp(store))} easiest,
+          few beyond the {r10(mu(store) + 1.28 * temp(store))}th. Kanji at your edge:
+        </p>}
+        {mu(store) > BEGINNER && <p className="edge jp">{BY_LEVEL.slice(Math.max(0, Math.round(mu(store)) - 6), Math.round(mu(store)) + 6).join('')}</p>}
+        <details>
+          <summary>how this works</summary>
+          <p>
+            Every kanji has a difficulty rank, from a score fitted to the order JLPT and WaniKani teach in:
+            one kentei level counts as much as text frequency {fmt(10 ** D.levels.weights['kentei level'])}× lower,
+            and each stroke as {fmt(10 ** D.levels.weights['strokes'])}× lower; being in more common words counts the other way.
+            Your knowledge is modelled as a step at an edge μ in that rank, blurred by T, refitted after every answer.
+            The next kanji is the most useful one per effort: likely new to you, used in many common words, cheap given the parts you know.
+            The table gives each official list as such an edge.
+          </p>
+          <table className="tbl small">
+          <thead><tr><th>official list</th><th>kanji</th><th>edge μ</th><th>blur T</th></tr></thead>
+          <tbody>{D.levels.official.map(o => <tr key={o.name}><td>{o.name}</td><td>{o.n}</td><td>{o.mu}</td><td>{o.T}</td></tr>)}</tbody>
+        </table>
+        </details>
+        {mu(store) > BEGINNER ? <LevelChart store={store} /> : <p className="sub">Pick a starting level in settings, or answer “I know it” on cards you know, to see your curve here.</p>}
+      </section>
+  )
   return (
     <div className="analysis">
+      {placed && level}
       <section>
         <h2>What each item buys</h2>
         <p className="lede">
@@ -131,23 +160,7 @@ export function Analysis({ store }: { store: Store }) {
         </table>
       </section>
 
-      <section>
-        <h2>Your level</h2>
-        <p className="lede">
-          Every kanji has a difficulty rank. It comes from a score fitted to the order JLPT and WaniKani teach in:
-          each step of kentei level counts as {fmt(D.levels.weights['kentei level'])} decades of text frequency,
-          each stroke as {fmt(D.levels.weights['strokes'])}, and being in e times more common words
-          as {fmt(-D.levels.weights['ln(1 + common words)'])} the other way.
-          Knowing kanji is then like filling energy levels: you know nearly all below an edge μ and few above it, with a Gaussian blur T.
-          The next kanji is the one most likely new to you, most used in common words and cheapest given the parts you know.
-        </p>
-        {mu(store) > BEGINNER ? <LevelChart store={store} /> : <p className="sub">Pick a starting level in settings, or answer “I know it” on cards you know, to see your curve here.</p>}
-        <table className="tbl small">
-          <thead><tr><th>official list</th><th>kanji</th><th>edge μ</th><th>blur T</th></tr></thead>
-          <tbody>{D.levels.official.map(o => <tr key={o.name}><td>{o.name}</td><td>{o.n}</td><td>{o.mu}</td><td>{o.T}</td></tr>)}</tbody>
-        </table>
-      </section>
-
+      {!placed && level}
       <section>
         <h2>Parts that pay off</h2>
         <p className="lede">The share of running text written with kanji that contain each part.</p>
