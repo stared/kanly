@@ -2,7 +2,7 @@
 # requires-python = ">=3.12"
 # dependencies = ["wordfreq==3.1.1", "numpy==2.3.4"]
 # ///
-"""Build data/kanji.json and data/report.md from KANJIDIC2, KanjiVG and kanji frequency counts.
+"""Build data/kanji.json and data/report.md from KANJIDIC2, KanjiVG, JMdict and wordfreq.
 
 Run: uv run scripts/build_data.py
 """
@@ -26,11 +26,8 @@ OUT = ROOT / "data"
 SOURCES = {
     "kanjidic2.xml.gz": "http://www.edrdg.org/kanjidic/kanjidic2.xml.gz",
     "kanjivg-20260714.xml.gz": "https://github.com/KanjiVG/kanjivg/releases/download/r20260714/kanjivg-20260714.xml.gz",
-    "wikipedia_characters.csv": "https://raw.githubusercontent.com/scriptin/kanji-frequency/master/data/wikipedia_characters.csv",
     "JMdict_e.gz": "http://ftp.edrdg.org/pub/Nihongo/JMdict_e.gz",
     # levels, used only to calibrate how hard a kanji is (see difficulty)
-    "aozora_characters.csv": "https://raw.githubusercontent.com/scriptin/kanji-frequency/master/data/aozora_characters.csv",
-    "news_characters.csv": "https://raw.githubusercontent.com/scriptin/kanji-frequency/master/data/news_characters.csv",
     "kanji-data.json": "https://raw.githubusercontent.com/davidluzgouveia/kanji-data/master/kanji.json",
     "kanken-levels.hs": "https://raw.githubusercontent.com/fosskers/kanji/master/lib/Data/Kanji/Levels.hs",
 }
@@ -63,12 +60,6 @@ def load_kanjidic() -> dict[str, dict]:
             "meanings": [m.text for g in groups for m in g.findall("meaning") if m.get("m_lang") is None],
         }
     return out
-
-
-def load_frequency(corpus: str = "wikipedia") -> tuple[dict[str, float], int]:
-    rows = list(csv.DictReader(open(RAW / f"{corpus}_characters.csv", encoding="utf-8")))
-    total = int(rows[0]["char_count"])  # rank 0 is the "all" row
-    return {r["char"]: int(r["char_count"]) / total for r in rows[1:]}, total
 
 
 KANKEN = {"tenth": 10, "ninth": 9, "eighth": 8, "seventh": 7, "sixth": 6, "fifth": 5, "fourth": 4, "third": 3, "preSecond": 2.5, "second": 2}
@@ -108,33 +99,50 @@ def log_phi(z):
     return np.where(x >= 0, ln - math.log(2), np.log1p(-np.exp(ln) / 2))
 
 
-def difficulty(joyo: list[str], words: list[dict], kd: dict) -> tuple[dict[str, int], dict[str, float], dict]:
+def char_frequency(wf: dict) -> dict[str, float]:
+    """How often each kanji is written, as a share of all kanji written: every word wordfreq knows (subtitles,
+    web, news, books, Wikipedia), weighted by how often it is used, a character counted wherever it occurs,
+    alone or inside a word. Wikipedia alone puts 俺 at 1501st of the jōyō kanji and 私 at 724th; here 103rd and 61st."""
+    cf = Counter()
+    for w, f in wf.items():
+        for c in w:
+            if is_kanji(c):
+                cf[c] += f
+    total = sum(cf.values())
+    out = {c: v / total for c, v in cf.items()}
+    return out | {v: out.get(c, 0) for v, c in VARIANTS.items()}
+
+
+def difficulty(joyo: list[str], freq: dict, kd: dict) -> tuple[dict[str, int], dict[str, float], dict]:
     """How likely a learner is to know each kanji already, as a rank: 0 is the one everyone knows first.
 
-    A linear score of log frequency (mean of three corpora), the number of common words using the kanji,
-    strokes and its kanji kentei level, fitted to what learners are taught first (JLPT levels and WaniKani
-    levels, both as normal scores). The rank makes the density of states flat, so a learner who knows N kanji
-    has a Fermi level near N (see src/levels.ts)."""
+    Two orders, both ranks (a flat density of states, so a learner who knows N kanji has a Fermi level near N
+    in either; see src/levels.ts):
+    - by frequency: how often the kanji is written (char_frequency), what someone learning from reading meets;
+    - by curriculum: a linear score of log frequency, strokes and kanji kentei level, fitted to the order
+      learners are taught in (JLPT levels and WaniKani levels, as normal scores).
+    The 196 kanji added to jōyō in 2010 (俺 誰 頃 …) are absent from the JLPT lists, which predate them, so for
+    them JLPT is missing data, not "beyond N1"; kentei puts all of them at its top level only because they are
+    new, so they get their own term instead of a kentei level. Courses still teach them late (WaniKani 俺 at 44)."""
     import numpy as np
-    corpora = [load_frequency(c)[0] for c in ("wikipedia", "aozora", "news")]
-    f = lambda c, fr: max(fr.get(c, 0), fr.get(VARIANTS.get(c, c), 0), 1e-8)
-    in_words = Counter(c for w in words for c in set(w["w"]))
     kanken = load_kanken()
     ext = json.load(open(RAW / "kanji-data.json"))
     ext |= {v: ext[c] for v, c in VARIANTS.items() if c in ext}
-    names = ["log10 frequency", "ln(1 + common words)", "strokes", "kentei level"]
-    X = np.array([[-sum(math.log10(f(c, fr)) for fr in corpora) / 3, math.log1p(in_words[c] + in_words[VARIANTS.get(c, "")]),
-                   kd[c]["strokes"], 11 - kanken[c]] for c in joyo])
-    # missing from a list = beyond its last level
-    jlpt = normal_score([6 - (ext.get(c, {}).get("jlpt_new") or 0) for c in joyo])
-    wk = normal_score([ext.get(c, {}).get("wk_level") or 61 for c in joyo])
+    new = np.array([kanken[c] == 2 for c in joyo])
+    names = ["log10 frequency", "strokes", "kentei level", "added in 2010"]
+    X = np.array([[-math.log10(max(freq.get(c, 0), 1e-9)), kd[c]["strokes"], 0 if n else 11 - kanken[c], n] for c, n in zip(joyo, new)])
+    jlpt = [ext.get(c, {}).get("jlpt_new") for c in joyo]
+    has = np.array([bool(j) or not n for j, n in zip(jlpt, new)])
+    js = np.full(len(joyo), np.nan)
+    js[has] = normal_score([6 - (j or 0) for j, h in zip(jlpt, has) if h])  # missing from a list = beyond its last level
+    wk = np.array(normal_score([ext.get(c, {}).get("wk_level") or 61 for c in joyo]))
     A = np.c_[X, np.ones(len(joyo))]
-    w, *_ = np.linalg.lstsq(A, (np.array(jlpt) + np.array(wk)) / 2, rcond=None)
-    score = A @ w
-    rank = {joyo[i]: r for r, i in enumerate(np.argsort(score, kind="stable"))}
+    w, *_ = np.linalg.lstsq(A, np.where(has, (np.nan_to_num(js) + wk) / 2, wk), rcond=None)
+    rank = {joyo[i]: r for r, i in enumerate(np.argsort(A @ w, kind="stable"))}
+    by_freq = {c: r for r, c in enumerate(sorted(joyo, key=lambda c: -freq.get(c, 0)))}
     weights = {n: float(v / w[0]) for n, v in zip(names, w[:-1])}  # in decades of frequency
 
-    # each official list as a sea of known kanji in the ranks: where its edge is (μ) and how blurred (T),
+    # each official list as a sea of known kanji in the curriculum ranks: where its edge is (μ) and how blurred (T),
     # p = Φ((μ − rank) / T), by maximum likelihood on a grid refined around the best point
     E = np.array([rank[c] for c in joyo], float)
     lists = [(f"JLPT N{n}", [c for c in joyo if (ext.get(c, {}).get("jlpt_new") or 0) >= n]) for n in (5, 4, 3, 2, 1)]
@@ -150,7 +158,7 @@ def difficulty(joyo: list[str], words: list[dict], kd: dict) -> tuple[dict[str, 
             dm, dt = dm / 2, dt / 2
         official.append({"name": name, "n": len(inside), "mu": round(mu), "T": round(T)})
     official.sort(key=lambda o: o["n"])
-    return rank, {c: kanken[c] for c in joyo}, {"weights": weights, "official": official}
+    return rank, by_freq, {c: kanken[c] for c in joyo}, {"weights": weights, "official": official}
 
 
 def load_components() -> dict[str, dict]:
@@ -422,7 +430,9 @@ def load_stories() -> dict[str, dict]:
 def main() -> None:
     fetch()
     kd = load_kanjidic()
-    freq, total = load_frequency()
+    from wordfreq import get_frequency_dict
+    wf = get_frequency_dict("ja")
+    freq = char_frequency(wf)
     comp_names = load_components()
     stories = load_stories()
     written = load_written()
@@ -489,14 +499,12 @@ def main() -> None:
     export_llm_input(order, kanji, components, candidate_words(joyo_set), kd)
 
     # card content as written (data/llm), plus counts; see data/llm/INSTRUCTIONS.md
-    from wordfreq import get_frequency_dict
-    wf = get_frequency_dict("ja")
     unwritten = [ch for ch in joyo if ch not in written]
     assert not unwritten, f"kanji without written content: {''.join(unwritten)}"
     for ch in joyo:
         kanji[ch] |= written_card(written[ch], wf)
     common = load_words()
-    rank, kanken, levels = difficulty(joyo, common, kd)
+    rank, by_freq, kanken, levels = difficulty(joyo, freq, kd)
     # use: how much of common vocabulary is written with the kanji, per million words (names do not count,
     # unlike in character counts, where 藤 and 阪 rank high)
     use = Counter()
@@ -504,7 +512,7 @@ def main() -> None:
         for c in set(w["w"]):
             use[c] += wf.get(w["w"], 0)
     for ch in joyo:
-        kanji[ch] |= {"level": rank[ch], "kanken": kanken[ch], "use": round((use[ch] + use[VARIANTS.get(ch, "")]) * 1e6, 2)}
+        kanji[ch] |= {"level": rank[ch], "flevel": by_freq[ch], "kanken": kanken[ch], "use": round((use[ch] + use[VARIANTS.get(ch, "")]) * 1e6, 2)}
     for el, c in components.items():
         if el in stories and el not in kanji:
             c |= {k: v for k, v in stories[el].items() if k != "keyword"}
@@ -527,7 +535,6 @@ def main() -> None:
         "families": fams,
         "curves": curves,
         "levels": levels,
-        "total": total,
     }, ensure_ascii=False, separators=(",", ":")))
 
     # every common word written with jōyō kanji, for looking words up in the reader: [word, reading, gloss]
@@ -535,7 +542,7 @@ def main() -> None:
                       if all(c in joyo_set or not is_kanji(c) or c == "々" for c in w["w"])}.values())
     app.joinpath("words.json").write_text(json.dumps(lexicon, ensure_ascii=False, separators=(",", ":")))
 
-    report(kd, freq, total, joyo, joyo_set, trees, components, orders, fams, unnamed, missing, levels)
+    report(kd, freq, joyo, joyo_set, trees, components, orders, fams, unnamed, missing, levels)
 
 
 def tree_lines(t: dict, components: dict, kd: dict, prefix: str = "", last: bool = True, top: bool = True) -> list[str]:
@@ -546,7 +553,7 @@ def tree_lines(t: dict, components: dict, kd: dict, prefix: str = "", last: bool
     return [line] + [l for i, k in enumerate(t["kids"]) for l in tree_lines(k, components, kd, sub, i == len(t["kids"]) - 1, False)]
 
 
-def report(kd, freq, total, joyo, joyo_set, trees, components, orders, fams, unnamed, missing, levels) -> None:
+def report(kd, freq, joyo, joyo_set, trees, components, orders, fams, unnamed, missing, levels) -> None:
     gloss = lambda el: components.get(el, {}).get("meaning", "?")
     L = []
     p = L.append
@@ -555,7 +562,7 @@ def report(kd, freq, total, joyo, joyo_set, trees, components, orders, fams, unn
     p("Generated by `scripts/build_data.py`; do not edit.\n")
     p(f"- {len(joyo)} jōyō kanji with KanjiVG trees" + (f" ({len(missing)} without: {''.join(missing)})" if missing else ""))
     p(f"- {len(components)} distinct components in those trees, {sum(1 for c in components.values() if not c['joyo'])} of them not jōyō kanji themselves")
-    p(f"- Text: {total:,} kanji from Japanese Wikipedia; jōyō covers {all_cov:.1%} of them\n")
+    p(f"- Text: kanji as written in all of wordfreq's Japanese (subtitles, web, news, books, Wikipedia); jōyō covers {all_cov:.1%} of them\n")
 
     p("## Sums and trees\n")
     p("A kanji is a sum of its direct parts; each part may be a sum again.\n")
@@ -576,7 +583,7 @@ def report(kd, freq, total, joyo, joyo_set, trees, components, orders, fams, unn
 
     p("## Learning order: coverage per item learned\n")
     p("An item is a kanji or a component. Each order learns a kanji right after the components it still needs. "
-      "Coverage is the share of all kanji in Wikipedia text that you can read.\n")
+      "Coverage is the share of all kanji in text that you can read.\n")
     marks = [100, 250, 500, 1000, 2000]
     p("| order | " + " | ".join(f"after {m}" for m in marks) + " | items for 50% | 80% | 90% | total items |")
     p("|---|" + "--:|" * (len(marks) + 4))
@@ -590,7 +597,7 @@ def report(kd, freq, total, joyo, joyo_set, trees, components, orders, fams, unn
     p(" ".join(orders["simple first"][:60]) + "\n")
 
     p("## How hard a kanji is\n")
-    p("Fitted to JLPT and WaniKani levels; weights in decades of frequency (one unit = 10× rarer):\n")
+    p("Curriculum order, fitted to JLPT and WaniKani levels; weights in decades of frequency (one unit = 10× rarer):\n")
     for n, v in levels["weights"].items():
         p(f"- {n}: {v:+.3f}")
     p("\nOfficial lists as a blurred edge in the difficulty rank (p = Φ((μ − rank)/T)):\n")

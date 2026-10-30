@@ -17,6 +17,8 @@ export type Kanji = {
   grade: number
   /** difficulty rank: 0 is the kanji learners know first */
   level: number
+  /** rank by how often it is written: 0 is the most frequent */
+  flevel: number
   kanken: number
   /** uses per million words of the common words written with it */
   use: number
@@ -49,7 +51,6 @@ type Data = {
   curves: Record<string, number[]>
   /** weights of the difficulty fit, in decades of frequency; official lists as Fermi edges in the difficulty rank */
   levels: { weights: Record<string, number>; official: { name: string; n: number; mu: number; T: number }[] }
-  total: number
 }
 
 export const D = raw as unknown as Data

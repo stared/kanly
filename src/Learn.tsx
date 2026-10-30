@@ -1,8 +1,9 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { KANJI, ORDER, elements, gloss } from './data'
 import { knewIt, learn, type Store } from './srs'
-import { LEVELS, mu, pKnown, startAt, temp, update, upcoming } from './levels'
+import { LEVELS, pOf, startAt, update, upcoming } from './levels'
 import { Card, Glyph } from './Card'
+import { Quiz, Verdict, type Result } from './Quiz'
 
 /** Share of kanji in running text that are among the given items. */
 export const coverage = (ids: Iterable<string>) => [...ids].reduce((a, id) => a + (KANJI[id]?.freq ?? 0), 0)
@@ -13,13 +14,17 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
   // a part (or a rare kanji) taught early because a kanji coming up needs it: 干 before 年
   const why = next && left.slice(1).find(el => KANJI[el] && elements(KANJI[el].tree).has(next) && (!KANJI[next] || KANJI[el].freq > KANJI[next].freq * 3))
 
-  const done = () => setStore(learn(store, next, now, KANJI[next] ? update(store, next, false) : {}))
-  const knew = () => setStore(knewIt(store, next, now, KANJI[next] ? update(store, next, true) : {}, pKnown(next, mu(store), temp(store))))
+  const [answered, setAnswered] = useState<Result & { el: string } | null>(null)
+  const res = answered?.el === next ? answered : null
+  // right on both meaning and reading: known before, checked again in a few weeks; otherwise a new card
+  const commit = () => {
+    const knew = !!res?.meaning && !!res.reading
+    const fit = KANJI[next] ? update(store, next, knew) : {}
+    setStore(knew ? knewIt(store, next, now, fit, pOf(store, next)) : learn(store, next, now, fit))
+  }
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
-      if (!next || e.target instanceof HTMLTextAreaElement) return
-      if (e.key === 'Enter') done()
-      if (e.key === 'k') knew()
+      if (next && (res || !KANJI[next]) && e.key === 'Enter') commit()
     }
     addEventListener('keydown', k)
     return () => removeEventListener('keydown', k)
@@ -38,17 +43,21 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
           </div>
         ))}
       </div>
-      <p className="sub small">A starting guess. On each card, “I know it” skips the kanji (it comes back once, in a few weeks, to check) and “new to me” adds it to your reviews; both refine the guess.</p>
+      <p className="sub small">A starting guess. Each kanji is then a quiz: its meaning among four, then its reading among four.
+        Both right, and it counts as known (it comes back once, in a few weeks, to check); otherwise it joins your reviews.
+        Every answer refines the guess.</p>
     </div>
   )
   if (!next) return <div className="empty">All {ORDER.length} items learned.</div>
   return (
     <div className="learn">
       {why && <p className="why">Here as a part of {why}, coming {left.indexOf(why) === 1 ? 'next' : 'soon'}.</p>}
-      <Card el={next} store={store} open={open} autoSpeak={autoSpeak} />
+      {KANJI[next] && !res ? <Quiz key={next} el={next} onDone={r => setAnswered({ ...r, el: next })} /> : <>
+        {res && <Verdict el={next} r={res} />}
+        <Card el={next} store={store} open={open} autoSpeak={autoSpeak} />
+      </>}
       <div className="actions">
-        <button className="next quiet" onClick={knew} title="skip it: it comes back once, in a few weeks, to check">I know it <span className="key">K</span></button>
-        <button className="next" onClick={done} title="learn it: first review in a minute">new to me <span className="key">↵</span></button>
+        {(res || !KANJI[next]) && <button className="next" onClick={commit}>{res?.meaning && res.reading ? 'knew it, next' : 'learn it, next'} <span className="key">↵</span></button>}
         <span className="upcoming">then {left.slice(1, 9).map(el => <span key={el} title={gloss(el)} className={KANJI[el] ? '' : 'partish'}><Glyph el={el} /></span>)}</span>
       </div>
     </div>

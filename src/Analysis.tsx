@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { COMP, D, KANJI, gloss, kata } from './data'
 import type { Store } from './srs'
 import { coverage } from './Learn'
-import { BEGINNER, Phi, mu, temp } from './levels'
+import { BEGINNER, Phi, byLevel, lam, levelOf, mu, temp } from './levels'
 
 const SERIES = [
   { key: 'simple first', label: 'simple first (used here)', cls: 's1' },
@@ -53,11 +53,10 @@ function CoverageChart({ learned, cov }: { learned: number; cov: number }) {
   )
 }
 
-const BY_LEVEL = Object.keys(KANJI).sort((a, b) => KANJI[a].level - KANJI[b].level)
-
 /** Probability of knowing a kanji against its difficulty rank: the learner's fitted Fermi edge and their answers. */
 function LevelChart({ store }: { store: Store }) {
   const [hover, setHover] = useState<number | null>(null)
+  const BY_LEVEL = byLevel(lam(store))
   const n = BY_LEVEL.length, m = mu(store), t = temp(store)
   const x = (r: number) => P.l + (r / n) * (W - P.l - P.r)
   const y = (v: number) => H - P.b - v * (H - P.t - P.b)
@@ -66,7 +65,7 @@ function LevelChart({ store }: { store: Store }) {
   // answers in bins of 100 ranks: share known, dot area by count
   const bins = new Map<number, [number, number]>()
   for (const [ch, k] of store.answers ?? []) {
-    const b = Math.floor(KANJI[ch].level / 100)
+    const b = Math.floor(levelOf(ch, lam(store)) / 100)
     const [a, c] = bins.get(b) ?? [0, 0]
     bins.set(b, [a + k, c + 1])
   }
@@ -123,14 +122,16 @@ export function Analysis({ store }: { store: Store }) {
           You knew about {r10(mu(store))} kanji before starting: nearly all of the {r10(mu(store) - 1.28 * temp(store))} easiest,
           few beyond the {r10(mu(store) + 1.28 * temp(store))}th. Kanji at your edge:
         </p>}
-        {mu(store) > BEGINNER && <p className="edge jp">{BY_LEVEL.slice(Math.max(0, Math.round(mu(store)) - 6), Math.round(mu(store)) + 6).join('')}</p>}
+        {mu(store) > BEGINNER && <p className="edge jp">{byLevel(lam(store)).slice(Math.max(0, Math.round(mu(store)) - 6), Math.round(mu(store)) + 6).join('')}</p>}
         <details>
           <summary>how this works</summary>
           <p>
-            Every kanji has a difficulty rank, from a score fitted to the order JLPT and WaniKani teach in:
-            one kentei level counts as much as text frequency {fmt(10 ** D.levels.weights['kentei level'])}× lower,
-            and each stroke as {fmt(10 ** D.levels.weights['strokes'])}× lower; being in more common words counts the other way.
-            Your knowledge is modelled as a step at an edge μ in that rank, blurred by T, refitted after every answer.
+            Kanji have two difficulty orders. By frequency: how often each is written, counted wherever it appears.
+            By curriculum: a score fitted to the order JLPT and WaniKani teach in, where one kentei level counts as much as
+            text frequency {fmt(10 ** D.levels.weights['kentei level'])}× lower and each stroke as {fmt(10 ** D.levels.weights['strokes'])}× lower.
+            The two disagree most on everyday kanji added to the jōyō list in 2010, such as 俺 and 誰: met early, taught late.
+            Your order is a mix of the two, {Math.round(lam(store) * 100)}% frequency for you, and your knowledge a step at an edge μ in it, blurred by T;
+            all three are refitted after every quiz answer, allowing for a lucky guess (1 in 16) or a slip.
             The next kanji is the most useful one per effort: likely new to you, used in many common words, cheap given the parts you know.
             The table gives each official list as such an edge.
           </p>

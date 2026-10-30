@@ -311,3 +311,17 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
 .analysis summary { cursor: pointer; }
 .edge { font: 22px/1.6 var(--jp); letter-spacing: 4px; }
 .settings .num { width: 80px; font: inherit; color: inherit; background: var(--paper); border: 1px solid var(--faint); border-radius: 6px; padding: 4px 8px; }
+
+/* quiz: a meaning among 4, then a reading among 4 */
+.quiz { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.quiz .prompt { margin-top: 3vh; }
+.choices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: min(560px, 100%); }
+.choice { display: flex; align-items: baseline; gap: 10px; padding: 12px 16px; border: 1px solid var(--faint); border-radius: 10px; font-size: 17px; text-align: left; }
+.choice:hover { border-color: var(--ink); }
+.choice .key { margin: 0; }
+.choice .rd { margin-right: 10px; }
+.verdict { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; font-size: 14px; }
+.verdict .ok { color: var(--good); }
+.verdict .no { color: var(--accent); }
+.verdict .rd { margin-left: 6px; }
+@media (max-width: 520px) { .choices { grid-template-columns: 1fr; } }

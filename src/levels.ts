@@ -53,8 +53,23 @@ export const BREADTH: { label: string; tau: number }[] = [
   { label: 'very varied, 25% slower', tau: 1 },
 ]
 
-/** Difficulty of anything learnable: a part is as hard as the easiest kanji using it. */
-const LEVEL = new Map<string, number>(ORDER.map(el => [el, KANJI[el]?.level ?? Math.min(...(COMP[el]?.usedIn ?? []).map(c => KANJI[c]?.level ?? Infinity))]))
+/** Two orders of difficulty, both ranks: by curriculum (`level`, what courses teach first) and by frequency
+ * (`flevel`, what reading meets first: 俺 and 誰 are taught late but met early). A learner's order is a mix,
+ * λ = 0 the curriculum, 1 frequency, fitted from her answers with μ and T. Ranks keep μ the number known for any λ. */
+export const LAMBDAS = [0, 0.25, 0.5, 0.75, 1]
+export const LAMBDA = 0.5
+const BY = LAMBDAS.map(l => Object.keys(KANJI).sort((a, b) =>
+  (1 - l) * KANJI[a].level + l * KANJI[a].flevel - (1 - l) * KANJI[b].level - l * KANJI[b].flevel || KANJI[a].level - KANJI[b].level))
+/** Difficulty of anything learnable, per λ: a part is as hard as the easiest kanji using it. */
+const LEVEL = BY.map(order => {
+  const at = new Map(order.map((c, i) => [c, i]))
+  return new Map<string, number>(ORDER.map(el => [el, at.get(el) ?? Math.min(...(COMP[el]?.usedIn ?? []).map(c => at.get(c) ?? Infinity))]))
+})
+const li = (lam: number) => LAMBDAS.reduce((b, l, i) => Math.abs(l - lam) < Math.abs(LAMBDAS[b] - lam) ? i : b, 0)
+/** Kanji from easiest to hardest, for a mix λ. */
+export const byLevel = (lam = LAMBDA) => BY[li(lam)]
+export const levelOf = (el: string, lam = LAMBDA) => LEVEL[li(lam)].get(el) ?? Infinity
+
 /** ln Φ(z), the log of the standard normal CDF, accurate in the far left tail (erfc as in Numerical Recipes). */
 export function logPhi(z: number): number {
   const x = -z / Math.SQRT2, t = 1 / (1 + 0.5 * Math.abs(x))
@@ -63,7 +78,7 @@ export function logPhi(z: number): number {
   return x >= 0 ? ln - Math.LN2 : Math.log1p(-Math.exp(ln) / 2)
 }
 export const Phi = (z: number) => Math.exp(logPhi(z))
-export const pKnown = (el: string, mu: number, t = T) => Phi((mu - (LEVEL.get(el) ?? Infinity)) / t)
+export const pKnown = (el: string, mu: number, t = T, lam = LAMBDA) => Phi((mu - levelOf(el, lam)) / t)
 
 /** Fixed noise per kanji, the same every visit, so the upcoming list does not jump around. */
 const gumbel = (el: string, seed: number) => {
@@ -84,22 +99,25 @@ const walk = (t: Tree, out: Set<string>) => { out.add(t.el); t.kids.forEach(k =>
 
 export const mu = (s: Store) => s.mu ?? BEGINNER
 export const temp = (s: Store) => s.T ?? T
+export const lam = (s: Store) => s.lam ?? LAMBDA
+/** p(known) for this learner. */
+export const pOf = (s: Store, el: string) => pKnown(el, mu(s), temp(s), lam(s))
 
 /** The next few items to learn: a kanji, preceded by the parts it needs that are likely new. */
 export function upcoming(s: Store, tau: number, n = 9): string[] {
-  const m = mu(s), t = temp(s)
+  const m = mu(s), t = temp(s), l = lam(s)
   const seen = new Set(Object.keys(s.cards))
   const shapes = new Set<string>()
   seen.forEach(id => KANJI[id] ? walk(KANJI[id].tree, shapes) : shapes.add(id))
-  const known = (el: string) => shapes.has(el) || pKnown(el, m, t) >= 0.5
+  const known = (el: string) => shapes.has(el) || pKnown(el, m, t, l) >= 0.5
   const out: string[] = []
   while (out.length < n) {
     let best = '', top = -Infinity
     for (const [ch, k] of Object.entries(KANJI)) {
       if (seen.has(ch)) continue
       // very likely known: not worth a card, however useful (an N2 learner is never asked about 時)
-      if (pKnown(ch, m, t) > SURE) continue
-      const p = pKnown(ch, m, t)
+      const p = pKnown(ch, m, t, l)
+      if (p > SURE) continue
       const w = Math.log((1 - p) * (k.use + 1e-3) + 1e-30) - Math.log((1 - p) * cost(k.tree, known) ** ALPHA + p * RHO) + tau * gumbel(ch, s.seed ?? 0)
       if (w > top) { top = w; best = ch }
     }
@@ -117,20 +135,29 @@ export function upcoming(s: Store, tau: number, n = 9): string[] {
 
 const MUS = Array.from({ length: 241 }, (_, i) => -1600 + 20 * i)
 const TS = [50, 70, 100, 150, 230, 340, 500, 700]  // wider would let a few careless answers blur everything
+/** A quiz answered right without knowing the kanji: a guess among 4 meanings, then among 4 readings; and a slip. */
+export const GUESS = 1 / 16, SLIP = 0.03
 
-/** Posterior mean of μ and T (T as a geometric mean), on the grid MUS × TS. */
-export function posterior(start: { mu: number; T: number }, answers: [string, 0 | 1][]): { mu: number; T: number } {
-  const lp = MUS.map(m => TS.map(t => -(((m - start.mu) / 400) ** 2) / 2 - (Math.log(t / start.T) / Math.log(2)) ** 2 / 2))
+/** Posterior over (λ, μ, T) given the answers: λ the most probable mix, μ and T its posterior means (T geometric). */
+export function posterior(start: { mu: number; T: number }, answers: [string, 0 | 1][]): { mu: number; T: number; lam: number } {
+  const lp = LAMBDAS.map(() => MUS.map(m => TS.map(t => -(((m - start.mu) / 400) ** 2) / 2 - (Math.log(t / start.T) / Math.log(2)) ** 2 / 2)))
   for (const [ch, y] of answers) {
-    const e = KANJI[ch].level
-    MUS.forEach((m, i) => TS.forEach((t, j) => {
-      lp[i][j] += logPhi((y ? 1 : -1) * (m - e) / t)
-    }))
+    LAMBDAS.forEach((l, a) => {
+      const e = levelOf(ch, l)
+      MUS.forEach((m, i) => TS.forEach((t, j) => {
+        const right = Phi((m - e) / t) * (1 - SLIP - GUESS) + GUESS
+        lp[a][i][j] += Math.log(y ? right : 1 - right)
+      }))
+    })
   }
-  const top = Math.max(...lp.flat())
-  let w = 0, m = 0, lt = 0
-  MUS.forEach((mu, i) => TS.forEach((t, j) => { const q = Math.exp(lp[i][j] - top); w += q; m += q * mu; lt += q * Math.log(t) }))
-  return { mu: m / w, T: Math.exp(lt / w) }
+  const top = Math.max(...lp.flat(2))
+  const fits = lp.map(g => {
+    let w = 0, m = 0, lt = 0
+    MUS.forEach((mu, i) => TS.forEach((t, j) => { const q = Math.exp(g[i][j] - top); w += q; m += q * mu; lt += q * Math.log(t) }))
+    return { w, mu: m / w, T: Math.exp(lt / w) }
+  })
+  const a = fits.reduce((b, f, i) => f.w > fits[b].w ? i : b, 0)
+  return { mu: fits[a].mu, T: fits[a].T, lam: answers.length ? LAMBDAS[a] : LAMBDA }
 }
 
 export const start = (s: Store) => s.start ?? { mu: BEGINNER, T }
@@ -139,15 +166,15 @@ export const start = (s: Store) => s.start ?? { mu: BEGINNER, T }
 export const startAt = (s: Store, l: { mu: number; T: number }): Store => {
   // a list is blurrier than a person who passed it (N2: T = 412), so start sharper and let answers widen it
   const st = { mu: l.mu, T: Math.min(l.T, 200) }
-  return { ...s, start: st, ...(s.answers?.length ? posterior(st, s.answers) : st) }
+  return { ...s, start: st, ...(s.answers?.length ? posterior(st, s.answers) : { ...st, lam: undefined }) }
 }
 
 /** After an answer about a kanji: the new posterior. */
-export function update(s: Store, el: string, knewIt: boolean): Pick<Store, 'mu' | 'T' | 'answers'> {
+export function update(s: Store, el: string, knewIt: boolean): Pick<Store, 'mu' | 'T' | 'lam' | 'answers'> {
   const answers: [string, 0 | 1][] = [...(s.answers ?? []), [el, knewIt ? 1 : 0]]
   return { ...posterior(start(s), answers), answers }
 }
 
 /** Share of kanji in text the learner reads: what they have seen, plus what they likely knew before. */
 export const reach = (s: Store) =>
-  Object.entries(KANJI).reduce((a, [ch, k]) => a + k.freq * (s.cards[ch] ? 1 : pKnown(ch, mu(s), temp(s))), 0)
+  Object.entries(KANJI).reduce((a, [ch, k]) => a + k.freq * (s.cards[ch] ? 1 : pOf(s, ch)), 0)

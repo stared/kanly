@@ -1,11 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import { COMP, KANJI, ORDER, gloss, hira } from './data'
 import { status, type Store } from './srs'
-import { BEGINNER, mu, pKnown, temp } from './levels'
+import { BEGINNER, byLevel as order, lam, mu, pOf } from './levels'
 import { Card, Glyph } from './Card'
 
 type Filter = 'all' | 'kanji' | 'parts' | 'mine'
-const BY_LEVEL = Object.keys(KANJI).sort((a, b) => KANJI[a].level - KANJI[b].level)
 
 /** Matches a character, a keyword or meaning, or a reading in kana. */
 function matches(el: string, q: string) {
@@ -24,10 +23,9 @@ export function Browse({ store, open }: { store: Store; open: (el: string) => vo
   const [byLevel, setByLevel] = useState(() => mu(store) > BEGINNER)
   const [sel, setSel] = useState(() => decodeURIComponent(location.hash.split('/')[1] ?? '') || ORDER[0])
   useEffect(() => { history.replaceState(null, '', '#kanji/' + sel) }, [sel])
-  const list = useMemo(() => (byLevel ? BY_LEVEL : ORDER).filter(el =>
+  const list = useMemo(() => (byLevel ? order(lam(store)) : ORDER).filter(el =>
     (filter === 'all' || (filter === 'kanji' ? !!KANJI[el] : filter === 'parts' ? !KANJI[el] : !!store.cards[el])) && matches(el, q.trim())
   ), [q, filter, store, byLevel])
-  const m = mu(store), t = temp(store)
 
   return (
     <div className="browse">
@@ -42,7 +40,7 @@ export function Browse({ store, open }: { store: Store; open: (el: string) => vo
         <div className="cells">
           {list.slice(0, byLevel ? 2200 : 600).map(el => (
             <button key={el} className={'cell ' + status(store, el) + (KANJI[el] ? '' : ' part') + (el === sel ? ' sel' : '')} onClick={() => setSel(el)} title={gloss(el)}
-              style={byLevel && !store.cards[el] ? { '--p': pKnown(el, m, t) } as React.CSSProperties : undefined}>
+              style={byLevel && !store.cards[el] ? { '--p': pOf(store, el) } as React.CSSProperties : undefined}>
               <Glyph el={el} />
             </button>
           ))}

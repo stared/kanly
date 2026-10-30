@@ -75,7 +75,7 @@ export function Story({ el }: { el: string; t?: Tree }) {
 }
 
 const bare = (r: string) => r.replace(/^-|-$/g, '')
-const fmtKun = (r: string) => {
+export const fmtKun = (r: string) => {
   const [stem, oku] = bare(r).split('.')
   return <>{stem}{oku && <span className="oku">{oku}</span>}</>
 }

@@ -5,9 +5,9 @@ const STEPS = [1, 10]
 export type Card = { id: string; due: number; step: number; ivl: number; ease: number; reps: number; lapses: number }
 export type LogEntry = { t: number; id: string; ok: boolean }
 /** start: the level picked; mu, T: how many kanji were known before and how blurred that frontier is, fitted to answers (src/levels.ts);
- * tau: how wide the choice of the next kanji is. */
-export type Store = { cards: Record<string, Card>; log: LogEntry[]; start?: { mu: number; T: number }; mu?: number; T?: number; answers?: [string, 0 | 1][]; tau?: number; seed?: number }
-type Fit = Partial<Pick<Store, 'mu' | 'T' | 'answers'>>
+ * lam: how much their order follows frequency rather than courses; tau: how wide the choice of the next kanji is. */
+export type Store = { cards: Record<string, Card>; log: LogEntry[]; start?: { mu: number; T: number }; mu?: number; T?: number; lam?: number; answers?: [string, 0 | 1][]; tau?: number; seed?: number }
+type Fit = Partial<Pick<Store, 'mu' | 'T' | 'lam' | 'answers'>>
 
 const KEY = 'kanly/v1'
 

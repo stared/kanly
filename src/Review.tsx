@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { KANJI, gloss } from './data'
 import { answer, DAY, MIN, type Store } from './srs'
 import { Glyph, Parts, Readings, Story, treeOf } from './Card'
+import { Quiz, Verdict, type Result } from './Quiz'
 import { speak, spoken } from './speech'
 
 export const dueIds = (s: Store, now: number) =>
@@ -13,12 +14,17 @@ export function Review({ store, setStore, open, now, autoSpeak }: { store: Store
   const due = dueIds(store, now)
   const [shown, setShown] = useState(false)
   const id = due[0]
+  // a kanji is quizzed (meaning among 4, then reading among 4) and passes only with both right; a part is self-graded
+  const [quizzed, setQuizzed] = useState<Result & { id: string } | null>(null)
+  const res = quizzed?.id === id ? quizzed : null
+  const passed = !!res?.meaning && !!res.reading
 
   const grade = (ok: boolean) => { setStore(answer(store, id, ok, Date.now())); setShown(false) }
-  useEffect(() => { if (shown && autoSpeak && id) speak(spoken(id)) }, [shown, id])
+  useEffect(() => { if ((shown || res) && autoSpeak && id) speak(spoken(id)) }, [shown, id, !!res])
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
       if (!id) return
+      if (KANJI[id]) { if (res && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); grade(passed) } return }
       if (!shown && (e.key === ' ' || e.key === 'Enter')) { e.preventDefault(); setShown(true) }
       else if (shown && (e.key === '1' || e.key === 'ArrowLeft')) grade(false)
       else if (shown && (e.key === '2' || e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter')) { e.preventDefault(); grade(true) }
@@ -39,6 +45,28 @@ export function Review({ store, setStore, open, now, autoSpeak }: { store: Store
 
   const k = KANJI[id]
   const t = treeOf(id)
+  if (k && !res) return (
+    <div className="review">
+      <p className="progress">{due.length} due.</p>
+      <Quiz key={id} el={id} unknown="forgot" onDone={r => setQuizzed({ ...r, id })} />
+    </div>
+  )
+  if (k && res) return (
+    <div className="review">
+      <p className="progress">{due.length} due.</p>
+      <div className="prompt"><Glyph el={id} /></div>
+      <Verdict el={id} r={res} />
+      <div className="back">
+        <h2>{gloss(id)}</h2>
+        {t && <Parts t={t} store={store} open={open} />}
+        <Story el={id} />
+        <Readings ch={id} />
+        <div className="grade">
+          <button className={'next ' + (passed ? 'good' : 'bad')} onClick={() => grade(passed)}>{passed ? 'next' : 'again soon, next'} <span className="key">↵</span></button>
+        </div>
+      </div>
+    </div>
+  )
   return (
     <div className="review">
       <p className="progress">{due.length} due. Recall the meaning{k ? ' and a reading' : ''}.</p>
