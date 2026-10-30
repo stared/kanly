@@ -310,3 +310,4 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
 .analysis details { margin: 8px 0 16px; color: var(--muted); }
 .analysis summary { cursor: pointer; }
 .edge { font: 22px/1.6 var(--jp); letter-spacing: 4px; }
+.settings .num { width: 80px; font: inherit; color: inherit; background: var(--paper); border: 1px solid var(--faint); border-radius: 6px; padding: 4px 8px; }
