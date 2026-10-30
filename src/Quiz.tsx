@@ -53,10 +53,12 @@ export function readingOptions(ch: string): string[] {
   return shuffle(out)
 }
 
+const fmtReading = (r: string) => isOn(r) ? r : fmtKun(r)
+
 /** How a kanji sounds: its main readings with their share of use. */
-export function Profile({ ch, stacked }: { ch: string; stacked?: boolean }) {
+export function Profile({ ch, cols }: { ch: string; cols?: boolean }) {
   const rs = KANJI[ch].readings.filter((r, i) => i === 0 || r.share >= 0.05).slice(0, 3)
-  return <span className={stacked ? 'profile stacked' : 'profile'}>{rs.map(({ r, share }) => <span key={r} className="rd">{isOn(r) ? r : fmtKun(r)}{rs.length > 1 && <span className="pct">{Math.round(share * 100)}%</span>}</span>)}</span>
+  return <span className={cols ? 'profile cols' : 'profile'}>{rs.map(({ r, share }) => <span key={r} className="rd">{isOn(r) ? r : fmtKun(r)}{rs.length > 1 && <span className="pct">{Math.round(share * 100)}%</span>}</span>)}</span>
 }
 
 /** Ask the meaning among 4, then the reading among 4; a part is asked its meaning only. */
@@ -90,7 +92,7 @@ export function Quiz({ el, onDone, unknown = 'new to me' }: { el: string; onDone
         {list.map((c, i) => (
           <button key={c} className="choice" onClick={() => pick(c)}>
             <span className="n">{i + 1}</span>
-            {stage === 'meaning' ? <span className="kw">{KANJI[c].keyword}</span> : <Profile ch={c} stacked />}
+            {stage === 'meaning' ? <span className="kw">{KANJI[c].keyword}</span> : <Profile ch={c} cols />}
           </button>
         ))}
         <button className="choice unknown" onClick={() => pick(null)}>
@@ -110,7 +112,7 @@ export function Verdict({ el, r }: { el: string; r: Result }) {
     <p className="verdict">
       {r.meaning ? <span className="ok">meaning right</span> : <span className="no">meaning: you picked “{KANJI[m]?.keyword}”</span>}
       {r.reading === true && <span className="ok">reading right</span>}
-      {r.reading === false && <span className="no">reading: you picked <Profile ch={rd} /></span>}
+      {r.reading === false && <span className="no">reading: you picked {fmtReading(KANJI[rd].readings[0].r)}</span>}
       {r.reading === null && <span className="no">reading skipped</span>}
     </p>
   )

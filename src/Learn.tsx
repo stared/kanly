@@ -52,10 +52,12 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
   return (
     <div className="learn">
       {why && <p className="why">Here as a part of {why}, coming {left.indexOf(why) === 1 ? 'next' : 'soon'}.</p>}
-      {KANJI[next] && !res ? <Quiz key={next} el={next} onDone={r => setAnswered({ ...r, el: next })} /> : <>
-        {res && <Verdict el={next} r={res} />}
-        <Card el={next} store={store} open={open} autoSpeak={autoSpeak} />
-      </>}
+      {KANJI[next] && !res ? <Quiz key={next} el={next} onDone={r => setAnswered({ ...r, el: next })} /> : (
+        <div className="revealed">
+          {res && <Verdict el={next} r={res} />}
+          <Card el={next} store={store} open={open} autoSpeak={autoSpeak} />
+        </div>
+      )}
       <div className="actions">
         {(res || !KANJI[next]) && <button className="next" onClick={commit}>{res?.meaning && res.reading ? 'knew it, next' : 'learn it, next'} <span className="key">↵</span></button>}
         <span className="upcoming">then {left.slice(1, 9).map(el => <span key={el} title={gloss(el)} className={KANJI[el] ? '' : 'partish'}><Glyph el={el} /></span>)}</span>
