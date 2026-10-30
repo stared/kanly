@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { COMP, KANJI, RANK, extraStrokes, gloss, hira, isKanji, kata, lookalikes, soundFamily, type Tree, type Word } from './data'
 import { status, type Store } from './srs'
 import { speak, spoken } from './speech'
+import { Animated, StrokeOrder } from './Strokes'
 
 type Open = (el: string) => void
 
@@ -229,7 +230,7 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
     <article className="card">
       <div className="hero">
         {k && <Popularity ch={el} />}
-        <span className="big"><Glyph el={el} /></span>
+        <Animated key={el} el={el} className="big" />
         <h2>{gloss(el)}</h2>
         {k ? <p className="also">{k.also.join(', ')}</p>
           : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
@@ -238,6 +239,7 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
       </div>
       <div className="side">
         {parts && <section><h3 className="sec">parts</h3><Parts t={t!} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}
+        <StrokeOrder el={el} />
         {words && (
           <section>
             <h3 className="sec">most used words</h3>

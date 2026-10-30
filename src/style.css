@@ -330,3 +330,21 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
 .verdict { display: flex; gap: 2px 18px; justify-content: center; flex-wrap: wrap; font-size: 14px; margin: 0 0 12px; }
 .verdict .ok { color: var(--good); }
 .verdict .no { color: var(--accent); }
+
+/* drawing: the hero kanji is drawn stroke by stroke (KanjiVG), stroke order as frames */
+svg.drawn { width: 220px; height: 220px; padding: 0; cursor: pointer; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+svg.drawn path { stroke-width: 3.4; }
+svg.drawn .ghost { stroke: var(--faint); }
+svg.drawn .ink { stroke: var(--ink); }
+.frames { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.frames li { position: relative; }
+.frames svg { width: 52px; height: 52px; display: block; fill: none; stroke-linecap: round; stroke-linejoin: round;
+  border: 1px solid var(--faint); border-radius: 6px; }
+.frames path { stroke-width: 5; }
+.frames .done { stroke: var(--muted); opacity: .45; }
+.frames .now { stroke: var(--ink); }
+.frames .start { fill: var(--accent); stroke: none; }
+.frames .guide { stroke: var(--faint); stroke-width: .8; stroke-dasharray: 3 3; }
+.frames .n { position: absolute; top: 2px; left: 4px; font: 9px system-ui, sans-serif; color: var(--muted); }
+.sec .count { text-transform: none; letter-spacing: 0; font-weight: 400; margin-left: 6px; }
+@media (max-width: 600px) { svg.drawn { width: 150px; height: 150px; } .frames svg { width: 44px; height: 44px; } }

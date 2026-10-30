@@ -265,6 +265,49 @@ def fix_trees(trees: dict, kvg: dict, kd: dict) -> dict:
     return {ch: own(ch) for ch in trees}
 
 
+def path_box(ds: list[str]) -> tuple[float, float, float, float]:
+    """Bounding box of the points and control points of SVG paths (KanjiVG uses M, C, c, S, s)."""
+    xs, ys = [], []
+    for d in ds:
+        x = y = 0.0
+        for cmd, args in re.findall(r"([MmCcSsLl])([^MmCcSsLl]*)", d):
+            nums = [float(n) for n in re.findall(r"-?\d*\.?\d+(?:e-?\d+)?", args)]
+            step = {"m": 2, "l": 2, "c": 6, "s": 4}[cmd.lower()]
+            for i in range(0, len(nums) - step + 1, step):
+                pts = list(zip(nums[i:i + step:2], nums[i + 1:i + step:2]))
+                if cmd.islower():
+                    pts = [(x + px, y + py) for px, py in pts]
+                xs += [p[0] for p in pts]
+                ys += [p[1] for p in pts]
+                x, y = pts[-1]
+    return min(xs), min(ys), max(xs), max(ys)
+
+
+def load_strokes(wanted: set[str]) -> dict[str, dict]:
+    """How each wanted element is drawn: its strokes as SVG paths in drawing order (KanjiVG's -s1, -s2, …), in a
+    109 × 109 box. A part with no entry of its own (𠂇, 䒑) is taken from the first kanji drawing it whole, with
+    the box around it."""
+    order = lambda ps: [p.get("d") for p in sorted(ps, key=lambda p: int(p.get("id").rsplit("-s", 1)[1]))]
+    out, inside = {}, {}
+    for k in ET.parse(gzip.open(RAW / "kanjivg-20260714.xml.gz")).getroot().iter("kanji"):
+        kid = k.get("id")
+        if "-" in kid:
+            continue
+        ch = chr(int(kid.split("_")[1], 16))
+        if ch in wanted:
+            out[ch] = {"d": order(k.iter("path"))}
+        for g in k.iter("g"):
+            el = g.get(KVG + "element")
+            if el in wanted and el not in inside and not g.get(KVG + "part") and el != ch:
+                inside[el] = order(g.iter("path"))
+    for el, ds in inside.items():
+        if el not in out and ds:
+            x0, y0, x1, y1 = path_box(ds)
+            side = max(x1 - x0, y1 - y0) + 12
+            out[el] = {"d": ds, "box": [round((x0 + x1 - side) / 2, 1), round((y0 + y1 - side) / 2, 1), round(side, 1)]}
+    return out
+
+
 STROKES = {"丿", "丨", "丶", "亅", "乙"}  # single strokes: parts of the tree, but nothing to learn
 
 
@@ -578,12 +621,17 @@ def main() -> None:
         "levels": levels,
     }, ensure_ascii=False, separators=(",", ":")))
 
+    # how each kanji and part is drawn, for the stroke order animation; loaded by the app only when shown
+    strokes = load_strokes(set(order) | set(joyo))
+    app.joinpath("strokes.json").write_text(json.dumps(strokes, ensure_ascii=False, separators=(",", ":")))
+    drawn = {ch: len(strokes[ch]["d"]) if ch in strokes else 0 for ch in joyo}
+
     # every common word written with jōyō kanji, for looking words up in the reader: [word, reading, gloss]
     lexicon = sorted({w["w"]: [w["w"], w["r"], w["g"]] for w in common
                       if all(c in joyo_set or not is_kanji(c) or c == "々" for c in w["w"])}.values())
     app.joinpath("words.json").write_text(json.dumps(lexicon, ensure_ascii=False, separators=(",", ":")))
 
-    report(kd, freq, joyo, joyo_set, trees, components, orders, fams, unnamed, missing, levels)
+    report(kd, freq, joyo, joyo_set, trees, components, orders, fams, unnamed, missing, levels, drawn)
 
 
 def tree_lines(t: dict, components: dict, kd: dict, prefix: str = "", last: bool = True, top: bool = True) -> list[str]:
@@ -594,7 +642,7 @@ def tree_lines(t: dict, components: dict, kd: dict, prefix: str = "", last: bool
     return [line] + [l for i, k in enumerate(t["kids"]) for l in tree_lines(k, components, kd, sub, i == len(t["kids"]) - 1, False)]
 
 
-def report(kd, freq, joyo, joyo_set, trees, components, orders, fams, unnamed, missing, levels) -> None:
+def report(kd, freq, joyo, joyo_set, trees, components, orders, fams, unnamed, missing, levels, drawn) -> None:
     gloss = lambda el: components.get(el, {}).get("meaning", "?")
     L = []
     p = L.append
@@ -604,6 +652,10 @@ def report(kd, freq, joyo, joyo_set, trees, components, orders, fams, unnamed, m
     p(f"- {len(joyo)} jōyō kanji with KanjiVG trees" + (f" ({len(missing)} without: {''.join(missing)})" if missing else ""))
     p(f"- {len(components)} distinct components in those trees, {sum(1 for c in components.values() if not c['joyo'])} of them not jōyō kanji themselves")
     p(f"- Text: kanji as written in all of wordfreq's Japanese (subtitles, web, news, books, Wikipedia); jōyō covers {all_cov:.1%} of them\n")
+
+    off = [c for c in joyo if drawn[c] != kd[c]["strokes"]]
+    p(f"- Strokes drawn (KanjiVG) against counted (KANJIDIC): {len(joyo) - len(off)} of {len(joyo)} agree"
+      + (f"; differ: {', '.join(f'{c} {drawn[c]} vs {kd[c]['strokes']}' for c in off)}" if off else "") + "\n")
 
     p("## Sums and trees\n")
     p("A kanji is a sum of its direct parts; each part may be a sum again.\n")
