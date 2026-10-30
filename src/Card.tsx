@@ -120,7 +120,7 @@ export function Family({ ch, store, open }: { ch: string; store: Store; open: Op
   )
 }
 
-type Tip = { c: string; reading?: string; x: number; y: number }
+type Tip = { c: string; reading?: string; sense?: string; x: number; y: number }
 let showTip: (t: Tip | null) => void = () => {}
 
 /** One floating tooltip for the whole app, placed above whatever kanji is hovered. */
@@ -135,27 +135,31 @@ export function TipLayer() {
   if (!tip) return null
   return (
     <div className="ktip" role="tooltip" style={{ left: tip.x, top: tip.y }}>
-      <b>{tip.c}</b><span className="km">{gloss(tip.c)}</span>{tip.reading && <span className="kr">{tip.reading}</span>}
+      <b>{tip.c}</b>
+      <span className="km">{tip.sense ?? gloss(tip.c)}{tip.sense && tip.sense !== gloss(tip.c) && <span className="kk">{gloss(tip.c)}</span>}</span>
+      {tip.reading && <span className="kr">{tip.reading}</span>}
     </div>
   )
 }
 
-/** A kanji that shows itself, its meaning and (when known) its reading here on hover. */
-export function KanjiTip({ c, reading, className }: { c: string; reading?: string; className?: string }) {
+/** A kanji that shows itself, its meaning (in this word when known: 本 in 日本 is "origin", not "book") and its reading here on hover. */
+export function KanjiTip({ c, reading, sense, className }: { c: string; reading?: string; sense?: string; className?: string }) {
   if (!KANJI[c]) return <span className={className}>{c}</span>
   const enter = (e: React.MouseEvent<HTMLSpanElement>) => {
     const r = e.currentTarget.getBoundingClientRect()
-    showTip({ c, reading, x: r.left + r.width / 2, y: r.top })
+    showTip({ c, reading, sense, x: r.left + r.width / 2, y: r.top })
   }
   return <span className={'kt' + (className ? ' ' + className : '')} onMouseEnter={enter} onMouseLeave={() => showTip(null)}>{c}</span>
 }
 
 function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
+  let n = 0  // which kanji of the word, for its sense here
+  const sense = () => w.senses?.[n++]
   return (
     <li className={dim ? 'dim' : ''}>
       <button className="w" onClick={() => speak(w.r)}>
         {w.furigana.map(([part, r], i) => r
-          ? <ruby key={i} className={part === ch ? 'me' : ''}>{[...part].map((c, j) => <KanjiTip key={j} c={c} reading={w.special ? undefined : r} />)}<rt>{r}</rt></ruby>
+          ? <ruby key={i} className={part === ch ? 'me' : ''}>{[...part].map((c, j) => <KanjiTip key={j} c={c} reading={w.special ? undefined : r} sense={/[\u4e00-\u9fff々]/.test(c) ? sense() : undefined} />)}<rt>{r}</rt></ruby>
           : <span key={i}>{part}</span>)}
       </button>
       <span className="wg">{w.g}{w.lit && <span className="lit">{w.lit}</span>}{w.special && <span className="lit">read as a whole</span>}</span>
@@ -197,7 +201,7 @@ function Popularity({ ch }: { ch: string }) {
   if (!k.freq) return null
   const pct = k.freq * 100
   return (
-    <div className="popular" title="among the 2136 jōyō kanji, by count in Japanese Wikipedia">
+    <div className="popular" title="among the 2136 jōyō kanji, by how often it is written">
       <span>#{RANK.get(ch)}</span>
       <span>{pct >= 0.1 ? pct.toFixed(1) : pct.toFixed(2)}% of text</span>
       <span title="kanji kentei (漢検) level that tests it">{k.kanken === 2.5 ? '準2' : k.kanken}級</span>

@@ -483,11 +483,30 @@ def load_written() -> dict[str, dict]:
     return out
 
 
+SENSES = json.loads((LLM / "senses.json").read_text()) if (LLM / "senses.json").exists() else {}
+
+
+def lit_senses(w: dict) -> list[str] | None:
+    n = sum(1 for c in w["w"] if is_kanji(c))
+    lit = w.get("lit", "").split("-")
+    return lit if w.get("lit") and len(lit) == n else None
+
+
+LITS: dict[str, list[str]] = {}  # the same word written on another kanji's card, with its lit
+
+
+def senses(w: dict) -> list[str] | None:
+    """What each kanji of a word means in it, for the tooltip: its lit (日本 "sun-origin") when that has one part per
+    kanji, else the lit of the same word on another card, else data/llm/senses.json (written for the words without one)."""
+    n = sum(1 for c in w["w"] if is_kanji(c))
+    return lit_senses(w) or LITS.get(w["w"]) or (SENSES.get(w["w"]) if len(SENSES.get(w["w"], [])) == n else None)
+
+
 def written_card(x: dict, wf: dict) -> dict:
     """The written content as the app shows it, plus two counts: how often each word is used (wordfreq),
     and from that, each reading's share of use among the written words."""
     per_m = lambda w: round(wf.get(w, 0) * 1e6, 1)
-    words = [{**w, "f": per_m(w["w"])} for w in x["words"] + x.get("more", [])]
+    words = [{**w, "f": per_m(w["w"]), **({"senses": s} if (s := senses(w)) else {})} for w in x["words"] + x.get("more", [])]
     use = Counter()
     for w in words:  # not the kanji alone: wordfreq's count for 人 includes the 人 split off 日本人
         use[w["reading"]] += w["f"] or 0.1
@@ -585,6 +604,10 @@ def main() -> None:
     # card content as written (data/llm), plus counts; see data/llm/INSTRUCTIONS.md
     unwritten = [ch for ch in joyo if ch not in written]
     assert not unwritten, f"kanji without written content: {''.join(unwritten)}"
+    for x in written.values():
+        for w in x["words"] + x.get("more", []):
+            if (lit := lit_senses(w)):
+                LITS.setdefault(w["w"], lit)
     for ch in joyo:
         kanji[ch] |= written_card(written[ch], wf)
     common = load_words()

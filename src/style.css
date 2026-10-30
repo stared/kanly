@@ -291,6 +291,8 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
   padding: 8px 12px 7px; border-radius: 10px; background: var(--card); box-shadow: 0 4px 18px rgba(0, 0, 0, .14), 0 0 0 1px var(--faint); color: var(--ink); white-space: nowrap; pointer-events: none; }
 .ktip b { font: 34px/1.1 var(--jp); font-weight: 400; }
 .ktip .km { font: 13px system-ui, sans-serif; }
+.ktip .kk { color: var(--muted); margin-left: 6px; }
+.ktip .kk::before { content: '('; } .ktip .kk::after { content: ')'; }
 .ktip .kr { font: 12px var(--jp); color: var(--muted); }
 .kt:hover { color: var(--accent); }
 .settings .field { display: flex; gap: 12px; align-items: baseline; margin: 10px 0; }

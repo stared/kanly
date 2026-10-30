@@ -2,7 +2,8 @@ import raw from './data/kanji.json'
 
 export type Tree = { el: string; strokes: number; phon?: string; radical?: string; kids: Tree[] }
 /** A word as written for the card (data/llm): reading is which of the kanji's readings it uses, or 'special'. */
-export type Word = { w: string; r: string; g: string; lit?: string; special?: boolean; reading: string; furigana: [string, string][]; f: number }
+/** senses: what each kanji of the word means in it, in order (本 in 日本: origin). */
+export type Word = { w: string; r: string; g: string; lit?: string; special?: boolean; reading: string; furigana: [string, string][]; f: number; senses?: string[] }
 export type Reading = { r: string; share: number }
 export type Kanji = {
   keyword: string
