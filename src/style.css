@@ -304,3 +304,5 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
 .start .lists > div:first-child::before { content: 'JLPT'; }
 .start .lists > div:last-child::before { content: 'kanji kentei'; }
 .start .n { color: var(--muted); font-size: 13px; margin-left: 8px; }
+/* unseen kanji by difficulty: ink as dark as the chance it was known before */
+.cell[style*="--p"] { color: color-mix(in srgb, var(--ink) calc(var(--p) * 100%), var(--faint)); }
