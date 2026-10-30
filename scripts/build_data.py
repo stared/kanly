@@ -402,7 +402,7 @@ def written_card(x: dict, wf: dict) -> dict:
     total = sum(c for r, c in use.items() if r != "special") or 1
     return {
         "keyword": x["keyword"], "also": x.get("meanings", []),
-        "readings": [{"r": r, "share": round(use[r] / total, 3)} for r in x["readings"]],
+        "readings": sorted(({"r": r, "share": round(use[r] / total, 3)} for r in x["readings"]), key=lambda r: -r["share"]),  # most used first
         "alone": x.get("alone"), "words": words, "nshown": len(x["words"]),
         **({"story": x["story"], "kind": x.get("kind") or "mnemonic"} if x.get("story") else {}),
         "written": True,

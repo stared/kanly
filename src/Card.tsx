@@ -196,6 +196,7 @@ function Popularity({ ch }: { ch: string }) {
     <div className="popular" title="among the 2136 jōyō kanji, by count in Japanese Wikipedia">
       <span>#{RANK.get(ch)}</span>
       <span>{pct >= 0.1 ? pct.toFixed(1) : pct.toFixed(2)}% of text</span>
+      <span title="kanji kentei (漢検) level that tests it">{k.kanken === 2.5 ? '準2' : k.kanken}級</span>
     </div>
   )
 }
