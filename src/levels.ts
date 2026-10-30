@@ -1,4 +1,4 @@
-import { COMP, KANJI, ORDER, POS, type Tree } from './data'
+import { COMP, D, KANJI, ORDER, POS, type Tree } from './data'
 import type { Store } from './srs'
 
 /*
@@ -31,15 +31,11 @@ export const T = 150
 export const ALPHA = 1
 export const BEGINNER = -3 * T
 
-/** Starting points: how many kanji someone at each official level knows. */
-export const LEVELS: { label: string; mu: number }[] = [
-  { label: 'beginner', mu: BEGINNER },
-  { label: 'JLPT N5, about 80 kanji', mu: 80 },
-  { label: 'JLPT N4, about 250', mu: 250 },
-  { label: 'JLPT N3, about 600', mu: 600 },
-  { label: 'JLPT N2, about 1000', mu: 1000 },
-  { label: 'JLPT N1 or kentei 3級, about 1600', mu: 1600 },
-  { label: 'kentei 準2級, about 1950', mu: 1950 },
+/** Starting points: each official list as a Fermi sea, its edge and blur fitted in build_data.py
+ * (JLPT N3: μ = 600, T = 207; kentei lists are sharper, since kentei level is part of the difficulty). */
+export const LEVELS: { label: string; mu: number; T: number }[] = [
+  { label: 'beginner', mu: BEGINNER, T },
+  ...D.levels.official.map(o => ({ label: `${o.name}, ${o.n} kanji`, mu: o.mu, T: o.T })),
 ]
 export const BREADTH: { label: string; tau: number }[] = [
   { label: 'focused', tau: 0 },

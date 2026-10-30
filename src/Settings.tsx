@@ -22,8 +22,8 @@ export function Settings({ store, onReplace, autoSpeak, setAutoSpeak }: { store:
     <div className="settings">
       <label className="toggle"><input type="checkbox" checked={autoSpeak} onChange={e => setAutoSpeak(e.target.checked)} /> read each new kanji aloud (browser's Japanese voice)</label>
       <label className="field">Start from
-        <select value={LEVELS.reduce((a, l) => Math.abs(l.mu - mu(store)) < Math.abs(a.mu - mu(store)) ? l : a).mu} onChange={e => onReplace({ ...store, mu: +e.target.value })}>
-          {LEVELS.map(l => <option key={l.mu} value={l.mu}>{l.label}</option>)}
+        <select value={LEVELS.indexOf(LEVELS.reduce((a, l) => Math.abs(l.mu - mu(store)) < Math.abs(a.mu - mu(store)) ? l : a))} onChange={e => onReplace({ ...store, mu: LEVELS[+e.target.value].mu, T: LEVELS[+e.target.value].T })}>
+          {LEVELS.map((l, i) => <option key={l.label} value={i}>{l.label}</option>)}
         </select>
       </label>
       <label className="field">Next kanji

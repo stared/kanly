@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { COMP, D, KANJI, gloss, kata } from './data'
 import type { Store } from './srs'
 import { coverage } from './Learn'
+import { BEGINNER, mu, temp } from './levels'
 
 const SERIES = [
   { key: 'simple first', label: 'simple first (used here)', cls: 's1' },
@@ -52,6 +53,51 @@ function CoverageChart({ learned, cov }: { learned: number; cov: number }) {
   )
 }
 
+const BY_LEVEL = Object.keys(KANJI).sort((a, b) => KANJI[a].level - KANJI[b].level)
+
+/** Probability of knowing a kanji against its difficulty rank: the learner's fitted Fermi edge and their answers. */
+function LevelChart({ store }: { store: Store }) {
+  const [hover, setHover] = useState<number | null>(null)
+  const n = BY_LEVEL.length, m = mu(store), t = temp(store)
+  const x = (r: number) => P.l + (r / n) * (W - P.l - P.r)
+  const y = (v: number) => H - P.b - v * (H - P.t - P.b)
+  const p = (r: number) => 1 / (1 + Math.exp((r - m) / t))
+  const curve = Array.from({ length: 108 }, (_, i) => i * 20).map((r, j) => `${j ? 'L' : 'M'}${x(r).toFixed(1)},${y(p(r)).toFixed(1)}`).join('')
+  // answers in bins of 100 ranks: share known, dot area by count
+  const bins = new Map<number, [number, number]>()
+  for (const [ch, k] of store.answers ?? []) {
+    const b = Math.floor(KANJI[ch].level / 100)
+    const [a, c] = bins.get(b) ?? [0, 0]
+    bins.set(b, [a + k, c + 1])
+  }
+  const move = (e: React.MouseEvent<SVGSVGElement>) => {
+    const r = e.currentTarget.getBoundingClientRect()
+    const i = Math.round(((e.clientX - r.left) * (W / r.width) - P.l) / (W - P.l - P.r) * n)
+    setHover(i >= 0 && i < n ? i : null)
+  }
+  return (
+    <figure className="chart">
+      <div className="legend"><span><i className="s1" />chance you knew it before</span>{bins.size > 0 && <span><i className="you" />your answers, per 100</span>}</div>
+      <svg viewBox={`0 0 ${W} ${H}`} onMouseMove={move} onMouseLeave={() => setHover(null)} role="img" aria-label="Chance of knowing a kanji against its difficulty rank">
+        {[0, .5, 1].map(v => <g key={v}><line className="grid" x1={P.l} x2={W - P.r} y1={y(v)} y2={y(v)} /><text className="axis" x={P.l - 6} y={y(v) + 4} textAnchor="end">{v * 100}%</text></g>)}
+        {[0, 500, 1000, 1500, 2000].map(i => <text key={i} className="axis" x={x(i)} y={H - 10} textAnchor="middle">{i}</text>)}
+        <path className="line s1" d={curve} />
+        {[...bins].map(([b, [k, c]]) => <circle key={b} className="you-dot" cx={x(b * 100 + 50)} cy={y(k / c)} r={Math.min(9, 3 + Math.sqrt(c))} />)}
+        {hover !== null && <g><line className="cross" x1={x(hover)} x2={x(hover)} y1={P.t} y2={H - P.b} /><circle className="pt s1" cx={x(hover)} cy={y(p(hover))} r={4} /></g>}
+      </svg>
+      {hover !== null && (
+        <div className="tip" style={{ left: `${(x(hover) / W) * 100}%` }}>
+          <b>#{hover + 1} by difficulty</b>
+          <span className="jp">{BY_LEVEL.slice(Math.max(0, hover - 3), hover + 4).join('')}</span>
+          <span>{Math.round(p(hover) * 100)}% you knew them</span>
+        </div>
+      )}
+      <figcaption className="sub small">Jōyō kanji by difficulty rank, easiest first. Fitted to your answers when there are 10 or more.</figcaption>
+    </figure>
+  )
+}
+
+const fmt = (v: number) => v.toFixed(2)
 const reach = (c: number[], t: number) => c.findIndex(v => v >= t) + 1
 
 export function Analysis({ store }: { store: Store }) {
@@ -73,7 +119,7 @@ export function Analysis({ store }: { store: Store }) {
       <section>
         <h2>What each item buys</h2>
         <p className="lede">
-          Jōyō kanji write {(all * 100).toFixed(1)}% of kanji in text. Kanly teaches the simplest shapes first: the next kanji is the one
+          Jōyō kanji write {(all * 100).toFixed(1)}% of kanji in text. For a beginner, Kanly teaches the simplest shapes first: the next kanji is the one
           that adds the most readable text per new stroke (counting the parts it still needs), with simple shapes weighted extra.
           It reaches half of that in {reach(D.curves['simple first'], all / 2)} items, against {reach(D.curves['most text per item'], all / 2)} when
           counting items instead of strokes, {reach(D.curves['frequency'], all / 2)} by plain frequency and {reach(D.curves['school grade'], all / 2)} in school order.
@@ -82,6 +128,23 @@ export function Analysis({ store }: { store: Store }) {
         <table className="tbl small">
           <thead><tr><th>order</th><th>items for 50%</th><th>80%</th><th>90%</th></tr></thead>
           <tbody>{Object.keys(D.curves).map(key => <tr key={key}><td>{key}</td>{[.5, .8, .9].map(t => <td key={t}>{reach(D.curves[key], t * all)}</td>)}</tr>)}</tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Your level</h2>
+        <p className="lede">
+          Every kanji has a difficulty rank. It comes from a score fitted to the order JLPT and WaniKani teach in:
+          each step of kentei level counts as {fmt(D.levels.weights['kentei level'])} decades of text frequency,
+          each stroke as {fmt(D.levels.weights['strokes'])}, and being in e times more common words
+          as {fmt(-D.levels.weights['ln(1 + common words)'])} the other way.
+          Knowing kanji is then like filling energy levels: you know nearly all below an edge μ and few above it, with a blur T.
+          The next kanji is the one most likely new to you, most used in common words and cheapest given the parts you know.
+        </p>
+        {mu(store) > BEGINNER ? <LevelChart store={store} /> : <p className="sub">Pick a starting level in settings, or answer “I know it” on cards you know, to see your curve here.</p>}
+        <table className="tbl small">
+          <thead><tr><th>official list</th><th>kanji</th><th>edge μ</th><th>blur T</th></tr></thead>
+          <tbody>{D.levels.official.map(o => <tr key={o.name}><td>{o.name}</td><td>{o.n}</td><td>{o.mu}</td><td>{o.T}</td></tr>)}</tbody>
         </table>
       </section>
 

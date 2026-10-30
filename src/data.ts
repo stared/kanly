@@ -47,6 +47,8 @@ type Data = {
   order: string[]
   families: Family[]
   curves: Record<string, number[]>
+  /** weights of the difficulty fit, in decades of frequency; official lists as Fermi edges in the difficulty rank */
+  levels: { weights: Record<string, number>; official: { name: string; n: number; mu: number; T: number }[] }
   total: number
 }
 

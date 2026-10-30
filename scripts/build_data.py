@@ -123,7 +123,29 @@ def difficulty(joyo: list[str], words: list[dict], kd: dict) -> tuple[dict[str, 
     score = A @ w
     rank = {joyo[i]: r for r, i in enumerate(np.argsort(score, kind="stable"))}
     weights = {n: float(v / w[0]) for n, v in zip(names, w[:-1])}  # in decades of frequency
-    return rank, {c: kanken[c] for c in joyo}, weights
+
+    # each official list as a Fermi sea in the ranks: where its edge is (μ) and how blurred (T)
+    E = np.array([rank[c] for c in joyo], float)
+    lists = [(f"JLPT N{n}", [c for c in joyo if (ext.get(c, {}).get("jlpt_new") or 0) >= n]) for n in (5, 4, 3, 2, 1)]
+    names = {10: "10級", 8: "8級", 5: "5級", 4: "4級", 3: "3級", 2.5: "準2級"}
+    lists += [(f"kentei {names[l]}", [c for c in joyo if kanken[c] >= l]) for l in names]
+    official = []
+    for name, inside in lists:
+        y = np.isin(joyo, inside).astype(float)
+        x = E / 1000  # p = σ(a − b x): logistic regression on the rank, by Newton steps
+        X = np.c_[np.ones_like(x), -x]
+        nll = lambda t: np.sum(np.logaddexp(0, -(2 * y - 1) * (X @ t)))
+        t = np.array([len(inside) / 100, 10.0])
+        for _ in range(50):
+            p = 1 / (1 + np.exp(-(X @ t)))
+            step = np.linalg.solve(X.T @ (X * (p * (1 - p))[:, None]) + 1e-6 * np.eye(2), X.T @ (y - p))
+            while nll(t + step) > nll(t) and np.abs(step).max() > 1e-9:  # damped: halve until it helps
+                step /= 2
+            t = t + step
+        a, b = t
+        official.append({"name": name, "n": len(inside), "mu": round(1000 * a / b), "T": round(1000 / b)})
+    official.sort(key=lambda o: o["n"])
+    return rank, {c: kanken[c] for c in joyo}, {"weights": weights, "official": official}
 
 
 def load_components() -> dict[str, dict]:
@@ -469,7 +491,7 @@ def main() -> None:
     for ch in joyo:
         kanji[ch] |= written_card(written[ch], wf)
     common = load_words()
-    rank, kanken, weights = difficulty(joyo, common, kd)
+    rank, kanken, levels = difficulty(joyo, common, kd)
     # use: how much of common vocabulary is written with the kanji, per million words (names do not count,
     # unlike in character counts, where 藤 and 阪 rank high)
     use = Counter()
@@ -499,6 +521,7 @@ def main() -> None:
         "order": order,
         "families": fams,
         "curves": curves,
+        "levels": levels,
         "total": total,
     }, ensure_ascii=False, separators=(",", ":")))
 
@@ -507,7 +530,7 @@ def main() -> None:
                       if all(c in joyo_set or not is_kanji(c) or c == "々" for c in w["w"])}.values())
     app.joinpath("words.json").write_text(json.dumps(lexicon, ensure_ascii=False, separators=(",", ":")))
 
-    report(kd, freq, total, joyo, joyo_set, trees, components, orders, fams, unnamed, missing, weights)
+    report(kd, freq, total, joyo, joyo_set, trees, components, orders, fams, unnamed, missing, levels)
 
 
 def tree_lines(t: dict, components: dict, kd: dict, prefix: str = "", last: bool = True, top: bool = True) -> list[str]:
@@ -518,7 +541,7 @@ def tree_lines(t: dict, components: dict, kd: dict, prefix: str = "", last: bool
     return [line] + [l for i, k in enumerate(t["kids"]) for l in tree_lines(k, components, kd, sub, i == len(t["kids"]) - 1, False)]
 
 
-def report(kd, freq, total, joyo, joyo_set, trees, components, orders, fams, unnamed, missing, weights) -> None:
+def report(kd, freq, total, joyo, joyo_set, trees, components, orders, fams, unnamed, missing, levels) -> None:
     gloss = lambda el: components.get(el, {}).get("meaning", "?")
     L = []
     p = L.append
@@ -563,8 +586,13 @@ def report(kd, freq, total, joyo, joyo_set, trees, components, orders, fams, unn
 
     p("## How hard a kanji is\n")
     p("Fitted to JLPT and WaniKani levels; weights in decades of frequency (one unit = 10× rarer):\n")
-    for n, v in weights.items():
+    for n, v in levels["weights"].items():
         p(f"- {n}: {v:+.3f}")
+    p("\nOfficial lists as a Fermi edge in the difficulty rank (p = 1/(1 + e^((rank − μ)/T))):\n")
+    p("| list | kanji | μ | T |")
+    p("|---|--:|--:|--:|")
+    for o in levels["official"]:
+        p(f"| {o['name']} | {o['n']} | {o['mu']} | {o['T']} |")
     p("")
 
     p("## Sound families\n")
