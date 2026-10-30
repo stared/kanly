@@ -17,7 +17,7 @@ describe('data', () => {
     expect(KANJI['照'].sum).toEqual(['昭', '灬'])
   })
   it('counts strokes the parts leave out', () => {
-    expect(extraStrokes(KANJI['本'].tree)).toBe(1)
+    expect(extraStrokes(KANJI['白'].tree)).toBe(1)  // 日 + 1 stroke
     expect(extraStrokes(KANJI['明'].tree)).toBe(0)
   })
   it('names parts with the curated gloss', () => {

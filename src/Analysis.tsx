@@ -140,7 +140,7 @@ export function Analysis({ store }: { store: Store }) {
           <tbody>{D.levels.official.map(o => <tr key={o.name}><td>{o.name}</td><td>{o.n}</td><td>{o.mu}</td><td>{o.T}</td></tr>)}</tbody>
         </table>
         </details>
-        {mu(store) > BEGINNER ? <LevelChart store={store} /> : <p className="sub">Pick a starting level in settings, or answer “I know it” on cards you know, to see your curve here.</p>}
+        {mu(store) > BEGINNER ? <LevelChart store={store} /> : <p className="sub">Pick a starting level in settings, or answer a few quizzes, to see your curve here.</p>}
       </section>
   )
   return (

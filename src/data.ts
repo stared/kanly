@@ -74,7 +74,7 @@ export function soundFamily(ch: string): Family | undefined {
 }
 
 /** Strokes of a node not covered by its listed parts: 本 = 木 + 1 stroke. */
-export const extraStrokes = (t: Tree) => t.kids.length ? t.strokes - t.kids.reduce((a, k) => a + k.strokes, 0) : 0
+export const extraStrokes = (t: Tree) => t.kids.length ? Math.max(0, t.strokes - t.kids.reduce((a, k) => a + k.strokes, 0)) : 0
 
 /** Every element of a tree, each once. */
 export function elements(t: Tree, out = new Set<string>()): Set<string> {

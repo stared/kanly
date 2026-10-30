@@ -1,10 +1,11 @@
-import { COMP, D, KANJI, ORDER, POS, type Tree } from './data'
+import { COMP, D, KANJI, ORDER, POS, extraStrokes, type Tree } from './data'
 import type { Store } from './srs'
 
 /*
 What to learn next, at any level.
 
-Every kanji has a difficulty `level`: its rank, 0 for the one learners know first (fitted in build_data.py).
+Every kanji has a difficulty rank, 0 for the one learners know first, in an order that mixes the curriculum and
+frequency (λ, see LAMBDAS; both fitted in build_data.py).
 A learner who knows about μ kanji knows kanji k with probability
 
   p(k) = Φ((μ − level(k)) / T)
@@ -21,7 +22,7 @@ Each kanji not yet seen gets the weight: expected usefulness per expected effort
 
 f is how much of common vocabulary uses it (from wordfreq: unlike character counts, it does not rank name kanji
 like 藤 and 阪 high). cost is what its shape takes to learn given what is known: a known part is one chunk, an
-unknown one its strokes. ρ is the effort of a tap on "I know it", relative to learning a one-chunk kanji. A known
+unknown one its strokes. ρ is the effort of a quiz on a kanji already known, relative to learning a one-chunk kanji. A known
 card is cheap, so a frequent kanji is worth showing even if it is probably known: in simulation, with ρ = 0.3,
 this finds 13–34% more useful kanji per unit of effort than counting cards, at about 2 cards shown per new one.
 (ρ = 0.1 gains more, but asks someone who knows 1000 kanji whether they know 人.) g is Gumbel noise fixed per kanji: τ > 0 samples ∝ w^(1/τ), so easier and harder
@@ -29,10 +30,12 @@ ones show up too. τ = 0 takes the best one; for a beginner (p ≈ 0) that is si
 in simulation τ = 0.25, 0.5, 1 learn 3%, 10%, 25% less usefulness per effort, even when the difficulty ranks are
 off by ±400 for the learner (the posterior already makes uncertain, useful kanji worth checking).
 
-μ and T are the posterior mean given the answers so far ("I know it" = 1, "new to me" = 0), computed exactly
+λ, μ and T come from the posterior given the quiz answers so far (meaning and reading right = 1, else 0, allowing a
+lucky guess and a slip), computed exactly
 on a grid, with a prior centred on the starting level picked (a list's μ, give or take 400; its T within a
 factor of 2). Fitting T pays off: in simulation, for a learner with a blurred frontier (T = 350) a fixed
-T = 150 finds 30% less useful kanji in 300 cards, while a fitted T stays within 3% of the true one.
+T = 150 finds 30% less useful kanji in 300 cards, while a fitted T stays within 3% of the true one. Fitting λ gives a
+reader 30–34% more usefulness in 150 quiz cards than a fixed λ = 0.5, a course learner 7–19%.
 */
 export const T = 260
 export const ALPHA = 1
@@ -89,11 +92,11 @@ const gumbel = (el: string, seed: number) => {
 }
 
 const chunks = (t: Tree, known: (el: string) => boolean): number =>
-  known(t.el) ? 1 : !t.kids.length ? t.strokes : t.strokes - t.kids.reduce((a, k) => a + k.strokes, 0) + t.kids.reduce((a, k) => a + chunks(k, known), 0)
+  known(t.el) ? 1 : cost(t, known)
 
 /** What a kanji's shape takes to learn: its own extra strokes plus a chunk or the strokes of each part. */
-export const cost = (t: Tree, known: (el: string) => boolean) =>
-  !t.kids.length ? t.strokes : t.strokes - t.kids.reduce((a, k) => a + k.strokes, 0) + t.kids.reduce((a, k) => a + chunks(k, known), 0)
+export const cost = (t: Tree, known: (el: string) => boolean): number =>
+  !t.kids.length ? t.strokes : extraStrokes(t) + t.kids.reduce((a, k) => a + chunks(k, known), 0)
 
 const walk = (t: Tree, out: Set<string>) => { out.add(t.el); t.kids.forEach(k => walk(k, out)) }
 

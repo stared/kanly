@@ -36,7 +36,7 @@ export function Settings({ store, onReplace, autoSpeak, setAutoSpeak }: { store:
           {BREADTH.map(b => <option key={b.tau} value={b.tau}>{b.label}</option>)}
         </select>
       </label>
-      {mu(store) > BEGINNER && <p>{fit(store)} Every “I know it” and “new to me” refines this.</p>}
+      {mu(store) > BEGINNER && <p>{fit(store)} Every quiz answer refines this.</p>}
       <p>{Object.keys(store.cards).length} kanji and parts seen, {store.log.length} reviews. Progress is stored in this browser only.</p>
       <div className="row">
         <button className="next" onClick={exportIt}>export progress</button>

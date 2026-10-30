@@ -22,6 +22,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
 OUT = ROOT / "data"
+LLM = ROOT / "data" / "llm"
 
 SOURCES = {
     "kanjidic2.xml.gz": "http://www.edrdg.org/kanjidic/kanjidic2.xml.gz",
@@ -209,18 +210,57 @@ def merge_parts(kids: list[dict]) -> list[dict]:
     return out
 
 
-def load_trees(wanted: set[str]) -> dict[str, dict]:
-    trees = {}
+def load_trees(wanted: set[str], kd: dict) -> dict[str, dict]:
+    """KanjiVG's tree of each wanted kanji, with the decompositions rewritten in data/llm/trees.json applied."""
+    kvg = {}
     for k in ET.parse(gzip.open(RAW / "kanjivg-20260714.xml.gz")).getroot().iter("kanji"):
         kid = k.get("id")
         if "-" in kid:  # variant glyphs such as kvg:kanji_05b57-Kaisho
             continue
         ch = chr(int(kid.split("_")[1], 16))
-        if ch in wanted:
-            [node] = parse_group(k.find("g"))
-            node["el"] = ch
-            trees[ch] = node
-    return trees
+        [node] = parse_group(k.find("g"))
+        node["el"] = ch
+        kvg[ch] = node
+    return fix_trees({ch: kvg[ch] for ch in wanted if ch in kvg}, kvg, kd)
+
+
+def fix_trees(trees: dict, kvg: dict, kd: dict) -> dict:
+    """KanjiVG groups strokes as they are drawn, so it often splits a shape into pieces learners do not see, or
+    names a stroke group after a kanji it only resembles: 止 as 卜 "divining crack" + 2 strokes, 重 as a 2-stroke
+    千 + 里, 彳 as 亻. data/llm/trees.json (written and reviewed like the cards) gives the parts of such an
+    element; wherever the element appears, in any tree, it takes those parts, each with its own (fixed) tree."""
+    fixes = json.loads((LLM / "trees.json").read_text()) if (LLM / "trees.json").exists() else {}
+    memo: dict[str, dict] = {}
+    seen = defaultdict(Counter)  # strokes of parts with no entry of their own (𠂇 in 有), as drawn inside others
+    for t in kvg.values():
+        for n in subtrees(t):
+            seen[n["el"]][n["strokes"]] += 1
+
+    def own(el: str) -> dict:
+        """An element's own tree, fixed."""
+        if el not in memo:
+            base = trees.get(el) or kvg.get(el)
+            strokes = kd[el]["strokes"] if el in kd else base["strokes"] if base else seen[el].most_common(1)[0][0] if seen[el] else 1
+            memo[el] = {"el": el, "strokes": strokes, "kids": []}  # a cycle ends here
+            if el in fixes:
+                was = {k["el"]: k for k in (base or {"kids": []})["kids"]}
+                kids = []
+                for p in fixes[el]["parts"]:
+                    # as drawn here when KanjiVG has it: 艹 is 3 strokes in 花, 4 on its own
+                    k = {**own(p), **({a: was[p][a] for a in ("radical", "strokes") if a in was.get(p, {})})}
+                    kids.append(k | ({"phon": p} if fixes[el].get("phon") == p else {}))
+                memo[el] = {**{a: base[a] for a in ("radical",) if base and a in base}, "el": el, "strokes": strokes, "kids": kids}
+            elif base:
+                memo[el] = {**base, "strokes": strokes, "kids": [inside(k) for k in base["kids"]]}
+        return memo[el]
+
+    def inside(t: dict) -> dict:
+        """A node inside a tree: a fixed element brings its fixed parts, keeping its strokes and role here."""
+        if t["el"] in fixes:
+            return {**t, "kids": own(t["el"])["kids"]}
+        return {**t, "kids": [inside(k) for k in t["kids"]]}
+
+    return {ch: own(ch) for ch in trees}
 
 
 STROKES = {"丿", "丨", "丶", "亅", "乙"}  # single strokes: parts of the tree, but nothing to learn
@@ -369,7 +409,6 @@ def candidate_words(joyo_set: set[str]) -> dict[str, list[dict]]:
             for c, ws in by_kanji.items()}
 
 
-LLM = ROOT / "data" / "llm"
 BATCH = 120
 
 
@@ -437,7 +476,7 @@ def main() -> None:
     stories = load_stories()
     written = load_written()
     joyo = sorted((c for c, v in kd.items() if v["grade"] in JOYO_GRADES), key=lambda c: -freq.get(c, 0))
-    trees = load_trees(set(joyo))
+    trees = load_trees(set(joyo), kd)
     missing = [c for c in joyo if c not in trees]
     joyo = [c for c in joyo if c in trees]
     joyo_set = set(joyo)
