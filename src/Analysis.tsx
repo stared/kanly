@@ -77,7 +77,7 @@ function LevelChart({ store }: { store: Store }) {
   }
   return (
     <figure className="chart">
-      <div className="legend"><span><i className="s1" />chance you knew it before</span>{bins.size > 0 && <span><i className="you" />your answers, per 100</span>}</div>
+      <div className="legend"><span><i className="s1" />chance you knew it before</span>{bins.size > 0 && <span><i className="you" />share you knew, per 100 kanji</span>}</div>
       <svg viewBox={`0 0 ${W} ${H}`} onMouseMove={move} onMouseLeave={() => setHover(null)} role="img" aria-label="Chance of knowing a kanji against its difficulty rank">
         {[0, .5, 1].map(v => <g key={v}><line className="grid" x1={P.l} x2={W - P.r} y1={y(v)} y2={y(v)} /><text className="axis" x={P.l - 6} y={y(v) + 4} textAnchor="end">{v * 100}%</text></g>)}
         {[0, 500, 1000, 1500, 2000].map(i => <text key={i} className="axis" x={x(i)} y={H - 10} textAnchor="middle">{i}</text>)}
@@ -92,7 +92,7 @@ function LevelChart({ store }: { store: Store }) {
           <span>{Math.round(p(hover) * 100)}% you knew them</span>
         </div>
       )}
-      <figcaption className="sub small">Jōyō kanji by difficulty rank, easiest first. Fitted to your answers when there are 10 or more.</figcaption>
+      <figcaption className="sub small">Jōyō kanji from easiest to hardest. The curve follows your answers.</figcaption>
     </figure>
   )
 }

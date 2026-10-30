@@ -25,7 +25,7 @@ describe('levels', () => {
     const focused = new Set(upcoming(s, 0, 30)), wide = upcoming(s, 1, 30)
     console.log('τ=1', wide.map(el => KANJI[el]?.level).join(' '))
     expect(wide.filter(el => focused.has(el)).length).toBeLessThan(15)
-    expect(wide.every(el => pKnown(el, 1000, 260) <= 0.95)).toBe(true)
+    expect(wide.every(el => pKnown(el, 1000, 260) <= 0.9)).toBe(true)
   })
   it('answers move the level towards the truth', () => {
     // a learner who knows exactly the 1200 easiest, starting from the N4 guess

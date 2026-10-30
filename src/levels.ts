@@ -38,7 +38,7 @@ export const T = 260
 export const ALPHA = 1
 export const RHO = 0.3
 export const BEGINNER = -450
-export const SURE = 0.95
+export const SURE = 0.9
 
 /** Starting points: each official list as a Fermi sea, its edge and blur fitted in build_data.py
  * (JLPT N3: μ = 609, T = 367; kentei lists are sharper, since kentei level is part of the difficulty). */
@@ -137,7 +137,8 @@ export const start = (s: Store) => s.start ?? { mu: BEGINNER, T }
 
 /** Pick a starting level: the prior moves, and the answers so far are read against it. */
 export const startAt = (s: Store, l: { mu: number; T: number }): Store => {
-  const st = { mu: l.mu, T: l.T }
+  // a list is blurrier than a person who passed it (N2: T = 412), so start sharper and let answers widen it
+  const st = { mu: l.mu, T: Math.min(l.T, 200) }
   return { ...s, start: st, ...(s.answers?.length ? posterior(st, s.answers) : st) }
 }
 
