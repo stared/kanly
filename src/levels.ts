@@ -12,15 +12,17 @@ A learner who knows about μ kanji knows kanji k with the Fermi–Dirac probabil
 Ranks make the density of states flat, so μ is the number of kanji known; T is how blurred the frontier is,
 in kanji (official level lists are blurred by 60–230 against the ranks).
 
-Each kanji not yet seen gets the log-weight
+Each kanji not yet seen gets the weight: expected usefulness per expected effort,
 
-  ln(1 − p)  +  ln f  −  α ln cost  +  τ g
+  w = (1 − p) f / ((1 − p) cost^α + p ρ)       (in logs, plus τ g)
 
-that is: how likely it is new, how much of common vocabulary uses it (f, from wordfreq: unlike character counts,
-it does not rank name kanji like 藤 and 阪 high), what its shape takes to learn given what is known
-(cost: a known part is one chunk, an unknown one its strokes), and breadth: g is Gumbel noise fixed per kanji,
-so τ > 0 samples ∝ weight^(1/τ) and shows easier and harder ones too. τ = 0 takes the best one; for a beginner
-(μ → −∞) that is simple-first order.
+f is how much of common vocabulary uses it (from wordfreq: unlike character counts, it does not rank name kanji
+like 藤 and 阪 high). cost is what its shape takes to learn given what is known: a known part is one chunk, an
+unknown one its strokes. ρ is the effort of a tap on "I know it", relative to learning a one-chunk kanji. A known
+card is cheap, so a frequent kanji is worth showing even if it is probably known: in simulation, with ρ = 0.3,
+this finds 13–34% more useful kanji per unit of effort than counting cards, at about 2 cards shown per new one.
+(ρ = 0.1 gains more, but asks someone who knows 1000 kanji whether they know 人.) g is Gumbel noise fixed per kanji: τ > 0 samples ∝ w^(1/τ), so easier and harder
+ones show up too. τ = 0 takes the best one; for a beginner (p ≈ 0) that is simple-first order.
 
 μ moves with every answer, as an Elo (online Rasch) update: up when a kanji is already known, down when new.
 T is fitted to the answers by maximum likelihood once there are 10. It pays off for usefulness: in simulation,
@@ -29,6 +31,7 @@ while the fitted T stays within 3% of knowing the true one, whatever the learner
 */
 export const T = 150
 export const ALPHA = 1
+export const RHO = 0.3
 export const BEGINNER = -3 * T
 
 /** Starting points: each official list as a Fermi sea, its edge and blur fitted in build_data.py
@@ -80,7 +83,8 @@ export function upcoming(s: Store, tau: number, n = 9): string[] {
     let best = '', top = -Infinity
     for (const [ch, k] of Object.entries(KANJI)) {
       if (seen.has(ch)) continue
-      const w = Math.log(1 - pKnown(ch, m, t) + 1e-12) + Math.log(k.use + 1e-3) - ALPHA * Math.log(cost(k.tree, known)) + tau * gumbel(ch, s.seed ?? 0)
+      const p = pKnown(ch, m, t)
+      const w = Math.log((1 - p) * (k.use + 1e-3) + 1e-30) - Math.log((1 - p) * cost(k.tree, known) ** ALPHA + p * RHO) + tau * gumbel(ch, s.seed ?? 0)
       if (w > top) { top = w; best = ch }
     }
     if (!best) break
