@@ -1,5 +1,11 @@
 import type { Store } from './srs'
-import { BEGINNER, BREADTH, LEVELS, mu } from './levels'
+import { BEGINNER, BREADTH, LEVELS, mu, temp } from './levels'
+
+const r10 = (x: number) => Math.max(0, Math.round(x / 10) * 10)
+/** p = 0.9 and 0.1 lie 2.2 T either side of μ. */
+const fit = (s: Store) => (s.answers?.length ?? 0) < 10
+  ? `You knew about ${r10(mu(s))} kanji before.`
+  : `From your answers: you knew about ${r10(mu(s))} kanji before, nearly all of the ${r10(mu(s) - 2.2 * temp(s))} easiest and few beyond the ${r10(mu(s) + 2.2 * temp(s))}th.`
 
 export function Settings({ store, onReplace, autoSpeak, setAutoSpeak }: { store: Store; onReplace: (s: Store) => void; autoSpeak: boolean; setAutoSpeak: (on: boolean) => void }) {
   const exportIt = () => {
@@ -25,7 +31,7 @@ export function Settings({ store, onReplace, autoSpeak, setAutoSpeak }: { store:
           {BREADTH.map(b => <option key={b.tau} value={b.tau}>{b.label}</option>)}
         </select>
       </label>
-      {mu(store) > BEGINNER && <p>From your answers, you knew about {Math.max(0, Math.round(mu(store) / 10) * 10)} kanji before. Every “I know it” and “new to me” moves this.</p>}
+      {mu(store) > BEGINNER && <p>{fit(store)} Every “I know it” and “new to me” refines this.</p>}
       <p>{Object.keys(store.cards).length} items learned, {store.log.length} reviews. Progress is stored in this browser only.</p>
       <div className="row">
         <button className="next" onClick={exportIt}>export progress</button>

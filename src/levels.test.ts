@@ -33,9 +33,9 @@ describe('levels', () => {
     for (let i = 0; i < 80; i++) {
       const el = upcoming(s, 0, 1)[0]
       const k = KANJI[el]
-      s = k && k.level < 1200 ? knewIt(s, el, 0, update(s, el, true)) : learn(s, el, 0, k ? update(s, el, false) : undefined)
+      s = k && k.level < 1200 ? knewIt(s, el, 0, update(s, el, true)) : learn(s, el, 0, k ? update(s, el, false) : {})
     }
-    console.log('μ after 80 answers', Math.round(s.mu!))
+    console.log('μ after 80 answers', Math.round(s.mu!), 'T', Math.round(s.T!))
     expect(Math.abs(s.mu! - 1200)).toBeLessThan(200)
     expect(pKnown('一', s.mu!)).toBeGreaterThan(0.99)
   })

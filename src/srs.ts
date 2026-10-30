@@ -4,8 +4,10 @@ const STEPS = [1, 10]
 
 export type Card = { id: string; due: number; step: number; ivl: number; ease: number; reps: number; lapses: number }
 export type LogEntry = { t: number; id: string; ok: boolean }
-/** mu: estimated number of kanji known before (src/levels.ts); tau: how wide the choice of the next kanji is. */
-export type Store = { cards: Record<string, Card>; log: LogEntry[]; mu?: number; tau?: number; seed?: number }
+/** mu, T: how many kanji were known before and how blurred that frontier is, fitted to answers (src/levels.ts);
+ * tau: how wide the choice of the next kanji is. */
+export type Store = { cards: Record<string, Card>; log: LogEntry[]; mu?: number; T?: number; answers?: [string, 0 | 1][]; tau?: number; seed?: number }
+type Fit = Partial<Pick<Store, 'mu' | 'T' | 'answers'>>
 
 const KEY = 'kanly/v1'
 
@@ -32,12 +34,15 @@ export function schedule(c: Card, ok: boolean, now: number): Card {
   return { ...c, ivl, reps: c.reps + 1, due: now + ivl * DAY - 4 * 3600_000 }
 }
 
-export const learn = (s: Store, id: string, now: number, mu?: number): Store =>
-  ({ ...s, mu: mu ?? s.mu, cards: { ...s.cards, [id]: newCard(id, now) } })
+export const learn = (s: Store, id: string, now: number, fit: Fit = {}): Store =>
+  ({ ...s, ...fit, cards: { ...s.cards, [id]: newCard(id, now) } })
 
-/** Known before: checked again in a month, then as any known card. */
-export const knewIt = (s: Store, id: string, now: number, mu: number): Store =>
-  ({ ...s, mu, cards: { ...s.cards, [id]: { ...newCard(id, now), step: STEPS.length, ivl: 30, reps: 1, due: now + 30 * DAY } } })
+/** Known before: checked again in 2 weeks to 4 months (sooner the less sure we were it would be known),
+ * spread so that tapping through hundreds of known kanji does not bring them all back on the same day. */
+export const knewIt = (s: Store, id: string, now: number, fit: Fit = {}, p = 0.5): Store => {
+  const ivl = Math.round((14 + 60 * p) * (0.75 + Math.random()))
+  return { ...s, ...fit, cards: { ...s.cards, [id]: { ...newCard(id, now), step: STEPS.length, ivl, reps: 1, due: now + ivl * DAY } } }
+}
 
 export const answer = (s: Store, id: string, ok: boolean, now: number): Store =>
   ({ ...s, cards: { ...s.cards, [id]: schedule(s.cards[id], ok, now) }, log: [...s.log, { t: now, id, ok }] })
