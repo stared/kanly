@@ -25,7 +25,9 @@ unknown one its strokes. ρ is the effort of a tap on "I know it", relative to l
 card is cheap, so a frequent kanji is worth showing even if it is probably known: in simulation, with ρ = 0.3,
 this finds 13–34% more useful kanji per unit of effort than counting cards, at about 2 cards shown per new one.
 (ρ = 0.1 gains more, but asks someone who knows 1000 kanji whether they know 人.) g is Gumbel noise fixed per kanji: τ > 0 samples ∝ w^(1/τ), so easier and harder
-ones show up too. τ = 0 takes the best one; for a beginner (p ≈ 0) that is simple-first order.
+ones show up too. τ = 0 takes the best one; for a beginner (p ≈ 0) that is simple-first order. Variety has a price:
+in simulation τ = 0.25, 0.5, 1 learn 3%, 10%, 25% less usefulness per effort, even when the difficulty ranks are
+off by ±400 for the learner (the posterior already makes uncertain, useful kanji worth checking).
 
 μ and T are the posterior mean given the answers so far ("I know it" = 1, "new to me" = 0), computed exactly
 on a grid, with a prior centred on the starting level picked (a list's μ, give or take 400; its T within a
@@ -44,10 +46,10 @@ export const LEVELS: { label: string; mu: number; T: number }[] = [
   ...D.levels.official.map(o => ({ label: `${o.name}, ${o.n} kanji`, mu: o.mu, T: o.T })),
 ]
 export const BREADTH: { label: string; tau: number }[] = [
-  { label: 'focused', tau: 0 },
-  { label: 'a little wider', tau: 0.25 },
-  { label: 'wide', tau: 0.5 },
-  { label: 'very wide', tau: 1 },
+  { label: 'most useful first', tau: 0 },
+  { label: 'a little more varied, 3% slower', tau: 0.25 },
+  { label: 'varied, 10% slower', tau: 0.5 },
+  { label: 'very varied, 25% slower', tau: 1 },
 ]
 
 /** Difficulty of anything learnable: a part is as hard as the easiest kanji using it. */
