@@ -93,8 +93,7 @@ export function Readings({ ch, hover, setHover }: { ch: string; hover?: string |
         <button key={r} className={'rd' + (k.written && share < 0.05 ? ' rare' : '') + (r === k.alone?.reading ? ' alone' : '') + (hover && hover !== r ? ' dim' : '')}
           title={(isOn(r) ? 'on-reading (from Chinese). ' : 'kun-reading (native Japanese). ') + (r === k.alone?.reading ? `${ch} on its own: ${k.alone.r}. ` : '') + (k.written ? `${Math.round(share * 100)}% of use in the words below; click to hear it` : 'click to hear it')}
           onClick={() => speak(say(r))} onMouseEnter={() => setHover?.(r)} onMouseLeave={() => setHover?.(null)}>
-          {isOn(r) ? hira(r) : fmtKun(r)}{k.written && share >= 0.01 && <span className="pct">{Math.round(share * 100)}%</span>}
-          <span className="romaji">{romaji(r)}</span>
+          <span className="kana">{isOn(r) ? hira(r) : fmtKun(r)}<span className="romaji">{romaji(r)}</span></span>{k.written && share >= 0.01 && <span className="pct">{Math.round(share * 100)}%</span>}
         </button>
       ))}
     </div>
