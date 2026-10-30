@@ -1815,54 +1815,6 @@
     ]
    },
    {
-    "w": "二匹",
-    "r": "にひき",
-    "g": "two animals",
-    "reading": "ひき",
-    "furigana": [
-     [
-      "二",
-      "に"
-     ],
-     [
-      "匹",
-      "ひき"
-     ]
-    ]
-   },
-   {
-    "w": "三匹",
-    "r": "さんびき",
-    "g": "three animals",
-    "reading": "ひき",
-    "furigana": [
-     [
-      "三",
-      "さん"
-     ],
-     [
-      "匹",
-      "びき"
-     ]
-    ]
-   },
-   {
-    "w": "何匹",
-    "r": "なんびき",
-    "g": "how many (animals)",
-    "reading": "ひき",
-    "furigana": [
-     [
-      "何",
-      "なん"
-     ],
-     [
-      "匹",
-      "びき"
-     ]
-    ]
-   },
-   {
     "w": "匹敵",
     "r": "ひってき",
     "g": "to rival; be a match for",
@@ -3142,10 +3094,10 @@
  },
  {
   "kanji": "架",
-  "keyword": "frame",
+  "keyword": "span",
   "meanings": [
-   "rack",
-   "build across"
+   "frame",
+   "rack"
   ],
   "readings": [
    "カ",
@@ -4258,9 +4210,10 @@
  },
  {
   "kanji": "坊",
-  "keyword": "monk",
+  "keyword": "boy",
   "meanings": [
-   "boy"
+   "monk",
+   "baby"
   ],
   "readings": [
    "ボウ",
@@ -4518,22 +4471,6 @@
    }
   ],
   "more": [
-   {
-    "w": "何杯",
-    "r": "なんばい",
-    "g": "how many cups",
-    "reading": "ハイ",
-    "furigana": [
-     [
-      "何",
-      "なん"
-     ],
-     [
-      "杯",
-      "ばい"
-     ]
-    ]
-   },
    {
     "w": "力一杯",
     "r": "ちからいっぱい",
@@ -5168,7 +5105,9 @@
  {
   "kanji": "姓",
   "keyword": "surname",
-  "meanings": [],
+  "meanings": [
+   "family name"
+  ],
   "readings": [
    "セイ",
    "ショウ"
@@ -6115,9 +6054,9 @@
  },
  {
   "kanji": "附",
-  "keyword": "attach",
+  "keyword": "affiliated",
   "meanings": [
-   "append"
+   "attach"
   ],
   "readings": [
    "フ"
@@ -7239,9 +7178,10 @@
  },
  {
   "kanji": "曽",
-  "keyword": "former",
+  "keyword": "great-",
   "meanings": [
-   "great- (as in great-grandfather)"
+   "former",
+   "ever"
   ],
   "readings": [
    "ソウ",
@@ -8519,9 +8459,9 @@
  },
  {
   "kanji": "概",
-  "keyword": "general",
+  "keyword": "outline",
   "meanings": [
-   "outline",
+   "general",
    "approximate"
   ],
   "readings": [
@@ -11202,9 +11142,9 @@
  },
  {
   "kanji": "妙",
-  "keyword": "strange",
+  "keyword": "exquisite",
   "meanings": [
-   "exquisite",
+   "strange",
    "clever"
   ],
   "readings": [
@@ -11805,9 +11745,9 @@
  },
  {
   "kanji": "裏",
-  "keyword": "back",
+  "keyword": "reverse side",
   "meanings": [
-   "reverse side",
+   "back",
    "inside"
   ],
   "readings": [
@@ -12441,9 +12381,9 @@
  },
  {
   "kanji": "策",
-  "keyword": "plan",
+  "keyword": "policy",
   "meanings": [
-   "policy",
+   "plan",
    "measure"
   ],
   "readings": [
@@ -13299,9 +13239,10 @@
  },
  {
   "kanji": "婦",
-  "keyword": "wife",
+  "keyword": "married woman",
   "meanings": [
-   "woman; lady"
+   "wife",
+   "lady"
   ],
   "readings": [
    "フ"
@@ -13924,9 +13865,9 @@
  },
  {
   "kanji": "埼",
-  "keyword": "cape",
+  "keyword": "promontory",
   "meanings": [
-   "promontory"
+   "cape"
   ],
   "readings": [
    "さい"
@@ -13956,9 +13897,9 @@
  },
  {
   "kanji": "舞",
-  "keyword": "dance",
+  "keyword": "flutter",
   "meanings": [
-   "flutter"
+   "dance"
   ],
   "readings": [
    "ブ",
@@ -14389,7 +14330,7 @@
    }
   ],
   "more": [],
-  "story": "A hood 日 pulled down over the eyes 目: charging ahead blind.",
+  "story": "A hood 冃 pulled down over the eyes 目: charging ahead blind.",
   "kind": "mnemonic"
  },
  {
@@ -15187,10 +15128,11 @@
  },
  {
   "kanji": "殿",
-  "keyword": "hall",
+  "keyword": "palace",
   "meanings": [
+   "hall",
    "lord",
-   "Mr. (in formal letters)"
+   "Mr. (formal letters)"
   ],
   "readings": [
    "デン",
@@ -17859,9 +17801,9 @@
  },
  {
   "kanji": "庭",
-  "keyword": "garden",
+  "keyword": "yard",
   "meanings": [
-   "yard"
+   "garden"
   ],
   "readings": [
    "テイ",
@@ -19167,26 +19109,6 @@
      [
       "兆",
       "ちょう"
-     ]
-    ]
-   },
-   {
-    "w": "一兆円",
-    "r": "いっちょうえん",
-    "g": "one trillion yen",
-    "reading": "チョウ",
-    "furigana": [
-     [
-      "一",
-      "いっ"
-     ],
-     [
-      "兆",
-      "ちょう"
-     ],
-     [
-      "円",
-      "えん"
      ]
     ]
    }

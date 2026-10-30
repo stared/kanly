@@ -1023,8 +1023,10 @@
  },
  {
   "kanji": "那",
-  "keyword": "what",
-  "meanings": [],
+  "keyword": "that",
+  "meanings": [
+   "what"
+  ],
   "readings": [
    "ナ"
   ],
@@ -5330,9 +5332,9 @@
  },
  {
   "kanji": "翌",
-  "keyword": "next",
+  "keyword": "following",
   "meanings": [
-   "following"
+   "next"
   ],
   "readings": [
    "ヨク"
@@ -8411,9 +8413,9 @@
  },
  {
   "kanji": "座",
-  "keyword": "seat",
+  "keyword": "sit",
   "meanings": [
-   "sit",
+   "seat",
    "constellation"
   ],
   "readings": [
@@ -8687,9 +8689,9 @@
  },
  {
   "kanji": "互",
-  "keyword": "mutual",
+  "keyword": "each other",
   "meanings": [
-   "each other"
+   "mutual"
   ],
   "readings": [
    "ゴ",
@@ -11290,8 +11292,9 @@
  },
  {
   "kanji": "絵",
-  "keyword": "picture",
+  "keyword": "painting",
   "meanings": [
+   "picture",
    "drawing"
   ],
   "readings": [
@@ -13896,9 +13899,9 @@
  },
  {
   "kanji": "蔵",
-  "keyword": "storehouse",
+  "keyword": "storage",
   "meanings": [
-   "store",
+   "storehouse",
    "own"
   ],
   "readings": [
@@ -14250,9 +14253,9 @@
  },
  {
   "kanji": "択",
-  "keyword": "choose",
+  "keyword": "select",
   "meanings": [
-   "select"
+   "choose"
   ],
   "readings": [
    "タク"
@@ -16165,8 +16168,9 @@
  },
  {
   "kanji": "釈",
-  "keyword": "explain",
+  "keyword": "interpret",
   "meanings": [
+   "explain",
    "release"
   ],
   "readings": [
@@ -16282,8 +16286,9 @@
  },
  {
   "kanji": "憂",
-  "keyword": "worry",
+  "keyword": "anxiety",
   "meanings": [
+   "worry",
    "grief"
   ],
   "readings": [
@@ -17275,8 +17280,9 @@
  },
  {
   "kanji": "裁",
-  "keyword": "judge",
+  "keyword": "pass judgment",
   "meanings": [
+   "judge",
    "cut (cloth)"
   ],
   "readings": [
@@ -19299,10 +19305,10 @@
  },
  {
   "kanji": "群",
-  "keyword": "group",
+  "keyword": "flock",
   "meanings": [
-   "crowd",
-   "flock"
+   "group",
+   "crowd"
   ],
   "readings": [
    "グン",
@@ -21599,8 +21605,10 @@
  },
  {
   "kanji": "肖",
-  "keyword": "resemble",
-  "meanings": [],
+  "keyword": "likeness",
+  "meanings": [
+   "resemble"
+  ],
   "readings": [
    "ショウ"
   ],
@@ -24133,9 +24141,10 @@
  },
  {
   "kanji": "秘",
-  "keyword": "secret",
+  "keyword": "hidden",
   "meanings": [
-   "hidden"
+   "secret",
+   "mysterious"
   ],
   "readings": [
    "ヒ",

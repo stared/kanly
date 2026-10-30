@@ -900,7 +900,7 @@
  },
  {
   "kanji": "索",
-  "keyword": "search",
+  "keyword": "seek",
   "meanings": [
    "rope"
   ],
@@ -1043,7 +1043,7 @@
  },
  {
   "kanji": "童",
-  "keyword": "child",
+  "keyword": "youngster",
   "meanings": [],
   "readings": [
    "ドウ"
@@ -1298,8 +1298,10 @@
  },
  {
   "kanji": "孔",
-  "keyword": "hole",
-  "meanings": [],
+  "keyword": "opening",
+  "meanings": [
+   "hole"
+  ],
   "readings": [
    "コウ",
    "ク"
@@ -3010,6 +3012,7 @@
   "kanji": "確",
   "keyword": "certain",
   "meanings": [
+   "sure",
    "confirm",
    "firm"
   ],
@@ -3278,7 +3281,7 @@
  },
  {
   "kanji": "殊",
-  "keyword": "special",
+  "keyword": "exceptional",
   "meanings": [
    "especially"
   ],
@@ -3637,8 +3640,10 @@
  },
  {
   "kanji": "託",
-  "keyword": "entrust",
-  "meanings": [],
+  "keyword": "consign",
+  "meanings": [
+   "entrust"
+  ],
   "readings": [
    "タク"
   ],
@@ -4045,9 +4050,9 @@
  },
  {
   "kanji": "看",
-  "keyword": "see",
+  "keyword": "watch over",
   "meanings": [
-   "watch over"
+   "see"
   ],
   "readings": [
    "カン"
@@ -5669,7 +5674,7 @@
     ]
    }
   ],
-  "story": "Two egg sacs 卯, a yolk 丶 in each.",
+  "story": "Two egg sacs side by side, a yolk 丶 in each.",
   "kind": "mnemonic"
  },
  {
@@ -6163,9 +6168,9 @@
  },
  {
   "kanji": "審",
-  "keyword": "judge",
+  "keyword": "scrutinize",
   "meanings": [
-   "examine"
+   "judge"
   ],
   "readings": [
    "シン"
@@ -6858,8 +6863,9 @@
  },
  {
   "kanji": "離",
-  "keyword": "separate",
+  "keyword": "apart",
   "meanings": [
+   "separate",
    "leave"
   ],
   "readings": [
@@ -10545,9 +10551,9 @@
  },
  {
   "kanji": "括",
-  "keyword": "bundle",
+  "keyword": "tie up",
   "meanings": [
-   "tie up"
+   "bundle"
   ],
   "readings": [
    "カツ",
@@ -14357,8 +14363,9 @@
  },
  {
   "kanji": "請",
-  "keyword": "request",
+  "keyword": "petition",
   "meanings": [
+   "request",
    "undertake"
   ],
   "readings": [
@@ -14916,9 +14923,9 @@
  },
  {
   "kanji": "眼",
-  "keyword": "eye",
+  "keyword": "eyeball",
   "meanings": [
-   "eyeball"
+   "eye"
   ],
   "readings": [
    "ガン",
@@ -15201,9 +15208,9 @@
  },
  {
   "kanji": "励",
-  "keyword": "encourage",
+  "keyword": "strive",
   "meanings": [
-   "strive"
+   "encourage"
   ],
   "readings": [
    "レイ",
@@ -16798,9 +16805,9 @@
  },
  {
   "kanji": "享",
-  "keyword": "receive",
+  "keyword": "enjoy",
   "meanings": [
-   "enjoy"
+   "receive"
   ],
   "readings": [
    "キョウ"

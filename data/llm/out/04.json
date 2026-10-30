@@ -692,8 +692,9 @@
  },
  {
   "kanji": "保",
-  "keyword": "protect",
+  "keyword": "preserve",
   "meanings": [
+   "protect",
    "keep",
    "guarantee"
   ],
@@ -2273,9 +2274,9 @@
  },
  {
   "kanji": "非",
-  "keyword": "not; un-",
+  "keyword": "non-",
   "meanings": [
-   "fault",
+   "not",
    "wrong"
   ],
   "readings": [
@@ -5491,9 +5492,10 @@
  },
  {
   "kanji": "述",
-  "keyword": "state",
+  "keyword": "mention",
   "meanings": [
-   "mention"
+   "state",
+   "narrate"
   ],
   "readings": [
    "ジュツ",
@@ -6907,8 +6909,10 @@
  },
  {
   "kanji": "皇",
-  "keyword": "emperor",
-  "meanings": [],
+  "keyword": "imperial",
+  "meanings": [
+   "emperor"
+  ],
   "readings": [
    "コウ",
    "オウ"
@@ -11901,10 +11905,10 @@
  },
  {
   "kanji": "房",
-  "keyword": "room",
+  "keyword": "chamber",
   "meanings": [
-   "tuft",
-   "bunch"
+   "room",
+   "tuft"
   ],
   "readings": [
    "ボウ",
@@ -12091,8 +12095,9 @@
  },
  {
   "kanji": "老",
-  "keyword": "old",
+  "keyword": "elderly",
   "meanings": [
+   "old",
    "grow old"
   ],
   "readings": [
@@ -18942,7 +18947,7 @@
     ]
    }
   ],
-  "story": "A step 正 stretched out 廴: prolonging.",
+  "story": "A foot 止 dragged along a long road 廴: prolonging.",
   "kind": "mnemonic"
  },
  {
@@ -20144,9 +20149,10 @@
  },
  {
   "kanji": "戻",
-  "keyword": "return",
+  "keyword": "come back",
   "meanings": [
-   "go back"
+   "return",
+   "put back"
   ],
   "readings": [
    "もど.る",
@@ -22794,7 +22800,7 @@
     ]
    }
   ],
-  "story": "A roof 人 over a place of good luck 吉: a home.",
+  "story": "A roof 人 over earthen walls 土 and a door 口: a building.",
   "kind": "mnemonic"
  },
  {
@@ -23458,7 +23464,7 @@
     ]
    }
   ],
-  "story": "A hand placing meat 月 on an altar 示.",
+  "story": "A hand 又 placing meat 月 on an altar 示.",
   "kind": "origin"
  },
  {

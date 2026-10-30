@@ -679,9 +679,9 @@
  },
  {
   "kanji": "転",
-  "keyword": "turn",
+  "keyword": "roll over",
   "meanings": [
-   "roll",
+   "turn",
    "shift"
   ],
   "readings": [
@@ -1167,7 +1167,7 @@
     ]
    }
   ],
-  "story": "A hand ナ holding a cloth 巾.",
+  "story": "A hand 𠂇 holding a cloth 巾.",
   "kind": "mnemonic"
  },
  {
@@ -2438,8 +2438,9 @@
  },
  {
   "kanji": "路",
-  "keyword": "road",
+  "keyword": "path",
   "meanings": [
+   "road",
    "route"
   ],
   "readings": [
@@ -2680,10 +2681,10 @@
  },
  {
   "kanji": "命",
-  "keyword": "life",
+  "keyword": "fate",
   "meanings": [
-   "command",
-   "fate"
+   "life",
+   "command"
   ],
   "readings": [
    "メイ",
@@ -3695,7 +3696,7 @@
  },
  {
   "kanji": "吏",
-  "keyword": "official",
+  "keyword": "petty official",
   "meanings": [],
   "readings": [
    "リ"
@@ -3729,7 +3730,7 @@
   "keyword": "use",
   "meanings": [
    "messenger",
-   "envoy"
+   "employ"
   ],
   "readings": [
    "シ",
@@ -5169,9 +5170,9 @@
  },
  {
   "kanji": "組",
-  "keyword": "group",
+  "keyword": "assemble",
   "meanings": [
-   "assemble",
+   "group",
    "class"
   ],
   "readings": [
@@ -6202,8 +6203,9 @@
  },
  {
   "kanji": "経",
-  "keyword": "pass through",
+  "keyword": "elapse",
   "meanings": [
+   "pass through",
    "manage",
    "sutra"
   ],
@@ -6476,8 +6478,9 @@
  },
  {
   "kanji": "泉",
-  "keyword": "spring",
+  "keyword": "wellspring",
   "meanings": [
+   "spring",
    "fountain"
   ],
   "readings": [
@@ -8245,8 +8248,9 @@
  },
  {
   "kanji": "委",
-  "keyword": "entrust",
+  "keyword": "delegate",
   "meanings": [
+   "entrust",
    "committee"
   ],
   "readings": [
@@ -8668,8 +8672,10 @@
  },
  {
   "kanji": "建",
-  "keyword": "build",
-  "meanings": [],
+  "keyword": "erect",
+  "meanings": [
+   "build"
+  ],
   "readings": [
    "ケン",
    "た.てる",
@@ -8948,10 +8954,10 @@
  },
  {
   "kanji": "供",
-  "keyword": "offer",
+  "keyword": "provide",
   "meanings": [
-   "companion",
-   "serve"
+   "offer",
+   "companion"
   ],
   "readings": [
    "キョウ",
@@ -10858,8 +10864,10 @@
  },
  {
   "kanji": "丘",
-  "keyword": "hill",
-  "meanings": [],
+  "keyword": "hillock",
+  "meanings": [
+   "hill"
+  ],
   "readings": [
    "おか",
    "キュウ"
@@ -11664,10 +11672,10 @@
  },
  {
   "kanji": "歴",
-  "keyword": "history",
+  "keyword": "track record",
   "meanings": [
-   "career",
-   "pass through"
+   "history",
+   "career"
   ],
   "readings": [
    "レキ"
@@ -14067,7 +14075,8 @@
   "kanji": "変",
   "keyword": "change",
   "meanings": [
-   "strange"
+   "strange",
+   "alter"
   ],
   "readings": [
    "ヘン",
@@ -14502,7 +14511,10 @@
  {
   "kanji": "思",
   "keyword": "think",
-  "meanings": [],
+  "meanings": [
+   "feel",
+   "suppose"
+  ],
   "readings": [
    "おも.う",
    "シ"
@@ -15829,9 +15841,9 @@
  },
  {
   "kanji": "尺",
-  "keyword": "measure",
+  "keyword": "scale",
   "meanings": [
-   "scale",
+   "measure",
    "shaku (about 30 cm)"
   ],
   "readings": [
@@ -16696,9 +16708,10 @@
  },
  {
   "kanji": "至",
-  "keyword": "reach",
+  "keyword": "utmost",
   "meanings": [
-   "utmost"
+   "reach",
+   "arrive at"
   ],
   "readings": [
    "シ",
@@ -16890,10 +16903,10 @@
  },
  {
   "kanji": "屋",
-  "keyword": "house",
+  "keyword": "roof",
   "meanings": [
-   "shop",
-   "roof"
+   "house",
+   "shop"
   ],
   "readings": [
    "や",
@@ -17641,9 +17654,9 @@
  },
  {
   "kanji": "幼",
-  "keyword": "young",
+  "keyword": "childhood",
   "meanings": [
-   "infancy"
+   "very young"
   ],
   "readings": [
    "ヨウ",
@@ -21582,8 +21595,9 @@
  },
  {
   "kanji": "児",
-  "keyword": "child",
+  "keyword": "small child",
   "meanings": [
+   "child",
    "infant"
   ],
   "readings": [
@@ -22596,7 +22610,7 @@
     ]
    }
   ],
-  "story": "A hand ナ and a mouth 口: the hand you eat with.",
+  "story": "A hand 𠂇 and a mouth 口: the hand you eat with.",
   "kind": "mnemonic"
  },
  {
@@ -25040,9 +25054,9 @@
  },
  {
   "kanji": "却",
-  "keyword": "withdraw",
+  "keyword": "reject",
   "meanings": [
-   "reject",
+   "withdraw",
    "on the contrary"
   ],
   "readings": [
@@ -25651,7 +25665,7 @@
     ]
    }
   ],
-  "story": "A person 亻 at the bottom 氏 of a line 一: low.",
+  "story": "A person 亻 sinking to the bottom 氐: low.",
   "kind": "mnemonic"
  },
  {
@@ -25855,8 +25869,10 @@
  },
  {
   "kanji": "挙",
-  "keyword": "raise",
+  "keyword": "lift up",
   "meanings": [
+   "raise",
+   "cite",
    "hold (a ceremony)"
   ],
   "readings": [

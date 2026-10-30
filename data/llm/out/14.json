@@ -232,9 +232,9 @@
  },
  {
   "kanji": "戯",
-  "keyword": "play",
+  "keyword": "frolic",
   "meanings": [
-   "frolic",
+   "play",
    "jest"
   ],
   "readings": [
@@ -642,8 +642,10 @@
  },
  {
   "kanji": "帥",
-  "keyword": "commander",
-  "meanings": [],
+  "keyword": "marshal",
+  "meanings": [
+   "commander"
+  ],
   "readings": [
    "スイ"
   ],
@@ -916,9 +918,9 @@
  },
  {
   "kanji": "奔",
-  "keyword": "run",
+  "keyword": "rush",
   "meanings": [
-   "rush"
+   "run"
   ],
   "readings": [
    "ホン"
@@ -1707,8 +1709,9 @@
  },
  {
   "kanji": "魅",
-  "keyword": "charm",
+  "keyword": "allure",
   "meanings": [
+   "charm",
    "bewitch"
   ],
   "readings": [
@@ -1854,9 +1857,9 @@
  },
  {
   "kanji": "剰",
-  "keyword": "surplus",
+  "keyword": "excess",
   "meanings": [
-   "excess"
+   "surplus"
   ],
   "readings": [
    "ジョウ"
@@ -1925,9 +1928,9 @@
  },
  {
   "kanji": "甚",
-  "keyword": "extreme",
+  "keyword": "very",
   "meanings": [
-   "very"
+   "extreme"
   ],
   "readings": [
    "ジン",
@@ -3228,9 +3231,9 @@
  },
  {
   "kanji": "冥",
-  "keyword": "dark",
+  "keyword": "underworld",
   "meanings": [
-   "underworld"
+   "dark"
   ],
   "readings": [
    "メイ",
@@ -3445,8 +3448,9 @@
  },
  {
   "kanji": "添",
-  "keyword": "add",
+  "keyword": "append",
   "meanings": [
+   "add",
    "accompany"
   ],
   "readings": [
@@ -5300,8 +5304,10 @@
  },
  {
   "kanji": "薦",
-  "keyword": "recommend",
-  "meanings": [],
+  "keyword": "nominate",
+  "meanings": [
+   "recommend"
+  ],
   "readings": [
    "セン",
    "すす.める"
@@ -8555,7 +8561,7 @@
     ]
    }
   ],
-  "story": "Mud and water 涂 with earth 土, smeared on a wall.",
+  "story": "Water 氵 and earth 土 smeared together; 余 hints the sound ト.",
   "kind": "mnemonic"
  },
  {
@@ -9008,8 +9014,9 @@
  },
  {
   "kanji": "薫",
-  "keyword": "fragrant",
+  "keyword": "aroma",
   "meanings": [
+   "fragrant",
    "influence"
   ],
   "readings": [
@@ -9686,7 +9693,7 @@
  },
  {
   "kanji": "暖",
-  "keyword": "warm",
+  "keyword": "warm (weather)",
   "meanings": [],
   "readings": [
    "ダン",
@@ -10871,9 +10878,9 @@
  },
  {
   "kanji": "痕",
-  "keyword": "mark",
+  "keyword": "scar",
   "meanings": [
-   "scar",
+   "mark",
    "trace"
   ],
   "readings": [
@@ -10957,8 +10964,10 @@
  },
  {
   "kanji": "肪",
-  "keyword": "fat",
-  "meanings": [],
+  "keyword": "body fat",
+  "meanings": [
+   "fat"
+  ],
   "readings": [
    "ボウ"
   ],
@@ -11007,9 +11016,9 @@
  },
  {
   "kanji": "楼",
-  "keyword": "tower",
+  "keyword": "tall building",
   "meanings": [
-   "tall building"
+   "tower"
   ],
   "readings": [
    "ロウ"
@@ -11200,9 +11209,9 @@
  },
  {
   "kanji": "遇",
-  "keyword": "encounter",
+  "keyword": "treatment",
   "meanings": [
-   "treat"
+   "encounter"
   ],
   "readings": [
    "グウ"

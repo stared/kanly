@@ -658,8 +658,9 @@
  },
  {
   "kanji": "由",
-  "keyword": "reason",
+  "keyword": "grounds",
   "meanings": [
+   "reason",
    "via"
   ],
   "readings": [
@@ -2748,10 +2749,10 @@
  },
  {
   "kanji": "氏",
-  "keyword": "surname",
+  "keyword": "clan",
   "meanings": [
    "Mr.",
-   "clan"
+   "surname"
   ],
   "readings": [
    "シ",
@@ -4577,8 +4578,10 @@
  },
  {
   "kanji": "所",
-  "keyword": "place",
-  "meanings": [],
+  "keyword": "spot",
+  "meanings": [
+   "place"
+  ],
   "readings": [
    "ショ",
    "ところ"
@@ -9512,8 +9515,9 @@
  },
  {
   "kanji": "存",
-  "keyword": "exist",
+  "keyword": "persist",
   "meanings": [
+   "exist",
    "know (humble)"
   ],
   "readings": [
@@ -15224,8 +15228,9 @@
  },
  {
   "kanji": "界",
-  "keyword": "world",
+  "keyword": "realm",
   "meanings": [
+   "world",
    "boundary",
    "circles (a field)"
   ],
@@ -16251,7 +16256,7 @@
     "r": "あいま",
     "g": "break; spare moment",
     "lit": "join-interval",
-    "reading": "あい",
+    "reading": "ま",
     "furigana": [
      [
       "合",
@@ -16660,8 +16665,10 @@
  },
  {
   "kanji": "己",
-  "keyword": "self",
-  "meanings": [],
+  "keyword": "ego",
+  "meanings": [
+   "self"
+  ],
   "readings": [
    "コ",
    "キ",
@@ -17102,9 +17109,9 @@
  },
  {
   "kanji": "弔",
-  "keyword": "mourn",
+  "keyword": "condolence",
   "meanings": [
-   "condolence"
+   "mourn"
   ],
   "readings": [
    "チョウ",
@@ -19461,8 +19468,11 @@
  },
  {
   "kanji": "考",
-  "keyword": "think",
-  "meanings": [],
+  "keyword": "think over",
+  "meanings": [
+   "think",
+   "idea"
+  ],
   "readings": [
    "コウ",
    "かんが.える"
@@ -22135,9 +22145,10 @@
  },
  {
   "kanji": "必",
-  "keyword": "certain",
+  "keyword": "must",
   "meanings": [
-   "must"
+   "certain",
+   "necessary"
   ],
   "readings": [
    "ヒツ",
@@ -23426,8 +23437,9 @@
  },
  {
   "kanji": "末",
-  "keyword": "end",
+  "keyword": "tail end",
   "meanings": [
+   "end",
    "tip",
    "powder"
   ],
@@ -25501,9 +25513,9 @@
  },
  {
   "kanji": "都",
-  "keyword": "capital",
+  "keyword": "metropolis",
   "meanings": [
-   "metropolis",
+   "capital",
    "all"
   ],
   "readings": [

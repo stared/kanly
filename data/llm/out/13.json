@@ -227,8 +227,9 @@
  },
  {
   "kanji": "扉",
-  "keyword": "door",
+  "keyword": "hinged door",
   "meanings": [
+   "door",
    "title page"
   ],
   "readings": [
@@ -469,8 +470,10 @@
  },
  {
   "kanji": "汽",
-  "keyword": "steam",
-  "meanings": [],
+  "keyword": "vapor",
+  "meanings": [
+   "steam"
+  ],
   "readings": [
    "キ"
   ],
@@ -643,9 +646,9 @@
  },
  {
   "kanji": "符",
-  "keyword": "sign",
+  "keyword": "token",
   "meanings": [
-   "token",
+   "sign",
    "charm"
   ],
   "readings": [
@@ -788,8 +791,10 @@
  },
  {
   "kanji": "軟",
-  "keyword": "soft",
-  "meanings": [],
+  "keyword": "pliable",
+  "meanings": [
+   "soft"
+  ],
   "readings": [
    "ナン",
    "やわ.らかい"
@@ -1176,8 +1181,10 @@
  },
  {
   "kanji": "秩",
-  "keyword": "order",
-  "meanings": [],
+  "keyword": "social order",
+  "meanings": [
+   "order"
+  ],
   "readings": [
    "チツ"
   ],
@@ -1935,8 +1942,9 @@
  },
  {
   "kanji": "摂",
-  "keyword": "take in",
+  "keyword": "intake",
   "meanings": [
+   "take in",
    "act for (as regent)"
   ],
   "readings": [
@@ -3220,8 +3228,10 @@
  },
  {
   "kanji": "箇",
-  "keyword": "item",
-  "meanings": [],
+  "keyword": "piece",
+  "meanings": [
+   "item"
+  ],
   "readings": [
    "カ"
   ],
@@ -3553,7 +3563,6 @@
     "w": "定期預金",
     "r": "ていきよきん",
     "g": "time deposit",
-    "lit": "fixed term-deposit",
     "reading": "ヨ",
     "furigana": [
      [
@@ -4049,9 +4058,10 @@
  },
  {
   "kanji": "粋",
-  "keyword": "pure",
+  "keyword": "chic",
   "meanings": [
-   "chic"
+   "pure",
+   "the best part"
   ],
   "readings": [
    "スイ",
@@ -5318,8 +5328,9 @@
  },
  {
   "kanji": "殴",
-  "keyword": "hit",
+  "keyword": "punch",
   "meanings": [
+   "hit",
    "beat up"
   ],
   "readings": [
@@ -5416,8 +5427,9 @@
  },
  {
   "kanji": "把",
-  "keyword": "grasp",
+  "keyword": "clasp",
   "meanings": [
+   "grasp",
    "bundle"
   ],
   "readings": [
@@ -6384,8 +6396,10 @@
  },
  {
   "kanji": "髪",
-  "keyword": "hair",
-  "meanings": [],
+  "keyword": "head hair",
+  "meanings": [
+   "hair"
+  ],
   "readings": [
    "かみ",
    "ハツ"
@@ -7344,8 +7358,9 @@
  },
  {
   "kanji": "襲",
-  "keyword": "attack",
+  "keyword": "raid",
   "meanings": [
+   "attack",
    "inherit (a title)"
   ],
   "readings": [
@@ -7591,9 +7606,9 @@
  },
  {
   "kanji": "融",
-  "keyword": "dissolve",
+  "keyword": "fuse",
   "meanings": [
-   "fuse",
+   "dissolve",
    "circulate (money)"
   ],
   "readings": [
@@ -7795,8 +7810,9 @@
  },
  {
   "kanji": "隔",
-  "keyword": "separate",
+  "keyword": "partition",
   "meanings": [
+   "separate",
    "every other"
   ],
   "readings": [
@@ -10227,8 +10243,10 @@
  },
  {
   "kanji": "舶",
-  "keyword": "ship",
-  "meanings": [],
+  "keyword": "seagoing ship",
+  "meanings": [
+   "ship"
+  ],
   "readings": [
    "ハク"
   ],
@@ -11316,8 +11334,10 @@
  },
  {
   "kanji": "娠",
-  "keyword": "pregnancy",
-  "meanings": [],
+  "keyword": "with child",
+  "meanings": [
+   "pregnancy"
+  ],
   "readings": [
    "シン"
   ],
@@ -11911,8 +11931,10 @@
  },
  {
   "kanji": "悦",
-  "keyword": "joy",
-  "meanings": [],
+  "keyword": "delight",
+  "meanings": [
+   "joy"
+  ],
   "readings": [
    "エツ"
   ],
@@ -12138,9 +12160,10 @@
  },
  {
   "kanji": "捉",
-  "keyword": "catch",
+  "keyword": "seize",
   "meanings": [
-   "grasp"
+   "grasp",
+   "capture"
   ],
   "readings": [
    "とら.える",
@@ -12622,8 +12645,9 @@
  },
  {
   "kanji": "搬",
-  "keyword": "transport",
+  "keyword": "haul",
   "meanings": [
+   "transport",
    "carry"
   ],
   "readings": [
@@ -13098,8 +13122,9 @@
  },
  {
   "kanji": "胆",
-  "keyword": "courage",
+  "keyword": "guts",
   "meanings": [
+   "courage",
    "gall bladder"
   ],
   "readings": [

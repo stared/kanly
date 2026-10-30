@@ -1111,8 +1111,9 @@
  },
  {
   "kanji": "順",
-  "keyword": "order",
+  "keyword": "sequence",
   "meanings": [
+   "order",
    "turn",
    "obedient"
   ],
@@ -3508,8 +3509,9 @@
  },
  {
   "kanji": "絶",
-  "keyword": "cut off",
+  "keyword": "sever",
   "meanings": [
+   "cut off",
    "absolute",
    "extreme"
   ],
@@ -6438,11 +6440,11 @@
  },
  {
   "kanji": "精",
-  "keyword": "spirit",
+  "keyword": "essence",
   "meanings": [
+   "spirit",
    "refined",
-   "precise",
-   "energy"
+   "precise"
   ],
   "readings": [
    "セイ",
@@ -7034,9 +7036,9 @@
  },
  {
   "kanji": "盛",
-  "keyword": "prosper",
+  "keyword": "heap up",
   "meanings": [
-   "pile up",
+   "flourish",
    "serve (food)"
   ],
   "readings": [
@@ -8757,9 +8759,10 @@
  },
  {
   "kanji": "是",
-  "keyword": "right",
+  "keyword": "just so",
   "meanings": [
-   "just so"
+   "right",
+   "this"
   ],
   "readings": [
    "ゼ"
@@ -10715,8 +10718,9 @@
  },
  {
   "kanji": "貨",
-  "keyword": "goods",
+  "keyword": "merchandise",
   "meanings": [
+   "goods",
    "currency",
    "coin"
   ],
@@ -10905,9 +10909,10 @@
  },
  {
   "kanji": "隆",
-  "keyword": "rise",
+  "keyword": "thriving",
   "meanings": [
-   "prosper"
+   "rise",
+   "bulge"
   ],
   "readings": [
    "リュウ"
@@ -11035,8 +11040,9 @@
  },
  {
   "kanji": "盤",
-  "keyword": "board",
+  "keyword": "disk",
   "meanings": [
+   "board",
    "tray",
    "base"
   ],
@@ -11836,9 +11842,9 @@
  },
  {
   "kanji": "招",
-  "keyword": "invite",
+  "keyword": "beckon",
   "meanings": [
-   "beckon"
+   "invite"
   ],
   "readings": [
    "ショウ",
@@ -12285,8 +12291,9 @@
  },
  {
   "kanji": "談",
-  "keyword": "talk",
+  "keyword": "conversation",
   "meanings": [
+   "talk",
    "discuss"
   ],
   "readings": [
@@ -14460,8 +14467,9 @@
  },
  {
   "kanji": "測",
-  "keyword": "measure",
+  "keyword": "gauge",
   "meanings": [
+   "measure",
    "estimate"
   ],
   "readings": [
@@ -15820,9 +15828,9 @@
  },
  {
   "kanji": "港",
-  "keyword": "harbor",
+  "keyword": "port",
   "meanings": [
-   "port"
+   "harbor"
   ],
   "readings": [
    "コウ",
@@ -16276,8 +16284,11 @@
  },
  {
   "kanji": "沙",
-  "keyword": "sand",
-  "meanings": [],
+  "keyword": "fine sand",
+  "meanings": [
+   "sand",
+   "sift"
+  ],
   "readings": [
    "サ"
   ],
@@ -18465,7 +18476,8 @@
   "kanji": "捕",
   "keyword": "catch",
   "meanings": [
-   "capture"
+   "capture",
+   "arrest"
   ],
   "readings": [
    "ホ",
@@ -18990,9 +19002,9 @@
  },
  {
   "kanji": "感",
-  "keyword": "feeling",
+  "keyword": "sense",
   "meanings": [
-   "sense",
+   "feeling",
    "emotion"
   ],
   "readings": [
@@ -19541,8 +19553,9 @@
  },
  {
   "kanji": "阜",
-  "keyword": "hill",
+  "keyword": "terraced hill",
   "meanings": [
+   "hill",
    "mound"
   ],
   "readings": [
@@ -20222,10 +20235,10 @@
  },
  {
   "kanji": "討",
-  "keyword": "discuss",
+  "keyword": "debate",
   "meanings": [
-   "attack",
-   "examine"
+   "discuss",
+   "attack"
   ],
   "readings": [
    "トウ",
@@ -20390,11 +20403,10 @@
  },
  {
   "kanji": "序",
-  "keyword": "sequence",
+  "keyword": "preface",
   "meanings": [
    "order",
-   "beginning",
-   "preface"
+   "beginning"
   ],
   "readings": [
    "ジョ"
@@ -20604,8 +20616,9 @@
  },
  {
   "kanji": "停",
-  "keyword": "stop",
+  "keyword": "halt",
   "meanings": [
+   "stop",
    "suspend"
   ],
   "readings": [

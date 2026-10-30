@@ -504,8 +504,9 @@
  },
  {
   "kanji": "倣",
-  "keyword": "imitate",
+  "keyword": "emulate",
   "meanings": [
+   "imitate",
    "follow (an example)"
   ],
   "readings": [
@@ -765,8 +766,9 @@
  },
  {
   "kanji": "僅",
-  "keyword": "slight",
+  "keyword": "mere",
   "meanings": [
+   "slight",
    "few"
   ],
   "readings": [
@@ -1040,8 +1042,10 @@
  },
  {
   "kanji": "姻",
-  "keyword": "marriage",
-  "meanings": [],
+  "keyword": "matrimony",
+  "meanings": [
+   "marriage"
+  ],
   "readings": [
    "イン"
   ],
@@ -1314,9 +1318,9 @@
  },
  {
   "kanji": "欺",
-  "keyword": "deceive",
+  "keyword": "cheat",
   "meanings": [
-   "cheat"
+   "deceive"
   ],
   "readings": [
    "ギ",
@@ -1400,8 +1404,10 @@
  },
  {
   "kanji": "猛",
-  "keyword": "fierce",
-  "meanings": [],
+  "keyword": "ferocious",
+  "meanings": [
+   "fierce"
+  ],
   "readings": [
    "モウ"
   ],
@@ -2381,8 +2387,10 @@
  },
  {
   "kanji": "匿",
-  "keyword": "hide",
-  "meanings": [],
+  "keyword": "conceal",
+  "meanings": [
+   "hide"
+  ],
   "readings": [
    "トク"
   ],
@@ -2924,8 +2932,9 @@
  },
  {
   "kanji": "窟",
-  "keyword": "cave",
+  "keyword": "cavern",
   "meanings": [
+   "cave",
    "den"
   ],
   "readings": [
@@ -2991,9 +3000,9 @@
  },
  {
   "kanji": "丼",
-  "keyword": "bowl",
+  "keyword": "rice bowl",
   "meanings": [
-   "rice bowl dish"
+   "bowl"
   ],
   "readings": [
    "どんぶり",
@@ -3739,8 +3748,10 @@
  },
  {
   "kanji": "堆",
-  "keyword": "pile up",
-  "meanings": [],
+  "keyword": "heap",
+  "meanings": [
+   "pile up"
+  ],
   "readings": [
    "タイ"
   ],
@@ -4330,8 +4341,10 @@
  },
  {
   "kanji": "沸",
-  "keyword": "boil",
-  "meanings": [],
+  "keyword": "come to a boil",
+  "meanings": [
+   "boil"
+  ],
   "readings": [
    "わ.く",
    "わ.かす",
@@ -4775,8 +4788,10 @@
  },
  {
   "kanji": "罰",
-  "keyword": "punishment",
-  "meanings": [],
+  "keyword": "penalty",
+  "meanings": [
+   "punishment"
+  ],
   "readings": [
    "バツ",
    "バチ"
@@ -4992,9 +5007,9 @@
  },
  {
   "kanji": "挫",
-  "keyword": "crush",
+  "keyword": "sprain",
   "meanings": [
-   "sprain",
+   "crush",
    "be discouraged"
   ],
   "readings": [
@@ -5737,8 +5752,9 @@
  },
  {
   "kanji": "繊",
-  "keyword": "fine",
+  "keyword": "delicate",
   "meanings": [
+   "fine",
    "slender",
    "fiber"
   ],
@@ -5979,8 +5995,9 @@
  },
  {
   "kanji": "歓",
-  "keyword": "joy",
+  "keyword": "cheer",
   "meanings": [
+   "joy",
    "welcome"
   ],
   "readings": [
@@ -6921,7 +6938,10 @@
  {
   "kanji": "穏",
   "keyword": "calm",
-  "meanings": [],
+  "meanings": [
+   "tranquil",
+   "gentle"
+  ],
   "readings": [
    "オン",
    "おだ.やか"
@@ -7155,9 +7175,9 @@
  },
  {
   "kanji": "薄",
-  "keyword": "thin",
+  "keyword": "pale",
   "meanings": [
-   "pale",
+   "thin",
    "weak"
   ],
   "readings": [
@@ -7414,8 +7434,9 @@
  },
  {
   "kanji": "簿",
-  "keyword": "register",
+  "keyword": "ledger",
   "meanings": [
+   "register",
    "record book"
   ],
   "readings": [
@@ -7766,8 +7787,10 @@
  },
  {
   "kanji": "膚",
-  "keyword": "skin",
-  "meanings": [],
+  "keyword": "skin of the body",
+  "meanings": [
+   "skin"
+  ],
   "readings": [
    "フ"
   ],
@@ -7836,8 +7859,9 @@
  },
  {
   "kanji": "謡",
-  "keyword": "song",
+  "keyword": "folk song",
   "meanings": [
+   "song",
    "Noh chant"
   ],
   "readings": [
@@ -8978,8 +9002,10 @@
  },
  {
   "kanji": "惧",
-  "keyword": "fear",
-  "meanings": [],
+  "keyword": "dread",
+  "meanings": [
+   "fear"
+  ],
   "readings": [
    "グ"
   ],
@@ -9122,9 +9148,9 @@
  },
  {
   "kanji": "璃",
-  "keyword": "lapis lazuli",
+  "keyword": "glass",
   "meanings": [
-   "glass"
+   "lapis lazuli"
   ],
   "readings": [
    "リ"
@@ -9175,8 +9201,10 @@
  },
  {
   "kanji": "愚",
-  "keyword": "foolish",
-  "meanings": [],
+  "keyword": "stupid",
+  "meanings": [
+   "foolish"
+  ],
   "readings": [
    "グ",
    "おろ.か"
@@ -9599,8 +9627,9 @@
  },
  {
   "kanji": "擬",
-  "keyword": "imitate",
+  "keyword": "mimic",
   "meanings": [
+   "imitate",
    "mock"
   ],
   "readings": [
@@ -9945,8 +9974,9 @@
  },
  {
   "kanji": "惜",
-  "keyword": "regret",
+  "keyword": "pity",
   "meanings": [
+   "regret",
    "spare",
    "begrudge"
   ],
@@ -10728,9 +10758,9 @@
  },
  {
   "kanji": "穀",
-  "keyword": "grain",
+  "keyword": "cereal",
   "meanings": [
-   "cereal"
+   "grain"
   ],
   "readings": [
    "コク"
@@ -11108,8 +11138,10 @@
  },
  {
   "kanji": "鐘",
-  "keyword": "bell",
-  "meanings": [],
+  "keyword": "temple bell",
+  "meanings": [
+   "bell"
+  ],
   "readings": [
    "かね",
    "ショウ"
@@ -11409,8 +11441,9 @@
  },
  {
   "kanji": "遮",
-  "keyword": "block",
+  "keyword": "intercept",
   "meanings": [
+   "block",
    "interrupt"
   ],
   "readings": [

@@ -1,8 +1,9 @@
 [
  {
   "kanji": "愉",
-  "keyword": "pleasant",
+  "keyword": "amusing",
   "meanings": [
+   "pleasant",
    "pleasure"
   ],
   "readings": [
@@ -390,9 +391,9 @@
  },
  {
   "kanji": "陪",
-  "keyword": "accompany",
+  "keyword": "attend on",
   "meanings": [
-   "attend on"
+   "accompany"
   ],
   "readings": [
    "バイ"
@@ -726,8 +727,9 @@
  },
  {
   "kanji": "賓",
-  "keyword": "guest",
+  "keyword": "honored guest",
   "meanings": [
+   "guest",
    "VIP"
   ],
   "readings": [
@@ -1497,9 +1499,9 @@
  },
  {
   "kanji": "濯",
-  "keyword": "wash",
+  "keyword": "rinse",
   "meanings": [
-   "rinse"
+   "wash"
   ],
   "readings": [
    "タク"
@@ -1570,8 +1572,9 @@
  },
  {
   "kanji": "弊",
-  "keyword": "harm",
+  "keyword": "drawback",
   "meanings": [
+   "harm",
    "worn out",
    "our (humble)"
   ],
@@ -1936,8 +1939,9 @@
  },
  {
   "kanji": "寡",
-  "keyword": "few",
+  "keyword": "scant",
   "meanings": [
+   "few",
    "widow"
   ],
   "readings": [
@@ -2071,8 +2075,10 @@
  },
  {
   "kanji": "漸",
-  "keyword": "gradually",
-  "meanings": [],
+  "keyword": "little by little",
+  "meanings": [
+   "gradually"
+  ],
   "readings": [
    "ゼン",
    "ようや.く"
@@ -2985,8 +2991,10 @@
  },
  {
   "kanji": "瞭",
-  "keyword": "clear",
-  "meanings": [],
+  "keyword": "obvious",
+  "meanings": [
+   "clear"
+  ],
   "readings": [
    "リョウ"
   ],
@@ -4012,8 +4020,9 @@
  },
  {
   "kanji": "虞",
-  "keyword": "risk",
+  "keyword": "concern",
   "meanings": [
+   "risk",
    "fear"
   ],
   "readings": [
@@ -4099,8 +4108,10 @@
  },
  {
   "kanji": "遜",
-  "keyword": "humble",
-  "meanings": [],
+  "keyword": "modest",
+  "meanings": [
+   "humble"
+  ],
   "readings": [
    "ソン"
   ],
@@ -4313,9 +4324,9 @@
  },
  {
   "kanji": "萎",
-  "keyword": "wither",
+  "keyword": "droop",
   "meanings": [
-   "droop"
+   "wither"
   ],
   "readings": [
    "イ",
@@ -4617,8 +4628,10 @@
  },
  {
   "kanji": "頒",
-  "keyword": "distribute",
-  "meanings": [],
+  "keyword": "hand out",
+  "meanings": [
+   "distribute"
+  ],
   "readings": [
    "ハン"
   ],
@@ -4776,8 +4789,9 @@
  },
  {
   "kanji": "墾",
-  "keyword": "cultivate",
+  "keyword": "reclaim land",
   "meanings": [
+   "cultivate",
    "clear land"
   ],
   "readings": [
@@ -4950,9 +4964,9 @@
  },
  {
   "kanji": "辣",
-  "keyword": "harsh",
+  "keyword": "pungent",
   "meanings": [
-   "pungent"
+   "harsh"
   ],
   "readings": [
    "ラツ"
@@ -5000,8 +5014,10 @@
  },
  {
   "kanji": "賂",
-  "keyword": "bribe",
-  "meanings": [],
+  "keyword": "payoff",
+  "meanings": [
+   "bribe"
+  ],
   "readings": [
    "ロ"
   ],
@@ -5257,9 +5273,9 @@
  },
  {
   "kanji": "塑",
-  "keyword": "model",
+  "keyword": "mold",
   "meanings": [
-   "mold"
+   "model"
   ],
   "readings": [
    "ソ"
@@ -5627,9 +5643,9 @@
  },
  {
   "kanji": "諧",
-  "keyword": "harmony",
+  "keyword": "humor",
   "meanings": [
-   "humor"
+   "harmony"
   ],
   "readings": [
    "カイ"
@@ -5694,8 +5710,9 @@
  },
  {
   "kanji": "緻",
-  "keyword": "fine",
+  "keyword": "intricate",
   "meanings": [
+   "fine",
    "detailed"
   ],
   "readings": [
@@ -5922,8 +5939,9 @@
  },
  {
   "kanji": "塀",
-  "keyword": "fence",
+  "keyword": "garden wall",
   "meanings": [
+   "fence",
    "wall"
   ],
   "readings": [
@@ -6164,9 +6182,9 @@
  },
  {
   "kanji": "騰",
-  "keyword": "rise",
+  "keyword": "soar",
   "meanings": [
-   "soar"
+   "rise"
   ],
   "readings": [
    "トウ"
@@ -6317,9 +6335,9 @@
  },
  {
   "kanji": "羞",
-  "keyword": "shame",
+  "keyword": "bashful",
   "meanings": [
-   "bashful"
+   "shame"
   ],
   "readings": [
    "シュウ"
@@ -6550,8 +6568,10 @@
  },
  {
   "kanji": "憾",
-  "keyword": "regret",
-  "meanings": [],
+  "keyword": "remorse",
+  "meanings": [
+   "regret"
+  ],
   "readings": [
    "カン"
   ],
@@ -6709,8 +6729,10 @@
  },
  {
   "kanji": "憬",
-  "keyword": "yearn",
-  "meanings": [],
+  "keyword": "long for",
+  "meanings": [
+   "yearn"
+  ],
   "readings": [
    "ケイ"
   ],
@@ -6757,8 +6779,10 @@
  },
  {
   "kanji": "謄",
-  "keyword": "copy",
-  "meanings": [],
+  "keyword": "transcribe",
+  "meanings": [
+   "copy"
+  ],
   "readings": [
    "トウ"
   ],
@@ -6829,8 +6853,10 @@
  },
  {
   "kanji": "嚇",
-  "keyword": "threaten",
-  "meanings": [],
+  "keyword": "intimidate",
+  "meanings": [
+   "threaten"
+  ],
   "readings": [
    "カク"
   ],
@@ -7238,9 +7264,9 @@
  },
  {
   "kanji": "塡",
-  "keyword": "fill",
+  "keyword": "pack in",
   "meanings": [
-   "fill up"
+   "fill"
   ],
   "readings": [
    "テン"

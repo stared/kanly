@@ -304,8 +304,9 @@
  },
  {
   "kanji": "睡",
-  "keyword": "sleep",
+  "keyword": "slumber",
   "meanings": [
+   "sleep",
    "drowsy"
   ],
   "readings": [
@@ -495,8 +496,10 @@
  },
  {
   "kanji": "壌",
-  "keyword": "soil",
-  "meanings": [],
+  "keyword": "earth",
+  "meanings": [
+   "soil"
+  ],
   "readings": [
    "ジョウ"
   ],
@@ -857,9 +860,9 @@
  },
  {
   "kanji": "堕",
-  "keyword": "fall",
+  "keyword": "degenerate",
   "meanings": [
-   "degenerate"
+   "fall"
   ],
   "readings": [
    "ダ",
@@ -1723,8 +1726,10 @@
  },
  {
   "kanji": "諾",
-  "keyword": "consent",
-  "meanings": [],
+  "keyword": "assent",
+  "meanings": [
+   "consent"
+  ],
   "readings": [
    "ダク"
   ],
@@ -2184,8 +2189,10 @@
  },
  {
   "kanji": "燥",
-  "keyword": "dry",
-  "meanings": [],
+  "keyword": "parched",
+  "meanings": [
+   "dry"
+  ],
   "readings": [
    "ソウ"
   ],
@@ -2271,8 +2278,9 @@
  },
  {
   "kanji": "稽",
-  "keyword": "practice",
+  "keyword": "ponder",
   "meanings": [
+   "practice",
    "consider"
   ],
   "readings": [
@@ -3331,8 +3339,10 @@
  },
  {
   "kanji": "柵",
-  "keyword": "fence",
-  "meanings": [],
+  "keyword": "railing",
+  "meanings": [
+   "fence"
+  ],
   "readings": [
    "サク"
   ],
@@ -3821,8 +3831,9 @@
  },
  {
   "kanji": "寧",
-  "keyword": "peaceful",
+  "keyword": "polite",
   "meanings": [
+   "peaceful",
    "rather"
   ],
   "readings": [
@@ -4023,8 +4034,9 @@
  },
  {
   "kanji": "糾",
-  "keyword": "twist",
+  "keyword": "tangle",
   "meanings": [
+   "twist",
    "examine"
   ],
   "readings": [
@@ -5363,8 +5375,10 @@
  },
  {
   "kanji": "窃",
-  "keyword": "steal",
-  "meanings": [],
+  "keyword": "theft",
+  "meanings": [
+   "steal"
+  ],
   "readings": [
    "セツ"
   ],
@@ -5970,8 +5984,10 @@
  },
  {
   "kanji": "憩",
-  "keyword": "rest",
-  "meanings": [],
+  "keyword": "relax",
+  "meanings": [
+   "rest"
+  ],
   "readings": [
    "ケイ",
    "いこ.い",
@@ -6178,8 +6194,10 @@
  },
  {
   "kanji": "餓",
-  "keyword": "starve",
-  "meanings": [],
+  "keyword": "famished",
+  "meanings": [
+   "starve"
+  ],
   "readings": [
    "ガ"
   ],
@@ -6323,8 +6341,9 @@
  },
  {
   "kanji": "咽",
-  "keyword": "throat",
+  "keyword": "gullet",
   "meanings": [
+   "throat",
    "choke"
   ],
   "readings": [
@@ -6492,8 +6511,10 @@
  },
  {
   "kanji": "宵",
-  "keyword": "evening",
-  "meanings": [],
+  "keyword": "early night",
+  "meanings": [
+   "evening"
+  ],
   "readings": [
    "よい"
   ],
@@ -6908,8 +6929,9 @@
  },
  {
   "kanji": "刹",
-  "keyword": "temple",
+  "keyword": "Buddhist temple",
   "meanings": [
+   "temple",
    "instant"
   ],
   "readings": [
@@ -7068,9 +7090,9 @@
  },
  {
   "kanji": "擦",
-  "keyword": "rub",
+  "keyword": "scrape",
   "meanings": [
-   "scrape"
+   "rub"
   ],
   "readings": [
    "サツ",
@@ -7184,8 +7206,9 @@
  },
  {
   "kanji": "戴",
-  "keyword": "receive",
+  "keyword": "humbly receive",
   "meanings": [
+   "receive",
    "be crowned"
   ],
   "readings": [
@@ -7254,8 +7277,10 @@
  },
  {
   "kanji": "嘱",
-  "keyword": "entrust",
-  "meanings": [],
+  "keyword": "commission",
+  "meanings": [
+   "entrust"
+  ],
   "readings": [
    "ショク"
   ],
@@ -7403,8 +7428,9 @@
  },
  {
   "kanji": "喝",
-  "keyword": "shout",
+  "keyword": "bellow",
   "meanings": [
+   "shout",
    "threaten"
   ],
   "readings": [
@@ -7488,8 +7514,10 @@
  },
  {
   "kanji": "沃",
-  "keyword": "fertile",
-  "meanings": [],
+  "keyword": "rich soil",
+  "meanings": [
+   "fertile"
+  ],
   "readings": [
    "ヨク",
    "ヨウ"
@@ -7535,8 +7563,9 @@
  },
  {
   "kanji": "懸",
-  "keyword": "hang",
+  "keyword": "suspend",
   "meanings": [
+   "hang",
    "stake"
   ],
   "readings": [
@@ -8461,8 +8490,9 @@
  },
  {
   "kanji": "款",
-  "keyword": "clause",
+  "keyword": "article",
   "meanings": [
+   "clause",
    "goodwill"
   ],
   "readings": [
@@ -8541,8 +8571,11 @@
  },
  {
   "kanji": "堪",
-  "keyword": "endure",
-  "meanings": [],
+  "keyword": "tolerate",
+  "meanings": [
+   "endure",
+   "proficient"
+  ],
   "readings": [
    "た.える",
    "タン",
@@ -9456,8 +9489,9 @@
  },
  {
   "kanji": "愁",
-  "keyword": "sorrow",
+  "keyword": "melancholy",
   "meanings": [
+   "sorrow",
    "anxiety"
   ],
   "readings": [
@@ -9555,9 +9589,9 @@
  },
  {
   "kanji": "潔",
-  "keyword": "pure",
+  "keyword": "clean",
   "meanings": [
-   "clean",
+   "pure",
    "gallant"
   ],
   "readings": [
@@ -9852,8 +9886,9 @@
  },
  {
   "kanji": "蔽",
-  "keyword": "cover",
+  "keyword": "screen",
   "meanings": [
+   "cover",
    "conceal"
   ],
   "readings": [

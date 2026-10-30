@@ -1690,39 +1690,15 @@
     ]
    }
   ],
-  "more": [
-   {
-    "w": "少女漫画",
-    "r": "しょうじょまんが",
-    "g": "girls' manga",
-    "reading": "マン",
-    "furigana": [
-     [
-      "少",
-      "しょう"
-     ],
-     [
-      "女",
-      "じょ"
-     ],
-     [
-      "漫",
-      "まん"
-     ],
-     [
-      "画",
-      "が"
-     ]
-    ]
-   }
-  ],
+  "more": [],
   "story": "Water 氵 spreading wide 曼: rambling without aim.",
   "kind": "mnemonic"
  },
  {
   "kanji": "儀",
-  "keyword": "ceremony",
+  "keyword": "rite",
   "meanings": [
+   "ceremony",
    "etiquette",
    "instrument"
   ],
@@ -2640,7 +2616,9 @@
  {
   "kanji": "燃",
   "keyword": "burn",
-  "meanings": [],
+  "meanings": [
+   "combust"
+  ],
   "readings": [
    "ネン",
    "も.える",
@@ -2853,8 +2831,9 @@
  },
  {
   "kanji": "霊",
-  "keyword": "spirit",
+  "keyword": "ghost",
   "meanings": [
+   "spirit",
    "soul"
   ],
   "readings": [
@@ -4623,9 +4602,9 @@
  },
  {
   "kanji": "葬",
-  "keyword": "bury",
+  "keyword": "funeral",
   "meanings": [
-   "funeral"
+   "bury"
   ],
   "readings": [
    "ソウ",
@@ -5620,9 +5599,10 @@
  },
  {
   "kanji": "捜",
-  "keyword": "search",
+  "keyword": "look for",
   "meanings": [
-   "look for"
+   "search",
+   "investigate"
   ],
   "readings": [
    "ソウ",
@@ -6004,8 +5984,9 @@
  },
  {
   "kanji": "妨",
-  "keyword": "hinder",
+  "keyword": "interfere",
   "meanings": [
+   "hinder",
    "obstruct"
   ],
   "readings": [
@@ -7228,8 +7209,9 @@
  },
  {
   "kanji": "綱",
-  "keyword": "rope",
+  "keyword": "cable",
   "meanings": [
+   "rope",
    "main principle"
   ],
   "readings": [
@@ -7484,9 +7466,9 @@
  },
  {
   "kanji": "棟",
-  "keyword": "building",
+  "keyword": "ridgepole",
   "meanings": [
-   "ridge of a roof"
+   "building"
   ],
   "readings": [
    "トウ",
@@ -7529,26 +7511,6 @@
      [
       "棟",
       "むね"
-     ]
-    ]
-   },
-   {
-    "w": "研究棟",
-    "r": "けんきゅうとう",
-    "g": "research building",
-    "reading": "トウ",
-    "furigana": [
-     [
-      "研",
-      "けん"
-     ],
-     [
-      "究",
-      "きゅう"
-     ],
-     [
-      "棟",
-      "とう"
      ]
     ]
    },
@@ -8134,8 +8096,9 @@
  },
  {
   "kanji": "肌",
-  "keyword": "skin",
+  "keyword": "bare skin",
   "meanings": [
+   "skin",
    "texture"
   ],
   "readings": [
@@ -8991,9 +8954,9 @@
  },
  {
   "kanji": "伎",
-  "keyword": "skill",
+  "keyword": "performer",
   "meanings": [
-   "performer"
+   "skill"
   ],
   "readings": [
    "キ"
@@ -10361,9 +10324,10 @@
  },
  {
   "kanji": "還",
-  "keyword": "return",
+  "keyword": "give back",
   "meanings": [
-   "give back"
+   "return",
+   "come back"
   ],
   "readings": [
    "カン"
@@ -11298,8 +11262,9 @@
  },
  {
   "kanji": "携",
-  "keyword": "carry",
+  "keyword": "take along",
   "meanings": [
+   "carry",
    "take part"
   ],
   "readings": [
@@ -11720,8 +11685,9 @@
  },
  {
   "kanji": "耐",
-  "keyword": "endure",
+  "keyword": "withstand",
   "meanings": [
+   "endure",
    "-proof"
   ],
   "readings": [
@@ -14524,8 +14490,9 @@
  },
  {
   "kanji": "疾",
-  "keyword": "disease",
+  "keyword": "ailment",
   "meanings": [
+   "disease",
    "swift"
   ],
   "readings": [
@@ -15968,8 +15935,10 @@
  },
  {
   "kanji": "漁",
-  "keyword": "fishing",
-  "meanings": [],
+  "keyword": "fishery",
+  "meanings": [
+   "fishing"
+  ],
   "readings": [
    "ギョ",
    "リョウ",
@@ -17362,9 +17331,9 @@
  },
  {
   "kanji": "朽",
-  "keyword": "rot",
+  "keyword": "decay",
   "meanings": [
-   "decay"
+   "rot"
   ],
   "readings": [
    "キュウ",
@@ -17599,10 +17568,10 @@
  },
  {
   "kanji": "鎮",
-  "keyword": "calm",
+  "keyword": "quell",
   "meanings": [
-   "suppress",
-   "weight"
+   "calm",
+   "suppress"
   ],
   "readings": [
    "チン",

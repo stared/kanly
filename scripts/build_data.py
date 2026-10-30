@@ -240,7 +240,9 @@ def fix_trees(trees: dict, kvg: dict, kd: dict) -> dict:
         """An element's own tree, fixed."""
         if el not in memo:
             base = trees.get(el) or kvg.get(el)
-            strokes = kd[el]["strokes"] if el in kd else base["strokes"] if base else seen[el].most_common(1)[0][0] if seen[el] else 1
+            # a kanji's own count; a part's as written in trees.json, as KanjiVG draws it alone, else as KANJIDIC counts it, else as drawn inside others
+            strokes = fixes.get(el, {}).get("strokes") or (kd[el]["strokes"] if el in trees else base["strokes"] if base else kd[el]["strokes"] if el in kd
+                       else max(seen[el], key=lambda n: (seen[el][n], n)) if seen[el] else 1)
             memo[el] = {"el": el, "strokes": strokes, "kids": []}  # a cycle ends here
             if el in fixes:
                 was = {k["el"]: k for k in (base or {"kids": []})["kids"]}

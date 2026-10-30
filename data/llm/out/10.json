@@ -956,9 +956,9 @@
  },
  {
   "kanji": "浄",
-  "keyword": "pure",
+  "keyword": "cleanse",
   "meanings": [
-   "cleanse"
+   "pure"
   ],
   "readings": [
    "ジョウ"
@@ -1860,7 +1860,7 @@
  },
  {
   "kanji": "樹",
-  "keyword": "tree",
+  "keyword": "standing tree",
   "meanings": [
    "establish"
   ],
@@ -3116,8 +3116,9 @@
  },
  {
   "kanji": "勾",
-  "keyword": "slope",
+  "keyword": "incline",
   "meanings": [
+   "slope",
    "detain"
   ],
   "readings": [
@@ -4526,8 +4527,10 @@
  },
  {
   "kanji": "械",
-  "keyword": "machine",
-  "meanings": [],
+  "keyword": "apparatus",
+  "meanings": [
+   "machine"
+  ],
   "readings": [
    "カイ"
   ],
@@ -5271,8 +5274,10 @@
  },
  {
   "kanji": "較",
-  "keyword": "compare",
-  "meanings": [],
+  "keyword": "contrast",
+  "meanings": [
+   "compare"
+  ],
   "readings": [
    "カク"
   ],
@@ -5365,9 +5370,9 @@
     ]
    },
    {
-    "w": "数億",
-    "r": "すうおく",
-    "g": "hundreds of millions",
+    "w": "数億年",
+    "r": "すうおくねん",
+    "g": "hundreds of millions of years",
     "reading": "オク",
     "furigana": [
      [
@@ -5377,6 +5382,10 @@
      [
       "億",
       "おく"
+     ],
+     [
+      "年",
+      "ねん"
      ]
     ]
    },
@@ -8027,9 +8036,9 @@
  },
  {
   "kanji": "怖",
-  "keyword": "fear",
+  "keyword": "scary",
   "meanings": [
-   "scary"
+   "fear"
   ],
   "readings": [
    "こわ.い",
@@ -8304,8 +8313,10 @@
  },
  {
   "kanji": "築",
-  "keyword": "build",
-  "meanings": [],
+  "keyword": "construct",
+  "meanings": [
+   "build"
+  ],
   "readings": [
    "チク",
    "きず.く"
@@ -8517,7 +8528,9 @@
  {
   "kanji": "沈",
   "keyword": "sink",
-  "meanings": [],
+  "meanings": [
+   "go under"
+  ],
   "readings": [
    "チン",
    "しず.む",
@@ -8793,8 +8806,9 @@
  },
  {
   "kanji": "舗",
-  "keyword": "shop",
+  "keyword": "storefront",
   "meanings": [
+   "shop",
    "pave"
   ],
   "readings": [
@@ -8870,9 +8884,9 @@
  },
  {
   "kanji": "昼",
-  "keyword": "noon",
+  "keyword": "daytime",
   "meanings": [
-   "daytime"
+   "noon"
   ],
   "readings": [
    "ひる",
@@ -9452,8 +9466,10 @@
  },
  {
   "kanji": "抵",
-  "keyword": "resist",
-  "meanings": [],
+  "keyword": "oppose",
+  "meanings": [
+   "resist"
+  ],
   "readings": [
    "テイ"
   ],
@@ -11880,8 +11896,10 @@
  },
  {
   "kanji": "護",
-  "keyword": "protect",
-  "meanings": [],
+  "keyword": "safeguard",
+  "meanings": [
+   "protect"
+  ],
   "readings": [
    "ゴ"
   ],
@@ -12083,8 +12101,9 @@
  },
  {
   "kanji": "獲",
-  "keyword": "catch",
+  "keyword": "acquire",
   "meanings": [
+   "catch",
    "win"
   ],
   "readings": [
@@ -13103,26 +13122,6 @@
       "ばたけ"
      ]
     ]
-   },
-   {
-    "w": "桑の実",
-    "r": "くわのみ",
-    "g": "mulberry (fruit)",
-    "reading": "くわ",
-    "furigana": [
-     [
-      "桑",
-      "くわ"
-     ],
-     [
-      "の",
-      ""
-     ],
-     [
-      "実",
-      "み"
-     ]
-    ]
    }
   ],
   "more": [],
@@ -14051,22 +14050,6 @@
     ]
    },
    {
-    "w": "お墓",
-    "r": "おはか",
-    "g": "grave",
-    "reading": "はか",
-    "furigana": [
-     [
-      "お",
-      ""
-     ],
-     [
-      "墓",
-      "はか"
-     ]
-    ]
-   },
-   {
     "w": "墓石",
     "r": "ぼせき",
     "g": "gravestone",
@@ -14527,8 +14510,9 @@
  },
  {
   "kanji": "額",
-  "keyword": "amount",
+  "keyword": "sum",
   "meanings": [
+   "amount",
    "forehead",
    "frame"
   ],
@@ -14892,9 +14876,9 @@
  },
  {
   "kanji": "臨",
-  "keyword": "face",
+  "keyword": "attend",
   "meanings": [
-   "attend"
+   "face"
   ],
   "readings": [
    "リン",

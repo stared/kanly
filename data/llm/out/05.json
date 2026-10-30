@@ -839,22 +839,6 @@
       "さつ"
      ]
     ]
-   },
-   {
-    "w": "何冊",
-    "r": "なんさつ",
-    "g": "how many books",
-    "reading": "サツ",
-    "furigana": [
-     [
-      "何",
-      "なん"
-     ],
-     [
-      "冊",
-      "さつ"
-     ]
-    ]
    }
   ],
   "story": "Bamboo strips tied together with a cord: an ancient book.",
@@ -3387,9 +3371,10 @@
  },
  {
   "kanji": "財",
-  "keyword": "wealth",
+  "keyword": "property",
   "meanings": [
-   "property"
+   "wealth",
+   "fortune"
   ],
   "readings": [
    "ザイ",
@@ -4565,22 +4550,6 @@
     ]
    },
    {
-    "w": "何枚",
-    "r": "なんまい",
-    "g": "how many (sheets)",
-    "reading": "マイ",
-    "furigana": [
-     [
-      "何",
-      "なん"
-     ],
-     [
-      "枚",
-      "まい"
-     ]
-    ]
-   },
-   {
     "w": "二枚目",
     "r": "にまいめ",
     "g": "handsome man; the leading man",
@@ -4615,9 +4584,7 @@
       "まい"
      ]
     ]
-   }
-  ],
-  "more": [
+   },
    {
     "w": "一枚岩",
     "r": "いちまいいわ",
@@ -4638,7 +4605,9 @@
       "いわ"
      ]
     ]
-   },
+   }
+  ],
+  "more": [
    {
     "w": "二枚舌",
     "r": "にまいじた",
@@ -6272,8 +6241,11 @@
  },
  {
   "kanji": "録",
-  "keyword": "record",
-  "meanings": [],
+  "keyword": "recording",
+  "meanings": [
+   "record",
+   "register"
+  ],
   "readings": [
    "ロク"
   ],
@@ -6694,8 +6666,9 @@
  },
  {
   "kanji": "視",
-  "keyword": "look at",
+  "keyword": "sight",
   "meanings": [
+   "look at",
    "regard as"
   ],
   "readings": [
@@ -7720,9 +7693,10 @@
  },
  {
   "kanji": "壮",
-  "keyword": "grand",
+  "keyword": "robust",
   "meanings": [
-   "robust"
+   "grand",
+   "prime of life"
   ],
   "readings": [
    "ソウ"
@@ -11301,9 +11275,10 @@
  },
  {
   "kanji": "態",
-  "keyword": "condition",
+  "keyword": "attitude",
   "meanings": [
-   "attitude"
+   "condition",
+   "form"
   ],
   "readings": [
    "タイ"
@@ -12129,8 +12104,9 @@
  },
  {
   "kanji": "犯",
-  "keyword": "crime",
+  "keyword": "offend",
   "meanings": [
+   "crime",
    "commit"
   ],
   "readings": [
@@ -13068,7 +13044,7 @@
  },
  {
   "kanji": "希",
-  "keyword": "hope",
+  "keyword": "hope for",
   "meanings": [
    "rare"
   ],
@@ -14675,9 +14651,9 @@
  },
  {
   "kanji": "故",
-  "keyword": "reason",
+  "keyword": "the late",
   "meanings": [
-   "late (deceased)",
+   "reason",
    "old"
   ],
   "readings": [
@@ -15161,8 +15137,9 @@
  },
  {
   "kanji": "凡",
-  "keyword": "ordinary",
+  "keyword": "mediocre",
   "meanings": [
+   "ordinary",
    "roughly"
   ],
   "readings": [
@@ -18758,8 +18735,10 @@
  },
  {
   "kanji": "販",
-  "keyword": "sell",
-  "meanings": [],
+  "keyword": "sales",
+  "meanings": [
+   "sell"
+  ],
   "readings": [
    "ハン"
   ],
@@ -19655,9 +19634,9 @@
  },
  {
   "kanji": "伸",
-  "keyword": "stretch",
+  "keyword": "extend",
   "meanings": [
-   "extend",
+   "stretch",
    "grow"
   ],
   "readings": [
@@ -20969,10 +20948,11 @@
  },
  {
   "kanji": "没",
-  "keyword": "sink",
+  "keyword": "vanish",
   "meanings": [
+   "sink",
    "die",
-   "disappear"
+   "immerse"
   ],
   "readings": [
    "ボツ"

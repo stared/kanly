@@ -1,0 +1,2856 @@
+{
+ "止": {
+  "parts": [],
+  "why": "a footprint; 卜 'divining crack' is just a stroke group"
+ },
+ "干": {
+  "parts": [],
+  "why": "a pictograph (forked stick/shield); 十 is a stroke group"
+ },
+ "年": {
+  "parts": [],
+  "why": "from a person carrying grain; 丿 + 干 are stroke groups, not 'dry'"
+ },
+ "上": {
+  "parts": [],
+  "why": "an indicative sign (stroke above a line); 卜 is not 'divining crack' here"
+ },
+ "下": {
+  "parts": [],
+  "why": "an indicative sign (stroke below a line); 卜 is not 'divining crack' here"
+ },
+ "本": {
+  "parts": [
+   "木",
+   "一"
+  ],
+  "why": "tree plus the mark at its root; the tree showed only 木"
+ },
+ "出": {
+  "parts": [],
+  "why": "a foot leaving a pit; the top is not 山 'mountain'"
+ },
+ "平": {
+  "parts": [],
+  "why": "not 干 'dry': a single shape (scale/level), no useful split"
+ },
+ "自": {
+  "parts": [],
+  "why": "a nose pictograph; 目 'eye' misleads"
+ },
+ "立": {
+  "parts": [],
+  "why": "a person standing on the ground; 亠 'lid' misleads"
+ },
+ "方": {
+  "parts": [],
+  "why": "a single pictograph; 亠 'lid' misleads"
+ },
+ "主": {
+  "parts": [
+   "丶",
+   "王"
+  ],
+  "why": "lamp flame 丶 on a stand 王; the dot was labelled 亠 (1 stroke)"
+ },
+ "文": {
+  "parts": [],
+  "why": "a person with a tattooed chest; 亠 + 乂 are stroke groups"
+ },
+ "市": {
+  "parts": [
+   "亠",
+   "巾"
+  ],
+  "why": "巾 キン is not the sound of 市 シ"
+ },
+ "了": {
+  "parts": [],
+  "why": "2-stroke unit; 亅 alone is meaningless"
+ },
+ "不": {
+  "parts": [],
+  "why": "a single pictograph; 一 丿 丨 are just strokes"
+ },
+ "丁": {
+  "parts": [],
+  "why": "a nail pictograph; 一 + 亅 are just strokes"
+ },
+ "在": {
+  "parts": [
+   "土"
+  ],
+  "why": "the left is 才 (sound ザイ), not 亻 'person'"
+ },
+ "万": {
+  "parts": [],
+  "why": "3-stroke unit; 一 alone is meaningless"
+ },
+ "外": {
+  "parts": [
+   "夕",
+   "卜"
+  ],
+  "why": "夕 セキ is not the sound of 外 ガイ"
+ },
+ "九": {
+  "parts": [],
+  "why": "a single pictograph; 丿 + 乙 are strokes"
+ },
+ "久": {
+  "parts": [],
+  "why": "a single unit; 𠂊 'wrap' misleads"
+ },
+ "社": {
+  "parts": [
+   "礻",
+   "土"
+  ],
+  "why": "altar + earth god: a meaning compound; 土 is not its sound"
+ },
+ "共": {
+  "parts": [
+   "龷",
+   "八"
+  ],
+  "why": "two hands 龷 + 八 holding something up; the tree showed only 八"
+ },
+ "与": {
+  "parts": [],
+  "why": "3-stroke unit; 一 alone is meaningless"
+ },
+ "七": {
+  "parts": [],
+  "why": "a cut stroke; 一 + 乙 are strokes"
+ },
+ "国": {
+  "parts": [
+   "囗",
+   "玉"
+  ],
+  "why": "玉 replaced 或 in the modern form; ギョク is not the sound of コク"
+ },
+ "石": {
+  "parts": [
+   "丆",
+   "口"
+  ],
+  "why": "a rock 口 under a cliff 丆; the cliff was missing"
+ },
+ "有": {
+  "parts": [
+   "𠂇",
+   "月"
+  ],
+  "why": "a hand 𠂇 holding meat 月; the hand was missing"
+ },
+ "彳": {
+  "parts": [],
+  "why": "component: 'step' is one unit; it was split as 亻 'person' in every tree (行 後 役 ...)"
+ },
+ "龰": {
+  "parts": [],
+  "why": "component: a foot; split as 卜 + 人 in 足 走 定 ..."
+ },
+ "夫": {
+  "parts": [
+   "一",
+   "大"
+  ],
+  "why": "a man 大 with a hairpin 一; the hairpin was missing"
+ },
+ "前": {
+  "parts": [
+   "䒑",
+   "月",
+   "刂"
+  ],
+  "why": "月 is not the sound of 前 (it was 舟); top is 䒑, not 八"
+ },
+ "由": {
+  "parts": [],
+  "why": "a single pictograph; not 日 + 丨"
+ },
+ "曲": {
+  "parts": [],
+  "why": "a bent vessel pictograph; 日 (3 strokes) + 廾 are stroke groups"
+ },
+ "井": {
+  "parts": [],
+  "why": "a well frame; 二 (1 stroke) + 廾 are stroke groups"
+ },
+ "団": {
+  "parts": [
+   "囗",
+   "寸"
+  ],
+  "why": "寸 is a reduced 專; not the sound of ダン"
+ },
+ "五": {
+  "parts": [],
+  "why": "a single sign; 二 alone misleads"
+ },
+ "両": {
+  "parts": [],
+  "why": "a yoke pictograph; the inside is not 山 'mountain'"
+ },
+ "存": {
+  "parts": [
+   "子"
+  ],
+  "why": "the left is 才 (sound ソン/ザイ), not 亻 'person'"
+ },
+ "亡": {
+  "parts": [],
+  "why": "3-stroke unit; 亠 with 匸 (1 stroke) is a stroke grouping"
+ },
+ "半": {
+  "parts": [],
+  "why": "from 八 over 牛; 丶 + 二 (1 stroke) + 十 are stroke groups"
+ },
+ "比": {
+  "parts": [
+   "匕",
+   "匕"
+  ],
+  "why": "two people side by side; only one 匕 was shown"
+ },
+ "第": {
+  "parts": [
+   "竹"
+  ],
+  "why": "the bottom is a shortened 弟; 弔 'mourn' + 丿 is a stroke grouping"
+ },
+ "谷": {
+  "parts": [
+   "八",
+   "人",
+   "口"
+  ],
+  "why": "water parting 八 人 at a valley mouth 口; only 口 was shown"
+ },
+ "広": {
+  "parts": [
+   "广",
+   "厶"
+  ],
+  "why": "from 廣 (黄 sound); 厶 is not its sound"
+ },
+ "度": {
+  "parts": [
+   "广",
+   "廿",
+   "又"
+  ],
+  "why": "two parts marked [sound]; 度 is from 庶 (sound) + 又, no single visible phonetic"
+ },
+ "央": {
+  "parts": [
+   "冂",
+   "大"
+  ],
+  "why": "a person 大 under a yoke 冂; 丨 alone misleads"
+ },
+ "表": {
+  "parts": [
+   "龶",
+   "𧘇"
+  ],
+  "why": "衣 split by its fur 毛 top; 二 丨 衣(5) were stroke groups"
+ },
+ "来": {
+  "parts": [],
+  "why": "a wheat pictograph; 米 'rice' is a stroke group"
+ },
+ "制": {
+  "parts": [
+   "刂"
+  ],
+  "why": "left part is not 牛 'cow' (3 strokes) + 巾; only 刂 is a real part"
+ },
+ "末": {
+  "parts": [
+   "一",
+   "木"
+  ],
+  "why": "a tree with a mark at its tip; the top stroke was missing"
+ },
+ "申": {
+  "parts": [],
+  "why": "lightning pictograph; not 日 + 丨"
+ },
+ "开": {
+  "parts": [],
+  "why": "component: two hands; split as 干 + 干 (1 stroke) + 十 in 開 形 研"
+ },
+ "辺": {
+  "parts": [
+   "刀",
+   "⻌"
+  ],
+  "why": "from 邊; 刀 is not its sound"
+ },
+ "書": {
+  "parts": [
+   "聿",
+   "日"
+  ],
+  "why": "日 is a reduced 者; ニチ is not the sound of ショ"
+ },
+ "首": {
+  "parts": [
+   "䒑",
+   "自"
+  ],
+  "why": "hair 䒑 over a face 自; the hair was missing"
+ },
+ "重": {
+  "parts": [],
+  "why": "a person carrying a sack; 千 (2 strokes) + 里 are stroke groups"
+ },
+ "未": {
+  "parts": [
+   "一",
+   "木"
+  ],
+  "why": "a tree with extra top branches; the top stroke was missing"
+ },
+ "定": {
+  "parts": [
+   "宀",
+   "疋"
+  ],
+  "why": "疋 ソ is not the sound of テイ (that was 正)"
+ },
+ "応": {
+  "parts": [
+   "广",
+   "心"
+  ],
+  "why": "from 應; 广 is not its sound"
+ },
+ "受": {
+  "parts": [
+   "⺤",
+   "冖",
+   "又"
+  ],
+  "why": "冖 is a reduced 舟 (boat passed hand to hand), not the sound"
+ },
+ "甲": {
+  "parts": [],
+  "why": "a shell/armor pictograph; not 日 + 丨"
+ },
+ "単": {
+  "parts": [
+   "⺍",
+   "日",
+   "十"
+  ],
+  "why": "甲 was labelled with 6 strokes; the visible parts are ⺍ + 日 + 十"
+ },
+ "矢": {
+  "parts": [],
+  "why": "an arrow pictograph; 天 'heaven' misleads"
+ },
+ "写": {
+  "parts": [
+   "冖",
+   "与"
+  ],
+  "why": "from 寫 (舄 sound); 与 is not its sound"
+ },
+ "条": {
+  "parts": [
+   "夂",
+   "木"
+  ],
+  "why": "from 條 (攸 sound); 夂 is not its sound"
+ },
+ "左": {
+  "parts": [
+   "𠂇",
+   "工"
+  ],
+  "why": "a left hand 𠂇 holding a tool 工; the hand was missing"
+ },
+ "馬": {
+  "parts": [],
+  "why": "a horse pictograph; the four dots are legs, not 灬 'fire'"
+ },
+ "母": {
+  "parts": [],
+  "why": "a woman with breasts; 毋 (3 strokes) is a stroke grouping"
+ },
+ "原": {
+  "parts": [
+   "厂",
+   "白",
+   "小"
+  ],
+  "why": "a spring 泉 under a cliff 厂; the unencoded CDP part is shown as 白 + 小"
+ },
+ "乗": {
+  "parts": [],
+  "why": "from 乘, a person on top of a tree; 千 (2 strokes) + 木 are stroke groups"
+ },
+ "布": {
+  "parts": [
+   "𠂇",
+   "巾"
+  ],
+  "why": "the top is a hand 𠂇 over cloth 巾; the tree showed only 巾"
+ },
+ "再": {
+  "parts": [],
+  "why": "one pictograph (a woven frame/basket); 一 + 冉 'tassel' is a stroke grouping"
+ },
+ "鳥": {
+  "parts": [],
+  "why": "a pictograph of a bird; the four dots are its tail and feet, not fire 灬"
+ },
+ "命": {
+  "parts": [
+   "令",
+   "口"
+  ],
+  "phon": "令",
+  "why": "standard analysis: mouth 口 giving an order 令 (メイ/レイ); 人+一+卩 hides 令"
+ },
+ "矛": {
+  "parts": [],
+  "why": "a pictograph of a spear; 予 'beforehand' + 丿 is only a look-alike"
+ },
+ "丈": {
+  "parts": [],
+  "why": "a hand measuring; 一 + 乂 'crossed strokes' teaches nothing"
+ },
+ "吏": {
+  "parts": [
+   "一",
+   "史"
+  ],
+  "why": "吏 is 史 (record-keeper) with a stroke on top; 丈 + 口 is a stroke grouping"
+ },
+ "且": {
+  "parts": [],
+  "why": "a pictograph of an offering stand; it contains no moon 月"
+ },
+ "師": {
+  "parts": [
+   "𠂤",
+   "帀"
+  ],
+  "why": "standard 𠂤 + 帀; the tree lost the whole left side (丿 丨 巾 only)"
+ },
+ "羊": {
+  "parts": [],
+  "why": "a pictograph of a ram's head; showing only the horns 䒑 is a fragment"
+ },
+ "業": {
+  "parts": [],
+  "why": "a pictograph of a rack for hanging bells; its middle is not 'sheep' 羊 (shown with 4 strokes)"
+ },
+ "才": {
+  "parts": [],
+  "why": "a pictograph (a sprouting plant); it is not the hand radical 扌"
+ },
+ "赤": {
+  "parts": [],
+  "why": "originally 大 over 火 (a big fire); 土 'soil' here is a look-alike"
+ },
+ "無": {
+  "parts": [],
+  "why": "a pictograph of a dancer; 丿 一 灬 'fire' are stroke groups"
+ },
+ "丘": {
+  "parts": [],
+  "why": "a pictograph of two hills; it contains no axe 斤"
+ },
+ "武": {
+  "parts": [
+   "戈",
+   "止"
+  ],
+  "why": "standard: halberd 戈 + foot 止; the tree had an unencoded shape for 戈"
+ },
+ "尺": {
+  "parts": [],
+  "why": "a pictograph of a spread hand measuring; 尸 + a 1-stroke 八 is meaningless"
+ },
+ "至": {
+  "parts": [],
+  "why": "a pictograph of an arrow hitting the ground; 厶 'private' + 土 are look-alikes"
+ },
+ "角": {
+  "parts": [],
+  "why": "a pictograph of a horn; the tree showed only the 2-stroke top"
+ },
+ "右": {
+  "parts": [
+   "𠂇",
+   "口"
+  ],
+  "why": "a hand 𠂇 + mouth 口; the top was labelled 丆 'cliff'"
+ },
+ "低": {
+  "parts": [
+   "亻",
+   "氐"
+  ],
+  "phon": "氐",
+  "why": "standard 亻 + phonetic 氐 (テイ); it was split into 氏 + 一"
+ },
+ "着": {
+  "parts": [
+   "羊",
+   "丿",
+   "目"
+  ],
+  "why": "目 is not a sound part (モク vs チャク); 着 is a variant of 著"
+ },
+ "達": {
+  "parts": [
+   "土",
+   "羊",
+   "⻌"
+  ],
+  "why": "土 is not a sound part of 達 (ド vs タツ)"
+ },
+ "勝": {
+  "parts": [
+   "朕",
+   "力"
+  ],
+  "phon": "朕",
+  "why": "standard 朕 (チン→ショウ) + 力; 月 + 劵 'become fatigued' split 朕 apart"
+ },
+ "午": {
+  "parts": [],
+  "why": "a pictograph of a pestle; 丿 + 干 'dry' is a look-alike"
+ },
+ "抜": {
+  "parts": [
+   "扌",
+   "友"
+  ],
+  "why": "友 is not a sound part (ユウ vs バツ); the old phonetic was 犮"
+ },
+ "延": {
+  "parts": [
+   "丿",
+   "止",
+   "廴"
+  ],
+  "why": "the inner part is 丿 + foot 止, not 正 'correct'"
+ },
+ "虫": {
+  "parts": [],
+  "why": "a pictograph of a snake; it contains no 中 'middle'"
+ },
+ "舎": {
+  "parts": [
+   "人",
+   "土",
+   "口"
+  ],
+  "why": "the middle is 土, not 士, so there is no 吉 'good luck'; neither 人 nor 士 is a sound part"
+ },
+ "革": {
+  "parts": [],
+  "why": "a pictograph of a stretched hide; 廿 'twenty' + 口 are look-alikes and miss 2 strokes"
+ },
+ "祭": {
+  "parts": [
+   "月",
+   "又",
+   "示"
+  ],
+  "why": "meat 月 in a hand 又 over an altar 示; the tree dropped the hand"
+ },
+ "章": {
+  "parts": [
+   "立",
+   "早"
+  ],
+  "why": "立 over 早, as usually taught; KanjiVG's 音 is drawn with only 5 strokes"
+ },
+ "細": {
+  "parts": [
+   "糸",
+   "田"
+  ],
+  "why": "田 is not a sound part (デン vs サイ); the old phonetic was 囟"
+ },
+ "冊": {
+  "parts": [],
+  "why": "a pictograph of bamboo slips tied together; 冂 + 廾 'two hands' is a stroke grouping"
+ },
+ "献": {
+  "parts": [
+   "南",
+   "犬"
+  ],
+  "why": "南 is not a sound part (ナン vs ケン); from 獻 with phonetic 鬳"
+ },
+ "承": {
+  "parts": [],
+  "why": "hands lifting a kneeling person; 了 + 三 + a 3-stroke 水 are fragments"
+ },
+ "升": {
+  "parts": [],
+  "why": "a pictograph of a measuring ladle; it contains no 廾 'two hands'"
+ },
+ "飛": {
+  "parts": [],
+  "why": "a pictograph of a flying bird; 升 with 1-stroke 十 and 廾 is meaningless"
+ },
+ "朝": {
+  "parts": [
+   "𠦝",
+   "月"
+  ],
+  "why": "月 is not a sound part here (the old phonetic was 舟)"
+ },
+ "為": {
+  "parts": [],
+  "why": "a hand leading an elephant; 丶 勹 灬 'fire' are stroke groups"
+ },
+ "恋": {
+  "parts": [
+   "亦",
+   "心"
+  ],
+  "why": "亦 is not a sound part (エキ vs レン); from 戀 with phonetic 䜌"
+ },
+ "充": {
+  "parts": [
+   "亠",
+   "允"
+  ],
+  "why": "亠 and 厶 are not sound parts of 充"
+ },
+ "那": {
+  "parts": [],
+  "why": "the left is a reduced 冄, not 二 two (4 strokes, not 2); no useful split beyond ⻏"
+ },
+ "率": {
+  "parts": [
+   "玄",
+   "十"
+  ],
+  "why": "a twisted rope 玄 with drops on both sides; the dots are not 冫 ice"
+ },
+ "互": {
+  "parts": [],
+  "why": "a picture of a rope-winding reel; 二 (1 stroke) and 彑 are stroke groups"
+ },
+ "聖": {
+  "parts": [
+   "耳",
+   "呈"
+  ],
+  "phon": "呈",
+  "why": "standard analysis 耳 + 呈 (sound セイ, as in 程); 口 and 王 are not two sound parts"
+ },
+ "属": {
+  "parts": [
+   "尸",
+   "禹"
+  ],
+  "why": "禹 is not the sound: it is a reduced 蜀 (屬 = 尾 + 蜀, ゾク/ショク)"
+ },
+ "蔵": {
+  "parts": [
+   "艹",
+   "戈",
+   "臣"
+  ],
+  "why": "厂 'cliff' with 1 stroke is a fragment of the 戈 group"
+ },
+ "災": {
+  "parts": [
+   "巛",
+   "火"
+  ],
+  "why": "flood 巛 + fire 火, a meaning compound; 巛 is not the sound"
+ },
+ "寿": {
+  "parts": [
+   "三",
+   "丿",
+   "寸"
+  ],
+  "why": "寸 is not the sound of 寿 (ジュ); simplified from 壽"
+ },
+ "𠂢": {
+  "parts": [],
+  "why": "a stream branching off (mirrored 永); 亻 and slashes are stroke groups"
+ },
+ "袁": {
+  "parts": [
+   "土",
+   "口",
+   "𧘇"
+  ],
+  "why": "a robe 衣 split around 口: its top written as 土, its bottom 𧘇"
+ },
+ "戋": {
+  "parts": [
+   "二",
+   "戈"
+  ],
+  "why": "two halberds 戈 stacked (戔), simplified: the upper one is reduced to 二"
+ },
+ "𢦏": {
+  "parts": [
+   "十",
+   "戈"
+  ],
+  "why": "才-like 十 + halberd 戈; '土 soil' marked as sound and '戈 (1 stroke)' are fragments"
+ },
+ "戌": {
+  "parts": [
+   "戈"
+  ],
+  "why": "a broad-bladed halberd 戈; 厂 (1 stroke) and '戈 (1 stroke)' are fragments"
+ },
+ "夬": {
+  "parts": [],
+  "why": "a hand holding a thumb ring; not 大 big or 人 person"
+ },
+ "丰": {
+  "parts": [],
+  "why": "a picture of a luxuriant plant; 三 + 丿 is a stroke split"
+ },
+ "并": {
+  "parts": [],
+  "why": "two people side by side, simplified; '干 dry' with '十 (1 stroke)' are stroke groups"
+ },
+ "兼": {
+  "parts": [],
+  "why": "a hand ⺕ holding two grain stalks; 八, 丨, 丨 are stroke groups, learnt as one unit (謙 嫌 廉)"
+ },
+ "冓": {
+  "parts": [],
+  "why": "two frames joined face to face; '三 three (5 strokes)' and '再 (1 stroke)' are fragments"
+ },
+ "鹿": {
+  "parts": [],
+  "why": "a picture of a deer (antlers, head, legs); 广 and 比 are stroke groups"
+ },
+ "姫": {
+  "parts": [
+   "女",
+   "臣"
+  ],
+  "why": "臣 is not the sound (姫 キ, 臣 シン); the right side is 𦣝 that only looks like 臣"
+ },
+ "免": {
+  "parts": [],
+  "why": "a pictograph; 𠂊 + 儿 cover 4 of 8 strokes and name nothing"
+ },
+ "帰": {
+  "parts": [
+   "帚"
+  ],
+  "why": "the left is a reduced 𠂤 (歸), not a knife 刂; broom 帚 is the part to learn"
+ },
+ "旬": {
+  "parts": [
+   "勹",
+   "日"
+  ],
+  "why": "days 日 wrapped 勹 into a cycle; 勹 is not the sound (ジュン)"
+ },
+ "喜": {
+  "parts": [
+   "壴",
+   "口"
+  ],
+  "why": "a drum 壴 and a mouth 口 singing; 吉 + 口 leaves out the middle 3 strokes"
+ },
+ "勇": {
+  "parts": [
+   "甬",
+   "力"
+  ],
+  "phon": "甬",
+  "why": "standard: strength 力 + sound 甬 (ユウ/ヨウ, as in 踊 通); マ + 男 is a stroke split"
+ },
+ "善": {
+  "parts": [
+   "羊",
+   "䒑",
+   "口"
+  ],
+  "why": "羊 + 口 left out the middle 䒑 (3 strokes)"
+ },
+ "骨": {
+  "parts": [
+   "冎",
+   "月"
+  ],
+  "why": "joint bones 冎 + flesh 月; the tree showed only 月 (4 of 10 strokes)"
+ },
+ "陣": {
+  "parts": [
+   "⻖",
+   "車"
+  ],
+  "why": "hill + chariots, a meaning compound; 車 is not the sound (ジン)"
+ },
+ "討": {
+  "parts": [
+   "言",
+   "寸"
+  ],
+  "why": "words 言 + hand/rule 寸, a meaning compound; 寸 is not the sound (トウ)"
+ },
+ "酉": {
+  "parts": [],
+  "why": "a picture of a wine jar; not 西 west + 一"
+ },
+ "滕": {
+  "parts": [
+   "月",
+   "𠔉",
+   "氺"
+  ],
+  "why": "劵 'become fatigued' is not in it (劵 = 𠔉 + 力); the parts are 月, 𠔉, 氺"
+ },
+ "戍": {
+  "parts": [
+   "戈"
+  ],
+  "why": "a person guarding with a halberd 戈; '厂 (1)', '戈 (1)', '一' are fragments"
+ },
+ "戉": {
+  "parts": [
+   "戈"
+  ],
+  "why": "a broad axe-halberd 戈; '厂 cliff (1 stroke)' is a fragment"
+ },
+ "雑": {
+  "parts": [
+   "九",
+   "木",
+   "隹"
+  ],
+  "why": "from 雜 (衣 + 集); neither 木 nor 隹 is the sound (ザツ)"
+ },
+ "抑": {
+  "parts": [
+   "扌",
+   "卬"
+  ],
+  "why": "the right side is 卬 (as in 仰 迎), 4 strokes; 卩 alone leaves 2 strokes out"
+ },
+ "益": {
+  "parts": [
+   "䒑",
+   "八",
+   "皿"
+  ],
+  "why": "water 水 turned sideways over a dish 皿; 八 + 皿 left out the top 3 strokes"
+ },
+ "練": {
+  "parts": [
+   "糸",
+   "東"
+  ],
+  "why": "the sound part is 柬 (レン), only drawn like 東; 東 (トウ) is not the sound"
+ },
+ "舞": {
+  "parts": [
+   "舛"
+  ],
+  "why": "the top is 無 without 灬 (sound ブ); 丿 + 一 covered 2 of its 8 strokes"
+ },
+ "冒": {
+  "parts": [
+   "冃",
+   "目"
+  ],
+  "why": "a hat 冃 over the eye 目; the top is not 日 sun and not the sound"
+ },
+ "貞": {
+  "parts": [
+   "卜",
+   "貝"
+  ],
+  "why": "divination 卜 + a reduced 鼎 tripod; 貝 is not the sound (テイ)"
+ },
+ "兆": {
+  "parts": [],
+  "why": "a picture of cracks on a heated shell; 儿 and 冫 are stroke groups"
+ },
+ "𡗗": {
+  "parts": [
+   "三",
+   "人"
+  ],
+  "why": "三 + 人; '大 big (1 stroke)' inside 三 is a fragment"
+ },
+ "宿": {
+  "parts": [
+   "宀",
+   "亻",
+   "百"
+  ],
+  "why": "佰 is an obscure character; a learner sees a person 亻 and 百 under a roof"
+ },
+ "咲": {
+  "parts": [
+   "口",
+   "䒑",
+   "天"
+  ],
+  "why": "关 'gate' is an unrelated simplified character and not a sound part; the right side is an old form of 笑 laugh: 䒑 over 天"
+ },
+ "届": {
+  "parts": [
+   "尸",
+   "由"
+  ],
+  "why": "由 is not the sound part (the old form 屆 has 凷); drop the [sound] mark"
+ },
+ "汚": {
+  "parts": [
+   "氵",
+   "亏"
+  ],
+  "phon": "亏",
+  "why": "the right side is 亏 (3 strokes here, sound ウ→オ; Japanese form 亐), not 二; the tree lost a stroke"
+ },
+ "卵": {
+  "parts": [],
+  "why": "a picture of eggs (roe); 卯 'hare' + dot is a stroke grouping, unrelated"
+ },
+ "瓦": {
+  "parts": [],
+  "why": "a picture of interlocking tiles; a lone dot 丶 covers 1 of 5 strokes"
+ },
+ "屯": {
+  "parts": [],
+  "why": "a sprout pushing through the ground; 丿 + 屮 are stroke groups"
+ },
+ "喬": {
+  "parts": [
+   "夭",
+   "口",
+   "冋"
+  ],
+  "why": "呑 'drink' is a stroke group (夭 over 口), unrelated in meaning; 喬 is a tall building topped by 夭"
+ },
+ "寉": {
+  "parts": [
+   "冖",
+   "隹"
+  ],
+  "why": "the top is 冖 (2 strokes), not 宀 roof; a bird 隹 under a cover"
+ },
+ "亘": {
+  "parts": [
+   "一",
+   "日",
+   "一"
+  ],
+  "why": "the 1-stroke 二 and 旦 are a mis-split: a sun 日 between two lines"
+ },
+ "戠": {
+  "parts": [
+   "音",
+   "戈"
+  ],
+  "why": "音 + 戈 (the bottom of 日 and the 戈 bar share a stroke); now 戈 sits inside 立 as a 1-stroke part, which is nonsense"
+ },
+ "攵": {
+  "parts": [],
+  "why": "攵 'strike' is one unit (a hand holding a stick); 𠂉 + 乂 are stroke groups"
+ },
+ "爪": {
+  "parts": [],
+  "why": "a picture of a clawing hand; a lone 丿 is one stroke of four"
+ },
+ "範": {
+  "parts": [
+   "竹",
+   "車",
+   "卩"
+  ],
+  "phon": "卩",
+  "why": "竹 is not a sound part; only the bottom right (from 㔾/范) gives ハン"
+ },
+ "遣": {
+  "parts": [
+   "中",
+   "𠂤",
+   "⻌"
+  ],
+  "why": "the tree shows only 中 + ⻌ (7 of 13 strokes); the middle is 𠂤 as in 追, 師"
+ },
+ "憲": {
+  "parts": [
+   "宀",
+   "龶",
+   "罒",
+   "心"
+  ],
+  "why": "the 4-stroke piece under the roof was missing (strokes 12 of 16)"
+ },
+ "垂": {
+  "parts": [],
+  "why": "a plant with drooping leaves; 千 (2 strokes) + 土 are stroke groups"
+ },
+ "舗": {
+  "parts": [
+   "舎",
+   "甫"
+  ],
+  "phon": "甫",
+  "why": "the left is 舎 building, not 人 + 吉; a shop is a building, 甫 gives ホ"
+ },
+ "拳": {
+  "parts": [
+   "𠔉",
+   "手"
+  ],
+  "why": "the top is 𠔉 as in 巻 and 券 (sound ケン), not 二 + 人"
+ },
+ "牙": {
+  "parts": [],
+  "why": "a picture of interlocking fangs; 亅 + 丿 are 2 of 5 strokes"
+ },
+ "昔": {
+  "parts": [
+   "龷",
+   "日"
+  ],
+  "why": "the top is 龷 (4 strokes), not 廾 (3 strokes, a stroke short): strips of meat drying under the sun 日"
+ },
+ "挿": {
+  "parts": [
+   "扌",
+   "千",
+   "日"
+  ],
+  "why": "千 split into a 2-stroke 千 plus a stray 十; it is 千 piercing 日 (a pestle in a mortar)"
+ },
+ "霊": {
+  "parts": [
+   "雨",
+   "一",
+   "亚"
+  ],
+  "why": "neither 雨 nor 一 is a sound part; drop the [sound] marks"
+ },
+ "乞": {
+  "parts": [],
+  "why": "a picture of rising breath/vapour; 𠂉 + 乙 are stroke groups"
+ },
+ "亀": {
+  "parts": [],
+  "why": "a picture of a turtle; 𠂊 + 电 'coil' (simplified 電) are stroke groups"
+ },
+ "串": {
+  "parts": [],
+  "why": "a picture of things on a skewer; 口 + 中 are stroke groups"
+ },
+ "勲": {
+  "parts": [
+   "動",
+   "灬"
+  ],
+  "why": "灬 is not a sound part (the old sound part is 熏); drop the [sound] mark"
+ },
+ "筋": {
+  "parts": [
+   "竹",
+   "月",
+   "力"
+  ],
+  "why": "bamboo over flesh 月 and strength 力; 肋 'rib' is a rare middle layer that hides the two parts learners see"
+ },
+ "駒": {
+  "parts": [
+   "馬",
+   "句"
+  ],
+  "phon": "句",
+  "why": "句 ク gives the sound (駒 く in old readings); mark it"
+ },
+ "誰": {
+  "parts": [
+   "言",
+   "隹"
+  ],
+  "phon": "隹",
+  "why": "隹 スイ is the sound part (誰 スイ)"
+ },
+ "遂": {
+  "parts": [
+   "八",
+   "豕",
+   "⻌"
+  ],
+  "why": "the right part is 㒸 = 八-shaped top + 豕; the tree dropped the two top strokes"
+ },
+ "藩": {
+  "parts": [
+   "艹",
+   "氵",
+   "番"
+  ],
+  "phon": "番",
+  "why": "潘 'rice-washing water' is obscure; learners see grass, water and 番 ハン, which gives the sound"
+ },
+ "陳": {
+  "parts": [
+   "⻖",
+   "東"
+  ],
+  "phon": null,
+  "why": "東 トウ does not give the sound チン; it is a meaning part (a sack), not phonetic"
+ },
+ "奪": {
+  "parts": [
+   "大",
+   "隹",
+   "寸"
+  ],
+  "why": "奞 is obscure; a bird 隹 escaping from a hand 寸, 大 on top, is the standard reading"
+ },
+ "栽": {
+  "parts": [
+   "𢦏",
+   "木"
+  ],
+  "phon": "𢦏",
+  "why": "𢦏 サイ gives the sound (栽 裁 載); the tree marked a 土 fragment instead"
+ },
+ "夹": {
+  "parts": [],
+  "why": "simplified 夾, a person flanked by two others; the tree's 二 (containing 大 of 1 stroke) and 从 are stroke groups"
+ },
+ "尭": {
+  "parts": [],
+  "why": "simplified 堯 (earth piled high); 卉, a 1-stroke 兀 and 儿 are stroke groups, not parts"
+ },
+ "焼": {
+  "parts": [
+   "火",
+   "尭"
+  ],
+  "phon": "尭",
+  "why": "尭 ギョウ is the sound part (燒 from 堯), as in 暁"
+ },
+ "釜": {
+  "parts": [],
+  "why": "父 (sound フ) sits on a shortened 金 sharing strokes; the tree had 父 containing a 2-stroke 金, which misleads"
+ },
+ "暴": {
+  "parts": [
+   "日",
+   "共",
+   "氺"
+  ],
+  "why": "㳟 is labelled 'respect' (wrong, obscure); learners see sun 日, two hands 共 and grain/water 氺"
+ },
+ "敷": {
+  "parts": [
+   "甫",
+   "方",
+   "攵"
+  ],
+  "phon": "甫",
+  "why": "旉 'to state to' is obscure; 甫 フ gives the sound, 方 and 攵 are visible"
+ },
+ "桁": {
+  "parts": [
+   "木",
+   "行"
+  ],
+  "phon": "行",
+  "why": "行 コウ gives the on reading コウ"
+ },
+ "媛": {
+  "parts": [
+   "女",
+   "爰"
+  ],
+  "phon": "爰",
+  "why": "爰 エン is the sound part (媛 エン, as in 援 暖)"
+ },
+ "汎": {
+  "parts": [
+   "氵",
+   "凡"
+  ],
+  "phon": "凡",
+  "why": "凡 ハン is the sound part"
+ },
+ "顔": {
+  "parts": [
+   "彦",
+   "頁"
+  ],
+  "phon": "彦",
+  "why": "the sound part is 彦 ゲン (顔 ガン); 頁 'head' is the meaning, not the sound"
+ },
+ "峰": {
+  "parts": [
+   "山",
+   "夆"
+  ],
+  "phon": "夆",
+  "why": "夆 ホウ is the sound part (峰 蜂 縫)"
+ },
+ "虹": {
+  "parts": [
+   "虫",
+   "工"
+  ],
+  "phon": "工",
+  "why": "工 コウ is the sound part (虹 コウ)"
+ },
+ "彖": {
+  "parts": [],
+  "why": "only in 縁 here; the tree nests a 1-stroke 豕 inside ⺕ inside a 'radical variant', which teaches nothing"
+ },
+ "摂": {
+  "parts": [
+   "扌",
+   "耳"
+  ],
+  "why": "the strokes under 耳 are the remains of 聶 (three ears), not ice 冫; no named part fits them"
+ },
+ "鎌": {
+  "parts": [
+   "金",
+   "兼"
+  ],
+  "phon": "兼",
+  "why": "兼 ケン is the sound part (鎌 レン, 謙 嫌 兼)"
+ },
+ "椎": {
+  "parts": [
+   "木",
+   "隹"
+  ],
+  "phon": "隹",
+  "why": "隹 スイ gives the sound ツイ (as in 追 錐)"
+ },
+ "麗": {
+  "parts": [
+   "丽",
+   "鹿"
+  ],
+  "why": "a deer 鹿 under 丽, a pair of antler ornaments; the tree had two 1-stroke 一 and lost 6 strokes"
+ },
+ "玩": {
+  "parts": [
+   "王",
+   "元"
+  ],
+  "phon": "元",
+  "why": "元 ガン is the sound part (玩 ガン)"
+ },
+ "闇": {
+  "parts": [
+   "門",
+   "音"
+  ],
+  "phon": "音",
+  "why": "音 オン/イン gives the sound (闇 アン), as in 暗"
+ },
+ "忙": {
+  "parts": [
+   "忄",
+   "亡"
+  ],
+  "phon": "亡",
+  "why": "the sound is 亡 ボウ (忙 ボウ), not the heart 忄"
+ },
+ "捉": {
+  "parts": [
+   "扌",
+   "足"
+  ],
+  "phon": "足",
+  "why": "足 ソク gives the on reading ソク"
+ },
+ "袖": {
+  "parts": [
+   "衤",
+   "由"
+  ],
+  "phon": "由",
+  "why": "由 ユウ gives the sound (袖 シュウ, as in 宙 抽)"
+ },
+ "葛": {
+  "parts": [
+   "艹",
+   "曷"
+  ],
+  "phon": "曷",
+  "why": "曷 カツ gives the sound (葛 喝 渇)"
+ },
+ "謎": {
+  "parts": [
+   "言",
+   "迷"
+  ],
+  "phon": "迷",
+  "why": "迷 メイ is the sound part and the meaning (words that lead astray)"
+ },
+ "帥": {
+  "parts": [
+   "𠂤",
+   "巾"
+  ],
+  "why": "left is 𠂤 (as in 師 追), 6 strokes; the tree showed only a 1-stroke slash and lost 5 strokes"
+ },
+ "蜂": {
+  "parts": [
+   "虫",
+   "夆"
+  ],
+  "phon": "夆",
+  "why": "夆 ホウ is the sound part (蜂 峰 縫)"
+ },
+ "汰": {
+  "parts": [
+   "氵",
+   "太"
+  ],
+  "phon": "太",
+  "why": "太 タ/タイ gives the sound タ"
+ },
+ "卑": {
+  "parts": [],
+  "why": "a hand holding a vessel; the tree's slash + 田 + slash + 十 are stroke groups, and 田 is not a field"
+ },
+ "喪": {
+  "parts": [],
+  "why": "from 哭 (wailing) + 亡; the shinjitai 十, 口口 and a 4-stroke 'clothing' are stroke groups"
+ },
+ "凸": {
+  "parts": [],
+  "why": "a drawing of a bump; 一 + 凵 are stroke groups"
+ },
+ "凹": {
+  "parts": [],
+  "why": "a drawing of a dent; the tree showed only a 2-stroke 凵"
+ },
+ "添": {
+  "parts": [
+   "氵",
+   "忝"
+  ],
+  "phon": "忝",
+  "why": "忝 テン is the sound part (添 テン)"
+ },
+ "薦": {
+  "parts": [
+   "艹",
+   "廌"
+  ],
+  "why": "grass 艹 over 廌, a mythical beast; the tree's 广 and 灬 are fragments of 廌 and lose 6 strokes"
+ },
+ "俺": {
+  "parts": [
+   "亻",
+   "奄"
+  ],
+  "phon": "奄",
+  "why": "奄 エン is the sound part (as in 庵)"
+ },
+ "枕": {
+  "parts": [
+   "木",
+   "冘"
+  ],
+  "phon": "冘",
+  "why": "冘 is the sound part (枕 チン, 沈 チン)"
+ },
+ "塾": {
+  "parts": [
+   "孰",
+   "土"
+  ],
+  "phon": "孰",
+  "why": "孰 ジュク is the sound part, as in 熟"
+ },
+ "腫": {
+  "parts": [
+   "月",
+   "重"
+  ],
+  "phon": "重",
+  "why": "重 ジュウ/チョウ gives the sound シュ (腫 種 鐘)"
+ },
+ "粛": {
+  "parts": [],
+  "why": "simplified 肅; the lower part is not rice 米 (5 strokes), so the split misleads"
+ },
+ "塗": {
+  "parts": [
+   "氵",
+   "余",
+   "土"
+  ],
+  "phon": "余",
+  "why": "涂 'surname' is obscure; water 氵 + 余 (sound ト, as in 途) + earth 土"
+ },
+ "曖": {
+  "parts": [
+   "日",
+   "愛"
+  ],
+  "phon": "愛",
+  "why": "愛 アイ is the sound part (曖 アイ)"
+ },
+ "随": {
+  "parts": [
+   "⻖",
+   "有",
+   "⻌"
+  ],
+  "why": "陏 'melon' is obscure and misnamed; learners see hill ⻖, 有 and walk ⻌"
+ },
+ "覇": {
+  "parts": [
+   "覀",
+   "革",
+   "月"
+  ],
+  "why": "䩗 is obscure; learners see 覀 over leather 革 and moon 月"
+ },
+ "旺": {
+  "parts": [
+   "日",
+   "王"
+  ],
+  "phon": "王",
+  "why": "王 オウ is the sound part (旺 オウ)"
+ },
+ "痕": {
+  "parts": [
+   "疒",
+   "艮"
+  ],
+  "phon": "艮",
+  "why": "艮 コン is the sound part (痕 恨 根 コン)"
+ },
+ "崖": {
+  "parts": [
+   "山",
+   "厓"
+  ],
+  "phon": "厓",
+  "why": "厓 ガイ is the sound part (崖 涯)"
+ },
+ "僅": {
+  "parts": [
+   "亻",
+   "堇"
+  ],
+  "phon": "堇",
+  "why": "right side is 堇 (キン, as in 謹 勤); 艹 + 三 are fragments and drop its 口"
+ },
+ "脊": {
+  "parts": [],
+  "why": "top is a picture of the spine and ribs over flesh 月; 人 + 二 + 二 are stroke groups"
+ },
+ "睦": {
+  "parts": [
+   "目",
+   "坴"
+  ],
+  "phon": "坴",
+  "why": "right side is 坴 (as in 陸, sound リク→ボク); 土 儿 土 are fragments"
+ },
+ "罰": {
+  "parts": [
+   "罒",
+   "言",
+   "刂"
+  ],
+  "why": "net, words, knife: the usual analysis; 䚯 with its long gloss is noise"
+ },
+ "奮": {
+  "parts": [
+   "大",
+   "隹",
+   "田"
+  ],
+  "why": "a big bird 大 隹 flapping up from a field 田; 奞 'stride of a man' is obscure"
+ },
+ "繊": {
+  "parts": [
+   "糸",
+   "𢦏",
+   "业"
+  ],
+  "why": "right side is 𢦏 enclosing 业; 土 with a 1-stroke 戈, 丿, 丶 are fragments"
+ },
+ "膝": {
+  "parts": [
+   "月",
+   "桼"
+  ],
+  "phon": "桼",
+  "why": "right side is 桼 'lacquer' (シツ, as in 漆), the sound; 木 + 氺 split it"
+ },
+ "蚕": {
+  "parts": [
+   "天",
+   "虫"
+  ],
+  "why": "天 is not the sound of 蚕 (サン, simplified from 蠶)"
+ },
+ "錬": {
+  "parts": [
+   "金",
+   "東"
+  ],
+  "why": "the 東 shape is a simplified 柬 (レン); 東 (トウ) is not the sound"
+ },
+ "穀": {
+  "parts": [
+   "士",
+   "冖",
+   "禾",
+   "殳"
+  ],
+  "why": "殳 is not the sound; コク comes from 殻 (士 冖 殳) around 禾"
+ },
+ "憧": {
+  "parts": [
+   "忄",
+   "童"
+  ],
+  "phon": "童",
+  "why": "童 is the sound (ショウ/ドウ); mark it"
+ },
+ "窟": {
+  "parts": [
+   "穴",
+   "屈"
+  ],
+  "phon": "屈",
+  "why": "屈 is the sound (クツ); mark it"
+ },
+ "瞳": {
+  "parts": [
+   "目",
+   "童"
+  ],
+  "phon": "童",
+  "why": "童 is the sound (ドウ); mark it"
+ },
+ "舷": {
+  "parts": [
+   "舟",
+   "玄"
+  ],
+  "phon": "玄",
+  "why": "玄 is the sound (ゲン); mark it"
+ },
+ "湧": {
+  "parts": [
+   "氵",
+   "勇"
+  ],
+  "phon": "勇",
+  "why": "勇 is the sound (ユウ); mark it"
+ },
+ "挫": {
+  "parts": [
+   "扌",
+   "坐"
+  ],
+  "phon": "坐",
+  "why": "坐 is the sound (ザ); mark it"
+ },
+ "藍": {
+  "parts": [
+   "艹",
+   "監"
+  ],
+  "phon": "監",
+  "why": "監 is the sound (カン→ラン); mark it"
+ },
+ "鍋": {
+  "parts": [
+   "金",
+   "咼"
+  ],
+  "phon": "咼",
+  "why": "咼 is the sound (カ); mark it"
+ },
+ "惧": {
+  "parts": [
+   "忄",
+   "具"
+  ],
+  "phon": "具",
+  "why": "具 is the sound (グ); mark it"
+ },
+ "璃": {
+  "parts": [
+   "王",
+   "离"
+  ],
+  "phon": "离",
+  "why": "离 is the sound (リ); mark it"
+ },
+ "苛": {
+  "parts": [
+   "艹",
+   "可"
+  ],
+  "phon": "可",
+  "why": "可 is the sound (カ); mark it"
+ },
+ "哺": {
+  "parts": [
+   "口",
+   "甫"
+  ],
+  "phon": "甫",
+  "why": "甫 is the sound (ホ); mark it"
+ },
+ "蹴": {
+  "parts": [
+   "足",
+   "就"
+  ],
+  "phon": "就",
+  "why": "就 is the sound (シュウ); mark it"
+ },
+ "芯": {
+  "parts": [
+   "艹",
+   "心"
+  ],
+  "phon": "心",
+  "why": "心 is the sound (シン); mark it"
+ },
+ "腺": {
+  "parts": [
+   "月",
+   "泉"
+  ],
+  "phon": "泉",
+  "why": "泉 is the sound (セン); mark it"
+ },
+ "鍵": {
+  "parts": [
+   "金",
+   "建"
+  ],
+  "phon": "建",
+  "why": "建 is the sound (ケン); mark it"
+ },
+ "怨": {
+  "parts": [
+   "夗",
+   "心"
+  ],
+  "phon": "夗",
+  "why": "夗 is the sound (エン, as in 苑); mark it"
+ },
+ "廾": {
+  "parts": [],
+  "why": "two hands, one unit; 十 + 丿 are stroke groups (also gives 十 a 1-stroke count in 井 曲)"
+ },
+ "戊": {
+  "parts": [],
+  "why": "one unit; the tree nests a 1-stroke 戈 inside 厂"
+ },
+ "虍": {
+  "parts": [],
+  "why": "tiger head, one unit; 七 is a stroke group"
+ },
+ "甫": {
+  "parts": [],
+  "why": "one unit; it is not 専, as the tree under 尃 shows"
+ },
+ "眉": {
+  "parts": [],
+  "why": "an eyebrow drawn over an eye; 丿 + 目 leaves out 3 strokes of the brow"
+ },
+ "刹": {
+  "parts": [
+   "杀",
+   "刂"
+  ],
+  "why": "left side is 杀 'kill' (as in 殺), not 乂 over 木"
+ },
+ "蛮": {
+  "parts": [
+   "亦",
+   "虫"
+  ],
+  "why": "亦 is not the sound of 蛮 (バン, simplified from 蠻)"
+ },
+ "憩": {
+  "parts": [
+   "舌",
+   "息"
+  ],
+  "why": "舌 (ゼツ) is not the sound of 憩 (ケイ)"
+ },
+ "醒": {
+  "parts": [
+   "酉",
+   "星"
+  ],
+  "phon": "星",
+  "why": "星 is the sound (セイ); mark it"
+ },
+ "瘍": {
+  "parts": [
+   "疒",
+   "昜"
+  ],
+  "phon": "昜",
+  "why": "昜 is the sound (ヨウ); mark it"
+ },
+ "籠": {
+  "parts": [
+   "竹",
+   "龍"
+  ],
+  "phon": "龍",
+  "why": "龍 is the sound (ロウ/リュウ); mark it"
+ },
+ "溺": {
+  "parts": [
+   "氵",
+   "弱"
+  ],
+  "phon": "弱",
+  "why": "弱 is the sound (ジャク→デキ); mark it"
+ },
+ "梗": {
+  "parts": [
+   "木",
+   "更"
+  ],
+  "phon": "更",
+  "why": "更 is the sound (コウ); mark it"
+ },
+ "柵": {
+  "parts": [
+   "木",
+   "冊"
+  ],
+  "phon": "冊",
+  "why": "冊 is the sound (サク); mark it"
+ },
+ "喉": {
+  "parts": [
+   "口",
+   "侯"
+  ],
+  "phon": "侯",
+  "why": "侯 is the sound (コウ); mark it"
+ },
+ "麓": {
+  "parts": [
+   "林",
+   "鹿"
+  ],
+  "phon": "鹿",
+  "why": "鹿 is the sound (ロク); mark it"
+ },
+ "嫉": {
+  "parts": [
+   "女",
+   "疾"
+  ],
+  "phon": "疾",
+  "why": "疾 is the sound (シツ); mark it"
+ },
+ "骸": {
+  "parts": [
+   "骨",
+   "亥"
+  ],
+  "phon": "亥",
+  "why": "亥 is the sound (ガイ); mark it"
+ },
+ "麺": {
+  "parts": [
+   "麦",
+   "面"
+  ],
+  "phon": "面",
+  "why": "面 is the sound (メン); mark it"
+ },
+ "捻": {
+  "parts": [
+   "扌",
+   "念"
+  ],
+  "phon": "念",
+  "why": "念 is the sound (ネン); mark it"
+ },
+ "踪": {
+  "parts": [
+   "足",
+   "宗"
+  ],
+  "phon": "宗",
+  "why": "宗 is the sound (ソウ); mark it"
+ },
+ "諦": {
+  "parts": [
+   "言",
+   "帝"
+  ],
+  "phon": "帝",
+  "why": "帝 is the sound (テイ); mark it"
+ },
+ "咽": {
+  "parts": [
+   "口",
+   "因"
+  ],
+  "phon": "因",
+  "why": "因 is the sound (イン); mark it"
+ },
+ "膳": {
+  "parts": [
+   "月",
+   "善"
+  ],
+  "phon": "善",
+  "why": "善 is the sound (ゼン); mark it"
+ },
+ "拭": {
+  "parts": [
+   "扌",
+   "式"
+  ],
+  "phon": "式",
+  "why": "式 is the sound (シキ/ショク); mark it"
+ },
+ "裾": {
+  "parts": [
+   "衤",
+   "居"
+  ],
+  "phon": "居",
+  "why": "居 is the sound (キョ); mark it"
+ },
+ "蔽": {
+  "parts": [
+   "艹",
+   "敝"
+  ],
+  "phon": "敝",
+  "why": "敝 is the sound (ヘイ); mark it"
+ },
+ "懇": {
+  "parts": [
+   "豸",
+   "艮",
+   "心"
+  ],
+  "phon": "艮",
+  "why": "艮 is the sound (コン, as in 根 恨); mark it"
+ },
+ "曹": {
+  "parts": [],
+  "why": "one unit; the tree gives 日 2 strokes and 十 1 stroke"
+ },
+ "絜": {
+  "parts": [
+   "丰",
+   "刀",
+   "糸"
+  ],
+  "why": "the 丰 on top is missing from 刀 + 糸"
+ },
+ "畏": {
+  "parts": [],
+  "why": "a demon head with a claw; 田 + 一 leaves 3 strokes out"
+ },
+ "衷": {
+  "parts": [
+   "衣",
+   "中"
+  ],
+  "phon": "中",
+  "why": "中 inside 衣; 中 is the sound (チュウ), not loose 口 + 丨"
+ },
+ "嗅": {
+  "parts": [
+   "口",
+   "臭"
+  ],
+  "why": "the dot belongs to 犬 inside 臭 (the jōyō 嗅 keeps the old 犬)"
+ },
+ "逓": {
+  "parts": [
+   "厂",
+   "二",
+   "巾",
+   "⻌"
+  ],
+  "why": "the inner part is a simplified 虒 (テイ); 乕 'tiger' misleads, shown as the shapes"
+ },
+ "騰": {
+  "parts": [
+   "月",
+   "关",
+   "馬"
+  ],
+  "why": "朕 (月 关, トウ as in 謄) over a horse 馬; 駦 is obscure"
+ },
+ "剝": {
+  "parts": [
+   "彔",
+   "刂"
+  ],
+  "why": "left side is 彔 (as in 緑, 録), not loose 彑 + 氺"
+ },
+ "窯": {
+  "parts": [
+   "穴",
+   "羔"
+  ],
+  "phon": "羔",
+  "why": "羔 is the sound (ヨウ); mark it"
+ },
+ "罵": {
+  "parts": [
+   "罒",
+   "馬"
+  ],
+  "phon": "馬",
+  "why": "馬 is the sound (バ); mark it"
+ },
+ "餌": {
+  "parts": [
+   "⻞",
+   "耳"
+  ],
+  "phon": "耳",
+  "why": "耳 is the sound (ジ); mark it"
+ },
+ "餅": {
+  "parts": [
+   "⻞",
+   "并"
+  ],
+  "phon": "并",
+  "why": "并 is the sound (ヘイ); mark it"
+ },
+ "遡": {
+  "parts": [
+   "朔",
+   "辶"
+  ],
+  "phon": "朔",
+  "why": "朔 is the sound (サク→ソ, as in 塑); mark it"
+ },
+ "璧": {
+  "parts": [
+   "辟",
+   "玉"
+  ],
+  "phon": "辟",
+  "why": "辟 is the sound (ヘキ, as in 壁); mark it"
+ },
+ "煎": {
+  "parts": [
+   "前",
+   "灬"
+  ],
+  "phon": "前",
+  "why": "前 is the sound (セン/ゼン); mark it"
+ },
+ "詮": {
+  "parts": [
+   "言",
+   "全"
+  ],
+  "phon": "全",
+  "why": "全 is the sound (セン); mark it"
+ },
+ "顎": {
+  "parts": [
+   "咢",
+   "頁"
+  ],
+  "phon": "咢",
+  "why": "咢 is the sound (ガク); mark it"
+ },
+ "瞭": {
+  "parts": [
+   "目",
+   "尞"
+  ],
+  "phon": "尞",
+  "why": "尞 is the sound (リョウ); mark it"
+ },
+ "唾": {
+  "parts": [
+   "口",
+   "垂"
+  ],
+  "phon": "垂",
+  "why": "垂 is the sound (スイ→ダ); mark it"
+ },
+ "箸": {
+  "parts": [
+   "竹",
+   "者"
+  ],
+  "phon": "者",
+  "why": "者 is the sound (チョ); mark it"
+ },
+ "遜": {
+  "parts": [
+   "孫",
+   "辶"
+  ],
+  "phon": "孫",
+  "why": "孫 is the sound (ソン); mark it"
+ },
+ "萎": {
+  "parts": [
+   "艹",
+   "委"
+  ],
+  "phon": "委",
+  "why": "委 is the sound (イ); mark it"
+ },
+ "墾": {
+  "parts": [
+   "豸",
+   "艮",
+   "土"
+  ],
+  "phon": "艮",
+  "why": "艮 is the sound (コン, as in 懇); mark it"
+ },
+ "臆": {
+  "parts": [
+   "月",
+   "意"
+  ],
+  "phon": "意",
+  "why": "意 is the sound (イ→オク); mark it"
+ },
+ "賂": {
+  "parts": [
+   "貝",
+   "各"
+  ],
+  "phon": "各",
+  "why": "各 is the sound (ロ, as in 路); mark it"
+ },
+ "嘲": {
+  "parts": [
+   "口",
+   "朝"
+  ],
+  "phon": "朝",
+  "why": "朝 is the sound (チョウ); mark it"
+ },
+ "喩": {
+  "parts": [
+   "口",
+   "兪"
+  ],
+  "phon": "兪",
+  "why": "兪 is the sound (ユ); mark it"
+ },
+ "諧": {
+  "parts": [
+   "言",
+   "皆"
+  ],
+  "phon": "皆",
+  "why": "皆 is the sound (カイ); mark it"
+ },
+ "緻": {
+  "parts": [
+   "糸",
+   "致"
+  ],
+  "phon": "致",
+  "why": "致 is the sound (チ); mark it"
+ },
+ "謹": {
+  "parts": [
+   "言",
+   "堇"
+  ],
+  "phon": "堇",
+  "why": "堇 is the sound (キン); mark it"
+ },
+ "傲": {
+  "parts": [
+   "亻",
+   "敖"
+  ],
+  "phon": "敖",
+  "why": "敖 is the sound (ゴウ); mark it"
+ },
+ "恣": {
+  "parts": [
+   "次",
+   "心"
+  ],
+  "phon": "次",
+  "why": "次 is the sound (シ); mark it"
+ },
+ "慄": {
+  "parts": [
+   "忄",
+   "栗"
+  ],
+  "phon": "栗",
+  "why": "栗 is the sound (リツ); mark it"
+ },
+ "錮": {
+  "parts": [
+   "金",
+   "固"
+  ],
+  "phon": "固",
+  "why": "固 is the sound (コ); mark it"
+ },
+ "楷": {
+  "parts": [
+   "木",
+   "皆"
+  ],
+  "phon": "皆",
+  "why": "皆 is the sound (カイ); mark it"
+ },
+ "箋": {
+  "parts": [
+   "竹",
+   "戔"
+  ],
+  "phon": "戔",
+  "why": "戔 is the sound (セン); mark it"
+ },
+ "憬": {
+  "parts": [
+   "忄",
+   "景"
+  ],
+  "phon": "景",
+  "why": "景 is the sound (ケイ); mark it"
+ },
+ "頰": {
+  "parts": [
+   "夾",
+   "頁"
+  ],
+  "phon": "夾",
+  "why": "夾 is the sound (キョウ, as in 峡 挟); mark it"
+ },
+ "塡": {
+  "parts": [
+   "土",
+   "眞"
+  ],
+  "phon": "眞",
+  "why": "眞 is the sound (シン→テン); mark it"
+ },
+ "玄": {
+  "parts": [
+   "亠",
+   "幺"
+  ],
+  "why": "a twisted thread 幺 under a lid"
+ },
+ "夆": {
+  "parts": [
+   "夂",
+   "丰"
+  ],
+  "why": "feet 夂 meeting a sprouting plant 丰 (sound)",
+  "phon": "丰"
+ },
+ "厓": {
+  "parts": [
+   "厂",
+   "圭"
+  ],
+  "why": "a cliff 厂 with 圭 for the sound",
+  "phon": "圭"
+ },
+ "夗": {
+  "parts": [
+   "夕",
+   "卩"
+  ],
+  "why": "a curled-up body: 夕 + 卩"
+ },
+ "匹": {
+  "parts": [
+   "匸",
+   "儿"
+  ],
+  "why": "as drawn"
+ },
+ "匂": {
+  "parts": [
+   "勹",
+   "匕"
+  ],
+  "why": "as drawn"
+ },
+ "曷": {
+  "parts": [
+   "日",
+   "匂"
+  ],
+  "why": "日 over a hunched figure"
+ },
+ "尞": {
+  "parts": [
+   "大",
+   "日",
+   "小"
+  ],
+  "why": "a bonfire: 大 + 日 + 小"
+ },
+ "羽": {
+  "parts": [
+   "习",
+   "习"
+  ],
+  "why": "two feathers"
+ },
+ "离": {
+  "parts": [
+   "亠",
+   "凶",
+   "禸"
+  ],
+  "why": "as drawn: 亠 + 凶 + 禸"
+ },
+ "区": {
+  "parts": [
+   "匚",
+   "乂"
+  ],
+  "why": "things 乂 put away in a box 匚"
+ },
+ "𠦝": {
+  "parts": [
+   "十",
+   "早"
+  ],
+  "why": "sun rising among grass: 十 over 早"
+ },
+ "令": {
+  "parts": [
+   "人",
+   "一",
+   "卩"
+  ],
+  "why": "a kneeling person 卩 receiving orders under a cover; the bottom is 卩 in every kanji, also where it is printed like マ"
+ },
+ "曽": {
+  "parts": [
+   "八",
+   "田",
+   "日"
+  ],
+  "why": "a steamer: 八 + 田 + 日"
+ },
+ "彔": {
+  "parts": [
+   "⺕",
+   "氺"
+  ],
+  "why": "as drawn"
+ },
+ "古": {
+  "parts": [
+   "十",
+   "口"
+  ],
+  "why": "as drawn"
+ },
+ "足": {
+  "parts": [
+   "口",
+   "龰"
+  ],
+  "why": "a knee 口 over a foot 龰"
+ },
+ "友": {
+  "parts": [
+   "𠂇",
+   "又"
+  ],
+  "why": "two hands"
+ },
+ "兄": {
+  "parts": [
+   "口",
+   "儿"
+  ],
+  "why": "a big head 口 on legs 儿"
+ },
+ "百": {
+  "parts": [
+   "一",
+   "白"
+  ],
+  "why": "一 + 白 (sound)",
+  "phon": "白"
+ },
+ "尚": {
+  "parts": [
+   "⺌",
+   "冋"
+  ],
+  "why": "as drawn"
+ },
+ "冋": {
+  "parts": [
+   "冂",
+   "口"
+  ],
+  "why": "as drawn"
+ },
+ "果": {
+  "parts": [
+   "田",
+   "木"
+  ],
+  "why": "fruit 田 on a tree 木"
+ },
+ "朕": {
+  "parts": [
+   "月",
+   "关"
+  ],
+  "why": "as drawn"
+ },
+ "毎": {
+  "parts": [
+   "𠂉",
+   "毋"
+  ],
+  "why": "as drawn"
+ },
+ "正": {
+  "parts": [
+   "一",
+   "止"
+  ],
+  "why": "a foot 止 heading to a line 一"
+ },
+ "予": {
+  "parts": [
+   "マ",
+   "了"
+  ],
+  "why": "as drawn"
+ },
+ "咼": {
+  "parts": [
+   "冎",
+   "口"
+  ],
+  "why": "bones 冎 over 口"
+ },
+ "天": {
+  "parts": [
+   "一",
+   "大"
+  ],
+  "why": "a big person 大 with the sky 一 above the head"
+ },
+ "关": {
+  "parts": [
+   "丷",
+   "天"
+  ],
+  "why": "as drawn"
+ },
+ "氐": {
+  "parts": [
+   "氏",
+   "一"
+  ],
+  "why": "氏 over a base line 一"
+ },
+ "兹": {
+  "parts": [
+   "䒑",
+   "幺",
+   "幺"
+  ],
+  "why": "two threads 幺 under a top 䒑; the KanjiVG split into 艹 + 玄 is broken"
+ },
+ "克": {
+  "parts": [
+   "十",
+   "兄"
+  ],
+  "why": "十 over 兄; KanjiVG's 古 with a 3-stroke 兄 is a fragment"
+ },
+ "帯": {
+  "parts": [
+   "丗",
+   "冖",
+   "巾"
+  ],
+  "why": "belt ornaments 丗 on a sash 冖 + cloth 巾"
+ },
+ "行": {
+  "parts": [
+   "彳",
+   "亍"
+  ],
+  "why": "a crossroads: left step 彳 and right step 亍"
+ },
+ "稲": {
+  "parts": [
+   "禾",
+   "⺤",
+   "臼"
+  ],
+  "why": "a hand ⺤ taking grain 禾 from a mortar 臼; the bottom is not 旧 'former'"
+ },
+ "陥": {
+  "parts": [
+   "⻖",
+   "𠂊",
+   "臼"
+  ],
+  "why": "a person 𠂊 falling into a pit 臼 by a hill; the bottom is not 旧 'former'"
+ },
+ "里": {
+  "parts": [
+   "田",
+   "土"
+  ],
+  "why": "fields 田 and earth 土, sharing the middle stroke"
+ },
+ "衡": {
+  "parts": [
+   "行",
+   "角",
+   "大"
+  ],
+  "why": "a horn bar 角 on a big ox 大 inside 行; not fish 魚"
+ },
+ "成": {
+  "parts": [
+   "丁",
+   "戈"
+  ],
+  "why": "a halberd 戈 (戊) with 丁 for the sound; 𠂊 'wrap' is a stroke group",
+  "phon": "丁"
+ },
+ "木": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "大": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "儿": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "八": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "刀": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "土": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "田": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "心": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "𠂉": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "乂": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "丿": {
+  "parts": [],
+  "why": "a single stroke"
+ },
+ "二": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "勹": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "手": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "⺍": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "千": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "亠": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "冂": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "戈": {
+  "parts": [],
+  "why": "a halberd pictograph; 弋 'stake' inside it is a stroke group"
+ },
+ "弋": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "斤": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "三": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "厂": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "十": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "匕": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "士": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "𠂊": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "冫": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "山": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "卩": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "罒": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "尸": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "氏": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "川": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "示": {
+  "parts": [],
+  "why": "an altar pictograph; 二 + 小 is a stroke split"
+ },
+ "艹": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "豆": {
+  "parts": [],
+  "why": "a pictograph of a footed bowl; 口 is part of the drawing"
+ },
+ "业": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "而": {
+  "parts": [],
+  "why": "a pictograph of a beard"
+ },
+ "卬": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "卯": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "竜": {
+  "parts": [],
+  "why": "a dragon pictograph"
+ },
+ "电": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "缶": {
+  "parts": [],
+  "why": "a clay jar pictograph; 山 is a look-alike"
+ },
+ "冘": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "坴": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "冎": {
+  "parts": [],
+  "why": "a pictograph of bones and joints"
+ },
+ "巨": {
+  "parts": [],
+  "why": "a pictograph of a carpenter's square"
+ },
+ "壴": {
+  "parts": [],
+  "why": "a drum on a stand; 士 + 吉 'good luck' are look-alikes"
+ },
+ "朱": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "𠔉": {
+  "parts": [],
+  "why": "two hands rolling something; 二 + 大 + 人 are stroke groups"
+ },
+ "斉": {
+  "parts": [],
+  "why": "a pictograph of ears of grain; 文 'writing' is a look-alike"
+ },
+ "禸": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "更": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "並": {
+  "parts": [],
+  "why": "two people standing side by side"
+ },
+ "𠂤": {
+  "parts": [],
+  "why": "a pictograph of a mound / heaped earth"
+ },
+ "丂": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "長": {
+  "parts": [],
+  "why": "a pictograph of long hair"
+ },
+ "疋": {
+  "parts": [],
+  "why": "a foot pictograph"
+ },
+ "人": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "日": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "⺕": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "尹": {
+  "parts": [],
+  "why": "a hand holding a staff"
+ },
+ "隹": {
+  "parts": [],
+  "why": "a bird pictograph; 亻 'person' is a look-alike"
+ },
+ "頁": {
+  "parts": [],
+  "why": "a head on a body; 貝 'shell' is a look-alike"
+ },
+ "言": {
+  "parts": [],
+  "why": "a pictograph (mouth with speech lines); 口 alone tells little"
+ },
+ "衣": {
+  "parts": [],
+  "why": "a collar and robe pictograph"
+ },
+ "勿": {
+  "parts": [],
+  "why": "a pictograph (a flag or a blade); 勹 'wrap' is a look-alike"
+ },
+ "也": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "乍": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "乎": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "亦": {
+  "parts": [],
+  "why": "a person with arms out and two marks"
+ },
+ "韋": {
+  "parts": [],
+  "why": "tanned leather / feet around a centre; 口 alone tells little"
+ },
+ "辰": {
+  "parts": [],
+  "why": "a clam pictograph; 厂 'cliff' is a look-alike"
+ },
+ "叚": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "斗": {
+  "parts": [],
+  "why": "a ladle pictograph"
+ },
+ "旡": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "瓜": {
+  "parts": [],
+  "why": "a melon on a vine; 厶 'private' is a look-alike"
+ },
+ "亥": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "丑": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "丩": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "之": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "北": {
+  "parts": [],
+  "why": "two people back to back"
+ },
+ "魚": {
+  "parts": [],
+  "why": "a fish pictograph; the four dots are the tail, not fire"
+ },
+ "𩵋": {
+  "parts": [],
+  "why": "a fish shape; the bottom is not fire"
+ },
+ "舄": {
+  "parts": [],
+  "why": "a bird pictograph (magpie); the four dots are feet, not fire"
+ },
+ "柬": {
+  "parts": [],
+  "why": "a bundle being sorted; 日 + 口 inside 木 are stroke groups"
+ },
+ "禹": {
+  "parts": [],
+  "why": "a pictograph of a crawling creature; 虫 is a fragment here"
+ },
+ "丗": {
+  "parts": [],
+  "why": "belt ornaments (thirty); 卅 + 廾 are stroke groups"
+ },
+ "卅": {
+  "parts": [],
+  "why": "a single picture; KanjiVG's sub-group is a stroke fragment, not a meaningful part"
+ },
+ "廿": {
+  "parts": [],
+  "why": "two tens joined; one shape, 十 + 廾 are stroke groups"
+ },
+ "龶": {
+  "parts": [],
+  "why": "a sprouting plant; one shape"
+ },
+ "屰": {
+  "parts": [],
+  "why": "an upside-down person; 屮 + 凵 are stroke groups"
+ },
+ "䒑": {
+  "parts": [],
+  "strokes": 3,
+  "why": "the 3-stroke top of 前 首 善; KANJIDIC counts a 6-stroke form"
+ },
+ "丽": {
+  "parts": [],
+  "strokes": 8,
+  "why": "the top of 麗 (19 = 8 + 鹿 11)"
+ },
+ "亏": {
+  "parts": [],
+  "strokes": 3,
+  "why": "as in 汚 (6 = 氵 3 + 3)"
+ },
+ "杀": {
+  "parts": [],
+  "strokes": 6,
+  "why": "as in 刹 (8 = 6 + 刂 2)"
+ }
+}

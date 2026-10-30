@@ -6005,8 +6005,9 @@
  },
  {
   "kanji": "用",
-  "keyword": "use",
+  "keyword": "utilize",
   "meanings": [
+   "use",
    "errand",
    "for (a purpose)"
   ],
@@ -8233,8 +8234,9 @@
  },
  {
   "kanji": "刀",
-  "keyword": "sword",
+  "keyword": "katana",
   "meanings": [
+   "sword",
    "knife"
   ],
   "readings": [
@@ -8904,8 +8906,9 @@
  },
  {
   "kanji": "内",
-  "keyword": "inside",
+  "keyword": "inner",
   "meanings": [
+   "inside",
    "home"
   ],
   "readings": [
@@ -9557,9 +9560,11 @@
  },
  {
   "kanji": "号",
-  "keyword": "number",
+  "keyword": "serial number",
   "meanings": [
-   "issue (of a magazine)"
+   "number",
+   "issue (of a magazine)",
+   "signal"
   ],
   "readings": [
    "ゴウ"
@@ -12146,9 +12151,9 @@
  },
  {
   "kanji": "巾",
-  "keyword": "cloth",
+  "keyword": "towel",
   "meanings": [
-   "towel"
+   "cloth"
   ],
   "readings": [
    "キン"
@@ -14539,10 +14544,11 @@
  },
  {
   "kanji": "化",
-  "keyword": "change",
+  "keyword": "transform",
   "meanings": [
    "-ization",
-   "disguise"
+   "disguise",
+   "change"
   ],
   "readings": [
    "カ",
@@ -16150,7 +16156,7 @@
     ]
    }
   ],
-  "story": "A person 亻 standing on earth 土: being there.",
+  "story": "Something rooted in the earth 土, staying put: being there.",
   "kind": "mnemonic"
  },
  {
@@ -22136,8 +22142,9 @@
  },
  {
   "kanji": "台",
-  "keyword": "stand",
+  "keyword": "pedestal",
   "meanings": [
+   "stand",
    "platform"
   ],
   "readings": [
@@ -23656,9 +23663,9 @@
  },
  {
   "kanji": "玉",
-  "keyword": "ball",
+  "keyword": "jewel; bead",
   "meanings": [
-   "jewel"
+   "ball"
   ],
   "readings": [
    "たま"
@@ -24118,9 +24125,9 @@
  },
  {
   "kanji": "回",
-  "keyword": "turn",
+  "keyword": "times",
   "meanings": [
-   "times",
+   "turn",
    "round"
   ],
   "readings": [
@@ -25216,10 +25223,11 @@
  },
  {
   "kanji": "当",
-  "keyword": "hit",
+  "keyword": "hit the mark",
   "meanings": [
    "appropriate",
-   "this (one)"
+   "this (one)",
+   "hit"
   ],
   "readings": [
    "トウ",
@@ -25501,8 +25509,10 @@
  },
  {
   "kanji": "者",
-  "keyword": "person",
-  "meanings": [],
+  "keyword": "someone",
+  "meanings": [
+   "person (who does)"
+  ],
   "readings": [
    "シャ",
    "もの"
@@ -26144,9 +26154,9 @@
  },
  {
   "kanji": "身",
-  "keyword": "body",
+  "keyword": "oneself",
   "meanings": [
-   "oneself",
+   "body",
    "one's position"
   ],
   "readings": [
@@ -26888,8 +26898,9 @@
  },
  {
   "kanji": "又",
-  "keyword": "again",
+  "keyword": "also",
   "meanings": [
+   "again",
    "or"
   ],
   "readings": [
@@ -27484,8 +27495,10 @@
  },
  {
   "kanji": "及",
-  "keyword": "reach",
-  "meanings": [],
+  "keyword": "extend to",
+  "meanings": [
+   "reach"
+  ],
   "readings": [
    "キュウ",
    "およ.ぶ",

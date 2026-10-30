@@ -220,9 +220,9 @@
  },
  {
   "kanji": "曹",
-  "keyword": "official",
+  "keyword": "sergeant",
   "meanings": [
-   "sergeant"
+   "official"
   ],
   "readings": [
    "ソウ"
@@ -719,10 +719,9 @@
  },
  {
   "kanji": "揚",
-  "keyword": "raise",
+  "keyword": "deep-fry; hoist",
   "meanings": [
-   "deep-fry",
-   "hoist"
+   "raise"
   ],
   "readings": [
    "あ.げる",
@@ -1575,9 +1574,9 @@
  },
  {
   "kanji": "硬",
-  "keyword": "hard",
+  "keyword": "stiff",
   "meanings": [
-   "stiff"
+   "hard"
   ],
   "readings": [
    "コウ",
@@ -1773,10 +1772,10 @@
  },
  {
   "kanji": "忌",
-  "keyword": "mourning",
+  "keyword": "taboo",
   "meanings": [
-   "abhor",
-   "taboo"
+   "mourning",
+   "abhor"
   ],
   "readings": [
    "キ",
@@ -1998,7 +1997,7 @@
  },
  {
   "kanji": "乾",
-  "keyword": "dry",
+  "keyword": "dry out",
   "meanings": [],
   "readings": [
    "カン",
@@ -3583,9 +3582,10 @@
  },
  {
   "kanji": "宜",
-  "keyword": "suitable",
+  "keyword": "proper",
   "meanings": [
-   "good"
+   "good",
+   "suitable"
   ],
   "readings": [
    "ギ",
@@ -3691,9 +3691,9 @@
  },
  {
   "kanji": "操",
-  "keyword": "operate",
+  "keyword": "manipulate",
   "meanings": [
-   "manipulate",
+   "operate",
    "fidelity"
   ],
   "readings": [
@@ -3963,9 +3963,9 @@
  },
  {
   "kanji": "栽",
-  "keyword": "plant",
+  "keyword": "grow plants",
   "meanings": [
-   "cultivate"
+   "plant"
   ],
   "readings": [
    "サイ"
@@ -5637,9 +5637,9 @@
  },
  {
   "kanji": "簡",
-  "keyword": "simple",
+  "keyword": "brief",
   "meanings": [
-   "brief",
+   "simple",
    "letter"
   ],
   "readings": [
@@ -6387,8 +6387,9 @@
  },
  {
   "kanji": "班",
-  "keyword": "squad",
+  "keyword": "team",
   "meanings": [
+   "squad",
    "group"
   ],
   "readings": [
@@ -7099,10 +7100,10 @@
  },
  {
   "kanji": "賃",
-  "keyword": "fee",
+  "keyword": "wages; rent",
   "meanings": [
-   "wages",
-   "rent"
+   "fee",
+   "fare"
   ],
   "readings": [
    "チン"
@@ -8318,9 +8319,9 @@
  },
  {
   "kanji": "轄",
-  "keyword": "control",
+  "keyword": "jurisdiction",
   "meanings": [
-   "jurisdiction"
+   "control"
   ],
   "readings": [
    "カツ"
@@ -8832,7 +8833,9 @@
  {
   "kanji": "僧",
   "keyword": "monk",
-  "meanings": [],
+  "meanings": [
+   "priest"
+  ],
   "readings": [
    "ソウ"
   ],
@@ -8991,10 +8994,10 @@
  },
  {
   "kanji": "焼",
-  "keyword": "burn",
+  "keyword": "grill",
   "meanings": [
    "bake",
-   "grill"
+   "burn"
   ],
   "readings": [
    "や.く",
@@ -10297,8 +10300,9 @@
  },
  {
   "kanji": "晩",
-  "keyword": "evening",
+  "keyword": "nightfall",
   "meanings": [
+   "evening",
    "night"
   ],
   "readings": [
@@ -10567,9 +10571,9 @@
  },
  {
   "kanji": "羅",
-  "keyword": "net",
+  "keyword": "gauze",
   "meanings": [
-   "thin silk",
+   "net",
    "line up"
   ],
   "readings": [
@@ -10736,9 +10740,9 @@
  },
  {
   "kanji": "媛",
-  "keyword": "princess",
+  "keyword": "fair lady",
   "meanings": [
-   "beautiful woman"
+   "princess"
   ],
   "readings": [
    "ひめ",
@@ -10862,9 +10866,9 @@
  },
  {
   "kanji": "脂",
-  "keyword": "fat",
+  "keyword": "grease",
   "meanings": [
-   "grease",
+   "fat",
    "resin"
   ],
   "readings": [
@@ -10993,8 +10997,9 @@
  },
  {
   "kanji": "扶",
-  "keyword": "aid",
+  "keyword": "provide for",
   "meanings": [
+   "aid",
    "support"
   ],
   "readings": [
@@ -11311,7 +11316,7 @@
  },
  {
   "kanji": "措",
-  "keyword": "measure",
+  "keyword": "take measures",
   "meanings": [],
   "readings": [
    "ソ"
@@ -11342,8 +11347,9 @@
  },
  {
   "kanji": "寝",
-  "keyword": "sleep",
+  "keyword": "go to bed",
   "meanings": [
+   "sleep",
    "lie down"
   ],
   "readings": [
@@ -11859,9 +11865,9 @@
  },
  {
   "kanji": "唄",
-  "keyword": "song",
+  "keyword": "ditty",
   "meanings": [
-   "ballad"
+   "song"
   ],
   "readings": [
    "うた"
@@ -12965,8 +12971,10 @@
  },
  {
   "kanji": "牲",
-  "keyword": "sacrifice",
-  "meanings": [],
+  "keyword": "sacrificial animal",
+  "meanings": [
+   "sacrifice"
+  ],
   "readings": [
    "セイ"
   ],
@@ -13016,7 +13024,7 @@
  },
  {
   "kanji": "寒",
-  "keyword": "cold",
+  "keyword": "cold (weather)",
   "meanings": [],
   "readings": [
    "カン",
@@ -13443,7 +13451,8 @@
   "kanji": "釣",
   "keyword": "fishing",
   "meanings": [
-   "catch"
+   "catch",
+   "change (money)"
   ],
   "readings": [
    "つ.る"
@@ -13648,9 +13657,10 @@
  },
  {
   "kanji": "峰",
-  "keyword": "peak",
+  "keyword": "summit",
   "meanings": [
-   "summit"
+   "peak",
+   "ridge"
   ],
   "readings": [
    "みね",
@@ -14086,9 +14096,9 @@
  },
  {
   "kanji": "朴",
-  "keyword": "simple",
+  "keyword": "plain",
   "meanings": [
-   "plain",
+   "simple",
    "honest"
   ],
   "readings": [
@@ -14137,9 +14147,10 @@
  },
  {
   "kanji": "涯",
-  "keyword": "limit",
+  "keyword": "edge",
   "meanings": [
-   "shore"
+   "shore",
+   "limit"
   ],
   "readings": [
    "ガイ"

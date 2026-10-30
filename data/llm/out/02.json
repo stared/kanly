@@ -1972,8 +1972,9 @@
  },
  {
   "kanji": "里",
-  "keyword": "village",
+  "keyword": "hamlet",
   "meanings": [
+   "village",
    "hometown",
    "ri (old distance unit)"
   ],
@@ -10028,8 +10029,9 @@
  },
  {
   "kanji": "攻",
-  "keyword": "attack",
+  "keyword": "offense",
   "meanings": [
+   "attack",
    "study (a subject)"
   ],
   "readings": [
@@ -12312,8 +12314,9 @@
   "kanji": "守",
   "keyword": "protect",
   "meanings": [
+   "defend",
    "keep (a rule)",
-   "defend"
+   "guard"
   ],
   "readings": [
    "シュ",
@@ -17428,9 +17431,10 @@
  },
  {
   "kanji": "医",
-  "keyword": "medicine",
+  "keyword": "medical",
   "meanings": [
-   "doctor"
+   "doctor",
+   "medicine (field)"
   ],
   "readings": [
    "イ"
@@ -22797,9 +22801,9 @@
  },
  {
   "kanji": "担",
-  "keyword": "bear",
+  "keyword": "take charge",
   "meanings": [
-   "be in charge",
+   "bear (a burden)",
    "carry on the shoulder"
   ],
   "readings": [
@@ -23289,8 +23293,10 @@
  },
  {
   "kanji": "河",
-  "keyword": "river",
-  "meanings": [],
+  "keyword": "big river",
+  "meanings": [
+   "river"
+  ],
   "readings": [
    "カ"
   ],
@@ -24541,9 +24547,9 @@
  },
  {
   "kanji": "含",
-  "keyword": "contain",
+  "keyword": "include",
   "meanings": [
-   "include"
+   "contain"
   ],
   "readings": [
    "ガン",
@@ -26518,7 +26524,7 @@
  },
  {
   "kanji": "功",
-  "keyword": "achievement",
+  "keyword": "feat",
   "meanings": [
    "merit",
    "success"
