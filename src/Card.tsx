@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { COMP, KANJI, RANK, extraStrokes, gloss, hira, isKanji, lookalikes, romaji, soundFamily, type Tree, type Word } from './data'
+import { COMP, KANJI, RANK, extraStrokes, gloss, hira, isKanji, kata, lookalikes, romaji, soundFamily, type Tree, type Word } from './data'
 import { status, type Store } from './srs'
 import { speak, spoken } from './speech'
 import { Animated, StrokeOrder } from './Strokes'
@@ -29,7 +29,7 @@ function Node({ n, store, open, sound, label }: { n: Tree; store: Store; open: O
       title={`${gloss(n.el)}: ${{ new: 'not learned yet', learning: 'learning (grey edge)', known: 'known (green edge)' }[status(store, n.el)]}${sound ? ', gives the sound' : ''}`}>
       <span className="ch"><Glyph el={n.el} /></span>
       <span className="g">{gloss(n.el)}</span>
-      {on && <span className="on">sound {hira(on)}</span>}
+      {on && <span className="on">sound {on}</span>}
     </button>
   )
 }
@@ -91,9 +91,9 @@ export function Readings({ ch, hover, setHover }: { ch: string; hover?: string |
     <div className="readings">
       {k.readings.map(({ r, share }) => (
         <button key={r} className={'rd' + (k.written && share < 0.05 ? ' rare' : '') + (r === k.alone?.reading ? ' alone' : '') + (hover && hover !== r ? ' dim' : '')}
-          title={(isOn(r) ? 'on-reading (from Chinese). ' : 'kun-reading (native Japanese). ') + (r === k.alone?.reading ? `${ch} on its own: ${k.alone.r}. ` : '') + (k.written ? `${Math.round(share * 100)}% of use in the words below; click to hear it` : 'click to hear it')}
+          title={(isOn(r) ? `on-reading (from Chinese), written in katakana; in words, as furigana, ${hira(r)}. ` : 'kun-reading (native Japanese), written in hiragana. ') + (r === k.alone?.reading ? `${ch} on its own: ${k.alone.r}. ` : '') + (k.written ? `${Math.round(share * 100)}% of use in the words below; click to hear it` : 'click to hear it')}
           onClick={() => speak(say(r))} onMouseEnter={() => setHover?.(r)} onMouseLeave={() => setHover?.(null)}>
-          <span className="kana">{isOn(r) ? hira(r) : fmtKun(r)}<span className="romaji">{romaji(r)}</span></span>{k.written && share >= 0.01 && <span className="pct">{Math.round(share * 100)}%</span>}
+          <span className="kana">{isOn(r) ? r : fmtKun(r)}<span className="romaji">{isOn(r) ? hira(r) : kata(bare(r).replace('.', ''))} {romaji(r)}</span></span>{k.written && share >= 0.01 && <span className="pct">{Math.round(share * 100)}%</span>}
         </button>
       ))}
     </div>
@@ -111,7 +111,7 @@ export function Family({ ch, store, open }: { ch: string; store: Store; open: Op
   const forms = [...new Set(f.hits.map(c => KANJI[c]?.readings.map(x => x.r).find(r => /^[ァ-ヶー]+$/.test(r) && unvoice(r) === unvoice(f.reading))).filter(Boolean))]
   return (
     <div className="family">
-      <p><button className="inline" onClick={() => open(f.phonetic)}>{f.phonetic}</button> {holds ? 'sounds' : 'usually sounds'} <b>{forms.length ? forms.map(r => hira(r!)).join(' or ') : hira(f.reading)}</b> in {f.hits.length} of {n} kanji{holds ? '' : <>, <span className="not">but not in {ch}</span></>}</p>
+      <p><button className="inline" onClick={() => open(f.phonetic)}>{f.phonetic}</button> {holds ? 'sounds' : 'usually sounds'} <b>{forms.length ? forms.join(' or ') : kata(f.reading)}</b> in {f.hits.length} of {n} kanji{holds ? '' : <>, <span className="not">but not in {ch}</span></>}</p>
       <div className="chips">
         {f.hits.map(c => <button key={c} className={'chip ' + status(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)}>{c}</button>)}
         {f.misses.map(c => <button key={c} className={'chip miss ' + status(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)} title={KANJI[c]?.on.join('、')}>{c}</button>)}

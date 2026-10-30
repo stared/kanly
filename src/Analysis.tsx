@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { COMP, D, KANJI, gloss, hira } from './data'
+import { COMP, D, KANJI, gloss, kata } from './data'
 import type { Store } from './srs'
 import { coverage } from './Learn'
 import { BEGINNER, Phi, byLevel, lam, levelOf, mu, temp } from './levels'
@@ -194,7 +194,7 @@ export function Analysis({ store }: { store: Store }) {
           <tbody>{fams.slice(0, 30).map(f => (
             <tr key={f.phonetic}>
               <td><span className="jp">{f.phonetic}</span> {gloss(f.phonetic)}</td>
-              <td>{hira(f.reading)}</td>
+              <td>{kata(f.reading)}</td>
               <td>{f.hits.length}/{f.hits.length + f.misses.length}</td>
               <td className="jp">{f.hits.join('')}{f.misses.length > 0 && <span className="miss"> {f.misses.join('')}</span>}</td>
             </tr>

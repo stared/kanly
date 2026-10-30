@@ -53,7 +53,7 @@ export function readingOptions(ch: string): string[] {
   return shuffle(out)
 }
 
-const fmtReading = (r: string) => isOn(r) ? hira(r) : fmtKun(r)
+const fmtReading = (r: string) => isOn(r) ? r : fmtKun(r)
 
 /** How a kanji sounds: its main readings with their share of use. */
 export function Profile({ ch, cols }: { ch: string; cols?: boolean }) {
