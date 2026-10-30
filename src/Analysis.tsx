@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { COMP, D, KANJI, gloss, kata } from './data'
 import type { Store } from './srs'
 import { coverage } from './Learn'
-import { BEGINNER, mu, temp } from './levels'
+import { BEGINNER, Phi, mu, temp } from './levels'
 
 const SERIES = [
   { key: 'simple first', label: 'simple first (used here)', cls: 's1' },
@@ -61,7 +61,7 @@ function LevelChart({ store }: { store: Store }) {
   const n = BY_LEVEL.length, m = mu(store), t = temp(store)
   const x = (r: number) => P.l + (r / n) * (W - P.l - P.r)
   const y = (v: number) => H - P.b - v * (H - P.t - P.b)
-  const p = (r: number) => 1 / (1 + Math.exp((r - m) / t))
+  const p = (r: number) => Phi((m - r) / t)
   const curve = Array.from({ length: 108 }, (_, i) => i * 20).map((r, j) => `${j ? 'L' : 'M'}${x(r).toFixed(1)},${y(p(r)).toFixed(1)}`).join('')
   // answers in bins of 100 ranks: share known, dot area by count
   const bins = new Map<number, [number, number]>()
@@ -138,7 +138,7 @@ export function Analysis({ store }: { store: Store }) {
           each step of kentei level counts as {fmt(D.levels.weights['kentei level'])} decades of text frequency,
           each stroke as {fmt(D.levels.weights['strokes'])}, and being in e times more common words
           as {fmt(-D.levels.weights['ln(1 + common words)'])} the other way.
-          Knowing kanji is then like filling energy levels: you know nearly all below an edge μ and few above it, with a blur T.
+          Knowing kanji is then like filling energy levels: you know nearly all below an edge μ and few above it, with a Gaussian blur T.
           The next kanji is the one most likely new to you, most used in common words and cheapest given the parts you know.
         </p>
         {mu(store) > BEGINNER ? <LevelChart store={store} /> : <p className="sub">Pick a starting level in settings, or answer “I know it” on cards you know, to see your curve here.</p>}

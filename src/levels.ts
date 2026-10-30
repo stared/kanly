@@ -5,12 +5,15 @@ import type { Store } from './srs'
 What to learn next, at any level.
 
 Every kanji has a difficulty `level`: its rank, 0 for the one learners know first (fitted in build_data.py).
-A learner who knows about μ kanji knows kanji k with the Fermi–Dirac probability
+A learner who knows about μ kanji knows kanji k with probability
 
-  p(k) = 1 / (1 + exp((level(k) − μ) / T))
+  p(k) = Φ((μ − level(k)) / T)
 
-Ranks make the density of states flat, so μ is the number of kanji known; T is how blurred the frontier is,
-in kanji (official level lists are blurred by 60–230 against the ranks).
+a step at μ blurred by a Gaussian of width T: a Fermi sea with disorder rather than heat. Ranks make the
+density of states flat, so μ is the number of kanji known. On the official lists a Gaussian edge fits slightly
+better than the Fermi–Dirac one, 1 / (1 + e^((level − μ)/T)), and its tail is lighter: a list missing a kanji
+500 ranks below its edge happens about once in 500, which the Fermi tail overestimates 10 times, and that tail
+is what made someone who knows 1000 kanji get asked about 人. Official lists are blurred by T = 100–400.
 
 Each kanji not yet seen gets the weight: expected usefulness per expected effort,
 
@@ -24,15 +27,15 @@ this finds 13–34% more useful kanji per unit of effort than counting cards, at
 (ρ = 0.1 gains more, but asks someone who knows 1000 kanji whether they know 人.) g is Gumbel noise fixed per kanji: τ > 0 samples ∝ w^(1/τ), so easier and harder
 ones show up too. τ = 0 takes the best one; for a beginner (p ≈ 0) that is simple-first order.
 
-μ moves with every answer, as an Elo (online Rasch) update: up when a kanji is already known, down when new.
-T is fitted to the answers by maximum likelihood once there are 10. It pays off for usefulness: in simulation,
-for a learner with a blurred frontier (T = 350) a fixed T = 150 finds 30% less useful kanji in 300 cards,
-while the fitted T stays within 3% of knowing the true one, whatever the learner.
+μ and T are the posterior mean given the answers so far ("I know it" = 1, "new to me" = 0), computed exactly
+on a grid, with a prior centred on the starting level picked (a list's μ, give or take 400; its T within a
+factor of 2). Fitting T pays off: in simulation, for a learner with a blurred frontier (T = 350) a fixed
+T = 150 finds 30% less useful kanji in 300 cards, while a fitted T stays within 3% of the true one.
 */
-export const T = 150
+export const T = 260
 export const ALPHA = 1
 export const RHO = 0.3
-export const BEGINNER = -3 * T
+export const BEGINNER = -450
 
 /** Starting points: each official list as a Fermi sea, its edge and blur fitted in build_data.py
  * (JLPT N3: μ = 600, T = 207; kentei lists are sharper, since kentei level is part of the difficulty). */
@@ -49,7 +52,15 @@ export const BREADTH: { label: string; tau: number }[] = [
 
 /** Difficulty of anything learnable: a part is as hard as the easiest kanji using it. */
 const LEVEL = new Map<string, number>(ORDER.map(el => [el, KANJI[el]?.level ?? Math.min(...(COMP[el]?.usedIn ?? []).map(c => KANJI[c]?.level ?? Infinity))]))
-export const pKnown = (el: string, mu: number, t = T) => 1 / (1 + Math.exp(((LEVEL.get(el) ?? Infinity) - mu) / t))
+/** ln Φ(z), the log of the standard normal CDF, accurate in the far left tail (erfc as in Numerical Recipes). */
+export function logPhi(z: number): number {
+  const x = -z / Math.SQRT2, t = 1 / (1 + 0.5 * Math.abs(x))
+  const ln = Math.log(t) - x * x - 1.26551223 + t * (1.00002368 + t * (0.37409196 + t * (0.09678418 + t * (-0.18628806 +
+    t * (0.27886807 + t * (-1.13520398 + t * (1.48851587 + t * (-0.82215223 + t * 0.17087277))))))))  // ln erfc(|x|)
+  return x >= 0 ? ln - Math.LN2 : Math.log1p(-Math.exp(ln) / 2)
+}
+export const Phi = (z: number) => Math.exp(logPhi(z))
+export const pKnown = (el: string, mu: number, t = T) => Phi((mu - (LEVEL.get(el) ?? Infinity)) / t)
 
 /** Fixed noise per kanji, the same every visit, so the upcoming list does not jump around. */
 const gumbel = (el: string, seed: number) => {
@@ -99,20 +110,36 @@ export function upcoming(s: Store, tau: number, n = 9): string[] {
   return out.slice(0, n)
 }
 
-/** After an answer about a kanji: an Elo step for μ (big while the level is unknown, settling as answers
- * accumulate), then T by gradient ascent on the likelihood of all answers. */
+const MUS = Array.from({ length: 171 }, (_, i) => -800 + 20 * i)
+const TS = [70, 100, 150, 230, 340, 500, 700]
+
+/** Posterior mean of μ and T (T as a geometric mean), on the grid MUS × TS. */
+export function posterior(start: { mu: number; T: number }, answers: [string, 0 | 1][]): { mu: number; T: number } {
+  const lp = MUS.map(m => TS.map(t => -(((m - start.mu) / 400) ** 2) / 2 - (Math.log(t / start.T) / Math.log(2)) ** 2 / 2))
+  for (const [ch, y] of answers) {
+    const e = KANJI[ch].level
+    MUS.forEach((m, i) => TS.forEach((t, j) => {
+      lp[i][j] += logPhi((y ? 1 : -1) * (m - e) / t)
+    }))
+  }
+  const top = Math.max(...lp.flat())
+  let w = 0, m = 0, lt = 0
+  MUS.forEach((mu, i) => TS.forEach((t, j) => { const q = Math.exp(lp[i][j] - top); w += q; m += q * mu; lt += q * Math.log(t) }))
+  return { mu: m / w, T: Math.exp(lt / w) }
+}
+
+export const start = (s: Store) => s.start ?? { mu: BEGINNER, T }
+
+/** Pick a starting level: the prior moves, and the answers so far are read against it. */
+export const startAt = (s: Store, l: { mu: number; T: number }): Store => {
+  const st = { mu: l.mu, T: l.T }
+  return { ...s, start: st, ...posterior(st, s.answers ?? []) }
+}
+
+/** After an answer about a kanji: the new posterior. */
 export function update(s: Store, el: string, knewIt: boolean): Pick<Store, 'mu' | 'T' | 'answers'> {
   const answers: [string, 0 | 1][] = [...(s.answers ?? []), [el, knewIt ? 1 : 0]]
-  let t = temp(s)
-  const m = mu(s) + Math.max(20, 300 / Math.sqrt(answers.length)) * ((knewIt ? 1 : 0) - pKnown(el, mu(s), t))
-  if (answers.length >= 10) {
-    for (let i = 0; i < 30; i++) {
-      // dℓ/dT = −Σ (y − p)(μ − level) / T²
-      const g = answers.reduce((a, [ch, y]) => a + (y - pKnown(ch, m, t)) * (m - KANJI[ch].level), 0) / answers.length
-      t = Math.min(600, Math.max(40, t - 2000 * g / t ** 2))
-    }
-  }
-  return { mu: m, T: t, answers }
+  return { ...posterior(start(s), answers), answers }
 }
 
 /** Share of kanji in text the learner reads: what they have seen, plus what they likely knew before. */

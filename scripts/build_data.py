@@ -98,6 +98,16 @@ def normal_score(xs: list[float]) -> list[float]:
     return [nd.inv_cdf((r + 0.5) / len(xs)) for r in rank]
 
 
+def log_phi(z):
+    """ln Φ(z) for an array, accurate far into the left tail (erfc as in Numerical Recipes)."""
+    import numpy as np
+    x = -z / math.sqrt(2)
+    t = 1 / (1 + 0.5 * np.abs(x))
+    ln = np.log(t) - x * x - 1.26551223 + t * (1.00002368 + t * (0.37409196 + t * (0.09678418 + t * (-0.18628806 + t * (
+        0.27886807 + t * (-1.13520398 + t * (1.48851587 + t * (-0.82215223 + t * 0.17087277))))))))
+    return np.where(x >= 0, ln - math.log(2), np.log1p(-np.exp(ln) / 2))
+
+
 def difficulty(joyo: list[str], words: list[dict], kd: dict) -> tuple[dict[str, int], dict[str, float], dict]:
     """How likely a learner is to know each kanji already, as a rank: 0 is the one everyone knows first.
 
@@ -124,26 +134,21 @@ def difficulty(joyo: list[str], words: list[dict], kd: dict) -> tuple[dict[str, 
     rank = {joyo[i]: r for r, i in enumerate(np.argsort(score, kind="stable"))}
     weights = {n: float(v / w[0]) for n, v in zip(names, w[:-1])}  # in decades of frequency
 
-    # each official list as a Fermi sea in the ranks: where its edge is (μ) and how blurred (T)
+    # each official list as a sea of known kanji in the ranks: where its edge is (μ) and how blurred (T),
+    # p = Φ((μ − rank) / T), by maximum likelihood on a grid refined around the best point
     E = np.array([rank[c] for c in joyo], float)
     lists = [(f"JLPT N{n}", [c for c in joyo if (ext.get(c, {}).get("jlpt_new") or 0) >= n]) for n in (5, 4, 3, 2, 1)]
     names = {10: "10級", 8: "8級", 5: "5級", 4: "4級", 3: "3級", 2.5: "準2級"}
     lists += [(f"kentei {names[l]}", [c for c in joyo if kanken[c] >= l]) for l in names]
     official = []
     for name, inside in lists:
-        y = np.isin(joyo, inside).astype(float)
-        x = E / 1000  # p = σ(a − b x): logistic regression on the rank, by Newton steps
-        X = np.c_[np.ones_like(x), -x]
-        nll = lambda t: np.sum(np.logaddexp(0, -(2 * y - 1) * (X @ t)))
-        t = np.array([len(inside) / 100, 10.0])
-        for _ in range(50):
-            p = 1 / (1 + np.exp(-(X @ t)))
-            step = np.linalg.solve(X.T @ (X * (p * (1 - p))[:, None]) + 1e-6 * np.eye(2), X.T @ (y - p))
-            while nll(t + step) > nll(t) and np.abs(step).max() > 1e-9:  # damped: halve until it helps
-                step /= 2
-            t = t + step
-        a, b = t
-        official.append({"name": name, "n": len(inside), "mu": round(1000 * a / b), "T": round(1000 / b)})
+        y = np.isin(joyo, inside)
+        ll = lambda mu, T: log_phi(np.where(y, 1, -1) * (mu - E) / T).sum()
+        mu, T, dm, dt = float(len(inside)), 200.0, 200.0, 0.5
+        for _ in range(12):
+            mu, T = max(((m, t) for m in np.linspace(mu - dm, mu + dm, 9) for t in T * np.exp(np.linspace(-dt, dt, 9))), key=lambda p: ll(*p))
+            dm, dt = dm / 2, dt / 2
+        official.append({"name": name, "n": len(inside), "mu": round(mu), "T": round(T)})
     official.sort(key=lambda o: o["n"])
     return rank, {c: kanken[c] for c in joyo}, {"weights": weights, "official": official}
 
@@ -588,7 +593,7 @@ def report(kd, freq, total, joyo, joyo_set, trees, components, orders, fams, unn
     p("Fitted to JLPT and WaniKani levels; weights in decades of frequency (one unit = 10× rarer):\n")
     for n, v in levels["weights"].items():
         p(f"- {n}: {v:+.3f}")
-    p("\nOfficial lists as a Fermi edge in the difficulty rank (p = 1/(1 + e^((rank − μ)/T))):\n")
+    p("\nOfficial lists as a blurred edge in the difficulty rank (p = Φ((μ − rank)/T)):\n")
     p("| list | kanji | μ | T |")
     p("|---|--:|--:|--:|")
     for o in levels["official"]:

@@ -1,11 +1,11 @@
 import type { Store } from './srs'
-import { BEGINNER, BREADTH, LEVELS, mu, temp } from './levels'
+import { BEGINNER, BREADTH, LEVELS, mu, startAt, temp } from './levels'
 
 const r10 = (x: number) => Math.max(0, Math.round(x / 10) * 10)
-/** p = 0.9 and 0.1 lie 2.2 T either side of μ. */
+/** p = 0.9 and 0.1 lie 1.28 T either side of μ. */
 const fit = (s: Store) => (s.answers?.length ?? 0) < 10
   ? `You knew about ${r10(mu(s))} kanji before.`
-  : `From your answers: you knew about ${r10(mu(s))} kanji before, nearly all of the ${r10(mu(s) - 2.2 * temp(s))} easiest and few beyond the ${r10(mu(s) + 2.2 * temp(s))}th.`
+  : `From your answers: you knew about ${r10(mu(s))} kanji before, nearly all of the ${r10(mu(s) - 1.28 * temp(s))} easiest and few beyond the ${r10(mu(s) + 1.28 * temp(s))}th.`
 
 export function Settings({ store, onReplace, autoSpeak, setAutoSpeak }: { store: Store; onReplace: (s: Store) => void; autoSpeak: boolean; setAutoSpeak: (on: boolean) => void }) {
   const exportIt = () => {
@@ -22,7 +22,7 @@ export function Settings({ store, onReplace, autoSpeak, setAutoSpeak }: { store:
     <div className="settings">
       <label className="toggle"><input type="checkbox" checked={autoSpeak} onChange={e => setAutoSpeak(e.target.checked)} /> read each new kanji aloud (browser's Japanese voice)</label>
       <label className="field">Start from
-        <select value={LEVELS.indexOf(LEVELS.reduce((a, l) => Math.abs(l.mu - mu(store)) < Math.abs(a.mu - mu(store)) ? l : a))} onChange={e => onReplace({ ...store, mu: LEVELS[+e.target.value].mu, T: LEVELS[+e.target.value].T })}>
+        <select value={Math.max(0, LEVELS.findIndex(l => l.mu === store.start?.mu))} onChange={e => onReplace(startAt(store, LEVELS[+e.target.value]))}>
           {LEVELS.map((l, i) => <option key={l.label} value={i}>{l.label}</option>)}
         </select>
       </label>

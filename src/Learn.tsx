@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { KANJI, ORDER, elements, gloss } from './data'
 import { knewIt, learn, type Store } from './srs'
-import { mu, pKnown, temp, update, upcoming } from './levels'
+import { LEVELS, mu, pKnown, startAt, temp, update, upcoming } from './levels'
 import { Card, Glyph } from './Card'
 
 /** Share of kanji in running text that are among the given items. */
@@ -25,6 +25,22 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
     return () => removeEventListener('keydown', k)
   })
 
+  if (!store.start && !Object.keys(store.cards).length) return (
+    <div className="start">
+      <p>How many kanji do you know already?</p>
+      <button className="next" onClick={() => setStore(startAt(store, LEVELS[0]))}>none yet</button>
+      <div className="lists">
+        {['JLPT', 'kentei'].map(kind => (
+          <div key={kind}>
+            {LEVELS.filter(l => l.label.startsWith(kind)).map(l => (
+              <button key={l.label} className="next" onClick={() => setStore(startAt(store, l))}>{l.label.split(', ')[0].replace(kind + ' ', '')}<span className="n">{l.label.split(', ')[1]}</span></button>
+            ))}
+          </div>
+        ))}
+      </div>
+      <p className="sub small">A starting guess. Each “I know it” and “new to me” then refines it.</p>
+    </div>
+  )
   if (!next) return <div className="empty">All {ORDER.length} items learned.</div>
   return (
     <div className="learn">

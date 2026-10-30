@@ -295,3 +295,12 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
 .kt:hover { color: var(--accent); }
 .settings .field { display: flex; gap: 12px; align-items: baseline; margin: 10px 0; }
 .settings select { font: inherit; color: inherit; background: var(--paper); border: 1px solid var(--faint); border-radius: 6px; padding: 4px 8px; }
+.start { max-width: 420px; margin: 12vh auto 0; display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
+.start p { margin: 0 0 6px; }
+.start .next { justify-content: center; }
+.start .lists { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.start .lists > div { display: flex; flex-direction: column; gap: 10px; }
+.start .lists > div::before { font-size: 13px; color: var(--muted); }
+.start .lists > div:first-child::before { content: 'JLPT'; }
+.start .lists > div:last-child::before { content: 'kanji kentei'; }
+.start .n { color: var(--muted); font-size: 13px; margin-left: 8px; }
