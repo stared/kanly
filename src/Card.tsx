@@ -105,9 +105,12 @@ export function Family({ ch, store, open }: { ch: string; store: Store; open: Op
   if (!f) return null
   const n = f.hits.length + f.misses.length
   const holds = f.hits.includes(ch)
+  // the members' own forms: 寺 is シ in 詩 but ジ in 時 持 侍, so say both
+  const unvoice = (r: string) => hira(r).normalize('NFD').replace(/[\u3099\u309A]/g, '').normalize('NFC')
+  const forms = [...new Set(f.hits.map(c => KANJI[c]?.readings.map(x => x.r).find(r => /^[ァ-ヶー]+$/.test(r) && unvoice(r) === unvoice(f.reading))).filter(Boolean))]
   return (
     <div className="family">
-      <p><button className="inline" onClick={() => open(f.phonetic)}>{f.phonetic}</button> {holds ? 'sounds' : 'usually sounds'} <b>{kata(f.reading)}</b> in {f.hits.length} of {n} kanji{holds ? '' : <>, <span className="not">but not in {ch}</span></>}</p>
+      <p><button className="inline" onClick={() => open(f.phonetic)}>{f.phonetic}</button> {holds ? 'sounds' : 'usually sounds'} <b>{forms.length ? forms.join(' or ') : kata(f.reading)}</b> in {f.hits.length} of {n} kanji{holds ? '' : <>, <span className="not">but not in {ch}</span></>}</p>
       <div className="chips">
         {f.hits.map(c => <button key={c} className={'chip ' + status(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)}>{c}</button>)}
         {f.misses.map(c => <button key={c} className={'chip miss ' + status(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)} title={KANJI[c]?.on.join('、')}>{c}</button>)}
