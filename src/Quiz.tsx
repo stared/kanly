@@ -54,9 +54,9 @@ export function readingOptions(ch: string): string[] {
 }
 
 /** How a kanji sounds: its main readings with their share of use. */
-export function Profile({ ch }: { ch: string }) {
+export function Profile({ ch, stacked }: { ch: string; stacked?: boolean }) {
   const rs = KANJI[ch].readings.filter((r, i) => i === 0 || r.share >= 0.05).slice(0, 3)
-  return <>{rs.map(({ r, share }) => <span key={r} className="rd">{isOn(r) ? r : fmtKun(r)}{rs.length > 1 && <span className="pct">{Math.round(share * 100)}%</span>}</span>)}</>
+  return <span className={stacked ? 'profile stacked' : 'profile'}>{rs.map(({ r, share }) => <span key={r} className="rd">{isOn(r) ? r : fmtKun(r)}{rs.length > 1 && <span className="pct">{Math.round(share * 100)}%</span>}</span>)}</span>
 }
 
 /** Ask the meaning among 4, then the reading among 4; a part is asked its meaning only. */
@@ -90,11 +90,14 @@ export function Quiz({ el, onDone, unknown = 'new to me' }: { el: string; onDone
         {list.map((c, i) => (
           <button key={c} className="choice" onClick={() => pick(c)}>
             <span className="n">{i + 1}</span>
-            {stage === 'meaning' ? KANJI[c].keyword : <Profile ch={c} />}
+            {stage === 'meaning' ? <span className="kw">{KANJI[c].keyword}</span> : <Profile ch={c} stacked />}
           </button>
         ))}
+        <button className="choice unknown" onClick={() => pick(null)}>
+          <span className="n">0</span>
+          <span className="kw">{stage === 'meaning' ? unknown : 'not sure'}</span>
+        </button>
       </div>
-      <button className="skip" onClick={() => pick(null)}>{stage === 'meaning' ? unknown : 'not sure'}<span className="n">0</span></button>
     </div>
   )
 }

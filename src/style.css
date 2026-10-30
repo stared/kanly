@@ -313,17 +313,25 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
 .settings .num { width: 80px; font: inherit; color: inherit; background: var(--paper); border: 1px solid var(--faint); border-radius: 6px; padding: 4px 8px; }
 
 /* quiz: a meaning among 4, then a reading among 4 */
-.quiz { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.quiz { display: flex; flex-direction: column; align-items: center; gap: 14px; align-self: stretch; }
 .quiz .prompt { margin-top: 3vh; }
 .quiz > .sub { margin: 0; }
-.choices { display: grid; gap: 2px; width: min(400px, 100%); }
-.choice { display: flex; align-items: baseline; gap: 12px; padding: 10px 14px; border-radius: 8px; font-size: 19px; text-align: left; transition: background .12s; }
-.choice:hover, .choice:focus-visible { background: color-mix(in srgb, var(--ink) 6%, transparent); outline: none; }
-.choice .n, .skip .n { font: 12px system-ui, sans-serif; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 1ch; }
-.choice .rd { margin-right: 12px; }
-.skip { font-size: 14px; color: var(--muted); display: inline-flex; gap: 8px; align-items: baseline; padding: 6px 10px; }
-.skip:hover { color: var(--ink); }
+.choices { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; width: min(720px, 100%); }
+.choice { position: relative; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; padding: 22px 8px 10px;
+  border: 1px solid var(--faint); border-radius: 12px; font-size: 18px; line-height: 1.25; text-align: center; transition: border-color .12s; }
+.choice:hover, .choice:focus-visible { border-color: var(--ink); outline: none; }
+.choice .n { position: absolute; top: 8px; left: 10px; font: 11px system-ui, sans-serif; color: var(--muted); }
+.choice.unknown { color: var(--muted); font-size: 15px; border-style: dashed; }
+.choice.unknown:hover { color: var(--ink); }
+.profile.stacked { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.profile.stacked .rd:first-child { font-size: 20px; }
+.profile.stacked .rd + .rd { font-size: 15px; }
+.profile:not(.stacked) .rd { margin-left: 6px; }
+@media (max-width: 560px) {
+  .choices { grid-template-columns: 1fr 1fr; }
+  .choice { aspect-ratio: auto; min-height: 92px; }
+  .choice.unknown { grid-column: span 2; min-height: 48px; }
+}
 .verdict { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; font-size: 14px; }
 .verdict .ok { color: var(--good); }
 .verdict .no { color: var(--accent); }
-.verdict .rd { margin-left: 6px; }
