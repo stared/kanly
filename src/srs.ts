@@ -4,7 +4,8 @@ const STEPS = [1, 10]
 
 export type Card = { id: string; due: number; step: number; ivl: number; ease: number; reps: number; lapses: number }
 export type LogEntry = { t: number; id: string; ok: boolean }
-export type Store = { cards: Record<string, Card>; log: LogEntry[] }
+/** mu: estimated number of kanji known before (src/levels.ts); tau: how wide the choice of the next kanji is. */
+export type Store = { cards: Record<string, Card>; log: LogEntry[]; mu?: number; tau?: number; seed?: number }
 
 const KEY = 'kanly/v1'
 
@@ -31,11 +32,15 @@ export function schedule(c: Card, ok: boolean, now: number): Card {
   return { ...c, ivl, reps: c.reps + 1, due: now + ivl * DAY - 4 * 3600_000 }
 }
 
-export const learn = (s: Store, id: string, now: number): Store =>
-  ({ ...s, cards: { ...s.cards, [id]: newCard(id, now) } })
+export const learn = (s: Store, id: string, now: number, mu?: number): Store =>
+  ({ ...s, mu: mu ?? s.mu, cards: { ...s.cards, [id]: newCard(id, now) } })
+
+/** Known before: checked again in a month, then as any known card. */
+export const knewIt = (s: Store, id: string, now: number, mu: number): Store =>
+  ({ ...s, mu, cards: { ...s.cards, [id]: { ...newCard(id, now), step: STEPS.length, ivl: 30, reps: 1, due: now + 30 * DAY } } })
 
 export const answer = (s: Store, id: string, ok: boolean, now: number): Store =>
-  ({ cards: { ...s.cards, [id]: schedule(s.cards[id], ok, now) }, log: [...s.log, { t: now, id, ok }] })
+  ({ ...s, cards: { ...s.cards, [id]: schedule(s.cards[id], ok, now) }, log: [...s.log, { t: now, id, ok }] })
 
 export type Status = 'new' | 'learning' | 'known'
 export const status = (s: Store, id: string): Status => {

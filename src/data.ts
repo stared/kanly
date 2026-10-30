@@ -15,6 +15,11 @@ export type Kanji = {
   kind?: 'origin' | 'memory'
   story?: string
   grade: number
+  /** difficulty rank: 0 is the kanji learners know first */
+  level: number
+  kanken: number
+  /** uses per million words of the common words written with it */
+  use: number
   strokes: number
   on: string[]
   kun: string[]

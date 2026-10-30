@@ -1,4 +1,5 @@
 // Screenshots for review: node scripts/shots.mjs [url] [outdir]
+// MU=N starts as someone who knew N kanji before (src/levels.ts).
 // SEED=N marks the first N items of the learning order as learned (half known, half learning, some due).
 // STEPS='[{"click":"sel"},{"key":"Enter"},{"shot":"name"}]'
 import puppeteer from 'puppeteer-core'
@@ -22,7 +23,7 @@ await page.evaluateOnNewDocument(() => {
 })
 await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: process.env.SCHEME ?? 'light' }])
 const ids = order.slice(0, Number(process.env.SEED ?? 0))
-await page.evaluateOnNewDocument(ids => {
+await page.evaluateOnNewDocument((ids, mu) => {
   if (sessionStorage.getItem('seeded')) return
   sessionStorage.setItem('seeded', '1')
   localStorage.clear()
@@ -31,8 +32,8 @@ await page.evaluateOnNewDocument(ids => {
     const known = i < ids.length * 0.6
     return [id, { id, due: i % 7 === 0 ? now - 1000 : now + 86_400_000, step: known ? 2 : 0, ivl: known ? 3 : 0, ease: 2.5, reps: 3, lapses: 0 }]
   }))
-  localStorage.setItem('kanly/v1', JSON.stringify({ cards, log: [] }))
-}, ids)
+  localStorage.setItem('kanly/v1', JSON.stringify({ cards, log: [], ...(mu !== undefined && { mu }) }))
+}, ids, process.env.MU === undefined ? undefined : Number(process.env.MU))
 page.on('pageerror', e => console.log('PAGE ERROR', e.message))
 page.on('console', m => m.type() === 'error' && console.log('CONSOLE', m.text()))
 await page.goto(url)

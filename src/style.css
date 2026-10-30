@@ -50,7 +50,7 @@ nav button.on, .gear.on { color: var(--ink); }
 .next { padding: 8px 22px; border: 1px solid var(--muted); border-radius: 999px; font-size: 15px; display: inline-flex; align-items: baseline; }
 .next:hover { border-color: var(--ink); }
 .next.good { border-color: var(--good); }
-.next.bad { border-color: var(--faint); }
+.next.bad, .next.quiet { border-color: var(--faint); }
 .inline { font-family: var(--jp); text-decoration: underline; text-underline-offset: 3px; }
 
 /* status, one scale everywhere: new is grey, learning is ink, known is ink with a green mark */
@@ -293,3 +293,5 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
 .ktip .km { font: 13px system-ui, sans-serif; }
 .ktip .kr { font: 12px var(--jp); color: var(--muted); }
 .kt:hover { color: var(--accent); }
+.settings .field { display: flex; gap: 12px; align-items: baseline; margin: 10px 0; }
+.settings select { font: inherit; color: inherit; background: var(--paper); border: 1px solid var(--faint); border-radius: 6px; padding: 4px 8px; }

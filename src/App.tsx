@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { load, save, type Store } from './srs'
 import { Card, TipLayer } from './Card'
-import { Learn, coverage } from './Learn'
+import { Learn } from './Learn'
+import { BEGINNER, mu, reach } from './levels'
 import { Review, dueIds } from './Review'
 import { Browse } from './Browse'
 import { Reader } from './Reader'
@@ -48,7 +49,7 @@ export default function App() {
         <nav>
           {TABS.map(t => <button key={t} className={tab === t ? 'on' : ''} onClick={() => setTab(t)}>{t}{t === 'review' && due > 0 && <span className="count">{due}</span>}</button>)}
         </nav>
-        {Object.keys(store.cards).length > 0 && <span className="reach" title={`${Object.keys(store.cards).length} items learned; share of kanji in Japanese Wikipedia text`}>you read {Math.round(coverage(Object.keys(store.cards)) * 100)}% of text</span>}
+        {(Object.keys(store.cards).length > 0 || mu(store) > BEGINNER) && <span className="reach" title={`${Object.keys(store.cards).length} items seen, plus what you likely knew before; share of kanji in Japanese Wikipedia text`}>you read {Math.round(reach(store) * 100)}% of text</span>}
         <button className={'gear' + (tab === 'settings' ? ' on' : '')} onClick={() => setTab('settings')} aria-label="settings" title="settings">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="12" cy="12" r="3" /><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1" /></svg>
         </button>
