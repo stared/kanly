@@ -504,7 +504,7 @@ def main() -> None:
         for c in set(w["w"]):
             use[c] += wf.get(w["w"], 0)
     for ch in joyo:
-        kanji[ch] |= {"level": rank[ch], "kanken": kanken[ch], "use": round(use[ch] * 1e6, 2)}
+        kanji[ch] |= {"level": rank[ch], "kanken": kanken[ch], "use": round((use[ch] + use[VARIANTS.get(ch, "")]) * 1e6, 2)}
     for el, c in components.items():
         if el in stories and el not in kanji:
             c |= {k: v for k, v in stories[el].items() if k != "keyword"}
