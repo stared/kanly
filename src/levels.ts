@@ -13,7 +13,7 @@ a step at μ blurred by a Gaussian of width T: a Fermi sea with disorder rather 
 density of states flat, so μ is the number of kanji known. On the official lists a Gaussian edge fits slightly
 better than the Fermi–Dirac one, 1 / (1 + e^((level − μ)/T)), and its tail is lighter: a list missing a kanji
 500 ranks below its edge happens about once in 500, which the Fermi tail overestimates 10 times, and that tail
-is what made someone who knows 1000 kanji get asked about 人. Official lists are blurred by T = 100–400.
+is what made someone who knows 1000 kanji get asked about 人. Official lists are blurred by T = 110–530.
 
 Each kanji not yet seen gets the weight: expected usefulness per expected effort,
 
@@ -40,7 +40,7 @@ export const RHO = 0.3
 export const BEGINNER = -450
 
 /** Starting points: each official list as a Fermi sea, its edge and blur fitted in build_data.py
- * (JLPT N3: μ = 600, T = 207; kentei lists are sharper, since kentei level is part of the difficulty). */
+ * (JLPT N3: μ = 609, T = 367; kentei lists are sharper, since kentei level is part of the difficulty). */
 export const LEVELS: { label: string; mu: number; T: number }[] = [
   { label: 'beginner', mu: BEGINNER, T },
   ...D.levels.official.map(o => ({ label: `${o.name}, ${o.n} kanji`, mu: o.mu, T: o.T })),
@@ -112,8 +112,8 @@ export function upcoming(s: Store, tau: number, n = 9): string[] {
   return out.slice(0, n)
 }
 
-const MUS = Array.from({ length: 171 }, (_, i) => -800 + 20 * i)
-const TS = [70, 100, 150, 230, 340, 500, 700]
+const MUS = Array.from({ length: 241 }, (_, i) => -1600 + 20 * i)
+const TS = [50, 70, 100, 150, 230, 340, 500, 700, 1000, 1400]
 
 /** Posterior mean of μ and T (T as a geometric mean), on the grid MUS × TS. */
 export function posterior(start: { mu: number; T: number }, answers: [string, 0 | 1][]): { mu: number; T: number } {
@@ -135,7 +135,7 @@ export const start = (s: Store) => s.start ?? { mu: BEGINNER, T }
 /** Pick a starting level: the prior moves, and the answers so far are read against it. */
 export const startAt = (s: Store, l: { mu: number; T: number }): Store => {
   const st = { mu: l.mu, T: l.T }
-  return { ...s, start: st, ...posterior(st, s.answers ?? []) }
+  return { ...s, start: st, ...(s.answers?.length ? posterior(st, s.answers) : st) }
 }
 
 /** After an answer about a kanji: the new posterior. */

@@ -46,7 +46,7 @@ export function Browse({ store, open }: { store: Store; open: (el: string) => vo
               <Glyph el={el} />
             </button>
           ))}
-          {list.length > (byLevel ? 2200 : 600) && <span className="more">+{list.length - 600} more; search to narrow</span>}
+          {list.length > (byLevel ? 2200 : 600) && <span className="more">+{list.length - (byLevel ? 2200 : 600)} more; search to narrow</span>}
         </div>
       </div>
       <div className="detail">{sel && <Card key={sel} el={sel} store={store} open={open} />}</div>
