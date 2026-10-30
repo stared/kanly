@@ -89,12 +89,12 @@ export function Quiz({ el, onDone, unknown = 'new to me' }: { el: string; onDone
       <div className="choices">
         {list.map((c, i) => (
           <button key={c} className="choice" onClick={() => pick(c)}>
-            <span className="key">{i + 1}</span>
+            <span className="n">{i + 1}</span>
             {stage === 'meaning' ? KANJI[c].keyword : <Profile ch={c} />}
           </button>
         ))}
       </div>
-      <button className="next quiet" onClick={() => pick(null)}>{stage === 'meaning' ? unknown : 'not sure'} <span className="key">0</span></button>
+      <button className="skip" onClick={() => pick(null)}>{stage === 'meaning' ? unknown : 'not sure'}<span className="n">0</span></button>
     </div>
   )
 }

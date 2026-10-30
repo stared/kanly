@@ -47,15 +47,15 @@ export function Review({ store, setStore, open, now, autoSpeak }: { store: Store
   const t = treeOf(id)
   if (k && !res) return (
     <div className="review">
-      <p className="progress">{due.length} due.</p>
       <Quiz key={id} el={id} unknown="forgot" onDone={r => setQuizzed({ ...r, id })} />
     </div>
   )
   if (k && res) return (
     <div className="review">
-      <p className="progress">{due.length} due.</p>
+      <div className="quiz">
       <div className="prompt"><Glyph el={id} /></div>
       <Verdict el={id} r={res} />
+      </div>
       <div className="back">
         <h2>{gloss(id)}</h2>
         {t && <Parts t={t} store={store} open={open} />}
