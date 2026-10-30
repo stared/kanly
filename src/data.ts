@@ -109,3 +109,29 @@ export function lookalikes(ch: string): { ch: string; mine: string; theirs: stri
 
 /** Popularity among jōyō kanji: 1 is the most common in text. */
 export const RANK = new Map(Object.entries(KANJI).sort((a, b) => b[1].freq - a[1].freq).map(([ch], i) => [ch, i + 1]))
+
+const ROMA: Record<string, string> = Object.fromEntries((
+  'あa いi うu えe おo かka きki くku けke こko さsa しshi すsu せse そso たta ちchi つtsu てte とto なna にni ぬnu ねne のno ' +
+  'はha ひhi ふfu へhe ほho まma みmi むmu めme もmo やya ゆyu よyo らra りri るru れre ろro わwa ゐi ゑe をo んn ' +
+  'がga ぎgi ぐgu げge ごgo ざza じji ずzu ぜze ぞzo だda ぢji づzu でde どdo ばba びbi ぶbu べbe ぼbo ぱpa ぴpi ぷpu ぺpe ぽpo ' +
+  'ぁa ぃi ぅu ぇe ぉo ゔvu'
+).split(' ').map(p => [p[0], p.slice(1)]))
+const YOON: Record<string, string> = { ゃ: 'a', ゅ: 'u', ょ: 'o' }
+
+/** A reading in Hepburn romaji: ジン jin, ちが.う chigau, ガッ gakko; an on-reading's long vowels with macrons (コウ kō). */
+export function romaji(r: string, on = /^[ァ-ヶー]+$/.test(r)): string {
+  const s = hira(r.replace(/[.\-]/g, ''))
+  let out = ''
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i], next = s[i + 1]
+    if (c === 'っ') { const n = romaji(s.slice(i + 1, i + 3), false); out += n.startsWith('ch') ? 't' : n[0] ?? ''; continue }
+    if (c === 'ー') { out += out.at(-1) ?? ''; continue }
+    if (next && YOON[next]) {
+      const base = ROMA[c] ?? c
+      out += (/^(shi|chi|ji)$/.test(base) ? base.slice(0, -1) : base.slice(0, -1) + 'y') + YOON[next]
+      i++; continue
+    }
+    out += c === 'ん' && next && /^[aiueoy]/.test(ROMA[next] ?? '') ? "n'" : ROMA[c] ?? c
+  }
+  return on ? out.replace(/ou|oo/g, 'ō').replace(/uu/g, 'ū') : out
+}

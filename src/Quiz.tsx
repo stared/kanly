@@ -53,12 +53,12 @@ export function readingOptions(ch: string): string[] {
   return shuffle(out)
 }
 
-const fmtReading = (r: string) => isOn(r) ? r : fmtKun(r)
+const fmtReading = (r: string) => isOn(r) ? hira(r) : fmtKun(r)
 
 /** How a kanji sounds: its main readings with their share of use. */
 export function Profile({ ch, cols }: { ch: string; cols?: boolean }) {
   const rs = KANJI[ch].readings.filter((r, i) => i === 0 || r.share >= 0.05).slice(0, 3)
-  return <span className={cols ? 'profile cols' : 'profile'}>{rs.map(({ r, share }) => <span key={r} className="rd">{isOn(r) ? r : fmtKun(r)}{rs.length > 1 && <span className="pct">{Math.round(share * 100)}%</span>}</span>)}</span>
+  return <span className={cols ? 'profile cols' : 'profile'}>{rs.map(({ r, share }) => <span key={r} className="rd">{fmtReading(r)}{rs.length > 1 && <span className="pct">{Math.round(share * 100)}%</span>}</span>)}</span>
 }
 
 /** Ask the meaning among 4, then the reading among 4; a part is asked its meaning only. */
