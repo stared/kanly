@@ -11,7 +11,7 @@ const pick = () => {
   const ja = speechSynthesis.getVoices().filter(v => v.lang.replace('_', '-').startsWith('ja'))
   voice = ja.find(v => v.localService) ?? ja[0]
 }
-if ('speechSynthesis' in window) { pick(); speechSynthesis.addEventListener('voiceschanged', pick) }
+if (typeof speechSynthesis !== 'undefined') { pick(); speechSynthesis.addEventListener('voiceschanged', pick) }
 
 export function speak(text: string) {
   if (!('speechSynthesis' in window) || !text) return
