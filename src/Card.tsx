@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { COMP, KANJI, RANK, extraStrokes, gloss, hira, isKanji, kata, lookalikes, romaji, soundFamily, type Tree, type Word } from './data'
 import { status, type Store } from './srs'
-import { speak, spoken } from './speech'
+import { hoverSay, speak, spoken } from './speech'
 import { Animated, StrokeOrder } from './Strokes'
 
 type Open = (el: string) => void
@@ -91,8 +91,8 @@ export function Readings({ ch, hover, setHover }: { ch: string; hover?: string |
     <div className="readings">
       {k.readings.map(({ r, share }) => (
         <button key={r} className={'rd' + (k.written && share < 0.05 ? ' rare' : '') + (r === k.alone?.reading ? ' alone' : '') + (hover && hover !== r ? ' dim' : '')}
-          title={(isOn(r) ? `on-reading (from Chinese), written in katakana; in words, as furigana, ${hira(r)}. ` : 'kun-reading (native Japanese), written in hiragana. ') + (r === k.alone?.reading ? `${ch} on its own: ${k.alone.r}. ` : '') + (k.written ? `${Math.round(share * 100)}% of use in the words below; click to hear it` : 'click to hear it')}
-          onClick={() => speak(say(r))} onMouseEnter={() => setHover?.(r)} onMouseLeave={() => setHover?.(null)}>
+          title={(isOn(r) ? `on-reading (from Chinese), written in katakana; in words, as furigana, ${hira(r)}. ` : 'kun-reading (native Japanese), written in hiragana. ') + (r === k.alone?.reading ? `${ch} on its own: ${k.alone.r}. ` : '') + (k.written ? `${Math.round(share * 100)}% of use in the words below; hover or click to hear it` : 'hover or click to hear it')}
+          onClick={() => speak(say(r))} onMouseEnter={() => { setHover?.(r); hoverSay(say(r)) }} onMouseLeave={() => { setHover?.(null); hoverSay(null) }}>
           <span className="kana">{isOn(r) ? r : fmtKun(r)}<span className="romaji">{isOn(r) ? hira(r) : kata(bare(r).replace('.', ''))} {romaji(r)}</span></span>{k.written && share >= 0.01 && <span className="pct">{Math.round(share * 100)}%</span>}
         </button>
       ))}
@@ -157,7 +157,7 @@ function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
   const sense = () => w.senses?.[n++]
   return (
     <li className={dim ? 'dim' : ''}>
-      <button className="w" onClick={() => speak(w.r)}>
+      <button className="w" onClick={() => speak(w.r)} onMouseEnter={() => hoverSay(w.r)} onMouseLeave={() => hoverSay(null)}>
         {w.furigana.map(([part, r], i) => r
           ? <ruby key={i} className={part === ch ? 'me' : ''}>{[...part].map((c, j) => <KanjiTip key={j} c={c} reading={w.special ? undefined : r} sense={/[\u4e00-\u9fff々]/.test(c) ? sense() : undefined} />)}<rt>{r}</rt></ruby>
           : <span key={i}>{part}</span>)}
