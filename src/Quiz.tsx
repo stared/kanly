@@ -65,10 +65,18 @@ export function Profile({ ch, cols }: { ch: string; cols?: boolean }) {
 export function Quiz({ el, onDone, unknown = 'new to me' }: { el: string; onDone: (r: Result) => void; unknown?: string }) {
   const k = KANJI[el]
   const [meaning, setMeaning] = useState<string | null>(null)
+  const [flash, setFlash] = useState<string | null>(null)  // the option just picked, shown right or wrong for a moment
   const opts = useMemo(() => k ? { m: meaningOptions(el), r: readingOptions(el) } : null, [el])
   const stage = meaning === null ? 'meaning' : 'reading'
   const list = opts ? (stage === 'meaning' ? opts.m : opts.r) : []
   const pick = (c: string | null) => {
+    if (flash) return
+    if (c !== null) {
+      setFlash(c)
+      setTimeout(() => { setFlash(null); go(c) }, 280)
+    } else go(c)
+  }
+  const go = (c: string | null) => {
     if (stage === 'meaning') {
       if (c === null) return onDone({ meaning: null, reading: null, picked: [] })
       setMeaning(c)
@@ -90,7 +98,7 @@ export function Quiz({ el, onDone, unknown = 'new to me' }: { el: string; onDone
       <p className="sub">{stage === 'meaning' ? 'What does it mean?' : 'How is it read?'}</p>
       <div className="choices">
         {list.map((c, i) => (
-          <button key={c} className="choice" onClick={() => pick(c)}>
+          <button key={c} className={'choice' + (flash && c === el ? ' right' : flash === c ? ' wrong' : '')} onClick={() => pick(c)}>
             <span className="n">{i + 1}</span>
             {stage === 'meaning' ? <span className="kw">{KANJI[c].keyword}</span> : <Profile ch={c} cols />}
           </button>

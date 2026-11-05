@@ -323,6 +323,8 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
   border: 1px solid var(--faint); border-radius: 10px; font-size: 18px; transition: border-color .12s; }
 .choice:hover, .choice:focus-visible { border-color: var(--ink); outline: none; }
 .choice .n { font: 12px system-ui, sans-serif; color: var(--muted); font-variant-numeric: tabular-nums; }
+.choice.right { border-color: var(--good); background: color-mix(in srgb, var(--good) 18%, transparent); }
+.choice.wrong { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 18%, transparent); }
 .choice.unknown { color: var(--muted); font-size: 15px; border-style: dashed; }
 .choice.unknown:hover { color: var(--ink); }
 /* readings in aligned columns: the main one first, each with its share */
