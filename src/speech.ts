@@ -35,7 +35,7 @@ export function spoken(ch: string): string {
   if (!k) return ''
   if (k.alone) return k.alone.r
   const r = k.readings[0]?.r ?? ''
-  return /^[ァ-ヶー]+$/.test(r) ? r : r.replace('.', '')
+  return /^[ァ-ヶー]+$/.test(r) ? hira(r) : r.replace('.', '')
 }
 
 /** Say it when the pointer rests on it a moment, not when it only passes over. */

@@ -86,7 +86,7 @@ export const fmtKun = (r: string) => {
 export function Readings({ ch, hover, setHover }: { ch: string; hover?: string | null; setHover?: (r: string | null) => void }) {
   const k = KANJI[ch]
   const isOn = (r: string) => /^[ァ-ヶー]+$/.test(r)
-  const say = (r: string) => isOn(r) ? r : r.replace('.', '')
+  const say = (r: string) => isOn(r) ? hira(r) : r.replace('.', '')  // the voice says ほう right but ホウ as "horu"
   return (
     <div className="readings">
       {k.readings.map(({ r, share }) => (
