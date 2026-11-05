@@ -13,8 +13,14 @@ const pick = () => {
 }
 if (typeof speechSynthesis !== 'undefined') { pick(); speechSynthesis.addEventListener('voiceschanged', pick) }
 
+let last = ''
+let timer: ReturnType<typeof setTimeout> | undefined
 export function speak(text: string) {
   if (!('speechSynthesis' in window) || !text) return
+  clearTimeout(timer)
+  // a click on what hovering is already saying would cut it off and start again ("ho… hō")
+  if (hira(text) === last && (speechSynthesis.speaking || speechSynthesis.pending)) return
+  last = hira(text)
   speechSynthesis.cancel()
   const u = new SpeechSynthesisUtterance(text)
   u.lang = 'ja-JP'
@@ -33,7 +39,6 @@ export function spoken(ch: string): string {
 }
 
 /** Say it when the pointer rests on it a moment, not when it only passes over. */
-let timer: ReturnType<typeof setTimeout> | undefined
 export function hoverSay(text: string | null) {
   clearTimeout(timer)
   if (text) timer = setTimeout(() => speak(text), 250)
