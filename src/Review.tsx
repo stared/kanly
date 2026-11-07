@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { KANJI, gloss } from './data'
 import { answer, DAY, MIN, type Store } from './srs'
 import { Glyph, Parts, Readings, Story, treeOf } from './Card'
-import { Quiz, Verdict, type Result } from './Quiz'
+import { Quiz, type Result } from './Quiz'
 import { speak, spoken } from './speech'
 
 export const dueIds = (s: Store, now: number) =>
@@ -54,13 +54,12 @@ export function Review({ store, setStore, open, now, autoSpeak }: { store: Store
     <div className="review">
       <div className="quiz">
       <div className="prompt"><Glyph el={id} /></div>
-      <Verdict el={id} r={res} />
       </div>
       <div className="back">
-        <h2>{gloss(id)}</h2>
+        <h2 className={res.meaning ? 'got' : ''}>{gloss(id)}</h2>
         {t && <Parts t={t} store={store} open={open} />}
         <Story el={id} />
-        <Readings ch={id} />
+        <Readings ch={id} className={res.reading ? 'got' : ''} />
         <div className="grade">
           <button className={'next ' + (passed ? 'good' : 'bad')} onClick={() => grade(passed)}>{passed ? 'next' : 'again soon, next'} <span className="key">↵</span></button>
         </div>

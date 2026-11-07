@@ -63,6 +63,13 @@ nav button.on, .gear.on { color: var(--ink); }
 .hero { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
 .big { display: block; font: 200px/1.05 var(--serif); padding: 0 32px; background: radial-gradient(closest-side, var(--glow), transparent); }
 .popular { position: absolute; right: 0; top: 0; display: flex; flex-direction: column; align-items: flex-end; font-size: 12px; color: var(--muted); line-height: 1.4; white-space: nowrap; }
+/* stroke order | the kanji | its readings, in one row */
+.hero .top { align-self: stretch; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.hero .top > * { flex: none; }
+.readings.aside { margin: 56px 0 0; align-self: center; flex-direction: column; align-items: flex-start; row-gap: 12px; font-size: 19px; }
+.got { animation: got 5s ease-in; }
+.readings.got .rd { animation: got 5s ease-in; }
+@keyframes got { from { color: var(--good); } }
 .hero h2 { font-size: 28px; display: flex; align-items: center; }
 .also { color: var(--muted); font-size: 14px; margin: 0; }
 .speaker { color: var(--muted); margin-left: 10px; display: inline-flex; }
@@ -262,8 +269,8 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
   .gear { margin-left: auto; }
   .big { font-size: 128px; padding: 0 18px; }
   .hero h2 { font-size: 22px; }
-  .readings { font-size: 17px; }
   .popular { top: 10px; font-size: 11px; }
+  .readings { font-size: 17px; }
   .story { font-size: 15px; }
   .words .w { font-size: 20px; line-height: 1.7; }
   .upcoming { display: none; }
@@ -274,7 +281,9 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
 
 /* wide: two halves; the kanji column stays put while the right side is read */
 @media (min-width: 900px) {
-  .card { grid-template-columns: minmax(320px, 5fr) 7fr; gap: 56px; align-items: start; }
+  .card { grid-template-columns: minmax(460px, 6fr) 5fr; gap: 56px; align-items: start; }
+  .detail .card { grid-template-columns: 1fr; gap: 32px; }
+  .detail .hero { position: static; }
   .hero { position: sticky; top: 24px; }
   main:has(> .card), .learn { min-height: calc(100vh - 90px); display: flex; flex-direction: column; }
   main > .card, .learn > .card, .learn > .revealed { margin-block: auto; width: 100%; }
@@ -331,9 +340,6 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
 .profile.cols { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 12px; }
 .profile.cols .rd .pct { margin-left: 4px; }
 .profile:not(.cols) .rd { margin-left: 6px; }
-.verdict { display: flex; gap: 2px 18px; justify-content: center; flex-wrap: wrap; font-size: 14px; margin: 0 0 12px; }
-.verdict .ok { color: var(--good); }
-.verdict .no { color: var(--accent); }
 
 /* drawing: the hero kanji is drawn stroke by stroke (KanjiVG), stroke order as frames */
 svg.drawn { width: 220px; height: 220px; padding: 0; cursor: pointer; fill: none; stroke-linecap: round; stroke-linejoin: round; }
@@ -349,9 +355,20 @@ svg.drawn .ink { stroke: var(--ink); }
 .frames .now { stroke: var(--ink); }
 .frames .start { fill: var(--accent); stroke: none; }
 .frames .guide { stroke: var(--faint); stroke-width: .8; stroke-dasharray: 3 3; }
+.frames.compact { display: grid; grid-auto-flow: column; grid-template-rows: repeat(5, auto); gap: 4px; }
+.frames.compact svg { width: 34px; height: 34px; }
+.frames.compact .n { display: none; }
 .frames .n { position: absolute; top: 2px; left: 4px; font: 9px system-ui, sans-serif; color: var(--muted); }
 .sec .count { text-transform: none; letter-spacing: 0; font-weight: 400; margin-left: 6px; }
 @media (max-width: 600px) { svg.drawn { width: 150px; height: 150px; } .frames svg { width: 44px; height: 44px; } }
+/* phone: the kanji, then its readings, then the stroke order, each centred */
+@media (max-width: 600px) {
+  .hero .top { flex-direction: column; gap: 10px; }
+  .hero .top .big { order: -1; }
+  .readings.aside { margin: 0; flex-direction: row; justify-content: center; align-self: center; }
+  .frames.compact { order: 1; display: flex; flex-wrap: wrap; justify-content: center; }
+  .frames.compact svg { width: 30px; height: 30px; }
+}
 /* romaji under a reading on hover, very small */
 .rd .kana { position: relative; }
 .rd .romaji { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 1px; font: 10px system-ui, sans-serif;

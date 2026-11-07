@@ -112,16 +112,3 @@ export function Quiz({ el, onDone, unknown = 'new to me' }: { el: string; onDone
   )
 }
 
-/** One line on how the quiz went, under the revealed card. */
-export function Verdict({ el, r }: { el: string; r: Result }) {
-  const [m, rd] = r.picked
-  if (r.meaning === null) return null
-  return (
-    <p className="verdict">
-      {r.meaning ? <span className="ok">meaning right</span> : <span className="no">meaning: you picked “{KANJI[m]?.keyword}”</span>}
-      {r.reading === true && <span className="ok">reading right</span>}
-      {r.reading === false && <span className="no">reading: you picked {fmtReading(KANJI[rd].readings[0].r)}</span>}
-      {r.reading === null && <span className="no">reading skipped</span>}
-    </p>
-  )
-}

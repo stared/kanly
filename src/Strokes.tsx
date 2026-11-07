@@ -50,16 +50,14 @@ export function Animated({ el, className }: { el: string; className?: string }) 
 }
 
 /** Stroke order as frames: each frame adds one stroke (in ink, a dot where it starts) to the ones before (grey). */
-export function StrokeOrder({ el }: { el: string }) {
+export function StrokeOrder({ el, compact }: { el: string; compact?: boolean }) {
   const g = useDrawing(el)
   if (!g || g.d.length < 2) return null
   const vb = viewBox(g)
   const [bx, by, side] = g.box ?? [0, 0, 109]
   const r = side / 109
-  return (
-    <section>
-      <h3 className="sec">stroke order <span className="count">{g.d.length} strokes</span></h3>
-      <ol className="frames">
+  const frames = (
+      <ol className={'frames' + (compact ? ' compact' : '')} title={compact ? `stroke order, ${g.d.length} strokes` : undefined}>
         {g.d.map((d, i) => {
           const [x, y] = start(d)
           return (
@@ -76,6 +74,6 @@ export function StrokeOrder({ el }: { el: string }) {
           )
         })}
       </ol>
-    </section>
   )
+  return compact ? frames : <section><h3 className="sec">stroke order <span className="count">{g.d.length} strokes</span></h3>{frames}</section>
 }

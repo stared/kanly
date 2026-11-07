@@ -3,7 +3,7 @@ import { KANJI, ORDER, elements, gloss } from './data'
 import { knewIt, learn, type Store } from './srs'
 import { LEVELS, pOf, startAt, update, upcoming } from './levels'
 import { Card, Glyph } from './Card'
-import { Quiz, Verdict, type Result } from './Quiz'
+import { Quiz, type Result } from './Quiz'
 
 /** Share of kanji in running text that are among the given items. */
 export const coverage = (ids: Iterable<string>) => [...ids].reduce((a, id) => a + (KANJI[id]?.freq ?? 0), 0)
@@ -54,8 +54,7 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
       {why && <p className="why">Here as a part of {why}, coming {left.indexOf(why) === 1 ? 'next' : 'soon'}.</p>}
       {KANJI[next] && !res ? <Quiz key={next} el={next} onDone={r => setAnswered({ ...r, el: next })} /> : (
         <div className="revealed">
-          {res && <Verdict el={next} r={res} />}
-          <Card el={next} store={store} open={open} autoSpeak={autoSpeak} />
+          <Card el={next} store={store} open={open} autoSpeak={autoSpeak} got={res ?? undefined} />
         </div>
       )}
       <div className="actions">

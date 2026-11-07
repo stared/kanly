@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { COMP, KANJI, RANK, extraStrokes, gloss, hira, isKanji, kata, lookalikes, romaji, soundFamily, type Tree, type Word } from './data'
 import { status, type Store } from './srs'
+import { pOf } from './levels'
 import { hoverSay, speak, spoken } from './speech'
 import { Animated, StrokeOrder } from './Strokes'
 
@@ -83,12 +84,12 @@ export const fmtKun = (r: string) => {
 
 /** The readings as written for the card, most important first, each with its share among the card's words.
  * The reading of the kanji on its own is red. Click one to hear it; hover to see the words that use it. */
-export function Readings({ ch, hover, setHover }: { ch: string; hover?: string | null; setHover?: (r: string | null) => void }) {
+export function Readings({ ch, hover, setHover, className }: { ch: string; hover?: string | null; setHover?: (r: string | null) => void; className?: string }) {
   const k = KANJI[ch]
   const isOn = (r: string) => /^[ァ-ヶー]+$/.test(r)
   const say = (r: string) => isOn(r) ? hira(r) : r.replace('.', '')  // the voice says ほう right but ホウ as "horu"
   return (
-    <div className="readings">
+    <div className={'readings' + (className ? ' ' + className : '')}>
       {k.readings.map(({ r, share }) => (
         <button key={r} className={'rd' + (k.written && share < 0.05 ? ' rare' : '') + (r === k.alone?.reading ? ' alone' : '') + (hover && hover !== r ? ' dim' : '')}
           title={(isOn(r) ? `on-reading (from Chinese), written in katakana; in words, as furigana, ${hira(r)}. ` : 'kun-reading (native Japanese), written in hiragana. ') + (r === k.alone?.reading ? `${ch} on its own: ${k.alone.r}. ` : '') + (k.written ? `${Math.round(share * 100)}% of use in the words below; hover or click to hear it` : 'hover or click to hear it')}
@@ -221,7 +222,13 @@ export const Speaker = ({ text }: { text: string }) =>
 
 const Divider = ({ children }: { children: React.ReactNode }) => <h3 className="divider"><span>{children}</span></h3>
 
-export function Card({ el, store, open, autoSpeak = false }: { el: string; store: Store; open: Open; autoSpeak?: boolean }) {
+/** What the quiz got right, shown green on the card for a few seconds. */
+export type Got = { meaning?: boolean | null; reading?: boolean | null }
+
+/** Known: learned, or likely known before (the placement's guess). */
+const knows = (store: Store, c: string) => status(store, c) === 'known' || (!store.cards[c] && pOf(store, c) > 0.5)
+
+export function Card({ el, store, open, autoSpeak = false, got }: { el: string; store: Store; open: Open; autoSpeak?: boolean; got?: Got }) {
   const k = KANJI[el]
   const c = COMP[el]
   const t = treeOf(el)
@@ -233,24 +240,29 @@ export function Card({ el, store, open, autoSpeak = false }: { el: string; store
   const [allWords, setAllWords] = useState(false)
   const parts = t && shownKids(t).length > 0
   const words = k && k.words.length > 0
+  // words whose other kanji are all known come first, each group in order of use
+  const sorted = useMemo(() => k ? [...k.words].sort((a, b) => +!all(a) - +!all(b)) : [], [el, store])
+  function all(w: Word) { return [...w.w].every(c => c === el || !KANJI[c] || knows(store, c)) }
   return (
     <article className="card">
       <div className="hero">
         {k && <Popularity ch={el} />}
-        <Animated key={el} el={el} className="big" />
-        <h2>{gloss(el)}</h2>
+        <div className="top">
+          <StrokeOrder el={el} compact />
+          <Animated key={el} el={el} className="big" />
+          {k && <Readings ch={el} hover={hover} setHover={setHover} className={'aside' + (got?.reading ? ' got' : '')} />}
+        </div>
+        <h2 className={got?.meaning ? 'got' : ''}>{gloss(el)}</h2>
         {k ? <p className="also">{k.also.join(', ')}</p>
           : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
-        {k && <Readings ch={el} hover={hover} setHover={setHover} />}
         <Story el={el} />
       </div>
       <div className="side">
         {parts && <section><h3 className="sec">parts</h3><Parts t={t!} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}
-        <StrokeOrder el={el} />
         {words && (
           <section>
             <h3 className="sec">most used words</h3>
-            <ul className="words">{k.words.slice(0, allWords ? undefined : k.nshown).map(w => <WordRow key={w.w + w.r} w={w} ch={el} dim={!!hover && w.reading !== hover} />)}</ul>
+            <ul className="words">{sorted.slice(0, allWords ? undefined : k.nshown).map(w => <WordRow key={w.w + w.r} w={w} ch={el} dim={!!hover && w.reading !== hover} />)}</ul>
             {k.words.length > k.nshown && <button className="more-words" onClick={() => setAllWords(!allWords)}>{allWords ? 'fewer words' : `${k.words.length - k.nshown} more words`}</button>}
           </section>
         )}
