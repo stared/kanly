@@ -19,7 +19,7 @@ const page = await browser.newPage()
 // count what would be spoken instead of speaking it
 await page.evaluateOnNewDocument(() => {
   window.__spoken = []
-  Object.defineProperty(window, 'speechSynthesis', { value: { speak: u => window.__spoken.push(u.text), cancel() {} } })
+  Object.defineProperty(window, 'speechSynthesis', { value: { speak: u => window.__spoken.push(u.text), cancel() {}, getVoices: () => [], addEventListener() {} } })
 })
 await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: process.env.SCHEME ?? 'light' }])
 const ids = order.slice(0, Number(process.env.SEED ?? 0))

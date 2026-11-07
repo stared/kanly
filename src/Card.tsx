@@ -113,8 +113,8 @@ export function Family({ ch, store, open }: { ch: string; store: Store; open: Op
     <div className="family">
       <p><button className="inline" onClick={() => open(f.phonetic)}>{f.phonetic}</button> {holds ? 'sounds' : 'usually sounds'} <b>{forms.length ? forms.join(' or ') : kata(f.reading)}</b> in {f.hits.length} of {n} kanji{holds ? '' : <>, <span className="not">but not in {ch}</span></>}</p>
       <div className="chips">
-        {f.hits.map(c => <button key={c} className={'chip ' + status(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)}>{c}</button>)}
-        {f.misses.map(c => <button key={c} className={'chip miss ' + status(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)} title={KANJI[c]?.on.join('、')}>{c}</button>)}
+        {f.hits.map(c => <button key={c} className={'chip ' + status(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)}><KanjiTip c={c} reading={KANJI[c]?.on.join('、')} /></button>)}
+        {f.misses.map(c => <button key={c} className={'chip miss ' + status(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)}><KanjiTip c={c} reading={KANJI[c]?.on.join('、')} /></button>)}
       </div>
     </div>
   )
@@ -122,6 +122,9 @@ export function Family({ ch, store, open }: { ch: string; store: Store; open: Op
 
 type Tip = { c: string; reading?: string; sense?: string; x: number; y: number }
 let showTip: (t: Tip | null) => void = () => {}
+
+/** Its main readings as plain text, for a tooltip: ジン、ニン or き、こ. */
+const mainReadings = (c: string) => KANJI[c]?.readings.slice(0, 2).map(({ r }) => bare(r).replace('.', '')).join('、')
 
 /** One floating tooltip for the whole app, placed above whatever kanji is hovered. */
 export function TipLayer() {
@@ -149,7 +152,7 @@ export function KanjiTip({ c, reading, sense, className }: { c: string; reading?
     const r = e.currentTarget.getBoundingClientRect()
     showTip({ c, reading, sense, x: r.left + r.width / 2, y: r.top })
   }
-  return <span className={'kt' + (className ? ' ' + className : '')} onMouseEnter={enter} onMouseLeave={() => showTip(null)}>{c}</span>
+  return <span className={'kt' + (className ? ' ' + className : '')} onMouseEnter={enter} onMouseLeave={() => showTip(null)} onClick={() => showTip(null)}>{c}</span>
 }
 
 function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
@@ -189,7 +192,7 @@ export function UsedIn({ el, store, open, limit = 24 }: { el: string; store: Sto
   if (!list.length) return null
   return (
     <div className="chips">
-      {list.slice(0, limit).map(c => <button key={c} className={'chip ' + status(store, c)} onClick={() => open(c)} title={gloss(c)}>{c}</button>)}
+      {list.slice(0, limit).map(c => <button key={c} className={'chip ' + status(store, c)} onClick={() => open(c)}><KanjiTip c={c} reading={mainReadings(c)} /></button>)}
       {list.length > limit && <span className="more">+{list.length - limit}</span>}
     </div>
   )
