@@ -502,19 +502,44 @@ def senses(w: dict) -> list[str] | None:
     return lit_senses(w) or LITS.get(w["w"]) or (SENSES.get(w["w"]) if len(SENSES.get(w["w"], [])) == n else None)
 
 
+# How each kanji is used as a token of its own (10分, アメリカ人, 見る), which wordfreq counts apart from the words
+# with it: written per kanji in data/llm/alone.json, each use with its share of those tokens
+ALONE = json.loads((LLM / "alone.json").read_text()) if (LLM / "alone.json").exists() else {}
+
+
 def written_card(x: dict, wf: dict) -> dict:
     """The written content as the app shows it, plus two counts: how often each word is used (wordfreq),
-    and from that, each reading's share of use among the written words."""
+    and from that, each reading's share of use among the written words and the kanji's uses on its own."""
     per_m = lambda w: round(wf.get(w, 0) * 1e6, 1)
-    words = [{**w, "f": per_m(w["w"]), **({"senses": s} if (s := senses(w)) else {})} for w in x["words"] + x.get("more", [])]
+    word = lambda w: {**w, "f": per_m(w["w"]), **({"senses": s} if (s := senses(w)) else {})}
+    shown = [word(w) for w in x["words"]]
+    more = [word(w) for w in x.get("more", [])]
+    readings = list(x["readings"])
+    # wordfreq's count for 人 includes the 人 split off 日本人, so the kanji alone counts only through its uses
+    alone = per_m(x["kanji"])
+    for u in ALONE.get(x["kanji"], []):
+        f = round(alone * u["share"], 1)
+        if (same := next((w for w in shown + more if w["w"] == u["w"]), None)):
+            same["f"] = round(same["f"] + f, 1)
+            continue
+        w = {k: u[k] for k in ("w", "r", "g", "reading", "furigana")} | {"f": f}
+        if u["reading"] not in readings and u["reading"] != "special":
+            readings.append(u["reading"])
+        # among the shown words when it is used more than the least used of them
+        at = next((i for i, v in enumerate(shown) if v["f"] < f), None)
+        if at is not None:
+            shown.insert(at, w)
+        else:
+            more.insert(0, w)
+    words = shown + more
     use = Counter()
-    for w in words:  # not the kanji alone: wordfreq's count for 人 includes the 人 split off 日本人
+    for w in words:
         use[w["reading"]] += w["f"] or 0.1
     total = sum(c for r, c in use.items() if r != "special") or 1
     return {
         "keyword": x["keyword"], "also": x.get("meanings", []),
-        "readings": sorted(({"r": r, "share": round(use[r] / total, 3)} for r in x["readings"]), key=lambda r: -r["share"]),  # most used first
-        "alone": x.get("alone"), "words": words, "nshown": len(x["words"]),
+        "readings": sorted(({"r": r, "share": round(use[r] / total, 3)} for r in readings), key=lambda r: -r["share"]),  # most used first
+        "alone": x.get("alone"), "words": words, "nshown": len(x["words"]),  # as many as written: a use inserted among them pushes the last one out
         **({"story": x["story"], "kind": x.get("kind") or "mnemonic"} if x.get("story") else {}),
         "written": True,
     }

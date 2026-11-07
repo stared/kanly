@@ -253,8 +253,9 @@ export function Card({ el, store, open, autoSpeak = false, got }: { el: string; 
   const [allWords, setAllWords] = useState(false)
   const parts = t && shownKids(t).length > 0
   const words = k && k.words.length > 0
-  // words whose other kanji are all known come first, each group in order of use
-  const sorted = useMemo(() => k ? [...k.words].sort((a, b) => +!all(a) - +!all(b)) : [], [el, store])
+  // the shown words, those whose other kanji are all known first, each group in order of use; then the rest
+  const byKnown = (ws: Word[]) => [...ws].sort((a, b) => +!all(a) - +!all(b))
+  const sorted = useMemo(() => k ? [...byKnown(k.words.slice(0, k.nshown)), ...k.words.slice(k.nshown)] : [], [el, store])
   function all(w: Word) { return [...w.w].every(c => c === el || !KANJI[c] || knows(store, c)) }
   return (
     <article className="card">
