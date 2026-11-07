@@ -10,7 +10,7 @@ type Open = (el: string) => void
 const STROKES = new Set(['丿', '丨', '丶', '亅', '乙', '㇒', '㇏', '乚'])
 
 /** KanjiVG names a few shapes that Unicode lacks, like CDP-8BC4. */
-export const Glyph = ({ el }: { el: string }) => el.startsWith('CDP') ? <span className="nochar" title={el}>◌</span> : <>{el}</>
+export const Glyph = ({ el }: { el: string }) => el.startsWith('CDP') ? <span className="nochar">◌</span> : <>{el}</>
 
 /** Wherever a part appears first, its subtree; parts that are kanji have their own. */
 export function treeOf(el: string): Tree | undefined {
@@ -26,8 +26,7 @@ const shownKids = (t: Tree) => t.kids.filter(k => !STROKES.has(k.el))
 function Node({ n, store, open, sound, label }: { n: Tree; store: Store; open: Open; sound?: boolean; label?: boolean }) {
   const on = sound && label ? KANJI[n.el]?.on[0] ?? COMP[n.el]?.on?.[0] : undefined
   return (
-    <button className={'node ' + status(store, n.el) + (sound ? ' sound' : '')} onClick={() => open(n.el)}
-      title={`${gloss(n.el)}: ${{ new: 'not learned yet', learning: 'learning (grey edge)', known: 'known (green edge)' }[status(store, n.el)]}${sound ? ', gives the sound' : ''}`}>
+    <button className={'node ' + status(store, n.el) + (sound ? ' sound' : '')} onClick={() => open(n.el)}>
       <span className="ch"><Glyph el={n.el} /></span>
       <span className="g">{gloss(n.el)}</span>
       {on && <span className="on">sound {on}</span>}
@@ -92,7 +91,6 @@ export function Readings({ ch, hover, setHover, className }: { ch: string; hover
     <div className={'readings' + (className ? ' ' + className : '')}>
       {k.readings.map(({ r, share }) => (
         <button key={r} className={'rd' + (k.written && share < 0.05 ? ' rare' : '') + (r === k.alone?.reading ? ' alone' : '') + (hover && hover !== r ? ' dim' : '')}
-          title={(isOn(r) ? `on-reading (from Chinese), written in katakana; in words, as furigana, ${hira(r)}. ` : 'kun-reading (native Japanese), written in hiragana. ') + (r === k.alone?.reading ? `${ch} on its own: ${k.alone.r}. ` : '') + (k.written ? `${Math.round(share * 100)}% of use in the words below; hover or click to hear it` : 'hover or click to hear it')}
           onClick={() => speak(say(r))} onMouseEnter={() => { setHover?.(r); hoverSay(say(r)) }} onMouseLeave={() => { setHover?.(null); hoverSay(null) }}>
           <span className="kana">{isOn(r) ? r : fmtKun(r)}<span className="romaji">{isOn(r) ? hira(r) : kata(bare(r).replace('.', ''))} {romaji(r)}</span></span>{k.written && share >= 0.01 && <span className="pct">{Math.round(share * 100)}%</span>}
         </button>
@@ -125,7 +123,7 @@ type Tip = { c: string; reading?: string; sense?: string; x: number; y: number }
 let showTip: (t: Tip | null) => void = () => {}
 
 /** Its main readings as plain text, for a tooltip: ジン、ニン or き、こ. */
-const mainReadings = (c: string) => KANJI[c]?.readings.slice(0, 2).map(({ r }) => bare(r).replace('.', '')).join('、')
+export const mainReadings = (c: string) => KANJI[c]?.readings.slice(0, 2).map(({ r }) => bare(r).replace('.', '')).join('、')
 
 /** One floating tooltip for the whole app, placed above whatever kanji is hovered. */
 export function TipLayer() {
@@ -209,7 +207,7 @@ export function UsedIn({ el, store, open, rows = 2 }: { el: string; store: Store
   return (
     <div className="chips" ref={ref}>
       {shown.map(c => <button key={c} className={'chip ' + status(store, c)} onClick={() => open(c)}><KanjiTip c={c} reading={mainReadings(c)} /></button>)}
-      {shown.length < list.length && <button className="chip more-chip" onClick={() => setAll(true)} title="show all">+{list.length - shown.length}</button>}
+      {shown.length < list.length && <button className="chip more-chip" onClick={() => setAll(true)}>+{list.length - shown.length}</button>}
     </div>
   )
 }
@@ -220,16 +218,16 @@ function Popularity({ ch }: { ch: string }) {
   if (!k.freq) return null
   const pct = k.freq * 100
   return (
-    <div className="popular" title="among the 2136 jōyō kanji, by how often it is written">
+    <div className="popular">
       <span>#{RANK.get(ch)}</span>
       <span>{pct >= 0.1 ? pct.toFixed(1) : pct.toFixed(2)}% of text</span>
-      <span title="kanji kentei (漢検) level that tests it">{k.kanken === 2.5 ? '準2' : k.kanken}級</span>
+      <span>{k.kanken === 2.5 ? '準2' : k.kanken}級</span>
     </div>
   )
 }
 
 export const Speaker = ({ text }: { text: string }) =>
-  <button className="speaker" onClick={() => speak(text)} title={`read aloud: ${text}`} aria-label="read aloud">
+  <button className="speaker" onClick={() => speak(text)} aria-label="read aloud">
     <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" /><path d="M15.5 9a4 4 0 0 1 0 6" /><path d="M18 6.5a7.5 7.5 0 0 1 0 11" />
     </svg>

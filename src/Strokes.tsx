@@ -42,7 +42,6 @@ export function Animated({ el, className }: { el: string; className?: string }) 
   if (!g) return <span className={className}><Glyph el={el} /></span>
   return (
     <svg ref={ref} className={'drawn ' + (className ?? '')} viewBox={viewBox(g)} onClick={() => setRun(run + 1)} role="img" aria-label={`${el}, drawn stroke by stroke; click to replay`}>
-      <title>click to draw again</title>
       {g.d.map((d, i) => <path key={'g' + i} className="ghost" d={d} />)}
       {g.d.map((d, i) => <path key={'i' + i + '-' + run} className="ink" d={d} />)}
     </svg>
@@ -57,7 +56,7 @@ export function StrokeOrder({ el, compact }: { el: string; compact?: boolean }) 
   const [bx, by, side] = g.box ?? [0, 0, 109]
   const r = side / 109
   const frames = (
-      <ol className={'frames' + (compact ? ' compact' : '')} title={compact ? `stroke order, ${g.d.length} strokes` : undefined}>
+      <ol className={'frames' + (compact ? ' compact' : '')} aria-label={`stroke order, ${g.d.length} strokes`}>
         {g.d.map((d, i) => {
           const [x, y] = start(d)
           return (

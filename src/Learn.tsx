@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { KANJI, ORDER, elements, gloss } from './data'
 import { knewIt, learn, type Store } from './srs'
 import { LEVELS, pOf, startAt, update, upcoming } from './levels'
-import { Card, Glyph } from './Card'
+import { Card, Glyph, KanjiTip, mainReadings } from './Card'
 import { Quiz, type Result } from './Quiz'
 
 /** Share of kanji in running text that are among the given items. */
@@ -59,7 +59,7 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
       )}
       <div className="actions">
         {(res || !KANJI[next]) && <button className="next" onClick={commit}>{res?.meaning && res.reading ? 'knew it, next' : 'learn it, next'} <span className="key">↵</span></button>}
-        <span className="upcoming">then {left.slice(1, 9).map(el => <span key={el} title={gloss(el)} className={KANJI[el] ? '' : 'partish'}><Glyph el={el} /></span>)}</span>
+        <span className="upcoming">then {left.slice(1, 9).map(el => <span key={el} className={KANJI[el] ? '' : 'partish'}>{KANJI[el] ? <KanjiTip c={el} reading={mainReadings(el)} /> : <Glyph el={el} />}</span>)}</span>
       </div>
     </div>
   )

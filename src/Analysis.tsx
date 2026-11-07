@@ -167,7 +167,7 @@ export function Analysis({ store }: { store: Store }) {
         <p className="lede">The share of running text written with kanji that contain each part.</p>
         <div className="bars">
           {productive.map(({ el, c, share }) => (
-            <div key={el} className="brow" title={c.usedIn.slice(0, 20).join('')}>
+            <div key={el} className="brow">
               <span className="bch">{el}</span>
               <span className="bname">{gloss(el)}</span>
               <span className="btrack"><span className="bfill" style={{ width: `${share / productive[0].share * 100}%` }} /></span>
