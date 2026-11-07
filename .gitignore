@@ -8,3 +8,4 @@ screenshots/
 .DS_Store
 __pycache__/
 data/llm/in/
+tsconfig.tsbuildinfo
