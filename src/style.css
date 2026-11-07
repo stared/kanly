@@ -363,8 +363,9 @@ svg.drawn .ink { stroke: var(--ink); }
 .frames .n { position: absolute; top: 2px; left: 4px; font: 9px system-ui, sans-serif; color: var(--muted); }
 .sec .count { text-transform: none; letter-spacing: 0; font-weight: 400; margin-left: 6px; }
 @media (max-width: 600px) { svg.drawn { width: 150px; height: 150px; } .frames svg { width: 44px; height: 44px; } }
-/* phone: the kanji, then its readings, then the stroke order, each centred */
-@media (max-width: 600px) {
+/* too narrow for the row (a phone): the kanji, then its readings, then the stroke order, each centred */
+.hero { container-type: inline-size; }
+@container (max-width: 440px) {
   .hero .top { flex-direction: column; gap: 10px; }
   .hero .top .big { order: -1; }
   .readings.aside { margin: 0; flex-direction: row; justify-content: center; align-self: center; }
