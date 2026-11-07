@@ -157,10 +157,10 @@ export function KanjiTip({ c, reading, sense, className }: { c: string; reading?
 function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
   let n = 0  // which kanji of the word, for its sense here
   const sense = () => w.senses?.[n++]
-  // what the parts say, also for a word read as a whole (今日 now-day) or written partly for sound (頑張る (sound)-stretch);
-  // kanji there for their sound alone are one (sound): 馬鹿, 富士山 (sound)-mountain
+  // what the parts say: the card's own lit, else what each kanji means in the word (思い出 think-out), also for a
+  // word read as a whole (今日 now-day); kanji there for their sound alone are one (sound): 馬鹿, 富士山 (sound)-mountain
   const parts = w.senses?.filter((x, i, a) => !(x === '(sound)' && a[i - 1] === '(sound)'))
-  const lit = w.lit ?? (parts && (w.special || parts.includes('(sound)')) ? parts.join('-') : undefined)
+  const lit = w.lit ?? (parts && (parts.length > 1 || w.special || parts.includes('(sound)')) ? parts.join('-') : undefined)
   return (
     <li className={dim ? 'dim' : ''}>
       <button className="w" onClick={() => speak(w.r)} onMouseEnter={() => hoverSay(w.r)} onMouseLeave={() => hoverSay(null)}>
