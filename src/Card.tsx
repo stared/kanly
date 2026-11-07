@@ -157,6 +157,10 @@ export function KanjiTip({ c, reading, sense, className }: { c: string; reading?
 function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
   let n = 0  // which kanji of the word, for its sense here
   const sense = () => w.senses?.[n++]
+  // what the parts say, also for a word read as a whole (今日 now-day) or written partly for sound (頑張る (sound)-stretch);
+  // kanji there for their sound alone are one (sound): 馬鹿, 富士山 (sound)-mountain
+  const parts = w.senses?.filter((x, i, a) => !(x === '(sound)' && a[i - 1] === '(sound)'))
+  const lit = w.lit ?? (parts && (w.special || parts.includes('(sound)')) ? parts.join('-') : undefined)
   return (
     <li className={dim ? 'dim' : ''}>
       <button className="w" onClick={() => speak(w.r)} onMouseEnter={() => hoverSay(w.r)} onMouseLeave={() => hoverSay(null)}>
@@ -164,7 +168,7 @@ function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
           ? <ruby key={i} className={part === ch ? 'me' : ''}>{[...part].map((c, j) => <KanjiTip key={j} c={c} reading={w.special ? undefined : r} sense={/[\u4e00-\u9fff々]/.test(c) ? sense() : undefined} />)}<rt>{r}</rt></ruby>
           : <span key={i}>{part}</span>)}
       </button>
-      <span className="wg">{w.g}{w.lit && <span className="lit">{w.lit}</span>}{w.special && <span className="lit">read as a whole</span>}</span>
+      <span className="wg">{w.g}{lit && <span className="lit">{lit}</span>}{w.special && <span className="lit">(read as a whole)</span>}</span>
     </li>
   )
 }
