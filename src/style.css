@@ -132,6 +132,8 @@ nav button.on, .gear.on { color: var(--ink); }
 .family .not { color: var(--ink); }
 .chip.here { outline: 1px solid var(--ink); }
 .chip:hover { outline: 1px solid var(--muted); }
+.chip.more-chip { font: 12px system-ui, sans-serif; color: var(--muted); box-shadow: none; background: none; }
+.chip.more-chip:hover { color: var(--ink); }
 .more { color: var(--muted); font-size: 13px; align-self: center; margin-left: 6px; }
 
 .words { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: max-content 1fr; column-gap: 16px; row-gap: 6px; align-items: baseline; }

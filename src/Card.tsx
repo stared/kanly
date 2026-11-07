@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { COMP, KANJI, RANK, extraStrokes, gloss, hira, isKanji, kata, lookalikes, romaji, soundFamily, type Tree, type Word } from './data'
 import { status, type Store } from './srs'
 import { pOf } from './levels'
@@ -188,13 +188,28 @@ export function Lookalikes({ ch, store, open }: { ch: string; store: Store; open
   )
 }
 
-export function UsedIn({ el, store, open, limit = 24 }: { el: string; store: Store; open: Open; limit?: number }) {
+export function UsedIn({ el, store, open, rows = 2 }: { el: string; store: Store; open: Open; rows?: number }) {
   const list = COMP[el]?.usedIn ?? []
+  const ref = useRef<HTMLDivElement>(null)
+  const [perRow, setPerRow] = useState(0)
+  const [all, setAll] = useState(false)
+  useLayoutEffect(() => {
+    const box = ref.current
+    if (!box) return
+    // chips are 34 px with 4 px gaps: fill whole rows, whatever the width
+    const fit = () => setPerRow(Math.max(1, Math.floor((box.clientWidth + 4) / 38)))
+    fit()
+    const ro = new ResizeObserver(fit)
+    ro.observe(box)
+    return () => ro.disconnect()
+  }, [])
   if (!list.length) return null
+  const cap = perRow * rows
+  const shown = all || !perRow || list.length <= cap ? list : list.slice(0, cap - 1)  // the last slot says how many more
   return (
-    <div className="chips">
-      {list.slice(0, limit).map(c => <button key={c} className={'chip ' + status(store, c)} onClick={() => open(c)}><KanjiTip c={c} reading={mainReadings(c)} /></button>)}
-      {list.length > limit && <span className="more">+{list.length - limit}</span>}
+    <div className="chips" ref={ref}>
+      {shown.map(c => <button key={c} className={'chip ' + status(store, c)} onClick={() => open(c)}><KanjiTip c={c} reading={mainReadings(c)} /></button>)}
+      {shown.length < list.length && <button className="chip more-chip" onClick={() => setAll(true)} title="show all">+{list.length - shown.length}</button>}
     </div>
   )
 }
@@ -266,7 +281,7 @@ export function Card({ el, store, open, autoSpeak = false, got }: { el: string; 
             {k.words.length > k.nshown && <button className="more-words" onClick={() => setAllWords(!allWords)}>{allWords ? 'fewer words' : `${k.words.length - k.nshown} more words`}</button>}
           </section>
         )}
-        {used > 0 && <section><h3 className="sec">part of {used} kanji</h3><UsedIn el={el} store={store} open={open} limit={16} /></section>}
+        {used > 0 && <section><h3 className="sec">part of {used} kanji</h3><UsedIn key={el} el={el} store={store} open={open} /></section>}
         {alike > 0 && (
           <details className="more-info">
             <summary>{alike} look-alike{alike > 1 ? 's' : ''}</summary>
