@@ -157,10 +157,25 @@ export function KanjiTip({ c, reading, sense, className }: { c: string; reading?
 function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
   let n = 0  // which kanji of the word, for its sense here
   const sense = () => w.senses?.[n++]
-  // what the parts say: the card's own lit, else what each kanji means in the word (思い出 think-out), also for a
-  // word read as a whole (今日 now-day); kanji there for their sound alone are one (sound): 馬鹿, 富士山 (sound)-mountain
-  const parts = w.senses?.filter((x, i, a) => !(x === '(sound)' && a[i - 1] === '(sound)'))
-  const lit = w.lit ?? (parts && (parts.length > 1 || w.special || parts.includes('(sound)')) ? parts.join('-') : undefined)
+  // what the parts say, from what each kanji means in the word, with kana between kanji in romaji: 思い出 think-(i)-out;
+  // also for a word read as a whole (今日 now-day); kanji there for their sound alone are one (sound): 富士山 (sound)-mountain
+  const lit = (() => {
+    const han = (c: string) => /[\u4e00-\u9fff々]/.test(c)  // as the senses count them
+    if (!w.senses || w.senses.length !== [...w.w].filter(han).length) return w.lit
+    const out: string[] = []
+    let k = 0
+    w.furigana.forEach(([part], i) => {
+      if (![...part].some(han)) {
+        if (w.furigana.slice(i + 1).some(([p]) => [...p].some(han)) && out.length) out.push(`(${romaji(part, false)})`)
+        return
+      }
+      for (const c of part) if (han(c)) {
+        const x = w.senses![k++]
+        if (!(x === '(sound)' && out.at(-1) === '(sound)')) out.push(x)
+      }
+    })
+    return w.senses.length > 1 || w.special || out.includes('(sound)') ? out.join('-') : w.lit
+  })()
   return (
     <li className={dim ? 'dim' : ''}>
       <button className="w" onClick={() => speak(w.r)} onMouseEnter={() => hoverSay(w.r)} onMouseLeave={() => hoverSay(null)}>
