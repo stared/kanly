@@ -25,4 +25,4 @@ it('finds the level and whether a learner follows courses or reading', () => {
     expect(Math.abs(s.mu! - truth)).toBeLessThan(250)
     expect(Math.abs(s.lam! - lam)).toBeLessThanOrEqual(0.5)
   }
-}, 30_000)  // a few seconds of simulated quizzes
+})

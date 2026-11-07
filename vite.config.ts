@@ -6,4 +6,6 @@ export default defineConfig(({ command }) => ({
   base: command === 'build' ? '/kanly/' : '/',
   plugins: [react()],
   server: { port: 5201, strictPort: true },
+  // whole-data tests (every kanji quizzed, placements simulated) take seconds, more on CI runners
+  test: { testTimeout: 60_000 },
 }))
