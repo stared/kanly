@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { KANJI, ORDER, elements, gloss } from './data'
 import { knewIt, learn, type Store } from './srs'
-import { LEVELS, pOf, startAt, update, upcoming } from './levels'
+import { LEVELS, lam, mu, pOf, startAt, update, upcoming } from './levels'
+import { track } from './track'
 import { Card, Glyph, KanjiTip, mainReadings } from './Card'
 import { Quiz, type Result } from './Quiz'
 
@@ -52,7 +53,7 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
   return (
     <div className="learn">
       {why && <p className="why">Here as a part of {why}, coming {left.indexOf(why) === 1 ? 'next' : 'soon'}.</p>}
-      {KANJI[next] && !res ? <Quiz key={next} el={next} onDone={r => setAnswered({ ...r, el: next })} /> : (
+      {KANJI[next] && !res ? <Quiz key={next} el={next} onDone={r => { track('quiz', { in: 'learn', el: next, ...r, p: pOf(store, next), mu: mu(store), lam: lam(store) }); setAnswered({ ...r, el: next }) }} /> : (
         <div className="revealed">
           <Card el={next} store={store} open={open} autoSpeak={autoSpeak} got={res ?? undefined} />
         </div>

@@ -8,6 +8,7 @@ import { Browse } from './Browse'
 import { Reader } from './Reader'
 import { Analysis } from './Analysis'
 import { Settings } from './Settings'
+import { track } from './track'
 import { loadAutoSpeak, saveAutoSpeak } from './speech'
 
 type Tab = 'learn' | 'review' | 'kanji' | 'reader' | 'analysis' | 'settings' | 'card'
@@ -17,6 +18,7 @@ export default function App() {
   const [store, setStore] = useState<Store>(load)
   const fromHash = () => (location.hash.slice(1).split('/')[0] as Tab) || 'learn'
   const [tab, setTab] = useState<Tab>(fromHash)
+  useEffect(() => { track('tab', { tab }) }, [tab])
   const [hash, setHash] = useState(location.hash)
   const [peek, setPeek] = useState<string[]>([])
   const [now, setNow] = useState(Date.now())
@@ -39,7 +41,7 @@ export default function App() {
     return () => removeEventListener('keydown', esc)
   }, [])
 
-  const open = (el: string) => setPeek(p => p[p.length - 1] === el ? p : [...p, el])
+  const open = (el: string) => { track('open', { el }); setPeek(p => p[p.length - 1] === el ? p : [...p, el]) }
   const due = dueIds(store, now).length
 
   return (

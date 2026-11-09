@@ -1,4 +1,5 @@
 import { KANJI, hira, kata } from './data'
+import { track } from './track'
 
 const KEY = 'kanly/autoSpeak'
 export const loadAutoSpeak = () => { try { return localStorage.getItem(KEY) !== '0' } catch { return true } }
@@ -21,6 +22,7 @@ export function speak(text: string) {
   // a click on what hovering is already saying would cut it off and start again ("ho… hō")
   if (hira(text) === last && (speechSynthesis.speaking || speechSynthesis.pending)) return
   last = hira(text)
+  track('say', { text })
   speechSynthesis.cancel()
   const u = new SpeechSynthesisUtterance(text)
   u.lang = 'ja-JP'

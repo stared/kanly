@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { COMP, KANJI, RANK, extraStrokes, gloss, hira, isKanji, kata, lookalikes, romaji, soundFamily, type Tree, type Word } from './data'
 import { status, type Store } from './srs'
 import { pOf } from './levels'
+import { track } from './track'
 import { hoverSay, speak, spoken } from './speech'
 import { Animated, StrokeOrder } from './Strokes'
 
@@ -121,6 +122,7 @@ export function Family({ ch, store, open }: { ch: string; store: Store; open: Op
 
 type Tip = { c: string; reading?: string; sense?: string; x: number; y: number }
 let showTip: (t: Tip | null) => void = () => {}
+let shownAt = 0
 
 /** Its main readings as plain text, for a tooltip: ジン、ニン or き、こ. */
 export const mainReadings = (c: string) => KANJI[c]?.readings.slice(0, 2).map(({ r }) => bare(r).replace('.', '')).join('、')
@@ -150,8 +152,11 @@ export function KanjiTip({ c, reading, sense, className }: { c: string; reading?
   const enter = (e: React.MouseEvent<HTMLSpanElement>) => {
     const r = e.currentTarget.getBoundingClientRect()
     showTip({ c, reading, sense, x: r.left + r.width / 2, y: r.top })
+    shownAt = Date.now()
   }
-  return <span className={'kt' + (className ? ' ' + className : '')} onMouseEnter={enter} onMouseLeave={() => showTip(null)} onClick={() => showTip(null)}>{c}</span>
+  // a tooltip read (shown for half a second or more), not one passed over
+  const leave = () => { showTip(null); const ms = Date.now() - shownAt; if (ms >= 500) track('tip', { c, ms }) }
+  return <span className={'kt' + (className ? ' ' + className : '')} onMouseEnter={enter} onMouseLeave={leave} onClick={() => showTip(null)}>{c}</span>
 }
 
 function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
@@ -296,7 +301,7 @@ export function Card({ el, store, open, autoSpeak = false, got }: { el: string; 
           <section>
             <h3 className="sec">most used words</h3>
             <ul className="words">{sorted.slice(0, allWords ? undefined : k.nshown).map(w => <WordRow key={w.w + w.r} w={w} ch={el} dim={!!hover && w.reading !== hover} />)}</ul>
-            {k.words.length > k.nshown && <button className="more-words" onClick={() => setAllWords(!allWords)}>{allWords ? 'fewer words' : `${k.words.length - k.nshown} more words`}</button>}
+            {k.words.length > k.nshown && <button className="more-words" onClick={() => { track('words', { el, all: !allWords }); setAllWords(!allWords) }}>{allWords ? 'fewer words' : `${k.words.length - k.nshown} more words`}</button>}
           </section>
         )}
         {used > 0 && <section><h3 className="sec">part of {used} kanji</h3><UsedIn key={el} el={el} store={store} open={open} /></section>}

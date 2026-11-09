@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Glyph } from './Card'
+import { track } from './track'
 
 /** How an element is drawn (KanjiVG): strokes in order as SVG paths in a 109 × 109 box; a part taken from inside a
  * kanji carries the box around it, [x, y, side]. */
@@ -41,7 +42,7 @@ export function Animated({ el, className }: { el: string; className?: string }) 
   }, [g, run, el])
   if (!g) return <span className={className}><Glyph el={el} /></span>
   return (
-    <svg ref={ref} className={'drawn ' + (className ?? '')} viewBox={viewBox(g)} onClick={() => setRun(run + 1)} role="img" aria-label={`${el}, drawn stroke by stroke; click to replay`}>
+    <svg ref={ref} className={'drawn ' + (className ?? '')} viewBox={viewBox(g)} onClick={() => { track('replay', { el }); setRun(run + 1) }} role="img" aria-label={`${el}, drawn stroke by stroke; click to replay`}>
       {g.d.map((d, i) => <path key={'g' + i} className="ghost" d={d} />)}
       {g.d.map((d, i) => <path key={'i' + i + '-' + run} className="ink" d={d} />)}
     </svg>

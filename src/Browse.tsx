@@ -3,6 +3,7 @@ import { COMP, KANJI, ORDER, gloss, hira } from './data'
 import { status, type Store } from './srs'
 import { BEGINNER, byLevel as order, lam, mu, pOf } from './levels'
 import { Card, Glyph, KanjiTip, mainReadings } from './Card'
+import { track } from './track'
 
 type Filter = 'all' | 'kanji' | 'parts' | 'mine'
 
@@ -39,7 +40,7 @@ export function Browse({ store, open }: { store: Store; open: (el: string) => vo
         <p className="sub small">{byLevel ? 'Easiest first; the darker, the likelier you knew it before.' : 'In learning order. Parts that are not kanji are grey.'} Dots: <span className="dot known" /> known <span className="dot learning" /> learning.</p>
         <div className="cells">
           {list.slice(0, byLevel ? 2200 : 600).map(el => (
-            <button key={el} className={'cell ' + status(store, el) + (KANJI[el] ? '' : ' part') + (el === sel ? ' sel' : '')} onClick={() => setSel(el)}
+            <button key={el} className={'cell ' + status(store, el) + (KANJI[el] ? '' : ' part') + (el === sel ? ' sel' : '')} onClick={() => { track('browse', { el }); setSel(el) }}
               style={byLevel && !store.cards[el] ? { '--p': pOf(store, el) } as React.CSSProperties : undefined}>
               {KANJI[el] ? <KanjiTip c={el} reading={mainReadings(el)} /> : <Glyph el={el} />}
             </button>

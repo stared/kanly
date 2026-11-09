@@ -1,4 +1,5 @@
 import type { Store } from './srs'
+import { events, setEvents } from './track'
 import { BEGINNER, BREADTH, LEVELS, T, mu, startAt, temp } from './levels'
 
 const r10 = (x: number) => Math.max(0, Math.round(x / 10) * 10)
@@ -10,13 +11,13 @@ const fit = (s: Store) => (s.answers?.length ?? 0) < 10
 export function Settings({ store, onReplace, autoSpeak, setAutoSpeak }: { store: Store; onReplace: (s: Store) => void; autoSpeak: boolean; setAutoSpeak: (on: boolean) => void }) {
   const exportIt = () => {
     const a = document.createElement('a')
-    a.href = URL.createObjectURL(new Blob([JSON.stringify(store)], { type: 'application/json' }))
+    a.href = URL.createObjectURL(new Blob([JSON.stringify({ ...store, events: events() })], { type: 'application/json' }))
     a.download = `kanly-progress-${new Date().toISOString().slice(0, 10)}.json`
     a.click()
   }
   const importIt = (f?: File) => f?.text().then(t => {
-    const s = JSON.parse(t)
-    if (s?.cards && s?.log) onReplace(s)
+    const { events: evs, ...s } = JSON.parse(t)
+    if (s?.cards && s?.log) { onReplace(s); if (evs) setEvents(evs) }
   })
   return (
     <div className="settings">
@@ -37,11 +38,11 @@ export function Settings({ store, onReplace, autoSpeak, setAutoSpeak }: { store:
         </select>
       </label>
       {mu(store) > BEGINNER && <p>{fit(store)} Every quiz answer refines this.</p>}
-      <p>{Object.keys(store.cards).length} kanji and parts seen, {store.log.length} reviews. Progress is stored in this browser only.</p>
+      <p>{Object.keys(store.cards).length} kanji and parts seen, {store.log.length} reviews, {events().length} answers and clicks logged. Progress is stored in this browser only; export saves all of it as one file.</p>
       <div className="row">
         <button className="next" onClick={exportIt}>export progress</button>
         <label className="next">import<input type="file" accept="application/json" hidden onChange={e => importIt(e.target.files?.[0])} /></label>
-        <button className="next bad" onClick={() => confirm('Forget all progress?') && onReplace({ cards: {}, log: [] })}>reset</button>
+        <button className="next bad" onClick={() => { if (confirm('Forget all progress?')) { onReplace({ cards: {}, log: [] }); setEvents([]) } }}>reset</button>
       </div>
     </div>
   )

@@ -4,6 +4,7 @@ import { answer, DAY, MIN, type Store } from './srs'
 import { Glyph, Parts, Readings, Story, treeOf } from './Card'
 import { Quiz, type Result } from './Quiz'
 import { speak, spoken } from './speech'
+import { track } from './track'
 
 export const dueIds = (s: Store, now: number) =>
   Object.values(s.cards).filter(c => c.due <= now).sort((a, b) => a.due - b.due).map(c => c.id)
@@ -19,7 +20,7 @@ export function Review({ store, setStore, open, now, autoSpeak }: { store: Store
   const res = quizzed?.id === id ? quizzed : null
   const passed = !!res?.meaning && !!res.reading
 
-  const grade = (ok: boolean) => { setStore(answer(store, id, ok, Date.now())); setShown(false) }
+  const grade = (ok: boolean) => { if (!KANJI[id]) track('grade', { el: id, ok }); setStore(answer(store, id, ok, Date.now())); setShown(false) }
   useEffect(() => { if ((shown || res) && autoSpeak && id) speak(spoken(id)) }, [shown, id, !!res])
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
@@ -47,7 +48,7 @@ export function Review({ store, setStore, open, now, autoSpeak }: { store: Store
   const t = treeOf(id)
   if (k && !res) return (
     <div className="review">
-      <Quiz key={id} el={id} unknown="forgot" onDone={r => setQuizzed({ ...r, id })} />
+      <Quiz key={id} el={id} unknown="forgot" onDone={r => { track('quiz', { in: 'review', el: id, ...r, card: store.cards[id] }); setQuizzed({ ...r, id }) }} />
     </div>
   )
   if (k && res) return (

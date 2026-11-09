@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { COMP, KANJI, hira } from './data'
 import { levelOf } from './levels'
 import { Glyph, fmtKun } from './Card'
 
 /** null: not answered ("new to me" before it, or a part, which has no readings). */
-export type Result = { meaning: boolean | null; reading: boolean | null; picked: string[] }
+/** picked: the options chosen (each an answer kanji); options: what was offered, meaning then reading; ms: time to each answer. */
+export type Result = { meaning: boolean | null; reading: boolean | null; picked: string[]; options?: string[][]; ms?: number[] }
 
 const shuffle = <T,>(a: T[]) => a.map(x => [Math.random(), x] as const).sort((p, q) => p[0] - q[0]).map(p => p[1])
 const words = (s: string) => s.toLowerCase().split(/[ ;,()]+/).filter(w => w.length > 2)
@@ -69,8 +70,11 @@ export function Quiz({ el, onDone, unknown = 'new to me' }: { el: string; onDone
   const opts = useMemo(() => k ? { m: meaningOptions(el), r: readingOptions(el) } : null, [el])
   const stage = meaning === null ? 'meaning' : 'reading'
   const list = opts ? (stage === 'meaning' ? opts.m : opts.r) : []
+  const t0 = useRef(Date.now())
+  const ms = useRef<number[]>([])
   const pick = (c: string | null) => {
     if (flash) return
+    ms.current.push(Date.now() - t0.current)
     if (c !== null) {
       setFlash(c)
       setTimeout(() => { setFlash(null); go(c) }, 280)
@@ -78,9 +82,10 @@ export function Quiz({ el, onDone, unknown = 'new to me' }: { el: string; onDone
   }
   const go = (c: string | null) => {
     if (stage === 'meaning') {
-      if (c === null) return onDone({ meaning: null, reading: null, picked: [] })
+      if (c === null) return onDone({ meaning: null, reading: null, picked: [], options: [opts!.m], ms: ms.current })
       setMeaning(c)
-    } else onDone({ meaning: meaning === el, reading: c === null ? null : c === el, picked: [meaning!, ...(c ? [c] : [])] })
+      t0.current = Date.now()
+    } else onDone({ meaning: meaning === el, reading: c === null ? null : c === el, picked: [meaning!, ...(c ? [c] : [])], options: [opts!.m, opts!.r], ms: ms.current })
   }
   useEffect(() => {
     const key = (e: KeyboardEvent) => {
