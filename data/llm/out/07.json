@@ -9561,7 +9561,9 @@
  {
   "kanji": "叔",
   "keyword": "uncle",
-  "meanings": [],
+  "meanings": [
+   "parent's younger sibling"
+  ],
   "readings": [
    "シュク"
   ],

@@ -4805,7 +4805,9 @@
  {
   "kanji": "待",
   "keyword": "wait",
-  "meanings": [],
+  "meanings": [
+   "treat (as guest)"
+  ],
   "readings": [
    "ま.つ",
    "タイ"
@@ -21677,7 +21679,8 @@
   "keyword": "extinguish",
   "meanings": [
    "erase",
-   "disappear"
+   "disappear",
+   "consume"
   ],
   "readings": [
    "ショウ",

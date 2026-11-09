@@ -6380,7 +6380,9 @@
  {
   "kanji": "今",
   "keyword": "now",
-  "meanings": [],
+  "meanings": [
+   "this (current)"
+  ],
   "readings": [
    "コン",
    "いま"
@@ -15014,7 +15016,9 @@
  {
   "kanji": "光",
   "keyword": "light",
-  "meanings": [],
+  "meanings": [
+   "scenery"
+  ],
   "readings": [
    "コウ",
    "ひかり",
@@ -15795,7 +15799,9 @@
  {
   "kanji": "門",
   "keyword": "gate",
-  "meanings": [],
+  "meanings": [
+   "field (of study)"
+  ],
   "readings": [
    "モン",
    "かど"
@@ -21182,7 +21188,8 @@
   "keyword": "participate",
   "meanings": [
    "visit (shrine)",
-   "go (humble)"
+   "go (humble)",
+   "refer to"
   ],
   "readings": [
    "サン",
