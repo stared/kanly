@@ -6,11 +6,11 @@ import { knewIt, learn, type Store } from './srs'
 const empty: Store = { cards: {}, log: [] }
 
 describe('levels', () => {
-  it('a beginner starts with the simplest, most used kanji', () => {
+  it('a beginner starts with the most used kanji, each after its parts (木 before 本)', () => {
     const first = upcoming(empty, 0, 12)
     console.log('beginner', first.join(''))
-    expect(first.slice(0, 3)).toContain('一')
-    expect(first.every(el => !KANJI[el] || KANJI[el].strokes <= 8)).toBe(true)
+    expect(first.slice(0, 4)).toEqual(expect.arrayContaining(['人', '日', '一']))
+    expect(first.indexOf('木')).toBeLessThan(first.indexOf('本'))
   })
   it('someone who knows 1000 kanji gets ones around the 1000th, pulled by usefulness (誰 俺 are taught late but used a lot)', () => {
     const s = { ...empty, mu: 1000 }

@@ -20,13 +20,14 @@ Each kanji not yet seen gets the weight: expected usefulness per expected effort
 
   w = (1 − p) f / ((1 − p) cost^α + p ρ)       (in logs, plus τ g)
 
-f is how much of common vocabulary uses it (from wordfreq: unlike character counts, it does not rank name kanji
-like 藤 and 阪 high). cost is what its shape takes to learn given what is known: a known part is one chunk, an
+f is its share of all kanji in running text (wordfreq), as on the card's "% of text": what a reader meets, verb
+forms included (食べて, 言った).
+cost is what its shape takes to learn given what is known: a known part is one chunk, an
 unknown one its strokes. ρ is the effort of a quiz on a kanji already known, relative to learning a one-chunk kanji. A known
 card is cheap, so a frequent kanji is worth showing even if it is probably known: in simulation, with ρ = 0.3,
 this finds 13–34% more useful kanji per unit of effort than counting cards, at about 2 cards shown per new one.
 (ρ = 0.1 gains more, but asks someone who knows 1000 kanji whether they know 人.) g is Gumbel noise fixed per kanji: τ > 0 samples ∝ w^(1/τ), so easier and harder
-ones show up too. τ = 0 takes the best one; for a beginner (p ≈ 0) that is simple-first order. Variety has a price:
+ones show up too. τ = 0 takes the best one; for a beginner (p ≈ 0) that is frequency order, each kanji after its parts. Variety has a price:
 in simulation τ = 0.25, 0.5, 1 learn 3%, 10%, 25% less usefulness per effort, even when the difficulty ranks are
 off by ±400 for the learner (the posterior already makes uncertain, useful kanji worth checking).
 
@@ -38,7 +39,7 @@ T = 150 finds 30% less useful kanji in 300 cards, while a fitted T stays within 
 reader 30–34% more usefulness in 150 quiz cards than a fixed λ = 0.5, a course learner 7–19%.
 */
 export const T = 260
-export const ALPHA = 1
+export const ALPHA = 0  // how much strokes count as effort: 0 = by frequency alone (parts still come first), 1 = per stroke
 export const RHO = 0.3
 export const BEGINNER = -450
 export const SURE = 0.9
@@ -121,7 +122,7 @@ export function upcoming(s: Store, tau: number, n = 9): string[] {
       // very likely known: not worth a card, however useful (an N2 learner is never asked about 時)
       const p = pKnown(ch, m, t, l)
       if (p > SURE) continue
-      const w = Math.log((1 - p) * (k.use + 1e-3) + 1e-30) - Math.log((1 - p) * cost(k.tree, known) ** ALPHA + p * RHO) + tau * gumbel(ch, s.seed ?? 0)
+      const w = Math.log((1 - p) * (k.freq * 1e6 + 1e-3) + 1e-30) - Math.log((1 - p) * cost(k.tree, known) ** ALPHA + p * RHO) + tau * gumbel(ch, s.seed ?? 0)
       if (w > top) { top = w; best = ch }
     }
     if (!best) break
