@@ -43,12 +43,12 @@ header { display: flex; align-items: baseline; gap: 24px; padding: 16px 0 12px; 
 nav { display: flex; gap: 20px; }
 nav button, .gear { color: var(--muted); font-size: 14px; }
 nav button.on, .gear.on { color: var(--ink); }
-.gear { margin-left: auto; align-self: center; display: flex; }
-.reach + .gear { margin-left: 16px; }
-.gear + .gear { margin-left: -6px; }
+/* settings and source code at the bar's right end, whatever else is shown or hidden */
+.end { margin-left: auto; align-self: center; display: flex; align-items: center; gap: 18px; }
+.gear { display: flex; }
 .source { gap: 6px; align-items: center; font-size: 13px; text-decoration: none; }
 a.gear:hover { color: var(--ink); }
-.reach { margin-left: auto; font-size: 12px; color: var(--muted); align-self: center; }
+.reach { font-size: 12px; color: var(--muted); }
 .count { font-size: 11px; color: var(--muted); margin-left: 4px; }
 
 .next { padding: 8px 22px; border: 1px solid var(--muted); border-radius: 999px; font-size: 15px; display: inline-flex; align-items: baseline; }
@@ -272,9 +272,6 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
   .detail { position: static; max-height: none; }
   .card { gap: 14px; }
   .reach { display: none; }
-  .gear { margin-left: auto; }
-  .gear + .gear { margin-left: 0; }
-  .source span { display: none; }
   .big { font-size: 128px; padding: 0 18px; }
   .hero h2 { font-size: 22px; }
   .popular { top: 10px; font-size: 11px; }
@@ -368,6 +365,7 @@ svg.drawn .ink { stroke: var(--ink); }
 .frames.compact .n { display: none; }
 .frames .n { position: absolute; top: 2px; left: 4px; font: 9px system-ui, sans-serif; color: var(--muted); }
 .sec .count { text-transform: none; letter-spacing: 0; font-weight: 400; margin-left: 6px; }
+@media (max-width: 480px) { .source span { display: none; } }
 @media (max-width: 600px) { svg.drawn { width: 150px; height: 150px; } .frames svg { width: 44px; height: 44px; } }
 /* too narrow for the row (a phone): the kanji, then its readings, then the stroke order, each centred */
 .hero { container-type: inline-size; }
