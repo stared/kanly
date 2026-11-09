@@ -291,7 +291,7 @@ export function Card({ el, store, open, autoSpeak = false, got }: { el: string; 
           {k && <Readings ch={el} hover={hover} setHover={setHover} className={'aside' + (got?.reading ? ' got' : '')} />}
         </div>
         <h2 className={got?.meaning ? 'got' : ''}>{gloss(el)}</h2>
-        {k ? <p className="also">{k.also.join(', ')}</p>
+        {k ? <p className="also">{k.means ? k.means.map(([m, alone]) => alone ? m : `(${m})`).join(', ') : k.also.join(', ')}</p>
           : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
         <Story el={el} />
       </div>

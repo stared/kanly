@@ -8,6 +8,8 @@ export type Reading = { r: string; share: number }
 export type Kanji = {
   keyword: string
   also: string[]
+  /** main meanings in the order a reader meets them; alone false: only inside words, shown in parentheses */
+  means?: [string, boolean][]
   readings: Reading[]
   alone: { r: string; g: string; reading: string } | null
   words: Word[]

@@ -9,6 +9,8 @@ export type Result = { meaning: boolean | null; reading: boolean | null; picked:
 
 const shuffle = <T,>(a: T[]) => a.map(x => [Math.random(), x] as const).sort((p, q) => p[0] - q[0]).map(p => p[1])
 const words = (s: string) => s.toLowerCase().split(/[ ;,()]+/).filter(w => w.length > 2)
+/** Everything a kanji is said to mean: an option sharing a word with these could pass for a synonym. */
+const said = (c: string) => [KANJI[c].keyword, ...KANJI[c].also, ...(KANJI[c].means ?? []).map(m => m[0])]
 const isOn = (r: string) => /^[ァ-ヶー]+$/.test(r)
 const sound = (r: string) => hira(r.replace('.', ''))
 
@@ -28,14 +30,13 @@ const sameRadical = (a: string, b: string) => !!radical(a) && radical(a) === rad
 
 /** The right keyword and three others that cannot be mistaken for synonyms of it. */
 export function meaningOptions(ch: string): string[] {
-  const k = KANJI[ch]
-  const mine = new Set([k.keyword, ...k.also].flatMap(words))
+  const mine = new Set(said(ch).flatMap(words))
   const out = [ch]
   for (const c of rivals(ch, true)) {
     const o = KANJI[c]
     if (sameRadical(c, ch)) continue
     if (out.length === 4) break
-    if (out.some(x => KANJI[x].keyword === o.keyword) || [o.keyword, ...o.also].flatMap(words).some(w => mine.has(w))) continue
+    if (out.some(x => KANJI[x].keyword === o.keyword) || said(c).flatMap(words).some(w => mine.has(w))) continue
     out.push(c)
   }
   return shuffle(out)

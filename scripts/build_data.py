@@ -505,6 +505,8 @@ def senses(w: dict) -> list[str] | None:
 # How each kanji is used as a token of its own (10分, アメリカ人, 見る), which wordfreq counts apart from the words
 # with it: written per kanji in data/llm/alone.json, each use with its share of those tokens
 ALONE = json.loads((LLM / "alone.json").read_text()) if (LLM / "alone.json").exists() else {}
+# Main meanings in the order a reader meets them, each [meaning, alone]: alone false = only inside words (生: [life, false], [raw, true]).
+MEANS = json.loads((LLM / "means.json").read_text()) if (LLM / "means.json").exists() else {}
 
 
 def written_card(x: dict, wf: dict) -> dict:
@@ -537,7 +539,7 @@ def written_card(x: dict, wf: dict) -> dict:
         use[w["reading"]] += w["f"] or 0.1
     total = sum(c for r, c in use.items() if r != "special") or 1
     return {
-        "keyword": x["keyword"], "also": x.get("meanings", []),
+        "keyword": x["keyword"], "also": x.get("meanings", []), **({"means": MEANS[x["kanji"]]} if MEANS.get(x["kanji"]) else {}),
         "readings": sorted(({"r": r, "share": round(use[r] / total, 3)} for r in readings), key=lambda r: -r["share"]),  # most used first
         "alone": x.get("alone"), "words": words, "nshown": len(x["words"]),  # as many as written: a use inserted among them pushes the last one out
         **({"story": x["story"], "kind": x.get("kind") or "mnemonic"} if x.get("story") else {}),

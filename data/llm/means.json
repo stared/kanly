@@ -1,0 +1,23030 @@
+{
+"人": [
+[
+"person",
+true
+]
+],
+"日": [
+[
+"day",
+true
+],
+[
+"sun",
+true
+]
+],
+"大": [
+[
+"big",
+true
+],
+[
+"great",
+false
+],
+[
+"university",
+false
+]
+],
+"本": [
+[
+"book",
+true
+],
+[
+"true",
+false
+],
+[
+"origin",
+false
+],
+[
+"long things",
+false
+],
+[
+"main",
+false
+],
+[
+"this",
+false
+]
+],
+"出": [
+[
+"go out",
+true
+],
+[
+"put out",
+true
+]
+],
+"見": [
+[
+"see",
+true
+],
+[
+"show",
+true
+],
+[
+"view",
+false
+]
+],
+"一": [
+[
+"one",
+true
+]
+],
+"分": [
+[
+"minute",
+false
+],
+[
+"understand",
+true
+],
+[
+"part",
+false
+],
+[
+"share",
+true
+],
+[
+"divide",
+true
+]
+],
+"時": [
+[
+"time",
+true
+],
+[
+"o'clock",
+false
+]
+],
+"事": [
+[
+"thing",
+true
+],
+[
+"incident",
+false
+],
+[
+"business",
+false
+]
+],
+"中": [
+[
+"inside",
+true
+],
+[
+"during",
+false
+],
+[
+"throughout",
+false
+],
+[
+"middle",
+false
+]
+],
+"言": [
+[
+"say",
+true
+],
+[
+"word",
+false
+]
+],
+"思": [
+[
+"think",
+true
+]
+],
+"年": [
+[
+"year",
+true
+],
+[
+"age",
+true
+]
+],
+"行": [
+[
+"go",
+true
+],
+[
+"carry out",
+true
+],
+[
+"line",
+false
+],
+[
+"act",
+false
+]
+],
+"間": [
+[
+"span",
+false
+],
+[
+"between",
+true
+],
+[
+"space",
+false
+]
+],
+"気": [
+[
+"mind",
+true
+],
+[
+"mood",
+false
+],
+[
+"air",
+false
+],
+[
+"energy",
+false
+]
+],
+"生": [
+[
+"life",
+false
+],
+[
+"student",
+false
+],
+[
+"raw",
+true
+],
+[
+"produce",
+false
+],
+[
+"live",
+true
+],
+[
+"be born",
+true
+]
+],
+"自": [
+[
+"self",
+false
+],
+[
+"own",
+false
+]
+],
+"方": [
+[
+"side",
+true
+],
+[
+"way",
+false
+],
+[
+"person",
+true
+],
+[
+"direction",
+false
+]
+],
+"上": [
+[
+"above",
+true
+],
+[
+"up",
+true
+],
+[
+"on",
+false
+],
+[
+"upper",
+false
+]
+],
+"会": [
+[
+"meeting",
+true
+],
+[
+"association",
+false
+],
+[
+"meet",
+true
+]
+],
+"子": [
+[
+"child",
+true
+]
+],
+"今": [
+[
+"now",
+true
+],
+[
+"this",
+false
+]
+],
+"前": [
+[
+"front",
+true
+],
+[
+"before",
+true
+],
+[
+"former",
+false
+]
+],
+"者": [
+[
+"person",
+false
+]
+],
+"的": [
+[
+"-ic",
+false
+],
+[
+"target",
+true
+]
+],
+"入": [
+[
+"enter",
+true
+],
+[
+"put in",
+true
+],
+[
+"containing",
+false
+]
+],
+"月": [
+[
+"month",
+true
+],
+[
+"moon",
+true
+]
+],
+"手": [
+[
+"hand",
+true
+],
+[
+"doer",
+false
+],
+[
+"means",
+true
+]
+],
+"国": [
+[
+"country",
+true
+]
+],
+"作": [
+[
+"make",
+true
+],
+[
+"work",
+false
+]
+],
+"合": [
+[
+"fit",
+true
+],
+[
+"combine",
+false
+],
+[
+"rice measure",
+false
+]
+],
+"来": [
+[
+"come",
+true
+],
+[
+"next",
+false
+]
+],
+"何": [
+[
+"what",
+true
+],
+[
+"how many",
+false
+]
+],
+"女": [
+[
+"woman",
+true
+]
+],
+"全": [
+[
+"whole",
+false
+],
+[
+"all",
+true
+],
+[
+"complete",
+false
+]
+],
+"最": [
+[
+"most",
+true
+]
+],
+"無": [
+[
+"no",
+false
+],
+[
+"not exist",
+true
+],
+[
+"nothing",
+true
+]
+],
+"場": [
+[
+"place",
+true
+],
+[
+"venue",
+false
+]
+],
+"動": [
+[
+"move",
+true
+]
+],
+"用": [
+[
+"use",
+false
+],
+[
+"for",
+false
+],
+[
+"errand",
+true
+]
+],
+"目": [
+[
+"eye",
+true
+],
+[
+"ordinal",
+false
+]
+],
+"後": [
+[
+"after",
+true
+],
+[
+"later",
+true
+],
+[
+"behind",
+true
+]
+],
+"発": [
+[
+"emit",
+false
+],
+[
+"start",
+false
+],
+[
+"departing",
+false
+],
+[
+"shots",
+false
+],
+[
+"issue",
+false
+]
+],
+"学": [
+[
+"study",
+false
+],
+[
+"learn",
+true
+],
+[
+"-ology",
+false
+]
+],
+"話": [
+[
+"talk",
+true
+],
+[
+"story",
+true
+],
+[
+"episode",
+false
+]
+],
+"定": [
+[
+"fix",
+false
+],
+[
+"regular",
+false
+]
+],
+"当": [
+[
+"this",
+false
+],
+[
+"hit",
+true
+],
+[
+"proper",
+false
+],
+[
+"in charge",
+false
+]
+],
+"理": [
+[
+"reason",
+false
+],
+[
+"manage",
+false
+],
+[
+"logic",
+false
+]
+],
+"高": [
+[
+"high",
+true
+],
+[
+"tall",
+true
+],
+[
+"expensive",
+true
+]
+],
+"感": [
+[
+"feel",
+true
+],
+[
+"feeling",
+true
+],
+[
+"sense of",
+false
+]
+],
+"性": [
+[
+"-ity",
+false
+],
+[
+"gender",
+false
+],
+[
+"nature",
+false
+],
+[
+"sex",
+true
+]
+],
+"部": [
+[
+"part",
+false
+],
+[
+"club",
+true
+],
+[
+"department",
+false
+],
+[
+"copies",
+false
+]
+],
+"地": [
+[
+"region",
+false
+],
+[
+"ground",
+false
+],
+[
+"earth",
+false
+],
+[
+"place",
+false
+]
+],
+"回": [
+[
+"times",
+false
+],
+[
+"turn",
+true
+],
+[
+"back",
+false
+]
+],
+"新": [
+[
+"new",
+true
+]
+],
+"画": [
+[
+"picture",
+false
+],
+[
+"plan",
+false
+],
+[
+"stroke",
+false
+]
+],
+"使": [
+[
+"use",
+true
+],
+[
+"envoy",
+false
+]
+],
+"下": [
+[
+"below",
+true
+],
+[
+"give",
+true
+],
+[
+"down",
+true
+],
+[
+"lower",
+false
+]
+],
+"実": [
+[
+"real",
+true
+],
+[
+"fruit",
+true
+]
+],
+"私": [
+[
+"I",
+true
+],
+[
+"private",
+false
+]
+],
+"物": [
+[
+"thing",
+true
+]
+],
+"体": [
+[
+"body",
+true
+],
+[
+"figures",
+false
+]
+],
+"知": [
+[
+"know",
+true
+],
+[
+"wisdom",
+false
+]
+],
+"通": [
+[
+"pass through",
+true
+],
+[
+"street",
+true
+],
+[
+"letters",
+false
+],
+[
+"commute",
+true
+],
+[
+"expert",
+true
+]
+],
+"力": [
+[
+"power",
+true
+]
+],
+"家": [
+[
+"house",
+true
+],
+[
+"-ist",
+false
+],
+[
+"family",
+false
+],
+[
+"home",
+true
+]
+],
+"同": [
+[
+"same",
+true
+],
+[
+"the said",
+false
+]
+],
+"名": [
+[
+"name",
+true
+],
+[
+"people",
+false
+],
+[
+"famous",
+false
+]
+],
+"対": [
+[
+"toward",
+true
+],
+[
+"versus",
+true
+],
+[
+"opposite",
+false
+]
+],
+"度": [
+[
+"times",
+false
+],
+[
+"degrees",
+false
+],
+[
+"extent",
+false
+],
+[
+"occasion",
+true
+]
+],
+"業": [
+[
+"business",
+false
+],
+[
+"industry",
+false
+],
+[
+"studies",
+false
+],
+[
+"work",
+false
+]
+],
+"良": [
+[
+"good",
+true
+]
+],
+"多": [
+[
+"many",
+true
+],
+[
+"multi-",
+false
+]
+],
+"持": [
+[
+"hold",
+true
+],
+[
+"have",
+true
+]
+],
+"開": [
+[
+"open",
+true
+],
+[
+"hold",
+false
+],
+[
+"start",
+false
+]
+],
+"代": [
+[
+"era",
+false
+],
+[
+"decade",
+false
+],
+[
+"fee",
+false
+],
+[
+"substitute",
+true
+],
+[
+"generation",
+false
+]
+],
+"金": [
+[
+"money",
+true
+],
+[
+"gold",
+true
+],
+[
+"metal",
+false
+]
+],
+"意": [
+[
+"meaning",
+false
+],
+[
+"mind",
+false
+],
+[
+"intention",
+false
+]
+],
+"内": [
+[
+"within",
+false
+],
+[
+"inside",
+true
+]
+],
+"長": [
+[
+"long",
+true
+],
+[
+"chief",
+false
+],
+[
+"grow",
+false
+]
+],
+"関": [
+[
+"connection",
+false
+],
+[
+"concern",
+true
+],
+[
+"gate",
+false
+]
+],
+"変": [
+[
+"change",
+true
+],
+[
+"strange",
+true
+]
+],
+"所": [
+[
+"place",
+true
+],
+[
+"facility",
+false
+]
+],
+"数": [
+[
+"number",
+true
+],
+[
+"several",
+false
+],
+[
+"count",
+true
+]
+],
+"戦": [
+[
+"war",
+false
+],
+[
+"match",
+false
+],
+[
+"fight",
+true
+]
+],
+"要": [
+[
+"need",
+true
+],
+[
+"essential",
+false
+],
+[
+"request",
+false
+]
+],
+"外": [
+[
+"outside",
+true
+],
+[
+"foreign",
+false
+],
+[
+"remove",
+true
+]
+],
+"社": [
+[
+"company",
+false
+],
+[
+"shrine",
+false
+]
+],
+"以": [
+[
+"from",
+false
+],
+[
+"since",
+false
+]
+],
+"取": [
+[
+"take",
+true
+]
+],
+"化": [
+[
+"-ize",
+false
+],
+[
+"change",
+false
+],
+[
+"disguise",
+true
+]
+],
+"明": [
+[
+"clear",
+true
+],
+[
+"bright",
+true
+]
+],
+"現": [
+[
+"current",
+false
+],
+[
+"actual",
+false
+],
+[
+"appear",
+true
+]
+],
+"食": [
+[
+"eat",
+true
+],
+[
+"food",
+false
+],
+[
+"meals",
+false
+]
+],
+"法": [
+[
+"method",
+false
+],
+[
+"law",
+true
+]
+],
+"結": [
+[
+"tie",
+true
+],
+[
+"conclude",
+false
+]
+],
+"心": [
+[
+"heart",
+true
+]
+],
+"世": [
+[
+"world",
+true
+],
+[
+"generation",
+false
+]
+],
+"不": [
+[
+"not",
+false
+]
+],
+"好": [
+[
+"like",
+true
+],
+[
+"good",
+false
+]
+],
+"成": [
+[
+"achieve",
+false
+],
+[
+"form",
+false
+],
+[
+"become",
+false
+]
+],
+"俺": [
+[
+"I",
+true
+]
+],
+"楽": [
+[
+"fun",
+true
+],
+[
+"music",
+false
+],
+[
+"easy",
+true
+]
+],
+"味": [
+[
+"taste",
+true
+]
+],
+"考": [
+[
+"think",
+true
+],
+[
+"idea",
+true
+]
+],
+"能": [
+[
+"ability",
+false
+],
+[
+"Noh",
+true
+]
+],
+"小": [
+[
+"small",
+true
+]
+],
+"立": [
+[
+"stand",
+true
+],
+[
+"set up",
+true
+],
+[
+"founded",
+false
+]
+],
+"機": [
+[
+"machine",
+false
+],
+[
+"mechanism",
+false
+],
+[
+"opportunity",
+false
+],
+[
+"aircraft",
+false
+]
+],
+"書": [
+[
+"document",
+false
+],
+[
+"write",
+true
+],
+[
+"book",
+false
+]
+],
+"初": [
+[
+"first",
+true
+],
+[
+"beginning",
+true
+]
+],
+"面": [
+[
+"face",
+false
+],
+[
+"side",
+true
+],
+[
+"surface",
+false
+],
+[
+"page",
+false
+]
+],
+"期": [
+[
+"period",
+false
+],
+[
+"expect",
+false
+]
+],
+"少": [
+[
+"a little",
+true
+],
+[
+"few",
+true
+],
+[
+"young",
+false
+]
+],
+"様": [
+[
+"Mr./Ms.",
+false
+],
+[
+"manner",
+false
+]
+],
+"田": [
+[
+"rice field",
+true
+]
+],
+"付": [
+[
+"attach",
+true
+],
+[
+"dated",
+false
+],
+[
+"included",
+false
+]
+],
+"違": [
+[
+"differ",
+true
+],
+[
+"violate",
+false
+]
+],
+"先": [
+[
+"ahead",
+true
+],
+[
+"previous",
+false
+],
+[
+"tip",
+true
+]
+],
+"員": [
+[
+"member",
+false
+]
+],
+"車": [
+[
+"car",
+true
+],
+[
+"vehicle",
+false
+]
+],
+"山": [
+[
+"mountain",
+true
+],
+[
+"pile",
+true
+]
+],
+"市": [
+[
+"city",
+true
+],
+[
+"market",
+false
+]
+],
+"解": [
+[
+"understand",
+false
+],
+[
+"solve",
+true
+],
+[
+"release",
+false
+],
+[
+"explain",
+false
+]
+],
+"問": [
+[
+"question",
+false
+],
+[
+"ask",
+false
+]
+],
+"連": [
+[
+"connect",
+false
+],
+[
+"in a row",
+false
+],
+[
+"take along",
+true
+]
+],
+"報": [
+[
+"report",
+false
+]
+],
+"近": [
+[
+"near",
+true
+],
+[
+"recent",
+false
+]
+],
+"安": [
+[
+"peaceful",
+false
+],
+[
+"cheap",
+true
+]
+],
+"番": [
+[
+"number",
+false
+],
+[
+"turn",
+true
+],
+[
+"watch",
+false
+]
+],
+"記": [
+[
+"record",
+false
+],
+[
+"written",
+false
+],
+[
+"account",
+false
+]
+],
+"加": [
+[
+"add",
+true
+],
+[
+"join",
+true
+]
+],
+"公": [
+[
+"public",
+true
+],
+[
+"official",
+false
+]
+],
+"売": [
+[
+"sell",
+true
+]
+],
+"仕": [
+[
+"do",
+false
+],
+[
+"serve",
+false
+]
+],
+"神": [
+[
+"god",
+true
+],
+[
+"spirit",
+false
+]
+],
+"教": [
+[
+"teach",
+true
+],
+[
+"religion",
+false
+]
+],
+"界": [
+[
+"world",
+false
+],
+[
+"boundary",
+false
+]
+],
+"特": [
+[
+"special",
+false
+],
+[
+"especially",
+true
+]
+],
+"主": [
+[
+"main",
+false
+],
+[
+"mainly",
+true
+],
+[
+"owner",
+true
+]
+],
+"表": [
+[
+"express",
+true
+],
+[
+"table",
+true
+],
+[
+"front",
+true
+],
+[
+"surface",
+false
+]
+],
+"信": [
+[
+"message",
+false
+],
+[
+"trust",
+false
+],
+[
+"believe",
+true
+]
+],
+"東": [
+[
+"east",
+true
+]
+],
+"品": [
+[
+"goods",
+true
+],
+[
+"elegance",
+true
+]
+],
+"電": [
+[
+"electric",
+false
+]
+],
+"聞": [
+[
+"hear",
+true
+],
+[
+"ask",
+true
+]
+],
+"選": [
+[
+"choose",
+true
+],
+[
+"election",
+false
+]
+],
+"終": [
+[
+"end",
+true
+]
+],
+"題": [
+[
+"topic",
+false
+],
+[
+"title",
+true
+]
+],
+"悪": [
+[
+"bad",
+true
+],
+[
+"evil",
+true
+]
+],
+"必": [
+[
+"must",
+false
+],
+[
+"surely",
+true
+]
+],
+"正": [
+[
+"correct",
+true
+],
+[
+"proper",
+false
+],
+[
+"regular",
+false
+]
+],
+"二": [
+[
+"two",
+true
+]
+],
+"強": [
+[
+"strong",
+true
+],
+[
+"force",
+false
+],
+[
+"a little over",
+false
+]
+],
+"男": [
+[
+"man",
+true
+]
+],
+"続": [
+[
+"continue",
+true
+]
+],
+"真": [
+[
+"true",
+false
+],
+[
+"exactly",
+false
+]
+],
+"死": [
+[
+"die",
+true
+],
+[
+"death",
+true
+]
+],
+"道": [
+[
+"road",
+true
+],
+[
+"way",
+false
+]
+],
+"料": [
+[
+"fee",
+false
+],
+[
+"materials",
+false
+]
+],
+"決": [
+[
+"decide",
+true
+],
+[
+"final",
+false
+]
+],
+"語": [
+[
+"language",
+false
+],
+[
+"word",
+false
+],
+[
+"tell",
+true
+]
+],
+"他": [
+[
+"other",
+true
+]
+],
+"可": [
+[
+"possible",
+false
+],
+[
+"allowed",
+false
+]
+],
+"野": [
+[
+"field",
+false
+],
+[
+"wild",
+false
+]
+],
+"確": [
+[
+"confirm",
+false
+],
+[
+"sure",
+true
+]
+],
+"文": [
+[
+"writing",
+false
+],
+[
+"sentence",
+true
+]
+],
+"相": [
+[
+"mutual",
+false
+],
+[
+"minister",
+false
+]
+],
+"美": [
+[
+"beautiful",
+true
+]
+],
+"情": [
+[
+"feeling",
+false
+],
+[
+"circumstances",
+false
+]
+],
+"水": [
+[
+"water",
+true
+]
+],
+"向": [
+[
+"for",
+false
+],
+[
+"face",
+true
+],
+[
+"direction",
+false
+],
+[
+"beyond",
+true
+]
+],
+"切": [
+[
+"cut",
+true
+],
+[
+"keen",
+false
+]
+],
+"愛": [
+[
+"love",
+true
+]
+],
+"身": [
+[
+"body",
+true
+],
+[
+"oneself",
+true
+]
+],
+"受": [
+[
+"receive",
+true
+],
+[
+"take",
+false
+]
+],
+"円": [
+[
+"yen",
+true
+],
+[
+"circle",
+true
+]
+],
+"集": [
+[
+"gather",
+true
+],
+[
+"collection",
+false
+]
+],
+"別": [
+[
+"another",
+true
+],
+[
+"distinction",
+false
+],
+[
+"part",
+true
+]
+],
+"始": [
+[
+"begin",
+true
+]
+],
+"達": [
+[
+"plural",
+false
+],
+[
+"reach",
+false
+]
+],
+"彼": [
+[
+"he",
+true
+],
+[
+"boyfriend",
+true
+]
+],
+"元": [
+[
+"origin",
+true
+],
+[
+"former",
+false
+],
+[
+"base",
+false
+]
+],
+"在": [
+[
+"exist",
+false
+],
+[
+"residing",
+false
+]
+],
+"活": [
+[
+"living",
+false
+],
+[
+"activity",
+false
+],
+[
+"lively",
+false
+]
+],
+"買": [
+[
+"buy",
+true
+]
+],
+"着": [
+[
+"wear",
+true
+],
+[
+"arrive",
+true
+],
+[
+"garments",
+false
+]
+],
+"重": [
+[
+"heavy",
+true
+],
+[
+"important",
+false
+]
+],
+"三": [
+[
+"three",
+true
+]
+],
+"引": [
+[
+"pull",
+true
+],
+[
+"discount",
+false
+]
+],
+"位": [
+[
+"rank",
+false
+],
+[
+"position",
+false
+],
+[
+"about",
+true
+]
+],
+"過": [
+[
+"pass",
+true
+],
+[
+"over-",
+false
+],
+[
+"spend",
+true
+]
+],
+"有": [
+[
+"have",
+false
+]
+],
+"次": [
+[
+"next",
+true
+],
+[
+"order",
+false
+]
+],
+"海": [
+[
+"sea",
+true
+]
+],
+"保": [
+[
+"keep",
+true
+],
+[
+"protect",
+false
+]
+],
+"経": [
+[
+"pass",
+false
+],
+[
+"manage",
+false
+],
+[
+"via",
+true
+],
+[
+"sutra",
+true
+]
+],
+"送": [
+[
+"send",
+true
+]
+],
+"点": [
+[
+"point",
+true
+],
+[
+"spot",
+false
+]
+],
+"原": [
+[
+"origin",
+false
+],
+[
+"atomic",
+false
+],
+[
+"raw",
+false
+],
+[
+"field",
+true
+]
+],
+"利": [
+[
+"advantage",
+false
+],
+[
+"profit",
+false
+]
+],
+"調": [
+[
+"investigate",
+true
+],
+[
+"condition",
+false
+],
+[
+"tone",
+false
+],
+[
+"adjust",
+false
+]
+],
+"制": [
+[
+"control",
+false
+],
+[
+"system",
+false
+]
+],
+"万": [
+[
+"ten thousand",
+true
+],
+[
+"all",
+false
+]
+],
+"白": [
+[
+"white",
+true
+]
+],
+"式": [
+[
+"ceremony",
+true
+],
+[
+"style",
+false
+],
+[
+"form",
+false
+]
+],
+"第": [
+[
+"ordinal",
+false
+]
+],
+"屋": [
+[
+"shop",
+false
+],
+[
+"house",
+false
+],
+[
+"roof",
+false
+]
+],
+"限": [
+[
+"limit",
+true
+]
+],
+"設": [
+[
+"set up",
+false
+]
+],
+"民": [
+[
+"people",
+false
+]
+],
+"直": [
+[
+"honest",
+false
+],
+[
+"direct",
+true
+],
+[
+"right",
+false
+],
+[
+"fix",
+true
+]
+],
+"起": [
+[
+"get up",
+true
+],
+[
+"happen",
+true
+],
+[
+"wake",
+true
+],
+[
+"raise",
+false
+]
+],
+"待": [
+[
+"wait",
+true
+],
+[
+"treat",
+false
+]
+],
+"勝": [
+[
+"win",
+true
+]
+],
+"組": [
+[
+"group",
+true
+],
+[
+"class",
+true
+],
+[
+"put together",
+true
+]
+],
+"得": [
+[
+"get",
+true
+],
+[
+"profit",
+true
+],
+[
+"can",
+false
+]
+],
+"果": [
+[
+"result",
+false
+],
+[
+"fruit",
+false
+],
+[
+"carry out",
+true
+]
+],
+"店": [
+[
+"shop",
+true
+]
+],
+"込": [
+[
+"into",
+false
+],
+[
+"included",
+false
+],
+[
+"crowded",
+true
+]
+],
+"運": [
+[
+"operate",
+false
+],
+[
+"luck",
+true
+],
+[
+"carry",
+true
+]
+],
+"色": [
+[
+"color",
+true
+]
+],
+"放": [
+[
+"release",
+false
+],
+[
+"broadcast",
+false
+],
+[
+"all you can",
+false
+]
+],
+"県": [
+[
+"prefecture",
+true
+]
+],
+"指": [
+[
+"point",
+true
+],
+[
+"finger",
+true
+],
+[
+"instruct",
+false
+]
+],
+"約": [
+[
+"about",
+true
+],
+[
+"promise",
+false
+],
+[
+"shorten",
+false
+]
+],
+"流": [
+[
+"flow",
+true
+],
+[
+"style",
+false
+]
+],
+"予": [
+[
+"beforehand",
+false
+]
+],
+"置": [
+[
+"put",
+true
+],
+[
+"placement",
+false
+]
+],
+"認": [
+[
+"recognize",
+true
+],
+[
+"approve",
+false
+]
+],
+"読": [
+[
+"read",
+true
+]
+],
+"状": [
+[
+"condition",
+false
+],
+[
+"letter",
+false
+],
+[
+"shape",
+false
+]
+],
+"参": [
+[
+"join",
+false
+],
+[
+"refer to",
+false
+],
+[
+"shrine visit",
+false
+],
+[
+"go (humble)",
+true
+]
+],
+"京": [
+[
+"capital",
+false
+]
+],
+"政": [
+[
+"politics",
+false
+]
+],
+"川": [
+[
+"river",
+true
+]
+],
+"応": [
+[
+"respond",
+false
+],
+[
+"apply",
+false
+]
+],
+"音": [
+[
+"sound",
+true
+]
+],
+"誰": [
+[
+"who",
+true
+]
+],
+"口": [
+[
+"mouth",
+true
+],
+[
+"opening",
+false
+]
+],
+"校": [
+[
+"school",
+false
+]
+],
+"島": [
+[
+"island",
+true
+]
+],
+"系": [
+[
+"type",
+false
+],
+[
+"lineage",
+false
+],
+[
+"system",
+false
+]
+],
+"残": [
+[
+"remain",
+true
+],
+[
+"leave",
+true
+],
+[
+"cruel",
+false
+]
+],
+"件": [
+[
+"matter",
+true
+],
+[
+"cases",
+false
+]
+],
+"産": [
+[
+"produce",
+false
+],
+[
+"property",
+false
+],
+[
+"made in",
+false
+],
+[
+"give birth",
+true
+]
+],
+"配": [
+[
+"distribute",
+true
+],
+[
+"deliver",
+false
+],
+[
+"arrange",
+false
+]
+],
+"天": [
+[
+"heaven",
+true
+],
+[
+"sky",
+true
+],
+[
+"weather",
+false
+]
+],
+"平": [
+[
+"peace",
+false
+],
+[
+"even",
+false
+],
+[
+"flat",
+true
+],
+[
+"ordinary",
+false
+]
+],
+"想": [
+[
+"idea",
+false
+],
+[
+"imagine",
+false
+]
+],
+"進": [
+[
+"advance",
+true
+]
+],
+"常": [
+[
+"usual",
+false
+],
+[
+"always",
+true
+]
+],
+"計": [
+[
+"plan",
+false
+],
+[
+"measure",
+true
+],
+[
+"total",
+false
+]
+],
+"素": [
+[
+"element",
+false
+],
+[
+"plain",
+false
+],
+[
+"true self",
+true
+]
+],
+"優": [
+[
+"excel",
+false
+],
+[
+"actor",
+false
+],
+[
+"gentle",
+true
+]
+],
+"欲": [
+[
+"want",
+true
+],
+[
+"desire",
+true
+]
+],
+"由": [
+[
+"reason",
+false
+]
+],
+"空": [
+[
+"sky",
+true
+],
+[
+"air",
+false
+],
+[
+"empty",
+true
+]
+],
+"議": [
+[
+"discuss",
+false
+],
+[
+"parliament",
+false
+]
+],
+"説": [
+[
+"explain",
+false
+],
+[
+"theory",
+true
+],
+[
+"tale",
+false
+]
+],
+"際": [
+[
+"occasion",
+true
+],
+[
+"edge",
+false
+]
+],
+"像": [
+[
+"image",
+false
+],
+[
+"statue",
+true
+]
+],
+"風": [
+[
+"wind",
+true
+],
+[
+"way",
+true
+],
+[
+"style",
+false
+]
+],
+"落": [
+[
+"fall",
+true
+],
+[
+"drop",
+true
+]
+],
+"士": [
+[
+"professional",
+false
+],
+[
+"warrior",
+false
+]
+],
+"止": [
+[
+"stop",
+true
+]
+],
+"然": [
+[
+"so",
+false
+],
+[
+"-ly",
+false
+]
+],
+"足": [
+[
+"foot",
+true
+],
+[
+"enough",
+true
+],
+[
+"pairs",
+false
+],
+[
+"add",
+true
+]
+],
+"単": [
+[
+"simple",
+false
+],
+[
+"single",
+false
+],
+[
+"merely",
+true
+],
+[
+"unit",
+false
+]
+],
+"伝": [
+[
+"convey",
+true
+],
+[
+"legend",
+false
+],
+[
+"tradition",
+false
+]
+],
+"映": [
+[
+"project",
+false
+],
+[
+"reflect",
+true
+]
+],
+"線": [
+[
+"line",
+true
+]
+],
+"消": [
+[
+"consume",
+false
+],
+[
+"erase",
+true
+],
+[
+"disappear",
+true
+],
+[
+"put out",
+true
+]
+],
+"早": [
+[
+"early",
+true
+],
+[
+"fast",
+true
+]
+],
+"務": [
+[
+"duty",
+false
+],
+[
+"serve as",
+true
+]
+],
+"演": [
+[
+"perform",
+false
+],
+[
+"act",
+true
+]
+],
+"声": [
+[
+"voice",
+true
+]
+],
+"格": [
+[
+"standard",
+false
+],
+[
+"character",
+false
+],
+[
+"status",
+true
+]
+],
+"友": [
+[
+"friend",
+true
+]
+],
+"係": [
+[
+"connection",
+false
+],
+[
+"in charge",
+true
+]
+],
+"反": [
+[
+"against",
+false
+],
+[
+"back",
+false
+]
+],
+"殺": [
+[
+"kill",
+true
+]
+],
+"質": [
+[
+"question",
+false
+],
+[
+"substance",
+false
+],
+[
+"quality",
+true
+],
+[
+"nature",
+false
+]
+],
+"夫": [
+[
+"husband",
+true
+],
+[
+"man",
+false
+]
+],
+"頭": [
+[
+"head",
+true
+],
+[
+"front",
+false
+],
+[
+"large animals",
+false
+]
+],
+"葉": [
+[
+"leaf",
+true
+]
+],
+"木": [
+[
+"tree",
+true
+],
+[
+"wood",
+true
+]
+],
+"和": [
+[
+"peace",
+false
+],
+[
+"Japanese",
+false
+],
+[
+"harmony",
+true
+]
+],
+"飲": [
+[
+"drink",
+true
+]
+],
+"北": [
+[
+"north",
+true
+]
+],
+"乗": [
+[
+"ride",
+true
+]
+],
+"供": [
+[
+"offer",
+false
+]
+],
+"治": [
+[
+"govern",
+false
+],
+[
+"heal",
+true
+]
+],
+"転": [
+[
+"turn",
+false
+],
+[
+"shift",
+false
+],
+[
+"fall over",
+true
+]
+],
+"僕": [
+[
+"I",
+true
+]
+],
+"撃": [
+[
+"attack",
+false
+],
+[
+"shoot",
+true
+]
+],
+"登": [
+[
+"climb",
+true
+],
+[
+"register",
+false
+]
+],
+"交": [
+[
+"exchange",
+false
+],
+[
+"cross",
+false
+],
+[
+"associate",
+false
+]
+],
+"半": [
+[
+"half",
+false
+],
+[
+"semi-",
+false
+]
+],
+"広": [
+[
+"wide",
+true
+],
+[
+"spread",
+true
+]
+],
+"台": [
+[
+"machines",
+false
+],
+[
+"stand",
+true
+],
+[
+"stage",
+false
+],
+[
+"range",
+false
+]
+],
+"親": [
+[
+"parent",
+true
+],
+[
+"close",
+true
+],
+[
+"relative",
+false
+]
+],
+"夜": [
+[
+"night",
+true
+]
+],
+"都": [
+[
+"metropolis",
+false
+],
+[
+"capital",
+false
+]
+],
+"個": [
+[
+"individual",
+false
+],
+[
+"small things",
+false
+]
+],
+"帰": [
+[
+"go home",
+true
+],
+[
+"return",
+false
+]
+],
+"共": [
+[
+"together",
+true
+],
+[
+"both",
+false
+]
+],
+"張": [
+[
+"stretch",
+true
+],
+[
+"insist",
+false
+]
+],
+"形": [
+[
+"shape",
+true
+],
+[
+"form",
+false
+]
+],
+"録": [
+[
+"record",
+false
+]
+],
+"完": [
+[
+"complete",
+false
+]
+],
+"存": [
+[
+"exist",
+false
+],
+[
+"keep",
+false
+],
+[
+"know (humble)",
+true
+]
+],
+"価": [
+[
+"value",
+false
+],
+[
+"price",
+false
+]
+],
+"基": [
+[
+"base",
+false
+],
+[
+"based on",
+true
+]
+],
+"支": [
+[
+"support",
+true
+],
+[
+"pay",
+false
+],
+[
+"branch",
+false
+]
+],
+"願": [
+[
+"request",
+true
+],
+[
+"wish",
+true
+]
+],
+"覚": [
+[
+"sense",
+false
+],
+[
+"remember",
+true
+],
+[
+"aware",
+false
+],
+[
+"wake",
+true
+]
+],
+"増": [
+[
+"increase",
+true
+]
+],
+"投": [
+[
+"throw",
+true
+],
+[
+"post",
+false
+],
+[
+"vote",
+false
+],
+[
+"invest",
+false
+]
+],
+"判": [
+[
+"judge",
+false
+],
+[
+"seal",
+true
+]
+],
+"王": [
+[
+"king",
+true
+]
+],
+"示": [
+[
+"show",
+true
+]
+],
+"害": [
+[
+"harm",
+true
+]
+],
+"念": [
+[
+"thought",
+false
+],
+[
+"care",
+true
+]
+],
+"術": [
+[
+"technique",
+true
+],
+[
+"art",
+false
+]
+],
+"顔": [
+[
+"face",
+true
+]
+],
+"呼": [
+[
+"call",
+true
+],
+[
+"breathe",
+false
+]
+],
+"態": [
+[
+"condition",
+false
+],
+[
+"attitude",
+false
+]
+],
+"失": [
+[
+"lose",
+true
+]
+],
+"笑": [
+[
+"laugh",
+true
+],
+[
+"lol",
+true
+],
+[
+"smile",
+false
+]
+],
+"型": [
+[
+"type",
+false
+],
+[
+"mold",
+true
+]
+],
+"絶": [
+[
+"absolute",
+false
+],
+[
+"cut off",
+false
+],
+[
+"extreme",
+false
+]
+],
+"難": [
+[
+"difficult",
+true
+],
+[
+"trouble",
+false
+],
+[
+"disaster",
+false
+]
+],
+"返": [
+[
+"return",
+true
+],
+[
+"reply",
+false
+]
+],
+"育": [
+[
+"raise",
+true
+],
+[
+"grow up",
+true
+]
+],
+"構": [
+[
+"structure",
+false
+],
+[
+"stance",
+false
+]
+],
+"容": [
+[
+"contain",
+false
+],
+[
+"looks",
+false
+],
+[
+"allow",
+false
+]
+],
+"命": [
+[
+"life",
+true
+],
+[
+"command",
+false
+],
+[
+"fate",
+false
+]
+],
+"朝": [
+[
+"morning",
+true
+],
+[
+"dynasty",
+false
+]
+],
+"告": [
+[
+"report",
+false
+],
+[
+"announce",
+false
+],
+[
+"accuse",
+false
+]
+],
+"再": [
+[
+"re-",
+false
+],
+[
+"again",
+true
+]
+],
+"写": [
+[
+"photo",
+false
+],
+[
+"copy",
+true
+]
+],
+"権": [
+[
+"right",
+false
+],
+[
+"power",
+false
+]
+],
+"試": [
+[
+"try",
+true
+],
+[
+"test",
+false
+]
+],
+"追": [
+[
+"additional",
+false
+],
+[
+"chase",
+true
+]
+],
+"影": [
+[
+"shadow",
+true
+],
+[
+"image",
+false
+]
+],
+"等": [
+[
+"etc.",
+true
+],
+[
+"equal",
+true
+],
+[
+"grade",
+false
+]
+],
+"検": [
+[
+"examine",
+false
+]
+],
+"観": [
+[
+"watch",
+true
+],
+[
+"outlook",
+false
+]
+],
+"量": [
+[
+"amount",
+true
+]
+],
+"備": [
+[
+"prepare",
+true
+],
+[
+"equip",
+false
+]
+],
+"号": [
+[
+"number",
+false
+],
+[
+"sign",
+false
+]
+],
+"工": [
+[
+"craft",
+false
+],
+[
+"construction",
+false
+]
+],
+"週": [
+[
+"week",
+true
+]
+],
+"太": [
+[
+"great",
+false
+],
+[
+"thick",
+true
+],
+[
+"fat",
+true
+],
+[
+"big",
+false
+]
+],
+"軍": [
+[
+"army",
+true
+],
+[
+"military",
+false
+]
+],
+"探": [
+[
+"search",
+true
+],
+[
+"explore",
+false
+],
+[
+"probe",
+true
+]
+],
+"義": [
+[
+"principle",
+false
+],
+[
+"justice",
+false
+],
+[
+"duty",
+false
+],
+[
+"meaning",
+false
+],
+[
+"in-law",
+false
+]
+],
+"装": [
+[
+"equip",
+false
+],
+[
+"dress",
+false
+],
+[
+"costume",
+false
+],
+[
+"pretend",
+true
+]
+],
+"緒": [
+[
+"together",
+false
+],
+[
+"cord",
+false
+],
+[
+"beginning",
+false
+],
+[
+"feeling",
+false
+]
+],
+"断": [
+[
+"decide",
+false
+],
+[
+"cut off",
+true
+],
+[
+"refuse",
+true
+]
+],
+"光": [
+[
+"light",
+true
+],
+[
+"scenery",
+false
+],
+[
+"shine",
+true
+]
+],
+"曲": [
+[
+"song",
+true
+],
+[
+"tune",
+false
+],
+[
+"bend",
+true
+],
+[
+"curve",
+false
+]
+],
+"企": [
+[
+"undertake",
+false
+],
+[
+"plan",
+true
+],
+[
+"scheme",
+true
+]
+],
+"住": [
+[
+"live",
+true
+],
+[
+"dwell",
+false
+]
+],
+"種": [
+[
+"kind",
+false
+],
+[
+"seed",
+true
+],
+[
+"species",
+false
+]
+],
+"収": [
+[
+"take in",
+true
+],
+[
+"income",
+false
+],
+[
+"collect",
+false
+],
+[
+"store",
+false
+]
+],
+"器": [
+[
+"tool",
+false
+],
+[
+"device",
+false
+],
+[
+"vessel",
+true
+],
+[
+"capacity",
+false
+]
+],
+"町": [
+[
+"town",
+true
+],
+[
+"neighborhood",
+false
+]
+],
+"論": [
+[
+"argument",
+true
+],
+[
+"theory",
+true
+],
+[
+"discuss",
+false
+]
+],
+"験": [
+[
+"test",
+false
+],
+[
+"experience",
+false
+]
+],
+"査": [
+[
+"investigate",
+false
+],
+[
+"inspect",
+false
+]
+],
+"石": [
+[
+"stone",
+true
+]
+],
+"歳": [
+[
+"years old",
+false
+],
+[
+"age",
+false
+],
+[
+"year",
+false
+]
+],
+"営": [
+[
+"operate",
+true
+],
+[
+"run",
+true
+],
+[
+"camp",
+false
+]
+],
+"古": [
+[
+"old",
+true
+],
+[
+"ancient",
+false
+]
+],
+"西": [
+[
+"west",
+true
+]
+],
+"君": [
+[
+"you",
+true
+],
+[
+"lord",
+false
+]
+],
+"任": [
+[
+"duty",
+false
+],
+[
+"post",
+false
+],
+[
+"entrust",
+true
+],
+[
+"term",
+false
+]
+],
+"役": [
+[
+"role",
+true
+],
+[
+"office",
+false
+],
+[
+"service",
+false
+],
+[
+"use",
+true
+]
+],
+"土": [
+[
+"soil",
+true
+],
+[
+"land",
+false
+],
+[
+"Saturday",
+false
+],
+[
+"earth",
+false
+]
+],
+"周": [
+[
+"around",
+false
+],
+[
+"anniversary",
+false
+],
+[
+"lap",
+false
+],
+[
+"cycle",
+false
+]
+],
+"字": [
+[
+"character",
+true
+],
+[
+"letter",
+false
+],
+[
+"figure",
+false
+]
+],
+"護": [
+[
+"protect",
+false
+],
+[
+"guard",
+false
+]
+],
+"職": [
+[
+"job",
+true
+],
+[
+"post",
+false
+]
+],
+"病": [
+[
+"illness",
+true
+],
+[
+"disease",
+false
+],
+[
+"sick",
+true
+]
+],
+"段": [
+[
+"step",
+true
+],
+[
+"level",
+true
+],
+[
+"means",
+false
+],
+[
+"stage",
+false
+]
+],
+"婚": [
+[
+"marriage",
+false
+]
+],
+"技": [
+[
+"skill",
+false
+],
+[
+"technique",
+true
+],
+[
+"move",
+true
+]
+],
+"奴": [
+[
+"guy",
+true
+],
+[
+"slave",
+false
+]
+],
+"嫌": [
+[
+"dislike",
+true
+],
+[
+"unpleasant",
+true
+],
+[
+"hate",
+true
+]
+],
+"院": [
+[
+"hospital",
+false
+],
+[
+"institution",
+false
+],
+[
+"house",
+false
+],
+[
+"temple",
+false
+]
+],
+"版": [
+[
+"edition",
+true
+],
+[
+"version",
+true
+],
+[
+"print",
+false
+]
+],
+"視": [
+[
+"look at",
+false
+],
+[
+"regard as",
+false
+],
+[
+"sight",
+false
+]
+],
+"超": [
+[
+"super",
+true
+],
+[
+"exceed",
+true
+],
+[
+"over",
+false
+]
+],
+"注": [
+[
+"attention",
+false
+],
+[
+"pour",
+true
+],
+[
+"order",
+false
+],
+[
+"note",
+true
+]
+],
+"毎": [
+[
+"every",
+false
+]
+],
+"歌": [
+[
+"song",
+true
+],
+[
+"sing",
+true
+]
+],
+"普": [
+[
+"ordinary",
+false
+],
+[
+"common",
+false
+],
+[
+"widespread",
+false
+]
+],
+"十": [
+[
+"ten",
+true
+]
+],
+"速": [
+[
+"fast",
+true
+],
+[
+"speed",
+false
+]
+],
+"望": [
+[
+"hope",
+true
+],
+[
+"wish",
+true
+],
+[
+"view",
+false
+]
+],
+"母": [
+[
+"mother",
+true
+]
+],
+"資": [
+[
+"capital",
+false
+],
+[
+"resources",
+false
+],
+[
+"funds",
+false
+],
+[
+"materials",
+false
+]
+],
+"花": [
+[
+"flower",
+true
+],
+[
+"blossom",
+false
+]
+],
+"非": [
+[
+"non-",
+false
+],
+[
+"not",
+false
+],
+[
+"wrong",
+true
+],
+[
+"fault",
+true
+]
+],
+"側": [
+[
+"side",
+true
+],
+[
+"beside",
+true
+]
+],
+"馬": [
+[
+"horse",
+true
+]
+],
+"値": [
+[
+"price",
+true
+],
+[
+"value",
+true
+],
+[
+"worth",
+true
+]
+],
+"更": [
+[
+"change",
+false
+],
+[
+"renew",
+false
+],
+[
+"further",
+true
+],
+[
+"anew",
+false
+]
+],
+"団": [
+[
+"group",
+false
+],
+[
+"team",
+false
+],
+[
+"round",
+false
+]
+],
+"歩": [
+[
+"step",
+false
+],
+[
+"walk",
+true
+]
+],
+"園": [
+[
+"garden",
+false
+],
+[
+"park",
+false
+],
+[
+"kindergarten",
+true
+]
+],
+"魔": [
+[
+"magic",
+false
+],
+[
+"demon",
+true
+],
+[
+"evil",
+false
+]
+],
+"載": [
+[
+"publish",
+true
+],
+[
+"carry",
+false
+],
+[
+"load",
+true
+]
+],
+"区": [
+[
+"ward",
+true
+],
+[
+"district",
+false
+],
+[
+"divide",
+false
+],
+[
+"section",
+false
+]
+],
+"村": [
+[
+"village",
+true
+]
+],
+"求": [
+[
+"seek",
+true
+],
+[
+"demand",
+false
+],
+[
+"request",
+false
+]
+],
+"象": [
+[
+"image",
+false
+],
+[
+"phenomenon",
+false
+],
+[
+"elephant",
+true
+]
+],
+"氏": [
+[
+"Mr.",
+false
+],
+[
+"clan",
+false
+],
+[
+"surname",
+false
+]
+],
+"飛": [
+[
+"fly",
+true
+],
+[
+"skip",
+true
+]
+],
+"未": [
+[
+"not yet",
+false
+]
+],
+"急": [
+[
+"sudden",
+true
+],
+[
+"urgent",
+true
+],
+[
+"hurry",
+true
+],
+[
+"steep",
+true
+],
+[
+"express",
+false
+]
+],
+"効": [
+[
+"effect",
+false
+],
+[
+"work",
+true
+],
+[
+"valid",
+false
+]
+],
+"離": [
+[
+"separate",
+true
+],
+[
+"leave",
+true
+],
+[
+"distance",
+false
+]
+],
+"規": [
+[
+"rule",
+false
+],
+[
+"standard",
+false
+],
+[
+"regular",
+false
+],
+[
+"measure",
+false
+]
+],
+"済": [
+[
+"economy",
+false
+],
+[
+"finish",
+true
+],
+[
+"settle",
+false
+],
+[
+"relieve",
+false
+]
+],
+"福": [
+[
+"fortune",
+true
+],
+[
+"welfare",
+false
+],
+[
+"happiness",
+false
+]
+],
+"科": [
+[
+"department",
+true
+],
+[
+"subject",
+false
+],
+[
+"science",
+false
+]
+],
+"製": [
+[
+"made",
+false
+],
+[
+"manufacture",
+false
+]
+],
+"師": [
+[
+"expert",
+false
+],
+[
+"teacher",
+false
+],
+[
+"master",
+false
+]
+],
+"族": [
+[
+"family",
+false
+],
+[
+"tribe",
+true
+],
+[
+"clan",
+false
+],
+[
+"gang",
+true
+]
+],
+"提": [
+[
+"offer",
+false
+],
+[
+"present",
+false
+],
+[
+"propose",
+false
+],
+[
+"carry",
+true
+]
+],
+"例": [
+[
+"example",
+true
+],
+[
+"usual",
+true
+],
+[
+"precedent",
+false
+],
+[
+"custom",
+false
+]
+],
+"割": [
+[
+"rate",
+true
+],
+[
+"ten percent",
+true
+],
+[
+"divide",
+true
+],
+[
+"break",
+true
+],
+[
+"discount",
+false
+],
+[
+"share",
+false
+]
+],
+"働": [
+[
+"work",
+true
+],
+[
+"labor",
+false
+]
+],
+"移": [
+[
+"move",
+true
+],
+[
+"shift",
+true
+],
+[
+"transfer",
+false
+]
+],
+"撮": [
+[
+"photograph",
+true
+]
+],
+"黒": [
+[
+"black",
+true
+]
+],
+"証": [
+[
+"proof",
+true
+],
+[
+"evidence",
+false
+],
+[
+"certificate",
+false
+],
+[
+"guarantee",
+false
+]
+],
+"細": [
+[
+"detail",
+false
+],
+[
+"fine",
+true
+],
+[
+"thin",
+true
+],
+[
+"small",
+false
+]
+],
+"居": [
+[
+"be",
+true
+],
+[
+"reside",
+false
+],
+[
+"stay",
+false
+]
+],
+"警": [
+[
+"police",
+false
+],
+[
+"warn",
+false
+],
+[
+"guard",
+false
+]
+],
+"英": [
+[
+"English",
+false
+],
+[
+"hero",
+false
+],
+[
+"excellent",
+false
+]
+],
+"丈": [
+[
+"sturdy",
+false
+],
+[
+"height",
+true
+],
+[
+"length",
+true
+]
+],
+"休": [
+[
+"rest",
+true
+],
+[
+"holiday",
+true
+],
+[
+"day off",
+false
+]
+],
+"球": [
+[
+"ball",
+true
+],
+[
+"sphere",
+true
+],
+[
+"earth",
+false
+],
+[
+"pitch",
+false
+]
+],
+"低": [
+[
+"low",
+true
+]
+],
+"負": [
+[
+"lose",
+true
+],
+[
+"bear",
+true
+],
+[
+"burden",
+false
+],
+[
+"injury",
+false
+],
+[
+"owe",
+true
+]
+],
+"満": [
+[
+"full",
+true
+],
+[
+"satisfy",
+true
+]
+],
+"介": [
+[
+"introduce",
+false
+],
+[
+"mediate",
+false
+],
+[
+"care",
+false
+],
+[
+"shellfish",
+false
+]
+],
+"率": [
+[
+"rate",
+true
+],
+[
+"ratio",
+true
+],
+[
+"lead",
+true
+]
+],
+"識": [
+[
+"knowledge",
+false
+],
+[
+"consciousness",
+false
+],
+[
+"discern",
+false
+]
+],
+"類": [
+[
+"kind",
+true
+],
+[
+"sort",
+true
+],
+[
+"class",
+false
+]
+],
+"室": [
+[
+"room",
+false
+]
+],
+"米": [
+[
+"rice",
+true
+]
+],
+"父": [
+[
+"father",
+true
+]
+],
+"駅": [
+[
+"station",
+true
+]
+],
+"火": [
+[
+"fire",
+true
+],
+[
+"Tuesday",
+false
+]
+],
+"異": [
+[
+"different",
+true
+],
+[
+"strange",
+false
+],
+[
+"abnormal",
+false
+]
+],
+"攻": [
+[
+"attack",
+true
+],
+[
+"offense",
+false
+],
+[
+"major",
+false
+]
+],
+"接": [
+[
+"contact",
+true
+],
+[
+"connect",
+false
+],
+[
+"join",
+false
+],
+[
+"approach",
+false
+]
+],
+"改": [
+[
+"reform",
+false
+],
+[
+"change",
+true
+],
+[
+"revise",
+true
+],
+[
+"inspect",
+false
+]
+],
+"統": [
+[
+"unite",
+false
+],
+[
+"govern",
+false
+],
+[
+"lineage",
+false
+]
+],
+"官": [
+[
+"official",
+false
+],
+[
+"government",
+false
+],
+[
+"organ",
+false
+]
+],
+"訳": [
+[
+"reason",
+true
+],
+[
+"translate",
+true
+],
+[
+"excuse",
+false
+],
+[
+"meaning",
+false
+]
+],
+"程": [
+[
+"extent",
+true
+],
+[
+"degree",
+false
+],
+[
+"process",
+false
+],
+[
+"about",
+true
+]
+],
+"争": [
+[
+"conflict",
+false
+],
+[
+"compete",
+true
+],
+[
+"fight",
+true
+],
+[
+"dispute",
+false
+]
+],
+"頃": [
+[
+"time",
+true
+],
+[
+"around",
+true
+]
+],
+"去": [
+[
+"past",
+false
+],
+[
+"leave",
+true
+],
+[
+"remove",
+false
+],
+[
+"last",
+false
+]
+],
+"井": [
+[
+"well",
+false
+]
+],
+"隊": [
+[
+"squad",
+false
+],
+[
+"troop",
+false
+],
+[
+"unit",
+false
+]
+],
+"復": [
+[
+"restore",
+false
+],
+[
+"return",
+false
+],
+[
+"recover",
+false
+],
+[
+"repeat",
+false
+]
+],
+"深": [
+[
+"deep",
+true
+],
+[
+"late",
+false
+],
+[
+"serious",
+false
+]
+],
+"藤": [
+[
+"wisteria",
+true
+]
+],
+"派": [
+[
+"faction",
+false
+],
+[
+"send",
+false
+],
+[
+"school",
+false
+]
+],
+"医": [
+[
+"medicine",
+false
+],
+[
+"doctor",
+true
+]
+],
+"展": [
+[
+"exhibition",
+false
+],
+[
+"unfold",
+false
+],
+[
+"develop",
+false
+]
+],
+"総": [
+[
+"total",
+false
+],
+[
+"general",
+false
+],
+[
+"overall",
+false
+],
+[
+"all",
+false
+]
+],
+"造": [
+[
+"build",
+true
+],
+[
+"make",
+true
+],
+[
+"structure",
+false
+]
+],
+"抜": [
+[
+"pull out",
+true
+],
+[
+"without",
+true
+],
+[
+"omit",
+false
+],
+[
+"surpass",
+false
+]
+],
+"助": [
+[
+"help",
+true
+],
+[
+"rescue",
+false
+],
+[
+"assist",
+false
+]
+],
+"門": [
+[
+"field",
+false
+],
+[
+"gate",
+true
+]
+],
+"寝": [
+[
+"sleep",
+true
+],
+[
+"go to bed",
+true
+],
+[
+"lie down",
+true
+]
+],
+"研": [
+[
+"research",
+false
+],
+[
+"polish",
+false
+],
+[
+"sharpen",
+true
+]
+],
+"皆": [
+[
+"everyone",
+true
+],
+[
+"all",
+true
+]
+],
+"与": [
+[
+"give",
+true
+],
+[
+"involve",
+false
+],
+[
+"grant",
+false
+]
+],
+"星": [
+[
+"star",
+true
+],
+[
+"planet",
+false
+]
+],
+"比": [
+[
+"compare",
+true
+],
+[
+"ratio",
+true
+]
+],
+"赤": [
+[
+"red",
+true
+],
+[
+"baby",
+false
+]
+],
+"突": [
+[
+"sudden",
+false
+],
+[
+"thrust",
+true
+],
+[
+"break through",
+false
+],
+[
+"collide",
+false
+]
+],
+"了": [
+[
+"finish",
+false
+],
+[
+"understand",
+false
+]
+],
+"岡": [
+[
+"hill",
+false
+]
+],
+"為": [
+[
+"for",
+true
+],
+[
+"act",
+false
+],
+[
+"do",
+true
+],
+[
+"exchange",
+false
+]
+],
+"催": [
+[
+"hold",
+true
+],
+[
+"host",
+false
+],
+[
+"induce",
+false
+]
+],
+"故": [
+[
+"accident",
+false
+],
+[
+"reason",
+true
+],
+[
+"the late",
+true
+],
+[
+"old",
+false
+]
+],
+"処": [
+[
+"deal with",
+false
+],
+[
+"process",
+false
+],
+[
+"place",
+false
+]
+],
+"守": [
+[
+"protect",
+true
+],
+[
+"keep",
+true
+],
+[
+"defend",
+false
+],
+[
+"guard",
+false
+]
+],
+"打": [
+[
+"hit",
+true
+],
+[
+"strike",
+true
+],
+[
+"type",
+true
+],
+[
+"bat",
+false
+]
+],
+"頼": [
+[
+"rely",
+true
+],
+[
+"request",
+true
+],
+[
+"trust",
+false
+]
+],
+"除": [
+[
+"remove",
+true
+],
+[
+"except",
+true
+],
+[
+"exclude",
+false
+]
+],
+"千": [
+[
+"thousand",
+true
+]
+],
+"局": [
+[
+"bureau",
+true
+],
+[
+"station",
+true
+],
+[
+"situation",
+false
+]
+],
+"換": [
+[
+"exchange",
+false
+],
+[
+"convert",
+false
+],
+[
+"change",
+true
+]
+],
+"座": [
+[
+"seat",
+true
+],
+[
+"sit",
+true
+],
+[
+"constellation",
+false
+],
+[
+"account",
+false
+]
+],
+"専": [
+[
+"specialty",
+false
+],
+[
+"exclusive",
+false
+]
+],
+"編": [
+[
+"edit",
+false
+],
+[
+"part",
+false
+],
+[
+"compile",
+false
+],
+[
+"knit",
+true
+]
+],
+"建": [
+[
+"build",
+true
+],
+[
+"building",
+false
+],
+[
+"erect",
+false
+]
+],
+"管": [
+[
+"manage",
+false
+],
+[
+"pipe",
+true
+],
+[
+"control",
+false
+],
+[
+"vessel",
+false
+]
+],
+"施": [
+[
+"facility",
+false
+],
+[
+"carry out",
+false
+],
+[
+"give",
+true
+]
+],
+"敵": [
+[
+"enemy",
+true
+],
+[
+"rival",
+true
+]
+],
+"察": [
+[
+"inspect",
+false
+],
+[
+"observe",
+false
+],
+[
+"sense",
+true
+],
+[
+"guess",
+true
+]
+],
+"興": [
+[
+"interest",
+false
+],
+[
+"excite",
+false
+],
+[
+"revive",
+false
+]
+],
+"府": [
+[
+"government",
+false
+],
+[
+"prefecture",
+false
+]
+],
+"宮": [
+[
+"shrine",
+true
+],
+[
+"palace",
+false
+],
+[
+"prince",
+true
+]
+],
+"減": [
+[
+"decrease",
+true
+],
+[
+"reduce",
+true
+]
+],
+"若": [
+[
+"young",
+true
+],
+[
+"some",
+false
+],
+[
+"or",
+false
+]
+],
+"差": [
+[
+"difference",
+true
+],
+[
+"gap",
+true
+],
+[
+"point",
+false
+],
+[
+"hold up",
+true
+]
+],
+"破": [
+[
+"break",
+true
+],
+[
+"tear",
+true
+],
+[
+"destroy",
+false
+]
+],
+"客": [
+[
+"guest",
+true
+],
+[
+"customer",
+true
+]
+],
+"漫": [
+[
+"comic",
+false
+],
+[
+"aimless",
+false
+]
+],
+"準": [
+[
+"prepare",
+false
+],
+[
+"standard",
+false
+],
+[
+"semi-",
+false
+]
+],
+"怖": [
+[
+"scary",
+true
+],
+[
+"fear",
+false
+]
+],
+"走": [
+[
+"run",
+true
+]
+],
+"阪": [
+[
+"Osaka",
+false
+]
+],
+"販": [
+[
+"sell",
+false
+],
+[
+"sales",
+false
+]
+],
+"案": [
+[
+"plan",
+true
+],
+[
+"proposal",
+true
+],
+[
+"guide",
+false
+],
+[
+"idea",
+false
+]
+],
+"服": [
+[
+"clothes",
+true
+],
+[
+"obey",
+false
+],
+[
+"dose",
+false
+],
+[
+"overcome",
+false
+]
+],
+"精": [
+[
+"spirit",
+true
+],
+[
+"precise",
+false
+],
+[
+"energy",
+true
+],
+[
+"refine",
+false
+]
+],
+"簡": [
+[
+"simple",
+false
+],
+[
+"brief",
+false
+]
+],
+"援": [
+[
+"support",
+false
+],
+[
+"aid",
+false
+],
+[
+"cheer",
+false
+]
+],
+"域": [
+[
+"region",
+false
+],
+[
+"area",
+false
+],
+[
+"realm",
+true
+]
+],
+"忘": [
+[
+"forget",
+true
+]
+],
+"許": [
+[
+"permit",
+true
+],
+[
+"forgive",
+true
+],
+[
+"license",
+false
+]
+],
+"降": [
+[
+"after",
+false
+],
+[
+"fall",
+true
+],
+[
+"get off",
+true
+],
+[
+"descend",
+false
+],
+[
+"surrender",
+false
+]
+],
+"費": [
+[
+"expense",
+false
+],
+[
+"cost",
+false
+],
+[
+"spend",
+true
+],
+[
+"consume",
+false
+]
+],
+"況": [
+[
+"situation",
+false
+],
+[
+"condition",
+false
+]
+],
+"南": [
+[
+"south",
+true
+]
+],
+"両": [
+[
+"both",
+false
+],
+[
+"train car",
+false
+]
+],
+"夢": [
+[
+"dream",
+true
+]
+],
+"防": [
+[
+"prevent",
+true
+],
+[
+"defend",
+true
+],
+[
+"defense",
+false
+]
+],
+"倒": [
+[
+"fall over",
+true
+],
+[
+"knock down",
+true
+],
+[
+"topple",
+false
+],
+[
+"bother",
+false
+]
+],
+"究": [
+[
+"research",
+false
+],
+[
+"ultimate",
+false
+],
+[
+"investigate",
+false
+]
+],
+"似": [
+[
+"resemble",
+true
+],
+[
+"imitate",
+false
+],
+[
+"suit",
+true
+]
+],
+"商": [
+[
+"goods",
+false
+],
+[
+"trade",
+false
+],
+[
+"commerce",
+false
+],
+[
+"merchant",
+false
+]
+],
+"末": [
+[
+"end",
+true
+],
+[
+"weekend",
+false
+],
+[
+"terminal",
+false
+],
+[
+"powder",
+false
+]
+],
+"薬": [
+[
+"medicine",
+true
+],
+[
+"drug",
+false
+],
+[
+"chemical",
+false
+]
+],
+"各": [
+[
+"each",
+false
+]
+],
+"武": [
+[
+"weapon",
+false
+],
+[
+"military",
+false
+],
+[
+"martial",
+false
+],
+[
+"warrior",
+false
+]
+],
+"党": [
+[
+"party",
+true
+],
+[
+"faction",
+false
+]
+],
+"曜": [
+[
+"weekday",
+false
+]
+],
+"我": [
+[
+"we",
+false
+],
+[
+"self",
+true
+],
+[
+"patience",
+false
+],
+[
+"my",
+true
+]
+],
+"壊": [
+[
+"break",
+true
+],
+[
+"destroy",
+true
+],
+[
+"collapse",
+false
+]
+],
+"習": [
+[
+"practice",
+false
+],
+[
+"learn",
+true
+],
+[
+"habit",
+false
+]
+],
+"協": [
+[
+"cooperate",
+false
+],
+[
+"association",
+false
+]
+],
+"青": [
+[
+"blue",
+true
+],
+[
+"green",
+true
+],
+[
+"youth",
+false
+],
+[
+"young",
+false
+]
+],
+"罪": [
+[
+"crime",
+true
+],
+[
+"sin",
+true
+],
+[
+"guilt",
+false
+]
+],
+"首": [
+[
+"neck",
+true
+],
+[
+"head",
+false
+],
+[
+"leader",
+false
+],
+[
+"capital",
+false
+]
+],
+"痛": [
+[
+"painful",
+true
+],
+[
+"pain",
+true
+],
+[
+"hurt",
+true
+],
+[
+"ache",
+false
+]
+],
+"恋": [
+[
+"love",
+true
+],
+[
+"romance",
+false
+],
+[
+"yearn",
+true
+]
+],
+"路": [
+[
+"road",
+false
+],
+[
+"route",
+false
+],
+[
+"path",
+false
+]
+],
+"戻": [
+[
+"return",
+true
+],
+[
+"put back",
+true
+]
+],
+"郎": [
+[
+"guy",
+false
+],
+[
+"son",
+false
+]
+],
+"評": [
+[
+"evaluate",
+false
+],
+[
+"review",
+false
+],
+[
+"reputation",
+false
+],
+[
+"criticism",
+false
+]
+],
+"谷": [
+[
+"valley",
+true
+]
+],
+"修": [
+[
+"correct",
+false
+],
+[
+"repair",
+false
+],
+[
+"study",
+false
+],
+[
+"discipline",
+false
+]
+],
+"夏": [
+[
+"summer",
+true
+]
+],
+"史": [
+[
+"history",
+false
+]
+],
+"肉": [
+[
+"meat",
+true
+],
+[
+"flesh",
+false
+],
+[
+"muscle",
+false
+]
+],
+"導": [
+[
+"guide",
+true
+],
+[
+"lead",
+true
+],
+[
+"introduce",
+false
+],
+[
+"conduct",
+false
+]
+],
+"苦": [
+[
+"hardship",
+true
+],
+[
+"painful",
+true
+],
+[
+"bad at",
+false
+],
+[
+"suffer",
+true
+],
+[
+"bitter",
+true
+]
+],
+"松": [
+[
+"pine",
+true
+]
+],
+"館": [
+[
+"building",
+false
+],
+[
+"museum",
+false
+],
+[
+"hall",
+false
+]
+],
+"幸": [
+[
+"happiness",
+true
+],
+[
+"fortunate",
+true
+],
+[
+"luck",
+false
+],
+[
+"bounty",
+false
+]
+],
+"横": [
+[
+"side",
+true
+],
+[
+"beside",
+true
+],
+[
+"sideways",
+false
+],
+[
+"horizontal",
+false
+],
+[
+"cross",
+false
+]
+],
+"歴": [
+[
+"history",
+false
+],
+[
+"record",
+false
+],
+[
+"career",
+false
+],
+[
+"successive",
+false
+]
+],
+"遊": [
+[
+"play",
+true
+],
+[
+"fun",
+true
+],
+[
+"travel",
+false
+]
+],
+"被": [
+[
+"suffer",
+true
+],
+[
+"damage",
+false
+],
+[
+"victim",
+false
+],
+[
+"put on",
+true
+],
+[
+"cover",
+true
+]
+],
+"逃": [
+[
+"escape",
+true
+],
+[
+"run away",
+true
+],
+[
+"miss",
+true
+]
+],
+"極": [
+[
+"extreme",
+true
+],
+[
+"ultimate",
+false
+],
+[
+"pole",
+false
+],
+[
+"master",
+true
+]
+],
+"枚": [
+[
+"thin flat things",
+false
+]
+],
+"響": [
+[
+"influence",
+false
+],
+[
+"echo",
+true
+],
+[
+"resound",
+true
+],
+[
+"sound",
+true
+]
+],
+"図": [
+[
+"map",
+false
+],
+[
+"figure",
+true
+],
+[
+"diagram",
+true
+],
+[
+"plan",
+true
+],
+[
+"intent",
+false
+]
+],
+"帯": [
+[
+"carry",
+false
+],
+[
+"zone",
+false
+],
+[
+"belt",
+true
+],
+[
+"range",
+false
+],
+[
+"household",
+false
+]
+],
+"熱": [
+[
+"heat",
+true
+],
+[
+"fever",
+true
+],
+[
+"hot",
+true
+],
+[
+"passion",
+false
+]
+],
+"激": [
+[
+"intense",
+true
+],
+[
+"violent",
+true
+],
+[
+"excite",
+false
+],
+[
+"super",
+false
+]
+],
+"退": [
+[
+"withdraw",
+false
+],
+[
+"retire",
+false
+],
+[
+"retreat",
+false
+],
+[
+"leave",
+false
+],
+[
+"bored",
+false
+]
+],
+"材": [
+[
+"material",
+false
+],
+[
+"report",
+false
+],
+[
+"talent",
+false
+],
+[
+"timber",
+false
+]
+],
+"含": [
+[
+"include",
+true
+],
+[
+"contain",
+true
+]
+],
+"策": [
+[
+"plan",
+true
+],
+[
+"policy",
+false
+],
+[
+"measure",
+false
+]
+],
+"独": [
+[
+"alone",
+true
+],
+[
+"independent",
+false
+],
+[
+"unique",
+false
+],
+[
+"single",
+false
+]
+],
+"弾": [
+[
+"bullet",
+true
+],
+[
+"installment",
+false
+],
+[
+"bomb",
+false
+],
+[
+"play",
+true
+],
+[
+"bounce",
+true
+]
+],
+"兵": [
+[
+"soldier",
+true
+],
+[
+"weapon",
+false
+],
+[
+"troops",
+false
+]
+],
+"遠": [
+[
+"far",
+true
+],
+[
+"distant",
+false
+],
+[
+"eternity",
+false
+],
+[
+"hold back",
+false
+]
+],
+"巻": [
+[
+"volume",
+false
+],
+[
+"roll",
+true
+],
+[
+"wrap",
+true
+],
+[
+"involve",
+false
+]
+],
+"条": [
+[
+"condition",
+false
+],
+[
+"article",
+false
+],
+[
+"clause",
+false
+],
+[
+"treaty",
+false
+]
+],
+"軽": [
+[
+"light",
+true
+],
+[
+"easy",
+false
+],
+[
+"casual",
+false
+],
+[
+"slight",
+false
+]
+],
+"沢": [
+[
+"a lot",
+false
+],
+[
+"luxury",
+false
+],
+[
+"mountain stream",
+true
+],
+[
+"luster",
+false
+]
+],
+"適": [
+[
+"suitable",
+false
+],
+[
+"fit",
+true
+],
+[
+"appropriate",
+false
+]
+],
+"囲": [
+[
+"surround",
+true
+],
+[
+"atmosphere",
+false
+],
+[
+"range",
+false
+],
+[
+"enclose",
+true
+]
+],
+"渡": [
+[
+"cross",
+true
+],
+[
+"hand over",
+true
+],
+[
+"transfer",
+false
+]
+],
+"勢": [
+[
+"force",
+false
+],
+[
+"momentum",
+false
+],
+[
+"posture",
+false
+],
+[
+"team",
+false
+],
+[
+"crowd",
+false
+]
+],
+"答": [
+[
+"answer",
+true
+],
+[
+"reply",
+false
+]
+],
+"春": [
+[
+"spring",
+true
+],
+[
+"youth",
+false
+]
+],
+"描": [
+[
+"draw",
+true
+],
+[
+"depict",
+true
+]
+],
+"般": [
+[
+"general",
+false
+]
+],
+"銀": [
+[
+"silver",
+true
+],
+[
+"bank",
+false
+]
+],
+"姿": [
+[
+"figure",
+true
+],
+[
+"appearance",
+true
+],
+[
+"posture",
+false
+]
+],
+"階": [
+[
+"floor",
+false
+],
+[
+"stage",
+false
+],
+[
+"stairs",
+false
+],
+[
+"class",
+false
+]
+],
+"具": [
+[
+"tool",
+false
+],
+[
+"condition",
+false
+],
+[
+"ingredients",
+true
+],
+[
+"furniture",
+false
+]
+],
+"犯": [
+[
+"crime",
+false
+],
+[
+"criminal",
+false
+],
+[
+"commit",
+true
+]
+],
+"絵": [
+[
+"picture",
+true
+],
+[
+"drawing",
+true
+],
+[
+"painting",
+false
+]
+],
+"申": [
+[
+"say",
+true
+],
+[
+"apply",
+false
+],
+[
+"apologize",
+false
+]
+],
+"根": [
+[
+"root",
+true
+],
+[
+"basis",
+false
+],
+[
+"origin",
+false
+]
+],
+"詳": [
+[
+"detailed",
+true
+]
+],
+"境": [
+[
+"border",
+true
+],
+[
+"boundary",
+false
+],
+[
+"circumstances",
+false
+],
+[
+"state",
+false
+]
+],
+"遅": [
+[
+"late",
+true
+],
+[
+"slow",
+true
+],
+[
+"delay",
+false
+]
+],
+"久": [
+[
+"long time",
+false
+],
+[
+"eternal",
+false
+]
+],
+"御": [
+[
+"control",
+false
+],
+[
+"honorable",
+false
+],
+[
+"defense",
+false
+]
+],
+"危": [
+[
+"danger",
+true
+],
+[
+"dangerous",
+true
+],
+[
+"crisis",
+false
+]
+],
+"絡": [
+[
+"contact",
+false
+],
+[
+"entangle",
+true
+],
+[
+"connect",
+false
+]
+],
+"便": [
+[
+"convenient",
+false
+],
+[
+"flight",
+true
+],
+[
+"mail",
+false
+],
+[
+"service",
+true
+],
+[
+"excrement",
+false
+]
+],
+"振": [
+[
+"shake",
+true
+],
+[
+"swing",
+true
+],
+[
+"wave",
+true
+],
+[
+"look back",
+false
+],
+[
+"transfer",
+false
+]
+],
+"崎": [
+[
+"cape",
+false
+]
+],
+"担": [
+[
+"in charge",
+false
+],
+[
+"burden",
+false
+],
+[
+"bear",
+true
+],
+[
+"carry",
+true
+]
+],
+"右": [
+[
+"right",
+true
+]
+],
+"越": [
+[
+"move house",
+false
+],
+[
+"cross",
+true
+],
+[
+"exceed",
+true
+],
+[
+"overcome",
+false
+]
+],
+"旅": [
+[
+"journey",
+true
+],
+[
+"travel",
+false
+]
+],
+"療": [
+[
+"treatment",
+false
+],
+[
+"medical",
+false
+],
+[
+"therapy",
+false
+]
+],
+"焼": [
+[
+"grill",
+true
+],
+[
+"burn",
+true
+],
+[
+"bake",
+true
+],
+[
+"ware",
+false
+]
+],
+"血": [
+[
+"blood",
+true
+]
+],
+"険": [
+[
+"danger",
+false
+],
+[
+"risk",
+false
+],
+[
+"steep",
+true
+]
+],
+"仲": [
+[
+"relationship",
+true
+],
+[
+"friend",
+false
+],
+[
+"on good terms",
+false
+],
+[
+"go-between",
+false
+]
+],
+"温": [
+[
+"warm",
+true
+],
+[
+"hot spring",
+false
+],
+[
+"temperature",
+false
+]
+],
+"寄": [
+[
+"draw near",
+true
+],
+[
+"drop in",
+true
+],
+[
+"send",
+true
+],
+[
+"nearest",
+false
+]
+],
+"払": [
+[
+"pay",
+true
+],
+[
+"sweep away",
+true
+]
+],
+"挙": [
+[
+"raise",
+true
+],
+[
+"cite",
+true
+],
+[
+"hold",
+false
+],
+[
+"act",
+false
+]
+],
+"戸": [
+[
+"door",
+true
+],
+[
+"household",
+false
+]
+],
+"環": [
+[
+"surround",
+false
+],
+[
+"ring",
+false
+],
+[
+"cycle",
+false
+],
+[
+"link",
+false
+]
+],
+"酒": [
+[
+"alcohol",
+true
+],
+[
+"sake",
+true
+]
+],
+"娘": [
+[
+"daughter",
+true
+],
+[
+"girl",
+true
+]
+],
+"印": [
+[
+"impression",
+false
+],
+[
+"print",
+false
+],
+[
+"mark",
+true
+],
+[
+"sign",
+true
+],
+[
+"seal",
+false
+]
+],
+"労": [
+[
+"labor",
+false
+],
+[
+"toil",
+false
+],
+[
+"hardship",
+false
+]
+],
+"司": [
+[
+"official",
+false
+],
+[
+"administer",
+false
+],
+[
+"command",
+false
+]
+],
+"賞": [
+[
+"prize",
+true
+],
+[
+"award",
+true
+],
+[
+"appreciate",
+false
+],
+[
+"praise",
+false
+]
+],
+"希": [
+[
+"hope",
+false
+],
+[
+"rare",
+false
+]
+],
+"城": [
+[
+"castle",
+true
+]
+],
+"頂": [
+[
+"receive",
+true
+],
+[
+"top",
+true
+],
+[
+"peak",
+false
+],
+[
+"summit",
+true
+]
+],
+"佐": [
+[
+"officer",
+false
+],
+[
+"assist",
+false
+]
+],
+"兄": [
+[
+"older brother",
+true
+],
+[
+"siblings",
+false
+]
+],
+"捕": [
+[
+"arrest",
+false
+],
+[
+"catch",
+true
+],
+[
+"capture",
+true
+]
+],
+"爆": [
+[
+"explode",
+false
+],
+[
+"bomb",
+false
+],
+[
+"burst",
+false
+]
+],
+"韓": [
+[
+"Korea",
+false
+]
+],
+"領": [
+[
+"territory",
+false
+],
+[
+"govern",
+false
+],
+[
+"receive",
+false
+]
+],
+"逆": [
+[
+"reverse",
+true
+],
+[
+"opposite",
+true
+],
+[
+"against",
+true
+]
+],
+"射": [
+[
+"shoot",
+true
+],
+[
+"launch",
+false
+],
+[
+"radiate",
+false
+],
+[
+"inject",
+false
+]
+],
+"敗": [
+[
+"failure",
+false
+],
+[
+"defeat",
+false
+],
+[
+"loss",
+false
+],
+[
+"lose",
+true
+]
+],
+"紙": [
+[
+"paper",
+true
+],
+[
+"letter",
+false
+],
+[
+"newspaper",
+false
+]
+],
+"弁": [
+[
+"speech",
+false
+],
+[
+"lunch",
+false
+],
+[
+"dialect",
+false
+],
+[
+"valve",
+true
+]
+],
+"左": [
+[
+"left",
+true
+]
+],
+"街": [
+[
+"town",
+true
+],
+[
+"street",
+true
+]
+],
+"辺": [
+[
+"area",
+true
+],
+[
+"around",
+true
+],
+[
+"side",
+true
+],
+[
+"edge",
+false
+]
+],
+"級": [
+[
+"grade",
+true
+],
+[
+"class",
+false
+],
+[
+"level",
+true
+]
+],
+"健": [
+[
+"health",
+false
+],
+[
+"healthy",
+false
+]
+],
+"香": [
+[
+"scent",
+true
+],
+[
+"fragrance",
+true
+],
+[
+"incense",
+true
+]
+],
+"脱": [
+[
+"escape",
+false
+],
+[
+"leave",
+false
+],
+[
+"de-",
+false
+],
+[
+"take off",
+true
+]
+],
+"談": [
+[
+"talk",
+false
+],
+[
+"consult",
+false
+],
+[
+"joke",
+false
+]
+],
+"橋": [
+[
+"bridge",
+true
+]
+],
+"芸": [
+[
+"art",
+false
+],
+[
+"entertainment",
+false
+],
+[
+"performance",
+true
+],
+[
+"trick",
+true
+]
+],
+"雑": [
+[
+"miscellaneous",
+false
+],
+[
+"complicated",
+false
+],
+[
+"sloppy",
+true
+],
+[
+"rough",
+true
+]
+],
+"冷": [
+[
+"cold",
+true
+],
+[
+"cool",
+true
+],
+[
+"calm",
+false
+]
+],
+"替": [
+[
+"switch",
+false
+],
+[
+"change",
+true
+],
+[
+"replace",
+true
+],
+[
+"exchange",
+false
+]
+],
+"倍": [
+[
+"double",
+true
+],
+[
+"times",
+true
+]
+],
+"余": [
+[
+"room",
+false
+],
+[
+"extra",
+false
+],
+[
+"remainder",
+true
+],
+[
+"too",
+true
+]
+],
+"給": [
+[
+"salary",
+false
+],
+[
+"pay",
+false
+],
+[
+"supply",
+false
+]
+],
+"疑": [
+[
+"doubt",
+true
+],
+[
+"suspect",
+true
+],
+[
+"question",
+false
+]
+],
+"毛": [
+[
+"hair",
+true
+],
+[
+"fur",
+true
+],
+[
+"wool",
+false
+]
+],
+"散": [
+[
+"scatter",
+true
+],
+[
+"disband",
+false
+],
+[
+"spread",
+false
+],
+[
+"stroll",
+false
+]
+],
+"聴": [
+[
+"listen",
+true
+],
+[
+"watch",
+false
+],
+[
+"hear",
+false
+]
+],
+"船": [
+[
+"ship",
+true
+],
+[
+"boat",
+true
+],
+[
+"balloon",
+false
+]
+],
+"障": [
+[
+"obstacle",
+false
+],
+[
+"disability",
+false
+],
+[
+"hinder",
+true
+]
+],
+"困": [
+[
+"troubled",
+true
+],
+[
+"difficulty",
+false
+],
+[
+"poverty",
+false
+]
+],
+"昔": [
+[
+"long ago",
+true
+],
+[
+"old days",
+true
+]
+],
+"補": [
+[
+"candidate",
+false
+],
+[
+"supplement",
+true
+],
+[
+"make up",
+true
+],
+[
+"assist",
+false
+]
+],
+"整": [
+[
+"arrange",
+true
+],
+[
+"adjust",
+false
+],
+[
+"maintain",
+false
+],
+[
+"order",
+false
+]
+],
+"頑": [
+[
+"stubborn",
+false
+],
+[
+"do one's best",
+false
+],
+[
+"sturdy",
+false
+]
+],
+"昨": [
+[
+"yesterday",
+false
+],
+[
+"last",
+false
+]
+],
+"茶": [
+[
+"tea",
+true
+],
+[
+"brown",
+true
+]
+],
+"密": [
+[
+"secret",
+true
+],
+[
+"dense",
+true
+],
+[
+"close",
+true
+]
+],
+"監": [
+[
+"oversee",
+false
+],
+[
+"director",
+false
+]
+],
+"裏": [
+[
+"back",
+true
+],
+[
+"reverse side",
+true
+],
+[
+"behind",
+true
+],
+[
+"betray",
+false
+]
+],
+"森": [
+[
+"forest",
+true
+],
+[
+"woods",
+true
+]
+],
+"掛": [
+[
+"hang",
+true
+],
+[
+"take",
+true
+],
+[
+"device",
+false
+]
+],
+"衛": [
+[
+"defense",
+false
+],
+[
+"guard",
+false
+],
+[
+"protect",
+false
+]
+],
+"丸": [
+[
+"circle",
+true
+],
+[
+"round",
+true
+],
+[
+"whole",
+true
+],
+[
+"bullet",
+false
+]
+],
+"紹": [
+[
+"introduce",
+false
+]
+],
+"及": [
+[
+"and",
+true
+],
+[
+"spread",
+false
+],
+[
+"reach",
+true
+],
+[
+"mention",
+false
+]
+],
+"恐": [
+[
+"fear",
+true
+],
+[
+"terrible",
+true
+],
+[
+"probably",
+true
+]
+],
+"謝": [
+[
+"thank",
+false
+],
+[
+"apologize",
+true
+],
+[
+"metabolism",
+false
+]
+],
+"模": [
+[
+"scale",
+false
+],
+[
+"pattern",
+false
+],
+[
+"model",
+false
+],
+[
+"imitate",
+false
+]
+],
+"四": [
+[
+"four",
+true
+]
+],
+"貴": [
+[
+"you",
+false
+],
+[
+"precious",
+false
+],
+[
+"noble",
+false
+]
+],
+"州": [
+[
+"state",
+true
+],
+[
+"province",
+true
+],
+[
+"continent",
+false
+]
+],
+"波": [
+[
+"wave",
+true
+],
+[
+"radio waves",
+false
+]
+],
+"息": [
+[
+"son",
+false
+],
+[
+"breath",
+true
+],
+[
+"sigh",
+false
+],
+[
+"rest",
+false
+],
+[
+"interest",
+false
+]
+],
+"祭": [
+[
+"festival",
+true
+],
+[
+"worship",
+true
+]
+],
+"舞": [
+[
+"dance",
+true
+],
+[
+"flutter",
+true
+],
+[
+"behave",
+false
+],
+[
+"visit",
+false
+]
+],
+"端": [
+[
+"end",
+true
+],
+[
+"edge",
+true
+],
+[
+"terminal",
+false
+],
+[
+"tip",
+false
+],
+[
+"extreme",
+false
+]
+],
+"将": [
+[
+"future",
+false
+],
+[
+"general",
+false
+],
+[
+"commander",
+false
+]
+],
+"株": [
+[
+"stock",
+true
+],
+[
+"share",
+true
+],
+[
+"corporation",
+false
+],
+[
+"stump",
+true
+]
+],
+"覧": [
+[
+"view",
+false
+]
+],
+"髪": [
+[
+"hair",
+true
+]
+],
+"触": [
+[
+"touch",
+true
+],
+[
+"mention",
+true
+]
+],
+"犬": [
+[
+"dog",
+true
+]
+],
+"圧": [
+[
+"pressure",
+false
+],
+[
+"overwhelm",
+false
+]
+],
+"迎": [
+[
+"welcome",
+true
+],
+[
+"pick up",
+true
+]
+],
+"乳": [
+[
+"breast",
+true
+],
+[
+"milk",
+false
+]
+],
+"押": [
+[
+"push",
+true
+],
+[
+"hold down",
+true
+]
+],
+"因": [
+[
+"cause",
+false
+]
+],
+"席": [
+[
+"seat",
+true
+]
+],
+"布": [
+[
+"cloth",
+true
+],
+[
+"spread",
+false
+]
+],
+"児": [
+[
+"child",
+false
+]
+],
+"背": [
+[
+"back",
+true
+],
+[
+"height",
+true
+]
+],
+"玉": [
+[
+"ball",
+true
+],
+[
+"bead",
+true
+],
+[
+"jewel",
+false
+]
+],
+"途": [
+[
+"way",
+false
+]
+],
+"練": [
+[
+"practice",
+false
+],
+[
+"knead",
+true
+],
+[
+"polish",
+false
+]
+],
+"属": [
+[
+"belong",
+true
+],
+[
+"genus",
+false
+]
+],
+"板": [
+[
+"board",
+true
+]
+],
+"晴": [
+[
+"sunny",
+true
+],
+[
+"clear up",
+true
+]
+],
+"責": [
+[
+"responsibility",
+false
+],
+[
+"blame",
+true
+]
+],
+"税": [
+[
+"tax",
+true
+]
+],
+"秋": [
+[
+"autumn",
+true
+]
+],
+"鉄": [
+[
+"iron",
+true
+],
+[
+"railway",
+false
+]
+],
+"索": [
+[
+"search",
+false
+]
+],
+"秘": [
+[
+"secret",
+false
+],
+[
+"mystery",
+false
+]
+],
+"標": [
+[
+"mark",
+false
+],
+[
+"sign",
+false
+]
+],
+"震": [
+[
+"quake",
+false
+],
+[
+"tremble",
+true
+]
+],
+"症": [
+[
+"symptom",
+false
+],
+[
+"condition",
+false
+]
+],
+"妻": [
+[
+"wife",
+true
+]
+],
+"宅": [
+[
+"home",
+false
+],
+[
+"house",
+false
+]
+],
+"腹": [
+[
+"belly",
+true
+]
+],
+"従": [
+[
+"follow",
+true
+],
+[
+"obey",
+true
+]
+],
+"禁": [
+[
+"forbid",
+true
+],
+[
+"ban",
+false
+]
+],
+"織": [
+[
+"weave",
+true
+],
+[
+"fabric",
+false
+]
+],
+"艦": [
+[
+"warship",
+true
+]
+],
+"算": [
+[
+"calculate",
+false
+]
+],
+"奈": [],
+"暴": [
+[
+"violent",
+false
+],
+[
+"wild",
+false
+],
+[
+"expose",
+true
+]
+],
+"傷": [
+[
+"wound",
+true
+],
+[
+"hurt",
+true
+],
+[
+"damage",
+false
+]
+],
+"継": [
+[
+"continue",
+false
+],
+[
+"relay",
+false
+],
+[
+"succeed",
+true
+]
+],
+"遺": [
+[
+"leave behind",
+false
+],
+[
+"remains",
+false
+]
+],
+"裁": [
+[
+"judge",
+false
+],
+[
+"cut cloth",
+false
+]
+],
+"礼": [
+[
+"courtesy",
+false
+],
+[
+"thanks",
+true
+],
+[
+"worship",
+false
+],
+[
+"bow",
+true
+]
+],
+"百": [
+[
+"hundred",
+true
+]
+],
+"扱": [
+[
+"handle",
+true
+],
+[
+"treat",
+true
+]
+],
+"並": [
+[
+"line up",
+true
+],
+[
+"average",
+true
+],
+[
+"row",
+false
+]
+],
+"怒": [
+[
+"anger",
+true
+]
+],
+"届": [
+[
+"reach",
+true
+],
+[
+"notification",
+false
+],
+[
+"deliver",
+true
+]
+],
+"眠": [
+[
+"sleep",
+true
+]
+],
+"弟": [
+[
+"younger brother",
+true
+],
+[
+"pupil",
+false
+]
+],
+"推": [
+[
+"infer",
+false
+],
+[
+"promote",
+false
+],
+[
+"recommend",
+true
+]
+],
+"隠": [
+[
+"hide",
+true
+]
+],
+"略": [
+[
+"strategy",
+false
+],
+[
+"abbreviation",
+true
+],
+[
+"capture",
+false
+]
+],
+"積": [
+[
+"pile up",
+true
+],
+[
+"volume",
+false
+]
+],
+"短": [
+[
+"short",
+true
+]
+],
+"額": [
+[
+"amount",
+true
+],
+[
+"forehead",
+true
+],
+[
+"frame",
+true
+]
+],
+"喜": [
+[
+"joy",
+true
+]
+],
+"惑": [
+[
+"bewilder",
+false
+],
+[
+"tempt",
+false
+]
+],
+"複": [
+[
+"multiple",
+false
+],
+[
+"complex",
+false
+],
+[
+"copy",
+false
+]
+],
+"避": [
+[
+"avoid",
+true
+]
+],
+"闘": [
+[
+"fight",
+false
+]
+],
+"弱": [
+[
+"weak",
+true
+],
+[
+"just under",
+false
+]
+],
+"携": [
+[
+"carry",
+false
+],
+[
+"cooperate",
+false
+],
+[
+"be involved",
+true
+]
+],
+"鹿": [
+[
+"deer",
+true
+]
+],
+"雨": [
+[
+"rain",
+true
+]
+],
+"景": [
+[
+"scenery",
+false
+],
+[
+"view",
+false
+]
+],
+"功": [
+[
+"success",
+false
+],
+[
+"merit",
+false
+]
+],
+"宿": [
+[
+"inn",
+true
+],
+[
+"stay",
+false
+],
+[
+"dwell",
+true
+]
+],
+"亡": [
+[
+"die",
+true
+],
+[
+"flee",
+false
+],
+[
+"the late",
+false
+]
+],
+"迷": [
+[
+"get lost",
+true
+],
+[
+"hesitate",
+true
+]
+],
+"盛": [
+[
+"heap up",
+true
+],
+[
+"thriving",
+true
+],
+[
+"peak",
+true
+]
+],
+"乱": [
+[
+"disorder",
+true
+],
+[
+"rebellion",
+false
+],
+[
+"reckless",
+false
+]
+],
+"吉": [
+[
+"good luck",
+true
+]
+],
+"省": [
+[
+"ministry",
+false
+],
+[
+"reflect",
+false
+],
+[
+"omit",
+true
+],
+[
+"save",
+false
+]
+],
+"五": [
+[
+"five",
+true
+]
+],
+"駄": [
+[
+"worthless",
+false
+]
+],
+"宇": [
+[
+"universe",
+false
+]
+],
+"刑": [
+[
+"criminal",
+false
+],
+[
+"punishment",
+false
+],
+[
+"sentence",
+true
+]
+],
+"浜": [
+[
+"beach",
+true
+]
+],
+"脳": [
+[
+"brain",
+true
+]
+],
+"染": [
+[
+"infect",
+false
+],
+[
+"dye",
+true
+],
+[
+"stain",
+true
+]
+],
+"財": [
+[
+"wealth",
+false
+],
+[
+"finance",
+false
+]
+],
+"稼": [
+[
+"earn",
+true
+],
+[
+"operate",
+false
+]
+],
+"静": [
+[
+"quiet",
+true
+],
+[
+"calm",
+false
+],
+[
+"still",
+false
+]
+],
+"悲": [
+[
+"sad",
+true
+],
+[
+"tragic",
+false
+]
+],
+"掲": [
+[
+"publish",
+false
+],
+[
+"put up",
+true
+]
+],
+"源": [
+[
+"source",
+true
+],
+[
+"origin",
+false
+]
+],
+"操": [
+[
+"operate",
+false
+],
+[
+"manipulate",
+true
+]
+],
+"博": [
+[
+"doctorate",
+false
+],
+[
+"wide",
+false
+],
+[
+"expo",
+false
+]
+],
+"卒": [
+[
+"graduate",
+false
+],
+[
+"sudden",
+false
+]
+],
+"片": [
+[
+"one side",
+false
+],
+[
+"piece",
+false
+],
+[
+"fragment",
+false
+]
+],
+"列": [
+[
+"row",
+true
+],
+[
+"series",
+false
+]
+],
+"巨": [
+[
+"huge",
+false
+]
+],
+"徒": [
+[
+"follower",
+false
+],
+[
+"on foot",
+false
+]
+],
+"庫": [
+[
+"storehouse",
+false
+]
+],
+"創": [
+[
+"create",
+false
+],
+[
+"found",
+false
+]
+],
+"猫": [
+[
+"cat",
+true
+]
+],
+"救": [
+[
+"save",
+true
+],
+[
+"rescue",
+false
+],
+[
+"emergency",
+false
+]
+],
+"凄": [
+[
+"amazing",
+true
+]
+],
+"吸": [
+[
+"absorb",
+false
+],
+[
+"inhale",
+true
+],
+[
+"suck",
+true
+]
+],
+"授": [
+[
+"teach",
+false
+],
+[
+"grant",
+false
+]
+],
+"鳥": [
+[
+"bird",
+true
+],
+[
+"chicken",
+true
+]
+],
+"滅": [
+[
+"destroy",
+true
+],
+[
+"perish",
+true
+],
+[
+"vanish",
+false
+]
+],
+"納": [
+[
+"pay",
+true
+],
+[
+"store",
+false
+],
+[
+"accept",
+false
+]
+],
+"姉": [
+[
+"older sister",
+true
+]
+],
+"志": [
+[
+"aspiration",
+true
+],
+[
+"will",
+false
+],
+[
+"aim",
+false
+]
+],
+"疲": [
+[
+"tired",
+true
+]
+],
+"災": [
+[
+"disaster",
+false
+],
+[
+"misfortune",
+true
+]
+],
+"八": [
+[
+"eight",
+true
+]
+],
+"互": [
+[
+"each other",
+true
+],
+[
+"mutual",
+false
+]
+],
+"暗": [
+[
+"dark",
+true
+],
+[
+"covert",
+false
+],
+[
+"by heart",
+false
+]
+],
+"洗": [
+[
+"wash",
+true
+]
+],
+"誘": [
+[
+"invite",
+true
+],
+[
+"lead",
+false
+],
+[
+"tempt",
+false
+]
+],
+"草": [
+[
+"grass",
+true
+],
+[
+"draft",
+false
+]
+],
+"抗": [
+[
+"resist",
+false
+],
+[
+"anti",
+false
+]
+],
+"稿": [
+[
+"manuscript",
+false
+]
+],
+"課": [
+[
+"section",
+false
+],
+[
+"lesson",
+false
+],
+[
+"impose",
+false
+]
+],
+"択": [
+[
+"choose",
+false
+]
+],
+"採": [
+[
+"adopt",
+false
+],
+[
+"collect",
+false
+]
+],
+"誌": [
+[
+"magazine",
+false
+],
+[
+"record",
+false
+]
+],
+"純": [
+[
+"pure",
+true
+],
+[
+"net",
+false
+]
+],
+"劇": [
+[
+"play",
+true
+],
+[
+"theater",
+false
+],
+[
+"intense",
+false
+]
+],
+"致": [
+[
+"bring about",
+false
+],
+[
+"agree",
+false
+],
+[
+"do",
+true
+]
+],
+"洋": [
+[
+"western",
+false
+],
+[
+"ocean",
+false
+]
+],
+"富": [
+[
+"wealth",
+true
+],
+[
+"abundant",
+false
+]
+],
+"池": [
+[
+"pond",
+true
+],
+[
+"battery",
+false
+]
+],
+"固": [
+[
+"fixed",
+false
+],
+[
+"hard",
+true
+],
+[
+"solid",
+false
+]
+],
+"驚": [
+[
+"surprise",
+true
+],
+[
+"wonder",
+false
+]
+],
+"麗": [
+[
+"beautiful",
+false
+]
+],
+"筋": [
+[
+"muscle",
+true
+],
+[
+"line",
+true
+],
+[
+"plot",
+true
+]
+],
+"勤": [
+[
+"work",
+true
+],
+[
+"diligent",
+false
+]
+],
+"契": [
+[
+"contract",
+false
+],
+[
+"pledge",
+false
+]
+],
+"飯": [
+[
+"meal",
+true
+],
+[
+"rice",
+true
+]
+],
+"順": [
+[
+"order",
+true
+],
+[
+"smooth",
+false
+]
+],
+"聖": [
+[
+"holy",
+true
+],
+[
+"saint",
+false
+]
+],
+"輪": [
+[
+"ring",
+true
+],
+[
+"wheel",
+false
+],
+[
+"flowers",
+false
+]
+],
+"角": [
+[
+"corner",
+true
+],
+[
+"angle",
+false
+],
+[
+"horn",
+true
+]
+],
+"混": [
+[
+"confuse",
+false
+],
+[
+"mix",
+true
+],
+[
+"crowded",
+true
+]
+],
+"誕": [
+[
+"birth",
+false
+]
+],
+"勉": [
+[
+"effort",
+false
+]
+],
+"怪": [
+[
+"mysterious",
+false
+],
+[
+"suspicious",
+true
+],
+[
+"monster",
+false
+]
+],
+"陽": [
+[
+"sun",
+true
+],
+[
+"positive",
+false
+],
+[
+"cheerful",
+false
+]
+],
+"捨": [
+[
+"throw away",
+true
+]
+],
+"令": [
+[
+"order",
+false
+],
+[
+"your",
+false
+]
+],
+"泉": [
+[
+"spring",
+true
+]
+],
+"競": [
+[
+"compete",
+true
+],
+[
+"race",
+false
+],
+[
+"auction",
+false
+]
+],
+"徴": [
+[
+"sign",
+false
+],
+[
+"symbol",
+false
+],
+[
+"levy",
+false
+]
+],
+"沖": [
+[
+"open sea",
+true
+],
+[
+"off the coast",
+false
+]
+],
+"留": [
+[
+"stay",
+false
+],
+[
+"hold",
+false
+],
+[
+"fasten",
+true
+]
+],
+"築": [
+[
+"build",
+true
+]
+],
+"秒": [
+[
+"second",
+false
+]
+],
+"典": [
+[
+"classic",
+false
+],
+[
+"model",
+false
+],
+[
+"dictionary",
+false
+],
+[
+"ceremony",
+false
+]
+],
+"仮": [
+[
+"hypothetical",
+false
+],
+[
+"disguise",
+false
+],
+[
+"temporary",
+true
+],
+[
+"supposing",
+true
+]
+],
+"瞬": [
+[
+"instant",
+false
+],
+[
+"twinkle",
+true
+]
+],
+"募": [
+[
+"recruit",
+false
+],
+[
+"collect",
+false
+]
+],
+"江": [
+[
+"inlet",
+false
+]
+],
+"測": [
+[
+"measure",
+true
+],
+[
+"estimate",
+false
+]
+],
+"厳": [
+[
+"strict",
+true
+],
+[
+"solemn",
+false
+]
+],
+"委": [
+[
+"committee",
+false
+],
+[
+"entrust",
+true
+]
+],
+"齢": [
+[
+"age",
+false
+]
+],
+"億": [
+[
+"hundred million",
+true
+]
+],
+"節": [
+[
+"season",
+false
+],
+[
+"save",
+false
+],
+[
+"joint",
+true
+],
+[
+"section",
+false
+],
+[
+"occasion",
+true
+]
+],
+"甘": [
+[
+"sweet",
+true
+],
+[
+"lenient",
+true
+],
+[
+"act spoiled",
+true
+]
+],
+"永": [
+[
+"eternal",
+false
+]
+],
+"縄": [
+[
+"rope",
+true
+]
+],
+"抱": [
+[
+"hug",
+true
+],
+[
+"hold",
+true
+]
+],
+"損": [
+[
+"loss",
+true
+],
+[
+"damage",
+false
+]
+],
+"跡": [
+[
+"trace",
+true
+],
+[
+"ruins",
+false
+],
+[
+"track",
+false
+]
+],
+"衣": [
+[
+"clothing",
+false
+],
+[
+"robe",
+true
+],
+[
+"batter",
+true
+]
+],
+"拠": [
+[
+"basis",
+false
+],
+[
+"base",
+false
+]
+],
+"充": [
+[
+"fill",
+false
+],
+[
+"full",
+false
+]
+],
+"麻": [
+[
+"hemp",
+true
+],
+[
+"numb",
+false
+]
+],
+"華": [
+[
+"splendor",
+false
+],
+[
+"chinese",
+false
+],
+[
+"glamour",
+true
+],
+[
+"flower",
+false
+]
+],
+"講": [
+[
+"lecture",
+false
+],
+[
+"course",
+false
+]
+],
+"妹": [
+[
+"younger sister",
+true
+]
+],
+"坂": [
+[
+"slope",
+true
+]
+],
+"借": [
+[
+"borrow",
+true
+],
+[
+"debt",
+true
+],
+[
+"rent",
+false
+]
+],
+"票": [
+[
+"vote",
+true
+],
+[
+"slip",
+false
+]
+],
+"閉": [
+[
+"close",
+true
+]
+],
+"陸": [
+[
+"land",
+true
+]
+],
+"停": [
+[
+"stop",
+false
+],
+[
+"suspend",
+false
+]
+],
+"港": [
+[
+"port",
+true
+]
+],
+"尾": [
+[
+"tail",
+true
+],
+[
+"end",
+false
+],
+[
+"fish",
+false
+]
+],
+"剣": [
+[
+"sword",
+true
+]
+],
+"督": [
+[
+"supervise",
+false
+],
+[
+"command",
+false
+]
+],
+"浮": [
+[
+"float",
+true
+],
+[
+"fickle",
+false
+]
+],
+"否": [
+[
+"deny",
+false
+],
+[
+"not",
+false
+]
+],
+"酸": [
+[
+"acid",
+true
+],
+[
+"sour",
+true
+]
+],
+"既": [
+[
+"already",
+true
+],
+[
+"existing",
+false
+]
+],
+"奥": [
+[
+"inner part",
+true
+],
+[
+"wife",
+false
+],
+[
+"depth",
+false
+]
+],
+"康": [
+[
+"health",
+false
+]
+],
+"堂": [
+[
+"hall",
+false
+],
+[
+"dignified",
+false
+]
+],
+"骨": [
+[
+"bone",
+true
+],
+[
+"frame",
+false
+]
+],
+"辞": [
+[
+"resign",
+true
+],
+[
+"word",
+false
+],
+[
+"decline",
+false
+]
+],
+"養": [
+[
+"nourish",
+false
+],
+[
+"raise",
+false
+],
+[
+"rest",
+false
+],
+[
+"support",
+true
+]
+],
+"刻": [
+[
+"moment",
+false
+],
+[
+"engrave",
+false
+],
+[
+"chop",
+true
+]
+],
+"裕": [
+[
+"plenty",
+false
+],
+[
+"wealthy",
+false
+]
+],
+"老": [
+[
+"old",
+false
+],
+[
+"grow old",
+true
+]
+],
+"快": [
+[
+"pleasant",
+false
+],
+[
+"fast",
+false
+]
+],
+"宣": [
+[
+"proclaim",
+false
+]
+],
+"憶": [
+[
+"memory",
+false
+]
+],
+"壁": [
+[
+"wall",
+true
+]
+],
+"清": [
+[
+"clean",
+false
+],
+[
+"pure",
+true
+],
+[
+"settle",
+false
+]
+],
+"婦": [
+[
+"wife",
+false
+],
+[
+"woman",
+false
+]
+],
+"宙": [
+[
+"space",
+false
+],
+[
+"mid-air",
+true
+]
+],
+"購": [
+[
+"purchase",
+false
+]
+],
+"拡": [
+[
+"expand",
+false
+],
+[
+"spread",
+false
+]
+],
+"層": [
+[
+"layer",
+true
+],
+[
+"class",
+false
+],
+[
+"more",
+false
+]
+],
+"午": [
+[
+"noon",
+false
+]
+],
+"庭": [
+[
+"garden",
+true
+]
+],
+"箱": [
+[
+"box",
+true
+]
+],
+"泣": [
+[
+"cry",
+true
+]
+],
+"里": [
+[
+"village",
+true
+],
+[
+"hometown",
+true
+],
+[
+"foster",
+false
+]
+],
+"称": [
+[
+"name",
+false
+],
+[
+"title",
+false
+]
+],
+"己": [
+[
+"self",
+false
+]
+],
+"汚": [
+[
+"dirty",
+true
+],
+[
+"pollute",
+false
+],
+[
+"corrupt",
+false
+]
+],
+"盤": [
+[
+"stage",
+false
+],
+[
+"base",
+false
+],
+[
+"edition",
+false
+],
+[
+"board",
+true
+],
+[
+"disc",
+false
+]
+],
+"菜": [
+[
+"vegetable",
+false
+],
+[
+"side dish",
+false
+],
+[
+"greens",
+true
+]
+],
+"雪": [
+[
+"snow",
+true
+]
+],
+"刺": [
+[
+"stimulate",
+false
+],
+[
+"stab",
+true
+],
+[
+"stick",
+true
+]
+],
+"依": [
+[
+"request",
+false
+],
+[
+"depend",
+false
+],
+[
+"still",
+false
+]
+],
+"章": [
+[
+"chapter",
+true
+],
+[
+"badge",
+false
+]
+],
+"岩": [
+[
+"rock",
+true
+]
+],
+"則": [
+[
+"rule",
+false
+]
+],
+"悩": [
+[
+"worry",
+true
+]
+],
+"油": [
+[
+"oil",
+true
+]
+],
+"紀": [
+[
+"era",
+false
+],
+[
+"record",
+false
+]
+],
+"豊": [
+[
+"rich",
+true
+],
+[
+"abundant",
+false
+]
+],
+"折": [
+[
+"fold",
+true
+],
+[
+"break",
+true
+],
+[
+"turn",
+false
+],
+[
+"occasion",
+false
+]
+],
+"請": [
+[
+"request",
+false
+],
+[
+"undertake",
+false
+]
+],
+"狙": [
+[
+"aim",
+true
+]
+],
+"束": [
+[
+"bundle",
+true
+],
+[
+"bind",
+false
+]
+],
+"候": [
+[
+"candidacy",
+false
+],
+[
+"weather",
+false
+],
+[
+"sign",
+false
+]
+],
+"律": [
+[
+"law",
+false
+],
+[
+"discipline",
+false
+],
+[
+"rhythm",
+false
+]
+],
+"荷": [
+[
+"luggage",
+false
+],
+[
+"cargo",
+false
+],
+[
+"load",
+true
+]
+],
+"昼": [
+[
+"noon",
+true
+],
+[
+"daytime",
+true
+],
+[
+"lunch",
+true
+]
+],
+"慢": [
+[
+"conceit",
+false
+],
+[
+"chronic",
+false
+],
+[
+"slow",
+false
+]
+],
+"燃": [
+[
+"burn",
+true
+],
+[
+"fuel",
+false
+]
+],
+"籍": [
+[
+"register",
+false
+],
+[
+"enrollment",
+false
+]
+],
+"魚": [
+[
+"fish",
+true
+]
+],
+"廃": [
+[
+"abolish",
+false
+],
+[
+"abandoned",
+false
+],
+[
+"discard",
+false
+]
+],
+"吹": [
+[
+"blow",
+true
+],
+[
+"wind music",
+false
+]
+],
+"鮮": [
+[
+"fresh",
+false
+],
+[
+"vivid",
+true
+]
+],
+"善": [
+[
+"good",
+false
+]
+],
+"著": [
+[
+"write",
+false
+],
+[
+"remarkable",
+true
+],
+[
+"written by",
+false
+]
+],
+"辛": [
+[
+"spicy",
+true
+],
+[
+"painful",
+true
+],
+[
+"barely",
+false
+]
+],
+"才": [
+[
+"talent",
+false
+],
+[
+"years old",
+false
+]
+],
+"照": [
+[
+"compare",
+false
+],
+[
+"light",
+false
+],
+[
+"shine on",
+true
+],
+[
+"be shy",
+true
+]
+],
+"訪": [
+[
+"visit",
+true
+]
+],
+"津": [
+[
+"harbor",
+false
+]
+],
+"歯": [
+[
+"tooth",
+true
+]
+],
+"詰": [
+[
+"pack",
+true
+],
+[
+"be blocked",
+true
+]
+],
+"寺": [
+[
+"temple",
+true
+]
+],
+"暮": [
+[
+"live",
+true
+],
+[
+"dusk",
+true
+],
+[
+"year's end",
+true
+]
+],
+"誤": [
+[
+"mistake",
+true
+],
+[
+"wrong",
+false
+]
+],
+"訴": [
+[
+"sue",
+true
+],
+[
+"complain",
+true
+],
+[
+"appeal",
+true
+]
+],
+"液": [
+[
+"liquid",
+true
+],
+[
+"bodily fluid",
+false
+]
+],
+"慣": [
+[
+"get used to",
+true
+],
+[
+"custom",
+false
+]
+],
+"幼": [
+[
+"young",
+true
+],
+[
+"childhood",
+false
+]
+],
+"益": [
+[
+"profit",
+false
+],
+[
+"benefit",
+false
+]
+],
+"植": [
+[
+"plant",
+true
+],
+[
+"transplant",
+false
+]
+],
+"旧": [
+[
+"former",
+false
+],
+[
+"old",
+false
+]
+],
+"宝": [
+[
+"treasure",
+true
+],
+[
+"jewel",
+false
+]
+],
+"耳": [
+[
+"ear",
+true
+]
+],
+"延": [
+[
+"extend",
+true
+],
+[
+"postpone",
+false
+]
+],
+"恵": [
+[
+"wisdom",
+false
+],
+[
+"blessing",
+true
+],
+[
+"be blessed",
+true
+]
+],
+"維": [
+[
+"maintain",
+false
+],
+[
+"fiber",
+false
+]
+],
+"躍": [
+[
+"leap",
+false
+],
+[
+"active",
+false
+]
+],
+"露": [
+[
+"expose",
+false
+],
+[
+"show",
+false
+],
+[
+"open-air",
+false
+],
+[
+"dew",
+true
+]
+],
+"伸": [
+[
+"stretch",
+true
+],
+[
+"grow",
+true
+]
+],
+"底": [
+[
+"bottom",
+true
+],
+[
+"thorough",
+false
+]
+],
+"林": [
+[
+"woods",
+true
+]
+],
+"河": [
+[
+"river",
+false
+]
+],
+"祝": [
+[
+"celebrate",
+true
+],
+[
+"holiday",
+false
+]
+],
+"到": [
+[
+"arrive",
+false
+],
+[
+"rush",
+false
+]
+],
+"群": [
+[
+"group",
+true
+],
+[
+"crowd",
+false
+]
+],
+"騒": [
+[
+"commotion",
+true
+],
+[
+"make noise",
+true
+],
+[
+"noise",
+false
+]
+],
+"倉": [
+[
+"warehouse",
+false
+]
+],
+"蔵": [
+[
+"store",
+false
+],
+[
+"storehouse",
+true
+],
+[
+"collection",
+false
+]
+],
+"審": [
+[
+"judge",
+false
+],
+[
+"examine",
+false
+]
+],
+"繰": [
+[
+"repeat",
+false
+],
+[
+"reel",
+false
+]
+],
+"農": [
+[
+"farming",
+false
+]
+],
+"盗": [
+[
+"steal",
+true
+],
+[
+"theft",
+false
+]
+],
+"羽": [
+[
+"feather",
+true
+],
+[
+"birds",
+false
+],
+[
+"wing",
+true
+]
+],
+"革": [
+[
+"reform",
+false
+],
+[
+"leather",
+true
+]
+],
+"桜": [
+[
+"cherry tree",
+true
+]
+],
+"九": [
+[
+"nine",
+true
+]
+],
+"札": [
+[
+"banknote",
+true
+],
+[
+"bid",
+false
+],
+[
+"tag",
+true
+],
+[
+"ticket",
+false
+]
+],
+"腕": [
+[
+"arm",
+true
+],
+[
+"skill",
+true
+]
+],
+"穴": [
+[
+"hole",
+true
+]
+],
+"冬": [
+[
+"winter",
+true
+]
+],
+"秀": [
+[
+"excel",
+false
+]
+],
+"樹": [
+[
+"tree",
+false
+],
+[
+"establish",
+false
+]
+],
+"臭": [
+[
+"smelly",
+true
+],
+[
+"odor",
+false
+],
+[
+"smell",
+true
+],
+[
+"-ish",
+false
+]
+],
+"毒": [
+[
+"poison",
+true
+]
+],
+"胸": [
+[
+"chest",
+true
+],
+[
+"heart",
+true
+]
+],
+"恥": [
+[
+"shame",
+true
+],
+[
+"embarrassed",
+true
+]
+],
+"奏": [
+[
+"play music",
+false
+]
+],
+"賀": [
+[
+"congratulations",
+false
+]
+],
+"隣": [
+[
+"next door",
+true
+],
+[
+"neighbor",
+false
+]
+],
+"栄": [
+[
+"glory",
+false
+],
+[
+"prosper",
+false
+],
+[
+"vanity",
+false
+]
+],
+"趣": [
+[
+"hobby",
+false
+],
+[
+"charm",
+true
+],
+[
+"gist",
+false
+]
+],
+"即": [
+[
+"immediate",
+false
+]
+],
+"邪": [
+[
+"evil",
+false
+]
+],
+"杯": [
+[
+"cups",
+false
+],
+[
+"full",
+false
+],
+[
+"toast",
+false
+],
+[
+"trophy",
+false
+]
+],
+"易": [
+[
+"easy",
+true
+],
+[
+"trade",
+false
+],
+[
+"simple",
+false
+]
+],
+"緊": [
+[
+"urgent",
+false
+],
+[
+"tense",
+false
+]
+],
+"郡": [
+[
+"county",
+false
+]
+],
+"袋": [
+[
+"bag",
+true
+]
+],
+"寒": [
+[
+"cold",
+true
+]
+],
+"瀬": [
+[
+"shallows",
+false
+],
+[
+"rapids",
+false
+]
+],
+"獣": [
+[
+"beast",
+true
+],
+[
+"animal",
+false
+]
+],
+"幕": [
+[
+"curtain",
+true
+],
+[
+"shogunate",
+false
+],
+[
+"act",
+false
+]
+],
+"承": [
+[
+"consent",
+false
+],
+[
+"inherit",
+false
+]
+],
+"遣": [
+[
+"dispatch",
+false
+],
+[
+"use",
+false
+]
+],
+"就": [
+[
+"take up",
+false
+]
+],
+"奇": [
+[
+"strange",
+false
+],
+[
+"surprise",
+false
+],
+[
+"odd number",
+false
+]
+],
+"奪": [
+[
+"take away",
+true
+]
+],
+"項": [
+[
+"item",
+false
+],
+[
+"paragraph",
+false
+]
+],
+"姫": [
+[
+"princess",
+true
+]
+],
+"央": [
+[
+"center",
+false
+]
+],
+"欠": [
+[
+"lack",
+true
+],
+[
+"absent",
+false
+],
+[
+"chip",
+true
+]
+],
+"述": [
+[
+"describe",
+false
+],
+[
+"state",
+true
+]
+],
+"銃": [
+[
+"gun",
+true
+]
+],
+"霊": [
+[
+"spirit",
+true
+],
+[
+"ghost",
+false
+]
+],
+"虫": [
+[
+"insect",
+true
+]
+],
+"航": [
+[
+"sail",
+false
+],
+[
+"flight",
+false
+]
+],
+"皇": [
+[
+"emperor",
+false
+],
+[
+"imperial",
+false
+]
+],
+"輸": [
+[
+"transport",
+false
+]
+],
+"崩": [
+[
+"collapse",
+true
+],
+[
+"break",
+true
+]
+],
+"幅": [
+[
+"width",
+true
+],
+[
+"range",
+false
+]
+],
+"挑": [
+[
+"challenge",
+true
+],
+[
+"provoke",
+false
+]
+],
+"駆": [
+[
+"drive",
+false
+],
+[
+"run",
+true
+]
+],
+"占": [
+[
+"occupy",
+true
+],
+[
+"tell fortunes",
+true
+]
+],
+"宗": [
+[
+"religion",
+false
+],
+[
+"sect",
+false
+]
+],
+"患": [
+[
+"suffer",
+false
+],
+[
+"disease",
+false
+]
+],
+"酷": [
+[
+"terrible",
+true
+],
+[
+"cruel",
+false
+],
+[
+"harsh",
+false
+]
+],
+"襲": [
+[
+"attack",
+true
+],
+[
+"inherit",
+false
+]
+],
+"雄": [
+[
+"hero",
+false
+],
+[
+"male",
+true
+],
+[
+"grand",
+false
+]
+],
+"皮": [
+[
+"skin",
+true
+],
+[
+"peel",
+true
+]
+],
+"妙": [
+[
+"strange",
+true
+],
+[
+"exquisite",
+false
+],
+[
+"subtle",
+false
+]
+],
+"枠": [
+[
+"frame",
+true
+],
+[
+"slot",
+false
+]
+],
+"剤": [
+[
+"agent",
+false
+],
+[
+"drug",
+false
+]
+],
+"鬼": [
+[
+"ogre",
+true
+]
+],
+"均": [
+[
+"average",
+false
+],
+[
+"equal",
+false
+]
+],
+"丁": [
+[
+"polite",
+false
+],
+[
+"blocks",
+false
+],
+[
+"city block",
+false
+]
+],
+"厚": [
+[
+"welfare",
+false
+],
+[
+"thick",
+true
+],
+[
+"rich",
+false
+],
+[
+"kind",
+false
+]
+],
+"狂": [
+[
+"madness",
+false
+],
+[
+"go mad",
+true
+],
+[
+"frenzy",
+false
+]
+],
+"逮": [
+[
+"arrest",
+false
+]
+],
+"脚": [
+[
+"leg",
+true
+],
+[
+"script",
+false
+],
+[
+"chairs",
+false
+]
+],
+"券": [
+[
+"ticket",
+true
+],
+[
+"certificate",
+false
+]
+],
+"刊": [
+[
+"publish",
+false
+]
+],
+"距": [
+[
+"distance",
+false
+]
+],
+"診": [
+[
+"diagnose",
+false
+],
+[
+"examine",
+false
+]
+],
+"塗": [
+[
+"paint",
+true
+]
+],
+"較": [
+[
+"compare",
+false
+]
+],
+"尻": [
+[
+"buttocks",
+true
+],
+[
+"end",
+false
+]
+],
+"薄": [
+[
+"thin",
+true
+],
+[
+"pale",
+true
+],
+[
+"weak",
+true
+],
+[
+"fade",
+true
+]
+],
+"至": [
+[
+"reach",
+true
+],
+[
+"utmost",
+false
+]
+],
+"帝": [
+[
+"emperor",
+false
+],
+[
+"empire",
+false
+]
+],
+"討": [
+[
+"discuss",
+false
+],
+[
+"attack",
+false
+]
+],
+"副": [
+[
+"vice-",
+false
+],
+[
+"side",
+false
+],
+[
+"secondary",
+false
+]
+],
+"荒": [
+[
+"rough",
+true
+],
+[
+"wild",
+false
+],
+[
+"stormy",
+true
+],
+[
+"ruin",
+false
+]
+],
+"握": [
+[
+"grip",
+true
+],
+[
+"grasp",
+false
+]
+],
+"甲": [
+[
+"shell",
+false
+],
+[
+"armor",
+false
+],
+[
+"party a",
+true
+],
+[
+"back",
+false
+]
+],
+"夕": [
+[
+"evening",
+false
+]
+],
+"幹": [
+[
+"trunk",
+false
+],
+[
+"core",
+false
+],
+[
+"main",
+false
+]
+],
+"牛": [
+[
+"cow",
+true
+],
+[
+"beef",
+false
+]
+],
+"削": [
+[
+"delete",
+false
+],
+[
+"shave",
+true
+],
+[
+"cut back",
+false
+]
+],
+"黄": [
+[
+"yellow",
+true
+],
+[
+"gold",
+false
+]
+],
+"勇": [
+[
+"courage",
+false
+],
+[
+"brave",
+true
+]
+],
+"詞": [
+[
+"lyrics",
+false
+],
+[
+"word",
+false
+]
+],
+"炎": [
+[
+"flame",
+true
+],
+[
+"inflammation",
+false
+]
+],
+"招": [
+[
+"invite",
+true
+],
+[
+"summon",
+false
+],
+[
+"beckon",
+false
+]
+],
+"舗": [
+[
+"shop",
+false
+],
+[
+"pave",
+false
+]
+],
+"鳴": [
+[
+"cry",
+true
+],
+[
+"ring",
+true
+],
+[
+"sound",
+false
+]
+],
+"範": [
+[
+"scope",
+false
+],
+[
+"model",
+false
+]
+],
+"踏": [
+[
+"step on",
+true
+],
+[
+"tread",
+false
+]
+],
+"砂": [
+[
+"sand",
+true
+]
+],
+"昇": [
+[
+"rise",
+true
+],
+[
+"promotion",
+false
+]
+],
+"締": [
+[
+"tighten",
+true
+],
+[
+"conclude",
+false
+],
+[
+"close",
+true
+]
+],
+"眼": [
+[
+"eye",
+true
+]
+],
+"塩": [
+[
+"salt",
+true
+],
+[
+"chlorine",
+false
+]
+],
+"耐": [
+[
+"endure",
+true
+],
+[
+"-proof",
+false
+]
+],
+"彩": [
+[
+"color",
+false
+],
+[
+"decorate",
+true
+]
+],
+"緑": [
+[
+"green",
+true
+]
+],
+"微": [
+[
+"slight",
+false
+],
+[
+"subtle",
+false
+],
+[
+"tiny",
+false
+],
+[
+"faint",
+true
+]
+],
+"迫": [
+[
+"press",
+true
+],
+[
+"close in",
+true
+],
+[
+"force",
+false
+]
+],
+"獄": [
+[
+"prison",
+false
+],
+[
+"hell",
+false
+]
+],
+"慮": [
+[
+"consider",
+false
+],
+[
+"concern",
+false
+]
+],
+"免": [
+[
+"license",
+false
+],
+[
+"exempt",
+false
+],
+[
+"immunity",
+false
+],
+[
+"escape",
+true
+],
+[
+"dismiss",
+false
+]
+],
+"窓": [
+[
+"window",
+true
+]
+],
+"柄": [
+[
+"pattern",
+true
+],
+[
+"nature",
+false
+],
+[
+"build",
+false
+],
+[
+"handle",
+false
+]
+],
+"童": [
+[
+"child",
+false
+]
+],
+"融": [
+[
+"finance",
+false
+],
+[
+"fuse",
+false
+],
+[
+"dissolve",
+false
+]
+],
+"唯": [
+[
+"only",
+false
+]
+],
+"衆": [
+[
+"crowd",
+false
+],
+[
+"the public",
+false
+]
+],
+"岸": [
+[
+"shore",
+true
+]
+],
+"批": [
+[
+"criticize",
+false
+]
+],
+"努": [
+[
+"effort",
+false
+],
+[
+"strive",
+true
+]
+],
+"豆": [
+[
+"bean",
+true
+]
+],
+"季": [
+[
+"season",
+false
+]
+],
+"績": [
+[
+"achievement",
+false
+],
+[
+"result",
+false
+]
+],
+"七": [
+[
+"seven",
+true
+]
+],
+"析": [
+[
+"analyze",
+false
+]
+],
+"魅": [
+[
+"charm",
+false
+],
+[
+"captivate",
+false
+]
+],
+"輩": [
+[
+"fellow",
+false
+],
+[
+"generation",
+false
+]
+],
+"徳": [
+[
+"virtue",
+true
+],
+[
+"morality",
+false
+]
+],
+"埋": [
+[
+"bury",
+true
+],
+[
+"fill in",
+true
+]
+],
+"衝": [
+[
+"impact",
+false
+],
+[
+"collide",
+false
+],
+[
+"impulse",
+false
+]
+],
+"謎": [
+[
+"mystery",
+true
+]
+],
+"熊": [
+[
+"bear",
+true
+]
+],
+"濃": [
+[
+"dense",
+false
+],
+[
+"dark",
+true
+],
+[
+"strong",
+true
+],
+[
+"thick",
+true
+]
+],
+"寿": [
+[
+"long life",
+false
+],
+[
+"congratulations",
+false
+]
+],
+"獲": [
+[
+"acquire",
+false
+],
+[
+"catch",
+false
+],
+[
+"prey",
+false
+]
+],
+"偽": [
+[
+"fake",
+true
+],
+[
+"false",
+false
+],
+[
+"lie",
+true
+]
+],
+"昭": [
+[
+"shining",
+false
+]
+],
+"捜": [
+[
+"search",
+true
+],
+[
+"investigate",
+false
+]
+],
+"包": [
+[
+"wrap",
+true
+],
+[
+"surround",
+false
+],
+[
+"package",
+true
+]
+],
+"賛": [
+[
+"approve",
+false
+],
+[
+"praise",
+false
+]
+],
+"肌": [
+[
+"skin",
+true
+]
+],
+"渋": [
+[
+"congested",
+false
+],
+[
+"astringent",
+true
+],
+[
+"reluctant",
+true
+]
+],
+"忙": [
+[
+"busy",
+true
+]
+],
+"核": [
+[
+"nuclear",
+true
+],
+[
+"nucleus",
+true
+],
+[
+"core",
+false
+]
+],
+"貨": [
+[
+"currency",
+false
+],
+[
+"goods",
+false
+],
+[
+"coin",
+false
+]
+],
+"闇": [
+[
+"darkness",
+true
+],
+[
+"black market",
+false
+]
+],
+"那": [],
+"六": [
+[
+"six",
+true
+]
+],
+"雇": [
+[
+"hire",
+true
+],
+[
+"employ",
+false
+]
+],
+"鏡": [
+[
+"mirror",
+true
+],
+[
+"lens",
+false
+]
+],
+"是": [
+[
+"right",
+false
+]
+],
+"呂": [],
+"干": [
+[
+"somewhat",
+false
+],
+[
+"interfere",
+false
+],
+[
+"dry",
+true
+]
+],
+"矢": [
+[
+"arrow",
+true
+]
+],
+"巡": [
+[
+"go around",
+true
+],
+[
+"patrol",
+false
+]
+],
+"陰": [
+[
+"shade",
+true
+],
+[
+"secret",
+false
+],
+[
+"behind",
+true
+],
+[
+"negative",
+false
+],
+[
+"yin",
+false
+]
+],
+"湾": [
+[
+"bay",
+true
+]
+],
+"憲": [
+[
+"constitution",
+false
+]
+],
+"貸": [
+[
+"lend",
+true
+],
+[
+"rent out",
+false
+]
+],
+"暑": [
+[
+"hot",
+true
+],
+[
+"heat",
+true
+]
+],
+"械": [
+[
+"machine",
+false
+]
+],
+"看": [
+[
+"watch over",
+false
+],
+[
+"see",
+false
+]
+],
+"酔": [
+[
+"drunk",
+true
+],
+[
+"sick",
+true
+],
+[
+"intoxicate",
+false
+]
+],
+"豪": [
+[
+"grand",
+false
+],
+[
+"heavy",
+false
+],
+[
+"powerful",
+false
+],
+[
+"australia",
+false
+]
+],
+"概": [
+[
+"general",
+false
+],
+[
+"outline",
+false
+],
+[
+"approximate",
+false
+]
+],
+"床": [
+[
+"floor",
+true
+],
+[
+"bed",
+false
+]
+],
+"悔": [
+[
+"regret",
+true
+],
+[
+"frustrated",
+true
+]
+],
+"臣": [
+[
+"minister",
+false
+],
+[
+"retainer",
+false
+]
+],
+"雰": [
+[
+"atmosphere",
+false
+]
+],
+"湯": [
+[
+"hot water",
+true
+],
+[
+"bath",
+true
+]
+],
+"房": [
+[
+"room",
+false
+],
+[
+"wife",
+false
+],
+[
+"breast",
+false
+],
+[
+"bunch",
+true
+]
+],
+"魂": [
+[
+"soul",
+true
+],
+[
+"spirit",
+false
+]
+],
+"侵": [
+[
+"invade",
+true
+],
+[
+"violate",
+false
+]
+],
+"諸": [
+[
+"various",
+false
+]
+],
+"掃": [
+[
+"sweep",
+true
+],
+[
+"clean",
+false
+]
+],
+"祖": [
+[
+"grand-",
+false
+],
+[
+"ancestor",
+false
+],
+[
+"founder",
+false
+]
+],
+"傾": [
+[
+"lean",
+true
+],
+[
+"tendency",
+false
+],
+[
+"tilt",
+true
+]
+],
+"歓": [
+[
+"welcome",
+false
+],
+[
+"joy",
+false
+]
+],
+"鈴": [
+[
+"bell",
+true
+]
+],
+"徹": [
+[
+"thorough",
+false
+],
+[
+"through",
+false
+],
+[
+"devote",
+true
+]
+],
+"執": [
+[
+"carry out",
+false
+],
+[
+"write",
+false
+],
+[
+"cling",
+false
+],
+[
+"take",
+true
+]
+],
+"摘": [
+[
+"point out",
+false
+],
+[
+"pluck",
+true
+],
+[
+"expose",
+false
+]
+],
+"敷": [
+[
+"spread",
+true
+],
+[
+"grounds",
+false
+],
+[
+"lay",
+true
+]
+],
+"抑": [
+[
+"suppress",
+true
+],
+[
+"hold down",
+true
+],
+[
+"restrain",
+false
+]
+],
+"臓": [
+[
+"internal organ",
+false
+]
+],
+"署": [
+[
+"signature",
+false
+],
+[
+"office",
+true
+]
+],
+"訓": [
+[
+"training",
+false
+],
+[
+"lesson",
+false
+],
+[
+"instruct",
+false
+],
+[
+"kun reading",
+false
+]
+],
+"浴": [
+[
+"bathe",
+true
+],
+[
+"bath",
+false
+],
+[
+"bask",
+false
+]
+],
+"渉": [
+[
+"negotiate",
+false
+],
+[
+"interfere",
+false
+]
+],
+"輝": [
+[
+"shine",
+true
+],
+[
+"brilliance",
+true
+]
+],
+"縁": [
+[
+"ties",
+true
+],
+[
+"fate",
+true
+],
+[
+"edge",
+false
+]
+],
+"排": [
+[
+"exclude",
+false
+],
+[
+"expel",
+false
+]
+],
+"尊": [
+[
+"respect",
+false
+],
+[
+"precious",
+true
+],
+[
+"revered",
+false
+]
+],
+"棒": [
+[
+"stick",
+true
+],
+[
+"pole",
+true
+],
+[
+"partner",
+false
+]
+],
+"縮": [
+[
+"shrink",
+true
+],
+[
+"reduce",
+false
+],
+[
+"compress",
+false
+]
+],
+"踊": [
+[
+"dance",
+true
+]
+],
+"鼻": [
+[
+"nose",
+true
+]
+],
+"黙": [
+[
+"silent",
+true
+]
+],
+"針": [
+[
+"needle",
+true
+],
+[
+"policy",
+false
+],
+[
+"clock hand",
+true
+]
+],
+"飾": [
+[
+"decorate",
+true
+],
+[
+"ornament",
+true
+]
+],
+"尽": [
+[
+"do one's utmost",
+true
+],
+[
+"run out",
+true
+],
+[
+"exhaust",
+false
+]
+],
+"悟": [
+[
+"resolve",
+false
+],
+[
+"realize",
+true
+],
+[
+"enlightenment",
+true
+]
+],
+"句": [
+[
+"phrase",
+true
+],
+[
+"complaint",
+false
+],
+[
+"verse",
+false
+]
+],
+"咲": [
+[
+"bloom",
+true
+]
+],
+"飼": [
+[
+"keep",
+true
+],
+[
+"raise",
+false
+],
+[
+"feed",
+false
+]
+],
+"竹": [
+[
+"bamboo",
+true
+]
+],
+"靴": [
+[
+"shoe",
+true
+]
+],
+"敬": [
+[
+"respect",
+false
+],
+[
+"honorific",
+false
+]
+],
+"浦": [
+[
+"inlet",
+false
+]
+],
+"懐": [
+[
+"nostalgic",
+true
+],
+[
+"bosom",
+true
+],
+[
+"pocket",
+false
+],
+[
+"doubt",
+false
+]
+],
+"梅": [
+[
+"plum",
+true
+],
+[
+"rainy season",
+false
+]
+],
+"勘": [
+[
+"intuition",
+true
+],
+[
+"pardon",
+false
+],
+[
+"bill",
+false
+]
+],
+"筆": [
+[
+"brush",
+true
+],
+[
+"writing",
+false
+],
+[
+"pen",
+false
+],
+[
+"handwriting",
+false
+]
+],
+"暇": [
+[
+"free time",
+true
+],
+[
+"leave",
+false
+]
+],
+"揮": [
+[
+"command",
+false
+],
+[
+"display",
+false
+]
+],
+"潜": [
+[
+"latent",
+false
+],
+[
+"dive",
+true
+],
+[
+"lurk",
+true
+],
+[
+"sneak",
+false
+]
+],
+"紅": [
+[
+"red",
+false
+],
+[
+"crimson",
+true
+],
+[
+"rouge",
+false
+]
+],
+"抵": [
+[
+"resist",
+false
+],
+[
+"usually",
+false
+],
+[
+"conflict",
+false
+]
+],
+"騎": [
+[
+"horse riding",
+false
+],
+[
+"knight",
+false
+]
+],
+"漢": [
+[
+"chinese",
+false
+],
+[
+"man",
+false
+]
+],
+"閣": [
+[
+"cabinet",
+false
+],
+[
+"excellency",
+false
+],
+[
+"tower",
+false
+]
+],
+"履": [
+[
+"history",
+false
+],
+[
+"wear",
+true
+],
+[
+"carry out",
+false
+]
+],
+"奮": [
+[
+"rouse",
+false
+],
+[
+"excitement",
+false
+],
+[
+"struggle",
+false
+]
+],
+"透": [
+[
+"transparent",
+false
+],
+[
+"pass through",
+false
+],
+[
+"show through",
+true
+]
+],
+"欺": [
+[
+"deceive",
+true
+],
+[
+"fraud",
+false
+]
+],
+"陣": [
+[
+"team",
+false
+],
+[
+"camp",
+true
+],
+[
+"position",
+false
+],
+[
+"labor",
+false
+]
+],
+"肩": [
+[
+"shoulder",
+true
+]
+],
+"詐": [
+[
+"fraud",
+false
+],
+[
+"deceive",
+false
+]
+],
+"吐": [
+[
+"vomit",
+true
+],
+[
+"breathe out",
+true
+],
+[
+"spit",
+false
+]
+],
+"還": [
+[
+"return",
+false
+],
+[
+"give back",
+false
+]
+],
+"珍": [
+[
+"rare",
+true
+]
+],
+"棄": [
+[
+"abandon",
+false
+],
+[
+"discard",
+false
+],
+[
+"reject",
+false
+]
+],
+"須": [
+[
+"necessary",
+false
+]
+],
+"諦": [
+[
+"give up",
+true
+]
+],
+"双": [
+[
+"pair",
+false
+],
+[
+"both",
+false
+],
+[
+"twin",
+false
+]
+],
+"庁": [
+[
+"agency",
+true
+],
+[
+"government office",
+false
+]
+],
+"旦": [
+[
+"once",
+false
+],
+[
+"dawn",
+false
+]
+],
+"威": [
+[
+"threat",
+false
+],
+[
+"might",
+false
+],
+[
+"authority",
+false
+],
+[
+"dignity",
+false
+]
+],
+"刀": [
+[
+"sword",
+true
+],
+[
+"knife",
+false
+]
+],
+"僚": [
+[
+"colleague",
+false
+],
+[
+"official",
+false
+]
+],
+"煙": [
+[
+"smoke",
+true
+],
+[
+"smoking",
+false
+]
+],
+"貧": [
+[
+"poor",
+true
+],
+[
+"poverty",
+false
+]
+],
+"搭": [
+[
+"load",
+false
+],
+[
+"board",
+false
+]
+],
+"譲": [
+[
+"transfer",
+false
+],
+[
+"hand over",
+true
+],
+[
+"yield",
+true
+],
+[
+"concession",
+false
+]
+],
+"腐": [
+[
+"rot",
+true
+],
+[
+"decay",
+false
+],
+[
+"corrupt",
+false
+]
+],
+"鎖": [
+[
+"chain",
+true
+],
+[
+"close",
+false
+],
+[
+"blockade",
+false
+]
+],
+"晩": [
+[
+"evening",
+true
+],
+[
+"night",
+true
+],
+[
+"late",
+false
+]
+],
+"貼": [
+[
+"stick on",
+true
+]
+],
+"釣": [
+[
+"fishing",
+true
+],
+[
+"change",
+true
+],
+[
+"balance",
+false
+]
+],
+"卵": [
+[
+"egg",
+true
+]
+],
+"儀": [
+[
+"ceremony",
+false
+],
+[
+"manners",
+false
+],
+[
+"model",
+false
+]
+],
+"拒": [
+[
+"refuse",
+true
+],
+[
+"reject",
+false
+]
+],
+"殿": [
+[
+"mr.",
+false
+],
+[
+"palace",
+false
+],
+[
+"hall",
+false
+],
+[
+"highness",
+false
+],
+[
+"lord",
+true
+]
+],
+"胞": [
+[
+"cell",
+false
+],
+[
+"womb",
+false
+]
+],
+"却": [
+[
+"away",
+false
+],
+[
+"reject",
+false
+],
+[
+"contrary",
+true
+]
+],
+"糖": [
+[
+"sugar",
+true
+],
+[
+"carbohydrate",
+false
+]
+],
+"粉": [
+[
+"powder",
+true
+],
+[
+"flour",
+true
+],
+[
+"pollen",
+false
+],
+[
+"smash",
+false
+]
+],
+"封": [
+[
+"seal",
+true
+],
+[
+"envelope",
+false
+],
+[
+"blockade",
+false
+],
+[
+"feudal",
+false
+]
+],
+"菓": [
+[
+"sweets",
+false
+]
+],
+"泊": [
+[
+"stay overnight",
+true
+],
+[
+"nights",
+false
+]
+],
+"竜": [
+[
+"dragon",
+true
+],
+[
+"dinosaur",
+false
+]
+],
+"塚": [
+[
+"mound",
+true
+]
+],
+"償": [
+[
+"compensate",
+false
+],
+[
+"payment",
+false
+],
+[
+"atone",
+true
+]
+],
+"駐": [
+[
+"park",
+false
+],
+[
+"be stationed",
+false
+]
+],
+"鑑": [
+[
+"appreciate",
+false
+],
+[
+"appraise",
+false
+],
+[
+"guidebook",
+false
+],
+[
+"seal",
+false
+]
+],
+"勧": [
+[
+"recommend",
+true
+],
+[
+"invite",
+false
+],
+[
+"advise",
+false
+]
+],
+"嫁": [
+[
+"bride",
+true
+],
+[
+"wife",
+true
+],
+[
+"shift",
+false
+],
+[
+"marry",
+true
+]
+],
+"圏": [
+[
+"area",
+false
+],
+[
+"range",
+false
+],
+[
+"sphere",
+false
+]
+],
+"舎": [
+[
+"building",
+false
+],
+[
+"country",
+false
+],
+[
+"quarters",
+false
+]
+],
+"仏": [
+[
+"buddha",
+true
+],
+[
+"french",
+false
+],
+[
+"the dead",
+true
+]
+],
+"閲": [
+[
+"browse",
+false
+],
+[
+"inspect",
+false
+]
+],
+"叫": [
+[
+"shout",
+true
+],
+[
+"scream",
+true
+]
+],
+"掘": [
+[
+"dig",
+true
+],
+[
+"excavate",
+false
+],
+[
+"mine",
+false
+]
+],
+"欧": [
+[
+"europe",
+false
+]
+],
+"浅": [
+[
+"shallow",
+true
+]
+],
+"氷": [
+[
+"ice",
+true
+]
+],
+"杉": [
+[
+"cedar",
+true
+]
+],
+"翻": [
+[
+"translate",
+false
+],
+[
+"toy with",
+false
+],
+[
+"flip",
+true
+],
+[
+"flutter",
+true
+]
+],
+"妊": [
+[
+"pregnancy",
+false
+]
+],
+"臨": [
+[
+"temporary",
+false
+],
+[
+"clinical",
+false
+],
+[
+"face",
+true
+],
+[
+"attend",
+true
+]
+],
+"芝": [
+[
+"play",
+false
+],
+[
+"lawn",
+true
+]
+],
+"賢": [
+[
+"wise",
+true
+],
+[
+"clever",
+true
+],
+[
+"sage",
+false
+]
+],
+"雲": [
+[
+"cloud",
+true
+]
+],
+"伴": [
+[
+"accompany",
+true
+],
+[
+"companion",
+false
+]
+],
+"郷": [
+[
+"home",
+false
+],
+[
+"village",
+false
+]
+],
+"釈": [
+[
+"interpret",
+false
+],
+[
+"release",
+false
+],
+[
+"explain",
+false
+]
+],
+"殴": [
+[
+"hit",
+true
+],
+[
+"punch",
+true
+]
+],
+"誠": [
+[
+"sincerity",
+true
+],
+[
+"truly",
+true
+],
+[
+"loyalty",
+false
+]
+],
+"熟": [
+[
+"ripe",
+true
+],
+[
+"mature",
+false
+],
+[
+"skilled",
+false
+],
+[
+"thorough",
+false
+]
+],
+"豚": [
+[
+"pig",
+true
+],
+[
+"pork",
+false
+]
+],
+"梨": [
+[
+"pear",
+true
+]
+],
+"亜": [
+[
+"sub-",
+false
+],
+[
+"asia",
+false
+]
+],
+"狩": [
+[
+"hunt",
+true
+]
+],
+"邦": [
+[
+"federation",
+false
+],
+[
+"japanese",
+false
+],
+[
+"home country",
+false
+]
+],
+"祈": [
+[
+"pray",
+true
+],
+[
+"wish",
+true
+]
+],
+"漏": [
+[
+"leak",
+true
+],
+[
+"let slip",
+true
+]
+],
+"献": [
+[
+"contribute",
+false
+],
+[
+"offer",
+false
+],
+[
+"literature",
+false
+],
+[
+"donate",
+false
+]
+],
+"剛": [
+[
+"sturdy",
+false
+],
+[
+"rigid",
+false
+],
+[
+"strong",
+false
+]
+],
+"腰": [
+[
+"lower back",
+true
+],
+[
+"hips",
+true
+],
+[
+"manner",
+false
+]
+],
+"懸": [
+[
+"concern",
+false
+],
+[
+"stake",
+true
+],
+[
+"hang",
+false
+],
+[
+"prize",
+false
+]
+],
+"脅": [
+[
+"threaten",
+true
+],
+[
+"frighten",
+true
+]
+],
+"沿": [
+[
+"along",
+true
+],
+[
+"follow",
+true
+],
+[
+"coast",
+false
+]
+],
+"凍": [
+[
+"freeze",
+true
+]
+],
+"乾": [
+[
+"dry",
+true
+],
+[
+"cheers",
+false
+]
+],
+"暖": [
+[
+"warm",
+true
+]
+],
+"雷": [
+[
+"thunder",
+true
+],
+[
+"lightning",
+true
+],
+[
+"mine",
+false
+],
+[
+"torpedo",
+false
+]
+],
+"汗": [
+[
+"sweat",
+true
+]
+],
+"埼": [
+[
+"cape",
+false
+]
+],
+"盟": [
+[
+"alliance",
+false
+],
+[
+"league",
+false
+],
+[
+"oath",
+false
+]
+],
+"涙": [
+[
+"tears",
+true
+]
+],
+"揺": [
+[
+"shake",
+true
+],
+[
+"sway",
+true
+],
+[
+"waver",
+true
+]
+],
+"誉": [
+[
+"honor",
+true
+],
+[
+"praise",
+false
+]
+],
+"貯": [
+[
+"save",
+true
+],
+[
+"store",
+false
+]
+],
+"潰": [
+[
+"crush",
+true
+],
+[
+"go bankrupt",
+true
+],
+[
+"kill time",
+true
+],
+[
+"ulcer",
+false
+]
+],
+"裸": [
+[
+"naked",
+true
+],
+[
+"bare",
+false
+]
+],
+"仙": [
+[
+"hermit",
+false
+],
+[
+"immortal",
+false
+]
+],
+"寂": [
+[
+"lonely",
+true
+],
+[
+"quiet",
+false
+],
+[
+"decline",
+true
+]
+],
+"冒": [
+[
+"adventure",
+false
+],
+[
+"opening",
+false
+],
+[
+"risk",
+true
+],
+[
+"brave",
+true
+]
+],
+"菌": [
+[
+"germ",
+true
+],
+[
+"bacteria",
+true
+]
+],
+"妖": [
+[
+"supernatural",
+false
+],
+[
+"fairy",
+false
+],
+[
+"bewitching",
+true
+]
+],
+"砲": [
+[
+"gun",
+true
+],
+[
+"cannon",
+true
+]
+],
+"沈": [
+[
+"sink",
+true
+],
+[
+"silent",
+false
+],
+[
+"calm",
+false
+]
+],
+"繁": [
+[
+"frequent",
+false
+],
+[
+"flourish",
+false
+],
+[
+"breed",
+false
+],
+[
+"busy",
+false
+]
+],
+"翼": [
+[
+"wing",
+true
+]
+],
+"炭": [
+[
+"carbon",
+false
+],
+[
+"coal",
+false
+],
+[
+"charcoal",
+true
+]
+],
+"翌": [
+[
+"next",
+false
+]
+],
+"誇": [
+[
+"pride",
+true
+],
+[
+"boast",
+true
+],
+[
+"exaggerate",
+false
+]
+],
+"添": [
+[
+"attach",
+false
+],
+[
+"add",
+true
+],
+[
+"accompany",
+true
+],
+[
+"correct",
+false
+]
+],
+"鍵": [
+[
+"key",
+true
+],
+[
+"lock",
+true
+],
+[
+"keyboard",
+false
+]
+],
+"滞": [
+[
+"stay",
+false
+],
+[
+"stagnate",
+false
+],
+[
+"overdue",
+false
+]
+],
+"幻": [
+[
+"illusion",
+false
+],
+[
+"phantom",
+true
+],
+[
+"vision",
+true
+]
+],
+"併": [
+[
+"combine",
+true
+],
+[
+"merge",
+false
+],
+[
+"alongside",
+false
+]
+],
+"撤": [
+[
+"withdraw",
+false
+],
+[
+"remove",
+false
+],
+[
+"retract",
+false
+]
+],
+"遇": [
+[
+"encounter",
+false
+],
+[
+"treatment",
+false
+]
+],
+"罰": [
+[
+"punishment",
+true
+],
+[
+"penalty",
+false
+]
+],
+"狭": [
+[
+"narrow",
+true
+],
+[
+"cramped",
+true
+]
+],
+"縦": [
+[
+"vertical",
+true
+],
+[
+"length",
+true
+],
+[
+"steer",
+false
+]
+],
+"溶": [
+[
+"melt",
+true
+],
+[
+"dissolve",
+true
+],
+[
+"weld",
+false
+]
+],
+"嬢": [
+[
+"young lady",
+true
+],
+[
+"miss",
+false
+],
+[
+"daughter",
+false
+]
+],
+"虐": [
+[
+"cruelty",
+false
+],
+[
+"abuse",
+false
+],
+[
+"massacre",
+false
+]
+],
+"妄": [
+[
+"delusion",
+false
+],
+[
+"reckless",
+false
+]
+],
+"葬": [
+[
+"funeral",
+false
+],
+[
+"burial",
+false
+],
+[
+"bury",
+true
+]
+],
+"乙": [
+[
+"second",
+true
+],
+[
+"stylish",
+true
+],
+[
+"young",
+false
+]
+],
+"慎": [
+[
+"careful",
+false
+],
+[
+"prudent",
+false
+],
+[
+"refrain",
+true
+]
+],
+"墓": [
+[
+"grave",
+true
+],
+[
+"cemetery",
+false
+]
+],
+"忍": [
+[
+"ninja",
+false
+],
+[
+"endure",
+true
+],
+[
+"stealth",
+false
+],
+[
+"cruel",
+false
+]
+],
+"灯": [
+[
+"light",
+true
+],
+[
+"lamp",
+false
+]
+],
+"亀": [
+[
+"turtle",
+true
+],
+[
+"crack",
+false
+]
+],
+"匹": [
+[
+"small animals",
+false
+],
+[
+"rival",
+false
+]
+],
+"飽": [
+[
+"tired of",
+true
+],
+[
+"saturation",
+false
+],
+[
+"full",
+false
+]
+],
+"殊": [
+[
+"special",
+false
+],
+[
+"especially",
+true
+]
+],
+"岐": [
+[
+"branch",
+false
+]
+],
+"沙": [
+[
+"affair",
+false
+],
+[
+"sand",
+false
+]
+],
+"稲": [
+[
+"rice plant",
+true
+],
+[
+"lightning",
+false
+]
+],
+"柔": [
+[
+"soft",
+true
+],
+[
+"flexible",
+false
+],
+[
+"gentle",
+false
+]
+],
+"賃": [
+[
+"fee",
+false
+],
+[
+"wages",
+false
+],
+[
+"rent",
+false
+],
+[
+"fare",
+false
+]
+],
+"控": [
+[
+"refrain",
+true
+],
+[
+"reserve",
+true
+],
+[
+"modest",
+true
+],
+[
+"deduction",
+false
+],
+[
+"appeal",
+false
+]
+],
+"遂": [
+[
+"accomplish",
+true
+],
+[
+"finally",
+true
+],
+[
+"attempt",
+false
+]
+],
+"嵐": [
+[
+"storm",
+true
+]
+],
+"呪": [
+[
+"curse",
+true
+],
+[
+"spell",
+false
+]
+],
+"潟": [
+[
+"lagoon",
+false
+],
+[
+"tidal flat",
+false
+]
+],
+"劣": [
+[
+"inferior",
+true
+],
+[
+"deteriorate",
+false
+]
+],
+"汁": [
+[
+"soup",
+true
+],
+[
+"juice",
+true
+]
+],
+"伏": [
+[
+"surrender",
+false
+],
+[
+"hide",
+false
+],
+[
+"lie down",
+true
+],
+[
+"ambush",
+false
+]
+],
+"如": [
+[
+"how",
+false
+],
+[
+"like",
+false
+],
+[
+"lack",
+false
+]
+],
+"屈": [
+[
+"bend",
+false
+],
+[
+"yield",
+false
+],
+[
+"boring",
+false
+],
+[
+"crouch",
+true
+]
+],
+"匂": [
+[
+"smell",
+true
+],
+[
+"scent",
+true
+]
+],
+"偉": [
+[
+"great",
+true
+],
+[
+"admirable",
+true
+]
+],
+"隷": [
+[
+"slave",
+false
+]
+],
+"孫": [
+[
+"grandchild",
+true
+],
+[
+"descendant",
+false
+]
+],
+"帳": [
+[
+"notebook",
+false
+],
+[
+"book",
+false
+],
+[
+"curtain",
+false
+]
+],
+"拾": [
+[
+"pick up",
+true
+]
+],
+"癒": [
+[
+"heal",
+true
+],
+[
+"comfort",
+true
+]
+],
+"裂": [
+[
+"split",
+false
+],
+[
+"tear",
+true
+],
+[
+"burst",
+false
+]
+],
+"託": [
+[
+"entrust",
+true
+],
+[
+"trust",
+false
+],
+[
+"consign",
+false
+]
+],
+"睡": [
+[
+"sleep",
+false
+]
+],
+"哲": [
+[
+"philosophy",
+false
+],
+[
+"wise",
+false
+]
+],
+"揚": [
+[
+"deep-fry",
+true
+],
+[
+"raise",
+true
+],
+[
+"hoist",
+false
+]
+],
+"又": [
+[
+"or",
+true
+],
+[
+"again",
+true
+],
+[
+"also",
+true
+]
+],
+"旨": [
+[
+"effect",
+true
+],
+[
+"gist",
+false
+],
+[
+"tasty",
+true
+]
+],
+"唱": [
+[
+"sing",
+false
+],
+[
+"chant",
+true
+],
+[
+"advocate",
+true
+]
+],
+"兼": [
+[
+"double as",
+true
+],
+[
+"concurrent",
+false
+],
+[
+"hesitate",
+false
+],
+[
+"unable",
+true
+]
+],
+"脂": [
+[
+"fat",
+true
+],
+[
+"resin",
+false
+],
+[
+"grease",
+true
+]
+],
+"滑": [
+[
+"slide",
+true
+],
+[
+"smooth",
+true
+],
+[
+"slip",
+true
+],
+[
+"comical",
+false
+]
+],
+"癖": [
+[
+"habit",
+true
+],
+[
+"quirk",
+true
+],
+[
+"even though",
+true
+]
+],
+"潮": [
+[
+"tide",
+true
+],
+[
+"trend",
+false
+],
+[
+"current",
+false
+]
+],
+"涼": [
+[
+"cool",
+true
+],
+[
+"refreshing",
+false
+]
+],
+"冊": [
+[
+"books",
+false
+],
+[
+"booklet",
+false
+],
+[
+"volume",
+false
+]
+],
+"仰": [
+[
+"faith",
+false
+],
+[
+"look up",
+true
+],
+[
+"say",
+true
+]
+],
+"喫": [
+[
+"smoke",
+false
+],
+[
+"drink",
+false
+],
+[
+"enjoy",
+false
+]
+],
+"贈": [
+[
+"gift",
+true
+],
+[
+"give",
+true
+],
+[
+"donate",
+false
+]
+],
+"焦": [
+[
+"focus",
+false
+],
+[
+"impatient",
+true
+],
+[
+"scorch",
+true
+]
+],
+"該": [
+[
+"relevant",
+false
+],
+[
+"applicable",
+false
+]
+],
+"紫": [
+[
+"purple",
+true
+],
+[
+"ultraviolet",
+false
+]
+],
+"湖": [
+[
+"lake",
+true
+]
+],
+"戒": [
+[
+"caution",
+false
+],
+[
+"discipline",
+false
+],
+[
+"admonish",
+true
+],
+[
+"commandment",
+false
+]
+],
+"磨": [
+[
+"polish",
+true
+],
+[
+"brush",
+true
+],
+[
+"grind",
+false
+]
+],
+"緩": [
+[
+"ease",
+false
+],
+[
+"loose",
+true
+],
+[
+"gentle",
+true
+],
+[
+"slow",
+false
+]
+],
+"堀": [
+[
+"moat",
+true
+]
+],
+"璧": [
+[
+"perfect",
+false
+],
+[
+"jade",
+false
+]
+],
+"銭": [
+[
+"money",
+true
+],
+[
+"coin",
+false
+],
+[
+"sen",
+true
+]
+],
+"坊": [
+[
+"monk",
+false
+],
+[
+"boy",
+true
+],
+[
+"baby",
+false
+]
+],
+"陥": [
+[
+"fall into",
+true
+],
+[
+"defect",
+false
+],
+[
+"collapse",
+false
+]
+],
+"俗": [
+[
+"customs",
+false
+],
+[
+"vulgar",
+false
+],
+[
+"worldly",
+false
+],
+[
+"popular",
+false
+]
+],
+"預": [
+[
+"deposit",
+true
+],
+[
+"look after",
+true
+],
+[
+"entrust",
+false
+]
+],
+"忠": [
+[
+"loyal",
+false
+],
+[
+"faithful",
+false
+],
+[
+"advice",
+false
+]
+],
+"拶": [
+[
+"greeting",
+false
+]
+],
+"挨": [
+[
+"greeting",
+false
+]
+],
+"拝": [
+[
+"worship",
+true
+],
+[
+"respectfully",
+false
+],
+[
+"pray",
+true
+]
+],
+"孤": [
+[
+"solitary",
+false
+],
+[
+"isolated",
+false
+],
+[
+"orphan",
+false
+]
+],
+"奨": [
+[
+"encourage",
+false
+],
+[
+"recommend",
+false
+],
+[
+"reward",
+false
+]
+],
+"礎": [
+[
+"foundation",
+false
+],
+[
+"cornerstone",
+false
+]
+],
+"倫": [
+[
+"ethics",
+false
+],
+[
+"affair",
+false
+]
+],
+"泥": [
+[
+"mud",
+true
+],
+[
+"thief",
+false
+],
+[
+"drunk",
+false
+]
+],
+"遭": [
+[
+"encounter",
+true
+],
+[
+"disaster",
+false
+]
+],
+"肢": [
+[
+"option",
+false
+],
+[
+"limb",
+false
+]
+],
+"漁": [
+[
+"fishing",
+false
+],
+[
+"catch",
+false
+],
+[
+"rummage",
+true
+]
+],
+"硬": [
+[
+"hard",
+true
+],
+[
+"stiff",
+true
+],
+[
+"firm",
+false
+]
+],
+"沼": [
+[
+"swamp",
+true
+],
+[
+"marsh",
+false
+]
+],
+"桃": [
+[
+"peach",
+true
+],
+[
+"pink",
+false
+]
+],
+"旗": [
+[
+"flag",
+true
+]
+],
+"貫": [
+[
+"pierce",
+true
+],
+[
+"consistent",
+false
+],
+[
+"through",
+false
+],
+[
+"persist",
+true
+]
+],
+"稚": [
+[
+"immature",
+false
+],
+[
+"young",
+false
+],
+[
+"childish",
+false
+]
+],
+"隔": [
+[
+"separate",
+true
+],
+[
+"remote",
+false
+],
+[
+"interval",
+false
+],
+[
+"every other",
+false
+]
+],
+"謀": [
+[
+"plot",
+true
+],
+[
+"conspire",
+false
+],
+[
+"reckless",
+false
+]
+],
+"褒": [
+[
+"praise",
+true
+],
+[
+"reward",
+false
+]
+],
+"麺": [
+[
+"noodles",
+true
+]
+],
+"脈": [
+[
+"vessel",
+false
+],
+[
+"context",
+false
+],
+[
+"pulse",
+true
+],
+[
+"vein",
+false
+],
+[
+"range",
+false
+]
+],
+"娠": [
+[
+"pregnancy",
+false
+]
+],
+"没": [
+[
+"sink",
+false
+],
+[
+"confiscate",
+false
+],
+[
+"absorbed",
+false
+],
+[
+"die",
+false
+],
+[
+"disappear",
+false
+]
+],
+"牧": [
+[
+"pasture",
+false
+],
+[
+"herd",
+false
+],
+[
+"pastor",
+false
+]
+],
+"随": [
+[
+"very",
+false
+],
+[
+"any time",
+false
+],
+[
+"follow",
+false
+],
+[
+"essay",
+false
+]
+],
+"肝": [
+[
+"essential",
+false
+],
+[
+"liver",
+true
+],
+[
+"guts",
+true
+]
+],
+"詩": [
+[
+"poem",
+true
+]
+],
+"軸": [
+[
+"axis",
+true
+],
+[
+"scroll",
+false
+]
+],
+"穂": [
+[
+"ear of grain",
+true
+]
+],
+"畑": [
+[
+"crop field",
+true
+]
+],
+"粋": [
+[
+"essence",
+false
+],
+[
+"chic",
+true
+]
+],
+"序": [
+[
+"order",
+false
+],
+[
+"opening",
+false
+],
+[
+"preface",
+false
+]
+],
+"旬": [
+[
+"in season",
+true
+],
+[
+"ten days",
+false
+]
+],
+"披": [
+[
+"show",
+false
+],
+[
+"open",
+false
+]
+],
+"麦": [
+[
+"wheat",
+true
+],
+[
+"barley",
+true
+]
+],
+"痴": [
+[
+"foolish",
+false
+],
+[
+"lewd",
+false
+]
+],
+"缶": [
+[
+"can",
+true
+]
+],
+"偵": [
+[
+"spy",
+false
+]
+],
+"頻": [
+[
+"frequent",
+false
+]
+],
+"縛": [
+[
+"bind",
+true
+]
+],
+"偶": [
+[
+"chance",
+false
+],
+[
+"idol",
+false
+],
+[
+"even number",
+false
+],
+[
+"spouse",
+false
+]
+],
+"需": [
+[
+"demand",
+false
+]
+],
+"酬": [
+[
+"reward",
+false
+],
+[
+"exchange",
+false
+]
+],
+"唐": [
+[
+"China",
+false
+],
+[
+"sudden",
+false
+],
+[
+"Tang dynasty",
+false
+]
+],
+"顧": [
+[
+"look back",
+false
+],
+[
+"heed",
+false
+]
+],
+"網": [
+[
+"net",
+true
+],
+[
+"network",
+false
+]
+],
+"扉": [
+[
+"door",
+true
+]
+],
+"摩": [
+[
+"rub",
+false
+]
+],
+"拘": [
+[
+"detain",
+false
+],
+[
+"restrain",
+false
+],
+[
+"stick to",
+false
+]
+],
+"貢": [
+[
+"contribute",
+false
+],
+[
+"tribute",
+false
+]
+],
+"郵": [
+[
+"mail",
+false
+]
+],
+"挿": [
+[
+"insert",
+true
+]
+],
+"把": [
+[
+"grasp",
+false
+],
+[
+"bundle",
+false
+]
+],
+"鶴": [
+[
+"crane",
+true
+]
+],
+"玄": [
+[
+"dark",
+false
+],
+[
+"profound",
+false
+]
+],
+"哀": [
+[
+"sorrow",
+false
+],
+[
+"pity",
+true
+]
+],
+"祉": [
+[
+"welfare",
+false
+]
+],
+"刷": [
+[
+"print",
+false
+],
+[
+"brush",
+false
+]
+],
+"塾": [
+[
+"cram school",
+true
+]
+],
+"泳": [
+[
+"swim",
+true
+]
+],
+"卓": [
+[
+"table",
+false
+],
+[
+"excellent",
+false
+]
+],
+"召": [
+[
+"summon",
+false
+],
+[
+"eat",
+true
+],
+[
+"wear",
+false
+]
+],
+"糸": [
+[
+"thread",
+true
+]
+],
+"債": [
+[
+"debt",
+false
+],
+[
+"bond",
+false
+]
+],
+"羅": [
+[
+"net",
+false
+],
+[
+"line up",
+false
+]
+],
+"覆": [
+[
+"cover",
+true
+],
+[
+"overturn",
+true
+]
+],
+"朗": [
+[
+"bright",
+false
+],
+[
+"aloud",
+false
+],
+[
+"cheerful",
+true
+]
+],
+"俳": [
+[
+"actor",
+false
+],
+[
+"haiku",
+false
+]
+],
+"促": [
+[
+"urge",
+true
+]
+],
+"匿": [
+[
+"hide",
+false
+]
+],
+"猛": [
+[
+"fierce",
+false
+]
+],
+"浸": [
+[
+"soak",
+true
+],
+[
+"permeate",
+false
+]
+],
+"貞": [
+[
+"chastity",
+false
+],
+[
+"faithful",
+false
+]
+],
+"粒": [
+[
+"grain",
+true
+],
+[
+"particle",
+false
+],
+[
+"drop",
+true
+]
+],
+"晶": [
+[
+"crystal",
+false
+]
+],
+"絞": [
+[
+"wring",
+true
+],
+[
+"narrow down",
+true
+],
+[
+"strangle",
+true
+]
+],
+"偏": [
+[
+"biased",
+true
+],
+[
+"one-sided",
+false
+]
+],
+"惨": [
+[
+"miserable",
+true
+],
+[
+"disaster",
+false
+],
+[
+"cruel",
+false
+]
+],
+"幾": [
+[
+"how many",
+true
+],
+[
+"some",
+true
+]
+],
+"賊": [
+[
+"bandit",
+false
+],
+[
+"rebel",
+false
+]
+],
+"椅": [
+[
+"chair",
+false
+]
+],
+"抽": [
+[
+"draw",
+false
+],
+[
+"extract",
+false
+]
+],
+"雅": [
+[
+"elegant",
+false
+],
+[
+"refined",
+false
+]
+],
+"帽": [
+[
+"hat",
+false
+]
+],
+"蹴": [
+[
+"kick",
+true
+]
+],
+"煮": [
+[
+"boil",
+true
+],
+[
+"simmer",
+true
+]
+],
+"拳": [
+[
+"fist",
+true
+],
+[
+"gun",
+false
+]
+],
+"匠": [
+[
+"master",
+false
+],
+[
+"craftsman",
+false
+],
+[
+"design",
+false
+]
+],
+"舌": [
+[
+"tongue",
+true
+]
+],
+"仁": [
+[
+"benevolence",
+false
+]
+],
+"虚": [
+[
+"empty",
+false
+],
+[
+"false",
+false
+],
+[
+"futile",
+true
+]
+],
+"覇": [
+[
+"supremacy",
+false
+],
+[
+"championship",
+false
+]
+],
+"斗": [
+[
+"dipper",
+false
+],
+[
+"18 liters",
+false
+]
+],
+"垣": [
+[
+"fence",
+false
+],
+[
+"hedge",
+false
+]
+],
+"烈": [
+[
+"fierce",
+false
+]
+],
+"寧": [
+[
+"polite",
+false
+],
+[
+"rather",
+true
+],
+[
+"peaceful",
+false
+]
+],
+"猿": [
+[
+"monkey",
+true
+]
+],
+"犠": [
+[
+"sacrifice",
+false
+]
+],
+"征": [
+[
+"expedition",
+false
+],
+[
+"conquer",
+false
+]
+],
+"眺": [
+[
+"gaze at",
+true
+],
+[
+"view",
+true
+]
+],
+"憧": [
+[
+"yearn",
+true
+]
+],
+"恩": [
+[
+"debt of gratitude",
+true
+],
+[
+"favor",
+false
+]
+],
+"愚": [
+[
+"foolish",
+true
+]
+],
+"茨": [
+[
+"thorn",
+true
+]
+],
+"鍋": [
+[
+"pot",
+true
+],
+[
+"hot pot",
+true
+]
+],
+"摂": [
+[
+"intake",
+false
+],
+[
+"take in",
+true
+],
+[
+"regent",
+false
+]
+],
+"慰": [
+[
+"comfort",
+false
+],
+[
+"console",
+true
+]
+],
+"尋": [
+[
+"ask",
+true
+],
+[
+"ordinary",
+false
+],
+[
+"question",
+false
+]
+],
+"架": [
+[
+"span",
+false
+],
+[
+"imaginary",
+false
+],
+[
+"frame",
+false
+]
+],
+"剝": [
+[
+"peel",
+true
+],
+[
+"strip off",
+true
+]
+],
+"冗": [
+[
+"idle",
+false
+],
+[
+"redundant",
+false
+]
+],
+"牲": [
+[
+"sacrifice",
+false
+]
+],
+"浄": [
+[
+"clean",
+false
+],
+[
+"purify",
+false
+]
+],
+"尿": [
+[
+"urine",
+true
+]
+],
+"巣": [
+[
+"nest",
+true
+],
+[
+"den",
+false
+]
+],
+"拓": [
+[
+"clear land",
+false
+],
+[
+"open up",
+false
+]
+],
+"兆": [
+[
+"trillion",
+true
+],
+[
+"sign",
+true
+]
+],
+"訟": [
+[
+"lawsuit",
+false
+]
+],
+"胃": [
+[
+"stomach",
+true
+]
+],
+"憩": [
+[
+"rest",
+false
+],
+[
+"relax",
+true
+]
+],
+"欄": [
+[
+"column",
+true
+],
+[
+"railing",
+false
+]
+],
+"脇": [
+[
+"side",
+true
+],
+[
+"armpit",
+true
+]
+],
+"枝": [
+[
+"branch",
+true
+]
+],
+"尚": [
+[
+"still",
+true
+],
+[
+"furthermore",
+true
+],
+[
+"esteem",
+false
+]
+],
+"喚": [
+[
+"summon",
+false
+],
+[
+"call out",
+false
+],
+[
+"shout",
+true
+]
+],
+"痩": [
+[
+"get thin",
+true
+]
+],
+"爪": [
+[
+"nail",
+true
+],
+[
+"claw",
+true
+]
+],
+"盾": [
+[
+"shield",
+true
+]
+],
+"丘": [
+[
+"hill",
+true
+]
+],
+"悠": [
+[
+"leisurely",
+false
+],
+[
+"eternal",
+false
+]
+],
+"括": [
+[
+"bundle",
+false
+],
+[
+"tie up",
+true
+],
+[
+"summarize",
+false
+]
+],
+"隆": [
+[
+"rise",
+false
+],
+[
+"thriving",
+false
+]
+],
+"塔": [
+[
+"tower",
+true
+]
+],
+"柳": [
+[
+"willow",
+true
+]
+],
+"径": [
+[
+"diameter",
+false
+]
+],
+"挟": [
+[
+"put between",
+true
+]
+],
+"腸": [
+[
+"intestines",
+true
+]
+],
+"浪": [
+[
+"wander",
+false
+],
+[
+"waste",
+false
+],
+[
+"waves",
+false
+]
+],
+"紛": [
+[
+"dispute",
+false
+],
+[
+"lose",
+false
+],
+[
+"confuse",
+true
+],
+[
+"blend in",
+true
+]
+],
+"畜": [
+[
+"livestock",
+false
+],
+[
+"beast",
+false
+]
+],
+"殖": [
+[
+"multiply",
+false
+],
+[
+"breed",
+false
+]
+],
+"粧": [
+[
+"makeup",
+false
+]
+],
+"濯": [
+[
+"rinse",
+false
+]
+],
+"妨": [
+[
+"hinder",
+true
+],
+[
+"obstruct",
+false
+]
+],
+"往": [
+[
+"go",
+false
+],
+[
+"round trip",
+false
+]
+],
+"某": [
+[
+"a certain",
+false
+]
+],
+"灰": [
+[
+"ash",
+true
+]
+],
+"虎": [
+[
+"tiger",
+true
+]
+],
+"湿": [
+[
+"damp",
+false
+],
+[
+"get damp",
+true
+]
+],
+"膨": [
+[
+"swell",
+false
+],
+[
+"swell up",
+true
+]
+],
+"磁": [
+[
+"magnet",
+false
+],
+[
+"porcelain",
+false
+]
+],
+"垂": [
+[
+"vertical",
+false
+],
+[
+"hang down",
+true
+],
+[
+"drip",
+true
+]
+],
+"蒸": [
+[
+"steam",
+false
+],
+[
+"steam food",
+true
+]
+],
+"柱": [
+[
+"pillar",
+true
+]
+],
+"箇": [
+[
+"item",
+false
+],
+[
+"place",
+false
+]
+],
+"疾": [
+[
+"disease",
+false
+],
+[
+"swift",
+false
+]
+],
+"鶏": [
+[
+"chicken",
+true
+]
+],
+"勃": [
+[
+"rise suddenly",
+false
+],
+[
+"break out",
+false
+]
+],
+"刃": [
+[
+"blade",
+true
+]
+],
+"桁": [
+[
+"digit",
+true
+],
+[
+"beam",
+true
+]
+],
+"膝": [
+[
+"knee",
+true
+],
+[
+"lap",
+true
+]
+],
+"菊": [
+[
+"chrysanthemum",
+true
+]
+],
+"噴": [
+[
+"spout",
+false
+],
+[
+"erupt",
+false
+]
+],
+"滝": [
+[
+"waterfall",
+true
+]
+],
+"斬": [
+[
+"novel",
+false
+],
+[
+"cut down",
+true
+]
+],
+"憎": [
+[
+"hate",
+true
+],
+[
+"hatred",
+false
+]
+],
+"誓": [
+[
+"vow",
+true
+],
+[
+"swear",
+true
+]
+],
+"皿": [
+[
+"plate",
+true
+],
+[
+"dishes",
+false
+]
+],
+"拍": [
+[
+"clap",
+false
+],
+[
+"beat",
+false
+]
+],
+"緯": [
+[
+"latitude",
+false
+],
+[
+"details",
+false
+]
+],
+"棚": [
+[
+"shelf",
+true
+]
+],
+"寸": [
+[
+"just before",
+false
+],
+[
+"measure",
+false
+],
+[
+"inch",
+false
+]
+],
+"股": [
+[
+"crotch",
+false
+],
+[
+"thigh",
+false
+],
+[
+"fork",
+false
+]
+],
+"祥": [
+[
+"origin",
+false
+],
+[
+"auspicious",
+false
+]
+],
+"徐": [
+[
+"gradually",
+false
+],
+[
+"slowly",
+false
+]
+],
+"阜": [],
+"佳": [
+[
+"fine",
+false
+],
+[
+"beautiful",
+false
+]
+],
+"穏": [
+[
+"calm",
+true
+],
+[
+"peace",
+false
+]
+],
+"阻": [
+[
+"obstruct",
+false
+],
+[
+"block",
+true
+]
+],
+"斜": [
+[
+"diagonal",
+true
+],
+[
+"slope",
+false
+]
+],
+"筒": [
+[
+"tube",
+false
+],
+[
+"cylinder",
+false
+]
+],
+"妬": [
+[
+"jealous",
+false
+],
+[
+"envy",
+true
+]
+],
+"潔": [
+[
+"clean",
+false
+],
+[
+"pure",
+false
+],
+[
+"concise",
+false
+],
+[
+"gallant",
+true
+]
+],
+"鍛": [
+[
+"train",
+true
+],
+[
+"forge",
+true
+]
+],
+"塁": [
+[
+"base",
+false
+]
+],
+"慶": [
+[
+"celebrate",
+false
+]
+],
+"喉": [
+[
+"throat",
+true
+]
+],
+"羊": [
+[
+"sheep",
+true
+]
+],
+"捉": [
+[
+"grasp",
+true
+],
+[
+"capture",
+false
+]
+],
+"培": [
+[
+"cultivate",
+false
+]
+],
+"斉": [
+[
+"all at once",
+false
+],
+[
+"together",
+false
+]
+],
+"蓄": [
+[
+"store up",
+false
+],
+[
+"save",
+false
+]
+],
+"傘": [
+[
+"umbrella",
+true
+],
+[
+"umbrella group",
+false
+]
+],
+"奉": [
+[
+"serve",
+false
+],
+[
+"offer up",
+false
+]
+],
+"撲": [
+[
+"sumo",
+false
+],
+[
+"strike",
+false
+],
+[
+"eradicate",
+false
+]
+],
+"敏": [
+[
+"sensitive",
+false
+],
+[
+"quick",
+false
+]
+],
+"斎": [
+[
+"study room",
+false
+],
+[
+"rites",
+false
+]
+],
+"措": [
+[
+"measure",
+false
+]
+],
+"酵": [
+[
+"ferment",
+false
+]
+],
+"鋼": [
+[
+"steel",
+true
+]
+],
+"堅": [
+[
+"hard",
+true
+],
+[
+"firm",
+true
+],
+[
+"core",
+false
+]
+],
+"逸": [
+[
+"deviate",
+false
+],
+[
+"excel",
+false
+],
+[
+"lost",
+false
+],
+[
+"turn away",
+true
+]
+],
+"丼": [
+[
+"rice bowl",
+false
+],
+[
+"bowl",
+true
+]
+],
+"班": [
+[
+"group",
+true
+],
+[
+"squad",
+false
+]
+],
+"宜": [
+[
+"please",
+false
+],
+[
+"good",
+true
+],
+[
+"suitable",
+false
+]
+],
+"芽": [
+[
+"bud",
+true
+],
+[
+"sprout",
+true
+]
+],
+"棋": [
+[
+"shogi",
+false
+],
+[
+"board game",
+false
+]
+],
+"励": [
+[
+"encourage",
+true
+],
+[
+"strive",
+true
+]
+],
+"膜": [
+[
+"membrane",
+true
+],
+[
+"film",
+true
+]
+],
+"軟": [
+[
+"soft",
+false
+],
+[
+"flexible",
+false
+]
+],
+"餌": [
+[
+"feed",
+true
+],
+[
+"bait",
+true
+],
+[
+"prey",
+false
+]
+],
+"机": [
+[
+"desk",
+true
+]
+],
+"洞": [
+[
+"cave",
+false
+],
+[
+"hollow",
+false
+],
+[
+"insight",
+false
+]
+],
+"卑": [
+[
+"cowardly",
+false
+],
+[
+"base",
+false
+],
+[
+"lowly",
+true
+]
+],
+"潤": [
+[
+"moisten",
+true
+],
+[
+"profit",
+false
+],
+[
+"enrich",
+true
+]
+],
+"弥": [
+[
+"more and more",
+false
+]
+],
+"冠": [
+[
+"crown",
+true
+]
+],
+"肪": [
+[
+"fat",
+false
+]
+],
+"腫": [
+[
+"swelling",
+true
+],
+[
+"swell",
+true
+]
+],
+"粘": [
+[
+"sticky",
+false
+],
+[
+"persevere",
+true
+],
+[
+"clay",
+false
+]
+],
+"軒": [
+[
+"houses",
+false
+],
+[
+"eaves",
+true
+],
+[
+"row",
+false
+]
+],
+"蛇": [
+[
+"snake",
+true
+],
+[
+"faucet",
+false
+]
+],
+"幽": [
+[
+"ghost",
+false
+],
+[
+"secluded",
+false
+],
+[
+"dim",
+false
+]
+],
+"賭": [
+[
+"bet",
+true
+],
+[
+"gamble",
+false
+]
+],
+"茂": [
+[
+"grow thick",
+true
+]
+],
+"弓": [
+[
+"bow",
+true
+]
+],
+"戯": [
+[
+"play",
+false
+],
+[
+"jest",
+false
+],
+[
+"frolic",
+true
+]
+],
+"銘": [
+[
+"brand",
+false
+],
+[
+"inscription",
+false
+],
+[
+"engrave",
+false
+]
+],
+"栃": [
+[
+"horse chestnut",
+true
+]
+],
+"塞": [
+[
+"block",
+false
+],
+[
+"block up",
+true
+],
+[
+"fortress",
+false
+]
+],
+"凶": [
+[
+"evil",
+false
+],
+[
+"weapon",
+false
+],
+[
+"bad luck",
+true
+]
+],
+"炉": [
+[
+"reactor",
+false
+],
+[
+"furnace",
+true
+],
+[
+"hearth",
+false
+]
+],
+"俊": [
+[
+"talented",
+false
+],
+[
+"quick",
+false
+]
+],
+"肥": [
+[
+"fertilizer",
+false
+],
+[
+"fat",
+false
+],
+[
+"grow fat",
+true
+]
+],
+"啓": [
+[
+"enlighten",
+false
+],
+[
+"reveal",
+false
+]
+],
+"鉱": [
+[
+"ore",
+false
+],
+[
+"mine",
+false
+],
+[
+"mineral",
+false
+]
+],
+"拭": [
+[
+"wipe",
+true
+]
+],
+"衰": [
+[
+"decline",
+false
+],
+[
+"weaken",
+true
+]
+],
+"嫉": [
+[
+"jealousy",
+false
+]
+],
+"昧": [
+[
+"vague",
+false
+],
+[
+"absorbed in",
+false
+]
+],
+"隙": [
+[
+"gap",
+true
+],
+[
+"opening",
+false
+]
+],
+"羨": [
+[
+"envy",
+true
+]
+],
+"践": [
+[
+"practice",
+false
+]
+],
+"珠": [
+[
+"pearl",
+false
+],
+[
+"bead",
+false
+]
+],
+"薦": [
+[
+"recommend",
+true
+],
+[
+"nominate",
+false
+]
+],
+"瓶": [
+[
+"bottle",
+true
+]
+],
+"胆": [
+[
+"bold",
+false
+],
+[
+"courage",
+false
+],
+[
+"gall bladder",
+false
+]
+],
+"軌": [
+[
+"track",
+false
+],
+[
+"orbit",
+false
+]
+],
+"瞳": [
+[
+"pupil",
+true
+],
+[
+"eyes",
+true
+]
+],
+"壮": [
+[
+"grand",
+false
+],
+[
+"robust",
+false
+],
+[
+"brave",
+false
+]
+],
+"丹": [
+[
+"sincere",
+false
+],
+[
+"red",
+false
+]
+],
+"剰": [
+[
+"excess",
+false
+],
+[
+"surplus",
+false
+]
+],
+"跳": [
+[
+"jump",
+true
+],
+[
+"bounce",
+true
+]
+],
+"淫": [
+[
+"lewd",
+true
+]
+],
+"鋭": [
+[
+"sharp",
+true
+],
+[
+"elite",
+false
+]
+],
+"隅": [
+[
+"corner",
+true
+]
+],
+"駒": [
+[
+"piece",
+true
+],
+[
+"pony",
+false
+]
+],
+"霧": [
+[
+"fog",
+true
+],
+[
+"mist",
+true
+]
+],
+"紋": [
+[
+"pattern",
+false
+],
+[
+"crest",
+false
+]
+],
+"醒": [
+[
+"awaken",
+false
+],
+[
+"sober up",
+true
+]
+],
+"懲": [
+[
+"punish",
+false
+],
+[
+"learn a lesson",
+true
+]
+],
+"漬": [
+[
+"pickle",
+true
+],
+[
+"soak",
+true
+]
+],
+"墜": [
+[
+"crash",
+false
+],
+[
+"fall",
+false
+]
+],
+"膚": [
+[
+"skin",
+false
+]
+],
+"栽": [
+[
+"plant",
+false
+],
+[
+"cultivate",
+false
+]
+],
+"繊": [
+[
+"fiber",
+false
+],
+[
+"delicate",
+false
+]
+],
+"棟": [
+[
+"buildings",
+false
+],
+[
+"ward",
+false
+],
+[
+"ridge",
+true
+]
+],
+"鬱": [
+[
+"gloom",
+false
+],
+[
+"depression",
+false
+]
+],
+"炊": [
+[
+"cook rice",
+true
+]
+],
+"恨": [
+[
+"grudge",
+true
+],
+[
+"resent",
+true
+]
+],
+"錯": [
+[
+"mistaken",
+false
+],
+[
+"mixed up",
+false
+]
+],
+"敢": [
+[
+"dare",
+false
+],
+[
+"brave",
+false
+]
+],
+"泡": [
+[
+"bubble",
+true
+],
+[
+"foam",
+true
+]
+],
+"峰": [
+[
+"peak",
+true
+],
+[
+"summit",
+false
+]
+],
+"鎮": [
+[
+"calm",
+false
+],
+[
+"suppress",
+false
+],
+[
+"weight",
+false
+]
+],
+"蓋": [
+[
+"lid",
+true
+]
+],
+"淡": [
+[
+"plain",
+false
+],
+[
+"faint",
+true
+],
+[
+"fresh water",
+false
+]
+],
+"乏": [
+[
+"poor",
+false
+],
+[
+"scarce",
+true
+]
+],
+"滋": [
+[
+"nourishing",
+false
+]
+],
+"疫": [
+[
+"epidemic",
+false
+],
+[
+"immunity",
+false
+]
+],
+"伯": [
+[
+"earl",
+false
+],
+[
+"elder sibling",
+false
+],
+[
+"chief",
+false
+]
+],
+"符": [
+[
+"token",
+false
+],
+[
+"sign",
+false
+],
+[
+"mark",
+false
+]
+],
+"簿": [
+[
+"register",
+false
+],
+[
+"ledger",
+false
+]
+],
+"袖": [
+[
+"sleeve",
+true
+]
+],
+"辱": [
+[
+"shame",
+false
+],
+[
+"insult",
+false
+],
+[
+"humiliate",
+true
+]
+],
+"荘": [
+[
+"villa",
+false
+],
+[
+"solemn",
+false
+]
+],
+"惜": [
+[
+"regrettable",
+true
+],
+[
+"regret",
+false
+],
+[
+"spare",
+true
+]
+],
+"旋": [
+[
+"revolve",
+false
+],
+[
+"mediate",
+false
+],
+[
+"melody",
+false
+]
+],
+"涯": [
+[
+"limit",
+false
+],
+[
+"horizon",
+false
+]
+],
+"赦": [
+[
+"pardon",
+false
+],
+[
+"mercy",
+false
+]
+],
+"孝": [
+[
+"filial piety",
+false
+]
+],
+"媛": [
+[
+"lady",
+false
+],
+[
+"princess",
+false
+]
+],
+"籠": [
+[
+"basket",
+true
+],
+[
+"cage",
+true
+],
+[
+"shut in",
+true
+]
+],
+"媒": [
+[
+"medium",
+false
+],
+[
+"go-between",
+false
+]
+],
+"枕": [
+[
+"pillow",
+true
+]
+],
+"尉": [
+[
+"officer",
+false
+]
+],
+"恒": [
+[
+"constant",
+false
+],
+[
+"annual",
+false
+]
+],
+"宴": [
+[
+"banquet",
+false
+],
+[
+"feast",
+true
+]
+],
+"抹": [
+[
+"powder",
+false
+],
+[
+"erase",
+false
+]
+],
+"琴": [
+[
+"koto",
+true
+],
+[
+"harp",
+false
+]
+],
+"砕": [
+[
+"smash",
+false
+],
+[
+"break",
+true
+]
+],
+"囚": [
+[
+"prisoner",
+false
+]
+],
+"爽": [
+[
+"refreshing",
+true
+]
+],
+"盆": [
+[
+"Bon festival",
+true
+],
+[
+"tray",
+true
+],
+[
+"basin",
+false
+]
+],
+"巧": [
+[
+"skillful",
+true
+],
+[
+"clever",
+false
+]
+],
+"湧": [
+[
+"well up",
+true
+],
+[
+"spring",
+false
+]
+],
+"妥": [
+[
+"appropriate",
+false
+],
+[
+"compromise",
+false
+]
+],
+"肺": [
+[
+"lung",
+true
+]
+],
+"苗": [
+[
+"surname",
+false
+],
+[
+"seedling",
+true
+]
+],
+"譜": [
+[
+"score",
+false
+],
+[
+"record",
+false
+]
+],
+"紳": [
+[
+"gentleman",
+false
+]
+],
+"彫": [
+[
+"carve",
+true
+],
+[
+"sculpture",
+false
+]
+],
+"僧": [
+[
+"monk",
+false
+]
+],
+"燥": [
+[
+"dry",
+false
+]
+],
+"殻": [
+[
+"shell",
+true
+],
+[
+"crust",
+false
+]
+],
+"葛": [
+[
+"conflict",
+false
+],
+[
+"kudzu",
+false
+],
+[
+"arrowroot",
+false
+]
+],
+"顕": [
+[
+"evident",
+false
+],
+[
+"reveal",
+false
+]
+],
+"堪": [
+[
+"proficient",
+false
+],
+[
+"endure",
+true
+]
+],
+"鼓": [
+[
+"drum",
+false
+],
+[
+"heartbeat",
+false
+]
+],
+"寛": [
+[
+"tolerant",
+false
+],
+[
+"generous",
+false
+]
+],
+"疎": [
+[
+"sparse",
+false
+],
+[
+"estranged",
+false
+],
+[
+"unfamiliar",
+true
+]
+],
+"傍": [
+[
+"beside",
+true
+],
+[
+"onlooking",
+false
+]
+],
+"賠": [
+[
+"compensate",
+false
+]
+],
+"逐": [
+[
+"drive out",
+false
+],
+[
+"one by one",
+false
+]
+],
+"克": [
+[
+"overcome",
+false
+],
+[
+"detailed",
+false
+]
+],
+"婆": [
+[
+"old woman",
+true
+]
+],
+"綱": [
+[
+"rope",
+true
+],
+[
+"principle",
+false
+],
+[
+"yokozuna",
+false
+]
+],
+"岳": [
+[
+"peak",
+false
+],
+[
+"mountain",
+false
+]
+],
+"爵": [
+[
+"peerage",
+false
+]
+],
+"崇": [
+[
+"worship",
+false
+],
+[
+"lofty",
+false
+],
+[
+"revere",
+true
+]
+],
+"漠": [
+[
+"desert",
+false
+],
+[
+"vague",
+false
+]
+],
+"飢": [
+[
+"hunger",
+true
+],
+[
+"starve",
+true
+],
+[
+"famine",
+false
+]
+],
+"侍": [
+[
+"samurai",
+true
+],
+[
+"attend",
+false
+]
+],
+"扇": [
+[
+"fan",
+false
+],
+[
+"incite",
+false
+]
+],
+"喪": [
+[
+"loss",
+false
+],
+[
+"mourning",
+true
+]
+],
+"虹": [
+[
+"rainbow",
+true
+]
+],
+"漂": [
+[
+"drift",
+true
+],
+[
+"bleach",
+false
+]
+],
+"搬": [
+[
+"carry",
+false
+],
+[
+"transport",
+false
+]
+],
+"叔": [
+[
+"uncle",
+false
+],
+[
+"aunt",
+false
+]
+],
+"弦": [
+[
+"string",
+true
+],
+[
+"orchestra",
+false
+]
+],
+"零": [
+[
+"zero",
+true
+],
+[
+"tiny",
+false
+],
+[
+"spill",
+true
+]
+],
+"鎌": [
+[
+"sickle",
+true
+]
+],
+"貝": [
+[
+"shellfish",
+true
+],
+[
+"shell",
+true
+]
+],
+"訂": [
+[
+"correct",
+false
+],
+[
+"revise",
+false
+]
+],
+"彰": [
+[
+"commend",
+false
+]
+],
+"擬": [
+[
+"mock",
+false
+],
+[
+"imitate",
+false
+]
+],
+"餅": [
+[
+"mochi",
+true
+],
+[
+"cake",
+false
+]
+],
+"慌": [
+[
+"panic",
+true
+],
+[
+"hurried",
+false
+]
+],
+"邸": [
+[
+"residence",
+false
+],
+[
+"mansion",
+false
+]
+],
+"沸": [
+[
+"boil",
+true
+],
+[
+"boiling",
+false
+]
+],
+"銅": [
+[
+"copper",
+true
+],
+[
+"bronze",
+false
+]
+],
+"寮": [
+[
+"dormitory",
+true
+]
+],
+"伺": [
+[
+"humbly ask",
+true
+],
+[
+"humbly visit",
+true
+]
+],
+"曹": [
+[
+"sergeant",
+false
+],
+[
+"legal profession",
+false
+]
+],
+"椎": [
+[
+"vertebra",
+false
+],
+[
+"shiitake",
+false
+]
+],
+"牙": [
+[
+"fang",
+true
+],
+[
+"tusk",
+true
+]
+],
+"虜": [
+[
+"captive",
+false
+]
+],
+"錠": [
+[
+"pill",
+false
+],
+[
+"lock",
+false
+]
+],
+"尺": [
+[
+"length",
+true
+],
+[
+"measure",
+false
+],
+[
+"shaku",
+false
+]
+],
+"壇": [
+[
+"platform",
+false
+],
+[
+"altar",
+false
+]
+],
+"愉": [
+[
+"pleasant",
+false
+]
+],
+"凝": [
+[
+"condense",
+false
+],
+[
+"stare",
+false
+],
+[
+"stiff",
+true
+],
+[
+"be absorbed",
+true
+]
+],
+"堕": [
+[
+"degenerate",
+false
+],
+[
+"fall",
+true
+]
+],
+"昆": [
+[
+"insect",
+false
+],
+[
+"kelp",
+false
+]
+],
+"蜂": [
+[
+"bee",
+true
+],
+[
+"uprising",
+false
+]
+],
+"憂": [
+[
+"gloom",
+false
+],
+[
+"worry",
+false
+],
+[
+"sorrow",
+true
+]
+],
+"塊": [
+[
+"lump",
+true
+],
+[
+"mass",
+true
+]
+],
+"貿": [
+[
+"trade",
+false
+]
+],
+"曇": [
+[
+"cloudy",
+true
+]
+],
+"循": [
+[
+"circulate",
+false
+]
+],
+"粗": [
+[
+"coarse",
+false
+],
+[
+"rough",
+true
+],
+[
+"shabby",
+false
+]
+],
+"芋": [
+[
+"potato",
+true
+],
+[
+"taro",
+false
+]
+],
+"秩": [
+[
+"order",
+false
+]
+],
+"酢": [
+[
+"vinegar",
+true
+]
+],
+"厄": [
+[
+"troublesome",
+false
+],
+[
+"misfortune",
+true
+]
+],
+"廷": [
+[
+"court",
+false
+]
+],
+"慈": [
+[
+"mercy",
+false
+],
+[
+"charity",
+false
+],
+[
+"love tenderly",
+true
+]
+],
+"弄": [
+[
+"toy with",
+false
+],
+[
+"fiddle with",
+true
+]
+],
+"泰": [
+[
+"peaceful",
+false
+],
+[
+"calm",
+false
+]
+],
+"嘆": [
+[
+"lament",
+true
+],
+[
+"admire",
+false
+],
+[
+"plea",
+false
+]
+],
+"姓": [
+[
+"surname",
+true
+],
+[
+"farmer",
+false
+]
+],
+"郊": [
+[
+"suburbs",
+false
+]
+],
+"怠": [
+[
+"neglect",
+true
+],
+[
+"lazy",
+true
+]
+],
+"擦": [
+[
+"rub",
+true
+],
+[
+"scrape",
+false
+]
+],
+"鉛": [
+[
+"lead",
+true
+]
+],
+"刈": [
+[
+"cut",
+true
+],
+[
+"mow",
+true
+]
+],
+"妃": [
+[
+"consort",
+false
+],
+[
+"princess",
+false
+]
+],
+"蜜": [
+[
+"honey",
+true
+],
+[
+"nectar",
+true
+]
+],
+"唇": [
+[
+"lips",
+true
+]
+],
+"芳": [
+[
+"fragrant",
+true
+]
+],
+"暦": [
+[
+"calendar",
+true
+]
+],
+"曖": [
+[
+"vague",
+false
+]
+],
+"汰": [
+[
+"sift",
+false
+]
+],
+"猟": [
+[
+"hunting",
+true
+]
+],
+"畳": [
+[
+"tatami mat",
+true
+],
+[
+"fold",
+true
+],
+[
+"mats",
+false
+]
+],
+"傑": [
+[
+"outstanding",
+false
+],
+[
+"hero",
+false
+]
+],
+"遮": [
+[
+"block",
+true
+],
+[
+"interrupt",
+true
+]
+],
+"窟": [
+[
+"cave",
+false
+],
+[
+"den",
+false
+]
+],
+"戚": [
+[
+"relative",
+false
+]
+],
+"穫": [
+[
+"harvest",
+false
+]
+],
+"錬": [
+[
+"refine",
+false
+],
+[
+"train",
+false
+]
+],
+"枯": [
+[
+"wither",
+true
+],
+[
+"dry up",
+true
+],
+[
+"dead",
+false
+]
+],
+"綿": [
+[
+"cotton",
+true
+],
+[
+"detailed",
+false
+]
+],
+"矛": [
+[
+"spear",
+true
+],
+[
+"contradiction",
+false
+]
+],
+"縫": [
+[
+"sew",
+true
+],
+[
+"stitch",
+false
+]
+],
+"溝": [
+[
+"ditch",
+true
+],
+[
+"gap",
+true
+]
+],
+"溺": [
+[
+"drown",
+true
+],
+[
+"indulge",
+true
+]
+],
+"陶": [
+[
+"pottery",
+false
+],
+[
+"rapture",
+false
+]
+],
+"亭": [
+[
+"restaurant",
+false
+],
+[
+"husband",
+false
+]
+],
+"掌": [
+[
+"palm",
+true
+],
+[
+"grasp",
+false
+],
+[
+"manage",
+false
+]
+],
+"釜": [
+[
+"pot",
+true
+]
+],
+"擁": [
+[
+"protect",
+false
+],
+[
+"embrace",
+false
+],
+[
+"support",
+false
+]
+],
+"桑": [
+[
+"mulberry",
+true
+]
+],
+"錦": [
+[
+"brocade",
+true
+]
+],
+"謙": [
+[
+"humble",
+false
+],
+[
+"modest",
+false
+]
+],
+"弊": [
+[
+"our humble",
+false
+],
+[
+"harm",
+false
+],
+[
+"worn out",
+false
+]
+],
+"宛": [
+[
+"addressed to",
+true
+]
+],
+"玩": [
+[
+"play with",
+false
+],
+[
+"toy",
+false
+]
+],
+"稽": [
+[
+"practice",
+false
+],
+[
+"comical",
+false
+]
+],
+"逝": [
+[
+"pass away",
+true
+]
+],
+"累": [
+[
+"accumulate",
+false
+]
+],
+"茎": [
+[
+"stalk",
+true
+],
+[
+"gums",
+false
+]
+],
+"庶": [
+[
+"common people",
+false
+],
+[
+"general",
+false
+]
+],
+"暫": [
+[
+"for a while",
+true
+],
+[
+"temporary",
+false
+]
+],
+"顎": [
+[
+"jaw",
+true
+],
+[
+"chin",
+true
+]
+],
+"隻": [
+[
+"ships",
+false
+],
+[
+"single",
+false
+]
+],
+"藍": [
+[
+"indigo",
+true
+]
+],
+"朱": [
+[
+"vermilion",
+true
+]
+],
+"帆": [
+[
+"sail",
+true
+]
+],
+"諾": [
+[
+"consent",
+false
+]
+],
+"凡": [
+[
+"ordinary",
+false
+],
+[
+"roughly",
+true
+]
+],
+"拉": [
+[
+"abduct",
+false
+]
+],
+"滴": [
+[
+"drop",
+true
+],
+[
+"drip",
+true
+]
+],
+"墨": [
+[
+"ink",
+true
+]
+],
+"痕": [
+[
+"trace",
+false
+],
+[
+"mark",
+false
+],
+[
+"scar",
+false
+]
+],
+"腺": [
+[
+"gland",
+false
+]
+],
+"鈍": [
+[
+"dull",
+true
+],
+[
+"slow",
+true
+],
+[
+"blunt",
+true
+]
+],
+"窮": [
+[
+"cornered",
+false
+],
+[
+"destitute",
+false
+],
+[
+"cramped",
+false
+],
+[
+"extreme",
+true
+]
+],
+"醸": [
+[
+"brew",
+true
+],
+[
+"create",
+false
+]
+],
+"据": [
+[
+"set",
+true
+],
+[
+"fix",
+false
+]
+],
+"騰": [
+[
+"soar",
+false
+],
+[
+"boil",
+false
+]
+],
+"廊": [
+[
+"corridor",
+false
+]
+],
+"拐": [
+[
+"kidnap",
+false
+]
+],
+"勲": [
+[
+"merit",
+false
+],
+[
+"medal",
+false
+]
+],
+"諭": [
+[
+"instruct",
+false
+],
+[
+"admonish",
+true
+]
+],
+"眉": [
+[
+"eyebrow",
+true
+]
+],
+"瘍": [
+[
+"tumor",
+false
+],
+[
+"ulcer",
+false
+]
+],
+"澄": [
+[
+"clear",
+true
+]
+],
+"耕": [
+[
+"till",
+true
+],
+[
+"farm",
+false
+]
+],
+"幣": [
+[
+"currency",
+false
+],
+[
+"money",
+false
+]
+],
+"槽": [
+[
+"tank",
+false
+],
+[
+"tub",
+false
+]
+],
+"髄": [
+[
+"marrow",
+false
+],
+[
+"essence",
+false
+]
+],
+"舟": [
+[
+"boat",
+true
+]
+],
+"孔": [
+[
+"hole",
+false
+]
+],
+"僅": [
+[
+"slight",
+true
+],
+[
+"mere",
+true
+]
+],
+"笛": [
+[
+"whistle",
+true
+],
+[
+"flute",
+true
+]
+],
+"粛": [
+[
+"restraint",
+false
+],
+[
+"solemn",
+false
+],
+[
+"purge",
+false
+]
+],
+"陳": [
+[
+"display",
+false
+],
+[
+"stale",
+false
+],
+[
+"state",
+false
+],
+[
+"petition",
+false
+]
+],
+"盲": [
+[
+"blind",
+false
+]
+],
+"唄": [
+[
+"song",
+true
+]
+],
+"挫": [
+[
+"setback",
+false
+],
+[
+"sprain",
+false
+]
+],
+"貌": [
+[
+"appearance",
+false
+],
+[
+"looks",
+false
+]
+],
+"陛": [
+[
+"majesty",
+false
+]
+],
+"恭": [
+[
+"respectful",
+true
+]
+],
+"閥": [
+[
+"faction",
+false
+],
+[
+"clique",
+false
+]
+],
+"伎": [
+[
+"skill",
+false
+]
+],
+"醜": [
+[
+"ugly",
+true
+],
+[
+"disgraceful",
+false
+]
+],
+"戴": [
+[
+"receive",
+true
+],
+[
+"crown",
+false
+]
+],
+"伐": [
+[
+"subjugate",
+false
+],
+[
+"fell",
+false
+]
+],
+"酎": [
+[
+"shochu",
+false
+]
+],
+"呈": [
+[
+"present",
+false
+],
+[
+"show",
+false
+]
+],
+"迅": [
+[
+"swift",
+false
+]
+],
+"崖": [
+[
+"cliff",
+true
+]
+],
+"轄": [
+[
+"jurisdiction",
+false
+],
+[
+"control",
+false
+]
+],
+"藩": [
+[
+"feudal domain",
+true
+]
+],
+"腎": [
+[
+"kidney",
+false
+]
+],
+"薫": [
+[
+"fragrant",
+true
+],
+[
+"guidance",
+false
+]
+],
+"侮": [
+[
+"insult",
+false
+],
+[
+"scorn",
+true
+]
+],
+"但": [
+[
+"however",
+true
+],
+[
+"provided that",
+true
+]
+],
+"懇": [
+[
+"earnest",
+false
+],
+[
+"cordial",
+false
+]
+],
+"曽": [
+[
+"great",
+false
+],
+[
+"ever",
+false
+]
+],
+"糧": [
+[
+"provisions",
+false
+],
+[
+"food",
+true
+]
+],
+"雌": [
+[
+"female",
+true
+]
+],
+"宰": [
+[
+"preside",
+false
+],
+[
+"govern",
+false
+]
+],
+"耗": [
+[
+"wear down",
+false
+],
+[
+"consume",
+false
+]
+],
+"綻": [
+[
+"come apart",
+true
+],
+[
+"collapse",
+false
+]
+],
+"枢": [
+[
+"pivot",
+false
+],
+[
+"center",
+false
+]
+],
+"忌": [
+[
+"taboo",
+false
+],
+[
+"avoid",
+true
+],
+[
+"mourning",
+false
+]
+],
+"罵": [
+[
+"abuse",
+false
+],
+[
+"curse",
+true
+]
+],
+"蛍": [
+[
+"firefly",
+true
+],
+[
+"fluorescent",
+false
+]
+],
+"廉": [
+[
+"low-priced",
+false
+],
+[
+"honest",
+false
+]
+],
+"呉": [
+[
+"kimono cloth",
+false
+],
+[
+"Wu",
+false
+]
+],
+"骸": [
+[
+"remains",
+false
+],
+[
+"corpse",
+false
+],
+[
+"skeleton",
+false
+]
+],
+"胴": [
+[
+"torso",
+true
+]
+],
+"遍": [
+[
+"universal",
+false
+],
+[
+"times",
+false
+],
+[
+"wander",
+false
+]
+],
+"拷": [
+[
+"torture",
+false
+]
+],
+"頰": [
+[
+"cheek",
+true
+]
+],
+"捗": [
+[
+"progress",
+true
+]
+],
+"肯": [
+[
+"affirm",
+false
+],
+[
+"agree",
+false
+]
+],
+"嗅": [
+[
+"smell",
+true
+],
+[
+"sniff",
+true
+]
+],
+"准": [
+[
+"associate",
+false
+],
+[
+"ratify",
+false
+]
+],
+"塡": [
+[
+"fill",
+false
+]
+],
+"暁": [
+[
+"dawn",
+true
+]
+],
+"尼": [
+[
+"nun",
+true
+]
+],
+"串": [
+[
+"skewer",
+true
+]
+],
+"搾": [
+[
+"squeeze",
+true
+],
+[
+"exploit",
+false
+]
+],
+"鯨": [
+[
+"whale",
+true
+]
+],
+"壌": [
+[
+"soil",
+false
+]
+],
+"朴": [
+[
+"simple",
+false
+],
+[
+"plain",
+false
+]
+],
+"𠮟": [
+[
+"scold",
+true
+]
+],
+"賄": [
+[
+"bribe",
+false
+],
+[
+"cover",
+true
+]
+],
+"柿": [
+[
+"persimmon",
+true
+]
+],
+"餓": [
+[
+"starve",
+false
+]
+],
+"畿": [
+[
+"capital region",
+false
+]
+],
+"蚊": [
+[
+"mosquito",
+true
+]
+],
+"胎": [
+[
+"womb",
+false
+],
+[
+"fetus",
+false
+]
+],
+"悼": [
+[
+"mourn",
+true
+]
+],
+"萎": [
+[
+"wither",
+true
+],
+[
+"go limp",
+true
+],
+[
+"shrink",
+false
+]
+],
+"汎": [
+[
+"general",
+false
+],
+[
+"wide",
+false
+]
+],
+"冥": [
+[
+"underworld",
+false
+],
+[
+"dark",
+false
+]
+],
+"鉢": [
+[
+"bowl",
+true
+],
+[
+"pot",
+true
+]
+],
+"唆": [
+[
+"suggest",
+false
+],
+[
+"incite",
+true
+]
+],
+"蛮": [
+[
+"barbarian",
+false
+],
+[
+"savage",
+false
+]
+],
+"蔽": [
+[
+"cover",
+false
+],
+[
+"conceal",
+false
+]
+],
+"瓦": [
+[
+"roof tile",
+true
+],
+[
+"rubble",
+false
+]
+],
+"艇": [
+[
+"boat",
+false
+]
+],
+"堤": [
+[
+"embankment",
+true
+]
+],
+"箸": [
+[
+"chopsticks",
+true
+]
+],
+"謡": [
+[
+"song",
+false
+],
+[
+"Noh chant",
+false
+]
+],
+"鐘": [
+[
+"bell",
+true
+]
+],
+"脊": [
+[
+"spine",
+false
+]
+],
+"蔑": [
+[
+"despise",
+true
+]
+],
+"瑠": [
+[
+"lapis lazuli",
+false
+]
+],
+"陵": [
+[
+"hill",
+false
+],
+[
+"imperial tomb",
+false
+]
+],
+"踪": [
+[
+"traces",
+false
+]
+],
+"赴": [
+[
+"proceed",
+true
+],
+[
+"go to a post",
+false
+]
+],
+"倣": [
+[
+"imitate",
+false
+],
+[
+"follow",
+true
+]
+],
+"遡": [
+[
+"go back",
+true
+],
+[
+"go upstream",
+false
+]
+],
+"泌": [
+[
+"secrete",
+false
+],
+[
+"urinary",
+false
+]
+],
+"憤": [
+[
+"indignation",
+true
+],
+[
+"anger",
+true
+]
+],
+"藻": [
+[
+"seaweed",
+false
+],
+[
+"algae",
+true
+]
+],
+"捻": [
+[
+"twist",
+true
+],
+[
+"squeeze out",
+false
+]
+],
+"艶": [
+[
+"gloss",
+true
+],
+[
+"allure",
+false
+]
+],
+"卸": [
+[
+"wholesale",
+true
+]
+],
+"凸": [
+[
+"convex",
+false
+],
+[
+"bumpy",
+false
+]
+],
+"惧": [
+[
+"fear",
+false
+]
+],
+"洪": [
+[
+"flood",
+false
+]
+],
+"坪": [
+[
+"tsubo",
+true
+]
+],
+"附": [
+[
+"attach",
+false
+],
+[
+"affiliated",
+false
+]
+],
+"渓": [
+[
+"valley",
+false
+],
+[
+"mountain stream",
+false
+]
+],
+"遷": [
+[
+"change",
+false
+],
+[
+"move",
+false
+],
+[
+"transition",
+false
+]
+],
+"乞": [
+[
+"beg",
+true
+],
+[
+"ask for",
+true
+]
+],
+"猶": [
+[
+"delay",
+false
+]
+],
+"篤": [
+[
+"critical",
+false
+],
+[
+"sincere",
+false
+]
+],
+"謹": [
+[
+"humbly",
+true
+],
+[
+"respectful",
+false
+],
+[
+"confinement",
+false
+]
+],
+"濁": [
+[
+"muddy",
+true
+],
+[
+"cloudy",
+true
+],
+[
+"voiced",
+false
+]
+],
+"肘": [
+[
+"elbow",
+true
+]
+],
+"喝": [
+[
+"shout",
+true
+],
+[
+"threaten",
+false
+],
+[
+"applause",
+false
+]
+],
+"娯": [
+[
+"amusement",
+false
+]
+],
+"渦": [
+[
+"whirlpool",
+true
+],
+[
+"swirl",
+true
+]
+],
+"峠": [
+[
+"mountain pass",
+true
+],
+[
+"peak",
+true
+]
+],
+"芯": [
+[
+"core",
+true
+],
+[
+"wick",
+true
+],
+[
+"lead",
+true
+]
+],
+"紺": [
+[
+"navy blue",
+true
+]
+],
+"頓": [
+[
+"sudden",
+false
+],
+[
+"tidy",
+false
+],
+[
+"careless",
+false
+]
+],
+"甚": [
+[
+"extreme",
+false
+],
+[
+"very",
+true
+]
+],
+"峡": [
+[
+"strait",
+false
+],
+[
+"gorge",
+false
+]
+],
+"唾": [
+[
+"saliva",
+true
+],
+[
+"spit",
+true
+]
+],
+"碁": [
+[
+"go",
+true
+]
+],
+"栓": [
+[
+"stopper",
+true
+],
+[
+"plug",
+false
+],
+[
+"tap",
+false
+]
+],
+"窃": [
+[
+"theft",
+false
+]
+],
+"痢": [
+[
+"diarrhea",
+false
+]
+],
+"煩": [
+[
+"annoying",
+true
+],
+[
+"trouble",
+true
+],
+[
+"worry",
+true
+]
+],
+"詮": [
+[
+"after all",
+false
+],
+[
+"pry",
+false
+]
+],
+"苛": [
+[
+"harsh",
+false
+],
+[
+"irritate",
+true
+],
+[
+"bully",
+true
+]
+],
+"禅": [
+[
+"Zen",
+true
+]
+],
+"凹": [
+[
+"dent",
+true
+],
+[
+"concave",
+false
+]
+],
+"棺": [
+[
+"coffin",
+true
+]
+],
+"窒": [
+[
+"nitrogen",
+false
+],
+[
+"suffocate",
+false
+]
+],
+"矯": [
+[
+"straighten",
+false
+],
+[
+"correct",
+false
+]
+],
+"穀": [
+[
+"grain",
+false
+]
+],
+"俵": [
+[
+"straw bag",
+true
+],
+[
+"sumo ring",
+false
+]
+],
+"剖": [
+[
+"dissect",
+false
+]
+],
+"渇": [
+[
+"thirst",
+true
+],
+[
+"dry up",
+false
+]
+],
+"郭": [
+[
+"outline",
+false
+],
+[
+"enclosure",
+false
+]
+],
+"碑": [
+[
+"monument",
+true
+]
+],
+"硫": [
+[
+"sulfur",
+false
+]
+],
+"朽": [
+[
+"decay",
+true
+],
+[
+"rot",
+true
+]
+],
+"帥": [
+[
+"commander",
+false
+],
+[
+"marshal",
+false
+]
+],
+"彙": [
+[
+"vocabulary",
+false
+]
+],
+"漆": [
+[
+"lacquer",
+true
+],
+[
+"jet-black",
+false
+]
+],
+"臼": [
+[
+"mortar",
+true
+],
+[
+"dislocation",
+false
+],
+[
+"molar",
+false
+]
+],
+"壱": [
+[
+"one",
+false
+]
+],
+"享": [
+[
+"enjoy",
+false
+],
+[
+"receive",
+false
+]
+],
+"悦": [
+[
+"delight",
+false
+]
+],
+"煎": [
+[
+"roast",
+true
+],
+[
+"brew",
+true
+]
+],
+"巾": [
+[
+"cloth",
+false
+]
+],
+"衡": [
+[
+"balance",
+false
+]
+],
+"后": [
+[
+"empress",
+false
+]
+],
+"詠": [
+[
+"compose poems",
+true
+],
+[
+"recite",
+false
+]
+],
+"睦": [
+[
+"harmonious",
+true
+]
+],
+"瞭": [
+[
+"clear",
+false
+]
+],
+"柵": [
+[
+"fence",
+true
+]
+],
+"傲": [
+[
+"arrogant",
+false
+]
+],
+"姻": [
+[
+"marriage",
+false
+]
+],
+"拙": [
+[
+"clumsy",
+true
+],
+[
+"humble I",
+false
+]
+],
+"侶": [
+[
+"companion",
+false
+],
+[
+"monk",
+false
+]
+],
+"扶": [
+[
+"support",
+false
+],
+[
+"aid",
+false
+]
+],
+"墳": [
+[
+"burial mound",
+false
+]
+],
+"斑": [
+[
+"spots",
+false
+],
+[
+"unevenness",
+true
+]
+],
+"襟": [
+[
+"collar",
+true
+]
+],
+"吟": [
+[
+"recite",
+false
+],
+[
+"examine",
+false
+]
+],
+"裾": [
+[
+"hem",
+true
+],
+[
+"foot of mountain",
+false
+]
+],
+"璃": [
+[
+"lapis lazuli",
+false
+]
+],
+"濫": [
+[
+"overflow",
+false
+],
+[
+"excessive",
+false
+]
+],
+"慨": [
+[
+"deep emotion",
+false
+],
+[
+"lament",
+false
+]
+],
+"臆": [
+[
+"timid",
+false
+],
+[
+"guess",
+false
+]
+],
+"賜": [
+[
+"bestow",
+true
+],
+[
+"gift",
+false
+]
+],
+"韻": [
+[
+"rhyme",
+true
+],
+[
+"echo",
+false
+]
+],
+"箋": [
+[
+"note paper",
+false
+],
+[
+"label",
+false
+]
+],
+"宵": [
+[
+"evening",
+true
+]
+],
+"梗": [
+[
+"blockage",
+false
+]
+],
+"怨": [
+[
+"grudge",
+false
+]
+],
+"霜": [
+[
+"frost",
+true
+]
+],
+"喩": [
+[
+"metaphor",
+false
+],
+[
+"compare",
+true
+]
+],
+"肖": [
+[
+"likeness",
+false
+],
+[
+"resemble",
+false
+]
+],
+"翁": [
+[
+"old man",
+true
+]
+],
+"慕": [
+[
+"adore",
+true
+],
+[
+"yearn for",
+true
+]
+],
+"礁": [
+[
+"reef",
+false
+]
+],
+"膳": [
+[
+"meal tray",
+true
+],
+[
+"bowls",
+false
+]
+],
+"勾": [
+[
+"detain",
+false
+],
+[
+"slope",
+false
+]
+],
+"勅": [
+[
+"imperial decree",
+false
+]
+],
+"岬": [
+[
+"cape",
+true
+]
+],
+"哺": [
+[
+"suckle",
+false
+]
+],
+"嗣": [
+[
+"heir",
+false
+]
+],
+"楼": [
+[
+"tower",
+false
+]
+],
+"貪": [
+[
+"greed",
+false
+],
+[
+"devour",
+true
+]
+],
+"繕": [
+[
+"mend",
+true
+],
+[
+"repair",
+false
+]
+],
+"愁": [
+[
+"melancholy",
+false
+],
+[
+"sorrow",
+false
+]
+],
+"絹": [
+[
+"silk",
+true
+]
+],
+"塀": [
+[
+"wall",
+true
+],
+[
+"fence",
+true
+]
+],
+"紡": [
+[
+"spin",
+true
+]
+],
+"且": [
+[
+"moreover",
+true
+]
+],
+"奔": [
+[
+"run",
+false
+],
+[
+"uninhibited",
+false
+]
+],
+"詣": [
+[
+"visit a shrine",
+true
+],
+[
+"attain",
+false
+]
+],
+"采": [
+[
+"applause",
+false
+],
+[
+"command",
+false
+]
+],
+"叙": [
+[
+"narrate",
+false
+],
+[
+"confer honors",
+false
+]
+],
+"褐": [
+[
+"brown",
+false
+]
+],
+"淑": [
+[
+"lady",
+false
+],
+[
+"graceful",
+false
+]
+],
+"摯": [
+[
+"earnest",
+false
+]
+],
+"薪": [
+[
+"firewood",
+true
+]
+],
+"遵": [
+[
+"obey",
+false
+]
+],
+"汽": [
+[
+"steam",
+false
+]
+],
+"賂": [
+[
+"bribe",
+false
+]
+],
+"氾": [
+[
+"overflow",
+false
+]
+],
+"侯": [
+[
+"lord",
+false
+],
+[
+"marquis",
+false
+]
+],
+"嚇": [
+[
+"intimidate",
+false
+]
+],
+"旺": [
+[
+"vigorous",
+false
+]
+],
+"窯": [
+[
+"kiln",
+true
+],
+[
+"oven",
+true
+]
+],
+"麓": [
+[
+"foot of a mountain",
+true
+]
+],
+"閑": [
+[
+"quiet",
+false
+],
+[
+"leisure",
+false
+]
+],
+"鋳": [
+[
+"cast metal",
+false
+]
+],
+"禍": [
+[
+"calamity",
+false
+],
+[
+"crisis",
+false
+]
+],
+"慄": [
+[
+"shudder",
+false
+],
+[
+"fear",
+false
+]
+],
+"舶": [
+[
+"ship",
+false
+],
+[
+"imported",
+false
+]
+],
+"惰": [
+[
+"lazy",
+false
+],
+[
+"inertia",
+false
+]
+],
+"嘲": [
+[
+"ridicule",
+false
+],
+[
+"sneer",
+true
+]
+],
+"硝": [
+[
+"glass",
+false
+],
+[
+"nitrate",
+false
+]
+],
+"羞": [
+[
+"shame",
+false
+]
+],
+"升": [
+[
+"measuring box",
+true
+],
+[
+"1.8 liters",
+false
+]
+],
+"糾": [
+[
+"denounce",
+false
+],
+[
+"tangle",
+false
+]
+],
+"殉": [
+[
+"die for a cause",
+false
+]
+],
+"冶": [
+[
+"smelting",
+false
+],
+[
+"forge",
+false
+]
+],
+"頒": [
+[
+"distribute",
+false
+]
+],
+"婿": [
+[
+"son-in-law",
+true
+],
+[
+"groom",
+true
+]
+],
+"坑": [
+[
+"mine",
+false
+],
+[
+"pit",
+false
+]
+],
+"刹": [
+[
+"instant",
+false
+],
+[
+"temple",
+false
+]
+],
+"遜": [
+[
+"modest",
+false
+],
+[
+"inferior",
+false
+]
+],
+"毀": [
+[
+"damage",
+false
+]
+],
+"訃": [
+[
+"death notice",
+false
+]
+],
+"弐": [
+[
+"two",
+false
+]
+],
+"屯": [
+[
+"garrison",
+false
+]
+],
+"舷": [
+[
+"side of a ship",
+false
+]
+],
+"丙": [
+[
+"third rank",
+false
+]
+],
+"斥": [
+[
+"repel",
+false
+],
+[
+"scout",
+false
+]
+],
+"酌": [
+[
+"pour sake",
+true
+],
+[
+"take into account",
+false
+]
+],
+"弔": [
+[
+"mourn",
+true
+],
+[
+"condolence",
+false
+]
+],
+"咽": [
+[
+"throat",
+false
+],
+[
+"sob",
+false
+]
+],
+"桟": [
+[
+"pier",
+false
+]
+],
+"緻": [
+[
+"fine",
+false
+],
+[
+"precise",
+false
+]
+],
+"辣": [
+[
+"scathing",
+false
+],
+[
+"shrewd",
+false
+]
+],
+"畏": [
+[
+"awe",
+false
+],
+[
+"fear",
+true
+]
+],
+"賓": [
+[
+"guest",
+false
+]
+],
+"憾": [
+[
+"regret",
+false
+]
+],
+"堆": [
+[
+"pile",
+false
+],
+[
+"compost",
+false
+]
+],
+"弧": [
+[
+"arc",
+true
+],
+[
+"brackets",
+false
+]
+],
+"儒": [
+[
+"Confucian",
+false
+]
+],
+"款": [
+[
+"article",
+false
+],
+[
+"terms",
+false
+],
+[
+"loan",
+false
+]
+],
+"租": [
+[
+"tax",
+false
+],
+[
+"lease",
+false
+]
+],
+"賦": [
+[
+"levy",
+false
+],
+[
+"installment",
+false
+],
+[
+"endowment",
+false
+]
+],
+"寡": [
+[
+"few",
+false
+],
+[
+"silent",
+false
+],
+[
+"widow",
+false
+]
+],
+"畔": [
+[
+"shore",
+false
+]
+],
+"抄": [
+[
+"excerpt",
+false
+]
+],
+"俸": [
+[
+"salary",
+false
+]
+],
+"庸": [
+[
+"mediocre",
+false
+],
+[
+"moderation",
+false
+]
+],
+"酪": [
+[
+"dairy",
+false
+]
+],
+"陪": [
+[
+"jury",
+false
+],
+[
+"accompany",
+false
+]
+],
+"諮": [
+[
+"consult",
+false
+]
+],
+"迭": [
+[
+"dismiss",
+false
+]
+],
+"漸": [
+[
+"finally",
+true
+],
+[
+"gradually",
+false
+]
+],
+"繭": [
+[
+"cocoon",
+true
+]
+],
+"劾": [
+[
+"impeach",
+false
+]
+],
+"罷": [
+[
+"dismiss",
+false
+],
+[
+"quit",
+false
+]
+],
+"恣": [
+[
+"arbitrary",
+false
+]
+],
+"謁": [
+[
+"audience",
+false
+]
+],
+"嘱": [
+[
+"entrust",
+false
+],
+[
+"commission",
+false
+]
+],
+"嫡": [
+[
+"legitimate heir",
+false
+]
+],
+"畝": [
+[
+"ridge",
+true
+]
+],
+"吏": [
+[
+"official",
+false
+]
+],
+"蚕": [
+[
+"silkworm",
+true
+]
+],
+"斤": [
+[
+"loaves",
+false
+],
+[
+"weight",
+false
+]
+],
+"衷": [
+[
+"blend",
+false
+],
+[
+"inmost",
+false
+]
+],
+"倹": [
+[
+"thrifty",
+false
+]
+],
+"厘": [
+[
+"rin",
+true
+],
+[
+"tiny fraction",
+false
+]
+],
+"詔": [
+[
+"imperial edict",
+true
+]
+],
+"痘": [
+[
+"pox",
+false
+]
+],
+"塑": [
+[
+"mold",
+false
+],
+[
+"sculpture",
+false
+]
+],
+"墾": [
+[
+"clear land",
+false
+]
+],
+"璽": [
+[
+"imperial seal",
+false
+]
+],
+"沃": [
+[
+"fertile",
+false
+],
+[
+"iodine",
+false
+]
+],
+"朕": [
+[
+"imperial we",
+true
+]
+],
+"錮": [
+[
+"confine",
+false
+]
+],
+"謄": [
+[
+"copy",
+false
+]
+],
+"虞": [
+[
+"risk",
+true
+]
+],
+"憬": [
+[
+"long for",
+false
+]
+],
+"諧": [
+[
+"humor",
+false
+],
+[
+"harmony",
+false
+]
+],
+"逓": [
+[
+"successively",
+false
+],
+[
+"relay",
+false
+]
+],
+"楷": [
+[
+"block script",
+false
+]
+]
+}
