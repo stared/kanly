@@ -36,7 +36,8 @@ a { color: inherit; }
 .key { font: 12px system-ui, sans-serif; color: var(--muted); margin-left: 8px; }
 .nochar { color: var(--muted); }
 
-.app { max-width: 1040px; margin: 0 auto; padding: 0 24px 64px; }
+.app { padding: 0 24px 64px; }  /* the bar spans the window; the content keeps its width */
+main { max-width: 992px; margin: 0 auto; }
 header { display: flex; align-items: baseline; gap: 24px; padding: 16px 0 12px; }
 .logo { font: 22px var(--serif); }
 nav { display: flex; gap: 20px; }
