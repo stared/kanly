@@ -10,7 +10,8 @@
     "build": "vite build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "shots": "node scripts/shots.mjs"
+    "shots": "node scripts/shots.mjs",
+    "og": "node scripts/og.mjs"
   },
   "dependencies": {
     "d3-force": "^3.0.1",
