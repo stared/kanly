@@ -84,7 +84,9 @@ export function Reader({ store, open }: { store: Store; open: (el: string) => vo
       <div className="bar-line sub small">
         <span>You know {known} of {han.length} kanji here ({han.length ? Math.round(100 * known / han.length) : 0}%).</span>
         <span className="opts">
-          furigana {(['new', 'all', 'off'] as Furigana[]).map(f => <button key={f} className={furi === f ? 'on' : ''} onClick={() => setFuri(f)}>{f === 'new' ? 'for new kanji' : f}</button>)}
+          <label>furigana <select value={furi} onChange={e => setFuri(e.target.value as Furigana)}>
+            {(['new', 'all', 'off'] as Furigana[]).map(f => <option key={f} value={f}>{f === 'new' ? 'for new kanji' : f === 'all' ? 'for all' : 'off'}</option>)}
+          </select></label>
           {!editing && <button className="inline" onClick={() => setEditing(true)}>edit text</button>}
         </span>
       </div>

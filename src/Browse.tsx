@@ -1,11 +1,14 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { COMP, KANJI, ORDER, gloss, hira } from './data'
 import { status, type Store } from './srs'
-import { BEGINNER, byLevel as order, lam, mu, pOf } from './levels'
-import { Card, Glyph, KanjiTip, mainReadings } from './Card'
+import { BEGINNER, lam, levelOf, mu, pOf } from './levels'
+import { Glyph, KanjiTip, mainReadings } from './Card'
 import { track } from './track'
 
-type Filter = 'all' | 'kanji' | 'parts' | 'mine'
+const SHOW = ['kanji and parts', 'kanji only', 'non-kanji parts', 'seen by me'] as const
+const SORT = ['easiest first', 'in learning order'] as const
+type Show = typeof SHOW[number]
+type Sort = typeof SORT[number]
 
 /** Matches a character, a keyword or meaning, or a reading in kana. */
 function matches(el: string, q: string) {
@@ -20,35 +23,34 @@ function matches(el: string, q: string) {
 
 export function Browse({ store, open }: { store: Store; open: (el: string) => void }) {
   const [q, setQ] = useState('')
-  const [filter, setFilter] = useState<Filter>('all')
-  const [byLevel, setByLevel] = useState(() => mu(store) > BEGINNER)
-  const [sel, setSel] = useState(() => decodeURIComponent(location.hash.split('/')[1] ?? '') || ORDER[0])
-  useEffect(() => { history.replaceState(null, '', '#kanji/' + sel) }, [sel])
-  const list = useMemo(() => (byLevel ? order(lam(store)) : ORDER).filter(el =>
-    (filter === 'all' || (filter === 'kanji' ? !!KANJI[el] : filter === 'parts' ? !KANJI[el] : !!store.cards[el])) && matches(el, q.trim())
-  ), [q, filter, store, byLevel])
+  const [show, setShow] = useState<Show>(() => mu(store) > BEGINNER ? 'kanji only' : 'kanji and parts')
+  const [sort, setSort] = useState<Sort>(() => mu(store) > BEGINNER ? 'easiest first' : 'in learning order')
+  const byLevel = sort === 'easiest first'
+  // a part is as hard as the easiest kanji using it, so parts sit next to the kanji they build
+  const sorted = useMemo(() => byLevel ? [...ORDER].sort((a, b) => levelOf(a, lam(store)) - levelOf(b, lam(store))) : ORDER, [byLevel, lam(store)])
+  const list = useMemo(() => sorted.filter(el =>
+    (show === 'kanji and parts' || (show === 'kanji only' ? !!KANJI[el] : show === 'non-kanji parts' ? !KANJI[el] : !!store.cards[el])) && matches(el, q.trim())
+  ), [q, show, store, sorted])
 
   return (
     <div className="browse">
-      <div className="list">
-        <div className="filters">
-          <input className="search" placeholder="search: 明, bright, めい" value={q} onChange={e => setQ(e.target.value)} />
-          {(['all', 'kanji', 'parts', 'mine'] as Filter[]).map(f => <button key={f} className={filter === f ? 'on' : ''} onClick={() => setFilter(f)}>{f}</button>)}
-          <button className={byLevel ? 'on' : ''} onClick={() => setByLevel(!byLevel)}>by difficulty</button>
-          <span className="sub small">{list.length}</span>
-        </div>
-        <p className="sub small">{byLevel ? 'Easiest first; the darker, the likelier you knew it before.' : 'In learning order. Parts that are not kanji are grey.'} Dots: <span className="dot known" /> known <span className="dot learning" /> learning.</p>
-        <div className="cells">
-          {list.slice(0, byLevel ? 2200 : 600).map(el => (
-            <button key={el} className={'cell ' + status(store, el) + (KANJI[el] ? '' : ' part') + (el === sel ? ' sel' : '')} onClick={() => { track('browse', { el }); setSel(el) }}
-              style={byLevel && !store.cards[el] ? { '--p': pOf(store, el) } as React.CSSProperties : undefined}>
+      <div className="controls">
+        <input className="search" placeholder="search: 明, bright, めい" value={q} onChange={e => setQ(e.target.value)} />
+        <select aria-label="what to show" value={show} onChange={e => setShow(e.target.value as Show)}>
+          {SHOW.map(f => <option key={f} value={f}>{f}</option>)}
+        </select>
+        <select aria-label="sort order" value={sort} onChange={e => setSort(e.target.value as Sort)}>
+          {SORT.map(f => <option key={f} value={f}>{f}</option>)}
+        </select>
+      </div>
+      <div className={'cells' + (show === 'non-kanji parts' ? ' plain' : '')}>
+          {list.map(el => (
+            <button key={el} className={'cell ' + status(store, el) + (KANJI[el] ? '' : ' part')} onClick={() => { track('browse', { el }); open(el) }}
+              style={byLevel && KANJI[el] && !store.cards[el] ? { '--p': pOf(store, el) } as React.CSSProperties : undefined}>
               {KANJI[el] ? <KanjiTip c={el} reading={mainReadings(el)} /> : <Glyph el={el} />}
             </button>
           ))}
-          {list.length > (byLevel ? 2200 : 600) && <span className="more">+{list.length - (byLevel ? 2200 : 600)} more; search to narrow</span>}
-        </div>
       </div>
-      <div className="detail">{sel && <Card key={sel} el={sel} store={store} open={open} />}</div>
     </div>
   )
 }
