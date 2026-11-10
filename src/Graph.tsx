@@ -1,4 +1,5 @@
 import { memo, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { forceCollide, forceLink, forceManyBody, forceSimulation, forceX, forceY } from 'd3-force'
 import { COMP, KANJI, gloss } from './data'
 import { status, type Store } from './srs'
 import { STROKES, treeOf } from './Card'
@@ -16,7 +17,7 @@ hover; the layered view draws them all. Clicking a node shows only what it is bu
 type N = { id: string; r: number; ends: string[] }
 type L = { source: N; target: N; pos: string[]; sound: boolean; nth: number; main?: boolean }
 type P = Map<string, [number, number]>
-type View = { nodes: N[]; links: L[]; at: P; box: [number, number, number, number] }
+type View = { nodes: N[]; links: L[]; at: P; box: [number, number, number, number]; straight?: boolean }
 
 const PLACE: Record<string, string> = {
   left: 'left', right: 'right', top: 'top', bottom: 'bottom', middle: 'middle', inside: 'inside',
@@ -68,7 +69,7 @@ const UNDER = {
   'its first part': (a: L, b: L) => a.nth - b.nth,  // as written: the left or top one
 }
 type Under = keyof typeof UNDER
-type How = 'layers' | Under
+type How = 'layers' | 'force' | Under
 
 const FOREST = new Map<string, View>()
 /** Every node under its main part: tidy trees, packed on shelves from the tallest down. */
@@ -147,6 +148,30 @@ function layers(aspect: number): View {
   return view
 }
 
+const FORCE = new Map<string, View>()
+/** Every arrow as a spring, every node repelling the others: related shapes end up near each other, in no set order. */
+function force(aspect: number): View {
+  const key = aspect.toFixed(1)
+  if (FORCE.has(key)) return FORCE.get(key)!
+  const { nodes, links } = graph()
+  type F = { id: string; r: number; ends: number; x: number; y: number }
+  const fs = [...nodes.values()].map(n => ({ id: n.id, r: n.r, ends: n.ends.length, x: NaN, y: NaN }))  // unset: d3 starts them on a spiral
+  const by = new Map(fs.map(f => [f.id, f]))
+  const deg = new Map<string, number>()
+  for (const l of links) for (const n of [l.source, l.target]) deg.set(n.id, (deg.get(n.id) ?? 0) + 1)
+  forceSimulation(fs)
+    .force('link', forceLink(links.map(l => ({ source: by.get(l.source.id)!, target: by.get(l.target.id)! }))).distance(46).strength(l => 0.8 / Math.min(deg.get((l.source as F).id)!, deg.get((l.target as F).id)!)))
+    .force('charge', forceManyBody().strength(-40).distanceMax(240))
+    .force('collide', forceCollide<F>(n => n.r + (n.ends ? 15 : 5)).iterations(2))
+    .force('x', forceX(0).strength(0.03))
+    .force('y', forceY(0).strength(0.03 * aspect * aspect))  // flattened to the window's shape
+    .stop().tick(400)
+  const at: P = new Map(fs.map(f => [f.id, [f.x, f.y]]))
+  const view = { nodes: [...nodes.values()], links: links.map(l => ({ ...l, main: true })), at, box: boxOf(at), straight: true }
+  FORCE.set(key, view)
+  return view
+}
+
 /** One node with all it is built from (to its left) and all it builds (to its right), every arrow among them. */
 function around(id: string): View {
   const { nodes, links, into, out } = graph()
@@ -195,7 +220,7 @@ const Scene = memo(function Scene({ view, store, hot, focus }: { view: View; sto
   const { links, at } = view
   const last = useRef<P>(new Map())
   const near = useMemo(() => new Set(hot ? links.filter(l => l.source.id === hot || l.target.id === hot).flatMap(l => [l.source.id, l.target.id]) : []), [hot, view])
-  const fans = useMemo(() => new Set(links.filter(l => l.main).map(l => l.source.id)), [view])
+  const fans = useMemo(() => new Set(view.straight ? [] : links.filter(l => l.main).map(l => l.source.id)), [view])
   useEffect(() => { for (const [id, p] of at) last.current.set(id, p) }, [view])
   return (
     <g className={hot ? 'has-hot' : ''}>
@@ -204,7 +229,7 @@ const Scene = memo(function Scene({ view, store, hot, focus }: { view: View; sto
         if (!l.main && !touch) return null
         const [sx, sy] = at.get(l.source.id)!, [tx, ty] = at.get(l.target.id)!
         let d: string
-        if (tx - sx > l.source.r + l.target.r + 12) {  // to the right: a curve leaving and arriving level
+        if (!view.straight && tx - sx > l.source.r + l.target.r + 12) {  // to the right: a curve leaving and arriving level
           const a = sx + l.source.r + 1, b = tx - l.target.r - 5, m = (a + b) / 2
           d = `M${a},${sy.toFixed(1)}C${m.toFixed(1)},${sy.toFixed(1)} ${m.toFixed(1)},${ty.toFixed(1)} ${b - 3},${ty.toFixed(1)}L${b},${ty.toFixed(1)}`
         } else {
@@ -239,7 +264,7 @@ export function Graph({ store, open }: { store: Store; open: (el: string) => voi
   const ref = useRef<HTMLDivElement>(null)
   // the window's shape when the tab opens (below the top bar and the graph's own), so that the whole graph fills it
   const [aspect] = useState(() => Math.min(3, Math.max(0.5, innerWidth / Math.max(200, innerHeight - 110))))
-  const view = useMemo(() => focus ? around(focus) : how === 'layers' ? layers(aspect) : forest(how, aspect), [focus, how, aspect])
+  const view = useMemo(() => focus ? around(focus) : how === 'layers' ? layers(aspect) : how === 'force' ? force(aspect) : forest(how, aspect), [focus, how, aspect])
   const { links, box } = view
   const nodes = useMemo(ALL, [])
   const [pan, setPan] = useState({ x: 0, y: 0, k: 1 })
@@ -289,7 +314,7 @@ export function Graph({ store, open }: { store: Store; open: (el: string) => voi
       setGlide(false)
       zoom(Math.exp(-e.deltaY * (e.ctrlKey ? 0.01 : 0.0018)), e.clientX - r.left, e.clientY - r.top)
     }
-    const esc = (e: KeyboardEvent) => { if (e.key === 'Escape') setFocus(null) }
+    const esc = (e: KeyboardEvent) => { if (e.key === 'Escape' && !document.querySelector('.peek')) setFocus(null) }  // with a card open, Escape closes the card
     const resize = () => setPan(clamp)
     el.addEventListener('wheel', wheel, { passive: false })
     addEventListener('keydown', esc)
@@ -327,22 +352,23 @@ export function Graph({ store, open }: { store: Store; open: (el: string) => voi
     const hit = at(e)
     setTip(hit && { ...hit, x: e.clientX - r.left, y: e.clientY - r.top })
   }
-  // a click shows the node's own graph; on the node already shown, its card
-  const click = (id: string) => id === focus ? open(id) : setFocus(id)
+  // a click shows the node's own graph; a second click on it goes back (its card opens from its name in the bar)
+  const click = (id: string) => setFocus(id === focus ? null : id)
   const hot = tip?.node?.id ?? tip?.ends?.id ?? null
   const ends = focus ? graph().nodes.get(focus)!.ends : []
 
   return (
     <div className="graph-wrap">
       <div className="graph-bar">
-        {focus
-          ? <><button className="btn" onClick={() => setFocus(null)}>← whole graph</button><span className="what"><b className="jp">{glyph(focus)}</b> {gloss(focus)}</span><button className="btn" onClick={() => open(focus)}>open card</button></>
-          : <>
-              <select aria-label="layout" value={how} onChange={e => setHow(e.target.value as How)}>
-                <option value="layers">layers by depth, every arrow</option>
-                {Object.keys(UNDER).map(u => <option key={u} value={u}>trees, each under {u}</option>)}
-              </select>
-            </>}
+        <span className="slot">
+          {focus
+            ? <><button className="sel" onClick={() => open(focus)}><b className="jp">{glyph(focus)}</b> {gloss(focus)}</button><button className="whole" onClick={() => setFocus(null)}>back<span className="long"> to the whole graph</span></button></>
+            : <select aria-label="layout" value={how} onChange={e => setHow(e.target.value as How)}>
+                {Object.keys(UNDER).map(u => <option key={u} value={u}>trees under {u.replace('its ', '')}</option>)}
+                <option value="layers">layers by depth</option>
+                <option value="force">free</option>
+              </select>}
+        </span>
         <span className="graph-key sub small">
           <svg width="14" height="14"><circle cx="7" cy="7" r="6" className="k" /></svg> kanji
           <svg width="14" height="14"><circle cx="7" cy="7" r="6" className="p" /></svg> part
@@ -353,7 +379,7 @@ export function Graph({ store, open }: { store: Store; open: (el: string) => voi
     <div className={'graph' + (moving ? ' moving' : '') + (glide ? ' glide' : '')} ref={ref}
       onPointerDown={e => { if (!(e.target as Element).closest('.graph-ends')) { if (e.pointerType === 'mouse') e.preventDefault(); fingers.current.set(e.pointerId, [e.clientX, e.clientY]); drag.current = { x: e.clientX, y: e.clientY, moved: fingers.current.size > 1 }; setGlide(false); setTip(null) } }}
       onPointerMove={move}
-      onPointerUp={e => { fingers.current.delete(e.pointerId); const d = drag.current; drag.current = null; const hit = at(e); if (d && !d.moved && (hit?.node || hit?.ends)) click((hit.node ?? hit.ends)!.id) }}
+      onPointerUp={e => { fingers.current.delete(e.pointerId); const d = drag.current; drag.current = null; const hit = at(e); if (!d || d.moved) return; if (hit?.node || hit?.ends) click((hit.node ?? hit.ends)!.id); else if (!hit && !(e.target as Element).closest('.graph-ends')) setFocus(null) }}  // a click on nothing: back to the whole graph, as the card drawer closes
       onPointerLeave={e => { fingers.current.delete(e.pointerId); drag.current = null; setTip(null) }}
       onPointerCancel={e => { fingers.current.delete(e.pointerId); drag.current = null }}>
       <svg role="img" aria-label="Kanji and the parts they are built from">

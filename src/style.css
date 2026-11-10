@@ -392,13 +392,14 @@ main:has(> .graph-wrap) { max-width: none; }
 .app:has(.graph-wrap) { padding-bottom: 0; }
 /* nothing here is text to select: dragging must not paint a selection over the bar or the glyphs */
 .graph-wrap { display: flex; flex-direction: column; height: calc(100vh - 62px); margin: 0 -24px; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
-.graph-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; padding: 0 24px 8px; }
-.graph-bar .what { font-size: 14px; } .graph-bar .what b { font-weight: 400; font-size: 20px; margin-right: 4px; }
-.graph-bar .graph-key { margin-left: auto; white-space: nowrap; }
-.btn { flex: none; white-space: nowrap; }
-.graph-bar .what { font-size: 14px; } .graph-bar .what b { font-weight: 400; font-size: 20px; margin-right: 4px; }
-.btn { min-width: 30px; height: 28px; padding: 0 8px; border: 1px solid var(--faint); border-radius: 6px; background: var(--card); font-size: 13px; }
-.btn:hover { border-color: var(--muted); }
+/* one bar in both views: on the left the layout, or the node shown and the way back; the legend always at the right end */
+.graph-bar { display: flex; align-items: center; gap: 12px; padding: 0 24px 8px; min-height: 38px; }
+.graph-bar .slot { flex: 1; min-width: 0; display: flex; align-items: center; gap: 14px; white-space: nowrap; overflow: hidden; }
+.graph-bar .sel { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-size: 15px; } .graph-bar .sel:hover { color: var(--accent); }
+.graph-bar .sel b { font-weight: 400; font-size: 20px; margin-right: 4px; }
+.graph-bar .whole { flex: none; font-size: 13px; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.graph-bar .whole:hover { color: var(--ink); }
+.graph-bar .graph-key { flex: none; white-space: nowrap; }
 .graph { position: relative; flex: 1; min-height: 0; overflow: hidden; touch-action: none; cursor: grab; user-select: none; }
 .graph > svg { width: 100%; height: 100%; display: block; }
 .graph marker path { fill: var(--muted); }
@@ -419,12 +420,15 @@ main:has(> .graph-wrap) { max-width: none; }
 .gn.learning circle, .graph-key .learning { stroke: var(--ink); }
 .gn.known circle, .graph-key .known { stroke: var(--good); }
 .gn text { fill: var(--ink); font-family: var(--jp); }
-.gn:hover circle, .gn.hot circle { stroke-width: 3; }
+/* under the pointer: a tinted fill, like selection a matter of the background; the ring is left alone */
+.gn:hover:not(.focus) circle { fill: var(--glow); }
 .ge path { stroke: var(--muted); fill: none; }
 .ge text { fill: var(--muted); font: 10px system-ui, sans-serif; }
 .ge:hover text { fill: var(--ink); }
 .has-hot .gn:not(.hot), .has-hot .gl:not(.hot) { opacity: .18; }
-.gn.focus circle { stroke-width: 3; }
+/* the node whose graph is shown: filled, its glyph reversed (the ring keeps saying kanji or part, and the status) */
+.gn.focus circle { fill: var(--ink); }
+.gn.focus > text { fill: var(--paper); }
 .graph-ends { position: absolute; left: 16px; right: 16px; bottom: 8px; max-height: 30%; overflow-y: auto; padding: 8px 10px; border-radius: 10px; background: color-mix(in srgb, var(--paper) 92%, transparent); display: flex; flex-direction: column; gap: 6px; cursor: default; }
 .graph-key { display: flex; gap: 4px 5px; align-items: center; }
 .graph-key svg { margin-left: 10px; } .graph-key svg:first-child { margin-left: 0; }
@@ -433,5 +437,12 @@ main:has(> .graph-wrap) { max-width: none; }
 .graph-tip span { display: block; color: var(--muted); font-size: 12px; }
 .graph-tip .many { font-size: 16px; color: var(--ink); }
 .jp { font-family: var(--jp); }
-@media (max-width: 760px) { .graph-wrap { margin: 0 -16px; } .graph-bar { padding: 0 16px 6px; } .graph-bar .graph-key { margin-left: 0; } }
+/* narrow: still one line. The left slot gives way (the dropdown and a long name are cut short), the legend tightens */
+@media (max-width: 760px) { .graph-wrap { margin: 0 -16px; } .graph-bar { padding: 0 16px 6px; gap: 8px; } .graph-bar .whole .long { display: none; } }
+@media (max-width: 560px) {
+  .graph-bar .slot { gap: 8px; }
+  .graph-bar select { min-width: 0; width: 100%; }
+  .graph-bar .graph-key { font-size: 12px; gap: 3px; }
+  .graph-key svg { margin-left: 4px; }
 }
+@media (max-width: 350px) { header, nav { gap: 7px; } nav button { font-size: 12px; } .logo { font-size: 18px; } .source { display: none; } }
