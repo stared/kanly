@@ -5,14 +5,15 @@ import { Learn } from './Learn'
 import { BEGINNER, mu, reach } from './levels'
 import { Review, dueIds } from './Review'
 import { Browse } from './Browse'
+import { Graph } from './Graph'
 import { Reader } from './Reader'
 import { Analysis } from './Analysis'
 import { Settings } from './Settings'
 import { track } from './track'
 import { loadAutoSpeak, saveAutoSpeak } from './speech'
 
-type Tab = 'learn' | 'review' | 'kanji' | 'reader' | 'analysis' | 'settings' | 'card'
-const TABS: Tab[] = ['learn', 'review', 'kanji', 'reader', 'analysis']
+type Tab = 'learn' | 'review' | 'kanji' | 'graph' | 'reader' | 'analysis' | 'settings' | 'card'
+const TABS: Tab[] = ['learn', 'review', 'kanji', 'graph', 'reader', 'analysis']
 
 export default function App() {
   const [store, setStore] = useState<Store>(load)
@@ -65,6 +66,7 @@ export default function App() {
         {tab === 'learn' && <Learn store={store} setStore={setStore} open={open} now={now} autoSpeak={autoSpeak} />}
         {tab === 'review' && <Review store={store} setStore={setStore} open={open} now={now} autoSpeak={autoSpeak} />}
         {tab === 'kanji' && <Browse store={store} open={open} />}
+        {tab === 'graph' && <Graph store={store} open={open} />}
         {tab === 'reader' && <Reader store={store} open={open} />}
         {tab === 'analysis' && <Analysis store={store} open={open} />}
         {tab === 'card' && <Card key={hash} el={decodeURIComponent(hash.split('/')[1] ?? '日')} store={store} open={open} autoSpeak={autoSpeak} />}

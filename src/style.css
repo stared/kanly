@@ -386,3 +386,36 @@ svg.drawn .ink { stroke: var(--ink); }
 .rd .romaji { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 1px; font: 10px system-ui, sans-serif;
   color: var(--muted); white-space: nowrap; opacity: 0; transition: opacity .12s; pointer-events: none; }
 .rd:hover .romaji, .rd:focus-visible .romaji { opacity: 1; }
+
+/* graph: parts on the left, what they build to the right; pan by dragging, zoom by wheel */
+main:has(> .graph) { max-width: none; }
+.app:has(.graph) { padding-bottom: 0; }
+.graph { position: relative; height: calc(100vh - 62px); margin: 0 -24px; overflow: hidden; touch-action: none; cursor: grab; user-select: none; }
+.graph > svg { width: 100%; height: 100%; display: block; }
+.graph marker path { fill: var(--muted); }
+.gl path { fill: none; stroke: var(--muted); stroke-width: 1; opacity: .32; }
+.gl .hit { stroke: transparent; stroke-width: 9; opacity: 1; }
+.gl:hover path:first-child, .gl.hot path:first-child { stroke: var(--ink); opacity: 1; stroke-width: 1.5; }
+.gn { cursor: pointer; }
+/* one marker each: the ring's line says kanji (solid) or part (dashed), its colour the status (not seen grey, learning ink, known green) */
+.gn circle, .graph-key circle { fill: var(--card); stroke: var(--muted); stroke-width: 1.5; }
+.gn.part circle, .graph-key .p { stroke-dasharray: 2 3; }
+.gn.learning circle, .graph-key .learning { stroke: var(--ink); }
+.gn.known circle, .graph-key .known { stroke: var(--good); }
+.gn text { fill: var(--ink); font-family: var(--jp); }
+.gn:hover circle, .gn.hot circle { stroke-width: 3; }
+.ge path { stroke: var(--muted); fill: none; }
+.ge text { fill: var(--muted); font: 10px system-ui, sans-serif; }
+.ge:hover text { fill: var(--ink); }
+.has-hot .gn:not(.hot), .has-hot .gl:not(.hot) { opacity: .18; }
+.graph-ui { position: absolute; right: 24px; top: 8px; display: flex; gap: 6px; }
+.graph-ui button { min-width: 30px; height: 30px; padding: 0 8px; border: 1px solid var(--faint); border-radius: 6px; background: var(--card); font-size: 14px; }
+.graph-key { position: absolute; left: 16px; bottom: 8px; padding: 4px 10px; border-radius: 8px; background: color-mix(in srgb, var(--paper) 88%, transparent); display: flex; gap: 4px 6px; align-items: center; flex-wrap: wrap; pointer-events: none; }
+.graph-key svg { margin-left: 10px; } .graph-key svg:first-child { margin-left: 0; }
+.graph-key .plus { margin-left: 10px; font-size: 11px; }
+.graph-tip { position: absolute; transform: translate(14px, 14px); background: var(--card); border: 1px solid var(--faint); border-radius: 8px; padding: 6px 10px; font-size: 13px; pointer-events: none; max-width: 320px; box-shadow: var(--shadow); }
+.graph-tip b { font-weight: 500; font-size: 18px; margin-right: 6px; }
+.graph-tip span { display: block; color: var(--muted); font-size: 12px; }
+.graph-tip .many { font-size: 16px; color: var(--ink); }
+.jp { font-family: var(--jp); }
+@media (max-width: 760px) { .graph { margin: 0 -16px; } .graph-key { left: 16px; } .graph-ui { right: 16px; } }

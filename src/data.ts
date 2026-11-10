@@ -1,6 +1,9 @@
 import raw from './data/kanji.json'
 
-export type Tree = { el: string; strokes: number; phon?: string; radical?: string; kids: Tree[] }
+/** pos: where the part sits in the element it is a direct part of: a side (left, right, top, bottom, middle), a frame named by
+ * its ideographic description character (⿴ all around, ⿵ open below, ⿶ open above, ⿷ open right, ⿸ top and left, ⿹ top and right,
+ * ⿺ left and bottom), inside such a frame, ⿻ merged into one shape, or split by a middle part (sides, ends); see build_data.py. */
+export type Tree = { el: string; strokes: number; phon?: string; radical?: string; pos?: string; kids: Tree[] }
 /** A word as written for the card (data/llm): reading is which of the kanji's readings it uses, or 'special'. */
 /** senses: what each kanji of the word means in it, in order (本 in 日本: origin). */
 export type Word = { w: string; r: string; g: string; lit?: string; special?: boolean; reading: string; furigana: [string, string][]; f: number; senses?: string[] }

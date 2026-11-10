@@ -29,6 +29,8 @@ SOURCES = {
     "kanjivg-20260714.xml.gz": "https://github.com/KanjiVG/kanjivg/releases/download/r20260714/kanjivg-20260714.xml.gz",
     "JMdict_e.gz": "http://ftp.edrdg.org/pub/Nihongo/JMdict_e.gz",
     # levels, used only to calibrate how hard a kanji is (see difficulty)
+    # how each character is laid out from its parts (ideographic description sequences), for the place of a part
+    "ids.txt": "https://raw.githubusercontent.com/cjkvi/cjkvi-ids/master/ids.txt",
     "kanji-data.json": "https://raw.githubusercontent.com/davidluzgouveia/kanji-data/master/kanji.json",
     "kanken-levels.hs": "https://raw.githubusercontent.com/fosskers/kanji/master/lib/Data/Kanji/Levels.hs",
 }
@@ -182,7 +184,7 @@ def parse_group(g: ET.Element) -> list[dict]:
     if not el:
         return kids
     node = {"el": el}
-    for attr in ("original", "phon", "radical", "part"):
+    for attr in ("original", "phon", "radical", "part", "position"):
         if g.get(KVG + attr):
             node[attr] = g.get(KVG + attr)
     node["strokes"] = sum(1 for _ in g.iter("path"))
@@ -249,7 +251,7 @@ def fix_trees(trees: dict, kvg: dict, kd: dict) -> dict:
                 kids = []
                 for p in fixes[el]["parts"]:
                     # as drawn here when KanjiVG has it: 艹 is 3 strokes in 花, 4 on its own
-                    k = {**own(p), **({a: was[p][a] for a in ("radical", "strokes") if a in was.get(p, {})})}
+                    k = {**own(p), **({a: was[p][a] for a in ("radical", "strokes", "position") if a in was.get(p, {})})}
                     kids.append(k | ({"phon": p} if fixes[el].get("phon") == p else {}))
                 memo[el] = {**{a: base[a] for a in ("radical",) if base and a in base}, "el": el, "strokes": strokes, "kids": kids}
             elif base:
@@ -263,6 +265,136 @@ def fix_trees(trees: dict, kvg: dict, kd: dict) -> dict:
         return {**t, "kids": [inside(k) for k in t["kids"]]}
 
     return {ch: own(ch) for ch in trees}
+
+
+# Where a part sits in the whole, one vocabulary for every edge of every tree: a side (left, right, top, bottom,
+# middle), a frame around the rest, named by its Unicode ideographic description character (⿴ all around, ⿵ open
+# below, ⿶ open above, ⿷ open to the right, ⿸ top and left, ⿹ top and right, ⿺ left and bottom), "inside" such a
+# frame, ⿻ merged into one shape, or split by a middle part (sides: left and right of it; ends: above and below).
+ROLES = {"⿰": ["left", "right"], "⿱": ["top", "bottom"], "⿲": ["left", "middle", "right"], "⿳": ["top", "middle", "bottom"],
+         **{f: [f, "inside"] for f in "⿴⿵⿶⿷⿸⿹⿺"}, "⿻": ["⿻", "⿻"]}
+KVG_POS = {"left": "left", "right": "right", "top": "top", "bottom": "bottom", "middle": "middle",
+           "tare": "⿸", "nyo": "⿺", "tarec": "inside", "nyoc": "inside", "kamaec": "inside"}
+
+
+def load_ids() -> dict[str, tuple[str, list[str]]]:
+    """CHISE IDS: each character as an operator and its operands (an operand is one character or a nested description)."""
+    def operand(s: str, i: int) -> int:
+        """End of the operand starting at i."""
+        if s[i] in ROLES:
+            j = i + 1
+            for _ in ROLES[s[i]]:
+                j = operand(s, j)
+            return j
+        if s[i] == "&":  # an entity such as &CDP-8B7C;
+            return s.index(";", i) + 1
+        return i + 1
+
+    out = {}
+    for line in open(RAW / "ids.txt", encoding="utf-8"):
+        if line.startswith("#"):
+            continue
+        _, ch, *descs = line.rstrip("\n").split("\t")
+        # the form used in Japan when the description differs by region
+        d = next((x for x in descs if "J" in x.partition("[")[2]), descs[0]).partition("[")[0]
+        if d and d[0] in ROLES:
+            ops, i = [], 1
+            try:
+                for _ in ROLES[d[0]]:
+                    j = operand(d, i)
+                    ops.append(d[i:j])
+                    i = j
+            except (IndexError, ValueError):
+                continue
+            out[ch] = (d[0], ops)
+        elif d and d != ch:
+            out[ch] = ("", [d])
+    return out
+
+
+def place(trees: dict) -> Counter:
+    """Give every part of every tree its place in the element it is a direct part of ("pos"). The element's
+    IDS description decides when the part is found in it; else KanjiVG's own position of the stroke group
+    (a 構 frame takes its shape from the description)."""
+    ids = load_ids()
+    how = Counter()
+    # the pairs neither source places (2%), and corrections: element + part → place, written and reviewed like the cards
+    written = json.loads((LLM / "positions.json").read_text()) if (LLM / "positions.json").exists() else {}
+
+    def leaves(t: dict) -> set[str]:
+        return {t["el"], t.get("original", "")} | {c for k in t["kids"] for c in leaves(k)}
+
+    memo: dict[str, set[str]] = {}
+
+    def shapes(o: str) -> set[str]:
+        """Every character an operand is made of, at any depth: 亲 in 新 holds 立 and 木."""
+        if o not in memo:
+            memo[o] = set(o) - set(ROLES)  # a cycle ends here
+            for c in set(o) - set(ROLES):
+                if c in ids and (len(o) > 1 or ids[c][1] != [c]):
+                    for x in ids[c][1]:
+                        if x != o:
+                            memo[o] = memo[o] | shapes(x)
+        return memo[o]
+
+    def visit(t: dict) -> None:
+        op, ops = ids.get(t["el"], ("", []))
+        roles = ROLES.get(op, [])
+        slot, deep = {}, set()
+        same = Counter(k["el"] for k in t["kids"])
+        nth = Counter()
+        for n, k in enumerate(t["kids"]):
+            hits = [i for i, o in enumerate(ops) if k["el"] in o or k.get("original", "\0") in o]
+            if len(hits) == same[k["el"]] > 1:  # 口 twice in 呂: in the order written
+                hits = [hits[nth[k["el"]]]]
+                nth[k["el"]] += 1
+            if len(hits) != 1:  # not named there: inside an operand, at any depth
+                hits = [i for i, o in enumerate(ops) if k["el"] in shapes(o) or k.get("original", "\0") in shapes(o)]
+                deep.add(n)
+            if len(hits) != 1:  # or the operands made of its shapes
+                hits = [i for i, o in enumerate(ops) if (set(o) - set(ROLES)) and set(o) - set(ROLES) <= leaves(k)]
+            if len(hits) == 1:
+                slot[n] = hits[0]
+            elif hits == [0, 2]:  # split by what stands in the middle: 行 in 術, 衣 in 裏
+                slot[n] = 3
+        if op and len(t["kids"]) == len(ops) and len(slot) == len(ops) - 1 and len(set(slot.values())) == len(slot) and 3 not in slot.values():
+            [n] = set(range(len(ops))) - set(slot)  # one part left, one operand left
+            [i] = set(range(len(ops))) - set(slot.values())
+            slot[n] = i
+        roles = roles + ["sides" if op == "⿲" else "ends"] if len(roles) == 3 else roles
+        whole = t["el"] not in ids or not op  # not described in parts: drawn as one shape, the parts merged
+        for el, c in same.items():  # 口 three times in 品, not told apart by the description: KanjiVG's positions
+            ns = [n for n, k in enumerate(t["kids"]) if k["el"] == el and n in slot]
+            if c > 1 and len({slot[n] for n in ns}) < len(ns):
+                for n in ns:
+                    del slot[n]
+        for n, k in enumerate(t["kids"]):
+            raw = k.pop("position", None)
+            if t["el"] + k["el"] in written:
+                k["pos"] = written[t["el"] + k["el"]]
+                how["written"] += 1
+            elif n in slot and n in deep and roles[slot[n]] in "⿴⿵⿶⿷⿸⿹⿺":  # inside the framing operand, not the frame: 林 in 歴
+                k["pos"] = KVG_POS.get(raw, "inside")
+                how["ids"] += 1
+            elif n in slot:
+                k["pos"] = roles[slot[n]]
+                how["ids"] += 1
+            elif raw in KVG_POS:
+                k["pos"] = KVG_POS[raw]
+                how["kanjivg"] += 1
+            elif raw == "kamae" and op in "⿴⿵⿶⿷⿹" and op:
+                k["pos"] = op
+                how["kanjivg"] += 1
+            elif whole:
+                k["pos"] = "⿻"
+                how["merged"] += 1
+            else:
+                how["none"] += 1
+            visit(k)
+
+    for t in trees.values():
+        visit(t)
+    return how
 
 
 def path_box(ds: list[str]) -> tuple[float, float, float, float]:
@@ -568,6 +700,8 @@ def main() -> None:
     written = load_written()
     joyo = sorted((c for c, v in kd.items() if v["grade"] in JOYO_GRADES), key=lambda c: -freq.get(c, 0))
     trees = load_trees(set(joyo), kd)
+    placed = place(trees)
+    print("place of each part:", dict(placed))
     missing = [c for c in joyo if c not in trees]
     joyo = [c for c in joyo if c in trees]
     joyo_set = set(joyo)
@@ -603,7 +737,7 @@ def main() -> None:
     unnamed = sorted((el for el, c in components.items() if "meaning" not in c), key=lambda e: -len(used_in[e]))
 
     def strip(t: dict) -> dict:
-        return {"el": t["el"], "strokes": t["strokes"], **{k: t[k] for k in ("phon", "radical") if k in t}, "kids": [strip(k) for k in t["kids"]]}
+        return {"el": t["el"], "strokes": t["strokes"], **{k: t[k] for k in ("phon", "radical", "pos") if k in t}, "kids": [strip(k) for k in t["kids"]]}
 
     kanji = {
         ch: {

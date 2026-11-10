@@ -8,7 +8,7 @@ import { Animated, StrokeOrder } from './Strokes'
 
 type Open = (el: string) => void
 
-const STROKES = new Set(['丿', '丨', '丶', '亅', '乙', '㇒', '㇏', '乚'])
+export const STROKES = new Set(['丿', '丨', '丶', '亅', '乙', '㇒', '㇏', '乚'])
 
 /** KanjiVG names a few shapes that Unicode lacks, like CDP-8BC4. */
 export const Glyph = ({ el }: { el: string }) => el.startsWith('CDP') ? <span className="nochar">◌</span> : <>{el}</>

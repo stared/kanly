@@ -25,6 +25,7 @@ Card content (keywords, stories, example words, part trees) is written by a lang
 | | used for | license |
 |---|---|---|
 | [KanjiVG](https://kanjivg.tagaini.net/) | part trees, phonetic and radical marks, strokes | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+| [CJKVI IDS](https://github.com/cjkvi/cjkvi-ids) (from the [CHISE](http://www.chise.org/) IDS database) | where a part sits in a kanji (left, top, frame…), for the graph | GPLv2 |
 | [KANJIDIC2](https://www.edrdg.org/wiki/index.php/KANJIDIC_Project) (EDRDG) | readings, meanings, stroke counts | [CC BY-SA 4.0](https://www.edrdg.org/edrdg/licence.html) |
 | [JMdict](https://www.edrdg.org/jmdict/j_jmdict.html) (EDRDG) | common words, reading usage | [CC BY-SA 4.0](https://www.edrdg.org/edrdg/licence.html) |
 | [wordfreq](https://github.com/rspeer/wordfreq) (Robyn Speer) | word and kanji frequency | code Apache 2.0, data [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
