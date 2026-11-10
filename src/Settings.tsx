@@ -38,7 +38,7 @@ export function Settings({ store, onReplace, autoSpeak, setAutoSpeak }: { store:
         </select>
       </label>
       {mu(store) > BEGINNER && <p>{fit(store)} Every quiz answer refines this.</p>}
-      <p>{Object.keys(store.cards).length} kanji and parts seen, {store.log.length} reviews, {events().length} answers and clicks logged. Progress is stored in this browser only; export saves all of it as one file.</p>
+      <p><a href="#kanji/seen">{Object.keys(store.cards).length} kanji and parts seen</a>, {store.log.length} reviews, {events().length} answers and clicks logged. Progress is stored in this browser only; export saves all of it as one file.</p>
       <div className="row">
         <button className="next" onClick={exportIt}>export progress</button>
         <label className="next">import<input type="file" accept="application/json" hidden onChange={e => importIt(e.target.files?.[0])} /></label>

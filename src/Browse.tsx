@@ -23,7 +23,7 @@ function matches(el: string, q: string) {
 
 export function Browse({ store, open }: { store: Store; open: (el: string) => void }) {
   const [q, setQ] = useState('')
-  const [show, setShow] = useState<Show>(() => mu(store) > BEGINNER ? 'kanji only' : 'kanji and parts')
+  const [show, setShow] = useState<Show>(() => location.hash === '#kanji/seen' ? 'seen by me' : mu(store) > BEGINNER ? 'kanji only' : 'kanji and parts')
   const [sort, setSort] = useState<Sort>(() => mu(store) > BEGINNER ? 'easiest first' : 'in learning order')
   const byLevel = sort === 'easiest first'
   // a part is as hard as the easiest kanji using it, so parts sit next to the kanji they build
