@@ -388,15 +388,31 @@ svg.drawn .ink { stroke: var(--ink); }
 .rd:hover .romaji, .rd:focus-visible .romaji { opacity: 1; }
 
 /* graph: parts on the left, what they build to the right; pan by dragging, zoom by wheel */
-main:has(> .graph) { max-width: none; }
-.app:has(.graph) { padding-bottom: 0; }
-.graph { position: relative; height: calc(100vh - 62px); margin: 0 -24px; overflow: hidden; touch-action: none; cursor: grab; user-select: none; }
+main:has(> .graph-wrap) { max-width: none; }
+.app:has(.graph-wrap) { padding-bottom: 0; }
+/* nothing here is text to select: dragging must not paint a selection over the bar or the glyphs */
+.graph-wrap { display: flex; flex-direction: column; height: calc(100vh - 62px); margin: 0 -24px; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+.graph-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; padding: 0 24px 8px; }
+.graph-bar .what { font-size: 14px; } .graph-bar .what b { font-weight: 400; font-size: 20px; margin-right: 4px; }
+.graph-bar .graph-key { margin-left: auto; white-space: nowrap; }
+.btn { flex: none; white-space: nowrap; }
+.graph-bar .what { font-size: 14px; } .graph-bar .what b { font-weight: 400; font-size: 20px; margin-right: 4px; }
+.btn { min-width: 30px; height: 28px; padding: 0 8px; border: 1px solid var(--faint); border-radius: 6px; background: var(--card); font-size: 13px; }
+.btn:hover { border-color: var(--muted); }
+.graph { position: relative; flex: 1; min-height: 0; overflow: hidden; touch-action: none; cursor: grab; user-select: none; }
 .graph > svg { width: 100%; height: 100%; display: block; }
 .graph marker path { fill: var(--muted); }
 .gl path { fill: none; stroke: var(--muted); stroke-width: 1; opacity: .32; }
+.gl.other path:first-child { stroke-dasharray: 1 3; }
 .gl .hit { stroke: transparent; stroke-width: 9; opacity: 1; }
 .gl:hover path:first-child, .gl.hot path:first-child { stroke: var(--ink); opacity: 1; stroke-width: 1.5; }
-.gn { cursor: pointer; }
+/* a new arrangement or a node's own graph: nodes glide to their places, arrows fade out and back, the view follows */
+.gn { cursor: pointer; transition: transform .6s cubic-bezier(.65, 0, .35, 1), opacity .4s; }
+.gn.gone { opacity: 0 !important; pointer-events: none; }
+.gl { transition: opacity .3s; }
+.graph.moving .gl { opacity: 0; transition: none; }
+.graph .pan { transform-origin: 0 0; }
+.graph.glide .pan { transition: transform .6s cubic-bezier(.65, 0, .35, 1); }
 /* one marker each: the ring's line says kanji (solid) or part (dashed), its colour the status (not seen grey, learning ink, known green) */
 .gn circle, .graph-key circle { fill: var(--card); stroke: var(--muted); stroke-width: 1.5; }
 .gn.part circle, .graph-key .p { stroke-dasharray: 2 3; }
@@ -408,14 +424,14 @@ main:has(> .graph) { max-width: none; }
 .ge text { fill: var(--muted); font: 10px system-ui, sans-serif; }
 .ge:hover text { fill: var(--ink); }
 .has-hot .gn:not(.hot), .has-hot .gl:not(.hot) { opacity: .18; }
-.graph-ui { position: absolute; right: 24px; top: 8px; display: flex; gap: 6px; }
-.graph-ui button { min-width: 30px; height: 30px; padding: 0 8px; border: 1px solid var(--faint); border-radius: 6px; background: var(--card); font-size: 14px; }
-.graph-key { position: absolute; left: 16px; bottom: 8px; padding: 4px 10px; border-radius: 8px; background: color-mix(in srgb, var(--paper) 88%, transparent); display: flex; gap: 4px 6px; align-items: center; flex-wrap: wrap; pointer-events: none; }
+.gn.focus circle { stroke-width: 3; }
+.graph-ends { position: absolute; left: 16px; right: 16px; bottom: 8px; max-height: 30%; overflow-y: auto; padding: 8px 10px; border-radius: 10px; background: color-mix(in srgb, var(--paper) 92%, transparent); display: flex; flex-direction: column; gap: 6px; cursor: default; }
+.graph-key { display: flex; gap: 4px 5px; align-items: center; }
 .graph-key svg { margin-left: 10px; } .graph-key svg:first-child { margin-left: 0; }
-.graph-key .plus { margin-left: 10px; font-size: 11px; }
 .graph-tip { position: absolute; transform: translate(14px, 14px); background: var(--card); border: 1px solid var(--faint); border-radius: 8px; padding: 6px 10px; font-size: 13px; pointer-events: none; max-width: 320px; box-shadow: var(--shadow); }
 .graph-tip b { font-weight: 500; font-size: 18px; margin-right: 6px; }
 .graph-tip span { display: block; color: var(--muted); font-size: 12px; }
 .graph-tip .many { font-size: 16px; color: var(--ink); }
 .jp { font-family: var(--jp); }
-@media (max-width: 760px) { .graph { margin: 0 -16px; } .graph-key { left: 16px; } .graph-ui { right: 16px; } }
+@media (max-width: 760px) { .graph-wrap { margin: 0 -16px; } .graph-bar { padding: 0 16px 6px; } .graph-bar .graph-key { margin-left: 0; } }
+}
