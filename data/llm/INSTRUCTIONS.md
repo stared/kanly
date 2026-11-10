@@ -67,9 +67,17 @@ that only occur inside compounds. Write what a good teacher would put on the car
     with its sound in this word (sound changes included: 一緒 いっ+しょ, 日本 に+ほん), kana as themselves with "",
     a special-reading word as one piece. This is shown above the word; it must be right.
 - **more**: up to 10 further useful words, same format, most used first.
-- **story**: one short sentence about the shape, at most 14 words, plain English, that helps remember the
-  kanji from its look or its parts. Write part characters inline after their names, as in
-  "A person 亻 resting by a tree 木". Say something the keyword does not already say: no "A picture of the sun."
+- **story**: one short sentence about the shape, at most 14 words (20 for three or more parts), plain English,
+  that helps remember the kanji from its look or its parts. Write part characters inline after their names, as in
+  "A person 亻 resting by a tree 木", each written exactly as in `parts` (竹, not ⺮). A mnemonic uses every
+  entry of `parts`: a part left out is a part the learner cannot place (侵 needs its 又, not only 亻, ⺕ and 冖).
+  Make it one scene told in a full sentence, not a list of parts strung with commas
+  ("A person 亻 with a broom ⺕ in hand 又, sweeping into another's house 冖", not "A person 亻, broom ⺕, hand 又, house 冖").
+  A part that is in the kanji for its sound (`"sound": true`, when that is really its role) is not forced into
+  the scene: tell the scene with the meaning parts and say what the sound part does, with the reading only when
+  it is the same ("Threads 糸 gathered into one bundle; 忩 gives the sound ソウ"; "Raw silk thread 糸 with nothing
+  added; 屯 is the sound part"). Keep one scene when the sound part fits it naturally (脂: flesh 月 that tastes good 旨).
+  An origin story may leave parts out when the character was never a sum of them (高 is a tower). Say something the keyword does not already say: no "A picture of the sun."
   For a simple pictograph say what is not obvious (日: "Once a circle with a dot; the brush squared it.").
   `null` when nothing useful can be said.
 - **kind**: `"origin"` only if the story is the accepted history of the character (中 is a pole with

@@ -66,6 +66,14 @@ def main() -> None:
         print(k, p)
     print(f"{len(cards)} cards, {len(problems)} structural problems")
 
+    parts = {x["kanji"]: [p["part"] for p in x["parts"]] for f in sorted((LLM / "in").glob("*.json")) for x in json.loads(f.read_text())}
+    skipped = [(k, [p for p in parts[k] if p not in x["story"]]) for k, x in cards.items()
+               if x.get("story") and x.get("kind") == "mnemonic" and k in parts]
+    for k, ps in skipped:
+        if ps:
+            print(k, "mnemonic leaves out", " ".join(ps))
+    print(f"{sum(1 for _, ps in skipped if ps)} mnemonics that leave out a part")
+
     pairs = jmdict_pairs()
     missing = [(k, w["w"], w["r"]) for k, x in cards.items() for w in x["words"] + x.get("more", [])
                if w["r"] not in pairs.get(w["w"], ())]
