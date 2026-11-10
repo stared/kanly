@@ -44,9 +44,9 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
           </div>
         ))}
       </div>
-      <p className="sub small">A starting guess. Each kanji is then a quiz: its meaning among four, then its reading among four.
-        Both right, and it counts as known (it comes back once, in a few weeks, to check); otherwise it joins your reviews.
-        Every answer refines the guess.</p>
+      <p className="sub small">A rough guess is fine. You'll be asked each kanji's meaning and reading.</p>
+      <p className="sub small">Can't read ひらがな (hiragana) or カタカナ (katakana) yet?
+        Learn them with <a href="https://p.migdal.pl/vibe-japanese/">my mnemonics app</a>.</p>
     </div>
   )
   if (!next) return <div className="empty">All {ORDER.length} items learned.</div>
