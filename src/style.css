@@ -381,6 +381,16 @@ svg.drawn .ink { stroke: var(--ink); }
   .frames.compact { order: 1; display: flex; flex-wrap: wrap; justify-content: center; }
   .frames.compact svg { width: 30px; height: 30px; }
 }
+/* desktop, two columns: the kanji's column is narrow beside the side panel, so its readings and stroke order go
+   below it, as on a phone, with the frames a little larger; a phone and a tablet keep them on the sides */
+@media (min-width: 900px) {
+  main .hero .top { flex-direction: column; gap: 12px; }
+  main .hero .top .big { order: -1; }
+  main .readings.aside { margin: 0; flex-direction: row; justify-content: center; align-self: center; }
+  main .frames.compact { order: 1; display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; max-width: 420px; }
+  main .frames.compact svg { width: 38px; height: 38px; }
+  main .hero h2 { margin-top: 14px; }
+}
 /* romaji under a reading on hover, very small */
 .rd .kana { position: relative; }
 .rd .romaji { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 1px; font: 10px system-ui, sans-serif;
