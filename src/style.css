@@ -284,22 +284,25 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
   .readings { font-size: 17px; }
   .story { font-size: 15px; }
   .words .w { font-size: 20px; line-height: 1.7; }
-  .upcoming { display: none; }
   .actions { margin-top: 12px; }
   .brow { grid-template-columns: 30px 90px 1fr 48px; }
   .bn { display: none; }
 }
 
+/* a card, and the learn screen, fill the window: the card centred in it, the learn bar (next, then what comes)
+   in the flow under the card, the same place on a phone and on a desktop */
+main:has(> .card), .learn { min-height: calc(100vh - 90px); display: flex; flex-direction: column; }
+.app:has(main > .card, .learn) { padding-bottom: 0; }  /* that height plus the header is the window: no scrollbar */
+main > .card, .learn > .card, .learn > .revealed { margin-block: auto; width: 100%; }
+.learn .actions { margin: 28px auto 8px; }
+@media (max-width: 480px) { .learn .actions { gap: 16px; margin-top: 20px; } .upcoming > span:nth-of-type(n+6) { display: none; } }
+
 /* wide: two halves; the kanji column stays put while the right side is read */
 @media (min-width: 900px) {
   .card { grid-template-columns: minmax(460px, 6fr) 5fr; gap: 56px; align-items: start; }
   .hero { position: sticky; top: 24px; }
-  main:has(> .card), .learn { min-height: calc(100vh - 90px); display: flex; flex-direction: column; }
-  .app:has(main > .card, .learn) { padding-bottom: 0; }  /* that height plus the header is the window: no scrollbar */
-  main > .card, .learn > .card, .learn > .revealed { margin-block: auto; width: 100%; }
   .peek .card { min-height: 0; align-items: start; grid-template-columns: 1fr; gap: 32px; }
   .peek .hero { position: static; }
-  .learn .actions { margin: 28px auto 8px; }  /* in the flow, centred under the card: the same place every time */
   .parts { justify-content: flex-start; }
   .family { text-align: left; }
   .family .chips { justify-content: flex-start; }
@@ -372,6 +375,9 @@ svg.drawn .ink { stroke: var(--ink); }
 .frames .n { position: absolute; top: 2px; left: 4px; font: 9px system-ui, sans-serif; color: var(--muted); }
 .sec .count { text-transform: none; letter-spacing: 0; font-weight: 400; margin-left: 6px; }
 @media (max-width: 480px) { .source span { display: none; } header, nav { gap: 10px; } .end { gap: 12px; } nav button { font-size: 13px; } }
+/* the review count must not push the bar past the edge */
+@media (max-width: 420px) { header, nav { gap: 8px; } .end { gap: 10px; } }
+@media (max-width: 380px) { .source { display: none; } }
 @media (max-width: 600px) { svg.drawn { width: 150px; height: 150px; } .frames svg { width: 44px; height: 44px; } }
 /* too narrow for the row (a phone): the kanji, then its readings, then the stroke order, each centred */
 .hero { container-type: inline-size; }

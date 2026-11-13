@@ -275,14 +275,14 @@ export function Card({ el, store, open, autoSpeak = false, got }: { el: string; 
   const alike = k ? lookalikes(el).length : 0
   const [hover, setHover] = useState<string | null>(null)
   const [allWords, setAllWords] = useState(false)
-  // on a wide screen, as many words as fill the window's height: the side panel grows to it, never past it
+  // as many words as fill the window's height (never fewer than the usual): the card grows to it, never past it
   const [fit, setFit] = useState<number | null>(null)
   const sideRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     const side = sideRef.current
     if (!k || !side) return
     const measure = () => {
-      if (!matchMedia('(min-width: 900px)').matches || side.closest('.peek')) return setFit(null)
+      if (side.closest('.peek')) return setFit(null)
       const rows = [...side.querySelectorAll('.words .w')] as HTMLElement[]
       if (rows.length < 2) return
       const step = (rows[rows.length - 1].getBoundingClientRect().top - rows[0].getBoundingClientRect().top) / (rows.length - 1)
@@ -291,7 +291,10 @@ export function Card({ el, store, open, autoSpeak = false, got }: { el: string; 
       const bar = main?.querySelector('.actions') as HTMLElement | null
       const barH = bar ? bar.offsetHeight + parseFloat(getComputedStyle(bar).marginTop) + parseFloat(getComputedStyle(bar).marginBottom) : 0
       const room = innerHeight - (main?.getBoundingClientRect().top ?? 0) + scrollY - 40 - barH
-      const base = side.offsetHeight - rows.length * step
+      // two columns: the side panel alone has to fit; stacked (a phone, a tablet): the whole card does
+      const card = side.parentElement!
+      const stacked = side.getBoundingClientRect().top >= card.firstElementChild!.getBoundingClientRect().bottom
+      const base = (stacked ? card.offsetHeight : side.offsetHeight) - rows.length * step
       setFit(Math.max(k.nshown, Math.min(k.words.length, Math.floor((room - base) / step))))
     }
     measure()
