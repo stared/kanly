@@ -9,3 +9,4 @@ screenshots/
 __pycache__/
 data/llm/in/
 tsconfig.tsbuildinfo
+*.local

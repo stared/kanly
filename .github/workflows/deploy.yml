@@ -34,6 +34,8 @@ jobs:
       - run: pnpm data
       - run: pnpm test
       - run: pnpm build
+        env:
+          VITE_POSTHOG_KEY: ${{ vars.POSTHOG_PROJECT_TOKEN }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
