@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { COMP, KANJI, hira } from './data'
 import { levelOf } from './levels'
 import { Glyph, fmtKun } from './Card'
+import { hoverSay } from './speech'
 
 /** null: not answered ("new to me" before it, or a part, which has no readings). */
 /** picked: the options chosen (each an answer kanji); options: what was offered, meaning then reading; ms: time to each answer. */
@@ -60,7 +61,9 @@ const fmtReading = (r: string) => isOn(r) ? r : fmtKun(r)
 /** How a kanji sounds: its main readings with their share of use. */
 export function Profile({ ch, cols }: { ch: string; cols?: boolean }) {
   const rs = KANJI[ch].readings.filter((r, i) => i === 0 || r.share >= 0.05).slice(0, 3)
-  return <span className={cols ? 'profile cols' : 'profile'}>{rs.map(({ r, share }) => <span key={r} className="rd">{fmtReading(r)}{rs.length > 1 && <span className="pct">{Math.round(share * 100)}%</span>}</span>)}</span>
+  // hovering one reading says that one alone, and only it lights up
+  const say = (r: string) => isOn(r) ? hira(r) : r.replace('.', '')
+  return <span className={cols ? 'profile cols' : 'profile'}>{rs.map(({ r, share }) => <span key={r} className="rd" onMouseEnter={() => hoverSay(say(r))} onMouseLeave={() => hoverSay(null)}>{fmtReading(r)}{rs.length > 1 && <span className="pct">{Math.round(share * 100)}%</span>}</span>)}</span>
 }
 
 /** Ask the meaning among 4, then the reading among 4; a part is asked its meaning only. */
