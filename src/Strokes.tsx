@@ -18,7 +18,8 @@ export function useDrawing(el: string): Drawing | null | undefined {
 }
 
 const viewBox = (g: Drawing) => g.box ? g.box.join(' ') + ' ' + g.box[2] : '0 0 109 109'
-const start = (d: string) => d.match(/^M\s*(-?[\d.]+)[ ,](-?[\d.]+)/)!.slice(1).map(Number)
+// a path may open with a relative m (頃, 慣, 貫...): at the start it means the same as M
+const start = (d: string) => d.match(/^[Mm]\s*(-?[\d.]+)[ ,](-?[\d.]+)/)!.slice(1).map(Number)
 const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches
 
 /** The element drawn stroke by stroke, fast, over a faint copy of itself; click to draw it again. */

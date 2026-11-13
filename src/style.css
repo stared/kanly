@@ -379,14 +379,14 @@ svg.drawn .ink { stroke: var(--ink); }
 @media (max-width: 420px) { header, nav { gap: 8px; } .end { gap: 10px; } }
 @media (max-width: 380px) { .source { display: none; } }
 @media (max-width: 600px) { svg.drawn { width: 150px; height: 150px; } .frames svg { width: 44px; height: 44px; } }
-/* too narrow for the row (a phone): the kanji, then its readings, then the stroke order, each centred */
+/* a phone: still one row (stroke order | kanji | readings) to save height, tighter, the kanji giving way if need be */
 .hero { container-type: inline-size; }
 @container (max-width: 440px) {
-  .hero .top { flex-direction: column; gap: 10px; }
-  .hero .top .big { order: -1; }
-  .readings.aside { margin: 0; flex-direction: row; justify-content: center; align-self: center; }
-  .frames.compact { order: 1; display: flex; flex-wrap: wrap; justify-content: center; }
-  .frames.compact svg { width: 30px; height: 30px; }
+  .hero .top { gap: 10px; justify-content: center; }
+  .hero .top .big { flex: 0 1 150px; min-width: 96px; height: auto; aspect-ratio: 1; }
+  .readings.aside { margin: 40px 0 0; font-size: 16px; row-gap: 8px; }
+  .frames.compact { gap: 3px; }
+  .frames.compact svg { width: 26px; height: 26px; }
 }
 /* desktop, two columns: the kanji's column is narrow beside the side panel, so its readings and stroke order go
    below it, as on a phone, with the frames a little larger; a phone and a tablet keep them on the sides */
