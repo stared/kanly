@@ -295,10 +295,11 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
   .card { grid-template-columns: minmax(460px, 6fr) 5fr; gap: 56px; align-items: start; }
   .hero { position: sticky; top: 24px; }
   main:has(> .card), .learn { min-height: calc(100vh - 90px); display: flex; flex-direction: column; }
+  .app:has(main > .card, .learn) { padding-bottom: 0; }  /* that height plus the header is the window: no scrollbar */
   main > .card, .learn > .card, .learn > .revealed { margin-block: auto; width: 100%; }
   .peek .card { min-height: 0; align-items: start; grid-template-columns: 1fr; gap: 32px; }
   .peek .hero { position: static; }
-  .learn .actions { position: fixed; right: 32px; bottom: 24px; margin: 0; }
+  .learn .actions { margin: 28px auto 8px; }  /* in the flow, centred under the card: the same place every time */
   .parts { justify-content: flex-start; }
   .family { text-align: left; }
   .family .chips { justify-content: flex-start; }

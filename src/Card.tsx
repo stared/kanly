@@ -275,10 +275,34 @@ export function Card({ el, store, open, autoSpeak = false, got }: { el: string; 
   const alike = k ? lookalikes(el).length : 0
   const [hover, setHover] = useState<string | null>(null)
   const [allWords, setAllWords] = useState(false)
+  // on a wide screen, as many words as fill the window's height: the side panel grows to it, never past it
+  const [fit, setFit] = useState<number | null>(null)
+  const sideRef = useRef<HTMLDivElement>(null)
+  useLayoutEffect(() => {
+    const side = sideRef.current
+    if (!k || !side) return
+    const measure = () => {
+      if (!matchMedia('(min-width: 900px)').matches || side.closest('.peek')) return setFit(null)
+      const rows = [...side.querySelectorAll('.words .w')] as HTMLElement[]
+      if (rows.length < 2) return
+      const step = (rows[rows.length - 1].getBoundingClientRect().top - rows[0].getBoundingClientRect().top) / (rows.length - 1)
+      const main = side.closest('main') as HTMLElement | null
+      // the header above, a margin below, and the learn screen's button bar under the card, with its margins
+      const bar = main?.querySelector('.actions') as HTMLElement | null
+      const barH = bar ? bar.offsetHeight + parseFloat(getComputedStyle(bar).marginTop) + parseFloat(getComputedStyle(bar).marginBottom) : 0
+      const room = innerHeight - (main?.getBoundingClientRect().top ?? 0) + scrollY - 40 - barH
+      const base = side.offsetHeight - rows.length * step
+      setFit(Math.max(k.nshown, Math.min(k.words.length, Math.floor((room - base) / step))))
+    }
+    measure()
+    addEventListener('resize', measure)
+    return () => removeEventListener('resize', measure)
+  }, [el, allWords, fit === null])
   const parts = t && shownKids(t).length > 0
   const words = k && k.words.length > 0
   // the shown words, those whose other kanji are all known first, each group in order of use; then the rest
   const byKnown = (ws: Word[]) => [...ws].sort((a, b) => +!all(a) - +!all(b))
+  const shown = allWords ? k?.words.length ?? 0 : fit ?? k?.nshown ?? 0
   const sorted = useMemo(() => k ? [...byKnown(k.words.slice(0, k.nshown)), ...k.words.slice(k.nshown)] : [], [el, store])
   function all(w: Word) { return [...w.w].every(c => c === el || !KANJI[c] || knows(store, c)) }
   return (
@@ -295,13 +319,13 @@ export function Card({ el, store, open, autoSpeak = false, got }: { el: string; 
           : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
         <Story el={el} />
       </div>
-      <div className="side">
+      <div className="side" ref={sideRef}>
         {parts && <section><h3 className="sec">parts</h3><Parts t={t!} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}
         {words && (
           <section>
             <h3 className="sec">most used words</h3>
-            <ul className="words">{sorted.slice(0, allWords ? undefined : k.nshown).map(w => <WordRow key={w.w + w.r} w={w} ch={el} dim={!!hover && w.reading !== hover} />)}</ul>
-            {k.words.length > k.nshown && <button className="more-words" onClick={() => { track('words', { el, all: !allWords }); setAllWords(!allWords) }}>{allWords ? 'fewer words' : `${k.words.length - k.nshown} more words`}</button>}
+            <ul className="words">{sorted.slice(0, shown).map(w => <WordRow key={w.w + w.r} w={w} ch={el} dim={!!hover && w.reading !== hover} />)}</ul>
+            {k.words.length > (fit ?? k.nshown) && <button className="more-words" onClick={() => { track('words', { el, all: !allWords }); setAllWords(!allWords) }}>{allWords ? 'fewer words' : `${k.words.length - (fit ?? k.nshown)} more words`}</button>}
           </section>
         )}
         {used > 0 && <section><h3 className="sec">part of {used} kanji</h3><UsedIn key={el} el={el} store={store} open={open} /></section>}

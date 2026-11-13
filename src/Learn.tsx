@@ -59,7 +59,7 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
         </div>
       )}
       <div className="actions">
-        {(res || !KANJI[next]) && <button className="next" onClick={commit}>{res?.meaning && res.reading ? 'knew it, next' : 'learn it, next'} <span className="key">↵</span></button>}
+        {(res || !KANJI[next]) && <button className="next" onClick={commit}>next <span className="key">↵</span></button>}
         <span className="upcoming">then {left.slice(1, 9).map(el => <span key={el} className={KANJI[el] ? '' : 'partish'}>{KANJI[el] ? <KanjiTip c={el} reading={mainReadings(el)} /> : <Glyph el={el} />}</span>)}</span>
       </div>
     </div>
