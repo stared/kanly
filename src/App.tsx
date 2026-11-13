@@ -10,6 +10,7 @@ import { Reader } from './Reader'
 import { Analysis } from './Analysis'
 import { Settings } from './Settings'
 import { track } from './track'
+import { applyUpdate } from './update'
 import { loadAutoSpeak, saveAutoSpeak } from './speech'
 
 type Tab = 'learn' | 'review' | 'kanji' | 'graph' | 'reader' | 'analysis' | 'settings' | 'card'
@@ -19,13 +20,13 @@ export default function App() {
   const [store, setStore] = useState<Store>(load)
   const fromHash = () => (location.hash.slice(1).split('/')[0] as Tab) || 'learn'
   const [tab, setTab] = useState<Tab>(fromHash)
-  useEffect(() => { track('tab', { tab }); setPeek([]) }, [tab])
+  useEffect(() => { track('tab', { tab }); setPeek([]); applyUpdate() }, [tab])
   const [hash, setHash] = useState(location.hash)
   const [peek, setPeek] = useState<string[]>([])
   const [now, setNow] = useState(Date.now())
   const [autoSpeak, setAutoSpeak] = useState(loadAutoSpeak)
   useEffect(() => saveAutoSpeak(autoSpeak), [autoSpeak])
-  useEffect(() => save(store), [store])
+  useEffect(() => { save(store); applyUpdate() }, [store])  // saved first: a new version may load now
   useEffect(() => { if (fromHash() !== tab) history.replaceState(null, '', '#' + tab) }, [tab])
   useEffect(() => {
     const h = () => { setTab(fromHash()); setHash(location.hash) }
