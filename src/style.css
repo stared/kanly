@@ -17,13 +17,21 @@
   --serif: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif;
   color-scheme: light dark;
 }
+/* dark: as the system says, unless chosen in settings (data-theme on <html>) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme=light]) {
     --paper: #171614; --card: #2c2925; --ink: #ece6dc; --muted: #8a847a; --faint: #35322d;
     --accent: #e0634f; --good: #5fb07f; --on: #3987e5; --kun: #c98500;
     --s1: #3987e5; --s2: #d95926; --s3: #199e70; --glow: #2a2520; --shadow: 0 0 0 transparent;
   }
 }
+:root[data-theme=dark] {
+    --paper: #171614; --card: #2c2925; --ink: #ece6dc; --muted: #8a847a; --faint: #35322d;
+    --accent: #e0634f; --good: #5fb07f; --on: #3987e5; --kun: #c98500;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --glow: #2a2520; --shadow: 0 0 0 transparent;
+  color-scheme: dark;
+}
+:root[data-theme=light] { color-scheme: light; }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.5 system-ui, sans-serif; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
@@ -39,7 +47,6 @@ a { color: inherit; }
 .app { padding: 0 24px 64px; }  /* the bar spans the window; the content keeps its width */
 main { max-width: 992px; margin: 0 auto; }
 header { display: flex; align-items: baseline; gap: 24px; padding: 16px 0 12px; }
-.logo { font: 22px var(--serif); }
 nav { display: flex; gap: 20px; }
 nav button, .gear { color: var(--muted); font-size: 14px; }
 nav button.on, .gear.on { color: var(--ink); }
@@ -50,6 +57,9 @@ nav button.on, .gear.on { color: var(--ink); }
 a.gear:hover { color: var(--ink); }
 .reach { font-size: 12px; color: var(--muted); }
 .count { font-size: 11px; color: var(--paper); background: var(--muted); border-radius: 999px; padding: 0 6px; margin-left: 5px; vertical-align: 1px; }
+/* reviews due: a dot over the tab's corner, taking no room, so the bar never shifts */
+nav button { position: relative; }
+.due { position: absolute; top: 0; right: -6px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 
 .next { padding: 8px 22px; border: 1px solid var(--muted); border-radius: 999px; font-size: 15px; display: inline-flex; align-items: baseline; }
 .next:hover { border-color: var(--ink); }
@@ -387,6 +397,18 @@ svg.drawn .ink { stroke: var(--ink); }
   .readings.aside { margin: 40px 0 0; font-size: 16px; row-gap: 8px; }
   .frames.compact { gap: 3px; }
   .frames.compact svg { width: 26px; height: 26px; }
+  .frames.compact:not(.all) li:nth-child(n+10):not(.more) { display: none; }
+  .frames.compact .more { display: block; }
+}
+.frames .more { display: none; }
+.frames .more button { width: 26px; height: 26px; border: 1px solid var(--faint); border-radius: 6px; font-size: 11px; color: var(--muted); }
+.frames .more button:hover { color: var(--ink); }
+/* a phone: "parts" and "most used words" go without saying; the space goes to the words */
+@media (max-width: 760px) {
+  .sec.obvious { display: none; }
+  .side { gap: 16px; }
+  .words { row-gap: 2px; }
+  .words .w { line-height: 1.55; }
 }
 /* desktop, two columns: the kanji's column is narrow beside the side panel, so its readings and stroke order go
    below it, as on a phone, with the frames a little larger; a phone and a tablet keep them on the sides */
@@ -462,4 +484,4 @@ main:has(> .graph-wrap) { max-width: none; }
   .graph-bar .graph-key { font-size: 12px; gap: 3px; }
   .graph-key svg { margin-left: 4px; }
 }
-@media (max-width: 350px) { header, nav { gap: 7px; } nav button { font-size: 12px; } .logo { font-size: 18px; } .source { display: none; } }
+@media (max-width: 350px) { header, nav { gap: 7px; } nav button { font-size: 12px; } .source { display: none; } }

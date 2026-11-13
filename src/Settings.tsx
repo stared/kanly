@@ -1,5 +1,7 @@
 import type { Store } from './srs'
 import { events, setEvents } from './track'
+import { useState } from 'react'
+import { applyTheme, loadTheme, type Theme } from './theme'
 import { BEGINNER, BREADTH, LEVELS, T, mu, startAt, temp } from './levels'
 
 const r10 = (x: number) => Math.max(0, Math.round(x / 10) * 10)
@@ -19,8 +21,16 @@ export function Settings({ store, onReplace, autoSpeak, setAutoSpeak }: { store:
     const { events: evs, ...s } = JSON.parse(t)
     if (s?.cards && s?.log) { onReplace(s); if (evs) setEvents(evs) }
   })
+  const [theme, setTheme] = useState<Theme>(loadTheme)
   return (
     <div className="settings">
+      <label className="field">Colours
+        <select value={theme} onChange={e => { const t = e.target.value as Theme; setTheme(t); applyTheme(t) }}>
+          <option value="system">as the system</option>
+          <option value="light">light</option>
+          <option value="dark">dark</option>
+        </select>
+      </label>
       <label className="toggle"><input type="checkbox" checked={autoSpeak} onChange={e => setAutoSpeak(e.target.checked)} /> read each new kanji aloud (browser's Japanese voice)</label>
       <label className="field">Start from
         <select value={store.start && LEVELS.findIndex(l => l.mu === store.start?.mu) < 0 ? -1 : Math.max(0, LEVELS.findIndex(l => l.mu === store.start?.mu))} onChange={e => onReplace(startAt(store, LEVELS[+e.target.value]))}>

@@ -53,12 +53,14 @@ export function Animated({ el, className }: { el: string; className?: string }) 
 /** Stroke order as frames: each frame adds one stroke (in ink, a dot where it starts) to the ones before (grey). */
 export function StrokeOrder({ el, compact }: { el: string; compact?: boolean }) {
   const g = useDrawing(el)
+  const [all, setAll] = useState(false)
+  useEffect(() => setAll(false), [el])
   if (!g || g.d.length < 2) return null
   const vb = viewBox(g)
   const [bx, by, side] = g.box ?? [0, 0, 109]
   const r = side / 109
   const frames = (
-      <ol className={'frames' + (compact ? ' compact' : '')} aria-label={`stroke order, ${g.d.length} strokes`}>
+      <ol className={'frames' + (compact ? ' compact' : '') + (all ? ' all' : '')} aria-label={`stroke order, ${g.d.length} strokes`}>
         {g.d.map((d, i) => {
           const [x, y] = start(d)
           return (
@@ -74,6 +76,8 @@ export function StrokeOrder({ el, compact }: { el: string; compact?: boolean }) 
             </li>
           )
         })}
+        {/* a phone shows two columns (9 frames and this); the CSS hides it elsewhere */}
+        {compact && g.d.length > 10 && !all && <li className="more"><button onClick={() => setAll(true)} aria-label="show all strokes">+{g.d.length - 9}</button></li>}
       </ol>
   )
   return compact ? frames : <section><h3 className="sec">stroke order <span className="count">{g.d.length} strokes</span></h3>{frames}</section>

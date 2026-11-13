@@ -295,7 +295,7 @@ export function Card({ el, store, open, autoSpeak = false, got }: { el: string; 
       const card = side.parentElement!
       const stacked = side.getBoundingClientRect().top >= card.firstElementChild!.getBoundingClientRect().bottom
       const base = (stacked ? card.offsetHeight : side.offsetHeight) - rows.length * step
-      setFit(Math.max(k.nshown, Math.min(k.words.length, Math.floor((room - base) / step))))
+      setFit(Math.max(stacked ? Math.min(2, k.nshown) : k.nshown, Math.min(k.words.length, Math.floor((room - base) / step))))
     }
     measure()
     addEventListener('resize', measure)
@@ -323,10 +323,10 @@ export function Card({ el, store, open, autoSpeak = false, got }: { el: string; 
         <Story el={el} />
       </div>
       <div className="side" ref={sideRef}>
-        {parts && <section><h3 className="sec">parts</h3><Parts t={t!} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}
+        {parts && <section><h3 className="sec obvious">parts</h3><Parts t={t!} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}
         {words && (
           <section>
-            <h3 className="sec">most used words</h3>
+            <h3 className="sec obvious">most used words</h3>
             <ul className="words">{sorted.slice(0, shown).map(w => <WordRow key={w.w + w.r} w={w} ch={el} dim={!!hover && w.reading !== hover} />)}</ul>
             {k.words.length > (fit ?? k.nshown) && <button className="more-words" onClick={() => { track('words', { el, all: !allWords }); setAllWords(!allWords) }}>{allWords ? 'fewer words' : `${k.words.length - (fit ?? k.nshown)} more words`}</button>}
           </section>
