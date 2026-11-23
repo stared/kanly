@@ -78,10 +78,13 @@ a.gear:hover { color: var(--ink); }
 .hero { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
 .big { display: block; font: 200px/1.05 var(--serif); padding: 0 32px; background: radial-gradient(closest-side, var(--glow), transparent); }
 .popular { position: absolute; right: 0; top: 0; display: flex; flex-direction: column; align-items: flex-end; font-size: 12px; color: var(--muted); line-height: 1.4; white-space: nowrap; }
-/* stroke order | the kanji | its readings, in one row */
-.hero .top { align-self: stretch; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.hero .top > * { flex: none; }
-.readings.aside { margin: 56px 0 0; align-self: center; flex-direction: column; align-items: flex-start; row-gap: 12px; font-size: 19px; }
+/* stroke order | the kanji | its readings, in one row: the kanji in the middle of the card, stroke order flush
+   with the left edge, the readings with the right one (under the rank and share, set the same way) */
+.hero .top { align-self: stretch; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; column-gap: 24px; }
+.hero .top > .frames { grid-column: 1; justify-self: start; }
+.hero .top > .big { grid-column: 2; }
+.hero .top > .readings { grid-column: 3; justify-self: end; align-self: start; }
+.readings.aside { margin: 62px 0 0; flex-direction: column; align-items: flex-end; row-gap: 12px; font-size: 19px; max-width: none; }
 .got { animation: got 5s ease-in; }
 .readings.got .rd { animation: got 5s ease-in; }
 @keyframes got { from { color: var(--good); } }
@@ -391,9 +394,9 @@ svg.drawn .ink { stroke: var(--ink); }
 /* a phone: still one row (stroke order | kanji | readings) to save height, tighter, the kanji giving way if need be */
 .hero { container-type: inline-size; }
 @container (max-width: 440px) {
-  .hero .top { gap: 10px; justify-content: center; }
-  .hero .top .big { flex: 0 1 150px; min-width: 96px; height: auto; aspect-ratio: 1; }
-  .readings.aside { margin: 40px 0 0; font-size: 16px; row-gap: 8px; }
+  .hero .top { column-gap: 10px; grid-template-columns: 1fr minmax(96px, 150px) 1fr; }
+  .hero .top .big { width: 100%; height: auto; aspect-ratio: 1; }
+  .readings.aside { font-size: 16px; row-gap: 8px; }
   .frames.compact { gap: 3px; }
   .frames.compact svg { width: 26px; height: 26px; }
   .frames.compact:not(.all) li:nth-child(n+10):not(.more) { display: none; }
@@ -412,9 +415,10 @@ svg.drawn .ink { stroke: var(--ink); }
 /* desktop, two columns: the kanji's column is narrow beside the side panel, so its readings and stroke order go
    below it, as on a phone, with the frames a little larger; a phone and a tablet keep them on the sides */
 @media (min-width: 900px) {
-  main .hero .top { flex-direction: column; gap: 12px; }
+  main .hero .top { display: flex; flex-direction: column; gap: 12px; }
   main .hero .top .big { order: -1; }
-  main .readings.aside { margin: 0; flex-direction: row; justify-content: center; align-self: center; }
+  main .hero .top > .readings { align-self: center; }
+  main .readings.aside { margin: 0; flex-direction: row; justify-content: center; align-items: baseline; max-width: 420px; }
   main .frames.compact { order: 1; display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; max-width: 420px; }
   main .frames.compact svg { width: 38px; height: 38px; }
   main .hero h2 { margin-top: 14px; }
