@@ -15,6 +15,9 @@
   --shadow: 0 1px 2px rgba(60, 50, 30, .08), 0 2px 8px rgba(60, 50, 30, .05);
   --tile: var(--card);        /* a tile (a part, a chip): a white card with a soft shadow, no line */
   --tile-line: transparent;
+  --float: var(--card);       /* what floats over the page (a tooltip): a white card and a shadow */
+  --float-shadow: 0 4px 18px rgba(0, 0, 0, .14), 0 0 0 1px var(--faint);
+  --veil: color-mix(in oklab, var(--ink) 18%, transparent);  /* over the page, under the drawer */
   --jp: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', system-ui, sans-serif;
   --serif: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif;
   color-scheme: light dark;
@@ -26,6 +29,8 @@
     --accent: #e0634f; --good: #5fb07f; --on: #3987e5; --kun: #c98500;
     --s1: #3987e5; --s2: #d95926; --s3: #199e70; --glow: #2a2520; --shadow: 0 0 0 transparent;
     --tile: transparent; --tile-line: var(--faint);  /* dark: no fill, which read as a grey box, only a hairline */
+    /* dark: a tooltip on the page's own ground with a hairline and a deep shadow, not a grey box; the veil darkens */
+    --float: var(--paper); --float-shadow: 0 6px 24px rgba(0, 0, 0, .6), 0 0 0 1px color-mix(in srgb, var(--muted) 45%, var(--paper)); --veil: rgba(0, 0, 0, .5);
   }
 }
 :root[data-theme=dark] {
@@ -33,6 +38,8 @@
     --accent: #e0634f; --good: #5fb07f; --on: #3987e5; --kun: #c98500;
     --s1: #3987e5; --s2: #d95926; --s3: #199e70; --glow: #2a2520; --shadow: 0 0 0 transparent;
     --tile: transparent; --tile-line: var(--faint);  /* dark: no fill, which read as a grey box, only a hairline */
+    /* dark: a tooltip on the page's own ground with a hairline and a deep shadow, not a grey box; the veil darkens */
+    --float: var(--paper); --float-shadow: 0 6px 24px rgba(0, 0, 0, .6), 0 0 0 1px color-mix(in srgb, var(--muted) 45%, var(--paper)); --veil: rgba(0, 0, 0, .5);
   color-scheme: dark;
 }
 :root[data-theme=light] { color-scheme: light; }
@@ -96,8 +103,6 @@ nav button.on, .gear.on { color: var(--ink); }
 @keyframes got { from { color: var(--good); } }
 .hero h2 { font-size: 28px; display: flex; align-items: center; }
 .also { color: var(--muted); font-size: 14px; margin: 0; }
-.speaker { color: var(--muted); margin-left: 10px; display: inline-flex; }
-@media (hover: hover) { .speaker:hover { color: var(--ink); } }
 .side { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
 .sec { margin: 0 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--faint); }
 
@@ -198,8 +203,6 @@ nav button.on, .gear.on { color: var(--ink); }
 .review { display: flex; flex-direction: column; align-items: center; gap: 20px; }
 .review .progress { align-self: stretch; }
 .prompt { font: 160px/1.1 var(--serif); margin-top: 6vh; }
-.back { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 680px; width: 100%; }
-.back h2 { font-size: 28px; display: flex; align-items: center; }
 .ex { font-family: var(--jp); }
 .grade { display: flex; gap: 12px; }
 
@@ -220,10 +223,10 @@ select { font: 13px system-ui, sans-serif; color: var(--ink); background: var(--
 .cell.part { color: var(--faint); font-size: 16px; }
 .cells.plain .cell.part { color: var(--muted); font-size: 19px; }  /* on their own, parts need no fading */
 .cell.learning, .cell.known, .cell.assumed:not(.part) { color: var(--ink); }
-@media (hover: hover) { .cell:hover { background: var(--card); color: var(--ink); } }
+@media (hover: hover) { .cell:hover { background: var(--tile); color: var(--ink); } }
 
 /* peek drawer */
-.peek-bg { position: fixed; inset: 0; background: color-mix(in oklab, var(--ink) 18%, transparent); display: flex; justify-content: flex-end; }
+.peek-bg { position: fixed; inset: 0; background: var(--veil); display: flex; justify-content: flex-end; }
 .peek { width: min(640px, 100%); height: 100%; overflow-y: auto; background: var(--paper); padding: 16px 24px 48px; box-shadow: -8px 0 32px rgba(0, 0, 0, .12); }
 .peek-bar { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: var(--muted); }
 .peek-bar button:disabled { opacity: .3; cursor: default; }
@@ -236,17 +239,9 @@ select { font: 13px system-ui, sans-serif; color: var(--ink); background: var(--
 .reader .text { line-height: 2.1; }
 .reader .tok { font: inherit; border-radius: 4px; }
 .reader .tok.new { color: var(--accent); }
-.reader .tok.sel { background: var(--card); box-shadow: var(--shadow); } @media (hover: hover) { .reader .tok:hover { background: var(--card); box-shadow: var(--shadow); } }
 .reader rt { font-size: 11px; color: var(--muted); }
 .reader .bar-line { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .reader .opts { display: flex; gap: 14px; align-items: baseline; }
-.lookup { background: var(--card); box-shadow: var(--shadow); border-radius: 12px; padding: 14px 18px; margin: -8px 0 24px; display: flex; flex-direction: column; gap: 6px; }
-.lookup .lw { display: flex; align-items: center; gap: 12px; }
-.lookup .w { font: 28px var(--jp); }
-.lookup .r { font: 18px var(--jp); color: var(--muted); }
-.lookup .g { margin: 0; }
-.chip.wide { width: auto; height: auto; padding: 6px 10px; display: flex; flex-direction: column; align-items: center; gap: 2px; }
-.chip.wide small { font: 11px system-ui, sans-serif; color: var(--muted); }
 
 /* analysis */
 /* about: three groups with space between them and nothing else (no labels, no rules), each two blocks side by side
@@ -300,7 +295,7 @@ i.s1 { background: var(--s1); } i.s2 { background: var(--s2); } i.s3 { backgroun
 .cross { stroke: var(--muted); stroke-dasharray: 2 3; }
 .you-line { stroke: var(--ink); stroke-dasharray: 1 3; }
 .you-dot { fill: var(--ink); stroke: var(--paper); stroke-width: 2; }
-.tip { position: absolute; top: 40px; transform: translateX(12px); background: var(--card); border: 1px solid var(--faint); border-radius: 6px; padding: 6px 10px; font-size: 12px; display: flex; flex-direction: column; pointer-events: none; white-space: nowrap; }
+.tip { position: absolute; top: 40px; transform: translateX(12px); background: var(--float); border: 1px solid var(--faint); border-radius: 6px; padding: 6px 10px; font-size: 12px; display: flex; flex-direction: column; pointer-events: none; white-space: nowrap; }
 
 .settings { max-width: 680px; margin: 0 auto; }
 .settings .row { display: flex; gap: 12px; margin-top: 16px; }
@@ -346,7 +341,7 @@ main > .card, .learn > .card, .learn > .revealed { margin-block: auto; width: 10
   .card { grid-template-columns: minmax(460px, 6fr) 5fr; gap: 56px; align-items: start; }
   .hero { position: sticky; top: 24px; }
   .peek .card { min-height: 0; align-items: start; grid-template-columns: 1fr; gap: 32px; }
-  .peek .hero { position: static; }
+  .peek .hero { position: relative; top: 0; }  /* not kept in view, and still what its rank and share are set against */
   .parts { justify-content: flex-start; }
   .family { text-align: left; }
   .family .chips { justify-content: flex-start; }
@@ -355,12 +350,13 @@ main > .card, .learn > .card, .learn > .revealed { margin-block: auto; width: 10
 
 /* kanji tooltip: the character, its meaning, its reading in this word */
 .ktip { position: fixed; transform: translate(-50%, calc(-100% - 22px)); z-index: 20; display: flex; flex-direction: column; align-items: center; gap: 1px;
-  padding: 8px 12px 7px; border-radius: 10px; background: var(--card); box-shadow: 0 4px 18px rgba(0, 0, 0, .14), 0 0 0 1px var(--faint); color: var(--ink); white-space: nowrap; pointer-events: none; }
+  padding: 8px 12px 7px; border-radius: 10px; background: var(--float); box-shadow: var(--float-shadow); color: var(--ink); white-space: nowrap; pointer-events: none; }
 .ktip b { font: 34px/1.1 var(--jp); font-weight: 400; }
 .ktip .km { font: 13px system-ui, sans-serif; }
 .ktip .kk { color: var(--muted); margin-left: 6px; }
 .ktip .kk::before { content: '('; } .ktip .kk::after { content: ')'; }
 .ktip .kr { font: 12px var(--jp); color: var(--muted); }
+.ktip.word .km { white-space: normal; text-align: center; max-width: 260px; }  /* a word's meaning can be a line or two */
 @media (hover: hover) { .kt:hover { color: var(--accent); } }
 .settings .field { display: flex; gap: 12px; align-items: baseline; margin: 10px 0; }
 .settings select { font-size: 15px; }
@@ -400,12 +396,21 @@ main > .card, .learn > .card, .learn > .revealed { margin-block: auto; width: 10
 .word-quiz .field::placeholder { color: var(--muted); }
 .word-quiz .field.right { border-color: var(--good); background: color-mix(in srgb, var(--good) 18%, transparent); }
 .word-quiz .field.wrong { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 18%, transparent); }
-/* the answer: the word as on its card, large enough to read the kana over it */
-.word-quiz .words { width: min(440px, 100%); margin-top: 6px; }
-.word-quiz .words .w { font-size: 30px; line-height: 2; }
-.word-quiz .words rt { font-size: 14px; letter-spacing: 0; }
-.word-quiz .wg { font-size: 15px; display: block; }  /* in full: no two-line cut */
 .word-quiz .grade { margin-top: 10px; flex-wrap: wrap; justify-content: center; }
+/* a word set large (the answer to a word typed; the word a kanji's card was opened for, on top of it): as a card's
+   words are set, large enough to read the kana over it */
+.words.asked { justify-content: center; grid-template-columns: max-content minmax(0, max-content); }
+.words.asked .w { font-size: 30px; line-height: 2; }
+.words.asked rt { font-size: 14px; letter-spacing: 0; }
+.words.asked .wg { font-size: 15px; display: block; }  /* in full: no two-line cut */
+.words.asked .w:hover { opacity: 1; }
+.word-quiz .words.asked { width: min(440px, 100%); justify-content: start; margin-top: 6px; }
+.words .to { cursor: pointer; }  /* a kanji that opens its card */
+/* a meaning marked wrong, overruled: a few words at the end of the field it is about, which keeps what was typed clear of them */
+.word-quiz .ans { position: relative; }
+.word-quiz .ans:has(.overrule) .field { padding-right: 104px; }
+.overrule { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-size: 13px; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+@media (hover: hover) { .overrule:hover { color: var(--ink); } }
 @media (hover: hover) { .choice.unknown:hover { color: var(--ink); } }
 /* readings in aligned columns: the main one first, each with its share */
 .profile.cols { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 12px; }
@@ -525,7 +530,7 @@ main:has(> .graph-wrap) { max-width: none; }
 .graph-ends { position: absolute; left: 16px; right: 16px; bottom: 8px; max-height: 30%; overflow-y: auto; padding: 8px 10px; border-radius: 10px; background: color-mix(in srgb, var(--paper) 92%, transparent); display: flex; flex-direction: column; gap: 6px; cursor: default; }
 .graph-key { display: flex; gap: 4px 5px; align-items: center; }
 .graph-key svg { margin-left: 10px; } .graph-key svg:first-child { margin-left: 0; }
-.graph-tip { position: absolute; transform: translate(14px, 14px); background: var(--card); border: 1px solid var(--faint); border-radius: 8px; padding: 6px 10px; font-size: 13px; pointer-events: none; max-width: 320px; box-shadow: var(--shadow); }
+.graph-tip { position: absolute; transform: translate(14px, 14px); background: var(--float); border: 1px solid var(--faint); border-radius: 8px; padding: 6px 10px; font-size: 13px; pointer-events: none; max-width: 320px; box-shadow: var(--shadow); }
 .graph-tip b { font-weight: 500; font-size: 18px; margin-right: 6px; }
 .graph-tip span { display: block; color: var(--muted); font-size: 12px; }
 .graph-tip .many { font-size: 16px; color: var(--ink); }

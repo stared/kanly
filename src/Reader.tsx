@@ -1,56 +1,28 @@
 import { useEffect, useMemo, useState } from 'react'
-import { KANJI, gloss } from './data'
+import { COMP, KANJI, type Word } from './data'
 import type { Store } from './srs'
 import { standing } from './levels'
-import { KanjiTip, Speaker, hideTip } from './Card'
+import { KanjiTip, WordTip, mainReadings } from './Card'
+import { index, isHan, tokenize, type Entry, type Token } from './tokens'
 
 const SAMPLE = `日本は東アジアにある島国で、首都は東京です。人口は約一億二千万人で、多くの人が大きな都市に住んでいます。春には桜が咲き、秋には山の木の葉が赤や黄色に変わります。`
 
-const isHan = (c: string) => /\p{Script=Han}/u.test(c) || c === '々'
-const isKana = (c: string) => /[ぁ-ゖ]/.test(c)
-
-type Entry = [string, string, string]  // word, reading, gloss
-type Token = { text: string; entry?: Entry }
 type Furigana = 'new' | 'all' | 'off'
 
-/** Index of common words; a word ending in kana (住む) is also found by its stem (住), so 住んで still matches. */
-function index(words: Entry[]) {
-  const exact = new Map<string, Entry>()
-  const stems = new Map<string, Entry>()
-  for (const e of words) {
-    exact.set(e[0], e)
-    const stem = e[0].replace(/[ぁ-ゖ]+$/, '')
-    if (stem !== e[0] && stem && !stems.has(stem)) stems.set(stem, e)
+/** A word of the list as a kanji's card has it (furigana kanji by kanji, what each kanji means in it); one on no card
+ * with its reading over the kanji before its last kana. */
+function asWord([w, r, g]: Entry): Word {
+  for (const c of w) {
+    const hit = KANJI[c]?.words.find(x => x.w === w && x.r === r)
+    if (hit) return hit
   }
-  return { exact, stems }
+  const tail = w.match(/[ぁ-ゖ]+$/)?.[0] ?? ''
+  const cut = !!tail && r.endsWith(tail) && r.length > tail.length
+  return { w, r, g, reading: '', f: 0, furigana: cut ? [[w.slice(0, -tail.length), r.slice(0, -tail.length)], [tail, '']] : [[w, r]] }
 }
 
-/** Greedy longest match from left to right; text without kanji passes through as is. */
-function tokenize(text: string, ix: ReturnType<typeof index>): Token[] {
-  const out: Token[] = []
-  const chars = [...text]
-  for (let i = 0; i < chars.length;) {
-    if (!isHan(chars[i])) {
-      const last = out[out.length - 1]
-      if (last && !last.entry && !isHan(last.text[0])) last.text += chars[i]
-      else out.push({ text: chars[i] })
-      i++
-      continue
-    }
-    let hit: Token | undefined
-    for (let n = Math.min(8, chars.length - i); n > 0 && !hit; n--) {
-      const s = chars.slice(i, i + n).join('')
-      // before kana a verb or adjective stem wins over a lone kanji noun: 住んで is 住む, not 住 じゅう
-      const stem = isKana(chars[i + n] ?? '') ? ix.stems.get(s) : undefined
-      const e = n === 1 && stem ? stem : ix.exact.get(s) ?? stem
-      if (e) hit = { text: s, entry: e }
-    }
-    hit ??= { text: chars[i] }
-    out.push(hit)
-    i += [...hit.text].length
-  }
-  return out
-}
+/** Each character apart, so that a click says which kanji it was on. */
+const Chars = ({ text }: { text: string }) => <>{[...text].map((c, i) => <span key={i} className="c">{c}</span>)}</>
 
 /** Furigana over the kanji only: 住む (すむ) shows す over 住, and the kana after it stay as written. */
 function Ruby({ t }: { t: Token }) {
@@ -59,14 +31,15 @@ function Ruby({ t }: { t: Token }) {
   const head = t.text.replace(/[ぁ-ゖ]+$/, '')
   const tail = t.text.slice(head.length)
   const base = okurigana && r.endsWith(okurigana) ? r.slice(0, r.length - okurigana.length) : r
-  return <><ruby>{[...head].map((c, i) => <KanjiTip key={i} c={c} />)}<rt>{base}</rt></ruby>{tail}</>
+  return <><ruby><Chars text={head} /><rt>{base}</rt></ruby>{tail}</>
 }
 
-export function Reader({ store, open }: { store: Store; open: (el: string) => void }) {
+/** A text to read. A word under the mouse shows what it is there: the word, its meaning, its reading. A kanji clicked
+ * opens its card, as a kanji does anywhere, with the word it was in on top. */
+export function Reader({ store, open }: { store: Store; open: (el: string, word?: Word) => void }) {
   const [text, setText] = useState(SAMPLE)
   const [editing, setEditing] = useState(false)
   const [words, setWords] = useState<Entry[] | null>(null)
-  const [sel, setSel] = useState<number | null>(null)
   const [furi, setFuri] = useState<Furigana>('new')
   useEffect(() => { import('./data/words.json').then(m => setWords(m.default as Entry[])) }, [])
   const ix = useMemo(() => words && index(words), [words])
@@ -80,11 +53,17 @@ export function Reader({ store, open }: { store: Store; open: (el: string) => vo
   const assumed = han.filter(c => !store.cards[c] && read(c)).length
   const unknown = [...new Set(han)].filter(c => !read(c) && KANJI[c])
   const showFuri = (t: Token) => furi === 'all' || (furi === 'new' && [...t.text].some(c => isHan(c) && c !== '々' && !read(c)))
-  const picked = sel !== null ? tokens[sel] : undefined
+  const has = (c: string) => !!KANJI[c] || !!COMP[c]
+  /** The kanji clicked, or the word's first one that has a card. */
+  const look = (t: Token, at: Element) => {
+    const c = at.closest('.c, .kt')?.textContent ?? ''
+    const el = has(c) ? c : [...t.text].find(has)
+    if (el) open(el, t.entry && asWord(t.entry))
+  }
 
   return (
     <div className="reader">
-      {editing && <textarea autoFocus value={text} onChange={e => { setText(e.target.value); setSel(null) }} onBlur={() => setEditing(false)} rows={5} placeholder="Paste Japanese text" />}
+      {editing && <textarea autoFocus value={text} onChange={e => setText(e.target.value)} onBlur={() => setEditing(false)} rows={5} placeholder="Paste Japanese text" />}
       <div className="bar-line sub small">
         <span>You know {known} of {han.length} kanji here ({han.length ? Math.round(100 * known / han.length) : 0}%){assumed > 0 && `, ${assumed} of them assumed from your level`}.</span>
         <span className="opts">
@@ -96,25 +75,12 @@ export function Reader({ store, open }: { store: Store; open: (el: string) => vo
       </div>
       <div className="text">
         {tokens.map((t, i) => !isHan(t.text[0]) ? <span key={i}>{t.text}</span> : (
-          <button key={i} className={'tok' + (i === sel ? ' sel' : '') + ([...t.text].some(c => isHan(c) && c !== '々' && !read(c)) ? ' new' : '')} onClick={() => { hideTip(); setSel(i === sel ? null : i) }}>{/* the panel below says more than the tooltip */}
-            {t.entry && showFuri(t) ? <Ruby t={t} /> : [...t.text].map((c, i) => <KanjiTip key={i} c={c} />)}
+          <button key={i} className={'tok' + ([...t.text].some(c => isHan(c) && c !== '々' && !read(c)) ? ' new' : '')} onClick={e => look(t, e.target as Element)}>
+            {t.entry ? <WordTip w={{ w: t.entry[0], r: t.entry[1], g: t.entry[2] }}>{showFuri(t) ? <Ruby t={t} /> : <Chars text={t.text} />}</WordTip>
+              : [...t.text].map((c, i) => <KanjiTip key={i} c={c} reading={mainReadings(c)} />)}
           </button>
         ))}
       </div>
-      {picked && (
-        <div className="lookup">
-          <div className="lw">
-            <span className="w">{picked.entry?.[0] ?? picked.text}</span>
-            {picked.entry && <><span className="r">{picked.entry[1]}</span><Speaker text={picked.entry[1]} /></>}
-          </div>
-          {picked.entry ? <p className="g">{picked.entry[2]}</p> : <p className="g sub">not in the word list; open the kanji below</p>}
-          <div className="chips">
-            {[...new Set([...picked.text].filter(c => KANJI[c]))].map(c => (
-              <button key={c} className={'chip wide ' + standing(store, c)} onClick={() => open(c)}><span>{c}</span><small>{gloss(c)}</small></button>
-            ))}
-          </div>
-        </div>
-      )}
       {unknown.length > 0 && (
         <p className="sub small">New to you here: {unknown.map(c => <button key={c} className="inline" onClick={() => open(c)}>{c}</button>)}</p>
       )}

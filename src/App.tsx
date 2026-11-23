@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { load, save, type Store } from './srs'
+import type { Word } from './data'
 import { Card, TipLayer, hideTip } from './Card'
 import { Learn } from './Learn'
 import { BEGINNER, mu, reach } from './levels'
@@ -22,7 +23,9 @@ export default function App() {
   const [tab, setTab] = useState<Tab>(fromHash)
   useEffect(() => { track('tab', { tab }); setPeek([]); applyUpdate() }, [tab])
   const [hash, setHash] = useState(location.hash)
-  const [peek, setPeek] = useState<string[]>([])
+  // the cards opened in the drawer, one from another, the last on show; word: the word a card was opened for (one
+  // clicked in the reader), shown on top of it
+  const [peek, setPeek] = useState<{ el: string; word?: Word }[]>([])
   const [now, setNow] = useState(Date.now())
   const [autoSpeak, setAutoSpeak] = useState(loadAutoSpeak)
   useEffect(() => saveAutoSpeak(autoSpeak), [autoSpeak])
@@ -43,8 +46,9 @@ export default function App() {
     return () => removeEventListener('keydown', esc)
   }, [])
 
-  const open = (el: string) => { hideTip(); track('open', { el }); setPeek(p => p[p.length - 1] === el ? p : [...p, el]) }
+  const open = (el: string, word?: Word) => { hideTip(); track('open', { el, ...(word && { word: word.w }) }); setPeek(p => p[p.length - 1]?.el === el ? p : [...p, { el, word }]) }
 
+  const top = peek[peek.length - 1]
   return (
     <div className="app">
       <header>
@@ -71,15 +75,15 @@ export default function App() {
         {tab === 'settings' && <Settings store={store} onReplace={setStore} autoSpeak={autoSpeak} setAutoSpeak={setAutoSpeak} />}
       </main>
       <TipLayer />
-      {peek.length > 0 && (
+      {top && (
         <div className="peek-bg" onClick={() => setPeek([])}>
           <aside className="peek" onClick={e => e.stopPropagation()}>
             <div className="peek-bar">
               <button disabled={peek.length < 2} onClick={() => setPeek(p => p.slice(0, -1))}>← back</button>
-              <span className="trail">{peek.join(' › ')}</span>
+              <span className="trail">{peek.map(p => p.el).join(' › ')}</span>
               <button onClick={() => setPeek([])}>close</button>
             </div>
-            <Card key={peek[peek.length - 1]} el={peek[peek.length - 1]} store={store} open={open} autoSpeak={autoSpeak} />
+            <Card key={top.el} el={top.el} word={top.word} store={store} open={open} autoSpeak={autoSpeak} />
           </aside>
         </div>
       )}

@@ -125,7 +125,9 @@ export function Family({ ch, store, open }: { ch: string; store: Store; open: Op
 }
 
 /** at: the kanji it belongs to; x, y, below: the middle of its top edge, and its bottom; tap: shown by a tap, not a mouse over it. */
-type Tip = { c: string; reading?: string; sense?: string; at: Element; x: number; y: number; below: number; tap: boolean }
+/** word: c is a word, sense its meaning: nothing more general to add in brackets. general: what goes in the brackets
+ * when it is not c's own keyword (々 has none: the kanji it repeats). */
+type Tip = { c: string; reading?: string; sense?: string; word?: boolean; general?: string; at: Element; x: number; y: number; below: number; tap: boolean }
 let setShown: (t: Tip | null) => void = () => {}
 let shown: { c: string; since: number; tap: boolean } | null = null
 const showTip = (t: Tip) => { hideTip(); shown = { c: t.c, since: Date.now(), tap: t.tap }; setShown(t) }
@@ -172,10 +174,11 @@ export function TipLayer() {
     el.style.transform = under ? 'translate(-50%, 8px)' : ''
   }, [tip])
   if (!tip) return null
+  const general = tip.general ?? gloss(tip.c)
   return (
-    <div className="ktip" role="tooltip" ref={box} style={{ left: tip.x, top: tip.y }}>
+    <div className={'ktip' + (tip.word ? ' word' : '')} role="tooltip" ref={box} style={{ left: tip.x, top: tip.y }}>
       <b>{tip.c}</b>
-      <span className="km">{tip.sense ?? gloss(tip.c)}{tip.sense && tip.sense !== gloss(tip.c) && <span className="kk">{gloss(tip.c)}</span>}</span>
+      <span className="km">{tip.sense ?? general}{!tip.word && tip.sense && tip.sense !== general && <span className="kk">{general}</span>}</span>
       {tip.reading && <span className="kr">{tip.reading}</span>}
     </div>
   )
@@ -183,18 +186,34 @@ export function TipLayer() {
 
 /** A kanji that shows itself, its meaning (in this word when known: 本 in 日本 is "origin", not "book") and its reading
  * here: while a mouse is over it (a click leaves it up), or, on a touch screen, from a tap until the next tap elsewhere.
- * Opening a card takes it down (App's open). */
-export function KanjiTip({ c, reading, sense, className }: { c: string; reading?: string; sense?: string; className?: string }) {
-  if (!KANJI[c]) return <span className={className}>{c}</span>
+ * Opening a card takes it down (App's open). of: for 々, the kanji it repeats (方 in 方々), ofSense: what that one
+ * means in the word: no kanji itself, 々 shows them in the brackets. */
+export function KanjiTip({ c, reading, sense, className, of, ofSense }: { c: string; reading?: string; sense?: string; className?: string; of?: string; ofSense?: string }) {
+  const repeats = c === '々' && of && KANJI[of] ? of : undefined
+  if (!KANJI[c] && !repeats) return <span className={className}>{c}</span>
   const show = (e: React.SyntheticEvent<HTMLSpanElement>, tap: boolean) => {
     const r = e.currentTarget.getBoundingClientRect()
-    showTip({ c, reading, sense, at: e.currentTarget, x: r.left + r.width / 2, y: r.top, below: r.bottom, tap })
+    showTip({ c, reading, sense: repeats ? sense ?? 'repeat' : sense, general: repeats && `${repeats} ${ofSense ?? gloss(repeats)}`, at: e.currentTarget, x: r.left + r.width / 2, y: r.top, below: r.bottom, tap })
   }
   return <span className={'kt' + (className ? ' ' + className : '')} onPointerEnter={e => { if (hovers(e)) show(e, false) }} onPointerLeave={e => { if (hovers(e)) hideTip() }} onClick={e => { if (tapped()) show(e, true) }}>{c}</span>
 }
 
-export function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
+/** A word in a text, with the tooltip a kanji has, about the word as it stands there: the word, what it means, how it
+ * is read. Shown and taken down as a kanji's is. */
+export function WordTip({ w, children }: { w: { w: string; r: string; g: string }; children: React.ReactNode }) {
+  const show = (e: React.SyntheticEvent<HTMLSpanElement>, tap: boolean) => {
+    const r = e.currentTarget.getBoundingClientRect()
+    showTip({ c: w.w, reading: w.r, sense: w.g, word: true, at: e.currentTarget, x: r.left + r.width / 2, y: r.top, below: r.bottom, tap })
+  }
+  return <span className="kt" onPointerEnter={e => { if (hovers(e)) show(e, false) }} onPointerLeave={e => { if (hovers(e)) hideTip() }} onClick={e => { if (tapped()) show(e, true) }}>{children}</span>
+}
+
+/** A word, its kanji ch marked. Each kanji shows what it means and how it is read in this word while a mouse is on
+ * it, and opens its card when clicked (open; but for skip, the kanji whose card this already is); a click anywhere
+ * else on the word says it. */
+export function WordRow({ w, ch, dim, open, skip }: { w: Word; ch: string; dim?: boolean; open?: Open; skip?: string }) {
   let n = 0  // which kanji of the word, for its sense here
+  let before = '', meant: string | undefined  // the kanji last set and what it means here, for a 々 after it
   const sense = () => w.senses?.[n++]
   // what the parts say, from what each kanji means in the word, with kana between kanji in romaji: 思い出 think-(i)-out;
   // also for a word read as a whole (今日 now-day); kanji there for their sound alone are one (sound): 富士山 (sound)-mountain
@@ -219,7 +238,14 @@ export function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) 
     <li className={dim ? 'dim' : ''}>
       <button className="w" onClick={() => speak(w.r)} onPointerEnter={e => { if (hovers(e)) hoverSay(w.r) }} onPointerLeave={e => { if (hovers(e)) hoverSay(null) }}>
         {w.furigana.map(([part, r], i) => r
-          ? <ruby key={i} className={part === ch ? 'me' : ''}>{[...part].map((c, j) => <KanjiTip key={j} c={c} reading={w.special ? undefined : r} sense={/[\u4e00-\u9fff々]/.test(c) ? sense() : undefined} />)}<rt>{r}</rt></ruby>
+          ? <ruby key={i} className={part === ch ? 'me' : ''}>{[...part].map((c, j) => {
+            // 々 stands for the kanji before it: its tooltip names that kanji, its click opens that kanji's card
+            const el = c === '々' ? before : c
+            const s = /[\u4e00-\u9fff々]/.test(c) ? sense() : undefined
+            const tip = <KanjiTip key={j} c={c} of={el} ofSense={meant} reading={w.special ? undefined : r} sense={s} />
+            if (c !== '々') { before = c; meant = s }
+            return open && el !== skip && isKanji(el) ? <span key={j} className="to" onClick={e => { e.stopPropagation(); open(el) }}>{tip}</span> : tip
+          })}<rt>{r}</rt></ruby>
           : <span key={i}>{part}</span>)}
       </button>
       <span className="wg">{w.g}{lit && <span className="lit">{lit}</span>}{w.special && <span className="lit">(read as a whole)</span>}</span>
@@ -284,13 +310,6 @@ function Popularity({ ch }: { ch: string }) {
   )
 }
 
-export const Speaker = ({ text }: { text: string }) =>
-  <button className="speaker" onClick={() => speak(text)} aria-label="read aloud">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" /><path d="M15.5 9a4 4 0 0 1 0 6" /><path d="M18 6.5a7.5 7.5 0 0 1 0 11" />
-    </svg>
-  </button>
-
 const Divider = ({ children }: { children: React.ReactNode }) => <h3 className="divider"><span>{children}</span></h3>
 
 /** What the quiz got right, shown green on the card for a few seconds. */
@@ -299,7 +318,10 @@ export type Got = { meaning?: boolean | null; reading?: boolean | null }
 /** Known: learned, or assumed known from the learner's level. */
 const knows = (store: Store, c: string) => ['known', 'assumed'].includes(standing(store, c))
 
-export function Card({ el, store, open, autoSpeak = false, got }: { el: string; store: Store; open: Open; autoSpeak?: boolean; got?: Got }) {
+/** The one screen for a kanji or a part, wherever it is shown: learned, asked again, opened from a tile or from a text.
+ * word: the word of this one kanji it is shown for (見える clicked in the reader), on top, unless the word is the
+ * kanji alone: then the card says it all. */
+export function Card({ el, store, open, autoSpeak = false, got, word }: { el: string; store: Store; open: Open; autoSpeak?: boolean; got?: Got; word?: Word }) {
   const k = KANJI[el]
   const c = COMP[el]
   const t = treeOf(el)
@@ -309,6 +331,9 @@ export function Card({ el, store, open, autoSpeak = false, got }: { el: string; 
   const alike = k ? lookalikes(el).length : 0
   const [hover, setHover] = useState<string | null>(null)
   const [allWords, setAllWords] = useState(false)
+  const asked = word && word.w !== el ? word : undefined
+  // its words, but for the one on top
+  const mine = useMemo(() => (k?.words ?? []).filter(w => !(asked && w.w === asked.w && w.r === asked.r)), [el, asked])
   // as many words as fill the window's height (never fewer than the usual): the card grows to it, never past it
   const [fit, setFit] = useState<number | null>(null)
   const sideRef = useRef<HTMLDivElement>(null)
@@ -323,27 +348,29 @@ export function Card({ el, store, open, autoSpeak = false, got }: { el: string; 
       const main = side.closest('main') as HTMLElement | null
       // the header above, a margin below, and the learn screen's button bar under the card, with its margins
       const bar = main?.querySelector('.actions') as HTMLElement | null
-      const barH = bar ? bar.offsetHeight + parseFloat(getComputedStyle(bar).marginTop) + parseFloat(getComputedStyle(bar).marginBottom) : 0
+      const barH = (bar ? bar.offsetHeight + parseFloat(getComputedStyle(bar).marginTop) + parseFloat(getComputedStyle(bar).marginBottom) : 0)
+        + ((main?.querySelector('.kinds') as HTMLElement | null)?.offsetHeight ?? 0)
       const room = innerHeight - (main?.getBoundingClientRect().top ?? 0) + scrollY - 40 - barH
       // two columns: the side panel alone has to fit; stacked (a phone, a tablet): the whole card does
       const card = side.parentElement!
-      const stacked = side.getBoundingClientRect().top >= card.firstElementChild!.getBoundingClientRect().bottom
+      const stacked = side.getBoundingClientRect().top >= card.querySelector(':scope > .hero')!.getBoundingClientRect().bottom
       const base = (stacked ? card.offsetHeight : side.offsetHeight) - rows.length * step
-      setFit(Math.max(stacked ? Math.min(2, k.nshown) : k.nshown, Math.min(k.words.length, Math.floor((room - base) / step))))
+      setFit(Math.max(stacked ? Math.min(2, k.nshown) : k.nshown, Math.min(mine.length, Math.floor((room - base) / step))))
     }
     measure()
     addEventListener('resize', measure)
     return () => removeEventListener('resize', measure)
-  }, [el, allWords, fit === null])
+  }, [el, allWords, fit === null, mine.length])
   const parts = t && shownKids(t).length > 0
-  const words = k && k.words.length > 0
+  const words = mine.length > 0
   // the shown words, those whose other kanji are all known first, each group in order of use; then the rest
   const byKnown = (ws: Word[]) => [...ws].sort((a, b) => +!all(a) - +!all(b))
-  const shown = allWords ? k?.words.length ?? 0 : fit ?? k?.nshown ?? 0
-  const sorted = useMemo(() => k ? [...byKnown(k.words.slice(0, k.nshown)), ...k.words.slice(k.nshown)] : [], [el, store])
+  const shown = allWords ? mine.length : fit ?? k?.nshown ?? 0
+  const sorted = useMemo(() => k ? [...byKnown(mine.slice(0, k.nshown)), ...mine.slice(k.nshown)] : [], [el, store, asked])
   function all(w: Word) { return [...w.w].every(c => c === el || !KANJI[c] || knows(store, c)) }
   return (
     <article className="card">
+      {asked && <ul className="words asked"><WordRow w={asked} ch={el} open={open} skip={el} /></ul>}
       <div className="hero">
         {k && <Popularity ch={el} />}
         <div className="top">
@@ -361,8 +388,8 @@ export function Card({ el, store, open, autoSpeak = false, got }: { el: string; 
         {words && (
           <section>
             <h3 className="sec obvious">most used words</h3>
-            <ul className="words">{sorted.slice(0, shown).map(w => <WordRow key={w.w + w.r} w={w} ch={el} dim={!!hover && w.reading !== hover} />)}</ul>
-            {k.words.length > (fit ?? k.nshown) && <button className="more-words" onClick={() => { track('words', { el, all: !allWords }); setAllWords(!allWords) }}>{allWords ? 'fewer words' : `${k.words.length - (fit ?? k.nshown)} more words`}</button>}
+            <ul className="words">{sorted.slice(0, shown).map(w => <WordRow key={w.w + w.r} w={w} ch={el} open={open} skip={el} dim={!!hover && w.reading !== hover} />)}</ul>
+            {mine.length > (fit ?? k.nshown) && <button className="more-words" onClick={() => { track('words', { el, all: !allWords }); setAllWords(!allWords) }}>{allWords ? 'fewer words' : `${mine.length - (fit ?? k.nshown)} more words`}</button>}
           </section>
         )}
         {used > 0 && <section><h3 className="sec">part of {used} kanji</h3><UsedIn key={el} el={el} store={store} open={open} /></section>}

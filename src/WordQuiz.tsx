@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 import type { Word } from './data'
 import type { Card as SrsCard } from './srs'
-import { KanjiTip, WordRow } from './Card'
+import { WordRow } from './Card'
 import { speak } from './speech'
 import { track } from './track'
 import { entries, glosses, meant, readAs } from './words'
 
 /** A word in kanji; its reading (kana or romaji) and its meaning are typed, then checked: each field turns green or
- * red where it stands, the word as its card has it appears below. A meaning marked wrong can be overruled (a synonym
- * the gloss does not list). Enter moves from the reading to the meaning, checks, then goes on. */
+ * red where it stands, and the word as its card has it appears below. The screen stays the word's: a word has two
+ * kanji or more and so no one card to go to; each kanji in the word below shows what it is there under a mouse and
+ * opens its card when clicked. A meaning marked wrong can be overruled, in the field itself (a synonym the gloss does
+ * not list). Enter moves from the reading to the meaning, checks, then goes on. */
 export function WordQuiz({ el, w, card, open, autoSpeak, onDone }: { el: string; w: Word; card: SrsCard; open: (el: string) => void; autoSpeak: boolean; onDone: (ok: boolean) => void }) {
   const [reading, setReading] = useState('')
   const [meaning, setMeaning] = useState('')
@@ -41,13 +43,10 @@ export function WordQuiz({ el, w, card, open, autoSpeak, onDone }: { el: string;
     return () => removeEventListener('keydown', key)
   })
 
-  const chars = [...w.w]
   const field = (ok?: boolean) => 'field' + (ok === undefined ? '' : ok ? ' right' : ' wrong')
   return (
     <form className="quiz word-quiz" onSubmit={e => { e.preventDefault(); if (!res) check() }}>
-      <div className="prompt word" style={{ '--n': chars.length } as React.CSSProperties}>
-        {res ? chars.map((c, i) => <button type="button" key={i} onClick={e => { e.currentTarget.blur(); open(c) }}><KanjiTip c={c} sense={res.w.senses?.[i]} /></button>) : w.w}
-      </div>
+      <div className="prompt word" style={{ '--n': [...w.w].length } as React.CSSProperties}>{w.w}</div>
       <p className="sub">How is it read, and what does it mean?</p>
       <div className="choices">
         {/* in kana or romaji; kanji (an input method's conversion) is not a reading, and the browser says so */}
@@ -55,15 +54,18 @@ export function WordQuiz({ el, w, card, open, autoSpeak, onDone }: { el: string;
           placeholder="reading: kana or romaji" aria-label="reading, in kana or romaji" pattern="[^一-鿿]*" title="in kana or romaji, not kanji"
           lang="ja" autoCapitalize="none" autoCorrect="off" autoComplete="off" spellCheck={false} enterKeyHint="next"
           onKeyDown={e => { if (e.key === 'Enter' && !res && !e.nativeEvent.isComposing) { e.preventDefault(); if (!e.repeat) meaningRef.current?.focus() } }} />
-        <input ref={meaningRef} className={field(res?.meaning)} value={meaning} onChange={e => setMeaning(e.target.value)} readOnly={!!res}
-          placeholder="meaning" aria-label="meaning, in English" autoCapitalize="none" autoComplete="off" enterKeyHint="done"
-          onKeyDown={e => { if (e.key === 'Enter' && e.repeat) e.preventDefault() }} />
+        <div className="ans">
+          <input ref={meaningRef} className={field(res?.meaning)} value={meaning} onChange={e => setMeaning(e.target.value)} readOnly={!!res}
+            placeholder="meaning" aria-label="meaning, in English" autoCapitalize="none" autoComplete="off" enterKeyHint="done"
+            onKeyDown={e => { if (e.key === 'Enter' && e.repeat) e.preventDefault() }} />
+          {res && !res.meaning && meaning.trim() && <button className="overrule" type="button" onClick={overrule} aria-label="my meaning was right">I was right</button>}
+        </div>
       </div>
-      {res && <ul className="words">{<WordRow w={res.w} ch={el} />}</ul>}
+      {/* no kanji of it marked: on a card the red one is the card's own, and here there is no card */}
+      {res && <ul className="words asked"><WordRow w={res.w} ch="" open={open} /></ul>}
       <div className="grade">
         {!res ? <button className="next" type="submit">check <span className="key">↵</span></button>
-          : <button className={'next ' + (passed ? 'good' : 'bad')} type="button" onClick={() => onDone(passed)}>{passed ? 'next' : 'again soon, next'} <span className="key">↵</span></button>}
-        {res && !res.meaning && meaning.trim() && <button className="next quiet" type="button" onClick={overrule}>my meaning was right</button>}
+          : <button className={'next ' + (passed ? 'good' : 'bad')} type="button" onClick={() => onDone(passed)}>next <span className="key">↵</span></button>}
       </div>
     </form>
   )
