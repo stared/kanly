@@ -119,13 +119,14 @@ nav button.on, .gear.on { color: var(--ink); }
 /* parts: the sum on top, each part's own parts below it */
 .parts { display: flex; justify-content: center; align-items: flex-start; flex-wrap: wrap; row-gap: 12px; }
 .part-col { display: flex; align-items: flex-start; }
-.op { font-size: 22px; color: var(--muted); padding: 22px 6px 0; }
-.extra { color: var(--muted); font-size: 13px; padding-top: 30px; }
-.tree ul { display: flex; justify-content: center; padding: 16px 0 0; margin: 0; position: relative; }
+/* small tiles: "王 + 1 stroke" is a line's worth of content, and took the height of three */
+.op { font-size: 16px; color: var(--muted); padding: 13px 5px 0; }
+.extra { color: var(--muted); font-size: 13px; padding-top: 17px; }
+.tree ul { display: flex; justify-content: center; padding: 10px 0 0; margin: 0; position: relative; }
 .tree > ul { padding-top: 0; }
-.tree li { list-style: none; display: flex; flex-direction: column; align-items: center; position: relative; padding: 16px 3px 0; }
+.tree li { list-style: none; display: flex; flex-direction: column; align-items: center; position: relative; padding: 10px 3px 0; }
 .tree > ul > li { padding: 0; }
-.tree li::before, .tree li::after { content: ''; position: absolute; top: 0; width: 50%; height: 16px; border-top: 1px solid var(--faint); }
+.tree li::before, .tree li::after { content: ''; position: absolute; top: 0; width: 50%; height: 10px; border-top: 1px solid var(--faint); }
 .tree li::before { right: 50%; }
 .tree li::after { left: 50%; border-left: 1px solid var(--faint); }
 .tree li:only-child::before { display: none; }
@@ -133,14 +134,14 @@ nav button.on, .gear.on { color: var(--ink); }
 .tree li:first-child::before, .tree li:last-child::after { border-top: 0; }
 .tree li:last-child::before { border-right: 1px solid var(--faint); }
 .tree li:last-child::after { border-left: 0; }
+.tree li:only-child::after { border-left: 1px solid var(--faint); }  /* a single part under its parent: the line goes on down to it (the rule above cut it) */
 .tree > ul > li::before, .tree > ul > li::after { display: none; }
-.tree ul ul::before { content: ''; position: absolute; top: 0; left: 50%; height: 16px; border-left: 1px solid var(--faint); }
-.node { position: relative; display: flex; flex-direction: column; align-items: center; min-width: 68px; padding: 6px 8px 5px; border-radius: 10px; background: var(--tile); box-shadow: var(--shadow), inset 0 0 0 1px var(--line); }
+.tree ul ul::before { content: ''; position: absolute; top: 0; left: 50%; height: 10px; border-left: 1px solid var(--faint); }
+.node { position: relative; display: flex; flex-direction: column; align-items: center; padding: 4px 9px 3px; border-radius: 8px; background: var(--tile); box-shadow: var(--shadow), inset 0 0 0 1px var(--line); }
 @media (hover: hover) { .node:hover { outline: 1px solid var(--muted); } }
-.tree > ul > li > .node { min-width: 76px; }
-.tree > ul > li > .node .ch { font-size: 34px; }
-.node .ch { font: 26px/1.15 var(--jp); }
-.node .g { font-size: 12px; color: var(--muted); max-width: 92px; text-align: center; line-height: 1.3; margin-top: 2px; }
+.tree > ul > li > .node .ch { font-size: 24px; }
+.node .ch { font: 20px/1.15 var(--jp); }
+.node .g { font-size: 11px; color: var(--muted); max-width: 92px; text-align: center; line-height: 1.3; }
 .node.sound { outline: 1px dashed var(--muted); outline-offset: 2px; }
 .node .on { font: 11px var(--jp); color: var(--ink); margin-top: 2px; }
 
