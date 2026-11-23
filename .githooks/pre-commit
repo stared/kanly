@@ -1,0 +1,3 @@
+#!/bin/sh
+# No commit that does not build: what is staged is built in an empty directory by the steps CI runs.
+exec sh "$(git rev-parse --show-toplevel)/scripts/verify.sh"

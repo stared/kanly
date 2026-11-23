@@ -31,9 +31,8 @@ jobs:
           path: data/raw
           key: raw-${{ hashFiles('scripts/build_data.py') }}
       - run: pnpm install --frozen-lockfile
-      - run: pnpm data
-      - run: pnpm test
-      - run: pnpm build
+      # the same steps scripts/verify.sh runs on a clean checkout before every commit
+      - run: pnpm run check
         env:
           VITE_POSTHOG_KEY: ${{ vars.POSTHOG_PROJECT_TOKEN }}
       - uses: actions/upload-pages-artifact@v3

@@ -10,6 +10,9 @@
     "build": "vite build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "check": "pnpm data && pnpm typecheck && pnpm test && pnpm build",
+    "verify": "sh scripts/verify.sh",
+    "prepare": "git config core.hooksPath .githooks || true",
     "shots": "node scripts/shots.mjs",
     "og": "node scripts/og.mjs"
   },

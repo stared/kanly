@@ -9,6 +9,7 @@ pnpm install
 pnpm data      # downloads the sources, builds the data (needs uv)
 pnpm dev       # http://localhost:5201
 pnpm test
+pnpm verify    # builds what is staged from a clean checkout, by the steps CI runs
 ```
 
 ## What it does
