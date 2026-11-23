@@ -357,8 +357,6 @@ export function Graph({ store, open }: { store: Store; open: (el: string) => voi
   const click = (id: string) => setFocus(id === focus ? null : id)
   const hot = tip?.node?.id ?? tip?.ends?.id ?? null
   const ends = focus ? graph().nodes.get(focus)!.ends : []
-  // in the legend only when there is one to see: a beginner has nothing assumed
-  const anyAssumed = useMemo(() => [...graph().nodes.keys()].some(id => standing(store, id) === 'assumed'), [store])
 
   return (
     <div className="graph-wrap">
@@ -376,7 +374,6 @@ export function Graph({ store, open }: { store: Store; open: (el: string) => voi
           <svg width="14" height="14"><circle cx="7" cy="7" r="6" className="k" /></svg> kanji
           <svg width="14" height="14"><circle cx="7" cy="7" r="6" className="p" /></svg> part
           <svg width="14" height="14"><circle cx="7" cy="7" r="6" className="k known" /></svg> known
-          {anyAssumed && <span className="if-room"><svg width="14" height="14"><circle cx="7" cy="7" r="6" className="k assumed" /></svg> assumed</span>}
           <svg width="14" height="14"><circle cx="7" cy="7" r="6" className="k learning" /></svg> learning
         </span>
       </div>

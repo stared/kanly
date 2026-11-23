@@ -13,6 +13,8 @@
   --s3: #1baf7a;
   --glow: #f3ede2;
   --shadow: 0 1px 2px rgba(60, 50, 30, .08), 0 2px 8px rgba(60, 50, 30, .05);
+  --tile: var(--card);        /* a tile (a part, a chip): a white card with a soft shadow, no line */
+  --tile-line: transparent;
   --jp: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', system-ui, sans-serif;
   --serif: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif;
   color-scheme: light dark;
@@ -23,12 +25,14 @@
     --paper: #171614; --card: #2c2925; --ink: #ece6dc; --muted: #8a847a; --faint: #35322d;
     --accent: #e0634f; --good: #5fb07f; --on: #3987e5; --kun: #c98500;
     --s1: #3987e5; --s2: #d95926; --s3: #199e70; --glow: #2a2520; --shadow: 0 0 0 transparent;
+    --tile: transparent; --tile-line: var(--faint);  /* dark: no fill, which read as a grey box, only a hairline */
   }
 }
 :root[data-theme=dark] {
     --paper: #171614; --card: #2c2925; --ink: #ece6dc; --muted: #8a847a; --faint: #35322d;
     --accent: #e0634f; --good: #5fb07f; --on: #3987e5; --kun: #c98500;
     --s1: #3987e5; --s2: #d95926; --s3: #199e70; --glow: #2a2520; --shadow: 0 0 0 transparent;
+    --tile: transparent; --tile-line: var(--faint);  /* dark: no fill, which read as a grey box, only a hairline */
   color-scheme: dark;
 }
 :root[data-theme=light] { color-scheme: light; }
@@ -64,16 +68,14 @@ nav button.on, .gear.on { color: var(--ink); }
 .next.bad, .next.quiet { border-color: var(--faint); }
 .inline { font-family: var(--jp); text-decoration: underline; text-underline-offset: 3px; }
 
-/* status, one scale everywhere: new is grey, learning is ink, known is ink with a green mark:
-   a short flat bar under the glyph, clear of the tile's rounded corners. Assumed (no card, but known by the
-   learner's level) is the same green, paler: taken as known, not checked. In the graph these colour the ring */
-.chip, .cell, .node, .alike-item { --st: transparent; position: relative; }
-.chip::after, .cell::after, .node::after, .alike-item::after { content: ''; position: absolute; left: calc(50% - 6px); bottom: 3px; width: 12px; height: 2px; background: var(--st); }
-.node::after, .alike-item::after, .chip.wide::after { left: calc(50% - 8px); bottom: 1px; width: 16px; }
-.new::after { content: none; }  /* nothing to mark, no box to lay out: the grid has 2,500 tiles */
-.learning { --st: var(--muted); }
-.known { --st: var(--good); }
-.assumed { --st: color-mix(in srgb, var(--good) 60%, transparent); }
+/* standing, one scale everywhere, said by the glyph's ink and a hairline border, with no background and nothing added:
+   new: a grey glyph; assumed (no card, but known by the learner's level): ink, like anything known;
+   with a card, a border: grey while learning, green once known. */
+.chip, .node, .alike-item { --line: var(--tile-line); }
+.cell { --line: transparent; }
+.learning { --line: var(--muted); }
+.known { --line: var(--good); }
+.chip.new, .node.new .ch, .alike-item.new .ch { color: var(--muted); }
 
 /* the card: the kanji fills the left, what explains it stacks on the right */
 .card { container-type: inline-size; position: relative; display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1040px; margin: 0 auto; }
@@ -133,7 +135,7 @@ nav button.on, .gear.on { color: var(--ink); }
 .tree li:last-child::after { border-left: 0; }
 .tree > ul > li::before, .tree > ul > li::after { display: none; }
 .tree ul ul::before { content: ''; position: absolute; top: 0; left: 50%; height: 16px; border-left: 1px solid var(--faint); }
-.node { display: flex; flex-direction: column; align-items: center; min-width: 68px; padding: 6px 8px 5px; border-radius: 10px; background: var(--card); box-shadow: var(--shadow); }
+.node { position: relative; display: flex; flex-direction: column; align-items: center; min-width: 68px; padding: 6px 8px 5px; border-radius: 10px; background: var(--tile); box-shadow: var(--shadow), inset 0 0 0 1px var(--line); }
 @media (hover: hover) { .node:hover { outline: 1px solid var(--muted); } }
 .tree > ul > li > .node { min-width: 76px; }
 .tree > ul > li > .node .ch { font-size: 34px; }
@@ -147,7 +149,7 @@ nav button.on, .gear.on { color: var(--ink); }
 .family b { font-family: var(--jp); font-weight: 500; color: var(--ink); }
 .family .chips { justify-content: center; }
 .chips { display: flex; flex-wrap: wrap; gap: 4px; }
-.chip { font: 18px/1 var(--jp); width: 34px; height: 34px; border-radius: 8px; background: var(--card); box-shadow: var(--shadow); }
+.chip { font: 18px/1 var(--jp); width: 34px; height: 34px; border-radius: 8px; background: var(--tile); box-shadow: var(--shadow), inset 0 0 0 1px var(--line); }
 .chip.miss { text-decoration: line-through; text-decoration-color: var(--accent); color: var(--muted); }
 .family .not { color: var(--ink); }
 .chip.here { outline: 1px solid var(--ink); }
@@ -178,7 +180,7 @@ nav button.on, .gear.on { color: var(--ink); }
 .more-info[open] summary::after { content: ' ‹'; }
 .more-info h4 { font-size: 12px; font-weight: 500; margin: 18px 0 8px; }
 .alike-list { display: flex; flex-wrap: wrap; gap: 6px; }
-.alike-item { display: flex; flex-direction: column; align-items: center; min-width: 72px; padding: 6px 8px; border-radius: 10px; background: var(--card); box-shadow: var(--shadow); color: var(--ink); }
+.alike-item { display: flex; flex-direction: column; align-items: center; min-width: 72px; padding: 6px 8px; border-radius: 10px; background: var(--tile); box-shadow: var(--shadow), inset 0 0 0 1px var(--line); color: var(--ink); }
 .alike-item .ch { font: 28px/1.2 var(--jp); }
 .alike-item .g { font-size: 12px; color: var(--muted); max-width: 90px; text-align: center; line-height: 1.3; }
 .alike-item .swap { font: 12px var(--jp); color: var(--muted); }
@@ -212,7 +214,7 @@ nav button.on, .gear.on { color: var(--ink); }
 select { font: 13px system-ui, sans-serif; color: var(--ink); background: var(--card); border: 1px solid var(--faint); border-radius: 6px; padding: 4px 6px; min-width: 0; }
 .pick { align-self: flex-start; }
 .cells { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 12px; }
-.cell { font: 19px/34px var(--jp); width: 34px; height: 34px; border-radius: 6px; color: var(--muted); }
+.cell { font: 19px/34px var(--jp); width: 34px; height: 34px; border-radius: 6px; color: var(--muted); box-shadow: inset 0 0 0 1px var(--line); }
 .cell.part { color: var(--faint); font-size: 16px; }
 .cells.plain .cell.part { color: var(--muted); font-size: 19px; }  /* on their own, parts need no fading */
 .cell.learning, .cell.known, .cell.assumed:not(.part) { color: var(--ink); }
@@ -485,8 +487,6 @@ main:has(> .graph-wrap) { max-width: none; }
 .gn.part circle, .graph-key .p { stroke-dasharray: 2 3; }
 .gn.learning circle, .graph-key .learning { stroke: var(--ink); }
 .gn.known circle, .graph-key .known { stroke: var(--good); }
-/* assumed: a paler ring would vanish at a distance, so the node is tinted too */
-.gn.assumed circle, .graph-key .assumed { stroke: color-mix(in srgb, var(--good) 60%, transparent); fill: color-mix(in srgb, var(--good) 14%, var(--card)); }
 .gn text { fill: var(--ink); font-family: var(--jp); }
 /* under the pointer: a tinted fill, like selection a matter of the background; the ring is left alone */
 @media (hover: hover) { .gn:hover:not(.focus) circle { fill: var(--glow); } }
@@ -500,7 +500,6 @@ main:has(> .graph-wrap) { max-width: none; }
 .graph-ends { position: absolute; left: 16px; right: 16px; bottom: 8px; max-height: 30%; overflow-y: auto; padding: 8px 10px; border-radius: 10px; background: color-mix(in srgb, var(--paper) 92%, transparent); display: flex; flex-direction: column; gap: 6px; cursor: default; }
 .graph-key { display: flex; gap: 4px 5px; align-items: center; }
 .graph-key svg { margin-left: 10px; } .graph-key svg:first-child { margin-left: 0; }
-.graph-key .if-room { display: flex; align-items: center; gap: 5px; margin-left: 10px; }
 .graph-tip { position: absolute; transform: translate(14px, 14px); background: var(--card); border: 1px solid var(--faint); border-radius: 8px; padding: 6px 10px; font-size: 13px; pointer-events: none; max-width: 320px; box-shadow: var(--shadow); }
 .graph-tip b { font-weight: 500; font-size: 18px; margin-right: 6px; }
 .graph-tip span { display: block; color: var(--muted); font-size: 12px; }
@@ -513,6 +512,5 @@ main:has(> .graph-wrap) { max-width: none; }
   .graph-bar select { min-width: 0; width: 100%; }
   .graph-bar .graph-key { font-size: 12px; gap: 3px; }
   .graph-key svg { margin-left: 4px; }
-  .graph-key .if-room { display: none; }  /* a phone's bar has no room for a fifth entry; the paler ring is still drawn */
 }
 @media (max-width: 350px) { header, nav { gap: 7px; } nav button { font-size: 12px; } .source { display: none; } }
