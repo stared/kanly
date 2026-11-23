@@ -82,13 +82,6 @@ export function soundFamily(ch: string): Family | undefined {
 /** Strokes of a node not covered by its listed parts: 本 = 木 + 1 stroke. */
 export const extraStrokes = (t: Tree) => t.kids.length ? Math.max(0, t.strokes - t.kids.reduce((a, k) => a + k.strokes, 0)) : 0
 
-/** Every element of a tree, each once. */
-export function elements(t: Tree, out = new Set<string>()): Set<string> {
-  out.add(t.el)
-  t.kids.forEach(k => elements(k, out))
-  return out
-}
-
 export const hira = (s: string) => s.replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60))
 export const kata = (s: string) => s.replace(/[ぁ-ゖ]/g, c => String.fromCharCode(c.charCodeAt(0) + 0x60))
 

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { KANJI, ORDER, elements, gloss } from './data'
+import { KANJI, ORDER } from './data'
 import { knewIt, learn, type Store } from './srs'
 import { LEVELS, lam, mu, pOf, startAt, update, upcoming } from './levels'
 import { track } from './track'
@@ -12,8 +12,6 @@ export const coverage = (ids: Iterable<string>) => [...ids].reduce((a, id) => a 
 export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store; setStore: (s: Store) => void; open: (el: string) => void; now: number; autoSpeak: boolean }) {
   const left = useMemo(() => upcoming(store, store.tau ?? 0), [store.cards, store.mu, store.T, store.tau])
   const next = left[0]
-  // a part (or a rare kanji) taught early because a kanji coming up needs it: 干 before 年
-  const why = next && left.slice(1).find(el => KANJI[el] && elements(KANJI[el].tree).has(next) && (!KANJI[next] || KANJI[el].freq > KANJI[next].freq * 3))
 
   const [answered, setAnswered] = useState<Result & { el: string } | null>(null)
   const res = answered?.el === next ? answered : null
@@ -52,7 +50,6 @@ export function Learn({ store, setStore, open, now, autoSpeak }: { store: Store;
   if (!next) return <div className="empty">All {ORDER.length} items learned.</div>
   return (
     <div className="learn">
-      {why && <p className="why">Here as a part of {why}, coming {left.indexOf(why) === 1 ? 'next' : 'soon'}.</p>}
       {KANJI[next] && !res ? <Quiz key={next} el={next} onDone={r => { track('quiz', { in: 'learn', el: next, ...r, p: pOf(store, next), mu: mu(store), lam: lam(store) }); setAnswered({ ...r, el: next }) }} /> : (
         <div className="revealed">
           <Card el={next} store={store} open={open} autoSpeak={autoSpeak} got={res ?? undefined} />
