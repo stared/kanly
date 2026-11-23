@@ -6,19 +6,19 @@ import { BEGINNER, mu, reach } from './levels'
 import { Browse } from './Browse'
 import { Graph } from './Graph'
 import { Reader } from './Reader'
-import { Analysis } from './Analysis'
+import { About } from './About'
 import { Settings } from './Settings'
 import { track } from './track'
 import { applyUpdate } from './update'
 import { loadAutoSpeak, saveAutoSpeak } from './speech'
 
-type Tab = 'learn' | 'kanji' | 'graph' | 'reader' | 'analysis' | 'settings' | 'card'
-const TABS: Tab[] = ['learn', 'kanji', 'graph', 'reader', 'analysis']
+type Tab = 'learn' | 'kanji' | 'graph' | 'reader' | 'about' | 'settings' | 'card'
+const TABS: Tab[] = ['learn', 'kanji', 'graph', 'reader', 'about']
 
 export default function App() {
   const [store, setStore] = useState<Store>(load)
-  // #review: a tab of its own until reviews joined the one stream
-  const fromHash = () => (location.hash.slice(1).split('/')[0].replace(/^review$/, 'learn') as Tab) || 'learn'
+  // #analysis: the about tab's name until it was made to say what the app is; #review: a tab of its own until reviews joined the one stream
+  const fromHash = () => (location.hash.slice(1).split('/')[0].replace(/^analysis$/, 'about').replace(/^review$/, 'learn') as Tab) || 'learn'
   const [tab, setTab] = useState<Tab>(fromHash)
   useEffect(() => { track('tab', { tab }); setPeek([]); applyUpdate() }, [tab])
   const [hash, setHash] = useState(location.hash)
@@ -66,7 +66,7 @@ export default function App() {
         {tab === 'kanji' && <Browse store={store} open={open} />}
         {tab === 'graph' && <Graph store={store} open={open} />}
         {tab === 'reader' && <Reader store={store} open={open} />}
-        {tab === 'analysis' && <Analysis store={store} open={open} />}
+        {tab === 'about' && <About store={store} open={open} />}
         {tab === 'card' && <Card key={hash} el={decodeURIComponent(hash.split('/')[1] ?? '日')} store={store} open={open} autoSpeak={autoSpeak} />}
         {tab === 'settings' && <Settings store={store} onReplace={setStore} autoSpeak={autoSpeak} setAutoSpeak={setAutoSpeak} />}
       </main>
