@@ -198,10 +198,15 @@ nav button.on, .gear.on { color: var(--ink); }
 .grade { display: flex; gap: 12px; }
 
 /* browse */
-.search { font: 15px var(--jp); padding: 6px 2px; border: 0; border-bottom: 1.5px solid var(--faint); background: transparent; color: var(--ink); outline: none; width: 190px; }
+/* 16 px: a phone zooms the page into a field with smaller type */
+.search { font: 16px var(--jp); padding: 6px 2px; border: 0; border-bottom: 1.5px solid var(--faint); background: transparent; color: var(--ink); outline: none; width: 190px; border-radius: 0; }
 .search:focus { border-color: var(--ink); }
 .controls { display: flex; gap: 10px; align-items: center; }
-.controls .search { flex: 1 1 120px; min-width: 0; max-width: 240px; margin-right: auto; }
+.controls .search { flex: 1 1 120px; min-width: 0; max-width: 260px; margin-right: auto; }
+/* a phone: the field takes the row (its hint was cut short), the dropdowns go under it, in type a phone does not zoom into */
+@media (max-width: 560px) { .controls { flex-wrap: wrap; } .controls .search { flex-basis: 100%; max-width: none; } }
+@media (hover: none) and (pointer: coarse) { select { font-size: 16px; } }
+.browse .none { margin-top: 16px; }
 /* a choice within a screen is a dropdown showing its current value (the top bar is plain text) */
 select { font: 13px system-ui, sans-serif; color: var(--ink); background: var(--card); border: 1px solid var(--faint); border-radius: 6px; padding: 4px 6px; min-width: 0; }
 .pick { align-self: flex-start; }

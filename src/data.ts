@@ -141,3 +141,54 @@ export function romaji(r: string, on = /^[ァ-ヶー]+$/.test(r)): string {
   }
   return on ? out.replace(/ou|oo/g, 'ō').replace(/uu/g, 'ū') : out
 }
+
+/** Other ways to type a kana than Hepburn's: kunrei (si, ti, tu, hu, zi), a keyboard's (wo, du, nn). */
+const TYPED: Record<string, string[]> = { し: ['si'], ち: ['ti'], つ: ['tu'], ふ: ['hu'], じ: ['zi'], ぢ: ['di', 'zi'], づ: ['du', 'dzu'], を: ['wo'], ん: ["n'", 'nn'] }
+const LONG: Record<string, string[]> = { a: ['aa'], i: ['ii'], u: ['uu'], e: ['ee', 'ei'], o: ['ou', 'oo'] }
+/** A long vowel under a macron, or a circumflex as some write it. */
+const MACRON: Record<string, string[]> = Object.fromEntries([...'āīūēō'].map((c, n) => [c, LONG['aiueo'[n]]]).concat([...'âîûêô'].map((c, n) => [c, LONG['aiueo'[n]]])))
+
+/** The ways to type the kana that k starts with, each with the number of kana it covers; before: the kana ahead of it. */
+function spellings(k: string, before: string): [string, number][] {
+  const c = k[0], y = YOON[k[1]]
+  const own = ROMA[c] ? [ROMA[c], ...(TYPED[c] ?? [])] : []
+  if (c === 'ー') return [[romaji(before, false).at(-1) ?? '', 1]]
+  if (c === 'っ') {
+    // the next consonant doubled; before ch also t (matcha)
+    return spellings(k.slice(1), '').filter(([s]) => /^[^aiueon]/.test(s))
+      .flatMap(([s, n]): [string, number][] => [[s[0] + s, n + 1], ...(s.startsWith('ch') ? [['t' + s, n + 1] as [string, number]] : [])])
+  }
+  if (y) return own.filter(s => s.endsWith('i')).flatMap((s): [string, number][] => {
+    const stem = s.slice(0, -1)  // sh + a, k + y + a
+    return /^(sh|ch|j)$/.test(stem) ? [[stem + y, 2], ...(stem === 'j' ? [['jy' + y, 2] as [string, number]] : [])] : [[stem + 'y' + y, 2]]
+  })
+  return own.map(s => [s, 1])
+}
+
+/** What was typed, made plain: full-width letters and half-width kana as usual ones, a typographic apostrophe as ', lower
+ * case, katakana as hiragana, no spaces, dots or hyphens. The last one is kept: a search asks about 2,500 readings at once. */
+let typedAs: [string, string] = ['', '']
+function plainTyped(typed: string): string {
+  if (typedAs[0] !== typed) typedAs = [typed, hira(typed.normalize('NFKC').toLowerCase().replace(/[’‘`]/g, "'")).replace(/[\s.\-]/g, '')]
+  return typedAs[1]
+}
+
+/** Does what was typed spell this reading? Romaji as Hepburn writes it or as a keyboard takes it (shi or si, ja or zya,
+ * ō or ou, a doubled consonant for っ; ん as n, nn or n', so that both onna and on'na are おんな and genin is げんいん
+ * as well as げにん), or kana. Long vowels count: tokyo is not とうきょう. prefix: typed so far, the reading may go on. */
+export function reads(typed: string, reading: string, prefix = false): boolean {
+  const want = hira(reading.replace(/[.\-]/g, ''))
+  const go = (s: string, i: number, j: number): boolean => {
+    if (i === s.length) return prefix || j === want.length || want.slice(j) === 'っ'  // a reading cut short (ガッ), which romaji() writes as ga
+    if (j === want.length) return false
+    if (s[i] === want[j] && go(s, i + 1, j + 1)) return true  // typed in kana
+    // a macron stands for two kana, and ō for either of ou and oo: spelled out when the match gets to its syllable
+    // (not all of them up front: eight ō in a pasted line made 256 lines to try against every reading)
+    const m = [...s.slice(i, i + 4)].findIndex(c => MACRON[c])
+    if (m >= 0) return MACRON[s[i + m]].some(two => go(s.slice(0, i + m) + two + s.slice(i + m + 1), i, j))
+    const rest = s.slice(i)
+    return spellings(want.slice(j), want.slice(0, j)).some(([sp, n]) => rest.startsWith(sp) ? go(s, i + sp.length, j + n) : prefix && sp.startsWith(rest))
+  }
+  const s = plainTyped(typed)
+  return !!s && go(s, 0, 0)
+}
