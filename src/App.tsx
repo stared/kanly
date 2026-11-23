@@ -3,7 +3,7 @@ import { load, save, type Store } from './srs'
 import { Card, TipLayer } from './Card'
 import { Learn } from './Learn'
 import { BEGINNER, mu, reach } from './levels'
-import { Review, dueIds } from './Review'
+import { Review } from './Review'
 import { Browse } from './Browse'
 import { Graph } from './Graph'
 import { Reader } from './Reader'
@@ -44,13 +44,12 @@ export default function App() {
   }, [])
 
   const open = (el: string) => { track('open', { el }); setPeek(p => p[p.length - 1] === el ? p : [...p, el]) }
-  const due = dueIds(store, now).length
 
   return (
     <div className="app">
       <header>
         <nav>
-          {TABS.map(t => <button key={t} className={tab === t ? 'on' : ''} onClick={() => setTab(t)}>{t}{t === 'review' && due > 0 && <span className="due" aria-label={`${due} due`} />}</button>)}
+          {TABS.map(t => <button key={t} className={tab === t ? 'on' : ''} onClick={() => setTab(t)}>{t}</button>)}
         </nav>
         <div className="end">
           {(Object.keys(store.cards).length > 0 || mu(store) > BEGINNER) && <span className="reach">you read {Math.round(reach(store) * 100)}% of text</span>}
