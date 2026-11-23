@@ -193,7 +193,7 @@ export function KanjiTip({ c, reading, sense, className }: { c: string; reading?
   return <span className={'kt' + (className ? ' ' + className : '')} onPointerEnter={e => { if (hovers(e)) show(e, false) }} onPointerLeave={e => { if (hovers(e)) hideTip() }} onClick={e => { if (tapped()) show(e, true) }}>{c}</span>
 }
 
-function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
+export function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
   let n = 0  // which kanji of the word, for its sense here
   const sense = () => w.senses?.[n++]
   // what the parts say, from what each kanji means in the word, with kana between kanji in romaji: 思い出 think-(i)-out;

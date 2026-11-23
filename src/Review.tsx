@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { KANJI, gloss } from './data'
 import { answer, DAY, MIN, type Store } from './srs'
 import { Glyph, Parts, Readings, Story, treeOf } from './Card'
 import { Quiz, type Result } from './Quiz'
+import { WordQuiz } from './WordQuiz'
+import { reviewWord } from './words'
 import { speak, spoken } from './speech'
 import { track } from './track'
 
@@ -15,16 +17,19 @@ export function Review({ store, setStore, open, now, autoSpeak }: { store: Store
   const due = dueIds(store, now)
   const [shown, setShown] = useState(false)
   const id = due[0]
-  // a kanji is quizzed (meaning among 4, then reading among 4) and passes only with both right; a part is self-graded
+  // a kanji that has reached days is reviewed through a word, typed (src/words.ts); one still in its first steps is quizzed
+  // by itself (meaning among 4, then reading among 4); both pass only with meaning and reading right; a part is self-graded
+  const word = useMemo(() => id ? reviewWord(store, id) : undefined, [id, store])
   const [quizzed, setQuizzed] = useState<Result & { id: string } | null>(null)
   const res = quizzed?.id === id ? quizzed : null
   const passed = !!res?.meaning && !!res.reading
 
   const grade = (ok: boolean) => { if (!KANJI[id]) track('grade', { el: id, ok }); setStore(answer(store, id, ok, Date.now())); setShown(false) }
-  useEffect(() => { if ((shown || res) && autoSpeak && id) speak(spoken(id)) }, [shown, id, !!res])
+  useEffect(() => { if ((shown || res) && autoSpeak && id && !word) speak(spoken(id)) }, [shown, id, !!res])
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
       if (!id) return
+      if (word) return  // typed: the word's own form takes the keys
       if (KANJI[id]) { if (res && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); grade(passed) } return }
       if (!shown && (e.key === ' ' || e.key === 'Enter')) { e.preventDefault(); setShown(true) }
       else if (shown && (e.key === '1' || e.key === 'ArrowLeft')) grade(false)
@@ -46,6 +51,11 @@ export function Review({ store, setStore, open, now, autoSpeak }: { store: Store
 
   const k = KANJI[id]
   const t = treeOf(id)
+  if (k && word) return (
+    <div className="review">
+      <WordQuiz key={id} el={id} w={word} card={store.cards[id]} open={open} autoSpeak={autoSpeak} onDone={grade} />
+    </div>
+  )
   if (k && !res) return (
     <div className="review">
       <Quiz key={id} el={id} unknown="forgot" onDone={r => { track('quiz', { in: 'review', el: id, ...r, card: store.cards[id] }); setQuizzed({ ...r, id }) }} />
