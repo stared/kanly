@@ -76,6 +76,8 @@ nav button.on, .gear.on { color: var(--ink); }
 .learning { --line: var(--muted); }
 .known { --line: var(--good); }
 .chip.new, .node.new .ch, .alike-item.new .ch { color: var(--muted); }
+/* the whole tile shows the tooltip, not the glyph alone: between two glyphs of the grid there was a gap with none */
+.cell .kt, .chip .kt { display: block; line-height: 34px; }
 
 /* the card: the kanji fills the left, what explains it stacks on the right */
 .card { container-type: inline-size; position: relative; display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1040px; margin: 0 auto; }

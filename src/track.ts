@@ -11,9 +11,27 @@ export function events(): Ev[] {
   return all!
 }
 
+/* The log is one string of up to a few MB, and writing it out takes the longer the more there is in it. An event
+must not hold up what caused it (a tooltip waited for the one before it to be logged), so the log is kept in memory
+and written a moment later, when the browser is idle, and when the page is left. */
+let unsaved: ReturnType<typeof setTimeout> | undefined
+const write = () => {
+  clearTimeout(unsaved)
+  unsaved = undefined
+  try { localStorage.setItem(KEY, JSON.stringify(all ?? [])) } catch {}
+}
+const idle: (f: () => void) => void = typeof requestIdleCallback === 'function' ? f => requestIdleCallback(f, { timeout: 5000 }) : f => f()
+const writeSoon = () => { unsaved ??= setTimeout(() => idle(write), 2000) }
+if (typeof document !== 'undefined') {
+  const now = () => { if (unsaved !== undefined) write() }
+  addEventListener('pagehide', now)
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') now() })
+}
+
+/** Replace the log (an import, a reset): written at once. */
 export function setEvents(evs: Ev[]) {
   all = evs.slice(-MAX)
-  try { localStorage.setItem(KEY, JSON.stringify(all)) } catch {}
+  write()
 }
 
 /** Also sent to PostHog, when the build has a key (VITE_POSTHOG_KEY: the deployed site, not forks nor local dev). */
@@ -40,6 +58,9 @@ export function startAnalytics() {
 }
 
 export const track = (e: string, data: Record<string, unknown> = {}) => {
-  setEvents([...events(), { t: Date.now(), e, ...data }])
+  const log = events()
+  log.push({ t: Date.now(), e, ...data })
+  if (log.length > MAX) log.splice(0, log.length - MAX)
+  writeSoon()
   if (KEY_PH) send ? send(e, data) : waiting.push([e, data])
 }
