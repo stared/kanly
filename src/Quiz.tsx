@@ -105,7 +105,9 @@ export function Quiz({ el, onDone, unknown = 'new to me' }: { el: string; onDone
     <div className="quiz">
       <div className="prompt"><Glyph el={el} /></div>
       <p className="sub">{stage === 'meaning' ? 'What does it mean?' : 'How is it read?'}</p>
-      <div className="choices">
+      {/* a new question, new buttons: one kept from the meaning question (the right answer is in both) would stay
+          focused, and on a phone lit as if touched: the right reading, marked before any answer */}
+      <div className="choices" key={stage}>
         {list.map((c, i) => (
           <button key={c} className={'choice' + (flash && c === el ? ' right' : flash === c ? ' wrong' : '')} onClick={() => pick(c)}>
             <span className="n">{i + 1}</span>
