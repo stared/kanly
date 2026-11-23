@@ -1,7 +1,7 @@
 import { expect, it } from 'vitest'
 import { KANJI } from './data'
 import { standing, startAt } from './levels'
-import { knewIt, learn, schedule, type Store } from './srs'
+import { asked, knewIt, learn, type Store } from './srs'
 import { accepted, entries, glosses, meant, readAs, reviewWord } from './words'
 
 const blank: Store = { cards: {}, log: [] }
@@ -27,12 +27,12 @@ it('takes a typed meaning as the gloss, an alternative of it, with or without wh
     expect(meant(typed, gloss), `${typed} ≠ ${gloss}`).toBe(false)
 })
 
-it('reviews a kanji that has reached days through a word of known kanji, a different one each time', () => {
+it('asks a kanji whose memory has reached a day through a word of known kanji, a different one each time', () => {
   expect(reviewWord(blank, '本')).toBeUndefined()  // no card
   const fresh = learn(blank, '本', 0)
-  expect(reviewWord(fresh, '本')).toBeUndefined()  // minutes apart: asked by itself
-  // days apart, but a beginner knows no other kanji: no word to ask
-  const alone: Store = { ...blank, cards: { 本: { ...fresh.cards['本'], ivl: 3, reps: 3 } } }
+  expect(reviewWord(fresh, '本')).toBeUndefined()  // a memory of minutes: asked by itself
+  // a memory of days, but a beginner knows no other kanji: no word to ask
+  const alone: Store = { ...blank, cards: { 本: { ...fresh.cards['本'], s: 3, reps: 3 } } }
   expect(reviewWord(alone, '本')).toBeUndefined()
   // with 日 seen too, the two words of 日 and 本 alone can be asked, in turn
   const two = learn(alone, '日', 0)
@@ -49,10 +49,10 @@ it('reviews a kanji that has reached days through a word of known kanji, a diffe
     expect([...w.w].every(c => c === '本' || standing(s, c) !== 'new')).toBe(true)
     expect(w.w).toContain('本')
     seen.add(w.w)
-    s = { ...s, cards: { ...s.cards, 本: schedule(s.cards['本'], true, 0) } }
+    s = { ...s, cards: { ...s.cards, 本: asked(s.cards['本'], true, 0) } }
   }
   expect(seen.size).toBe(6)
-  expect(reviewWord({ ...n2, cards: { ...n2.cards, 本: schedule(n2.cards['本'], false, 0) } }, '本')).toBeUndefined()  // failed: back to the kanji itself
+  expect(reviewWord({ ...n2, cards: { ...n2.cards, 本: asked(n2.cards['本'], false, 0) } }, '本')).toBeUndefined()  // failed: back to the kanji itself
 })
 
 it('takes either reading of a word that has two, and asks the meaning of the one typed', () => {

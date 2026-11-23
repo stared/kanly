@@ -13,7 +13,7 @@ pnpm test
 
 ## What it does
 
-- **Learn and review**: every kanji is a quiz first, its meaning among four, then its reading among four; then its card: parts, story, readings with how often each is used, stroke order, the most used words. Once a kanji is days between reviews, it is reviewed through one of its words (日本, 先生): you type the reading, in kana or romaji, and the meaning.
+- **Learn**: one stream of new kanji and of ones to recall. A new kanji is a quiz first, its meaning among four, then its reading among four; then its card: parts, story, readings with how often each is used, stroke order, the most used words. There are no fixed review intervals: a card has a memory time, the chance of recall falls as exp(−t/s), and what is asked next, new or old, is what adds most to the text you can read per effort (`src/srs.ts`, `src/levels.ts`). A kanji remembered for a day or more is asked through one of its words (日本, 先生): you type the reading, in kana or romaji, and the meaning.
 - **Placement**: a learner who knows μ kanji knows the one ranked k with probability Φ((μ − k)/T); μ, T and the mix between a curriculum order and a frequency order are fitted after every answer. Next comes the kanji with the most usefulness per effort. Details in `src/levels.ts`.
 - **Reader**: paste Japanese text, get furigana only over kanji you have not learned.
 - **Analysis**: coverage per learning order, the most productive parts, how reliable sound families are.

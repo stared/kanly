@@ -3,7 +3,6 @@ import { load, save, type Store } from './srs'
 import { Card, TipLayer, hideTip } from './Card'
 import { Learn } from './Learn'
 import { BEGINNER, mu, reach } from './levels'
-import { Review } from './Review'
 import { Browse } from './Browse'
 import { Graph } from './Graph'
 import { Reader } from './Reader'
@@ -13,12 +12,13 @@ import { track } from './track'
 import { applyUpdate } from './update'
 import { loadAutoSpeak, saveAutoSpeak } from './speech'
 
-type Tab = 'learn' | 'review' | 'kanji' | 'graph' | 'reader' | 'analysis' | 'settings' | 'card'
-const TABS: Tab[] = ['learn', 'review', 'kanji', 'graph', 'reader', 'analysis']
+type Tab = 'learn' | 'kanji' | 'graph' | 'reader' | 'analysis' | 'settings' | 'card'
+const TABS: Tab[] = ['learn', 'kanji', 'graph', 'reader', 'analysis']
 
 export default function App() {
   const [store, setStore] = useState<Store>(load)
-  const fromHash = () => (location.hash.slice(1).split('/')[0] as Tab) || 'learn'
+  // #review: a tab of its own until reviews joined the one stream
+  const fromHash = () => (location.hash.slice(1).split('/')[0].replace(/^review$/, 'learn') as Tab) || 'learn'
   const [tab, setTab] = useState<Tab>(fromHash)
   useEffect(() => { track('tab', { tab }); setPeek([]); applyUpdate() }, [tab])
   const [hash, setHash] = useState(location.hash)
@@ -52,7 +52,7 @@ export default function App() {
           {TABS.map(t => <button key={t} className={tab === t ? 'on' : ''} onClick={() => setTab(t)}>{t}</button>)}
         </nav>
         <div className="end">
-          {(Object.keys(store.cards).length > 0 || mu(store) > BEGINNER) && <span className="reach">you read {Math.round(reach(store) * 100)}% of text</span>}
+          {(Object.keys(store.cards).length > 0 || mu(store) > BEGINNER) && <span className="reach">you read {Math.round(reach(store, now) * 100)}% of text</span>}
           <button className={'gear' + (tab === 'settings' ? ' on' : '')} onClick={() => setTab('settings')} aria-label="settings">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"><path d="M10.3 2.5h3.4l.5 2.6 1.6.9 2.5-.9 1.7 2.9-2 1.7v1.8l2 1.7-1.7 2.9-2.5-.9-1.6.9-.5 2.6h-3.4l-.5-2.6-1.6-.9-2.5.9-1.7-2.9 2-1.7v-1.8l-2-1.7 1.7-2.9 2.5.9 1.6-.9z" /><circle cx="12" cy="12" r="3" /></svg>
           </button>
@@ -62,8 +62,7 @@ export default function App() {
         </div>
       </header>
       <main>
-        {tab === 'learn' && <Learn store={store} setStore={setStore} open={open} now={now} autoSpeak={autoSpeak} />}
-        {tab === 'review' && <Review store={store} setStore={setStore} open={open} now={now} autoSpeak={autoSpeak} />}
+        {tab === 'learn' && <Learn store={store} setStore={setStore} open={open} autoSpeak={autoSpeak} />}
         {tab === 'kanji' && <Browse store={store} open={open} />}
         {tab === 'graph' && <Graph store={store} open={open} />}
         {tab === 'reader' && <Reader store={store} open={open} />}

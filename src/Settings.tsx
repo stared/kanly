@@ -1,4 +1,4 @@
-import type { Store } from './srs'
+import { read, type Store } from './srs'
 import { events, setEvents } from './track'
 import { useState } from 'react'
 import { applyTheme, loadTheme, type Theme } from './theme'
@@ -19,7 +19,7 @@ export function Settings({ store, onReplace, autoSpeak, setAutoSpeak }: { store:
   }
   const importIt = (f?: File) => f?.text().then(t => {
     const { events: evs, ...s } = JSON.parse(t)
-    if (s?.cards && s?.log) { onReplace(s); if (evs) setEvents(evs) }
+    if (s?.cards && s?.log) { onReplace(read(s)); if (evs) setEvents(evs) }
   })
   const [theme, setTheme] = useState<Theme>(loadTheme)
   return (

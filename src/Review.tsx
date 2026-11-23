@@ -1,94 +1,59 @@
 import { useEffect, useMemo, useState } from 'react'
 import { KANJI, gloss } from './data'
-import { answer, DAY, MIN, type Store } from './srs'
+import { answer, recall } from './srs'
 import { Glyph, Parts, Readings, Story, treeOf } from './Card'
 import { Quiz, type Result } from './Quiz'
 import { WordQuiz } from './WordQuiz'
 import { reviewWord } from './words'
 import { speak, spoken } from './speech'
 import { track } from './track'
+import type { Item } from './Learn'
 
-export const dueIds = (s: Store, now: number) =>
-  Object.values(s.cards).filter(c => c.due <= now).sort((a, b) => a.due - b.due).map(c => c.id)
-
-const inTime = (ms: number) => ms < 60 * MIN ? `${Math.max(1, Math.round(ms / MIN))} min` : ms < DAY ? `${Math.round(ms / 3600_000)} h` : `${Math.round(ms / DAY)} d`
-
-export function Review({ store, setStore, open, now, autoSpeak }: { store: Store; setStore: (s: Store) => void; open: (el: string) => void; now: number; autoSpeak: boolean }) {
-  const due = dueIds(store, now)
+/** A card again. A kanji whose memory has reached a day is asked through one of its words, typed (words.ts); a shorter
+ * one by itself, meaning among four then reading among four; both pass only with meaning and reading right. A part is
+ * shown and graded by the learner. */
+export function Review({ id, store, open, autoSpeak, done }: Item & { id: string }) {
+  const word = useMemo(() => reviewWord(store, id), [id])
+  const [res, setRes] = useState<Result | null>(null)
   const [shown, setShown] = useState(false)
-  const id = due[0]
-  // a kanji that has reached days is reviewed through a word, typed (src/words.ts); one still in its first steps is quizzed
-  // by itself (meaning among 4, then reading among 4); both pass only with meaning and reading right; a part is self-graded
-  const word = useMemo(() => id ? reviewWord(store, id) : undefined, [id, store])
-  const [quizzed, setQuizzed] = useState<Result & { id: string } | null>(null)
-  const res = quizzed?.id === id ? quizzed : null
+  const k = KANJI[id], t = treeOf(id)
   const passed = !!res?.meaning && !!res.reading
-
-  const grade = (ok: boolean) => { if (!KANJI[id]) track('grade', { el: id, ok }); setStore(answer(store, id, ok, Date.now())); setShown(false) }
-  useEffect(() => { if ((shown || res) && autoSpeak && id && !word) speak(spoken(id)) }, [shown, id, !!res])
+  const grade = (ok: boolean) => { if (!k) track('grade', { el: id, ok }); done(answer(store, id, ok, Date.now())) }
+  useEffect(() => { if ((shown || res) && autoSpeak && !word) speak(spoken(id)) }, [shown, !!res])
   useEffect(() => {
-    const k = (e: KeyboardEvent) => {
-      if (!id) return
-      if (word) return  // typed: the word's own form takes the keys
-      if (KANJI[id]) { if (res && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); grade(passed) } return }
+    const key = (e: KeyboardEvent) => {
+      if (word || e.repeat) return  // typed: the word's own form takes the keys
+      if (k) { if (res && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); grade(passed) } return }
       if (!shown && (e.key === ' ' || e.key === 'Enter')) { e.preventDefault(); setShown(true) }
       else if (shown && (e.key === '1' || e.key === 'ArrowLeft')) grade(false)
       else if (shown && (e.key === '2' || e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter')) { e.preventDefault(); grade(true) }
     }
-    addEventListener('keydown', k)
-    return () => removeEventListener('keydown', k)
+    addEventListener('keydown', key)
+    return () => removeEventListener('keydown', key)
   })
-
-  if (!id) {
-    const next = Object.values(store.cards).sort((a, b) => a.due - b.due)[0]
-    return (
-      <div className="empty">
-        {next ? <>Nothing due. Next review in {inTime(next.due - now)}.</> : <>Nothing to review yet. Learn a few kanji first.</>}
-        <p className="sub small"><a href="#learn">Learn more</a></p>
-      </div>
-    )
-  }
-
-  const k = KANJI[id]
-  const t = treeOf(id)
-  if (k && word) return (
-    <div className="review">
-      <WordQuiz key={id} el={id} w={word} card={store.cards[id]} open={open} autoSpeak={autoSpeak} onDone={grade} />
-    </div>
-  )
-  if (k && !res) return (
-    <div className="review">
-      <Quiz key={id} el={id} unknown="forgot" onDone={r => { track('quiz', { in: 'review', el: id, ...r, card: store.cards[id] }); setQuizzed({ ...r, id }) }} />
-    </div>
-  )
+  const card = store.cards[id]
+  if (k && word) return <div className="review"><WordQuiz el={id} w={word} card={card} open={open} autoSpeak={autoSpeak} onDone={grade} /></div>
+  if (k && !res) return <div className="review"><Quiz el={id} unknown="forgot" onDone={r => { track('quiz', { in: 'review', el: id, ...r, card, p: recall(card, Date.now()) }); setRes(r) }} /></div>
   if (k && res) return (
     <div className="review">
-      <div className="quiz">
-      <div className="prompt"><Glyph el={id} /></div>
-      </div>
+      <div className="quiz"><div className="prompt"><Glyph el={id} /></div></div>
       <div className="back">
         <h2 className={res.meaning ? 'got' : ''}>{gloss(id)}</h2>
         {t && <Parts t={t} store={store} open={open} />}
         <Story el={id} />
         <Readings ch={id} className={res.reading ? 'got' : ''} />
-        <div className="grade">
-          <button className={'next ' + (passed ? 'good' : 'bad')} onClick={() => grade(passed)}>{passed ? 'next' : 'again soon, next'} <span className="key">↵</span></button>
-        </div>
+        <div className="grade"><button className={'next ' + (passed ? 'good' : 'bad')} onClick={() => grade(passed)}>{passed ? 'next' : 'again soon, next'} <span className="key">↵</span></button></div>
       </div>
     </div>
   )
   return (
     <div className="review">
-      <p className="progress">{due.length} due. Recall the meaning{k ? ' and a reading' : ''}.</p>
       <div className="prompt"><Glyph el={id} /></div>
-      {!shown ? (
-        <button className="next" onClick={() => setShown(true)}>show <span className="key">space</span></button>
-      ) : (
+      {!shown ? <button className="next" onClick={() => setShown(true)}>show <span className="key">space</span></button> : (
         <div className="back">
           <h2>{gloss(id)}</h2>
           {t && <Parts t={t} store={store} open={open} />}
           <Story el={id} />
-          {k && <Readings ch={id} />}
           <div className="grade">
             <button className="next bad" onClick={() => grade(false)}>again <span className="key">1</span></button>
             <button className="next good" onClick={() => grade(true)}>knew it <span className="key">2</span></button>

@@ -1,5 +1,5 @@
 import { COMP, D, KANJI, ORDER, POS, extraStrokes, type Tree } from './data'
-import { status, type Status, type Store } from './srs'
+import { B, recall, status, type Status, type Store } from './srs'
 
 /*
 What to learn next, at any level.
@@ -107,14 +107,80 @@ export const lam = (s: Store) => s.lam ?? LAMBDA
 /** p(known) for this learner. */
 export const pOf = (s: Store, el: string) => pKnown(el, mu(s), temp(s), lam(s))
 
+/*
+One queue. What is asked next is one item, never seen or seen before: the one with the largest weight, in logs plus
+τ g as above.
+
+A kanji never seen has the weight above: f (1 − p) over the effort, p the chance it was known before.
+
+A card's turn comes as its recall (srs.ts) falls. With q the recall lost, 1 − exp(−t/s), its weight is
+
+  w = f exp(−(q̂ − q) / δ)   while q < q̂,      w = f (1 + q − q̂)   from then on.
+
+Until its recall has fallen by q̂ a card is put off exponentially (a Boltzmann factor, δ its temperature in units
+of recall); from then on it goes before any new kanji no more often written. A card written r times more often
+than the next new kanji comes up ln(r) δ sooner: at q̂ = 0.07, δ = 0.01 the most written kanji are asked at about
+97% recall, the rarest at 93%.
+
+Why q̂ and not the recall at which a question does the most for the memory: a recall at chance 1 − q multiplies
+the memory time by 1 + B q, so the memory gained per effort, (1 − q) ln(1 + B q) / (q + (1 − q) ρ), peaks at
+q* ≈ 0.2 (Q_BEST). But a learner comes back once a day, not at the best moment, and what waits a day at q = 0.2
+is often gone. Simulated (memory.test.ts: 40 units of effort a day for 120 days, memory following srs.ts;
+GRID=1 prints the other values tried), read at the start of a session:
+
+                                        cards   text on cards readable   questions on cards failed
+  a beginner            ladder            404   63%                       39%
+                        q̂ = 0.07          710   81%                       24%
+                        q̂ = 0.2           625   74%                       39%
+  knows 800 kanji       ladder            650   13%                       54%
+  (400 never asked)     q̂ = 0.07          966   24%                       21%
+
+δ has to stay well under q̂: at δ = 0.02 with q̂ = 0.05 the most written cards are asked over and over at more
+than 95% recall and little new is learned. The ladder is the scheduler this replaced: 1 minute, 10 minutes, a
+day, then × 2.5, whatever is due first. The memory simulated is the model's own, so this shows the queue uses
+the model well, not that the model is right about people.
+*/
+const effortOf = (q: number, teach = 1) => q * teach + (1 - q) * RHO
+/** The recall lost, q*, at which asking a card gains the most memory per effort (for the record: the queue asks sooner). */
+export const Q_BEST = Array.from({ length: 99 }, (_, i) => (i + 1) / 100)
+  .reduce((best, q) => (1 - q) * Math.log(1 + B * q) / effortOf(q) > (1 - best) * Math.log(1 + B * best) / effortOf(best) ? q : best, 0.01)
+/** The recall lost at which a card's turn comes, and how sharply it is put off before that. */
+export const Q_ASK = 0.07
+export const DELTA = 0.01
+
+/** ln of the weight of a kanji never seen, of use f, not known with chance q, that takes `teach` to learn. */
+export const lnNew = (f: number, q: number, teach: number) => Math.log(f * 1e6 + 1e-3) + Math.log(q + 1e-30) - Math.log(effortOf(q, teach))
+/** ln of the weight of a card of use f whose recall has fallen by q. */
+export const lnCard = (f: number, q: number, delta = DELTA, at = Q_ASK) => Math.log(f * 1e6 + 1e-3) - Math.max(0, at - q) / delta + Math.log(1 + Math.max(0, q - at))
+
+/** The use of reading an item: a kanji's share of the kanji in text; for a part, that of the most written kanji it is in. */
+const use = (el: string) => KANJI[el]?.freq ?? Math.max(0, ...(COMP[el]?.usedIn ?? []).map(c => KANJI[c]?.freq ?? 0))
+
+/** What to ask now: a card (seen: true) or the next new item. */
+export function next(s: Store, now: number, tau = s.tau ?? 0): { el: string; seen: boolean } | undefined {
+  const { els, w } = fresh(s, tau, 1)
+  let best = '', top = -Infinity
+  for (const c of Object.values(s.cards)) {
+    // the noise changes with every answer, or the same card would be favoured for good
+    const v = lnCard(use(c.id), 1 - recall(c, now)) + tau * gumbel(c.id, (s.seed ?? 0) + c.reps + 1)
+    if (v > top) { top = v; best = c.id }
+  }
+  if (best && (top > w || !els.length)) return { el: best, seen: true }
+  return els.length ? { el: els[0], seen: false } : undefined
+}
+
 /** The next few items to learn: a kanji, preceded by the parts it needs that are likely new. */
-export function upcoming(s: Store, tau: number, n = 9): string[] {
+export const upcoming = (s: Store, tau: number, n = 9): string[] => fresh(s, tau, n).els
+
+/** The same, with the weight of the first kanji among them (−∞ when there is nothing left to learn). */
+function fresh(s: Store, tau: number, n: number): { els: string[]; w: number } {
   const m = mu(s), t = temp(s), l = lam(s)
   const seen = new Set(Object.keys(s.cards))
   const shapes = new Set<string>()
   seen.forEach(id => KANJI[id] ? walk(KANJI[id].tree, shapes) : shapes.add(id))
   const known = (el: string) => shapes.has(el) || pKnown(el, m, t, l) >= 0.5
   const out: string[] = []
+  let first = -Infinity
   while (out.length < n) {
     let best = '', top = -Infinity
     for (const [ch, k] of Object.entries(KANJI)) {
@@ -122,10 +188,11 @@ export function upcoming(s: Store, tau: number, n = 9): string[] {
       // very likely known: not worth a card, however useful (an N2 learner is never asked about 時)
       const p = pKnown(ch, m, t, l)
       if (p > SURE) continue
-      const w = Math.log((1 - p) * (k.freq * 1e6 + 1e-3) + 1e-30) - Math.log((1 - p) * cost(k.tree, known) ** ALPHA + p * RHO) + tau * gumbel(ch, s.seed ?? 0)
+      const w = lnNew(k.freq, 1 - p, cost(k.tree, known) ** ALPHA) + tau * gumbel(ch, s.seed ?? 0)
       if (w > top) { top = w; best = ch }
     }
     if (!best) break
+    if (!out.length) first = top
     const parts = new Set<string>()
     walk(KANJI[best].tree, parts)
     // a part that is not a kanji gets its own card only for beginners, and only if it recurs: 卜 (上 外 占 …)
@@ -134,7 +201,7 @@ export function upcoming(s: Store, tau: number, n = 9): string[] {
     for (const el of [...need, best]) { out.push(el); seen.add(el) }
     walk(KANJI[best].tree, shapes)
   }
-  return out.slice(0, n)
+  return { els: out.slice(0, n), w: first }
 }
 
 const MUS = Array.from({ length: 241 }, (_, i) => -1600 + 20 * i)
@@ -185,6 +252,6 @@ export function update(s: Store, el: string, knewIt: boolean): Pick<Store, 'mu' 
 export type Standing = Status | 'assumed'
 export const standing = (s: Store, el: string): Standing => s.cards[el] ? status(s, el) : pOf(s, el) > 0.5 ? 'assumed' : 'new'
 
-/** Share of kanji in text the learner reads: what they have seen, plus what they likely knew before. */
-export const reach = (s: Store) =>
-  Object.entries(KANJI).reduce((a, [ch, k]) => a + k.freq * (s.cards[ch] ? 1 : pOf(s, ch)), 0)
+/** Share of the kanji in text the learner can read now: each card by its chance of recall, the rest by the chance it was known before. */
+export const reach = (s: Store, now = Date.now()) =>
+  Object.entries(KANJI).reduce((a, [ch, k]) => a + k.freq * (s.cards[ch] ? recall(s.cards[ch], now) : pOf(s, ch)), 0)
