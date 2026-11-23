@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { load, save, type Store } from './srs'
-import { Card, TipLayer } from './Card'
+import { Card, TipLayer, hideTip } from './Card'
 import { Learn } from './Learn'
 import { BEGINNER, mu, reach } from './levels'
 import { Review } from './Review'
@@ -43,7 +43,7 @@ export default function App() {
     return () => removeEventListener('keydown', esc)
   }, [])
 
-  const open = (el: string) => { track('open', { el }); setPeek(p => p[p.length - 1] === el ? p : [...p, el]) }
+  const open = (el: string) => { hideTip(); track('open', { el }); setPeek(p => p[p.length - 1] === el ? p : [...p, el]) }
 
   return (
     <div className="app">

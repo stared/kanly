@@ -4,6 +4,7 @@ import { status, type Store } from './srs'
 import { pOf } from './levels'
 import { track } from './track'
 import { hoverSay, speak, spoken } from './speech'
+import { hovers, tapped } from './pointer'
 import { Animated, StrokeOrder } from './Strokes'
 
 type Open = (el: string) => void
@@ -83,17 +84,20 @@ export const fmtKun = (r: string) => {
 }
 
 /** The readings as written for the card, most important first, each with its share among the card's words.
- * The reading of the kanji on its own is red. Click one to hear it; hover to see the words that use it. */
+ * The reading of the kanji on its own is red. Click or tap one to hear it; a mouse resting on it also says it and
+ * shows the words that use it. */
 export function Readings({ ch, hover, setHover, className }: { ch: string; hover?: string | null; setHover?: (r: string | null) => void; className?: string }) {
   const k = KANJI[ch]
+  // its romaji shows under a reading while a mouse is on it; after a tap, for a few seconds (which tap: to show it anew)
+  const [said, setSaid] = useState<[string, number] | null>(null)
   const isOn = (r: string) => /^[ァ-ヶー]+$/.test(r)
   const say = (r: string) => isOn(r) ? hira(r) : r.replace('.', '')  // the voice says ほう right but ホウ as "horu"
   return (
     <div className={'readings' + (className ? ' ' + className : '')}>
       {k.readings.map(({ r, share }) => (
         <button key={r} className={'rd' + (k.written && share < 0.05 ? ' rare' : '') + (r === k.alone?.reading ? ' alone' : '') + (hover && hover !== r ? ' dim' : '')}
-          onClick={() => speak(say(r))} onMouseEnter={() => { setHover?.(r); hoverSay(say(r)) }} onMouseLeave={() => { setHover?.(null); hoverSay(null) }}>
-          <span className="kana">{isOn(r) ? r : fmtKun(r)}<span className="romaji">{isOn(r) ? hira(r) : kata(bare(r).replace('.', ''))} {romaji(r)}</span></span>{k.written && share >= 0.01 && <span className="pct">{Math.round(share * 100)}%</span>}
+          onClick={() => { speak(say(r)); if (tapped()) setSaid([r, Date.now()]) }} onPointerEnter={e => { if (hovers(e)) { setHover?.(r); hoverSay(say(r)) } }} onPointerLeave={e => { if (hovers(e)) { setHover?.(null); hoverSay(null) } }}>
+          <span className="kana">{isOn(r) ? r : fmtKun(r)}<span className={'romaji' + (said?.[0] === r ? ' said' : '')} key={said?.[0] === r ? said[1] : 0}>{isOn(r) ? hira(r) : kata(bare(r).replace('.', ''))} {romaji(r)}</span></span>{k.written && share >= 0.01 && <span className="pct">{Math.round(share * 100)}%</span>}
         </button>
       ))}
     </div>
@@ -120,25 +124,56 @@ export function Family({ ch, store, open }: { ch: string; store: Store; open: Op
   )
 }
 
-type Tip = { c: string; reading?: string; sense?: string; x: number; y: number }
-let showTip: (t: Tip | null) => void = () => {}
-let shownAt = 0
+/** at: the kanji it belongs to; x, y, below: the middle of its top edge, and its bottom; tap: shown by a tap, not a mouse over it. */
+type Tip = { c: string; reading?: string; sense?: string; at: Element; x: number; y: number; below: number; tap: boolean }
+let setShown: (t: Tip | null) => void = () => {}
+let shown: { c: string; since: number; tap: boolean } | null = null
+const showTip = (t: Tip) => { hideTip(); shown = { c: t.c, since: Date.now(), tap: t.tap }; setShown(t) }
+/** Take the tooltip down. One that was read (up for half a second or more), not passed over, is logged; one shown by
+ * a tap stays until the next tap, so its time says little. */
+export function hideTip() {
+  if (!shown) return
+  const { c, since, tap } = shown
+  shown = null
+  setShown(null)
+  if (Date.now() - since >= 500) track('tip', { c, ms: Date.now() - since, ...(tap && { tap }) })
+}
 
 /** Its main readings as plain text, for a tooltip: ジン、ニン or き、こ. */
 export const mainReadings = (c: string) => KANJI[c]?.readings.slice(0, 2).map(({ r }) => bare(r).replace('.', '')).join('、')
 
-/** One floating tooltip for the whole app, placed above whatever kanji is hovered. */
+/** One floating tooltip for the whole app, placed above the kanji a mouse is over, or the one last tapped. */
 export function TipLayer() {
   const [tip, setTip] = useState<Tip | null>(null)
-  useEffect(() => { showTip = setTip; return () => { showTip = () => {} } }, [])
+  useEffect(() => { setShown = setTip; return () => { setShown = () => {} } }, [])
   useEffect(() => {
-    const hide = () => setTip(null)
-    addEventListener('scroll', hide, true)
-    return () => removeEventListener('scroll', hide, true)
+    // gone when the page scrolls under it, and when a press lands anywhere but on a kanji (which gets its own)
+    const down = (e: PointerEvent) => { if (!(e.target as Element).closest?.('.kt')) hideTip() }
+    addEventListener('scroll', hideTip, true)
+    addEventListener('pointerdown', down, true)
+    return () => { removeEventListener('scroll', hideTip, true); removeEventListener('pointerdown', down, true) }
   }, [])
+  // gone with its kanji: a drawer closed by Esc, the next card on Enter, another tab, none of which moves the pointer
+  useEffect(() => {
+    if (!tip) return
+    const gone = new MutationObserver(() => { if (!tip.at.isConnected) hideTip() })
+    gone.observe(document.body, { childList: true, subtree: true })
+    return () => gone.disconnect()
+  }, [tip])
+  // kept inside the window: beside a kanji at the edge of a phone it was cut off; under the kanji when there is no room above
+  const box = useRef<HTMLDivElement>(null)
+  useLayoutEffect(() => {
+    const el = box.current
+    if (!el || !tip) return
+    const half = el.offsetWidth / 2 + 6
+    el.style.left = Math.max(half, Math.min(innerWidth - half, tip.x)) + 'px'
+    const under = tip.y - el.offsetHeight - 22 < 4
+    el.style.top = (under ? tip.below : tip.y) + 'px'
+    el.style.transform = under ? 'translate(-50%, 8px)' : ''
+  }, [tip])
   if (!tip) return null
   return (
-    <div className="ktip" role="tooltip" style={{ left: tip.x, top: tip.y }}>
+    <div className="ktip" role="tooltip" ref={box} style={{ left: tip.x, top: tip.y }}>
       <b>{tip.c}</b>
       <span className="km">{tip.sense ?? gloss(tip.c)}{tip.sense && tip.sense !== gloss(tip.c) && <span className="kk">{gloss(tip.c)}</span>}</span>
       {tip.reading && <span className="kr">{tip.reading}</span>}
@@ -146,17 +181,16 @@ export function TipLayer() {
   )
 }
 
-/** A kanji that shows itself, its meaning (in this word when known: 本 in 日本 is "origin", not "book") and its reading here on hover. */
+/** A kanji that shows itself, its meaning (in this word when known: 本 in 日本 is "origin", not "book") and its reading
+ * here: while a mouse is over it (a click leaves it up), or, on a touch screen, from a tap until the next tap elsewhere.
+ * Opening a card takes it down (App's open). */
 export function KanjiTip({ c, reading, sense, className }: { c: string; reading?: string; sense?: string; className?: string }) {
   if (!KANJI[c]) return <span className={className}>{c}</span>
-  const enter = (e: React.MouseEvent<HTMLSpanElement>) => {
+  const show = (e: React.SyntheticEvent<HTMLSpanElement>, tap: boolean) => {
     const r = e.currentTarget.getBoundingClientRect()
-    showTip({ c, reading, sense, x: r.left + r.width / 2, y: r.top })
-    shownAt = Date.now()
+    showTip({ c, reading, sense, at: e.currentTarget, x: r.left + r.width / 2, y: r.top, below: r.bottom, tap })
   }
-  // a tooltip read (shown for half a second or more), not one passed over
-  const leave = () => { showTip(null); const ms = Date.now() - shownAt; if (ms >= 500) track('tip', { c, ms }) }
-  return <span className={'kt' + (className ? ' ' + className : '')} onMouseEnter={enter} onMouseLeave={leave} onClick={() => showTip(null)}>{c}</span>
+  return <span className={'kt' + (className ? ' ' + className : '')} onPointerEnter={e => { if (hovers(e)) show(e, false) }} onPointerLeave={e => { if (hovers(e)) hideTip() }} onClick={e => { if (tapped()) show(e, true) }}>{c}</span>
 }
 
 function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
@@ -183,7 +217,7 @@ function WordRow({ w, ch, dim }: { w: Word; ch: string; dim?: boolean }) {
   })()
   return (
     <li className={dim ? 'dim' : ''}>
-      <button className="w" onClick={() => speak(w.r)} onMouseEnter={() => hoverSay(w.r)} onMouseLeave={() => hoverSay(null)}>
+      <button className="w" onClick={() => speak(w.r)} onPointerEnter={e => { if (hovers(e)) hoverSay(w.r) }} onPointerLeave={e => { if (hovers(e)) hoverSay(null) }}>
         {w.furigana.map(([part, r], i) => r
           ? <ruby key={i} className={part === ch ? 'me' : ''}>{[...part].map((c, j) => <KanjiTip key={j} c={c} reading={w.special ? undefined : r} sense={/[\u4e00-\u9fff々]/.test(c) ? sense() : undefined} />)}<rt>{r}</rt></ruby>
           : <span key={i}>{part}</span>)}

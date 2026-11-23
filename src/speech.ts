@@ -40,7 +40,7 @@ export function spoken(ch: string): string {
   return /^[ァ-ヶー]+$/.test(r) ? hira(r) : r.replace('.', '')
 }
 
-/** Say it when the pointer rests on it a moment, not when it only passes over. */
+/** Say it when a mouse rests on it a moment, not when it only passes over (callers leave touches out: a tap is a click). */
 export function hoverSay(text: string | null) {
   clearTimeout(timer)
   if (text) timer = setTimeout(() => speak(text), 250)

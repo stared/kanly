@@ -54,12 +54,12 @@ nav button.on, .gear.on { color: var(--ink); }
 .end { margin-left: auto; align-self: center; display: flex; align-items: center; gap: 18px; }
 .gear { display: flex; }
 .source { gap: 6px; align-items: center; font-size: 13px; text-decoration: none; }
-a.gear:hover { color: var(--ink); }
+@media (hover: hover) { a.gear:hover { color: var(--ink); } }
 .reach { font-size: 12px; color: var(--muted); }
 .count { font-size: 11px; color: var(--paper); background: var(--muted); border-radius: 999px; padding: 0 6px; margin-left: 5px; vertical-align: 1px; }
 
 .next { padding: 8px 22px; border: 1px solid var(--muted); border-radius: 999px; font-size: 15px; display: inline-flex; align-items: baseline; }
-.next:hover { border-color: var(--ink); }
+@media (hover: hover) { .next:hover { border-color: var(--ink); } }
 .next.good { border-color: var(--good); }
 .next.bad, .next.quiet { border-color: var(--faint); }
 .inline { font-family: var(--jp); text-decoration: underline; text-underline-offset: 3px; }
@@ -91,13 +91,13 @@ a.gear:hover { color: var(--ink); }
 .hero h2 { font-size: 28px; display: flex; align-items: center; }
 .also { color: var(--muted); font-size: 14px; margin: 0; }
 .speaker { color: var(--muted); margin-left: 10px; display: inline-flex; }
-.speaker:hover { color: var(--ink); }
+@media (hover: hover) { .speaker:hover { color: var(--ink); } }
 .side { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
 .sec { margin: 0 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--faint); }
 
 .readings { margin-top: 10px; display: flex; flex-wrap: wrap; justify-content: center; column-gap: 18px; row-gap: 2px; align-items: baseline; font: 20px/1.5 var(--jp); max-width: 420px; }
 .rd { font: inherit; transition: opacity .15s; white-space: nowrap; }
-.rd:hover { color: var(--accent); }
+@media (hover: hover) { .rd:hover { color: var(--accent); } }
 .rd.rare { color: var(--muted); }
 .rd.alone, .rd.alone .oku { color: var(--accent); }
 .rd.dim { opacity: .35; }
@@ -132,7 +132,7 @@ a.gear:hover { color: var(--ink); }
 .tree > ul > li::before, .tree > ul > li::after { display: none; }
 .tree ul ul::before { content: ''; position: absolute; top: 0; left: 50%; height: 16px; border-left: 1px solid var(--faint); }
 .node { display: flex; flex-direction: column; align-items: center; min-width: 68px; padding: 6px 8px 5px; border-radius: 10px; background: var(--card); box-shadow: var(--shadow); }
-.node:hover { outline: 1px solid var(--muted); }
+@media (hover: hover) { .node:hover { outline: 1px solid var(--muted); } }
 .tree > ul > li > .node { min-width: 76px; }
 .tree > ul > li > .node .ch { font-size: 34px; }
 .node .ch { font: 26px/1.15 var(--jp); }
@@ -149,9 +149,9 @@ a.gear:hover { color: var(--ink); }
 .chip.miss { text-decoration: line-through; text-decoration-color: var(--accent); color: var(--muted); }
 .family .not { color: var(--ink); }
 .chip.here { outline: 1px solid var(--ink); }
-.chip:hover { outline: 1px solid var(--muted); }
+@media (hover: hover) { .chip:hover { outline: 1px solid var(--muted); } }
 .chip.more-chip { font: 12px system-ui, sans-serif; color: var(--muted); box-shadow: none; background: none; }
-.chip.more-chip:hover { color: var(--ink); }
+@media (hover: hover) { .chip.more-chip:hover { color: var(--ink); } }
 .more { color: var(--muted); font-size: 13px; align-self: center; margin-left: 6px; }
 
 .words { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: max-content 1fr; column-gap: 16px; row-gap: 6px; align-items: baseline; }
@@ -163,8 +163,8 @@ a.gear:hover { color: var(--ink); }
 .words .me { color: var(--accent); }
 .lit { margin-left: 10px; font-style: italic; color: var(--muted); opacity: .75; }
 .more-words { margin-top: 8px; font-size: 13px; color: var(--muted); }
-.more-words:hover { color: var(--ink); }
-.words .w:hover { opacity: .75; }
+@media (hover: hover) { .more-words:hover { color: var(--ink); } }
+@media (hover: hover) { .words .w:hover { opacity: .75; } }
 .wg { font-size: 13px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 
 .more-info { color: var(--muted); font-size: 13px; }
@@ -210,7 +210,7 @@ select { font: 13px system-ui, sans-serif; color: var(--ink); background: var(--
 .cell.part { color: var(--faint); font-size: 16px; }
 .cells.plain .cell.part { color: var(--muted); font-size: 19px; }  /* on their own, parts need no fading */
 .cell.learning, .cell.known { color: var(--ink); }
-.cell:hover { background: var(--card); color: var(--ink); }
+@media (hover: hover) { .cell:hover { background: var(--card); color: var(--ink); } }
 
 /* peek drawer */
 .peek-bg { position: fixed; inset: 0; background: color-mix(in oklab, var(--ink) 18%, transparent); display: flex; justify-content: flex-end; }
@@ -226,7 +226,7 @@ select { font: 13px system-ui, sans-serif; color: var(--ink); background: var(--
 .reader .text { line-height: 2.1; }
 .reader .tok { font: inherit; border-radius: 4px; }
 .reader .tok.new { color: var(--accent); }
-.reader .tok:hover, .reader .tok.sel { background: var(--card); box-shadow: var(--shadow); }
+.reader .tok.sel { background: var(--card); box-shadow: var(--shadow); } @media (hover: hover) { .reader .tok:hover { background: var(--card); box-shadow: var(--shadow); } }
 .reader rt { font-size: 11px; color: var(--muted); }
 .reader .bar-line { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .reader .opts { display: flex; gap: 14px; align-items: baseline; }
@@ -247,9 +247,9 @@ select { font: 13px system-ui, sans-serif; color: var(--ink); background: var(--
 .charts .chart:only-child { max-width: 620px; }
 .edge-line { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
 .kbtn { font: inherit; letter-spacing: inherit; }
-.kbtn:hover { color: var(--accent); }
+@media (hover: hover) { .kbtn:hover { color: var(--accent); } }
 .more-btn { align-self: flex-start; font-size: 13px; color: var(--muted); }
-.more-btn:hover, button.brow:hover .bname { color: var(--ink); }
+@media (hover: hover) { .more-btn:hover, button.brow:hover .bname { color: var(--ink); } }
 button.brow { text-align: left; }
 .analysis section { display: flex; flex-direction: column; gap: 12px; }
 .chart { margin: 0; position: relative; }
@@ -331,7 +331,7 @@ main > .card, .learn > .card, .learn > .revealed { margin-block: auto; width: 10
 .ktip .kk { color: var(--muted); margin-left: 6px; }
 .ktip .kk::before { content: '('; } .ktip .kk::after { content: ')'; }
 .ktip .kr { font: 12px var(--jp); color: var(--muted); }
-.kt:hover { color: var(--accent); }
+@media (hover: hover) { .kt:hover { color: var(--accent); } }
 .settings .field { display: flex; gap: 12px; align-items: baseline; margin: 10px 0; }
 .settings select { font-size: 15px; }
 .start { max-width: 420px; margin: 12vh auto 0; display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
@@ -406,7 +406,7 @@ svg.drawn .ink { stroke: var(--ink); }
 }
 .frames .more { display: none; }
 .frames .more button { width: 26px; height: 26px; border: 1px solid var(--faint); border-radius: 6px; font-size: 11px; color: var(--muted); }
-.frames .more button:hover { color: var(--ink); }
+@media (hover: hover) { .frames .more button:hover { color: var(--ink); } }
 /* a phone: "parts" and "most used words" go without saying; the space goes to the words */
 @media (max-width: 760px) {
   .sec.obvious { display: none; }
@@ -425,11 +425,13 @@ svg.drawn .ink { stroke: var(--ink); }
   main .frames.compact svg { width: 38px; height: 38px; }
   main .hero h2 { margin-top: 14px; }
 }
-/* romaji under a reading on hover, very small */
+/* romaji under a reading, very small: while a mouse is on it, or for a few seconds after a tap */
 .rd .kana { position: relative; }
 .rd .romaji { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 1px; font: 10px system-ui, sans-serif;
   color: var(--muted); white-space: nowrap; opacity: 0; transition: opacity .12s; pointer-events: none; }
-.rd:hover .romaji, .rd:focus-visible .romaji { opacity: 1; }
+.rd:focus-visible .romaji { opacity: 1; } @media (hover: hover) { .rd:hover .romaji { opacity: 1; } }
+.rd .romaji.said { animation: said 3s both; }
+@keyframes said { 0%, 80% { opacity: 1; } 100% { opacity: 0; } }
 
 /* graph: parts on the left, what they build to the right; pan by dragging, zoom by wheel */
 main:has(> .graph-wrap) { max-width: none; }
@@ -439,10 +441,10 @@ main:has(> .graph-wrap) { max-width: none; }
 /* one bar in both views: on the left the layout, or the node shown and the way back; the legend always at the right end */
 .graph-bar { display: flex; align-items: center; gap: 12px; padding: 0 24px 8px; min-height: 38px; }
 .graph-bar .slot { flex: 1; min-width: 0; display: flex; align-items: center; gap: 14px; white-space: nowrap; overflow: hidden; }
-.graph-bar .sel { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-size: 15px; } .graph-bar .sel:hover { color: var(--accent); }
+.graph-bar .sel { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-size: 15px; } @media (hover: hover) { .graph-bar .sel:hover { color: var(--accent); } }
 .graph-bar .sel b { font-weight: 400; font-size: 20px; margin-right: 4px; }
 .graph-bar .whole { flex: none; font-size: 13px; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
-.graph-bar .whole:hover { color: var(--ink); }
+@media (hover: hover) { .graph-bar .whole:hover { color: var(--ink); } }
 .graph-bar .graph-key { flex: none; white-space: nowrap; }
 .graph { position: relative; flex: 1; min-height: 0; overflow: hidden; touch-action: none; cursor: grab; user-select: none; }
 .graph > svg { width: 100%; height: 100%; display: block; }
@@ -450,7 +452,7 @@ main:has(> .graph-wrap) { max-width: none; }
 .gl path { fill: none; stroke: var(--muted); stroke-width: 1; opacity: .32; }
 .gl.other path:first-child { stroke-dasharray: 1 3; }
 .gl .hit { stroke: transparent; stroke-width: 9; opacity: 1; }
-.gl:hover path:first-child, .gl.hot path:first-child { stroke: var(--ink); opacity: 1; stroke-width: 1.5; }
+.gl.hot path:first-child { stroke: var(--ink); opacity: 1; stroke-width: 1.5; } @media (hover: hover) { .gl:hover path:first-child { stroke: var(--ink); opacity: 1; stroke-width: 1.5; } }
 /* a new arrangement or a node's own graph: nodes glide to their places, arrows fade out and back, the view follows */
 .gn { cursor: pointer; transition: transform .6s cubic-bezier(.65, 0, .35, 1), opacity .4s; }
 .gn.gone { opacity: 0 !important; pointer-events: none; }
@@ -465,10 +467,10 @@ main:has(> .graph-wrap) { max-width: none; }
 .gn.known circle, .graph-key .known { stroke: var(--good); }
 .gn text { fill: var(--ink); font-family: var(--jp); }
 /* under the pointer: a tinted fill, like selection a matter of the background; the ring is left alone */
-.gn:hover:not(.focus) circle { fill: var(--glow); }
+@media (hover: hover) { .gn:hover:not(.focus) circle { fill: var(--glow); } }
 .ge path { stroke: var(--muted); fill: none; }
 .ge text { fill: var(--muted); font: 10px system-ui, sans-serif; }
-.ge:hover text { fill: var(--ink); }
+@media (hover: hover) { .ge:hover text { fill: var(--ink); } }
 .has-hot .gn:not(.hot), .has-hot .gl:not(.hot) { opacity: .18; }
 /* the node whose graph is shown: filled, its glyph reversed (the ring keeps saying kanji or part, and the status) */
 .gn.focus circle { fill: var(--ink); }
