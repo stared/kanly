@@ -1,6 +1,6 @@
 import { KANJI, reads, type Word } from './data'
-import { standing } from './levels'
-import type { Store } from './srs'
+import { next, standing } from './levels'
+import type { Kind, Store } from './srs'
 
 /*
 A kanji whose memory has reached a day (srs.ts) is asked again through a word: the word is shown, its reading and
@@ -18,6 +18,19 @@ export function reviewWord(s: Store, id: string): Word | undefined {
   const fit = k.words.filter((w, i) => [...w.w].length >= 2 && [...w.w].every(ch => isHan(ch) && (ch === id || ch === '々' || standing(s, ch) !== 'new'))
     && k.words.findIndex(x => x.w === w.w) === i)  // a word with two readings (紅葉 こうよう, もみじ) once
   return fit.length ? fit[c.reps % fit.length] : undefined
+}
+
+/** The kinds of question, each asked unless turned off on the learn screen (Store.off). */
+export const KINDS: Kind[] = ['new', 'review', 'words']
+export const asks = (s: Store, k: Kind) => !s.off?.includes(k)
+
+/** What to ask now and how, among the kinds left on: the item of the largest weight (next, in levels.ts) of those.
+ * Without words every card is asked by itself, whatever its memory; without review only the cards that have a word
+ * to be asked by come up. */
+export function ask(s: Store, now: number): { el: string; kind: Kind } | undefined {
+  const review = asks(s, 'review'), words = asks(s, 'words')
+  const hit = next(s, now, s.tau ?? 0, { fresh: asks(s, 'new'), card: review ? undefined : id => words && !!reviewWord(s, id) })
+  return hit && { el: hit.el, kind: !hit.seen ? 'new' : words && reviewWord(s, hit.el) ? 'words' : 'review' }
 }
 
 /** The card's entries for a word as written: more than one when it has two readings, and either is right. */

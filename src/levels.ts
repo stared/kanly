@@ -156,11 +156,13 @@ export const lnCard = (f: number, q: number, delta = DELTA, at = Q_ASK) => Math.
 /** The use of reading an item: a kanji's share of the kanji in text; for a part, that of the most written kanji it is in. */
 const use = (el: string) => KANJI[el]?.freq ?? Math.max(0, ...(COMP[el]?.usedIn ?? []).map(c => KANJI[c]?.freq ?? 0))
 
-/** What to ask now: a card (seen: true) or the next new item. */
-export function next(s: Store, now: number, tau = s.tau ?? 0): { el: string; seen: boolean } | undefined {
-  const { els, w } = fresh(s, tau, 1)
+/** What to ask now: a card (seen: true) or the next new item. `of` narrows the choice, the weights unchanged:
+ * no new items (fresh: false), or only the cards `card` lets through. */
+export function next(s: Store, now: number, tau = s.tau ?? 0, of: { fresh?: boolean; card?: (id: string) => boolean } = {}): { el: string; seen: boolean } | undefined {
+  const { els, w } = of.fresh === false ? { els: [], w: -Infinity } : fresh(s, tau, 1)
   let best = '', top = -Infinity
   for (const c of Object.values(s.cards)) {
+    if (of.card && !of.card(c.id)) continue
     // the noise changes with every answer, or the same card would be favoured for good
     const v = lnCard(use(c.id), 1 - recall(c, now)) + tau * gumbel(c.id, (s.seed ?? 0) + c.reps + 1)
     if (v > top) { top = v; best = c.id }

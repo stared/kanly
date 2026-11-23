@@ -28,9 +28,12 @@ export const LAPSE = 0.1
 
 export type Card = { id: string; s: number; t: number; reps: number; lapses: number }
 export type LogEntry = { t: number; id: string; ok: boolean }
+/** The kinds of question: a kanji or a part never seen, a card asked by itself, a card asked through a word (words.ts). */
+export type Kind = 'new' | 'review' | 'words'
 /** start: the level picked; mu, T: how many kanji were known before and how blurred that frontier is, fitted to answers (src/levels.ts);
- * lam: how much their order follows frequency rather than courses; tau: how wide the choice of the next kanji is. */
-export type Store = { cards: Record<string, Card>; log: LogEntry[]; start?: { mu: number; T: number }; mu?: number; T?: number; lam?: number; answers?: [string, 0 | 1][]; tau?: number; seed?: number }
+ * lam: how much their order follows frequency rather than courses; tau: how wide the choice of the next kanji is;
+ * off: the kinds of question turned off on the learn screen. */
+export type Store = { cards: Record<string, Card>; log: LogEntry[]; start?: { mu: number; T: number }; mu?: number; T?: number; lam?: number; answers?: [string, 0 | 1][]; tau?: number; seed?: number; off?: Kind[] }
 type Fit = Partial<Pick<Store, 'mu' | 'T' | 'lam' | 'answers'>>
 
 const KEY = 'kanly/v1'

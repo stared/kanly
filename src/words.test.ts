@@ -2,7 +2,7 @@ import { expect, it } from 'vitest'
 import { KANJI } from './data'
 import { standing, startAt } from './levels'
 import { asked, knewIt, learn, type Store } from './srs'
-import { accepted, entries, glosses, meant, readAs, reviewWord } from './words'
+import { accepted, ask, entries, glosses, meant, readAs, reviewWord } from './words'
 
 const blank: Store = { cards: {}, log: [] }
 
@@ -78,4 +78,23 @@ it('takes a word\'s meaning from the card of any of its kanji, and asks words wi
   const all = startAt(blank, { mu: 2136, T: 100 })
   const scold = knewIt(all, '𠮟', 0)
   expect(Array.from({ length: 12 }, (_, reps) => reviewWord({ ...scold, cards: { 𠮟: { ...scold.cards['𠮟'], reps } } }, '𠮟')?.w)).toContain('𠮟責')
+})
+
+it('asks only the kinds of question left on: new, a card by itself, a card through a word', () => {
+  // 本 known for days and 日 just learned, both asked long ago: 本 has a word (日本), 日 is asked by itself
+  const DAY = 86_400_000, now = 30 * DAY
+  const base = learn(learn(blank, '本', 0), '日', 0)
+  const s: Store = { ...base, cards: { ...base.cards, 本: { ...base.cards['本'], s: 3, reps: 3 } } }
+  const off = (...off: Store['off'] & {}) => ask({ ...s, off }, now)
+  expect(off()?.kind).not.toBe('new')  // both long forgotten: a card before anything new
+  expect(off('new', 'review')).toEqual({ el: '本', kind: 'words' })
+  expect(off('new', 'words')?.kind).toBe('review')
+  expect(off('review', 'words')?.kind).toBe('new')
+  expect(off('new', 'review', 'words')).toBeUndefined()
+  // without words 本 is still asked, by itself; without review 日, which has no word yet, is not
+  expect(ask({ ...s, cards: { 本: s.cards['本'] }, off: ['new', 'words'] }, now)).toEqual({ el: '本', kind: 'review' })
+  expect(ask({ ...s, cards: { 日: s.cards['日'] }, off: ['new', 'review'] }, now)).toBeUndefined()
+  // nothing seen yet: only something new can be asked
+  expect(ask({ ...blank, off: ['new'] }, now)).toBeUndefined()
+  expect(ask(blank, now)?.kind).toBe('new')
 })

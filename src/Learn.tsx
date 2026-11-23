@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { KANJI, ORDER } from './data'
-import { knewIt, learn, type Store } from './srs'
-import { LEVELS, lam, mu, next, pOf, startAt, update, upcoming } from './levels'
+import { knewIt, learn, type Kind, type Store } from './srs'
+import { LEVELS, lam, mu, pOf, startAt, update, upcoming } from './levels'
+import { KINDS, ask, asks } from './words'
 import { track } from './track'
 import { Card, Glyph, KanjiTip, mainReadings } from './Card'
 import { Quiz, type Result } from './Quiz'
@@ -10,10 +11,18 @@ import { Review } from './Review'
 type Props = { store: Store; setStore: (s: Store) => void; open: (el: string) => void; autoSpeak: boolean }
 
 /** One stream: what is asked is the item, new or seen before, with the most gain per effort (next, in levels.ts).
- * It is chosen when the one before is done and kept while it is being answered: the chances move with the clock. */
+ * It is chosen when the one before is done and kept while it is being answered: the chances move with the clock.
+ * At the bottom, the kinds of question (new, review, words), each on or off: the stream is what is left on. */
 export function Learn({ store, setStore, open, autoSpeak }: Props) {
-  const [cur, setCur] = useState(() => next(store, Date.now()))
-  const done = (s: Store) => { setStore(s); setCur(next(s, Date.now())) }
+  const [cur, setCur] = useState(() => ask(store, Date.now()))
+  const done = (s: Store) => { setStore(s); setCur(ask(s, Date.now())) }
+  /** The question on screen stays, unless its kind is the one turned off. */
+  const toggle = (k: Kind) => {
+    const s = { ...store, off: KINDS.filter(x => asks(store, x) === (x === k)) }
+    track('kinds', { off: s.off })
+    setStore(s)
+    if (!cur || !asks(s, cur.kind)) setCur(ask(s, Date.now()))
+  }
   const left = useMemo(() => upcoming(store, store.tau ?? 0), [store.cards, store.mu, store.T, store.tau])
 
   if (!store.start && !Object.keys(store.cards).length) return (
@@ -34,13 +43,17 @@ export function Learn({ store, setStore, open, autoSpeak }: Props) {
         Learn them with <a href="https://p.migdal.pl/vibe-japanese/">my mnemonics app</a>.</p>
     </div>
   )
-  if (!cur) return <div className="empty">All {ORDER.length} items learned.</div>
-  const then = left.filter(el => el !== cur.el).slice(0, 8)
+  const then = left.filter(el => el !== cur?.el).slice(0, 8)
   return (
     <div className="learn">
-      {cur.seen
-        ? <Review key={cur.el + store.cards[cur.el]?.reps} id={cur.el} store={store} open={open} autoSpeak={autoSpeak} done={done} />
-        : <Fresh key={cur.el} el={cur.el} store={store} open={open} autoSpeak={autoSpeak} done={done} then={then} />}
+      {!cur ? <div className="empty">{store.off?.length ? 'Nothing to ask.' : `All ${ORDER.length} items learned.`}</div>
+        : cur.kind === 'new' ? <Fresh key={cur.el} el={cur.el} store={store} open={open} autoSpeak={autoSpeak} done={done} then={then} />
+        : <Review key={cur.el + cur.kind + store.cards[cur.el]?.reps} id={cur.el} byWord={cur.kind === 'words'} store={store} open={open} autoSpeak={autoSpeak} done={done} />}
+      {/* a click leaves the focus where it was (a field being typed in); a key on a toggle is the toggle's alone,
+          not an answer to the question above */}
+      <div className="kinds" onKeyDown={e => e.stopPropagation()}>
+        {KINDS.map(k => <button key={k} role="switch" aria-checked={asks(store, k)} onMouseDown={e => e.preventDefault()} onClick={() => toggle(k)}>{k}</button>)}
+      </div>
     </div>
   )
 }

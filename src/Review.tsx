@@ -9,11 +9,11 @@ import { speak, spoken } from './speech'
 import { track } from './track'
 import type { Item } from './Learn'
 
-/** A card again. A kanji whose memory has reached a day is asked through one of its words, typed (words.ts); a shorter
- * one by itself, meaning among four then reading among four; both pass only with meaning and reading right. A part is
- * shown and graded by the learner. */
-export function Review({ id, store, open, autoSpeak, done }: Item & { id: string }) {
-  const word = useMemo(() => reviewWord(store, id), [id])
+/** A card again. A kanji whose memory has reached a day is asked through one of its words, typed (words.ts; byWord,
+ * unless words are turned off); a shorter one by itself, meaning among four then reading among four; both pass only
+ * with meaning and reading right. A part is shown and graded by the learner. */
+export function Review({ id, byWord, store, open, autoSpeak, done }: Item & { id: string; byWord: boolean }) {
+  const word = useMemo(() => byWord ? reviewWord(store, id) : undefined, [id, byWord])
   const [res, setRes] = useState<Result | null>(null)
   const [shown, setShown] = useState(false)
   const k = KANJI[id], t = treeOf(id)
