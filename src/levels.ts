@@ -1,5 +1,5 @@
 import { COMP, D, KANJI, ORDER, POS, extraStrokes, type Tree } from './data'
-import type { Store } from './srs'
+import { status, type Status, type Store } from './srs'
 
 /*
 What to learn next, at any level.
@@ -178,6 +178,12 @@ export function update(s: Store, el: string, knewIt: boolean): Pick<Store, 'mu' 
   const answers: [string, 0 | 1][] = [...(s.answers ?? []), [el, knewIt ? 1 : 0]]
   return { ...posterior(start(s), answers), answers }
 }
+
+/** How an item stands with this learner. With a card: learning or known. Without one: assumed, if the level fitted to
+ * their answers makes it more likely known than not, else new. Someone who starts at N2 is never asked about 日 (p > SURE)
+ * and is asked sooner or later about a kanji nearer their edge; until then both are assumed, not new. */
+export type Standing = Status | 'assumed'
+export const standing = (s: Store, el: string): Standing => s.cards[el] ? status(s, el) : pOf(s, el) > 0.5 ? 'assumed' : 'new'
 
 /** Share of kanji in text the learner reads: what they have seen, plus what they likely knew before. */
 export const reach = (s: Store) =>

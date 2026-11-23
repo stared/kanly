@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { KANJI, gloss } from './data'
-import { status, type Store } from './srs'
+import type { Store } from './srs'
+import { standing } from './levels'
 import { KanjiTip, Speaker, hideTip } from './Card'
 
 const SAMPLE = `日本は東アジアにある島国で、首都は東京です。人口は約一億二千万人で、多くの人が大きな都市に住んでいます。春には桜が咲き、秋には山の木の葉が赤や黄色に変わります。`
@@ -72,8 +73,11 @@ export function Reader({ store, open }: { store: Store; open: (el: string) => vo
   const tokens = useMemo<Token[]>(() => ix ? tokenize(text, ix) : [...text].map(c => ({ text: c })), [text, ix])
 
   const han = [...text].filter(c => isHan(c) && c !== '々')
-  const read = (c: string) => status(store, c) !== 'new'
+  // read: learned here, or a jōyō kanji assumed known from the learner's level (someone who starts at N2 was never asked
+  // about 日). A kanji outside the 2136 that is a part of some (吾 in 語) is assumed as a shape, not as something read
+  const read = (c: string) => !!store.cards[c] || (!!KANJI[c] && standing(store, c) === 'assumed')
   const known = han.filter(read).length
+  const assumed = han.filter(c => !store.cards[c] && read(c)).length
   const unknown = [...new Set(han)].filter(c => !read(c) && KANJI[c])
   const showFuri = (t: Token) => furi === 'all' || (furi === 'new' && [...t.text].some(c => isHan(c) && c !== '々' && !read(c)))
   const picked = sel !== null ? tokens[sel] : undefined
@@ -82,7 +86,7 @@ export function Reader({ store, open }: { store: Store; open: (el: string) => vo
     <div className="reader">
       {editing && <textarea autoFocus value={text} onChange={e => { setText(e.target.value); setSel(null) }} onBlur={() => setEditing(false)} rows={5} placeholder="Paste Japanese text" />}
       <div className="bar-line sub small">
-        <span>You know {known} of {han.length} kanji here ({han.length ? Math.round(100 * known / han.length) : 0}%).</span>
+        <span>You know {known} of {han.length} kanji here ({han.length ? Math.round(100 * known / han.length) : 0}%){assumed > 0 && `, ${assumed} of them assumed from your level`}.</span>
         <span className="opts">
           <label>furigana <select value={furi} onChange={e => setFuri(e.target.value as Furigana)}>
             {(['new', 'all', 'off'] as Furigana[]).map(f => <option key={f} value={f}>{f === 'new' ? 'for new kanji' : f === 'all' ? 'for all' : 'off'}</option>)}
@@ -106,7 +110,7 @@ export function Reader({ store, open }: { store: Store; open: (el: string) => vo
           {picked.entry ? <p className="g">{picked.entry[2]}</p> : <p className="g sub">not in the word list; open the kanji below</p>}
           <div className="chips">
             {[...new Set([...picked.text].filter(c => KANJI[c]))].map(c => (
-              <button key={c} className={'chip wide ' + status(store, c)} onClick={() => open(c)}><span>{c}</span><small>{gloss(c)}</small></button>
+              <button key={c} className={'chip wide ' + standing(store, c)} onClick={() => open(c)}><span>{c}</span><small>{gloss(c)}</small></button>
             ))}
           </div>
         </div>

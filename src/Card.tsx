@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { COMP, KANJI, RANK, extraStrokes, gloss, hira, isKanji, kata, lookalikes, romaji, soundFamily, type Tree, type Word } from './data'
-import { status, type Store } from './srs'
-import { pOf } from './levels'
+import type { Store } from './srs'
+import { standing } from './levels'
 import { track } from './track'
 import { hoverSay, speak, spoken } from './speech'
 import { hovers, tapped } from './pointer'
@@ -28,7 +28,7 @@ const shownKids = (t: Tree) => t.kids.filter(k => !STROKES.has(k.el))
 function Node({ n, store, open, sound, label }: { n: Tree; store: Store; open: Open; sound?: boolean; label?: boolean }) {
   const on = sound && label ? KANJI[n.el]?.on[0] ?? COMP[n.el]?.on?.[0] : undefined
   return (
-    <button className={'node ' + status(store, n.el) + (sound ? ' sound' : '')} onClick={() => open(n.el)}>
+    <button className={'node ' + standing(store, n.el) + (sound ? ' sound' : '')} onClick={() => open(n.el)}>
       <span className="ch"><Glyph el={n.el} /></span>
       <span className="g">{gloss(n.el)}</span>
       {on && <span className="on">sound {on}</span>}
@@ -117,8 +117,8 @@ export function Family({ ch, store, open }: { ch: string; store: Store; open: Op
     <div className="family">
       <p><button className="inline" onClick={() => open(f.phonetic)}>{f.phonetic}</button> {holds ? 'sounds' : 'usually sounds'} <b>{forms.length ? forms.join(' or ') : kata(f.reading)}</b> in {f.hits.length} of {n} kanji{holds ? '' : <>, <span className="not">but not in {ch}</span></>}</p>
       <div className="chips">
-        {f.hits.map(c => <button key={c} className={'chip ' + status(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)}><KanjiTip c={c} reading={KANJI[c]?.on.join('、')} /></button>)}
-        {f.misses.map(c => <button key={c} className={'chip miss ' + status(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)}><KanjiTip c={c} reading={KANJI[c]?.on.join('、')} /></button>)}
+        {f.hits.map(c => <button key={c} className={'chip ' + standing(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)}><KanjiTip c={c} reading={KANJI[c]?.on.join('、')} /></button>)}
+        {f.misses.map(c => <button key={c} className={'chip miss ' + standing(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)}><KanjiTip c={c} reading={KANJI[c]?.on.join('、')} /></button>)}
       </div>
     </div>
   )
@@ -234,7 +234,7 @@ export function Lookalikes({ ch, store, open }: { ch: string; store: Store; open
   return (
     <div className="alike-list">
       {list.map(l => (
-        <button key={l.ch} className={'alike-item ' + status(store, l.ch)} onClick={() => open(l.ch)}>
+        <button key={l.ch} className={'alike-item ' + standing(store, l.ch)} onClick={() => open(l.ch)}>
           <span className="ch">{l.ch}</span>
           <span className="g">{gloss(l.ch)}</span>
           <span className="swap"><Glyph el={l.theirs} /> not <Glyph el={l.mine} /></span>
@@ -264,7 +264,7 @@ export function UsedIn({ el, store, open, rows = 2 }: { el: string; store: Store
   const shown = all || !perRow || list.length <= cap ? list : list.slice(0, cap - 1)  // the last slot says how many more
   return (
     <div className="chips" ref={ref}>
-      {shown.map(c => <button key={c} className={'chip ' + status(store, c)} onClick={() => open(c)}><KanjiTip c={c} reading={mainReadings(c)} /></button>)}
+      {shown.map(c => <button key={c} className={'chip ' + standing(store, c)} onClick={() => open(c)}><KanjiTip c={c} reading={mainReadings(c)} /></button>)}
       {shown.length < list.length && <button className="chip more-chip" onClick={() => setAll(true)}>+{list.length - shown.length}</button>}
     </div>
   )
@@ -296,8 +296,8 @@ const Divider = ({ children }: { children: React.ReactNode }) => <h3 className="
 /** What the quiz got right, shown green on the card for a few seconds. */
 export type Got = { meaning?: boolean | null; reading?: boolean | null }
 
-/** Known: learned, or likely known before (the placement's guess). */
-const knows = (store: Store, c: string) => status(store, c) === 'known' || (!store.cards[c] && pOf(store, c) > 0.5)
+/** Known: learned, or assumed known from the learner's level. */
+const knows = (store: Store, c: string) => ['known', 'assumed'].includes(standing(store, c))
 
 export function Card({ el, store, open, autoSpeak = false, got }: { el: string; store: Store; open: Open; autoSpeak?: boolean; got?: Got }) {
   const k = KANJI[el]

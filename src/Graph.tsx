@@ -1,7 +1,8 @@
 import { memo, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { forceCollide, forceLink, forceManyBody, forceSimulation, forceX, forceY } from 'd3-force'
 import { COMP, KANJI, gloss } from './data'
-import { status, type Store } from './srs'
+import type { Store } from './srs'
+import { standing } from './levels'
 import { STROKES, treeOf } from './Card'
 
 /*
@@ -243,7 +244,7 @@ const Scene = memo(function Scene({ view, store, hot, focus }: { view: View; sto
         const here = at.get(n.id)
         const [x, y] = here ?? last.current.get(n.id) ?? [0, 0], up = fans.has(n.id)  // arrows leave to the right: the count goes up and right
         return (
-          <g key={n.id} data-n={i} className={'gn ' + status(store, n.id) + (KANJI[n.id] ? '' : ' part') + (here ? '' : ' gone') + (n.id === hot || near.has(n.id) ? ' hot' : '') + (n.id === focus ? ' focus' : '')} style={{ transform: `translate(${x.toFixed(1)}px,${y.toFixed(1)}px)` }}>
+          <g key={n.id} data-n={i} className={'gn ' + standing(store, n.id) + (KANJI[n.id] ? '' : ' part') + (here ? '' : ' gone') + (n.id === hot || near.has(n.id) ? ' hot' : '') + (n.id === focus ? ' focus' : '')} style={{ transform: `translate(${x.toFixed(1)}px,${y.toFixed(1)}px)` }}>
             <circle r={n.r} />
             <text fontSize={n.r * 1.15} dy=".36em" textAnchor="middle">{glyph(n.id)}</text>
             {n.ends.length > 0 && (up
@@ -356,6 +357,8 @@ export function Graph({ store, open }: { store: Store; open: (el: string) => voi
   const click = (id: string) => setFocus(id === focus ? null : id)
   const hot = tip?.node?.id ?? tip?.ends?.id ?? null
   const ends = focus ? graph().nodes.get(focus)!.ends : []
+  // in the legend only when there is one to see: a beginner has nothing assumed
+  const anyAssumed = useMemo(() => [...graph().nodes.keys()].some(id => standing(store, id) === 'assumed'), [store])
 
   return (
     <div className="graph-wrap">
@@ -373,6 +376,7 @@ export function Graph({ store, open }: { store: Store; open: (el: string) => voi
           <svg width="14" height="14"><circle cx="7" cy="7" r="6" className="k" /></svg> kanji
           <svg width="14" height="14"><circle cx="7" cy="7" r="6" className="p" /></svg> part
           <svg width="14" height="14"><circle cx="7" cy="7" r="6" className="k known" /></svg> known
+          {anyAssumed && <span className="if-room"><svg width="14" height="14"><circle cx="7" cy="7" r="6" className="k assumed" /></svg> assumed</span>}
           <svg width="14" height="14"><circle cx="7" cy="7" r="6" className="k learning" /></svg> learning
         </span>
       </div>
@@ -386,7 +390,7 @@ export function Graph({ store, open }: { store: Store; open: (el: string) => voi
         <defs><marker id="arrow" viewBox="0 0 8 8" refX="1" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1L7,4L0,7z" /></marker></defs>
         <g className="pan" style={{ transform: `translate(${pan.x}px,${pan.y}px) scale(${pan.k})` }}><Scene view={view} store={store} hot={hot} focus={focus} /></g>
       </svg>
-      {focus && ends.length > 0 && <div className="graph-ends"><span className="sub small">builds, and nothing further</span><div className="chips">{ends.map(c => <button key={c} className={'chip ' + status(store, c)} onClick={() => open(c)}>{c}</button>)}</div></div>}
+      {focus && ends.length > 0 && <div className="graph-ends"><span className="sub small">builds, and nothing further</span><div className="chips">{ends.map(c => <button key={c} className={'chip ' + standing(store, c)} onClick={() => open(c)}>{c}</button>)}</div></div>}
       {tip && (
         <div className="graph-tip" style={{ left: tip.x, top: tip.y }}>
           {tip.node && <><b className="jp">{glyph(tip.node.id)}</b> {gloss(tip.node.id)}<span>in {uses(tip.node.id)} kanji</span></>}

@@ -65,13 +65,15 @@ nav button.on, .gear.on { color: var(--ink); }
 .inline { font-family: var(--jp); text-decoration: underline; text-underline-offset: 3px; }
 
 /* status, one scale everywhere: new is grey, learning is ink, known is ink with a green mark:
-   a short flat bar under the glyph, clear of the tile's rounded corners */
+   a short flat bar under the glyph, clear of the tile's rounded corners. Assumed (no card, but known by the
+   learner's level) is the same green, paler: taken as known, not checked. In the graph these colour the ring */
 .chip, .cell, .node, .alike-item { --st: transparent; position: relative; }
 .chip::after, .cell::after, .node::after, .alike-item::after { content: ''; position: absolute; left: calc(50% - 6px); bottom: 3px; width: 12px; height: 2px; background: var(--st); }
 .node::after, .alike-item::after, .chip.wide::after { left: calc(50% - 8px); bottom: 1px; width: 16px; }
 .new::after { content: none; }  /* nothing to mark, no box to lay out: the grid has 2,500 tiles */
 .learning { --st: var(--muted); }
 .known { --st: var(--good); }
+.assumed { --st: color-mix(in srgb, var(--good) 60%, transparent); }
 
 /* the card: the kanji fills the left, what explains it stacks on the right */
 .card { container-type: inline-size; position: relative; display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1040px; margin: 0 auto; }
@@ -213,7 +215,7 @@ select { font: 13px system-ui, sans-serif; color: var(--ink); background: var(--
 .cell { font: 19px/34px var(--jp); width: 34px; height: 34px; border-radius: 6px; color: var(--muted); }
 .cell.part { color: var(--faint); font-size: 16px; }
 .cells.plain .cell.part { color: var(--muted); font-size: 19px; }  /* on their own, parts need no fading */
-.cell.learning, .cell.known { color: var(--ink); }
+.cell.learning, .cell.known, .cell.assumed:not(.part) { color: var(--ink); }
 @media (hover: hover) { .cell:hover { background: var(--card); color: var(--ink); } }
 
 /* peek drawer */
@@ -469,6 +471,8 @@ main:has(> .graph-wrap) { max-width: none; }
 .gn.part circle, .graph-key .p { stroke-dasharray: 2 3; }
 .gn.learning circle, .graph-key .learning { stroke: var(--ink); }
 .gn.known circle, .graph-key .known { stroke: var(--good); }
+/* assumed: a paler ring would vanish at a distance, so the node is tinted too */
+.gn.assumed circle, .graph-key .assumed { stroke: color-mix(in srgb, var(--good) 60%, transparent); fill: color-mix(in srgb, var(--good) 14%, var(--card)); }
 .gn text { fill: var(--ink); font-family: var(--jp); }
 /* under the pointer: a tinted fill, like selection a matter of the background; the ring is left alone */
 @media (hover: hover) { .gn:hover:not(.focus) circle { fill: var(--glow); } }
@@ -482,6 +486,7 @@ main:has(> .graph-wrap) { max-width: none; }
 .graph-ends { position: absolute; left: 16px; right: 16px; bottom: 8px; max-height: 30%; overflow-y: auto; padding: 8px 10px; border-radius: 10px; background: color-mix(in srgb, var(--paper) 92%, transparent); display: flex; flex-direction: column; gap: 6px; cursor: default; }
 .graph-key { display: flex; gap: 4px 5px; align-items: center; }
 .graph-key svg { margin-left: 10px; } .graph-key svg:first-child { margin-left: 0; }
+.graph-key .if-room { display: flex; align-items: center; gap: 5px; margin-left: 10px; }
 .graph-tip { position: absolute; transform: translate(14px, 14px); background: var(--card); border: 1px solid var(--faint); border-radius: 8px; padding: 6px 10px; font-size: 13px; pointer-events: none; max-width: 320px; box-shadow: var(--shadow); }
 .graph-tip b { font-weight: 500; font-size: 18px; margin-right: 6px; }
 .graph-tip span { display: block; color: var(--muted); font-size: 12px; }
@@ -494,5 +499,6 @@ main:has(> .graph-wrap) { max-width: none; }
   .graph-bar select { min-width: 0; width: 100%; }
   .graph-bar .graph-key { font-size: 12px; gap: 3px; }
   .graph-key svg { margin-left: 4px; }
+  .graph-key .if-room { display: none; }  /* a phone's bar has no room for a fifth entry; the paler ring is still drawn */
 }
 @media (max-width: 350px) { header, nav { gap: 7px; } nav button { font-size: 12px; } .source { display: none; } }

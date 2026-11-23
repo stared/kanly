@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { KANJI } from './data'
-import { pKnown, update, upcoming } from './levels'
+import { SURE, pKnown, pOf, standing, startAt, update, upcoming } from './levels'
 import { knewIt, learn, type Store } from './srs'
 
 const empty: Store = { cards: {}, log: [] }
@@ -39,4 +39,23 @@ describe('levels', () => {
     expect(Math.abs(s.mu! - 1200)).toBeLessThan(200)
     expect(pKnown('一', s.mu!)).toBeGreaterThan(0.99)
   })
+})
+
+it('takes what a learner of some level never got a card for as assumed, not new', () => {
+  const blank: Store = { cards: {}, log: [] }
+  expect(Object.keys(KANJI).filter(c => standing(blank, c) !== 'new')).toEqual([])  // a beginner assumes nothing
+  const adv = startAt(blank, { mu: 1200, T: 200 })
+  expect(standing(adv, '日')).toBe('assumed')
+  expect(standing(adv, '亻')).toBe('assumed')  // a part, as known as the easiest kanji it is in
+  expect(standing(adv, '鬱')).toBe('new')
+  // μ is the number known: the easier half of the blurred edge is assumed, the harder half new
+  expect(Object.keys(KANJI).filter(c => standing(adv, c) === 'assumed').length).toBeCloseTo(1200, -1)
+  // likely but not surely known (0.5 < p < SURE): assumed, and still to be asked
+  const likely = Object.keys(KANJI).filter(c => pOf(adv, c) > 0.6 && pOf(adv, c) < SURE)
+  expect(likely.length).toBeGreaterThan(50)
+  expect(likely.every(c => standing(adv, c) === 'assumed')).toBe(true)
+  expect(Object.keys(KANJI).filter(c => pOf(adv, c) < 0.4).every(c => standing(adv, c) === 'new')).toBe(true)
+  // a card says more than the level does
+  expect(standing(learn(adv, '日', 0), '日')).toBe('learning')
+  expect(standing(knewIt(adv, '日', 0), '日')).toBe('known')
 })
