@@ -37,6 +37,7 @@ const PLACE: Record<string, string> = {
 const S = 14            // half a node's side: a square tile, as a kanji is everywhere else
 // a node's own graph: between two columns of one step (room for a count, and for an arrow coming down beside it), between rows, between two steps
 const OX = 80, OY = 38, OSTEP = 170
+const RAMP = 30  // how far an arrow runs while it comes down from between two rows to a tile, or goes up from one
 const PX = 38, PY = 34, GROUP = 48  // the whole graph: the grid's steps, and the gap between two groups more
 const uses = (id: string) => COMP[id]?.usedIn.length ?? 1
 
@@ -120,11 +121,13 @@ export function whole(aspect: number): View {
  * - the rest, where all have the same parts here (the node alone): as learned, down a column and then the next;
  *   else row by row, each beside its parts;
  * - the order is settled in three sweeps from the node outwards, each item by where its neighbours then are;
- * - in a step of several columns an arrow runs level between two rows, in a street, and turns into its tile from the
- *   street above its row; out of a tile that is not at the right edge it leaves by the street below; past a step in
- *   between it takes the street nearest its way. Arrows into one row share its street.
+ * - an arrow goes straight to a tile in the first column of a step. To one in a later column it runs level between
+ *   two rows, in a street, and comes off it into its tile by a ramp: the street beside the tile's row on the side the
+ *   arrow comes from, so that it never climbs past a tile to drop back onto it. Out of a tile that is not at the
+ *   right edge it leaves by the street on the side it is headed for; past a step in between it takes the street
+ *   nearest its way. Arrows along one street run as one line.
  * Before, such a step was in learning order and its arrows went straight to each tile: over all the own graphs 3454
- * times through a tile not theirs and 1487 crossings, against none and 82. */
+ * times through a tile not theirs and 1487 crossings, against none and 74. */
 export function around(id: string, w = 1200, h = 800): View {
   const { nodes, links, into, out, leaf } = graph()
   const col = new Map<string, number>([[id, 0]])
@@ -196,13 +199,13 @@ export function around(id: string, w = 1200, h = 800): View {
       let x = s.x + S + 1, y = s.y, d = `M${x},${f1(y)}`
       const bend = (x1: number, y1: number) => { const m = f1((x + x1) / 2); d += `C${m},${f1(y)} ${m},${f1(y1)} ${f1(x1)},${f1(y1)}`; x = x1; y = y1 }
       const level = (x1: number) => { if (x1 > x) { d += `H${f1(x1)}`; x = x1 } }
-      if (s.n > 1 && s.j < s.n - 1) { bend(s.x + S + 18, s.y + OY / 2); level(right(s.c)) }
+      if (s.n > 1 && s.j < s.n - 1) { bend(x + RAMP, s.y + (t.y < s.y ? -1 : 1) * OY / 2); level(right(s.c)) }
       for (let c = s.c + 1; c < t.c; c++) {
         const tall = Math.min(rows, cols.get(c)!.length), top = -(tall - 1) / 2 * OY - OY / 2
         const want = y + (t.y - y) * (x0.get(c)! - x) / (t.x - x)
         bend(left(c), top + Math.max(0, Math.min(tall, Math.round((want - top) / OY))) * OY); level(right(c))
       }
-      if (t.n > 1) { bend(left(t.c), t.y - OY / 2); level(t.x - S - 24); bend(t.x - S - 8, t.y) } else bend(t.x - S - 8, t.y)
+      if (t.j > 0) { bend(left(t.c), t.y + (y > t.y ? 1 : -1) * OY / 2); level(t.x - S - 8 - RAMP); bend(t.x - S - 8, t.y) } else bend(t.x - S - 8, t.y)
       return d + `H${f1(t.x - S - 5)}`
     })
     const box = boxOf(at, pad)
