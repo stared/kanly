@@ -1,24 +1,31 @@
 import { memo, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import { forceCollide, forceLink, forceManyBody, forceSimulation, forceX, forceY } from 'd3-force'
-import { COMP, KANJI, gloss } from './data'
+import { COMP, KANJI, POS, gloss } from './data'
 import type { Store } from './srs'
-import { standing } from './levels'
+import { marks, standing } from './levels'
 import { STROKES, treeOf } from './Card'
 
 /*
 What kanji are built from, as a graph. A node is anything used as a direct part of something else; an arrow goes
-from a part to what it builds (二 → 云 → 雲). A kanji nothing is built from is not drawn: each node counts those
-it builds directly ("+23"). The place of the part in the whole (Tree.pos) is on the arrow, shown on hover.
+from a part to what it builds (二 → 云 → 雲). A kanji nothing is built from is not drawn: a node counts those it
+builds directly ("+23"). The place of the part in the whole (Tree.pos) is on the arrow, shown on hover.
 
-Drawn with every arrow, 850 nodes and 1250 arrows are a hairball: a kanji has two or three parts, and 口 alone is
-in 66 other nodes. So each node hangs under one main part, the rarest of its parts (時 under 寺, not under 日),
-which makes a forest: trees read left to right and no arrow crosses another. The other arrows of a node show on
-hover; the layered view draws them all. Clicking a node shows only what it is built from and what it builds, with every arrow.
+One rule, with no exception and in a window of any shape: every arrow points right. So a node stands by how many
+steps it is from the basic parts (those nothing here is a part of): the basic parts on the left, then what is built
+from them alone, then what needs one of those, and so on. A node is one step past the furthest of its parts, so
+each of its parts is in a group to its left. Inside a group the nodes are in the order they are learned, down a
+column and then down the next.
+
+With 845 nodes and 1165 arrows, every arrow drawn at once is a hairball (口 alone is in 62 other nodes), so the whole
+graph shows the nodes and, under the pointer, the arrows of one node. Clicking a node shows only what it is built
+from and what it builds, with every arrow. Before this each node hung under one of its parts, the rarest, in trees
+packed by size: the arrows to its other parts then pointed wherever those trees happened to lie, a quarter of them
+left, and which ones changed with the window.
 */
-type N = { id: string; r: number; ends: string[] }
-type L = { source: N; target: N; pos: string[]; sound: boolean; nth: number; main?: boolean }
+type N = { id: string; ends: string[] }
+type L = { source: N; target: N; pos: string[]; sound: boolean }
 type P = Map<string, [number, number]>
-type View = { nodes: N[]; links: L[]; at: P; box: [number, number, number, number]; straight?: boolean }
+/** quiet: arrows and counts only for the node under the pointer */
+export type View = { nodes: N[]; links: L[]; at: P; box: [number, number, number, number]; quiet?: boolean }
 
 const PLACE: Record<string, string> = {
   left: 'left', right: 'right', top: 'top', bottom: 'bottom', middle: 'middle', inside: 'inside',
@@ -26,34 +33,36 @@ const PLACE: Record<string, string> = {
   '⿴': 'frame, all around', '⿵': 'frame, open below', '⿶': 'frame, open above', '⿷': 'frame, open to the right',
   '⿸': 'frame, top and left', '⿹': 'frame, top and right', '⿺': 'frame, left and bottom', '⿻': 'merged into one shape',
 }
-const COL = 108, ROW = 38
+const S = 14            // half a node's side: a square tile, as a kanji is everywhere else
+const COL = 108, ROW = 38  // a node's own graph: its columns and rows
+const PX = 38, PY = 34, GROUP = 48  // the whole graph: the grid's steps, and the gap between two groups more
 const uses = (id: string) => COMP[id]?.usedIn.length ?? 1
 
-const boxOf = (at: P): View['box'] => {
+const boxOf = (at: P, [l, t, r, b]: View['box'] = [40, 64, 70, 56]): View['box'] => {
   const xs = [...at.values()].map(p => p[0]), ys = [...at.values()].map(p => p[1])
-  return [Math.min(...xs) - 40, Math.min(...ys) - 64, Math.max(...xs) + 70, Math.max(...ys) + 56]
+  return [Math.min(...xs) - l, Math.min(...ys) - t, Math.max(...xs) + r, Math.max(...ys) + b]
 }
 
 let G: { nodes: Map<string, N>; links: L[]; into: Map<string, L[]>; out: Map<string, L[]> } | undefined
 function graph() {
   if (G) return G
-  const parts = new Map<string, Map<string, { pos: Set<string>; sound: boolean; nth: number }>>()  // whole → part → places
+  const parts = new Map<string, Map<string, { pos: Set<string>; sound: boolean }>>()  // whole → part → places
   for (const el of Object.keys(COMP)) {
     for (const k of treeOf(el)?.kids ?? []) {
       if (STROKES.has(k.el) || k.el === el) continue
       const m = parts.get(el) ?? parts.set(el, new Map()).get(el)!
-      const e = m.get(k.el) ?? m.set(k.el, { pos: new Set(), sound: false, nth: m.size }).get(k.el)!
+      const e = m.get(k.el) ?? m.set(k.el, { pos: new Set(), sound: false }).get(k.el)!
       if (k.pos) e.pos.add(k.pos)
       if (k.phon) e.sound = true
     }
   }
   const ids = new Set([...parts.values()].flatMap(m => [...m.keys()]))
-  const nodes = new Map<string, N>([...ids].map(id => [id, { id, r: 11 + Math.min(5, Math.sqrt(uses(id)) / 3), ends: [] }]))
+  const nodes = new Map<string, N>([...ids].map(id => [id, { id, ends: [] }]))
   const links: L[] = [], into = new Map<string, L[]>(), out = new Map<string, L[]>()
   for (const [whole, m] of parts) {
     for (const [part, e] of m) {
       if (!nodes.has(whole)) { nodes.get(part)!.ends.push(whole); continue }
-      const l = { source: nodes.get(part)!, target: nodes.get(whole)!, pos: [...e.pos], sound: e.sound, nth: e.nth }
+      const l = { source: nodes.get(part)!, target: nodes.get(whole)!, pos: [...e.pos], sound: e.sound }
       links.push(l)
       into.set(whole, [...(into.get(whole) ?? []), l])
       out.set(part, [...(out.get(part) ?? []), l])
@@ -62,119 +71,38 @@ function graph() {
   return G = { nodes, links, into, out }
 }
 
-/** Which of its parts a node hangs under. */
-const UNDER = {
-  'its rarest part': (a: L, b: L) => uses(a.source.id) - uses(b.source.id),  // a family gathers under what is particular to it
-  'its most used part': (a: L, b: L) => uses(b.source.id) - uses(a.source.id),
-  'its sound part': (a: L, b: L) => +b.sound - +a.sound || uses(a.source.id) - uses(b.source.id),
-  'its first part': (a: L, b: L) => a.nth - b.nth,  // as written: the left or top one
-}
-type Under = keyof typeof UNDER
-type How = 'layers' | 'force' | Under
-
-const FOREST = new Map<string, View>()
-/** Every node under its main part: tidy trees, packed on shelves from the tallest down. */
-function forest(under: Under, aspect: number): View {
-  const key = under + aspect.toFixed(1)
-  if (FOREST.has(key)) return FOREST.get(key)!
-  const { nodes, into } = graph()
-  const main = new Set([...into.values()].map(ls => [...ls].sort(UNDER[under])[0]))
-  const links = graph().links.map(l => ({ ...l, main: main.has(l) }))
-  const out = new Map<string, L[]>()
-  for (const l of links) out.set(l.source.id, [...(out.get(l.source.id) ?? []), l])
-  const kids = (id: string) => (out.get(id) ?? []).filter(l => l.main).map(l => l.target.id).sort((a, b) => uses(b) - uses(a))
-  const trees = [...nodes.keys()].filter(id => !into.has(id)).map(root => {
+const WHOLE = new Map<string, View>()
+/** Everything, in groups by steps from the basic parts, each group in the order it is learned (down a column, then
+ * the next): as many rows as show it largest in a window of this shape. No arrow is drawn until a node is pointed at. */
+export function whole(aspect: number): View {
+  const key = aspect.toFixed(2)
+  if (WHOLE.has(key)) return WHOLE.get(key)!
+  const { nodes, links, into } = graph()
+  const steps = new Map<string, number>()
+  const step = (id: string): number => steps.get(id) ?? steps.set(id, into.has(id) ? 1 + Math.max(...into.get(id)!.map(l => step(l.source.id))) : 0).get(id)!
+  const groups: string[][] = []
+  for (const id of nodes.keys()) (groups[step(id)] ??= []).push(id)
+  for (const g of groups) g.sort((a, b) => (POS.get(a) ?? 1e9) - (POS.get(b) ?? 1e9))
+  const pad: View['box'] = [S + 14, S + 14, S + 34, S + 14]
+  const lay = (rows: number) => {
     const at: P = new Map()
-    let row = 0, depth = 0
-    const put = (id: string, level: number): number => {
-      depth = Math.max(depth, level)
-      const ys = kids(id).map(k => put(k, level + 1))
-      const y = ys.length ? (ys[0] + ys[ys.length - 1]) / 2 : row++ * ROW
-      at.set(id, [level * COL, y])
-      return y
+    let x = 0
+    for (const g of groups) {
+      g.forEach((id, i) => at.set(id, [x + Math.floor(i / rows) * PX, (i % rows) * PY]))
+      x += Math.ceil(g.length / rows) * PX + GROUP
     }
-    put(root, 0)
-    return { at, w: (depth + 1) * COL, h: row * ROW }
-  }).sort((a, b) => b.h - a.h || b.w - a.w)
-  const width = Math.sqrt(trees.reduce((a, t) => a + (t.w + 12) * (t.h + ROW * 0.6), 0) * aspect) * 1.04
-  const at: P = new Map()
-  let x = 0, y = 0, shelf = 0
-  for (const t of trees) {
-    if (x > 0 && x + t.w > width) { x = 0; y += shelf + ROW * 0.6; shelf = 0 }
-    for (const [id, [px, py]] of t.at) at.set(id, [x + px, y + py])
-    x += t.w + 12
-    shelf = Math.max(shelf, t.h)
+    const box = boxOf(at, pad)
+    return { at, box, size: Math.min(aspect / (box[2] - box[0]), 1 / (box[3] - box[1])) }
   }
-  const view = { nodes: [...nodes.values()], links, at, box: boxOf(at) }
-  FOREST.set(key, view)
-  return view
-}
-
-const LAYERS = new Map<string, View>()
-/** The graph as it is, every arrow drawn: a column block per depth (the longest chain of parts below a node), shapes
- * with no parts on the left. Within a block a node sits near the height of its parts, so arrows stay short. */
-function layers(aspect: number): View {
-  const key = aspect.toFixed(1)
-  if (LAYERS.has(key)) return LAYERS.get(key)!
-  const { nodes, into, out } = graph()
-  const depth = new Map<string, number>()
-  const d = (id: string): number => {
-    if (!depth.has(id)) { depth.set(id, 0); depth.set(id, 1 + Math.max(-1, ...(into.get(id) ?? []).map(l => d(l.source.id)))) }
-    return depth.get(id)!
-  }
-  const bands: string[][] = []
-  for (const id of nodes.keys()) (bands[d(id)] ??= []).push(id)
-  const W = 64, H = 34, GAP = 80
-  // rows per block: the count that gives the window's shape
-  const wide = (rows: number) => bands.reduce((a, b) => a + Math.ceil(b.length / rows) * W + GAP, 0)
-  let rows = 8
-  for (let r = 8; r < 120; r++) if (Math.abs(wide(r) / (r * H) - aspect) < Math.abs(wide(rows) / (rows * H) - aspect)) rows = r
-  const at: P = new Map()
-  const want = (id: string, ls: L[] | undefined, end: 'source' | 'target') => {
-    const ys = (ls ?? []).map(l => at.get(l[end].id)?.[1]).filter(y => y !== undefined) as number[]
-    return ys.length ? ys.reduce((a, b) => a + b, 0) / ys.length : 0
-  }
-  const place = (b: number, key: (id: string) => number) => {
-    const cols = Math.ceil(bands[b].length / rows), x0 = bands.slice(0, b).reduce((a, p) => a + Math.ceil(p.length / rows) * W + GAP, 0)
-    const sorted = bands[b].map(id => [id, key(id)] as const).sort((p, q) => p[1] - q[1] || uses(q[0]) - uses(p[0]))
-    const used = Math.ceil(sorted.length / cols)
-    sorted.forEach(([id], i) => at.set(id, [x0 + (i % cols) * W, (Math.floor(i / cols) - (used - 1) / 2) * H]))
-  }
-  place(0, () => 0)
-  for (let b = 1; b < bands.length; b++) place(b, id => want(id, into.get(id), 'source'))
-  for (let b = bands.length - 2; b >= 0; b--) place(b, id => want(id, out.get(id), 'target'))
-  for (let b = 1; b < bands.length; b++) place(b, id => want(id, into.get(id), 'source'))
-  const view = { nodes: [...nodes.values()], links: graph().links.map(l => ({ ...l, main: true })), at, box: boxOf(at) }
-  LAYERS.set(key, view)
-  return view
-}
-
-const FORCE = new Map<string, View>()
-/** Every arrow as a spring, every node repelling the others: related shapes end up near each other, in no set order. */
-function force(aspect: number): View {
-  const key = aspect.toFixed(1)
-  if (FORCE.has(key)) return FORCE.get(key)!
-  const { nodes, links } = graph()
-  type F = { id: string; r: number; ends: number; x: number; y: number }
-  const fs = [...nodes.values()].map(n => ({ id: n.id, r: n.r, ends: n.ends.length, x: NaN, y: NaN }))  // unset: d3 starts them on a spiral
-  const by = new Map(fs.map(f => [f.id, f]))
-  const deg = new Map<string, number>()
-  for (const l of links) for (const n of [l.source, l.target]) deg.set(n.id, (deg.get(n.id) ?? 0) + 1)
-  forceSimulation(fs)
-    .force('link', forceLink(links.map(l => ({ source: by.get(l.source.id)!, target: by.get(l.target.id)! }))).distance(46).strength(l => 0.8 / Math.min(deg.get((l.source as F).id)!, deg.get((l.target as F).id)!)))
-    .force('charge', forceManyBody().strength(-40).distanceMax(240))
-    .force('collide', forceCollide<F>(n => n.r + (n.ends ? 15 : 5)).iterations(2))
-    .force('x', forceX(0).strength(0.03))
-    .force('y', forceY(0).strength(0.03 * aspect * aspect))  // flattened to the window's shape
-    .stop().tick(400)
-  const at: P = new Map(fs.map(f => [f.id, [f.x, f.y]]))
-  const view = { nodes: [...nodes.values()], links: links.map(l => ({ ...l, main: true })), at, box: boxOf(at), straight: true }
-  FORCE.set(key, view)
+  let best = lay(1)
+  for (let rows = 2; rows <= Math.max(...groups.map(g => g.length)); rows++) { const l = lay(rows); if (l.size > best.size) best = l }
+  const view: View = { nodes: [...nodes.values()], links, at: best.at, box: best.box, quiet: true }
+  WHOLE.set(key, view)
   return view
 }
 
 /** One node with all it is built from (to its left) and all it builds (to its right), every arrow among them. */
-function around(id: string): View {
+export function around(id: string): View {
   const { nodes, links, into, out } = graph()
   const col = new Map<string, number>([[id, 0]])
   // columns by the longest chain to the node, so every arrow points right
@@ -208,51 +136,94 @@ function around(id: string): View {
   }
   const box = boxOf(at)
   if (nodes.get(id)!.ends.length) box[3] += 110  // room for the strip of kanji it builds
-  return { nodes: [...col.keys()].map(n => nodes.get(n)!), links: shown.map(l => ({ ...l, main: true })), at, box }
+  return { nodes: [...col.keys()].map(n => nodes.get(n)!), links: shown, at, box }
 }
 
 const glyph = (el: string) => el.startsWith('CDP') ? '◌' : el
 
 const ALL = () => [...graph().nodes.values()]
 
-/** Every node is always drawn, so that it glides to its place when the view changes (CSS transition on transform);
- * a node the view leaves out fades where it was. Arrows cannot glide, so they fade out and back in (.moving). */
+/** f(0) at once, then f of 0 → 1, eased, a frame at a time over ms; returns the way to stop it. */
+function tween(ms: number, f: (e: number) => void) {
+  const t0 = performance.now()
+  f(0)
+  let raf = requestAnimationFrame(function step(now) {
+    const t = Math.min(1, Math.max(0, (now - t0) / ms))
+    f(t < 0.5 ? 4 * t ** 3 : 1 - (-2 * t + 2) ** 3 / 2)
+    if (t < 1) raf = requestAnimationFrame(step)
+  })
+  return () => cancelAnimationFrame(raf)
+}
+const GLIDE = 600
+
+// a node: a square tile with round corners. The lower right half of its edge, from corner to corner, is drawn once
+// more where the reading stands otherwise than the meaning (as the border of a tile does everywhere else)
+const C = 6.5, K = C * (1 - Math.SQRT1_2)
+const HALF = `M${S - K},${-S + K}A${C},${C} 0 0 1 ${S},${-S + C}V${S - C}A${C},${C} 0 0 1 ${S - C},${S}H${-S + C}A${C},${C} 0 0 1 ${-S + K},${S - K}`
+// in the whole graph a node answers the pointer over its whole cell of the grid: between two tiles there is no gap
+// where the arrows would go out and come back
+const PAD = `M${-PX / 2},${-PY / 2}h${PX}v${PY}h${-PX}z`
+/** "+23": the kanji a node builds that are not nodes. Up and right of a node that arrows leave (they leave to the right). */
+const count = (n: N, up: boolean, i?: number) => up
+  ? <g className="ge" data-e={i}><path d={`M${S - 1},${-S + 1}l5,-5`} markerEnd="url(#arrow)" /><text x={S + 8} y={-S - 6}>+{n.ends.length}</text></g>
+  : <g className="ge" data-e={i}><path d={`M${S + 1},0h7`} markerEnd="url(#arrow)" /><text x={S + 13} dy=".35em">+{n.ends.length}</text></g>
+
+/** Every node is always drawn, so that it glides to its place when the view changes; a node the view leaves out fades
+ * where it was. Arrows cannot glide, so they fade out and back in (.moving).
+ * A node's place is an SVG attribute, in the graph's own units, as an arrow's path is. As a CSS transform (in px)
+ * WebKit multiplied it by the page's zoom and left the arrows alone: at 120% every node sat off its arrows. So the
+ * glide is done here, not by a CSS transition. */
 const Scene = memo(function Scene({ view, store, hot, focus }: { view: View; store: Store; hot: string | null; focus: string | null }) {
-  const { links, at } = view
-  const last = useRef<P>(new Map())
+  const { links, at, quiet } = view
+  const root = useRef<SVGGElement>(null)
+  const drawn = useRef<P>(new Map())  // where each node is on the screen now
   const near = useMemo(() => new Set(hot ? links.filter(l => l.source.id === hot || l.target.id === hot).flatMap(l => [l.source.id, l.target.id]) : []), [hot, view])
-  const fans = useMemo(() => new Set(view.straight ? [] : links.filter(l => l.main).map(l => l.source.id)), [view])
-  useEffect(() => { for (const [id, p] of at) last.current.set(id, p) }, [view])
+  const fans = useMemo(() => new Set(links.map(l => l.source.id)), [view])
+  const over = quiet && hot ? graph().nodes.get(hot) : undefined
+  useLayoutEffect(() => {
+    const els = root.current!.querySelectorAll<SVGGElement>(':scope > .gn')
+    const moves = ALL().flatMap((n, i) => {
+      const to = at.get(n.id) ?? drawn.current.get(n.id) ?? [0, 0], from = drawn.current.get(n.id) ?? to
+      if (from[0] !== to[0] || from[1] !== to[1]) return [{ el: els[i], id: n.id, from, to }]
+      drawn.current.set(n.id, to)
+      return []
+    })
+    if (moves.length) return tween(GLIDE, e => {
+      for (const { el, id, from, to } of moves) {
+        const p: [number, number] = [from[0] + (to[0] - from[0]) * e, from[1] + (to[1] - from[1]) * e]
+        drawn.current.set(id, p)
+        el.setAttribute('transform', `translate(${p[0].toFixed(1)},${p[1].toFixed(1)})`)
+      }
+    })
+  }, [view])
   return (
-    <g className={hot ? 'has-hot' : ''}>
+    <g ref={root} className={(hot ? 'has-hot' : '') + (quiet ? ' quiet' : '')}>
       {links.map((l, i) => {
-        const touch = hot && (l.source.id === hot || l.target.id === hot)
-        if (!l.main && !touch) return null
+        const touch = hot !== null && (l.source.id === hot || l.target.id === hot)
+        if (quiet && !touch) return null
+        // every arrow points right: a curve that leaves a tile's right side level and arrives level at a left side
         const [sx, sy] = at.get(l.source.id)!, [tx, ty] = at.get(l.target.id)!
-        let d: string
-        if (!view.straight && tx - sx > l.source.r + l.target.r + 12) {  // to the right: a curve leaving and arriving level
-          const a = sx + l.source.r + 1, b = tx - l.target.r - 5, m = (a + b) / 2
-          d = `M${a},${sy.toFixed(1)}C${m.toFixed(1)},${sy.toFixed(1)} ${m.toFixed(1)},${ty.toFixed(1)} ${b - 3},${ty.toFixed(1)}L${b},${ty.toFixed(1)}`
-        } else {
-          const dx = tx - sx, dy = ty - sy, len = Math.hypot(dx, dy) || 1
-          const p = (t: number) => `${(sx + dx / len * t).toFixed(1)},${(sy + dy / len * t).toFixed(1)}`
-          d = `M${p(l.source.r + 1)}L${p(len - l.target.r - 5)}`
-        }
-        return <g key={i} data-l={i} className={'gl' + (l.main ? '' : ' other') + (touch ? ' hot' : '')}><path d={d} markerEnd="url(#arrow)" /><path className="hit" d={d} /></g>
+        const a = sx + S + 1, b = tx - S - 5, m = (a + b) / 2
+        const d = `M${a},${sy.toFixed(1)}C${m.toFixed(1)},${sy.toFixed(1)} ${m.toFixed(1)},${ty.toFixed(1)} ${b - 3},${ty.toFixed(1)}L${b},${ty.toFixed(1)}`
+        return <g key={i} data-l={i} className={'gl' + (touch ? ' hot' : '')}><path d={d} markerEnd="url(#arrow)" /><path className="hit" d={d} /></g>
       })}
       {ALL().map((n, i) => {
         const here = at.get(n.id)
-        const [x, y] = here ?? last.current.get(n.id) ?? [0, 0], up = fans.has(n.id)  // arrows leave to the right: the count goes up and right
+        const [x, y] = here ?? drawn.current.get(n.id) ?? [0, 0]
+        // the tile's edge says how the meaning stands; where the reading stands otherwise, its lower right half says that
+        const meaning = standing(store, n.id, 'm'), reading = standing(store, n.id, 'r')
         return (
-          <g key={n.id} data-n={i} className={'gn ' + standing(store, n.id) + (KANJI[n.id] ? '' : ' part') + (here ? '' : ' gone') + (n.id === hot || near.has(n.id) ? ' hot' : '') + (n.id === focus ? ' focus' : '')} style={{ transform: `translate(${x.toFixed(1)}px,${y.toFixed(1)}px)` }}>
-            <circle r={n.r} />
-            <text fontSize={n.r * 1.15} dy=".36em" textAnchor="middle">{glyph(n.id)}</text>
-            {n.ends.length > 0 && (up
-              ? <g className="ge" data-e={i}><path d={`M${(n.r * .74).toFixed(1)},${(-n.r * .74).toFixed(1)}l5,-5`} markerEnd="url(#arrow)" /><text x={n.r * .74 + 9} y={-n.r * .74 - 7}>+{n.ends.length}</text></g>
-              : <g className="ge" data-e={i}><path d={`M${n.r + 1},0h7`} markerEnd="url(#arrow)" /><text x={n.r + 13} dy=".35em">+{n.ends.length}</text></g>)}
+          <g key={n.id} data-n={i} className={'gn ' + meaning + (KANJI[n.id] ? '' : ' part') + (here ? '' : ' gone') + (n.id === hot || near.has(n.id) ? ' hot' : '') + (n.id === focus ? ' focus' : '')} transform={`translate(${x.toFixed(1)},${y.toFixed(1)})`}>
+            {quiet && <path className="pad" d={PAD} />}
+            <rect x={-S} y={-S} width={S * 2} height={S * 2} rx={C} />
+            {reading !== meaning && <path className={'half ' + reading} d={HALF} />}
+            <text fontSize={15} dy=".36em" textAnchor="middle">{glyph(n.id)}</text>
+            {!quiet && n.ends.length > 0 && count(n, fans.has(n.id), i)}
           </g>
         )
       })}
+      {/* the whole graph: one count, of the node under the pointer, over its neighbours */}
+      {over && over.ends.length > 0 && <g className="over" transform={`translate(${at.get(over.id)![0].toFixed(1)},${at.get(over.id)![1].toFixed(1)})`}>{count(over, true)}</g>}
     </g>
   )
 })
@@ -261,17 +232,25 @@ type Tip = { x: number; y: number; node?: N; link?: L; ends?: N }
 
 export function Graph({ store, open }: { store: Store; open: (el: string) => void }) {
   const [focus, setFocus] = useState<string | null>(null)
-  const [how, setHow] = useState<How>('its rarest part')
   const ref = useRef<HTMLDivElement>(null)
   // the window's shape when the tab opens (below the top bar and the graph's own), so that the whole graph fills it
   const [aspect] = useState(() => Math.min(3, Math.max(0.5, innerWidth / Math.max(200, innerHeight - 110))))
-  const view = useMemo(() => focus ? around(focus) : how === 'layers' ? layers(aspect) : how === 'force' ? force(aspect) : forest(how, aspect), [focus, how, aspect])
+  const view = useMemo(() => focus ? around(focus) : whole(aspect), [focus, aspect])
   const { links, box } = view
   const nodes = useMemo(ALL, [])
   const [pan, setPan] = useState({ x: 0, y: 0, k: 1 })
   const [glide, setGlide] = useState(false)   // the view moves by itself (a new layout, a button), not under the hand
   const [moving, setMoving] = useState(false) // nodes are on their way: arrows wait
   const [tip, setTip] = useState<Tip | null>(null)
+  // below and right of the pointer; at the graph's right and bottom edges, where it was cut off, on the other side of it
+  const tipRef = useRef<HTMLDivElement>(null)
+  useLayoutEffect(() => {
+    const el = tipRef.current, box = ref.current
+    if (!el || !box || !tip) return
+    const side = (p: number, size: number, room: number) => p + 14 + size > room - 4 ? Math.max(4, p - 10 - size) : p + 14
+    el.style.left = side(tip.x, el.offsetWidth, box.clientWidth) + 'px'
+    el.style.top = side(tip.y, el.offsetHeight, box.clientHeight) + 'px'
+  }, [tip])
   const drag = useRef<{ x: number; y: number; moved: boolean } | null>(null)
   const fingers = useRef(new Map<number, [number, number]>())
   const boxRef = useRef(box)
@@ -301,6 +280,14 @@ export function Graph({ store, open }: { store: Store; open: (el: string) => voi
     const t = setTimeout(() => setMoving(false), 650)
     return () => clearTimeout(t)
   }, [view])
+  // the view as drawn: at once under the hand, in a glide when it moves by itself (an attribute, as a node's place is)
+  const panEl = useRef<SVGGElement>(null), panNow = useRef(pan)
+  useLayoutEffect(() => {
+    const from = panNow.current
+    const put = (v: typeof pan) => { panNow.current = v; panEl.current!.setAttribute('transform', `translate(${v.x.toFixed(2)},${v.y.toFixed(2)}) scale(${v.k.toFixed(5)})`) }
+    if (!glide) return put(pan)
+    return tween(GLIDE, e => put({ x: from.x + (pan.x - from.x) * e, y: from.y + (pan.y - from.y) * e, k: from.k + (pan.k - from.k) * e }))
+  }, [pan, glide])
   const zoom = (f: number, cx?: number, cy?: number) => setPan(v => {
     const r = ref.current!.getBoundingClientRect()
     const px = cx ?? r.width / 2, py = cy ?? r.height / 2
@@ -364,32 +351,28 @@ export function Graph({ store, open }: { store: Store; open: (el: string) => voi
         <span className="slot">
           {focus
             ? <><button className="sel" onClick={() => open(focus)}><b className="jp">{glyph(focus)}</b> {gloss(focus)}</button><button className="whole" onClick={() => setFocus(null)}>back<span className="long"> to the whole graph</span></button></>
-            : <select aria-label="layout" value={how} onChange={e => setHow(e.target.value as How)}>
-                {Object.keys(UNDER).map(u => <option key={u} value={u}>trees under {u.replace('its ', '')}</option>)}
-                <option value="layers">layers by depth</option>
-                <option value="force">free</option>
-              </select>}
+            : <span className="how sub small">Left to right by steps: basic parts, then what they build, then what those build. In each step: learning order, down each column.</span>}
         </span>
         <span className="graph-key sub small">
-          <svg width="14" height="14"><circle cx="7" cy="7" r="6" className="k" /></svg> kanji
-          <svg width="14" height="14"><circle cx="7" cy="7" r="6" className="p" /></svg> part
-          <svg width="14" height="14"><circle cx="7" cy="7" r="6" className="k known" /></svg> known
-          <svg width="14" height="14"><circle cx="7" cy="7" r="6" className="k learning" /></svg> learning
+          <svg width="14" height="14"><rect x="1" y="1" width="12" height="12" rx="3" className="k" /></svg> kanji
+          <svg width="14" height="14"><rect x="1" y="1" width="12" height="12" rx="3" className="p" /></svg> part
+          <svg width="14" height="14"><rect x="1" y="1" width="12" height="12" rx="3" className="k known" /></svg> known
+          <svg width="14" height="14"><rect x="1" y="1" width="12" height="12" rx="3" className="k learning" /></svg> learning
         </span>
       </div>
-    <div className={'graph' + (moving ? ' moving' : '') + (glide ? ' glide' : '')} ref={ref}
+    <div className={'graph' + (moving ? ' moving' : '')} ref={ref}
       onPointerDown={e => { if (!(e.target as Element).closest('.graph-ends')) { if (e.pointerType === 'mouse') e.preventDefault(); fingers.current.set(e.pointerId, [e.clientX, e.clientY]); drag.current = { x: e.clientX, y: e.clientY, moved: fingers.current.size > 1 }; setGlide(false); setTip(null) } }}
       onPointerMove={move}
       onPointerUp={e => { fingers.current.delete(e.pointerId); const d = drag.current; drag.current = null; const hit = at(e); if (!d || d.moved) return; if (hit?.node || hit?.ends) click((hit.node ?? hit.ends)!.id); else if (!hit && !(e.target as Element).closest('.graph-ends')) setFocus(null) }}  // a click on nothing: back to the whole graph, as the card drawer closes
       onPointerLeave={e => { fingers.current.delete(e.pointerId); drag.current = null; setTip(null) }}
       onPointerCancel={e => { fingers.current.delete(e.pointerId); drag.current = null }}>
       <svg role="img" aria-label="Kanji and the parts they are built from">
-        <defs><marker id="arrow" viewBox="0 0 8 8" refX="1" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1L7,4L0,7z" /></marker></defs>
-        <g className="pan" style={{ transform: `translate(${pan.x}px,${pan.y}px) scale(${pan.k})` }}><Scene view={view} store={store} hot={hot} focus={focus} /></g>
+        <defs><marker id="arrow" viewBox="0 0 8 8" refX="1" refY="4" markerWidth="6" markerHeight="6" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,1L7,4L0,7z" /></marker></defs>
+        <g className="pan" ref={panEl}><Scene view={view} store={store} hot={hot} focus={focus} /></g>
       </svg>
-      {focus && ends.length > 0 && <div className="graph-ends"><span className="sub small">builds, and nothing further</span><div className="chips">{ends.map(c => <button key={c} className={'chip ' + standing(store, c)} onClick={() => open(c)}>{c}</button>)}</div></div>}
+      {focus && ends.length > 0 && <div className="graph-ends"><span className="sub small">builds, and nothing further</span><div className="chips">{ends.map(c => <button key={c} className={'chip ' + marks(store, c)} onClick={() => open(c)}>{c}</button>)}</div></div>}
       {tip && (
-        <div className="graph-tip" style={{ left: tip.x, top: tip.y }}>
+        <div className="graph-tip" ref={tipRef}>
           {tip.node && <><b className="jp">{glyph(tip.node.id)}</b> {gloss(tip.node.id)}<span>in {uses(tip.node.id)} kanji</span></>}
           {tip.link && <><b className="jp">{glyph(tip.link.source.id)} → {glyph(tip.link.target.id)}</b><span>{tip.link.pos.map(p => PLACE[p] ?? p).join(', ') || 'part'}{tip.link.sound ? ' · gives the sound' : ''}</span></>}
           {tip.ends && <><b className="jp">{glyph(tip.ends.id)} →</b><span className="jp many">{tip.ends.ends.join(' ')}</span></>}

@@ -508,16 +508,17 @@ svg.drawn .ink { stroke: var(--ink); }
 .rd .romaji.said { animation: said 3s both; }
 @keyframes said { 0%, 80% { opacity: 1; } 100% { opacity: 0; } }
 
-/* graph: parts on the left, what they build to the right; pan by dragging, zoom by wheel */
+/* graph: parts on the left, what they build to the right, every arrow pointing right; pan by dragging, zoom by wheel */
 main:has(> .graph-wrap) { max-width: none; }
 .app:has(.graph-wrap) { padding-bottom: 0; }
 /* nothing here is text to select: dragging must not paint a selection over the bar or the glyphs */
 .graph-wrap { display: flex; flex-direction: column; height: calc(100vh - 62px); margin: 0 -24px; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
-/* one bar in both views: on the left the layout, or the node shown and the way back; the legend always at the right end */
+/* one bar in both views: on the left how the whole graph is ordered, or the node shown and the way back; the legend always at the right end */
 .graph-bar { display: flex; align-items: center; gap: 12px; padding: 0 24px 8px; min-height: 38px; }
 .graph-bar .slot { flex: 1; min-width: 0; display: flex; align-items: center; gap: 14px; white-space: nowrap; overflow: hidden; }
 .graph-bar .sel { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-size: 15px; } @media (hover: hover) { .graph-bar .sel:hover { color: var(--accent); } }
 .graph-bar .sel b { font-weight: 400; font-size: 20px; margin-right: 4px; }
+.graph-bar .how { white-space: normal; line-height: 1.35; }
 .graph-bar .whole { flex: none; font-size: 13px; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
 @media (hover: hover) { .graph-bar .whole:hover { color: var(--ink); } }
 .graph-bar .graph-key { flex: none; white-space: nowrap; }
@@ -525,44 +526,56 @@ main:has(> .graph-wrap) { max-width: none; }
 .graph > svg { width: 100%; height: 100%; display: block; }
 .graph marker path { fill: var(--muted); }
 .gl path { fill: none; stroke: var(--muted); stroke-width: 1; opacity: .32; }
-.gl.other path:first-child { stroke-dasharray: 1 3; }
 .gl .hit { stroke: transparent; stroke-width: 9; opacity: 1; }
 .gl.hot path:first-child { stroke: var(--ink); opacity: 1; stroke-width: 1.5; } @media (hover: hover) { .gl:hover path:first-child { stroke: var(--ink); opacity: 1; stroke-width: 1.5; } }
-/* a new arrangement or a node's own graph: nodes glide to their places, arrows fade out and back, the view follows */
-.gn { cursor: pointer; transition: transform .6s cubic-bezier(.65, 0, .35, 1), opacity .4s; }
+/* a node's own graph: nodes glide to their places and the view follows (Graph.tsx, not CSS: a place is an SVG
+   attribute, never a CSS transform), arrows fade out and back */
+.gn { cursor: pointer; transition: opacity .4s; }
 .gn.gone { opacity: 0 !important; pointer-events: none; }
 .gl { transition: opacity .3s; }
 .graph.moving .gl { opacity: 0; transition: none; }
-.graph .pan { transform-origin: 0 0; }
-.graph.glide .pan { transition: transform .6s cubic-bezier(.65, 0, .35, 1); }
-/* one marker each: the ring's line says kanji (solid) or part (dashed), its colour the status (not seen grey, learning ink, known green) */
-.gn circle, .graph-key circle { fill: var(--card); stroke: var(--muted); stroke-width: 1.5; }
-.gn.part circle, .graph-key .p { stroke-dasharray: 2 3; }
-.gn.learning circle, .graph-key .learning { stroke: var(--ink); }
-.gn.known circle, .graph-key .known { stroke: var(--good); }
+/* a node is a square tile, as a kanji is everywhere else. One marker each: its edge says kanji (solid) or part (dashed),
+   the edge's colour the status (not seen grey, learning ink, known green). Its ground is a tooltip's: a white card, in
+   dark the page's own (not a grey box), and not see-through, as arrows pass under tiles */
+.gn rect, .graph-key rect { fill: var(--float); stroke: var(--muted); stroke-width: 1.5; }
+.gn.part rect, .graph-key .p { stroke-dasharray: 2 3; }
+.gn.learning rect, .graph-key .learning { stroke: var(--ink); }
+.gn.known rect, .graph-key .known { stroke: var(--good); }
+/* the reading, where it stands otherwise than the meaning: the lower right half of the edge */
+.gn .half { fill: none; stroke-width: 1.5; }
+.gn .half.learning { stroke: var(--ink); }
+.gn .half.known { stroke: var(--good); }
 .gn text { fill: var(--ink); font-family: var(--jp); }
-/* under the pointer: a tinted fill, like selection a matter of the background; the ring is left alone */
-@media (hover: hover) { .gn:hover:not(.focus) circle { fill: var(--glow); } }
+/* under the pointer: a tinted fill, like selection a matter of the background; the edge is left alone */
+@media (hover: hover) { .gn:hover:not(.focus) rect { fill: var(--glow); } }
 .ge path { stroke: var(--muted); fill: none; }
 .ge text { fill: var(--muted); font: 10px system-ui, sans-serif; }
 @media (hover: hover) { .ge:hover text { fill: var(--ink); } }
+/* the whole graph: a node answers over its whole cell, its arrows (there only while it is pointed at) do not answer */
+.gn .pad { fill: none; pointer-events: all; }
+.quiet .gl { pointer-events: none; }
+/* the whole graph shows one count, of the node under the pointer: over its neighbours, so on the page's ground */
+.over { pointer-events: none; }
+.over text { fill: var(--ink); paint-order: stroke; stroke: var(--paper); stroke-width: 4px; stroke-linejoin: round; }
 .has-hot .gn:not(.hot), .has-hot .gl:not(.hot) { opacity: .18; }
-/* the node whose graph is shown: filled, its glyph reversed (the ring keeps saying kanji or part, and the status) */
-.gn.focus circle { fill: var(--ink); }
+/* the node whose graph is shown: filled, its glyph reversed (the edge keeps saying kanji or part, and the status) */
+.gn.focus rect { fill: var(--ink); }
 .gn.focus > text { fill: var(--paper); }
 .graph-ends { position: absolute; left: 16px; right: 16px; bottom: 8px; max-height: 30%; overflow-y: auto; padding: 8px 10px; border-radius: 10px; background: color-mix(in srgb, var(--paper) 92%, transparent); display: flex; flex-direction: column; gap: 6px; cursor: default; }
 .graph-key { display: flex; gap: 4px 5px; align-items: center; }
 .graph-key svg { margin-left: 10px; } .graph-key svg:first-child { margin-left: 0; }
-.graph-tip { position: absolute; transform: translate(14px, 14px); background: var(--float); border: 1px solid var(--faint); border-radius: 8px; padding: 6px 10px; font-size: 13px; pointer-events: none; max-width: 320px; box-shadow: var(--shadow); }
+.graph-tip { position: absolute; background: var(--float); border: 1px solid var(--faint); border-radius: 8px; padding: 6px 10px; font-size: 13px; pointer-events: none; max-width: 320px; box-shadow: var(--shadow); }
 .graph-tip b { font-weight: 500; font-size: 18px; margin-right: 6px; }
 .graph-tip span { display: block; color: var(--muted); font-size: 12px; }
 .graph-tip .many { font-size: 16px; color: var(--ink); }
 .jp { font-family: var(--jp); }
-/* narrow: still one line. The left slot gives way (the dropdown and a long name are cut short), the legend tightens */
+/* narrow: a node's own graph is still one line, the left slot gives way (a long name is cut short) and the legend
+   tightens; on a phone how the whole graph is ordered takes a line of its own, the legend the next */
 @media (max-width: 760px) { .graph-wrap { margin: 0 -16px; } .graph-bar { padding: 0 16px 6px; gap: 8px; } .graph-bar .whole .long { display: none; } }
 @media (max-width: 560px) {
+  .graph-bar { flex-wrap: wrap; }
   .graph-bar .slot { gap: 8px; }
-  .graph-bar select { min-width: 0; width: 100%; }
+  .graph-bar .slot:has(.how) { flex-basis: 100%; }
   .graph-bar .graph-key { font-size: 12px; gap: 3px; }
   .graph-key svg { margin-left: 4px; }
 }
