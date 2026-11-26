@@ -532,6 +532,8 @@ main:has(> .graph-wrap) { max-width: none; }
    attribute, never a CSS transform), arrows fade out and back */
 .gn { cursor: pointer; transition: opacity .4s; }
 .gn.gone { opacity: 0 !important; pointer-events: none; }
+/* a kanji drawn only in a node's own graph: it comes once the nodes have glided to their places, as the arrows do */
+.gn.leaf { animation: leaf .3s .6s backwards; } @keyframes leaf { from { opacity: 0; } }
 .gl { transition: opacity .3s; }
 .graph.moving .gl { opacity: 0; transition: none; }
 /* a node is a square tile, as a kanji is everywhere else. One marker each: its edge says kanji (solid) or part (dashed),
@@ -561,7 +563,6 @@ main:has(> .graph-wrap) { max-width: none; }
 /* the node whose graph is shown: filled, its glyph reversed (the edge keeps saying kanji or part, and the status) */
 .gn.focus rect { fill: var(--ink); }
 .gn.focus > text { fill: var(--paper); }
-.graph-ends { position: absolute; left: 16px; right: 16px; bottom: 8px; max-height: 30%; overflow-y: auto; padding: 8px 10px; border-radius: 10px; background: color-mix(in srgb, var(--paper) 92%, transparent); display: flex; flex-direction: column; gap: 6px; cursor: default; }
 .graph-key { display: flex; gap: 4px 5px; align-items: center; }
 .graph-key svg { margin-left: 10px; } .graph-key svg:first-child { margin-left: 0; }
 .graph-tip { position: absolute; background: var(--float); border: 1px solid var(--faint); border-radius: 8px; padding: 6px 10px; font-size: 13px; pointer-events: none; max-width: 320px; box-shadow: var(--shadow); }
