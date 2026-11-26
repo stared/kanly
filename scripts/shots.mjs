@@ -1,6 +1,6 @@
 // Screenshots for review: node scripts/shots.mjs [url] [outdir]
 // MU=N starts as someone who knew N kanji before (src/levels.ts).
-// SEED=N marks the first N items of the learning order as learned (half known, half learning, some due).
+// SEED=N marks the first N items of the learning order as seen: a memory of days or of minutes, the meaning and the reading in turn.
 // STEPS='[{"click":"sel"},{"key":"Enter"},{"shot":"name"}]'
 import puppeteer from 'puppeteer-core'
 import { mkdirSync, readFileSync } from 'fs'
@@ -8,7 +8,7 @@ import { mkdirSync, readFileSync } from 'fs'
 const url = process.argv[2] ?? 'http://localhost:5201/'
 const out = process.argv[3] ?? 'screenshots'
 mkdirSync(out, { recursive: true })
-const order = JSON.parse(readFileSync(new URL('../src/data/kanji.json', import.meta.url))).order
+const { order, kanji } = JSON.parse(readFileSync(new URL('../src/data/kanji.json', import.meta.url)))
 
 const W = Number(process.env.W ?? 1280)
 const browser = await puppeteer.launch({
@@ -22,17 +22,16 @@ await page.evaluateOnNewDocument(() => {
   Object.defineProperty(window, 'speechSynthesis', { value: { speak: u => window.__spoken.push(u.text), cancel() {}, getVoices: () => [], addEventListener() {} } })
 })
 await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: process.env.SCHEME ?? 'light' }])
-const ids = order.slice(0, Number(process.env.SEED ?? 0))
+const ids = order.slice(0, Number(process.env.SEED ?? 0)).map(id => [id, id in kanji])
 await page.evaluateOnNewDocument((ids, mu) => {
   if (sessionStorage.getItem('seeded')) return
   sessionStorage.setItem('seeded', '1')
   localStorage.clear()
   const now = Date.now()
-  const cards = Object.fromEntries(ids.map((id, i) => {
-    const known = i < ids.length * 0.6
-    return [id, { id, due: i % 7 === 0 ? now - 1000 : now + 86_400_000, step: known ? 2 : 0, ivl: known ? 3 : 0, ease: 2.5, reps: 3, lapses: 0 }]
-  }))
-  localStorage.setItem('kanly/v1', JSON.stringify({ cards, log: [], ...(mu !== undefined && { mu }) }))
+  const mem = known => ({ s: known ? 5 : 0.005, t: now - 60_000 })
+  // a part has no reading: the app tells by the card having no r, so only a kanji is given one
+  const cards = Object.fromEntries(ids.map(([id, kanji], i) => [id, { id, m: mem(i % 4 < 2), ...(kanji && { r: mem(i % 2 === 0) }), reps: 3, lapses: 0 }]))
+  localStorage.setItem('kanly/v1', JSON.stringify({ cards, log: [], v: 2, ...(mu !== undefined && { mu }) }))
 }, ids, process.env.MU === undefined ? undefined : Number(process.env.MU))
 page.on('pageerror', e => console.log('PAGE ERROR', e.message))
 page.on('console', m => m.type() === 'error' && console.log('CONSOLE', m.text()))

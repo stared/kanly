@@ -1,10 +1,10 @@
 import { KANJI, reads, type Word } from './data'
 import { next, standing } from './levels'
-import type { Kind, Store } from './srs'
+import { status, type Kind, type Store } from './srs'
 
 /*
-A kanji whose memory has reached a day (srs.ts) is asked again through a word: the word is shown, its reading and
-its meaning are typed. Recognising 語 among four meanings is easy long after 日本語 can no longer be read; the word
+A kanji whose memory has reached a day (srs.ts), of its meaning and of its reading both, is asked again through a word: the word is shown, its reading and
+its meaning are typed, each moving its own memory. Recognising 語 among four meanings is easy long after 日本語 can no longer be read; the word
 is what a reader meets. A kanji with a shorter memory, just learned or just missed, is asked by itself, as when it
 was learned. The answer moves the kanji's own card, so words add no cards: they are the form its question takes.
 */
@@ -14,7 +14,7 @@ const isHan = (c: string) => /\p{Script=Han}/u.test(c) || c === '々'  // 𠮟 t
  * them seen or assumed known; in the card's order of use, a different one each review. None: the kanji is asked by itself. */
 export function reviewWord(s: Store, id: string): Word | undefined {
   const k = KANJI[id], c = s.cards[id]
-  if (!k || !c || c.s < 1) return
+  if (!k || !c || status(s, id) !== 'known') return
   const fit = k.words.filter((w, i) => [...w.w].length >= 2 && [...w.w].every(ch => isHan(ch) && (ch === id || ch === '々' || standing(s, ch) !== 'new'))
     && k.words.findIndex(x => x.w === w.w) === i)  // a word with two readings (紅葉 こうよう, もみじ) once
   return fit.length ? fit[c.reps % fit.length] : undefined

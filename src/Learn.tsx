@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { KANJI, ORDER } from './data'
-import { knewIt, learn, type Kind, type Store } from './srs'
+import { meet, type Kind, type Store } from './srs'
 import { LEVELS, lam, mu, pOf, startAt, update, upcoming } from './levels'
 import { KINDS, ask, asks } from './words'
 import { track } from './track'
@@ -12,7 +12,8 @@ type Props = { store: Store; setStore: (s: Store) => void; open: (el: string) =>
 
 /** One stream: what is asked is the item, new or seen before, with the most gain per effort (next, in levels.ts).
  * It is chosen when the one before is done and kept while it is being answered: the chances move with the clock.
- * At the bottom, the kinds of question (new, review, words), each on or off: the stream is what is left on. */
+ * At the bottom, the kinds of question (new, review, words), each on or off: the stream is what is left on. They are
+ * there while a question is open and gone once it is answered (style.css): the room is the card's. */
 export function Learn({ store, setStore, open, autoSpeak }: Props) {
   const [cur, setCur] = useState(() => ask(store, Date.now()))
   const done = (s: Store) => { setStore(s); setCur(ask(s, Date.now())) }
@@ -61,13 +62,13 @@ export function Learn({ store, setStore, open, autoSpeak }: Props) {
 export type Item = Omit<Props, 'setStore'> & { done: (s: Store) => void }
 
 /** Something never seen: a kanji is a quiz first (its meaning among four, then its reading among four), then its card;
- * right on both, it was known before; otherwise it is a card to learn. A part is shown at once. */
+ * what the quiz got right was known before, the rest is to learn. A part is shown at once. */
 function Fresh({ el, store, open, autoSpeak, done, then }: Item & { el: string; then: string[] }) {
   const [res, setRes] = useState<Result | null>(null)
   const commit = () => {
-    const now = Date.now(), knew = !!res?.meaning && !!res.reading
-    const fit = KANJI[el] ? update(store, el, knew) : {}
-    done(knew ? knewIt(store, el, now, fit, pOf(store, el)) : learn(store, el, now, fit))
+    const meaning = !!res?.meaning, reading = !!res?.reading
+    const fit = KANJI[el] ? update(store, el, meaning, reading) : {}
+    done(meet(store, el, Date.now(), meaning, reading, fit, pOf(store, el)))
   }
   const shown = !!res || !KANJI[el]
   useEffect(() => {

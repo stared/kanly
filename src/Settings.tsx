@@ -1,25 +1,32 @@
-import { read, type Store } from './srs'
+import { empty, type Store } from './srs'
+import { read } from './past'
 import { events, setEvents } from './track'
+import { notes, setNotes } from './notes'
 import { useState } from 'react'
 import { applyTheme, loadTheme, type Theme } from './theme'
 import { BEGINNER, BREADTH, LEVELS, T, mu, startAt, temp } from './levels'
 
 const r10 = (x: number) => Math.max(0, Math.round(x / 10) * 10)
+/** What is ahead, the meanings or the readings, where one is by ten kanji or more. */
+const ahead = (s: Store) => {
+  const m = mu(s, 'm'), r = mu(s, 'r')
+  return Math.abs(m - r) < 10 ? '' : ` You knew ${m > r ? 'the meaning' : 'the reading'} of about ${r10(Math.max(m, r))}.`
+}
 /** p = 0.9 and 0.1 lie 1.28 T either side of μ. */
-const fit = (s: Store) => (s.answers?.length ?? 0) < 10
+const fit = (s: Store) => ((s.answers?.length ?? 0) < 10
   ? `You knew about ${r10(mu(s))} kanji before.`
-  : `From your answers: you knew about ${r10(mu(s))} kanji before, nearly all of the ${r10(mu(s) - 1.28 * temp(s))} easiest and few beyond the ${r10(mu(s) + 1.28 * temp(s))}th.`
+  : `From your answers: you knew about ${r10(mu(s))} kanji before, nearly all of the ${r10(mu(s) - 1.28 * temp(s))} easiest and few beyond the ${r10(mu(s) + 1.28 * temp(s))}th.`) + ahead(s)
 
 export function Settings({ store, onReplace, autoSpeak, setAutoSpeak }: { store: Store; onReplace: (s: Store) => void; autoSpeak: boolean; setAutoSpeak: (on: boolean) => void }) {
   const exportIt = () => {
     const a = document.createElement('a')
-    a.href = URL.createObjectURL(new Blob([JSON.stringify({ ...store, events: events() })], { type: 'application/json' }))
+    a.href = URL.createObjectURL(new Blob([JSON.stringify({ ...store, events: events(), notes: notes() })], { type: 'application/json' }))
     a.download = `kanly-progress-${new Date().toISOString().slice(0, 10)}.json`
     a.click()
   }
   const importIt = (f?: File) => f?.text().then(t => {
-    const { events: evs, ...s } = JSON.parse(t)
-    if (s?.cards && s?.log) { onReplace(read(s)); if (evs) setEvents(evs) }
+    const { events: evs, notes: own, ...s } = JSON.parse(t)
+    if (s?.cards && s?.log) { onReplace(read(s, evs ?? [])); if (evs) setEvents(evs); if (own) setNotes(own) }
   })
   const [theme, setTheme] = useState<Theme>(loadTheme)
   return (
@@ -52,7 +59,7 @@ export function Settings({ store, onReplace, autoSpeak, setAutoSpeak }: { store:
       <div className="row">
         <button className="next" onClick={exportIt}>export progress</button>
         <label className="next">import<input type="file" accept="application/json" hidden onChange={e => importIt(e.target.files?.[0])} /></label>
-        <button className="next bad" onClick={() => { if (confirm('Forget all progress?')) { onReplace({ cards: {}, log: [] }); setEvents([]) } }}>reset</button>
+        <button className="next bad" onClick={() => { if (confirm('Forget all progress?')) { onReplace(empty()); setEvents([]) } }}>reset</button>
       </div>
     </div>
   )

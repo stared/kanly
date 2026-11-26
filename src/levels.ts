@@ -1,5 +1,5 @@
 import { COMP, D, KANJI, ORDER, POS, extraStrokes, type Tree } from './data'
-import { B, recall, status, type Status, type Store } from './srs'
+import { B, recall, status, weakest, type Answer, type Aspect, type Status, type Store } from './srs'
 
 /*
 What to learn next, at any level.
@@ -31,12 +31,23 @@ ones show up too. τ = 0 takes the best one; for a beginner (p ≈ 0) that is fr
 in simulation τ = 0.25, 0.5, 1 learn 3%, 10%, 25% less usefulness per effort, even when the difficulty ranks are
 off by ±400 for the learner (the posterior already makes uncertain, useful kanji worth checking).
 
-λ, μ and T come from the posterior given the quiz answers so far (meaning and reading right = 1, else 0, allowing a
-lucky guess and a slip), computed exactly
+λ, μ and T come from the posterior given the quiz answers so far (right = 1, else 0, allowing a lucky guess and a
+slip), computed exactly
 on a grid, with a prior centred on the starting level picked (a list's μ, give or take 400; its T within a
 factor of 2). Fitting T pays off: in simulation, for a learner with a blurred frontier (T = 350) a fixed
 T = 150 finds 30% less useful kanji in 300 cards, while a fitted T stays within 3% of the true one. Fitting λ gives a
 reader 30–34% more usefulness in 150 quiz cards than a fixed λ = 0.5, a course learner 7–19%.
+
+Two edges, not one. A kanji is known by its meaning and by its reading, and one often runs ahead of the other (who
+reads Chinese, or learned kanji by keywords, knows what most mean and how few are read). So there is an edge for each,
+μ_m and μ_r, in the same order and with the same blur:
+
+  p_m(k) = Φ((μ_m − level(k)) / T)        p_r(k) = Φ((μ_r − level(k)) / T)
+
+and a kanji is known in both, which is what μ and p above are about, up to the lower of the two. The first quiz asks
+both, and each answer is evidence about its own edge. Before any answer the two are the same, a lead of n kanji
+exp(−n / LEAD) as likely as none (LEAD = 300); 20 answers with the meaning right and the reading wrong move them
+apart by hundreds (levels.test.ts).
 */
 export const T = 260
 export const ALPHA = 0  // how much strokes count as effort: 0 = by frequency alone (parts still come first), 1 = per stroke
@@ -101,11 +112,12 @@ export const cost = (t: Tree, known: (el: string) => boolean): number =>
 
 const walk = (t: Tree, out: Set<string>) => { out.add(t.el); t.kids.forEach(k => walk(k, out)) }
 
-export const mu = (s: Store) => s.mu ?? BEGINNER
+/** How many kanji were known before: meaning and reading both, or the one asked for (of). */
+export const mu = (s: Store, of?: Aspect) => (of && s.mus ? s.mus[of] : s.mu) ?? BEGINNER
 export const temp = (s: Store) => s.T ?? T
 export const lam = (s: Store) => s.lam ?? LAMBDA
-/** p(known) for this learner. */
-export const pOf = (s: Store, el: string) => pKnown(el, mu(s), temp(s), lam(s))
+/** p(known) for this learner: meaning and reading both, or the one asked for (of). */
+export const pOf = (s: Store, el: string, of?: Aspect) => pKnown(el, mu(s, of), temp(s), lam(s))
 
 /*
 One queue. What is asked next is one item, never seen or seen before: the one with the largest weight, in logs plus
@@ -113,7 +125,8 @@ One queue. What is asked next is one item, never seen or seen before: the one wi
 
 A kanji never seen has the weight above: f (1 − p) over the effort, p the chance it was known before.
 
-A card's turn comes as its recall (srs.ts) falls. With q the recall lost, 1 − exp(−t/s), its weight is
+A card's turn comes as its recall (srs.ts) falls: that of its meaning or of its reading, whichever is weaker. With q the
+recall lost, 1 − exp(−t/s), its weight is
 
   w = f exp(−(q̂ − q) / δ)   while q < q̂,      w = f (1 + q − q̂)   from then on.
 
@@ -164,7 +177,7 @@ export function next(s: Store, now: number, tau = s.tau ?? 0, of: { fresh?: bool
   for (const c of Object.values(s.cards)) {
     if (of.card && !of.card(c.id)) continue
     // the noise changes with every answer, or the same card would be favoured for good
-    const v = lnCard(use(c.id), 1 - recall(c, now)) + tau * gumbel(c.id, (s.seed ?? 0) + c.reps + 1)
+    const v = lnCard(use(c.id), 1 - weakest(c, now)) + tau * gumbel(c.id, (s.seed ?? 0) + c.reps + 1)
     if (v > top) { top = v; best = c.id }
   }
   if (best && (top > w || !els.length)) return { el: best, seen: true }
@@ -206,31 +219,72 @@ function fresh(s: Store, tau: number, n: number): { els: string[]; w: number } {
   return { els: out.slice(0, n), w: first }
 }
 
-const MUS = Array.from({ length: 241 }, (_, i) => -1600 + 20 * i)
-const TS = [50, 70, 100, 150, 230, 340, 500, 700]  // wider would let a few careless answers blur everything
+export const MUS = Array.from({ length: 241 }, (_, i) => -1600 + 20 * i)
+export const TS = [50, 70, 100, 150, 230, 340, 500, 700]  // wider would let a few careless answers blur everything
 /** A quiz answered right without knowing the kanji: a guess among 4 meanings, then among 4 readings; and a slip. */
 export const GUESS = 1 / 16, SLIP = 0.03
+/** How far one edge runs ahead of the other before any answer says: a lead of n kanji is exp(−n / LEAD) as likely as none. */
+export const LEAD = 300
 
-/** Posterior over (λ, μ, T) given the answers: λ the most probable mix, μ and T its posterior means (T geometric). */
-export function posterior(start: { mu: number; T: number }, answers: [string, 0 | 1][]): { mu: number; T: number; lam: number } {
-  const lp = LAMBDAS.map(() => MUS.map(m => TS.map(t => -(((m - start.mu) / 400) ** 2) / 2 - (Math.log(t / start.T) / Math.log(2)) ** 2 / 2)))
-  for (const [ch, y] of answers) {
-    LAMBDAS.forEach((l, a) => {
-      const e = levelOf(ch, l)
-      MUS.forEach((m, i) => TS.forEach((t, j) => {
-        const right = Phi((m - e) / t) * (1 - SLIP - GUESS) + GUESS
-        lp[a][i][j] += Math.log(y ? right : 1 - right)
+/** ln(e^a + e^b). */
+const lse = (a: number, b: number) => a === -Infinity ? b : b === -Infinity ? a : Math.max(a, b) + Math.log1p(Math.exp(-Math.abs(a - b)))
+
+/** Posterior over λ, T and the two edges, of meaning and of reading, given the answers: λ the most probable mix, T its
+ * posterior mean (geometric), mu that of the lower edge (the kanji known in both), mus the two edges: the lower one at
+ * mu, the other ahead of it by the mean lead, so that nothing is ahead when no answer says which is.
+ *
+ * Exact on the grid, in a time linear in it. An answer about the meaning says where μ_m is, one about the reading where
+ * μ_r is; one saved before the two were told apart (both right or not) says where the lower edge is, as it did then:
+ * with such answers alone the fit is the one it was. The prior is on the lower edge (the level picked, give or take
+ * 400) and on the lead, so the weight of a pair of edges is a product of a term in the lower and a term in the upper,
+ * and the sums over pairs are running sums. */
+export function posterior(start: { mu: number; T: number }, answers: Answer[]): { mu: number; T: number; lam: number; mus: Record<Aspect, number> } {
+  const n = MUS.length, k = (MUS[1] - MUS[0]) / LEAD
+  // the prior of the lower edge, whatever the grid leaves of leads above it: ln of exp(−k d) summed over the leads d ≥ 0 of one edge and d > 0 of the other
+  const room = MUS.map((_, i) => Math.log(2 * (1 - Math.exp(-k * (n - i))) / (1 - Math.exp(-k)) - 1))
+  const fits = LAMBDAS.map(l => {
+    const es = answers.map(([ch]) => levelOf(ch, l))
+    return TS.map(t => {
+      // ln of what says where the lower edge is (lo), the meaning's (m) and the reading's (r), at each μ of the grid
+      const lo = MUS.map((x, i) => -(((x - start.mu) / 400) ** 2) / 2 - room[i]), m = MUS.map(() => 0), r = MUS.map(() => 0)
+      answers.forEach(([, a, b], q) => MUS.forEach((x, i) => {
+        const p = Phi((x - es[q]) / t)
+        if (b === undefined) { const right = p * (1 - SLIP - GUESS) + GUESS; lo[i] += Math.log(a ? right : 1 - right); return }
+        const right = p * (1 - SLIP / 2 - Math.sqrt(GUESS)) + Math.sqrt(GUESS), wrong = Math.log(1 - right), ok = Math.log(right)
+        m[i] += a ? ok : wrong
+        r[i] += b ? ok : wrong
       }))
+      // the lower edge at i: the meaning's, with the reading's at i or above (A), or the reading's, the meaning's above (B)
+      const A = MUS.map(() => 0), B = MUS.map(() => 0), M = MUS.map(() => 0), R = MUS.map(() => 0)
+      let above = -Infinity, over = -Infinity  // the reading at i or above; the meaning above i
+      for (let i = n - 1; i >= 0; i--) {
+        above = lse(above, r[i] - k * i)
+        A[i] = lo[i] + m[i] + k * i + above
+        B[i] = lo[i] + r[i] + k * i + over
+        over = lse(over, m[i] - k * i)
+      }
+      // each edge at i: as the lower one, or above a lower one (the meaning strictly above, the reading at or above)
+      let under = -Infinity, upto = -Infinity, z = -Infinity
+      for (let i = 0; i < n; i++) {
+        upto = lse(upto, lo[i] + m[i] + k * i)
+        M[i] = lse(A[i], m[i] - k * i + under)
+        R[i] = lse(B[i], r[i] - k * i + upto)
+        under = lse(under, lo[i] + r[i] + k * i)
+        z = lse(z, lse(A[i], B[i]))
+      }
+      const mean = (ln: (i: number) => number) => MUS.reduce((a, x, i) => a + x * Math.exp(ln(i) - z), 0)
+      return { t, z: z - (Math.log(t / start.T) / Math.log(2)) ** 2 / 2, lo: mean(i => lse(A[i], B[i])), m: mean(i => M[i]), r: mean(i => R[i]) }
     })
-  }
-  const top = Math.max(...lp.flat(2))
-  const fits = lp.map(g => {
-    let w = 0, m = 0, lt = 0
-    MUS.forEach((mu, i) => TS.forEach((t, j) => { const q = Math.exp(g[i][j] - top); w += q; m += q * mu; lt += q * Math.log(t) }))
-    return { w, mu: m / w, T: Math.exp(lt / w) }
   })
-  const a = fits.reduce((b, f, i) => f.w > fits[b].w ? i : b, 0)
-  return { mu: fits[a].mu, T: fits[a].T, lam: answers.length ? LAMBDAS[a] : LAMBDA }
+  const top = Math.max(...fits.flat().map(c => c.z))
+  const by = fits.map(cells => {
+    let w = 0, lo = 0, lead = 0, lt = 0
+    for (const c of cells) { const q = Math.exp(c.z - top); w += q; lo += q * c.lo; lead += q * (c.m - c.r); lt += q * Math.log(c.t) }
+    return { w, mu: lo / w, lead: lead / w, T: Math.exp(lt / w) }
+  })
+  const a = by.reduce((b, f, i) => f.w > by[b].w ? i : b, 0), { mu, T } = by[a]
+  const lead = Math.abs(by[a].lead) < 1e-6 ? 0 : by[a].lead  // none, where it is the rounding of sums that are equal
+  return { mu, T, lam: answers.length ? LAMBDAS[a] : LAMBDA, mus: { m: mu + Math.max(0, lead), r: mu + Math.max(0, -lead) } }
 }
 
 export const start = (s: Store) => s.start ?? { mu: BEGINNER, T }
@@ -239,21 +293,36 @@ export const start = (s: Store) => s.start ?? { mu: BEGINNER, T }
 export const startAt = (s: Store, l: { mu: number; T: number }): Store => {
   // a list is blurrier than a person who passed it (N2: T = 412), so start sharper and let answers widen it
   const st = { mu: l.mu, T: Math.min(l.T, 200) }
-  return { ...s, start: st, ...(s.answers?.length ? posterior(st, s.answers) : { ...st, lam: undefined }) }
+  return { ...s, start: st, ...(s.answers?.length ? posterior(st, s.answers) : { ...st, lam: undefined, mus: undefined }) }
 }
 
-/** After an answer about a kanji: the new posterior. */
-export function update(s: Store, el: string, knewIt: boolean): Pick<Store, 'mu' | 'T' | 'lam' | 'answers'> {
-  const answers: [string, 0 | 1][] = [...(s.answers ?? []), [el, knewIt ? 1 : 0]]
+/** After a kanji's first quiz, its meaning right or not, its reading right or not: the new posterior. */
+export function update(s: Store, el: string, meaning: boolean, reading = meaning): Pick<Store, 'mu' | 'T' | 'lam' | 'mus' | 'answers'> {
+  const answers: Answer[] = [...(s.answers ?? []), [el, meaning ? 1 : 0, reading ? 1 : 0]]
   return { ...posterior(start(s), answers), answers }
 }
 
-/** How an item stands with this learner. With a card: learning or known. Without one: assumed, if the level fitted to
- * their answers makes it more likely known than not, else new. Someone who starts at N2 is never asked about 日 (p > SURE)
- * and is asked sooner or later about a kanji nearer their edge; until then both are assumed, not new. */
+/** How an item stands with this learner, by its meaning or its reading (of), or by the weaker of the two. With a card:
+ * learning or known. Without one: assumed, if the level fitted to their answers makes it more likely known than not,
+ * else new. Someone who starts at N2 is never asked about 日 (p > SURE) and is asked sooner or later about a kanji
+ * nearer their edge; until then both are assumed, not new. */
 export type Standing = Status | 'assumed'
-export const standing = (s: Store, el: string): Standing => s.cards[el] ? status(s, el) : pOf(s, el) > 0.5 ? 'assumed' : 'new'
+export const standing = (s: Store, el: string, of?: Aspect): Standing => s.cards[el] ? status(s, el, of) : pOf(s, el, of) > 0.5 ? 'assumed' : 'new'
 
-/** Share of the kanji in text the learner can read now: each card by its chance of recall, the rest by the chance it was known before. */
-export const reach = (s: Store, now = Date.now()) =>
-  Object.entries(KANJI).reduce((a, [ch, k]) => a + k.freq * (s.cards[ch] ? recall(s.cards[ch], now) : pOf(s, ch)), 0)
+/** The same as the class names of a tile: how the meaning stands, and how the reading does (r-) where it stands otherwise. */
+export const marks = (s: Store, el: string): string => {
+  const m = standing(s, el, 'm'), r = standing(s, el, 'r')
+  return m === r ? m : `${m} r-${r}`
+}
+
+/** Share of the kanji in text the learner knows now, by meaning and by reading: each card by its chances of recall, the
+ * rest by the chance it was known before. */
+export const reach = (s: Store, now = Date.now()) => {
+  let meaning = 0, reading = 0
+  for (const [ch, k] of Object.entries(KANJI)) {
+    const c = s.cards[ch]
+    meaning += k.freq * (c ? recall(c.m, now) : pOf(s, ch, 'm'))
+    reading += k.freq * (c ? recall(c.r ?? c.m, now) : pOf(s, ch, 'r'))
+  }
+  return { meaning, reading }
+}

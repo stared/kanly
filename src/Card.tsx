@@ -1,10 +1,11 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { COMP, KANJI, RANK, extraStrokes, gloss, hira, isKanji, kata, lookalikes, romaji, soundFamily, type Tree, type Word } from './data'
 import type { Store } from './srs'
-import { standing } from './levels'
+import { marks, standing } from './levels'
 import { track } from './track'
 import { hoverSay, speak, spoken } from './speech'
 import { hovers, tapped } from './pointer'
+import { notes, setNote } from './notes'
 import { Animated, StrokeOrder } from './Strokes'
 
 type Open = (el: string) => void
@@ -28,7 +29,7 @@ const shownKids = (t: Tree) => t.kids.filter(k => !STROKES.has(k.el))
 function Node({ n, store, open, sound, label }: { n: Tree; store: Store; open: Open; sound?: boolean; label?: boolean }) {
   const on = sound && label ? KANJI[n.el]?.on[0] ?? COMP[n.el]?.on?.[0] : undefined
   return (
-    <button className={'node ' + standing(store, n.el) + (sound ? ' sound' : '')} onClick={() => open(n.el)}>
+    <button className={'node ' + marks(store, n.el) + (sound ? ' sound' : '')} onClick={() => open(n.el)}>
       <span className="ch"><Glyph el={n.el} /></span>
       <span className="g">{gloss(n.el)}</span>
       {on && <span className="on">sound {on}</span>}
@@ -117,8 +118,8 @@ export function Family({ ch, store, open }: { ch: string; store: Store; open: Op
     <div className="family">
       <p><button className="inline" onClick={() => open(f.phonetic)}>{f.phonetic}</button> {holds ? 'sounds' : 'usually sounds'} <b>{forms.length ? forms.join(' or ') : kata(f.reading)}</b> in {f.hits.length} of {n} kanji{holds ? '' : <>, <span className="not">but not in {ch}</span></>}</p>
       <div className="chips">
-        {f.hits.map(c => <button key={c} className={'chip ' + standing(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)}><KanjiTip c={c} reading={KANJI[c]?.on.join('、')} /></button>)}
-        {f.misses.map(c => <button key={c} className={'chip miss ' + standing(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)}><KanjiTip c={c} reading={KANJI[c]?.on.join('、')} /></button>)}
+        {f.hits.map(c => <button key={c} className={'chip ' + marks(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)}><KanjiTip c={c} reading={KANJI[c]?.on.join('、')} /></button>)}
+        {f.misses.map(c => <button key={c} className={'chip miss ' + marks(store, c) + (c === ch ? ' here' : '')} onClick={() => open(c)}><KanjiTip c={c} reading={KANJI[c]?.on.join('、')} /></button>)}
       </div>
     </div>
   )
@@ -260,7 +261,7 @@ export function Lookalikes({ ch, store, open }: { ch: string; store: Store; open
   return (
     <div className="alike-list">
       {list.map(l => (
-        <button key={l.ch} className={'alike-item ' + standing(store, l.ch)} onClick={() => open(l.ch)}>
+        <button key={l.ch} className={'alike-item ' + marks(store, l.ch)} onClick={() => open(l.ch)}>
           <span className="ch">{l.ch}</span>
           <span className="g">{gloss(l.ch)}</span>
           <span className="swap"><Glyph el={l.theirs} /> not <Glyph el={l.mine} /></span>
@@ -290,23 +291,31 @@ export function UsedIn({ el, store, open, rows = 2 }: { el: string; store: Store
   const shown = all || !perRow || list.length <= cap ? list : list.slice(0, cap - 1)  // the last slot says how many more
   return (
     <div className="chips" ref={ref}>
-      {shown.map(c => <button key={c} className={'chip ' + standing(store, c)} onClick={() => open(c)}><KanjiTip c={c} reading={mainReadings(c)} /></button>)}
+      {shown.map(c => <button key={c} className={'chip ' + marks(store, c)} onClick={() => open(c)}><KanjiTip c={c} reading={mainReadings(c)} /></button>)}
       {shown.length < list.length && <button className="chip more-chip" onClick={() => setAll(true)}>+{list.length - shown.length}</button>}
     </div>
   )
 }
 
-/** How common the kanji is: its rank and its share of kanji in running text. */
+/** How common the kanji is, on one line: its rank and its share of kanji in running text. */
 function Popularity({ ch }: { ch: string }) {
   const k = KANJI[ch]
   if (!k.freq) return null
   const pct = k.freq * 100
+  return <div className="popular">#{RANK.get(ch)}, {pct >= 0.1 ? pct.toFixed(1) : pct.toFixed(2)}%</div>
+}
+
+/** The learner's own mnemonic for the card, under the app's: a field that reads as text, typed into where it stands and
+ * saved as typed (notes.ts). Its keys are its own: Enter ends the typing and is not "next", a digit no answer. */
+function Note({ el }: { el: string }) {
+  const [text, setText] = useState(() => notes()[el] ?? '')
+  const ref = useRef<HTMLTextAreaElement>(null)
+  // as tall as what is in it
+  useLayoutEffect(() => { const t = ref.current!; t.style.height = '0'; t.style.height = t.scrollHeight + 'px' }, [text])
   return (
-    <div className="popular">
-      <span>#{RANK.get(ch)}</span>
-      <span>{pct >= 0.1 ? pct.toFixed(1) : pct.toFixed(2)}% of text</span>
-      <span>{k.kanken === 2.5 ? '準2' : k.kanken}級</span>
-    </div>
+    <textarea ref={ref} className="note" rows={1} value={text} placeholder="your own mnemonic" aria-label="your own mnemonic"
+      onChange={e => { setText(e.target.value); setNote(el, e.target.value) }}
+      onKeyDown={e => { e.stopPropagation(); if ((e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) || e.key === 'Escape') { e.preventDefault(); e.currentTarget.blur() } }} />
   )
 }
 
@@ -348,8 +357,7 @@ export function Card({ el, store, open, autoSpeak = false, got, word }: { el: st
       const main = side.closest('main') as HTMLElement | null
       // the header above, a margin below, and the learn screen's button bar under the card, with its margins
       const bar = main?.querySelector('.actions') as HTMLElement | null
-      const barH = (bar ? bar.offsetHeight + parseFloat(getComputedStyle(bar).marginTop) + parseFloat(getComputedStyle(bar).marginBottom) : 0)
-        + ((main?.querySelector('.kinds') as HTMLElement | null)?.offsetHeight ?? 0)
+      const barH = bar ? bar.offsetHeight + parseFloat(getComputedStyle(bar).marginTop) + parseFloat(getComputedStyle(bar).marginBottom) : 0
       const room = innerHeight - (main?.getBoundingClientRect().top ?? 0) + scrollY - 40 - barH
       // two columns: the side panel alone has to fit; stacked (a phone, a tablet): the whole card does
       const card = side.parentElement!
@@ -382,6 +390,7 @@ export function Card({ el, store, open, autoSpeak = false, got, word }: { el: st
         {k ? <p className="also">{k.means ? k.means.map(([m, alone]) => alone ? m : `(${m})`).join(', ') : k.also.join(', ')}</p>
           : <p className="also">{c?.note ?? (c?.original ? `form of ${c.original}` : 'a part')}{c?.joyo ? '' : ', not a kanji on its own'}</p>}
         <Story el={el} />
+        <Note key={el} el={el} />
       </div>
       <div className="side" ref={sideRef}>
         {parts && <section><h3 className="sec obvious">parts</h3><Parts t={t!} store={store} open={open} /><Family ch={el} store={store} open={open} /></section>}

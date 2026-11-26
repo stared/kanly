@@ -1,10 +1,10 @@
 import { expect, it } from 'vitest'
 import { KANJI } from './data'
-import { DELTA, Q_ASK, Q_BEST, RHO, lnCard, lnNew } from './levels'
-import { B, DAY, MIN, S0, S1, asked, recall, type Card } from './srs'
+import { DELTA, Q_ASK, Q_BEST, RHO, lnCard, lnNew, marks, next, reach, standing } from './levels'
+import { B, DAY, MIN, S0, S1, answer, asked, meet, recall, status, weakest, type Mem, type Store } from './srs'
 
 it('a memory lasts longer after each recall, the more the nearer it was to forgotten', () => {
-  const c: Card = { id: '日', s: S0, t: 0, reps: 0, lapses: 0 }
+  const c: Mem = { s: S0, t: 0 }
   expect(recall(c, 0)).toBe(1)
   expect(recall(c, 10 * MIN)).toBeCloseTo(Math.exp(-1), 6)
   expect(asked(c, true, 1000).s).toBeLessThan(0.1)          // asked again at once: nothing shown, no day's memory
@@ -17,9 +17,10 @@ it('a memory lasts longer after each recall, the more the nearer it was to forgo
   expect(asked(c, false, MIN).s).toBe(S0)
 })
 
-type C = Card & { f: number }
+/** One memory per kanji, as when its meaning and its reading are always answered alike. */
+type C = Mem & { id: string; f: number }
 type Pick = (cards: C[], fNew: number, now: number) => number
-type After = (c: Card, ok: boolean, now: number, isNew: boolean) => void
+type After = (c: C, ok: boolean, now: number, isNew: boolean) => void
 
 /** A learner with `budget` units of effort a day (a new kanji costs 1, a quiz ρ; a unit is taken as 30 s), whose memory
  * is the one of srs.ts. Of the kanji, most written first, the first `skip` are never asked (the level is sure of them)
@@ -41,7 +42,7 @@ function study(days: number, budget: number, skip: number, knows: number, pick: 
       if (i < 0) {
         if (cards.length === order.length) break
         const [id, k] = order[cards.length], knew = skip + cards.length < knows
-        cards.push({ id, f: k.freq, s: knew ? 90 * (0.75 + rand()) : S0, t: now, reps: 0, lapses: 0 })
+        cards.push({ id, f: k.freq, s: knew ? 90 * (0.75 + rand()) : S0, t: now })
         if (knew) effort = RHO
         after(cards[cards.length - 1], knew, now, true)
       } else {
@@ -117,4 +118,36 @@ it('a card comes up as its recall falls to the asking point, and long before tha
   expect(Q_BEST).toBeLessThan(0.25)
   expect(lnCard(0.01, Q_ASK)).toBeCloseTo(lnNew(0.01, 1, 1), 6)       // at its moment: as much as a new kanji written as often
   expect(lnCard(0.01, 0.005)).toBeLessThan(lnNew(0.01 / 50, 1, 1))    // long before it: not even against one 50 times rarer
+})
+
+it('remembers a kanji\'s meaning and its reading apart, each moved by its own answer', () => {
+  const blank: Store = { cards: {}, log: [] }
+  // the first quiz: the meaning known, the reading not
+  let s = meet(blank, '時', 0, true, false)
+  expect([status(s, '時', 'm'), status(s, '時', 'r'), status(s, '時')]).toEqual(['known', 'learning', 'learning'])
+  expect(marks(s, '時')).toBe('known r-learning')
+  expect(standing(s, '時')).toBe('learning')                      // as a whole: as its weaker half
+  // its turn comes by the reading, minutes old, though the meaning will hold for months
+  const c = s.cards['時']
+  expect(recall(c.m, 10 * MIN)).toBeGreaterThan(0.999)
+  expect(weakest(c, 10 * MIN)).toBeCloseTo(Math.exp(-1), 6)
+  expect(next({ ...s, mu: 2136 }, 10 * MIN, 0, { fresh: false })).toEqual({ el: '時', seen: true })
+  // asked then: the reading right gains a day's memory and more, the meaning, asked far too early to show anything, stays as it was
+  s = answer(s, '時', true, true, 10 * MIN)
+  expect(s.cards['時'].r!.s).toBe(S1)
+  expect(s.cards['時'].m.s / c.m.s).toBeCloseTo(1, 2)
+  expect(marks(s, '時')).toBe('known')
+  // the meaning missed: that memory alone falls back
+  const missed = answer(s, '時', false, true, 10 * MIN + DAY)
+  expect([status(missed, '時', 'm'), status(missed, '時', 'r')]).toEqual(['learning', 'known'])
+  expect(missed.cards['時'].lapses).toBe(1)
+  expect(marks(missed, '時')).toBe('learning r-known')
+  // what can be read of text, by meaning and by reading: the same for what was never asked, apart for a card
+  const before = reach(blank, 0), after = reach(meet(blank, '時', 0, true, false), DAY)
+  expect(before.meaning).toBe(before.reading)
+  expect(after.meaning - after.reading).toBeGreaterThan(0.9 * KANJI['時'].freq)
+  // a part has a meaning only
+  const part = answer(meet(blank, '亻', 0, false, false), '亻', true, true, 10 * MIN)
+  expect(part.cards['亻'].r).toBeUndefined()
+  expect(marks(part, '亻')).toBe('known')
 })

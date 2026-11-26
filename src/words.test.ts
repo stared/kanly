@@ -1,7 +1,7 @@
 import { expect, it } from 'vitest'
 import { KANJI } from './data'
 import { standing, startAt } from './levels'
-import { asked, knewIt, learn, type Store } from './srs'
+import { answer, knewIt, learn, type Store } from './srs'
 import { accepted, ask, entries, glosses, meant, readAs, reviewWord } from './words'
 
 const blank: Store = { cards: {}, log: [] }
@@ -30,13 +30,17 @@ it('takes a typed meaning as the gloss, an alternative of it, with or without wh
 it('asks a kanji whose memory has reached a day through a word of known kanji, a different one each time', () => {
   expect(reviewWord(blank, '本')).toBeUndefined()  // no card
   const fresh = learn(blank, '本', 0)
+  const two = (s: Store) => learn(s, '日', 0)
   expect(reviewWord(fresh, '本')).toBeUndefined()  // a memory of minutes: asked by itself
   // a memory of days, but a beginner knows no other kanji: no word to ask
-  const alone: Store = { ...blank, cards: { 本: { ...fresh.cards['本'], s: 3, reps: 3 } } }
+  const days = (s: Store): Store => ({ ...s, cards: { ...s.cards, 本: { ...s.cards['本'], m: { s: 3, t: 0 }, r: { s: 3, t: 0 }, reps: 3 } } })
+  const alone = days(fresh)
+  // the meaning remembered for days, the reading for minutes: still asked by itself
+  expect(reviewWord({ ...two(alone), cards: { ...two(alone).cards, 本: { ...alone.cards['本'], r: { s: 0.01, t: 0 } } } }, '本')).toBeUndefined()
   expect(reviewWord(alone, '本')).toBeUndefined()
   // with 日 seen too, the two words of 日 and 本 alone can be asked, in turn
-  const two = learn(alone, '日', 0)
-  const at = (reps: number) => reviewWord({ ...two, cards: { ...two.cards, 本: { ...two.cards['本'], reps } } }, '本')?.w
+  const both = two(alone)
+  const at = (reps: number) => reviewWord({ ...both, cards: { ...both.cards, 本: { ...both.cards['本'], reps } } }, '本')?.w
   expect([at(4), at(5), at(6)]).toEqual(['日本', '本日', '日本'])
   // someone who started at N2 knew 本 at the first quiz: its other kanji are assumed known
   const n2 = knewIt(startAt(blank, { mu: 1200, T: 200 }), '本', 0)
@@ -49,10 +53,11 @@ it('asks a kanji whose memory has reached a day through a word of known kanji, a
     expect([...w.w].every(c => c === '本' || standing(s, c) !== 'new')).toBe(true)
     expect(w.w).toContain('本')
     seen.add(w.w)
-    s = { ...s, cards: { ...s.cards, 本: asked(s.cards['本'], true, 0) } }
+    s = answer(s, '本', true, true, 0)
   }
   expect(seen.size).toBe(6)
-  expect(reviewWord({ ...n2, cards: { ...n2.cards, 本: asked(n2.cards['本'], false, 0) } }, '本')).toBeUndefined()  // failed: back to the kanji itself
+  expect(reviewWord(answer(n2, '本', false, false, 0), '本')).toBeUndefined()  // failed: back to the kanji itself
+  expect(reviewWord(answer(n2, '本', true, false, 0), '本')).toBeUndefined()   // the reading alone failed: the same
 })
 
 it('takes either reading of a word that has two, and asks the meaning of the one typed', () => {
@@ -84,7 +89,7 @@ it('asks only the kinds of question left on: new, a card by itself, a card throu
   // 本 known for days and 日 just learned, both asked long ago: 本 has a word (日本), 日 is asked by itself
   const DAY = 86_400_000, now = 30 * DAY
   const base = learn(learn(blank, '本', 0), '日', 0)
-  const s: Store = { ...base, cards: { ...base.cards, 本: { ...base.cards['本'], s: 3, reps: 3 } } }
+  const s: Store = { ...base, cards: { ...base.cards, 本: { ...base.cards['本'], m: { s: 3, t: 0 }, r: { s: 3, t: 0 }, reps: 3 } } }
   const off = (...off: Store['off'] & {}) => ask({ ...s, off }, now)
   expect(off()?.kind).not.toBe('new')  // both long forgotten: a card before anything new
   expect(off('new', 'review')).toEqual({ el: '本', kind: 'words' })

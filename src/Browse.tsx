@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { COMP, KANJI, ORDER, gloss, reads } from './data'
 import type { Store } from './srs'
-import { BEGINNER, lam, levelOf, mu, pOf, standing } from './levels'
+import { BEGINNER, lam, levelOf, marks, mu, pOf } from './levels'
 import { Glyph, KanjiTip, mainReadings } from './Card'
 import { track } from './track'
 
@@ -76,7 +76,7 @@ export function Browse({ store, open }: { store: Store; open: (el: string) => vo
       {q.trim() && !list.length && <p className="sub none">Nothing found for “{q.trim()}”{show === 'kanji and parts' ? '' : ` in “${show}”`}.</p>}
       <div className={'cells' + (show === 'non-kanji parts' ? ' plain' : '')}>
           {list.map(el => (
-            <button key={el} className={'cell ' + standing(store, el) + (KANJI[el] ? '' : ' part')} onClick={() => { track('browse', { el }); open(el) }}
+            <button key={el} className={'cell ' + marks(store, el) + (KANJI[el] ? '' : ' part')} onClick={() => { track('browse', { el }); open(el) }}
               style={byLevel && KANJI[el] && !store.cards[el] ? { '--p': pOf(store, el) } as React.CSSProperties : undefined}>
               {KANJI[el] ? <KanjiTip c={el} reading={mainReadings(el)} /> : <Glyph el={el} />}
             </button>

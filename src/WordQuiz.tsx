@@ -7,11 +7,11 @@ import { track } from './track'
 import { entries, glosses, meant, readAs } from './words'
 
 /** A word in kanji; its reading (kana or romaji) and its meaning are typed, then checked: each field turns green or
- * red where it stands, and the word as its card has it appears below. The screen stays the word's: a word has two
+ * red where it stands and moves the kanji's memory of that (srs.ts), and the word as its card has it appears below. The screen stays the word's: a word has two
  * kanji or more and so no one card to go to; each kanji in the word below shows what it is there under a mouse and
  * opens its card when clicked. A meaning marked wrong can be overruled, in the field itself (a synonym the gloss does
  * not list). Enter moves from the reading to the meaning, checks, then goes on. */
-export function WordQuiz({ el, w, card, open, autoSpeak, onDone }: { el: string; w: Word; card: SrsCard; open: (el: string) => void; autoSpeak: boolean; onDone: (ok: boolean) => void }) {
+export function WordQuiz({ el, w, card, open, autoSpeak, onDone }: { el: string; w: Word; card: SrsCard; open: (el: string) => void; autoSpeak: boolean; onDone: (meaning: boolean, reading: boolean) => void }) {
   const [reading, setReading] = useState('')
   const [meaning, setMeaning] = useState('')
   const [res, setRes] = useState<{ w: Word; reading: boolean; meaning: boolean } | null>(null)
@@ -37,7 +37,7 @@ export function WordQuiz({ el, w, card, open, autoSpeak, onDone }: { el: string;
     const key = (e: KeyboardEvent) => {
       if (e.key !== 'Enter' || e.repeat || (e.target as Element).closest?.('button, a, .peek') || document.querySelector('.peek')) return
       e.preventDefault()
-      onDone(passed)
+      onDone(res.meaning, res.reading)
     }
     addEventListener('keydown', key)
     return () => removeEventListener('keydown', key)
@@ -45,7 +45,7 @@ export function WordQuiz({ el, w, card, open, autoSpeak, onDone }: { el: string;
 
   const field = (ok?: boolean) => 'field' + (ok === undefined ? '' : ok ? ' right' : ' wrong')
   return (
-    <form className="quiz word-quiz" onSubmit={e => { e.preventDefault(); if (!res) check() }}>
+    <form className={'quiz word-quiz' + (res ? ' answered' : '')} onSubmit={e => { e.preventDefault(); if (!res) check() }}>
       <div className="prompt word" style={{ '--n': [...w.w].length } as React.CSSProperties}>{w.w}</div>
       <p className="sub">How is it read, and what does it mean?</p>
       <div className="choices">
@@ -65,7 +65,7 @@ export function WordQuiz({ el, w, card, open, autoSpeak, onDone }: { el: string;
       {res && <ul className="words asked"><WordRow w={res.w} ch="" open={open} /></ul>}
       <div className="grade">
         {!res ? <button className="next" type="submit">check <span className="key">↵</span></button>
-          : <button className={'next ' + (passed ? 'good' : 'bad')} type="button" onClick={() => onDone(passed)}>next <span className="key">↵</span></button>}
+          : <button className={'next ' + (passed ? 'good' : 'bad')} type="button" onClick={() => onDone(res.meaning, res.reading)}>next <span className="key">↵</span></button>}
       </div>
     </form>
   )
